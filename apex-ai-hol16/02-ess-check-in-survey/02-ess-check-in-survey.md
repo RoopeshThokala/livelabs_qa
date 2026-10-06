@@ -1,21 +1,27 @@
-# Create the ESS 30-Day Check-In Survey
+# Lab 2: Create the ESS 30-Day Check-In Survey
 
 ## Introduction
 
 Build a check-in survey for employees who have completed their first 30 days. The form stores each employee rating and comment. Star Rating items display five stars that users can click to set a numeric value.
 
+Estimated Workshop Time: 10 minutes
+
 ### Objectives
+
+In this lab, you will learn how to:
 
 - Create the `TMS_EMPLOYEE_CHECKINS` table.
 - Create an Interactive Report and form for check-in records.
 - Populate the employee ID from the signed-in user.
 - Configure three native Star Rating items.
 
-Estimated Time: 10 minutes
-
 ## Task 1: Create the check-in table
 
-1. In SQL Workshop, select **SQL Commands**. Run the following statement:
+1. From the left navigation menu, open **SQL Workshop** and select **SQL Commands**.
+
+    ![Task 1: SQL commands](images/task-01-step-01-sql-commands.png)
+
+2. Copy and paste the following SQL statement, then click **Run**:
 
     ```sql
     <copy>
@@ -29,41 +35,71 @@ Estimated Time: 10 minutes
     created_at TIMESTAMP DEFAULT SYSTIMESTAMP);
     </copy>
     ```
-    ![Task 1: SQL commands](images/task-01-step-01-sql-commands.png)
-    ![Task 1: Run SQL DDL](images/task-01-step-01-run-ddl.png)
 
-2. Confirm that `TMS_EMPLOYEE_CHECKINS` appears in Object Browser.
-    ![Task 1: Object browser](images/task-01-step-02-object-browser.png)
-    ![Task 1: Check table](images/task-01-step-02-check-table.png)
+    ![Task 1: Run SQL DDL](images/task-01-step-02-run-ddl.png)
+
+3. From the left navigation menu, open **SQL Workshop** and select **Object Browser**.
+
+    ![Task 1: Object browser](images/task-01-step-03-object-browser.png)
+
+4. Expand **Tables** and search for `TMS_EMPLOYEE_CHECKINS`.
+
+    - Select the table to confirm that it exists and displays the expected columns.
+
+    ![Task 1: Check table](images/task-01-step-04-check-table.png)
 
 ## Task 2: Create the report and form
 
-1. In ESS App Builder, select **Create Page**, then select **Component** and **Interactive Report**. Enable **Include Form Page**.
-    ![Task 2: Create page](images/task-02-step-01-create-page.png)
-    ![Task 2: Interactive Report form](images/task-02-step-02-ir-form.png)
+1. From the left navigation menu, click the **App Builder** icon.
 
-2. Name the report page **My Check-In History** and the form page **Employee Check-In**. Select `TMS_EMPLOYEE_CHECKINS` as the table.
-    ![Task 2: Report and form configuration](images/task-02-step-02-page-config.png)
+2. Select the **Employee Self-Service Portal (ESS)** application.
 
-3. Run **My Check-In History**. Click **Create** to open the **Employee Check-In** form.
-    ![Task 2: Run page](images/task-02-step-03-run-page.png)
+3. On the application home page, click **Create Page**.
+
+    ![Create Page action in ESS App Builder](images/task-02-step-03-create-page.png)
+
+4. Under **Component**, select **Interactive Report**.
+
+    ![Interactive Report option in the Create Page wizard](images/task-02-step-04-ir-form.png)
+
+5. Enter or select the following attributes:
+
+    - **Name:** My Check-In History.
+    - **Include Form Page:** On.
+    - **Form Page Name:** Employee Check-In.
+    - **Table / View Name:** `TMS_EMPLOYEE_CHECKINS`.
+    - Click **Next**.
+
+    ![Report and form page names and source table](images/task-02-step-05-page-config.png)
+
+6. Confirm that **Primary Key Column 1** is `CHECKIN_ID`, then click **Create Page**.
+
+    ![CHECKIN_ID primary key and Create Page button](images/task-02-step-06-create-page.png)
+
+7. Click **Save and Run** for the **My Check-In History** page.
+
+    - Click **Create** to open the **Employee Check-In** form.
+    ![Open the Employee Check-In form from My Check-In History](images/task-02-step-07-run-page.png)
 
 ## Task 3: Populate the employee ID and configure ratings in Employee Check-In form
 
-1. Select the `PXX_EMPLOYEE_ID` page item for the `EMPLOYEE_ID` form column. Set **Type** to **Hidden**. Under **Source**, clear any **Static Value**.
+1. Select the `PXX_EMPLOYEE_ID` page item for the `EMPLOYEE_ID` form column.
+
+    - Set **Type** to **Hidden**.
+
+    - Under **Source**, clear any **Static Value**.
     ![Task 3: Hidden Employee ID](images/task-03-step-01-hidden-emp-id.png)
 
+2. Under **Default**, select **SQL Query (returning single value)**.
 
-2. Under **Default**, select **SQL Query (returning single value)**. Enter:
+    - Enter:
 
-    ```sql
-    <copy>SELECT employee_id
-      FROM tms_employees
-     WHERE UPPER(email) = UPPER(:APP_USER)</copy>
-    ```
+        ```sql
+        <copy>SELECT employee_id
+          FROM tms_employees
+         WHERE UPPER(email) = UPPER(:APP_USER)</copy>
+        ```
     ![Task 3: Hidden Employee ID Default Value](images/task-03-step-02-hidden-emp-id-def-val.png)
-
-
 
 3. For each item in the table, select **Star Rating** from the **Type** list.
 
@@ -73,7 +109,7 @@ Estimated Time: 10 minutes
     | `PXX_MANAGER_SUPPORT_RATING` | Manager Support |
     | `PXX_ONBOARDING_RATING` | Onboarding Process |
 
-    For each Star Rating item, configure these settings:
+    For each **Star Rating** item, configure these settings:
 
     - Set **Number of Stars** to `5`.
     - Turn off **Use Defaults**.
@@ -81,17 +117,22 @@ Estimated Time: 10 minutes
     - Set **Show Clear Button** to **No**. This setting is optional.
     - Set **Value Required** to **Yes**.
 
-    A Star Rating item displays stars that users can click to set a numeric value from `1` through `5`.
+    A **Star Rating** item displays stars that users can click to set a numeric value from `1` through `5`.
     ![Task 3: Item names and settings](images/task-03-step-03-set-names-configure-settings.png)
 
-4. Keep `PXX_COMMENTS` as a Textarea and set its maximum length to `2000`.
+4. Keep `PXX_COMMENTS` as a **Textarea** and set its maximum length to `2000`.
     ![Task 3: Comments](images/task-03-step-04-comments.png)
 
-5. Change `PXX_CREATED_AT` to Hidden. APEX assigns the default timestamp when a user inserts a row.
+5. Change `PXX_CREATED_AT` to **Hidden**. APEX assigns the default timestamp when a user inserts a row.
     ![Task 3: Created at hidden](images/task-03-step-05-created-at-hidden.png)
-6. Save and run the form. Submit one check-in as the signed-in employee. Confirm that it appears in **My Check-In History**.
+
+6. Save and run the **Employee Check-In** form. Submit one check-in as the signed-in employee.
+
     ![Task 3: Create check-in record](images/task-03-step-06-create-checkin.png)
-    ![Task 3: Check-in form](images/task-03-step-06-show-checkin.png)
+
+7. Confirm that the submitted check-in appears in **My Check-In History**.
+
+    ![Task 3: Check-in form](images/task-03-step-07-show-checkin.png)
 
 ## Acknowledgements
 
