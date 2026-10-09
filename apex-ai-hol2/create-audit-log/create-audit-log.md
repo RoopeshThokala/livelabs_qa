@@ -22,23 +22,24 @@ In this lab, you will:
     `Note`: This option appears only if you have configured a Generative AI service in your APEX workspace. 
 
 2. Enter the following prompt.
-
+    ```
     <copy>
-    Create an Oracle APEX-friendly audit log table named TMS_AUDIT_LOG.
+    Create an Oracle APEX-friendly audit log table named TMS\_AUDIT\_LOG.
     It should record the table name, operation, old values, new values,
     changed by, and changed at. Use LOG_ID as a generated primary key.
     Store old and new values as CLOB JSON payloads.
     </copy>
+    ```
 
     ![APEX assistant](images/enter-prompt.png ' ')
 
-3. Review the generated DDLand click **Create SQL Script**.
+3. Review the generated DDL and click **Create SQL Script**.
 
     ![AI-assisted data model screen showing the audit-log prompt and generated DDL.](images/review-ai-response.png ' ')
 
 ## Task 2: Run the SQL script
 
-1. If the AI-assisted feature is unavailable or does not produce suitable DDL script, run [`tms-audit-log.sql`](files/tms-audit-log.sql) from SQL Scripts.
+1. If the AI-assisted feature is unavailable or does not produce suitable DDL script, run **[`tms-audit-log.sql`](files/tms-audit-log.sql)** from SQL Scripts.
 
 2. For the Script name, enter **tms-audit-log**, and click **Run**.
 

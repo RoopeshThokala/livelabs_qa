@@ -10,13 +10,13 @@ Estimated Time: 15 minutes
 
 In this lab, you will:
 
-- Add row highlighting, default columns, sorting, grouping, and an aggregate.
+- Add row highlighting, default columns, sorting, and grouping.
 - Save the configuration as the primary report.
 - Create an **Active Candidates** developer-saved report.
 
 ## Task 1: Configure the primary report
 
-1. Run the TAP application and open **Candidate Pipeline**. From the **Actions** menu, select **Format** > **Highlight**.
+1. Run the TAP application and open **Candidate Pipeline**. In the Interactive Report region, click the **Actions** menu. Select **Format** > **Highlight**.
 
     ![Candidate Pipeline Actions menu with Format and Highlight selected.](images/open-highlight-dialog.png ' ')
 

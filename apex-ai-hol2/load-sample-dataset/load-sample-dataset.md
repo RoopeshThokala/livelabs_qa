@@ -11,7 +11,7 @@ Estimated Time: 5 minutes
 In this lab, you will:
 
 - Install the EMP/DEPT sample dataset.
-- Run a join in SQL Commands.
+- Run a SQL statement in SQL Commands.
 - Verify that the dataset returns Department and Employee data.
 
 ## Task 1: Install EMP/DEPT

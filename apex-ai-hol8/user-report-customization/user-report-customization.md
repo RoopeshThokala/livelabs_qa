@@ -83,10 +83,10 @@ In this lab, you will:
 ## Task 3: Create a private user report
 
 
-1. Run the application and log in as end user **APEXAI**.
+1. Run the application. Log out as the developer and log in as end user **APEXAI**.
     ![log in page](images/login.png ' ')
 
-2. On Candidate Pipeline page, navigate to **Actions** > **Columns**. Move the `Department Name` column to Diaplay section.
+2. On Candidate Pipeline page, navigate to **Actions** > **Columns**. Move the **Department Name** column to Display section.
 
     ![Columns dialog with Department Name moved to the displayed columns list.](images/display-department-name.png ' ')
 
@@ -107,7 +107,9 @@ In this lab, you will:
 
     ![Interactive report grouped by Stage with a Candidate Name count aggregate.](images/group-stage-count-candidates.png ' ')
 
-5. Navigate to **Actions** > **Report** > **Save Report**. Save the result as a private report named **My Dashboard**.
+5. Navigate to **Actions** > **Report** > **Save Report**. Save the result as a private report with the following details:
+    - Save (Only displayed for developers): **As Named Report**
+    - Name: **My Dashboard**.
 
     ![Candidate Pipeline customized by an end user with Department Name, stage grouping, and My Dashboard selected.](images/my-dashboard-private-report.png ' ')
 

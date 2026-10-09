@@ -10,7 +10,7 @@ Estimated Time: 15 minutes
 
 In this lab, you will:
 
-- Create the Requisition Detail page and request ID item.
+- Create the Requisition Detail page and Request ID item.
 - Add a read-only requisition report and editable candidate grid.
 - Link Job Openings cards to the new master-detail page.
 
@@ -25,6 +25,8 @@ In this lab, you will:
 3. In the Create Blank Page wizard, enter/select the following:         
     - Page Number: **14**
     - Name: **Requisition Detail**.
+    - Icon: **fa-file-o**
+
     Click **Create Page**.
 
     ![Create Page wizard with Requisition Detail entered as the page name.](images/create-requisition-detail-page.png ' ')

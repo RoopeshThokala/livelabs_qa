@@ -4,7 +4,7 @@
 
 Oracle APEX is an enterprise AI application platform for building secure, scalable web and mobile applications. Trusted by thousands of organizations, APEX powers systems that run core business operations every day. With Oracle AI Database and Oracle Cloud Infrastructure, every application inherits built-in reliability, governance, and security. APEX helps developers turn ideas into production-ready apps quickly, without sacrificing control or performance. To start, you will need to decide on the service you are going to use for this workshop and then create an APEX Workspace accordingly.
 
-If you already have an Oracle APEX 26.1 Workspace provisioned, you can skip this lab.
+If you already have an Oracle APEX 26.2 Workspace provisioned, you can skip this lab.
 
 Estimated Time: 5 minutes
 <!--
@@ -80,10 +80,10 @@ Signing up for oracleapex.com is simply a matter of providing details on the Wor
 
     ![Get started for free](images/get-started.png " ")
 
-3. Under Getting Started with Oracle APEX, select **Sign Up for Free**.
+3. Under Getting Started with Oracle APEX, select **Sign Up for a Free Workspace**.
 
     ![Request a free Workspace](images/request-workspace.png " ")
-
+'
 4. On the **Request a Workspace** page, enter your identification details – **First Name, Last Name, Email, Workspace name**.
 
     > **Note:** For Workspace, enter a unique name, such as first initial and last name.

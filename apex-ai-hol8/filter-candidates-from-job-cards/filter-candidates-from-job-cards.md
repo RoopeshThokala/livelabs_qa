@@ -63,7 +63,10 @@ In this lab, you will:
     ![SQL source editor showing the P4_REQ_ID bind-variable filter.](images/open-code-editor.png ' ')
     ![SQL source editor showing the P4_REQ_ID bind-variable filter.](images/add-requisition-filter-query.png ' ')
 
-3. Save and run the page. Confirm that the report returns candidates filtered by the Job Opening.
+3. Save and run the page. Navigate to **Job Openings** page. Click **View Applicants** for any job opening.
+    ![Job Opening page](images/view-applicants.png ' ')
+
+4. Confirm that the report returns candidates filtered by the Job Opening.
 
     ![Candidate Pipeline Page Designer showing the P4_REQ_ID item and filtered report SQL.](images/candidate-pipeline-req-filter.png ' ')
 

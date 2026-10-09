@@ -11,7 +11,7 @@ Estimated Time: 5 minutes
 In this lab, you will:
 
 - Upload the DML script into SQL scripts.
-- Run the script to innsert TMS data into the relevant tables.
+- Run the script to insert TMS data into the relevant tables.
 
 ## Task 1: Upload the SQL script to Insert Data
 
@@ -37,7 +37,7 @@ In this lab, you will:
 
     ![SQL script](images/run-again.png ' ')
 
-3. Verify that the script ran without ay errors.
+3. Verify that the script ran without any errors.
 
     ![SQL script run result](images/run-result.png ' ')
 

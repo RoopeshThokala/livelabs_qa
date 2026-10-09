@@ -63,7 +63,7 @@ In this lab, you will:
     ![Object Browser](images/nav-object-browser.png ' ')
 
 
-2. Confirm that the `TMS_` tables appear.
+2. Confirm that the **TMS_** tables are created and appear under Tables.
 
     ![Object Browser showing the created TMS tables.](images/object-browser-tms-tables.png ' ')
 

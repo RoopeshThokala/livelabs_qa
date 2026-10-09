@@ -1,3 +1,5 @@
+# auditcols: true
+
 tms_departments
   dept_id /pk
   name vc100 /nn

@@ -82,6 +82,8 @@ In this lab, you will:
 
     ![SQL Scripts page with the TMS_VERIFY script saved.](images/run-tms-verify.png ' ')
 
+    ![SQL Scripts page with the TMS_VERIFY script saved.](images/run-again.png ' ')
+
 3. Select view as **Detail** and click **Go** to view the results.
 
     ![SQL Scripts page with the TMS_VERIFY script saved.](images/sql-scripts-tms-verify.png ' ')
