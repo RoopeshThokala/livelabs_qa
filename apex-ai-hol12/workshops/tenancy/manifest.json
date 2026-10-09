@@ -1,0 +1,30 @@
+{
+  "workshoptitle": "Module 12: Dynamic Actions",
+  "tutorials": [
+    {
+      "title": "Introduction",
+      "filename": "../../introduction.md"
+    },
+    {
+      "title": "Lab 1: Real-Time Salary Band Indicator",
+      "filename": "../../1-tap-offer-form-salary-band.md"
+    },
+    {
+      "title": "Lab 2: Refresh Applied Candidates and filtered candidates when requisition changes",
+      "filename": "../../2-tap-candidate-pipeline.md"
+    },
+    {
+      "title": "Lab 3: Recruiter Chatbot on TAP Home",
+      "filename": "../../3-tap-recruiter-ai-assistant.md"
+    },
+    {
+      "title": "Lab 4: Leave Form Dynamic Actions",
+      "filename": "../../4-ess-form-dynamic-actions.md"
+    },
+    {
+      "title": "Need Help?",
+      "description": "Solutions to common problems and directions for receiving live help",
+      "filename": "https://livelabs.oracle.com/cdn/common/labs/need-help/need-help-freetier.md"
+    }
+  ]
+}

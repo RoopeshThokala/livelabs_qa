@@ -1,0 +1,15 @@
+{
+  "workshoptitle": "Module 18: Security in APEX",
+  "include": {
+    "role-based-access-setup.sql": "../../files/role-based-access-setup.sql"
+  },
+  "tutorials": [
+    { "title": "Introduction", "filename": "../../introduction.md" },
+    { "title": "Lab 1: Authenticate TAP and ESS", "filename": "../../1-authenticate-tap-and-ess.md" },
+    { "title": "Lab 2: Create Authorization Schemes", "filename": "../../2-create-authorization-schemes.md" },
+    { "title": "Lab 3: Protect Pages and Navigation", "filename": "../../3-protect-pages-navigation-and-session-state.md" },
+    { "title": "Lab 4: Enforce Row-Level Security", "filename": "../../4-enforce-row-level-security.md" },
+    { "title": "Lab 5: Create the ESS Audit Log", "filename": "../../5-create-admin-audit-log.md" },
+    { "title": "Need Help?", "description": "Solutions to common problems and directions for receiving live help", "filename": "https://livelabs.oracle.com/cdn/common/labs/need-help/need-help-freetier.md" }
+  ]
+}
