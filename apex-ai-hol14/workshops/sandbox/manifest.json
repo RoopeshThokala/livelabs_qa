@@ -1,0 +1,47 @@
+{
+    "workshoptitle": "Navigation and Shared Components",
+    "help": "livelabs-help-db_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "Introduction",
+            "description": "",
+            "type": "livelabs",
+            "filename": "../../introduction/introduction.md"
+        },
+        {
+            "title": "Lab 1: Restructure TAP Navigation",
+            "description": "",
+            "type": "livelabs",
+            "filename": "../../tap-navigation/tap-navigation.md"
+        },
+        {
+            "title": "Lab 2: Add TAP Breadcrumbs",
+            "description": "",
+            "type": "livelabs",
+            "filename": "../../tap-breadcrumbs/tap-breadcrumbs.md"
+        },
+        {
+            "title": "Lab 3: Add TAP Quick Links and Global Search",
+            "description": "",
+            "type": "livelabs",
+            "filename": "../../tap-quick-links-and-search/tap-quick-links-and-search.md"
+        },
+        {
+            "title": "Lab 4: Configure ESS Navigation, Links, and Search",
+            "description": "",
+            "type": "livelabs",
+            "filename": "../../ess-navigation-shared-components/ess-navigation-shared-components.md"
+        },
+        {
+            "title": "Lab 5: Create Application Settings",
+            "description": "",
+            "type": "livelabs",
+            "filename": "../../application-settings/application-settings.md"
+        },
+        {
+            "title": "Need Help?",
+            "description": "Template to link to Need Help lab at the end of workshop.",
+            "filename": "https://raw.githubusercontent.com/oracle-livelabs/common/main/labs/need-help/need-help-freetier.md"
+        }
+    ]
+}
