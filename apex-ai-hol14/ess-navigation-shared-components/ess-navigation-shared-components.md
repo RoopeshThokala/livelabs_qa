@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Apply the same navigation patterns to ESS. Configure menu groups, breadcrumbs, Quick Links, and a user-scoped global search.
+In this lab, you apply the same navigation patterns to ESS. Configure menu groups, breadcrumbs, Quick Links, and a user-scoped global search.
 
 Estimated Time: 5 minutes
 

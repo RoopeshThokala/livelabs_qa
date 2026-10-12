@@ -35,5 +35,5 @@ By the end of this module, TAP will support the key moments in a recruiter’s d
 
 ## Acknowledgements
 
-* **Author** - Roopesh Thokala, Principal product manager
+* **Author** - Roopesh Thokala, Principal Product Manager
 * **Last Updated By/Date** - Roopesh Thokala, July 29, 2026

@@ -209,7 +209,7 @@ In this task, you will refresh the detail report when the feedback form closes.
 
 7. Confirm that **Interview Feedback History** refreshes and shows the new entry.
 
-    ![Enter Feedback and click Create](images/display-provided-feedback.png.png " ")
+    ![Enter Feedback and click Create](images/display-provided-feedback.png " ")
 
 ## Summary
 

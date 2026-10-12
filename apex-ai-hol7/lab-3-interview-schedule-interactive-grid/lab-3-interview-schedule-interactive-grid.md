@@ -93,5 +93,5 @@ You created an editable Interview Schedule grid with the right balance of visibi
 
 ## Acknowledgements
 
-* **Author** - Roopesh Thokala, Principal product manager
+* **Author** - Roopesh Thokala, Principal Product Manager
 * **Last Updated By/Date** - Roopesh Thokala, July, 2026

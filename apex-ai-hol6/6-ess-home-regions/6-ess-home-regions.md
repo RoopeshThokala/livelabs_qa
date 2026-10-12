@@ -2,8 +2,6 @@
 
 ## Introduction
 
-Use the **Layout > Slot** attribute to select the template slot for a region.
-
 In this lab, you update the existing welcome region in **Breadcrumb Bar** and add an onboarding-progress region to **Body** in the Employee Self Service (ESS) application.
 
 Estimated time: 5 minutes

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Configure a hierarchy that makes related TAP pages easy to trace. For example, Candidate Profile becomes a child of Candidate Pipeline, and Requisition Detail becomes a child of Job Openings.
+In this lab, you configure a hierarchy that makes related TAP pages easy to trace. For example, Candidate Profile becomes a child of Candidate Pipeline, and Requisition Detail becomes a child of Job Openings.
 
 Estimated Time: 3 minutes
 

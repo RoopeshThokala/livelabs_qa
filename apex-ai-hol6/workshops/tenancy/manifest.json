@@ -8,10 +8,6 @@
             "description": "Workshop overview, objectives, prerequisites, downloads, and useful links."
         },
         {
-            "title": "Get Started",
-            "filename": "../../../common-261/1-sign-up-apex/1-sign-up-apex.md"
-        },
-        {
             "title": "Lab 1: Create Candidate Profile Page Manually",
             "filename": "../../1-create-candidate-profile/1-create-candidate-profile.md"
         },

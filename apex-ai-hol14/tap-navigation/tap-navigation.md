@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Create a grouped navigation menu for the TAP app. Keep contextual pages available through report links and buttons rather than adding them to the main menu.
+In this lab, you create a grouped navigation menu for the TAP app. Keep contextual pages available through report links and buttons rather than adding them to the main menu.
 
 Estimated Time: 5 minutes
 
