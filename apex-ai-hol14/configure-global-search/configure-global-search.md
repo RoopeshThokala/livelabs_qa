@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Configure a Search page that finds candidates and requisitions and opens the right detail page.
+In this lab, you configure a Search page that finds candidates and requisitions and opens the right detail page.
 
 Estimated Time: 5 minutes
 

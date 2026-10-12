@@ -21,7 +21,7 @@ In this workshop, you will learn how to:
 
 ## Prerequisites
 
-- An Oracle APEX 26.1 workspace running on an Oracle Database 19c or later. This workshop requires APEX 26.1. Some features, instructions, and screenshots may differ or not be available in prior releases.
+- An Oracle APEX workspace running on an Oracle Database 19c or later. This workshop requires APEX 26.1 or later. Some features, instructions, and screenshots may differ or not be available in prior releases.
 
 > **Note:** The application ID in the screenshots may vary. Please ignore the application ID.
 

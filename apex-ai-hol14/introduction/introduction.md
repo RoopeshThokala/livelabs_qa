@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Replace the default navigation in the Talent Acquisition Portal (TAP) and Employee Self Service (ESS) applications with a coherent menu, breadcrumbs, quick links, global search, and reusable application settings.
+In this workshop, you replace the default navigation in the Talent Acquisition Portal (TAP) and Employee Self Service (ESS) applications with a coherent menu, breadcrumbs, quick links, global search, and reusable application settings.
 
 Estimated Workshop Time: 15 minutes
 

@@ -68,7 +68,7 @@ Add the report alongside the existing Cards region.
 
     ![Select Download Formats](images/select-download-formats.png "")
 
-2. Save and run the page. Verify the report and download choices.
+2. **Save and Run** the page. Verify the report and download choices.
 
     ![Save and Run Page](images/save-and-run.png "")
 

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Place common TAP actions on the home page as Quick Links which are easily accessible.
+In this lab, you place common TAP actions on the home page as Quick Links which are easily accessible.
 
 Estimated Time: 5 minutes
 
