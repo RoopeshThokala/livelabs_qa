@@ -20,9 +20,9 @@ In this lab, you will:
 
 ## Task 1: Create the Vector Search Configuration
 
-1. Open **Talent Acquisition Portal(TAP)** application.
+1. Open the **Talent Acquisition Portal(TAP)** application.
 
-2. From **App Builder** home page and navigate to **Shared Components**.
+2. From the **App Builder** home page, navigate to **Shared Components**.
 
     ![Opening Search Configurations in Shared Components](images/open-tap-shared-components.png)
 
@@ -70,13 +70,13 @@ In this lab, you will:
 
     ![Opening Page 4 Candidate Pipeline in Page Designer](images/candidate-search-configuration-created.png)
 
-2. Select **4: Candidate Pipeline** page.
+2. Select the **4: Candidate Pipeline** page.
 
     ![Opening Page 4 Candidate Pipeline in Page Designer](images/open-candidate-pipeline-page.png)
 
 3. Right-click **Body** and select **Create Page Item**.
 
-4. Drag the page item above **P4\_REQ_ID** page item. In the Property Editor, enter/select the following:
+4. Drag the page item above the **P4\_REQ_ID** page item. In the Property Editor, enter/select the following:
 
     - Under Identification:
 
@@ -90,7 +90,7 @@ In this lab, you will:
 
     ![Creating P4_SEMANTIC_SEARCH text field item](images/create-semantic-search-page-item.png)
 
-5. Now, right-click on **Body** and select **Create Region**. Drag it below P4\_SEMANTIC\_SEARCH page item.
+5. Now, right-click on **Body** and select **Create Region**. Drag it below the P4\_SEMANTIC\_SEARCH page item.
 
 6. In the Property Editor, enter/select the following:
 
@@ -102,7 +102,7 @@ In this lab, you will:
 
     ![Adding Search region to Candidate Pipeline page](images/create-semantic-candidate-search-region.png)
 
-7. In the Property Editor, select **Attributes** tab and enter/select the following:
+7. In the Property Editor, select the **Attributes** tab and enter/select the following:
 
     - Under Settings:
 

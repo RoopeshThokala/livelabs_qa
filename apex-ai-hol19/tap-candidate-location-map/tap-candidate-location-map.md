@@ -71,7 +71,7 @@ In this lab, you will:
 
 ## Task 2: Create and configure the map
 
-1. In TAP application, select **Create Page**.
+1. In the TAP application, select **Create Page**.
 
     ![Create Map Page wizard configured for Candidate Locations under Recruitment.](images/create-page.png ' ')
 
@@ -110,7 +110,7 @@ In this lab, you will:
     - Longitude Column: **GEO_LNG**
     - Latitude Column: **GEO_LAT**'
 
-    Create **Create Page**.
+    Click **Create Page**.
 
     ![Map layer settings with point geometry and GEO_LNG and GEO_LAT mappings.](images/configure-candidate-map-layer.png ' ')
 

@@ -58,7 +58,7 @@ In this lab, you will:
 
 ## Task 2: Create the HR Policy Vector Search configuration
 
-1. Open **Employee Self-Service Portal (ESS)** application.
+1. Open the **Employee Self-Service Portal (ESS)** application.
 
 2. Navigate to **Shared Components**.
 
@@ -140,7 +140,7 @@ In this lab, you will:
 
 ## Task 4: Validate policy search behavior
 
-1. In HR Policy Search page, search for annual leave.
+1. On the HR Policy Search page, search for annual leave.
 
     Enter:
 

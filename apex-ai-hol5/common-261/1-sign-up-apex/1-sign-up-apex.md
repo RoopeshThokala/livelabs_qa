@@ -8,7 +8,7 @@ If you already have an APEX 26.1 Workspace provisioned, you can skip this lab.
 
 Estimated Time: 5 minutes
 <!--
-Watch the video below for a quick walk through of the lab.
+Watch the video below for a quick walkthrough of the lab.
 
 [](youtube:RcSCnZnDzDE)
 -->
@@ -39,7 +39,7 @@ To determine which release of Oracle APEX you are currently running, do one of t
 
 ### Where to Run the Lab
 
-You can run this lab in any Oracle Database with APEX 26.1 installed. This includes the APEX Application Development Service, the free, "Development Only" apex.oracle.com service, your on-premises Oracle Database (providing APEX 26.1 is installed), on a third-party cloud provider where APEX 26.1 is installed, or even on your laptop by installing Oracle XE or Oracle VirtualBox App Dev VM and installing APEX 26.1.
+You can run this lab in any Oracle Database with APEX 26.1 installed. You can use the APEX Application Development Service, the free "Development Only" apex.oracle.com service, your on-premises Oracle Database (provided APEX 26.1 is installed), or a database on a third-party cloud provider where APEX 26.1 is installed. You can also run the lab on your laptop by installing Oracle XE or Oracle VirtualBox App Dev VM and installing APEX 26.1.
 
 The following steps show how to sign up for an **APEX Application Development** service, an **Oracle Autonomous AI Database** cloud service, or the **oracleapex.com** service.
 
@@ -63,7 +63,7 @@ We offer two types of Cloud Accounts:
 
 ### Prerequisites
 
-- Cloud account access is required but not mandatory.
+- Cloud account access is not mandatory.
 - Cloud Account Name - The name of your tenancy (supplied by the administrator or in your Oracle Cloud welcome email).
 - Username
 - Password
@@ -86,7 +86,7 @@ Signing up for oracleapex.com is simply a matter of providing details on the Wor
 
 4. On the **Request a Workspace** page, enter your identification details – **First Name, Last Name, Email, Workspace name**.
 
-    > **Note:** For Workspace, enter a unique name, such as first initial and last name.
+    > **Note:** For Workspace, enter a unique name, such as your first initial and last name.
 
     Select **Request Workspace**.
 

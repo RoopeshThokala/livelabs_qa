@@ -124,7 +124,7 @@ You may now **proceed to the next lab**.
 
 In this lab, you use Open AI as the AI provider to build a conversational chatbot.
 
-**Note:** The screenshots in this workshop are taken using Dark Mode in APEX 26.1
+**Note:** The screenshots in this workshop are taken using Dark Mode in APEX 26.1.
 
 Estimated Time: 10 Minutes
 

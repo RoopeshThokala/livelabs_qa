@@ -84,7 +84,7 @@ In this task, you will prepare the candidate table to store photos. The **RESUME
 
 ## Task 2: Configure the Candidate Details Form
 
-1. In the left navigation menu, click **App Builder** Icon.
+1. In the left navigation menu, click the **App Builder** icon.
 
     ![Open App Builder](images/open-app-builder.png " ")
 
@@ -97,7 +97,7 @@ In this task, you will prepare the candidate table to store photos. The **RESUME
     ![Open Page 11: Candidate Profile](images/select-candidate-profile-page.png " ")
 
 4. In the Rendering tree, locate **P11\_CANDIDATE\_ID**. If you are converting the earlier Static Content region and this item has no form source, delete it before synchronizing the new form items. If you are using the supplied export, keep the existing item: it is already bound to **Candidate Details** and marked as the primary key.
-To delete, Right-click **P11\_CANDIDATE\_ID**, click **Delete**.
+To delete the item, right-click **P11\_CANDIDATE\_ID** and click **Delete**.
     ![Delete an unbound P11\_CANDIDATE\_ID item](images/delete-unbound-candidate-id.png " ")
 
 5. Select **Candidate Details** in the Rendering tree. In the Property Editor, enter/select:

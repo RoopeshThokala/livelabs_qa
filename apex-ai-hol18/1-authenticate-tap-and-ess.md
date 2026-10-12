@@ -170,7 +170,7 @@ Estimated Time: 6 minutes
 
     ![Set the ESS authentication-scheme name and type](images/lab1-ess-set-scheme-name.png " ")
 
-5. Under **Settings**, enter the Authentication Function Name as **`authenticate`** function same as used for TAP. Similarly under Source PL/SQL Code enter the code used for TAP (as did in Lab1 > Task2 > Step6), then click **Create Authentication Scheme**.
+5. Under **Settings**, enter **`authenticate`** as the Authentication Function Name, using the same function as in TAP. Similarly, under **Source > PL/SQL Code**, enter the code used for TAP (Lab 1 > Task 2 > Step 6), then click **Create Authentication Scheme**.
 
     ![Set the ESS custom authentication function](images/lab1-ess-set-authentication-function.png " ")
 

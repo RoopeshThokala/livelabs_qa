@@ -258,7 +258,7 @@ In this lab, you will learn how to:
     - Review the run history and messages for each automation.
     ![Task 4: Execution log](images/task-04-step-01-execution-log.png)
 
-2. Open the **System Logs** page from next lab (Lab 5) for an HR administrator.
+2. Open the **System Logs** page from the next lab (Lab 5) for an HR administrator.
 
     - Confirm that it displays the same automation-run data from `APEX_AUTOMATION_LOG`.
 

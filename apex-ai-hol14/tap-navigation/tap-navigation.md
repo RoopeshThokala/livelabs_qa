@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Create a grouped navigation menu for TAP app. Keep contextual pages available through report links and buttons rather than adding them to the main menu.
+Create a grouped navigation menu for the TAP app. Keep contextual pages available through report links and buttons rather than adding them to the main menu.
 
 Estimated Time: 5 minutes
 
@@ -44,7 +44,7 @@ In this lab, you will:
 ## Task 2: Assign TAP pages and verify the menu
 
 1. Assign Recruitment Metrics Hub, Job Openings, Job Requisitions, and Candidate Pipeline to **Recruitment**. 
-    Select **edit** for Recruitment Metrics Hub, change the Parent List Entry to **Recruitment**. Click **Apply Changes**.
+    Select **edit** for Recruitment Metrics Hub and change the Parent List Entry to **Recruitment**. Click **Apply Changes**.
 
     ![Navigation menu hierarchy showing TAP pages assigned to their parent entries.](images/edit-entry.png ' ')
 
@@ -61,7 +61,7 @@ In this lab, you will:
 
     ![Navigation menu hierarchy showing TAP pages assigned to their parent entries.](images/child-hiring2.png ' ')
 
-3. Finally, assign Parent List Entry to **Offers** for **Offer Management** entry.
+3. Finally, assign Parent List Entry to **Offers** for the **Offer Management** entry.
 
     ![Navigation menu hierarchy showing TAP pages assigned to their parent entries.](images/child-offer.png ' ')
 

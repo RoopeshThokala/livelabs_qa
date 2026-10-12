@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Build a check-in survey for employees who have completed their first 30 days. The form stores each employee rating and comment. Star Rating items display five stars that users can click to set a numeric value.
+Build a check-in survey for employees who have completed their first 30 days. The form stores each employee's rating and comment. Star Rating items display five stars that users can click to set a numeric value.
 
 Estimated Workshop Time: 10 minutes
 

@@ -95,7 +95,7 @@ In this lab, you will learn how to:
 
 3. Save and run the page.
 
-    - Confirm that only the signed-in employee leave requests appear.
+    - Confirm that only the signed-in employee's leave requests appear.
 
 ## Acknowledgements
 

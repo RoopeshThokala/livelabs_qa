@@ -10,7 +10,7 @@ Estimated time: 5 minutes
 
 In this lab, you will:
 
-- Create Talent Acquisition Portal (TAP) using the Create App Wizard.
+- Create the Talent Acquisition Portal (TAP) using the Create App Wizard.
 
 ### What You Will Build
 

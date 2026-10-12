@@ -84,7 +84,7 @@ In this task, you configure the requisition Select List and make its selected va
 
 In this task, you create a debounced Change Dynamic Action that refreshes both candidate regions.
 
-1. Click the **Dynamic Actions** tab. Right-click **Events** node and select **Create Dynamic Action**.
+1. Click the **Dynamic Actions** tab. Right-click the **Events** node and select **Create Dynamic Action**.
 
     ![Create the Refresh Regions Dynamic Action](images/lab2-create-refresh-dynamic-action.png " ")
 
@@ -109,7 +109,7 @@ In this task, you create a debounced Change Dynamic Action that refreshes both c
 
     ![Configure the Refresh Regions Dynamic Action](images/lab2-configure-refresh-dynamic-action.png " ")
 
-3. Under **Refresh Regions** dynamic action, select **Create TRUE Action**.
+3. Under the **Refresh Regions** dynamic action, select **Create TRUE Action**.
 
     ![Create a true action for the Refresh Regions Dynamic Action](images/lab2-create-refresh-true-action.png " ")
 
@@ -127,7 +127,7 @@ In this task, you create a debounced Change Dynamic Action that refreshes both c
 
     ![Configure the Refresh action for the Applied region](images/lab2-refresh-applied-action.png " ")
 
-5. Repeat step 3. Under **Refresh Regions** dynamic action, right-click **True** node and select **Create TRUE Action**. In the Property Editor, set:
+5. Repeat step 3. Under the **Refresh Regions** dynamic action, right-click the **True** node and select **Create TRUE Action**. In the Property Editor, set:
 
     - Under Identification:
 

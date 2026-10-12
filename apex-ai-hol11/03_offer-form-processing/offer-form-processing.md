@@ -78,7 +78,7 @@ In this lab, you will:
 
 ## Task 2: Add an AJAX Callback for Pipeline Stats
 
-1. From the Page Designer Toolbar, navigate to **Page Selector** and select page **1** Home page.
+1. From the Page Designer Toolbar, navigate to **Page Selector** and select page **1**, the Home page.
 
     The source identifies this as page 1.
 

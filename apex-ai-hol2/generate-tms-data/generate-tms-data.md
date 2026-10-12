@@ -23,13 +23,13 @@ In this lab, you will:
 
     ![SQL script](images/upload.png ' ')
 
-3. Select the [tms_sample_data.sql](files/tms_sample_data.sql) file. For Script Name, enter **tms_sample_data** and click **Upload**.
+3. Select the [tms\_sample\_data.sql](files/tms_sample_data.sql) file. For Script Name, enter **tms\_sample\_data** and click **Upload**.
 
     ![SQL script](images/tms_sample_upload.png ' ')
 
 ## Task 2: Run the SQL script
 
-1. Run the **tms_sample_data** script.
+1. Run the **tms\_sample\_data** script.
 
     ![SQL script](images/run-script.png ' ')   
 

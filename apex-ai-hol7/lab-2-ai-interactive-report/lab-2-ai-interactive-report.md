@@ -16,7 +16,7 @@ In this lab, you will:
 
 ## Task 1: Enable Natural Language Support
 
-1. From the **Candidate Pipeline** page, click on the **Page Finder** and select **Job Requisitions** Page.
+1. From the **Candidate Pipeline** page, click on the **Page Finder** and select the **Job Requisitions** Page.
 
     ![Select Job Requisitions Page](images/select-job-requistions-page.png "")
 
@@ -24,7 +24,7 @@ In this lab, you will:
 
     ![Click Job Requisitions Region](images/click-job-requisitions.png "")
 
-3. Then in the Property Editor, select **Attributes** Tab and then:
+3. Then in the Property Editor, select the **Attributes** Tab and then:
 
     - Under Generative AI > Enable **Natural Language Support**.
 
@@ -76,7 +76,7 @@ Column context helps the AI interpret business terms in a prompt.
 
     ![Save and Run the page](images/save-and-run-page.png)
 
-2. In the natural-language Search bar, enter `Show me Engineering requisitions open for more than 30 days`. Alternatively, click the Chat button to open a Chatbot to the right of Interactive report.
+2. In the natural-language Search bar, enter `Show me Engineering requisitions open for more than 30 days`. Alternatively, click the Chat button to open a Chatbot to the right of the Interactive report.
 
     ![Search using Natural language filter](images/job-requisitions-natural-language-filter.png "")
 

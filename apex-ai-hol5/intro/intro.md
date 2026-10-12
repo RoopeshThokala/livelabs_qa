@@ -4,7 +4,7 @@
 
 In this workshop, you will create three applications in Oracle APEX by using low-code application creation options in App Builder.
 
-In this module, you will build the first working versions of the Talent Acquisition Portal, Employee Self-Service Portal, and HR Analytics App. You will create applications from wizard-defined pages, from an uploaded CSV file, from existing database tables, and from a natural-language prompts.
+In this module, you will build the first working versions of the Talent Acquisition Portal, Employee Self-Service Portal, and HR Analytics App. You will create applications from wizard-defined pages, from an uploaded CSV file, from existing database tables, and from a natural-language prompt.
 
 Estimated Time: 25 minutes
 
@@ -20,7 +20,7 @@ In this workshop, you will:
 
 - Add report and form pages to the Talent Acquisition Portal from existing database tables.
 
-- Create a Talent Acquisition Portal cards dashboard from a natural-language prompts.
+- Create a Talent Acquisition Portal cards dashboard from a natural-language prompt.
 
 - Review how Oracle APEX generates applications, pages, forms, and reports from the metadata you provide.
 

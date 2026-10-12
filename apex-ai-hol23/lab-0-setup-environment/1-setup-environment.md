@@ -1,4 +1,4 @@
-# Setup the Environment
+# Set Up the Environment
 
 ## Introduction
 
@@ -47,7 +47,7 @@ Estimated Time: 15 minutes
 
     ![SQL Developer extension new connection dialog with APEX workspace fields](images/sql-developer-new-connection.png)
 
-5. Switch back to Extensions view. Search for **Python** and click **Install**.
+5. Switch back to the Extensions view. Search for **Python** and click **Install**.
 
     *Note:* Python is sometimes used by the AI Coding agent (Codex in this case) to perform certain tasks. For example, offline syntax validation.
 

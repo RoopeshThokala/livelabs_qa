@@ -187,7 +187,7 @@ In this task, you will refresh the detail report when the feedback form closes.
 
 ## Task 5: Run the Candidate Feedback Flow
 
-1. Run TAP and Navigate to **Candidate Pipeline** page.
+1. Run TAP and Navigate to the **Candidate Pipeline** page.
 
     ![Open candidate pipeline page](images/open-candidate-pipeline-page.png " ")
 

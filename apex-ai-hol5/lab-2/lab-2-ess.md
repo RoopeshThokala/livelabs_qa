@@ -10,7 +10,7 @@ Estimated time: 5 minutes
 
 In this lab, you will:
 
-- Create Employee Self-Service Portal (ESS) using the Create App Wizard.
+- Create the Employee Self-Service Portal (ESS) using the Create App Wizard.
 
 ### What You Will Build
 

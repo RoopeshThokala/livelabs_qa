@@ -10,7 +10,7 @@ Estimated time: 5 minutes
 
 In this lab, you will:
 
-- Add table-driven pages to Talent Acquisition Portal (TAP).
+- Add table-driven pages to the Talent Acquisition Portal (TAP).
 
 ## Task 1: Add Pages to the Talent Acquisition Portal
 
@@ -20,7 +20,7 @@ In this task, you add two more table-driven pages to the Talent Acquisition Port
 
     ![App Builder after HR Analytics App is created](images/app-builder-haa-created.png " ")
 
-2. Click **Talent Acquisition Portal** application.
+2. Click the **Talent Acquisition Portal** application.
 
     ![Open Talent Acquisition Portal in App Builder](images/app-builder-select-tap.png " ")
 
@@ -28,7 +28,7 @@ In this task, you add two more table-driven pages to the Talent Acquisition Port
 
     ![Talent Acquisition Portal Create Page button](images/tap-application-home-create-page.png " ")
 
-4. Under **Component** tab, select **Interactive Report**.
+4. Under the **Component** tab, select **Interactive Report**.
 
     ![Select Interactive Report for Offer Management](images/create-page-select-interactive-report.png " ")
 
@@ -68,11 +68,11 @@ In this task, you add two more table-driven pages to the Talent Acquisition Port
 
     ![Offer Management running page](images/offer-management-running-page.png " ")
 
-10. Return to App Builder and navigate to Page Designer toolbar, hover over **+v** and select **Page**.
+10. Return to App Builder and navigate to the Page Designer toolbar, hover over **+v** and select **Page**.
 
     ![Create another page from the Offer Management page](images/offer-management-create-page-menu.png " ")
 
-11. Under **Component** tab, select **Interactive Report**.
+11. Under the **Component** tab, select **Interactive Report**.
 
     ![Select Interactive Report for Offer Management](images/create-page-select-interactive-report.png " ")
 

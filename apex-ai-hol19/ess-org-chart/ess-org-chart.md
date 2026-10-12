@@ -58,7 +58,7 @@ In this lab, you will:
 
     ![Tree region source editor containing the employee manager hierarchy query.](images/configure-organisation-tree-query.png ' ')
 
-2. Switch to **Attributes** tab, select the following:
+2. Switch to the **Attributes** tab and select the following:
     - Node Label Column: **TITLE**
     - NODE ID Column: **ID**
     - Parent Key Column: **PARENT_ID**
@@ -67,7 +67,7 @@ In this lab, you will:
     
     ![Tree region column mappings for ID, parent ID, title, and tooltip.](images/map-organisation-tree-columns.png ' ')
 
-3. Save and run the page. Confirm that **HR Info > Our Organisation** displays active employee hierarchy with job and department tooltips.
+3. Save and run the page. Confirm that **HR Info > Our Organisation** displays the active employee hierarchy with job and department tooltips.
 
     ![Our Organisation runtime tree showing employees and hierarchy tooltips.](images/verify-organisation-tree.png ' ')
 

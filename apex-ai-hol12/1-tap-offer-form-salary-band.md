@@ -28,7 +28,7 @@ In this task, you create the supporting Hidden items and retrieve the selected r
 
     ![Select Form on Offers from Page Finder](images/lab1-page-finder.png " ")
 
-2. In the **Rendering** tab, expand **Page 9** and right-click **Form on Offers** region. Select **Create Page Item**.
+2. In the **Rendering** tab, expand **Page 9** and right-click the **Form on Offers** region. Select **Create Page Item**.
 
     ![Create a page item from the Form on Offers region](images/lab1-create-hidden-item.png " ")
 
@@ -41,7 +41,7 @@ In this task, you create the supporting Hidden items and retrieve the selected r
 
     ![Configure the minimum salary Hidden page item](images/lab1-min-salary-item.png " ")
 
-4. Repeat the step 2 to create the second hidden item:
+4. Repeat step 2 to create the second hidden item:
 
     - Under Identification:
 
@@ -50,7 +50,7 @@ In this task, you create the supporting Hidden items and retrieve the selected r
 
     ![Configure the maximum salary Hidden page item](images/lab1-max-salary-item.png " ")
 
-5. Click the **Dynamic Actions** tab. Right-click **Events** node and select **Create Dynamic Action**.
+5. Click the **Dynamic Actions** tab. Right-click the **Events** node and select **Create Dynamic Action**.
 
     ![Create a Dynamic Action from the Events node](images/lab1-create-salary-da.png " ")
 
@@ -170,7 +170,7 @@ In this task, you create the Dynamic Content region that calculates and displays
 
 In this task, you refresh the Dynamic Content region when the offered salary changes and verify the salary-band states at runtime.
 
-1. Click the **Dynamic Actions** tab. Right-click **Events** node and select **Create Dynamic Action**.
+1. Click the **Dynamic Actions** tab. Right-click the **Events** node and select **Create Dynamic Action**.
 
     ![Create the Salary Band Refresh Dynamic Action](images/lab1-create-salary-refresh-dynamic-action.png " ")
 
@@ -188,7 +188,7 @@ In this task, you refresh the Dynamic Content region when the offered salary cha
 
     ![Configure the Salary Band Refresh Dynamic Action](images/lab1-create-salary-refresh-da.png " ")
 
-3. Under **Salary Band Refresh** dynamic action, select **Create TRUE Action**.
+3. Under the **Salary Band Refresh** dynamic action, select **Create TRUE Action**.
 
     ![Create the Salary Band Refresh true action](images/lab1-create-salary-refresh-true-action.png " ")
 

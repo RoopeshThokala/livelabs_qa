@@ -35,7 +35,7 @@ In this part, you will create an Oracle APEX Application Development Service tri
 
         ![Cloud login](images/enter-user-name-and-password.png " ")
 
-3. On the OCI Console home page, under Quickstarts, click **Deploy a low-code app on Autonomous Database using APEX** card to launch the quickstart.
+3. On the OCI Console home page, under Quickstarts, click the **Deploy a low-code app on Autonomous Database using APEX** card to launch the quickstart.
 
     ![Cloud homepage](images/quickstart-deploy-apex.png " ")
 
@@ -81,7 +81,7 @@ In this part, you will create an Oracle APEX Application Development Service tri
   ![Create Workspace dialog](images/create-workspace.png " ")
 
 12. In the APEX Instance Administration page, click the **DEMO** link in the success message.         
-  *Note: This will signs you out of APEX Administration so that you can sign in to your new workspace.*
+  *Note: This will sign you out of APEX Administration so that you can sign in to your new workspace.*
 
   ![APEX Instance Administration page](images/log-out-from-admin.png " ")
 

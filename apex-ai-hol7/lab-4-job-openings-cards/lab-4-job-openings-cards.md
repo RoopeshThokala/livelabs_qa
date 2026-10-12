@@ -20,11 +20,11 @@ In this lab, you will:
 
     ![Create a page](images/create-job-openings-page.png "")
 
-2. In Create a Page wizard, select **Cards** as the page type and click **Next**.
+2. In the Create a Page wizard, select **Cards** as the page type and click **Next**.
 
     ![Select Cards as Page Type](images/select-cards-page.png "")
 
-3. In **Create Cards** page wizard:
+3. In the **Create Cards** page wizard:
     - Under Page Definition > Name: **Job Openings**.
     - Under Data Source:
         - Data Source: **Local Database**
@@ -60,7 +60,7 @@ In this lab, you will:
 
 ## Task 2: Configure the Cards region
 
-1. Under Page Rendering, Select **Job Openings** region.
+1. Under Page Rendering, select the **Job Openings** region.
 
     ![Set Cards Region](images/select-job-openings.png "")
 
@@ -68,7 +68,7 @@ In this lab, you will:
 
     ![Set Cards order by type](images/set-cards-order-by.png "")
 
-3. In Property Editor, select **Attributes**. Enter or select the following properties:
+3. In the Property Editor, select **Attributes**. Enter or select the following properties:
 
     - Under Subtitle > Column: **Department**
     - Under Body:
@@ -89,7 +89,7 @@ In this lab, you will:
 
     ![Configure Job Openings card attributes](images/configure-job-openings-card.png "")
 
-4. Now, In the Rendering Tree(Left Pane), Right click on P13\_ORDER\_BY under Sort Order, if exists, and click **Delete**.
+4. Now, In the Rendering Tree(Left Pane), Right click on P13\_ORDER\_BY under Sort Order, if it exists, and click **Delete**.
 
     ![Delete Sort Order](images/delete-sort-order.png "")
 
@@ -99,7 +99,7 @@ In this lab, you will:
 
     ![Create Smart Filters region](images/create-job-openings-smart-filters.png "")
 
-2. Drag and drop the **New** region above **Job Openings** region to re-order the sequence.
+2. Drag and drop the **New** region above the **Job Openings** region to re-order the sequence.
 
     ![Move Smart filters Region](images/move-smart-filters.png "")
 
@@ -117,7 +117,7 @@ In this lab, you will:
 
     ![Add Department Filter](images/add-department-filter.png "")
 
-5. In Property Editor, enter or select the following properties:
+5. In the Property Editor, enter or select the following properties:
     - Under Identification
         - Name: **Pn\_DEPARTMENT**
         - Type: **Checkbox Group**
@@ -128,7 +128,7 @@ In this lab, you will:
 
     ![Configure Department Filter](images/configure-department-filter.png "")
 
-6. Similarly, create another filter in the **Rendering Tree**. Then, in Property Editor, enter or select the following properties:
+6. Similarly, create another filter in the **Rendering Tree**. Then, in the Property Editor, enter or select the following properties:
 
     - Under Identification
         - Name: **P13\_HEADCOUNT**
