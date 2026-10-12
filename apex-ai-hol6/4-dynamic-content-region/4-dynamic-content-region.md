@@ -26,7 +26,7 @@ In this task, you will create an **Active Candidates** Dynamic Content region on
 
     ![Home page opened from the Developer Toolbar](images/01-open-home-page-designer.png " ")
 
-2. In the **Rendering Tree**, right-click **Body**, then select **Create Region**.
+2. In the **Rendering Tab**, right-click **Body**, then select **Create Region**.
 
     ![Create Region selected from the Body context menu](images/02-create-region-body.png " ")
 

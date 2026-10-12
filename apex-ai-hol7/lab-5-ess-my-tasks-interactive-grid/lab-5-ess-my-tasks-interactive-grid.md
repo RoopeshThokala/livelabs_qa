@@ -79,7 +79,7 @@ In this lab, you will:
 
     ![Configure Status select list](images/configure-my-tasks-status-list.png "")
 
-5. Next, select the **Task Name** column in the Rendering Tree. Then, in the **Property Editor**:
+5. Next, select the **Task Name** column in the Rendering Tab. Then, in the **Property Editor**:
     - Set **Identification** > Type: **Display Only**.
 
     ![Configure Task Name as Display only](images/configure-task-name-display.png "")

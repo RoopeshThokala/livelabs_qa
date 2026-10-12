@@ -89,7 +89,7 @@ In this lab, you will:
 
     ![Configure Job Openings card attributes](images/configure-job-openings-card.png "")
 
-4. Now, In the Rendering Tree(Left Pane), Right click on P13\_ORDER\_BY under Sort Order, if it exists, and click **Delete**.
+4. Now, In the Rendering Tab(Left Pane), Right click on P13\_ORDER\_BY under Sort Order, if it exists, and click **Delete**.
 
     ![Delete Sort Order](images/delete-sort-order.png "")
 
@@ -128,7 +128,7 @@ In this lab, you will:
 
     ![Configure Department Filter](images/configure-department-filter.png "")
 
-6. Similarly, create another filter in the **Rendering Tree**. Then, in the Property Editor, enter or select the following properties:
+6. Similarly, create another filter in the **Rendering Tab**. Then, in the Property Editor, enter or select the following properties:
 
     - Under Identification
         - Name: **P13\_HEADCOUNT**

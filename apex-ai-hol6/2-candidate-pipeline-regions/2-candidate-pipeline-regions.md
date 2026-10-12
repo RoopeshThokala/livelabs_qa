@@ -38,7 +38,7 @@ In this task, you will create an **Open Requisitions** Dynamic Content region. Y
 
     ![Candidate Pipeline page selected on the application home page](images/02-open-candidate-pipeline-page.png " ")
 
-3. In the **Rendering Tree**, right-click **Components**, then select **Create Region**.
+3. In the **Rendering Tab**, right-click **Components**, then select **Create Region**.
 
     ![Create Region selected from the Components context menu](images/03-create-region-from-components.png " ")
 
@@ -93,7 +93,7 @@ In this task, you will create an **Open Requisitions** Dynamic Content region. Y
 
 In this task, you will create an **Applied** Cards region based on a SQL Query. The query returns the candidate name, current stage, and applied date for the card title, subtitle, body, and initials.
 
-1. In the **Rendering Tree**, right-click **Body**, then select **Create Region**.
+1. In the **Rendering Tab**, right-click **Body**, then select **Create Region**.
 
     ![Create Region selected from the Body context menu](images/06-create-cards-region.png " ")
 

@@ -47,7 +47,7 @@ In this task, you will create a blank **Candidate Profile** page. You will then 
 
     ![Candidate Profile page in Page Designer](images/05-page-designer-opened.png " ")
 
-6. In Page Designer, select **Breadcrumb** in the **Rendering Tree** (Left Pane), select **Identification > Type** in the **Property Editor** (Right Pane), then select **Help** on the toolbar.
+6. In Page Designer, select **Breadcrumb** in the **Rendering Tab** (Left Pane), select **Identification > Type** in the **Property Editor** (Right Pane), then select **Help** on the toolbar.
 
     The help text for **Type** is displayed.
 
@@ -73,7 +73,7 @@ In this task, you will create the **Candidate Details** and **Application Histor
 
     ![Candidate Details region properties](images/09-configure-candidate-details-region.png " ")
 
-4. In the **Rendering Tree**, right-click **Body**, then select **Create Region**.
+4. In the **Rendering Tab**, right-click **Body**, then select **Create Region**.
 
     ![Create Region selected from the Body context menu](images/10-create-second-region.png " ")
 
@@ -101,9 +101,9 @@ In this task, you will create the **Candidate Details** and **Application Histor
 
 You learned how to add a page with the Create Page Wizard and maintain it in Page Designer.
 
-You also learned how Page Designer represents page components in the **Rendering Tree** and displays their settings in the **Property Editor**. Attribute help explains individual settings while you work.
+You also learned how Page Designer represents page components in the **Rendering Tab** and displays their settings in the **Property Editor**. Attribute help explains individual settings while you work.
 
-You learned how to create regions from the **Gallery Menu** and the **Rendering Tree** context menu. You used both methods to add Static Content regions to **Body**.
+You learned how to create regions from the **Gallery Menu** and the **Rendering Tab** context menu. You used both methods to add Static Content regions to **Body**.
 
 At the end of this lab, you are on the running **Candidate Profile** page. In the next lab, you will return to the TAP application home page and open the **Candidate Pipeline** page in Page Designer.
 

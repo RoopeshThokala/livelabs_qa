@@ -26,7 +26,7 @@ Add the report alongside the existing Cards region.
 
     ![Create Region](images/create-region.png "")
 
-3. In the Rendering Tree, select the **New** region. In the Property Editor, enter/select the following properties:
+3. In the Rendering Tab, select the **New** region. In the Property Editor, enter/select the following properties:
     - Under Identification:
         - Name: **Candidates**
         - Type: **Interactive Report**
