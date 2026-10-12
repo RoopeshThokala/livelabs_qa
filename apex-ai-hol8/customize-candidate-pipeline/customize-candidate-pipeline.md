@@ -42,7 +42,7 @@ In this lab, you will:
 
     ![Row Highlighting dialog configured for hired candidates with a green background.](images/hired-row-highlight.png ' ')
 
-4. Click **Actions** and select **Columns**. Select the columns `Email`, `Created At`, `Created By`, `Updated At`, and `Updated By` and move them to **Do Not Display** section. Click **Apply**.
+4. Click **Actions** and select **Columns**. Select the columns `Email`, `Created At`, `Created By`, `Updated At`, and `Updated By` and move them to the **Do Not Display** section. Click **Apply**.
 
     ![Columns dialog showing audit and email columns in the Do Not Display list.](images/hide-default-columns.png ' ')
 

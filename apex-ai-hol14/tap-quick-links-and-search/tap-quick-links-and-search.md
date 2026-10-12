@@ -44,7 +44,7 @@ In this lab, you will:
     ![Create list dialog](images/create-list-confirm.png ' ')
 
 
-6. Select TAP Quick Links. From the right side List Details, select **Grid Edit**. 
+6. Select TAP Quick Links. From List Details on the right side, select **Grid Edit**.
     ![Lists shared component with the TAP Quick Links static list being created.](images/grid-edit.png ' ')
 
 7. In the modal Dialog Wizard, add the below icons:

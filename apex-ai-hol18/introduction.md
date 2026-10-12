@@ -15,7 +15,7 @@ Estimated Workshop Time: 20 minutes
 In this workshop, you will:
 
 - Configure custom authentication for TAP and ESS.
-- Compute the Employee ID based on logged-in user.
+- Compute the Employee ID based on the logged-in user.
 - Create TAP and ESS role-based authorization schemes.
 - Restrict pages and navigation entries by persona.
 - Filter candidate data for hiring managers and protect sensitive page state.

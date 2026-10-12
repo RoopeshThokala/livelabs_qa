@@ -63,7 +63,7 @@ In this task, you create the items that display the available leave balance and 
 
 In this task, you create a Change Dynamic Action that calculates and displays the balance for the selected leave type.
 
-1. Under the **Dynamic Actions** tab, right-click **Events** node and select **Create Dynamic Action**.
+1. Under the **Dynamic Actions** tab, right-click the **Events** node and select **Create Dynamic Action**.
 
     ![Create the Calculate Leave Balance Dynamic Action](./images/lab4-create-leave-balance-dynamic-action.png " ")
 
@@ -81,7 +81,7 @@ In this task, you create a Change Dynamic Action that calculates and displays th
 
     ![Configure the Calculate Leave Balance Dynamic Action](./images/lab4-configure-leave-balance-dynamic-action.png " ")
 
-3. Under **Calculate Leave Balance** dynamic action, select **Create TRUE Action**.
+3. Under the **Calculate Leave Balance** dynamic action, select **Create TRUE Action**.
 
     ![Create the Calculate Leave Balance true action](./images/lab4-create-leave-balance-true-action.png " ")
 
@@ -116,7 +116,7 @@ In this task, you create a Change Dynamic Action that calculates and displays th
 
 In this task, you calculate the requested leave days when both the start date and end date are populated.
 
-1. Under the **Dynamic Actions** tab, right-click **Events** node and select **Create Dynamic Action**.
+1. Under the **Dynamic Actions** tab, right-click the **Events** node and select **Create Dynamic Action**.
 
     ![Create the Calculate Requested Days Dynamic Action](./images/lab4-create-requested-days-dynamic-action.png " ")
 
@@ -145,7 +145,7 @@ In this task, you calculate the requested leave days when both the start date an
 
     ![Configure the Calculate Requested Days Dynamic Action](./images/lab4-configure-requested-days-dynamic-action.png " ")
 
-3. Under **Calculate Requested Days** dynamic action, select **Create TRUE Action**.
+3. Under the **Calculate Requested Days** dynamic action, select **Create TRUE Action**.
 
     ![Create the Calculate Requested Days true action](./images/lab4-create-requested-days-true-action.png " ")
 
@@ -197,7 +197,7 @@ In this task, you calculate the requested leave days when both the start date an
 
 In this task, you set a warning value when the requested days are greater than the available balance.
 
-1. Under the **Dynamic Actions** tab, right-click **Events** node and select **Create Dynamic Action**.
+1. Under the **Dynamic Actions** tab, right-click the **Events** node and select **Create Dynamic Action**.
 
     ![Create the Exceed remaining balance Dynamic Action](./images/lab4-create-exceed-balance-dynamic-action.png " ")
 
@@ -215,7 +215,7 @@ In this task, you set a warning value when the requested days are greater than t
 
     ![Configure the Exceed remaining balance Dynamic Action](./images/lab4-configure-exceed-balance-dynamic-action.png " ")
 
-3. Under **Exceed remaining balance** dynamic action, select **Create TRUE Action**.
+3. Under the **Exceed remaining balance** dynamic action, select **Create TRUE Action**.
 
     ![Create the Exceed remaining balance true action](./images/lab4-create-exceed-balance-true-action.png " ")
 
@@ -251,7 +251,7 @@ In this task, you set a warning value when the requested days are greater than t
 
 In this task, you display an alert when the warning is set and test the leave-request interaction.
 
-1. Under the **Dynamic Actions** tab, right-click **Events** node and select **Create Dynamic Action**.
+1. Under the **Dynamic Actions** tab, right-click the **Events** node and select **Create Dynamic Action**.
 
     ![Create the Leave Balance Warning Dynamic Action](./images/lab4-create-warning-dynamic-action.png " ")
 
@@ -274,7 +274,7 @@ In this task, you display an alert when the warning is set and test the leave-re
 
     ![Configure the Leave Balance Warning Dynamic Action](./images/lab4-configure-warning-dynamic-action.png " ")
 
-3. Under **Leave Balance Warning** dynamic action, select **Create TRUE Action**.
+3. Under the **Leave Balance Warning** dynamic action, select **Create TRUE Action**.
 
     ![Create the Leave Balance Warning true action](./images/lab4-create-warning-true-action.png " ")
 

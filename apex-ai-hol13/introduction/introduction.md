@@ -13,7 +13,7 @@ In this workshop, you will:
 - Organize Candidate Profile into two columns and add photo display, CV upload, and CV download.
 - Link Candidate Profile to Interview Feedback using a master-detail relationship.
 - Create an editable interactive grid for bulk candidate stage updates.
-- Extend My Profile and Leave Request pages in ESS Application with contact details and file uploads.
+- Extend My Profile and Leave Request pages in the ESS Application with contact details and file uploads.
 
 ### Prerequisites
 

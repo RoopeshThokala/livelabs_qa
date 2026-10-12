@@ -181,7 +181,7 @@ In this lab, you will:
     ![Shared Components](images/save-and-run2.png ' ')
 
 
-11. Try searching for a candidate like '**Grace Kim**'. Verify that the result opens the Candidate Profile page. Similarly, try searching for a Job Requisiton (like 'Data Analyst') and see what happens.
+11. Try searching for a candidate like '**Grace Kim**'. Verify that the result opens the Candidate Profile page. Similarly, try searching for a Job Requisition (like 'Data Analyst') and see what happens.
 
     ![TAP Search results showing candidate and requisition results.](images/verify-tap-global-search1.png ' ')
 

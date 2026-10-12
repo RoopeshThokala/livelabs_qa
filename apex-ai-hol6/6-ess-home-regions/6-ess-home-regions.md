@@ -34,7 +34,7 @@ In this task, you will update the existing **Employee Self-Service Portal** Stat
 
     ![ESS Home page selected on the application home page](images/03-open-ess-home-page.png " ")
 
-4. In the **Rendering Tree**, select the existing **Employee Self-Service Portal** region under **Breadcrumb Bar**. In the **Property Editor**, enter/select the following:
+4. In the **Rendering Tab**, select the existing **Employee Self-Service Portal** region under **Breadcrumb Bar**. In the **Property Editor**, enter/select the following:
 
     - Under Source:
 
@@ -54,7 +54,7 @@ In this task, you will update the existing **Employee Self-Service Portal** Stat
 
 In this task, you will create the **Your Onboarding Progress** Static Content region in **Body**. You will add HTML for a progress bar with a fixed value of zero.
 
-1. In the **Rendering Tree**, right-click **Body**, then select **Create Region**.
+1. In the **Rendering Tab**, right-click **Body**, then select **Create Region**.
 
     ![Create Region selected from the Body context menu](images/05-create-progress-region.png " ")
 

@@ -61,7 +61,7 @@ Estimated Time: 3 minutes
     </copy>
     ```
 
-    This evaluates requisition ownership and TA-admin access based on the logged-in user for candidates report.
+    This evaluates requisition ownership and TA-admin access based on the logged-in user for the Candidates report.
 
     ![Set and save the TAP Candidate Pipeline query](images/lab4-tap-candidate-query.png " ")
 

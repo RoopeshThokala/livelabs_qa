@@ -42,7 +42,7 @@ If this snapshot already contains **Onboarding Progress Bar**, open it under **S
 
     ![Select Template Component Plug-in](images/lab4-03-select-template-component.png " ")
 
-5. Keep everything as default and click **Next**.
+5. Keep all settings at their defaults and click **Next**.
 
 6. For **Name**, enter `Onboarding Progress Bar`, and then click **Create**.
 
@@ -52,7 +52,7 @@ If this snapshot already contains **Onboarding Progress Bar**, open it under **S
 
 ## Task 2: Add the Partial HTML and Custom Attributes
 
-1. Navigate to **Templates tab**.
+1. Navigate to the **Templates tab**.
 
 2. Under **Available as**, select **Single (Partial)**.
 
@@ -169,7 +169,7 @@ If this snapshot already contains **Onboarding Progress Bar**, open it under **S
 
 1. Click **Edit Page 1**.
 
-2. In the Rendering tree, right-click **Employee Self-Service Portal** breadcrumb and select **Create Sub Region**.
+2. In the Rendering tree, right-click the **Employee Self-Service Portal** breadcrumb and select **Create Sub Region**.
 
     ![Create a subregion under Employee Self-Service Portal](images/lab4-09-create-sub-region.png " ")
 

@@ -75,7 +75,7 @@ Estimated Time: 7 minutes
 
 ## Task 4: Verify Leave Request
 
-1. Click **Main Navigation**. Expand **Leave**, then click **Leave Request**. If a load error appears, click **OK** and record it as **Needs fix**. Continue with the layout checks if the form is accessible; verify the complete form again after the error is resolved. If a load error appears, click **OK** and record it as **Needs fix**. Continue with the layout checks if the form is accessible; verify the complete form again after the error is resolved.
+1. Click **Main Navigation**. Expand **Leave**, then click **Leave Request**. If a load error appears, click **OK** and record it as **Needs fix**. Continue with the layout checks if the form is accessible; verify the complete form again after the error is resolved.
 
     ![Leave Request in the expanded Leave menu](images/4_4_1_leave_navigation.png " ")
 

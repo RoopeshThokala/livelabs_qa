@@ -59,7 +59,7 @@ In this lab, you will:
 
     ![Leave Calendar SQL source with the Submitted status CSS class expression.](images/update-leave-calendar-sql.png ' ')
 
-2. Switch to **Attributes** tab. Under **Settings**, enter/select the following:
+2. Switch to the **Attributes** tab. Under **Settings**, enter/select the following:
     - Primary Key Column: **EVENT_ID** 
     - Drag and Drop: **On**
     - Drag and Drop PL/SQL Code:

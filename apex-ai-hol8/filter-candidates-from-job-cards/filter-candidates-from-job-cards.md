@@ -30,7 +30,7 @@ In this lab, you will:
 
     ![Candidate Pipeline Page Designer with the P4_REQ_ID page item added.](images/create-p4-req-id.png ' ')
 
-4. Select **Candidates** region in the left pane. Expand the SQL Query code editor. Replace the SQL query with the following: 
+4. Select the **Candidates** region in the left pane. Expand the SQL Query code editor. Replace the SQL query with the following:
     ```sql
     <copy>
     select c.candidate_id,
@@ -63,7 +63,7 @@ In this lab, you will:
     ![SQL source editor showing the P4_REQ_ID bind-variable filter.](images/open-code-editor.png ' ')
     ![SQL source editor showing the P4_REQ_ID bind-variable filter.](images/add-requisition-filter-query.png ' ')
 
-3. Save and run the page. Navigate to **Job Openings** page. Click **View Applicants** for any job opening.
+3. Save and run the page. Navigate to the **Job Openings** page. Click **View Applicants** for any job opening.
     ![Job Opening page](images/view-applicants.png ' ')
 
 4. Confirm that the report returns candidates filtered by the Job Opening.

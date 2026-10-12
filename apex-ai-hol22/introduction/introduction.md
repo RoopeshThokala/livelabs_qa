@@ -4,7 +4,7 @@
 
 In many real-world applications, users do not search using exact keywords. They describe intent, ask a question in natural language, or search using a concept instead of a phrase that matches one field exactly. This workshop shows how to implement semantic search in Oracle APEX so your application understands meaning, not just text.
 
-You will configure the database embedding model, prepare candidate and HR policy data for vector search, and then add semantic search to the TAP and ESS applications. By the end of the workshop, you will have a working example that ranks results based on similarity to the user's intent instead of direct keyword match.
+You will configure the database embedding model, prepare candidate and HR policy data for vector search, and then add semantic search to the TAP and ESS applications. By the end of the workshop, you will have a working example that ranks results based on similarity to the user's intent instead of a direct keyword match.
 
 Estimated Workshop Time: 45 minutes
 
@@ -13,7 +13,7 @@ Estimated Workshop Time: 45 minutes
 In this workshop you will:
 
 - Configure the ONNX embedding model and APEX vector provider
-- Prepare data for semantic search in the candidate and HR policy tables,
+- Prepare data for semantic search in the candidate and HR policy tables
 - Implement Oracle AI Vector Search Configuration in TAP
 - Build an HR Policy Search page in ESS
 - Validate natural-language queries against semantic ranking

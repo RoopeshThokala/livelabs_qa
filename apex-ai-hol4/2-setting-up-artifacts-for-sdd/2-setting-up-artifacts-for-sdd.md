@@ -17,7 +17,7 @@ In this lab, you will learn how to:
 
 ## Task 1: Create the TAP SDD project folder
 
-1. Create a local folder named `tap_sdd`.
+1. Create a local folder named **tap_sdd**.
 
 2. Use the following names for the files you will collect:
 

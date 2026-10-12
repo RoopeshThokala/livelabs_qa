@@ -220,7 +220,7 @@ In this lab, you will:
 
 13. Navigate to the **Rendering** tab.
 
-14. Select **SUBMIT_LEAVE** button and set **Database Action** to **SQL Insert Action**.
+14. Select the **SUBMIT_LEAVE** button and set **Database Action** to **SQL Insert Action**.
 
     !["Set submit database action"](images/get-image.png "")
 

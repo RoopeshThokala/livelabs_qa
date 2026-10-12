@@ -16,7 +16,7 @@ In this lab, you will:
 
 ## Task 1: Prepare Candidate Pipeline for chart drill-through
 
-1. Open TAP application and navigate to the **Candidate Pipeline** page.
+1. Open the TAP application and navigate to the **Candidate Pipeline** page.
     ![Navigate to page](images/nav-candidate-pipeline.png ' ')
 
 2. In the left pane, right-click **Body** and select **Create Page Item**. 
@@ -28,7 +28,7 @@ In this lab, you will:
 
     ![P4_STAGE hidden page item with session state maintenance enabled.](images/create-p4-stage-item.png ' ')
 
-4. In the left pane Rendering tab, expand Body and select **Applied** region. In the Property Editor, enter the following:
+4. In the left pane Rendering tab, expand Body and select the **Applied** region. In the Property Editor, enter the following:
 
     - **Source > SQL Query**: Replace with the following: 
 
@@ -85,7 +85,7 @@ In this lab, you will:
 1. On TAP **Home Page 1**, drag a **Chart** region under the metric cards. In the Property Editor, for Name, enter **Recruitment Funnel**.
     ![Page Designer showing the Recruitment Funnel chart region under the metric cards.](images/drag-drop-chart.png ' ')
 
-2. Switch to Attributes tab in the Property Editor and for **Type**, select **Funnel**.
+2. Switch to the Attributes tab in the Property Editor and for **Type**, select **Funnel**.
     ![Page Designer showing the Recruitment Funnel chart region under the metric cards.](images/funnel-chart.png ' ')
 
 2. Select the series under Recruitment Funnel. In the Property Editor, enter/select the following:
@@ -124,13 +124,13 @@ In this lab, you will:
 
     ![Recruitment Funnel series link targeting Candidate Pipeline and passing P4_STAGE.](images/configure-funnel-drill-through.png ' ')
 
-5. Add a second Chart region named **Average Days to Hire**, set **Start New Row** to **No**.
+5. Add a second Chart region named **Average Days to Hire** and set **Start New Row** to **No**.
     ![Average Days to Hire line chart configured next to the Recruitment Funnel.](images/create-average-days-chart.png ' ')
 
-5. Switch to Attributes tab in the Property Editor and for **Type**, select **Line**.
+5. Switch to the Attributes tab in the Property Editor and for **Type**, select **Line**.
     ![Page Designer showing the chart region under the metric cards.](images/line-chart.png ' ')
 
-6. Select the entry under **Series**, enter/select the following in the Property Editor:
+6. Select the entry under **Series** and enter/select the following in the Property Editor:
     - Name: **Average Days to Hire (Last 6 Months)**
     - Under Source:
         - Location: **Local Database**
@@ -215,7 +215,7 @@ In this lab, you will:
 
     ![create dynamic action](images/da1-true-action2.png ' ')
 
-11. Similarly, create a **Dynamic Action** on **P1\_TO\_DATE** page item with the following details:
+11. Similarly, create a **Dynamic Action** on the **P1\_TO\_DATE** page item with the following details:
     - Name: Refresh
     - Under **When**:
         - Event: **Change**

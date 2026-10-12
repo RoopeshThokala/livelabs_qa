@@ -44,7 +44,7 @@ The terminating period belongs to the APEX substitution string syntax. At runtim
 
 ## Task 2: Configure the Live Metric Region
 
-1. In the left pane, select **Your Onboarding Progress** region.
+1. In the left pane, select the **Your Onboarding Progress** region.
 
     ![Select Your Onboarding Progress](images/lab3-04-select-progress-region.png " ")
 
@@ -150,7 +150,7 @@ Each `SELECT` returns the same columns, and `UNION ALL` turns the four results i
 
 ## Task 3: Map the Metric Card Attributes
 
-1. In the Property Editor, navigate to **Attributes** tab.
+1. In the Property Editor, navigate to the **Attributes** tab.
 
 2. Under **Settings**, configure:
 

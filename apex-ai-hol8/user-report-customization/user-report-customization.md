@@ -16,7 +16,7 @@ In this lab, you will:
 
 ## Task 1: Prepare the report query
 
-1. In Page Designer, open the Candidate Pipeline interactive report region. Click **Edit Page** from Runtime Developer Toolbar.
+1. In Page Designer, open the Candidate Pipeline interactive report region. Click **Edit Page** from the Runtime Developer Toolbar.
 
     ![Page Designer with the Candidate Pipeline interactive report region selected.](images/edit-page.png ' ')
 
@@ -86,7 +86,7 @@ In this lab, you will:
 1. Run the application. Log out as the developer and log in as end user **APEXAI**.
     ![log in page](images/login.png ' ')
 
-2. On Candidate Pipeline page, navigate to **Actions** > **Columns**. Move the **Department Name** column to Display section.
+2. On the Candidate Pipeline page, navigate to **Actions** > **Columns**. Move the **Department Name** column to the Display section.
 
     ![Columns dialog with Department Name moved to the displayed columns list.](images/display-department-name.png ' ')
 

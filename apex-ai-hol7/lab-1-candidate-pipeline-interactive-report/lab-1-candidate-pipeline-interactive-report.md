@@ -18,7 +18,7 @@ In this lab, you will:
 
 Add the report alongside the existing Cards region.
 
-1. In Talent Acquisition Portal Application, open **Candidate Pipeline** in Page Designer.
+1. In the Talent Acquisition Portal Application, open **Candidate Pipeline** in Page Designer.
 
     ![Open Candidate Pipeline page](./images/open-candidate-pipeline.png " ")
 
@@ -26,7 +26,7 @@ Add the report alongside the existing Cards region.
 
     ![Create Region](images/create-region.png "")
 
-3. In the Rendering Tree, select **New** region. In the Property Editor, enter/select the following properties:
+3. In the Rendering Tab, select the **New** region. In the Property Editor, enter/select the following properties:
     - Under Identification:
         - Name: **Candidates**
         - Type: **Interactive Report**
@@ -64,15 +64,15 @@ Add the report alongside the existing Cards region.
 
 ## Task 2: Enable downloads and verify the report
 
-1. In Property Editor, click **Attributes**, Under **Download**, enable **CSV**, **Excel**, and **PDF**.
+1. In the Property Editor, click **Attributes**. Under **Download**, enable **CSV**, **Excel**, and **PDF**.
 
     ![Select Download Formats](images/select-download-formats.png "")
 
-2. Save and run the page. Verify the report, and download choices.
+2. Save and run the page. Verify the report and download choices.
 
     ![Save and Run Page](images/save-and-run.png "")
 
-3. Verify the report, and download choices.
+3. Verify the report and download choices.
 
     ![Run Candidate Pipeline Interactive Report](images/run-candidate-pipeline-ir.png "")
 

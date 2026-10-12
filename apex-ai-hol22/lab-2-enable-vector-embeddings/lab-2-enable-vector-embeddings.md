@@ -33,7 +33,7 @@ In this lab, you will:
 
     ![Adding skills_text and skills_vector columns to tms_candidates table](images/add-candidate-vector-columns.png)
 
-2. To populate sample Oracle-focused skills. **Run** the following SQL to assign a realistic skill description for each candidate:
+2. To populate sample Oracle-focused skills, **Run** the following SQL to assign a realistic skill description to each candidate:
 
     ```
     <copy>
@@ -63,7 +63,7 @@ In this lab, you will:
 
 ## Task 2: Generate and verify candidate embeddings
 
-1. To generate the vector embeddings use the vector provider created in Lab 1 and **rRun** the following SQL Query::
+1. To generate the vector embeddings, use the vector provider created in Lab 1 and **Run** the following SQL Query:
 
     ```
     <copy>
@@ -120,7 +120,7 @@ In this lab, you will:
     </copy>
     ```
 
-    *Note:Candidates with Oracle APEX, PL/SQL, ORDS, REST APIs, and low-code development skills should rank higher in the result.* set.
+    *Note: Candidates with Oracle APEX, PL/SQL, ORDS, REST APIs, and low-code development skills should rank higher in the result set.*
 
     ![Semantic ranking query showing candidates ranked by relevance to low-code developer role](images/rank-candidates-by-semantic-distance.png)
 

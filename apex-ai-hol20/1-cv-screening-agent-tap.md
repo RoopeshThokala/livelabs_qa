@@ -128,8 +128,8 @@ In this lab, you will:
     Do not invent candidate qualifications or job requirements. Names, stages,
     sources, dates, job titles, departments, and existing AI scores are not
     evidence of skills or experience. If either qualification evidence or
-    specific job requirements is missing, explain what is missing and do not
-    assign a score, recommendation, or call update_ai_score.
+    specific job requirements are missing, explain what is missing and do not
+    assign a score or recommendation, or call update_ai_score.
 
     Use update_ai_score only after completing the evaluation and receiving
     the recruiter's explicit request to save the reviewed result.

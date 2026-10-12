@@ -48,7 +48,7 @@ The wizard replaces a single Offer Form with a guided flow that separates offer 
         | 1 | 16 | Offer Terms |
         | 2 | 19 | Preview & Send |
 
-        *Note - Delete rest of the steps. We only need 2 steps wizard for this task*
+        *Note: Delete the remaining steps. We only need a two-step wizard for this task.*
 
     - Navigation > Parent Navigation Menu Entry: **Offers**
 
@@ -80,7 +80,7 @@ Step 1 collects offer values and stages them in `OFFER_COLLECTION`.
     | `P16_START_DATE` | Date Picker |
     | `P16_EXPIRY_DATE` | Date Picker |
 
-4. Select `P16\_CANDIDATE\_ID` page item and enter/select the following:
+4. Select the `P16\_CANDIDATE\_ID` page item and enter/select the following:
 
     - Under List of Values:
 
@@ -90,7 +90,7 @@ Step 1 collects offer values and stages them in `OFFER_COLLECTION`.
 
     ![Candidate select list item on the Offer Terms page](images/08-candidate-select-list-item.png)
 
-5. Right-click `P16_CANDIDATE_ID` page item and select **Create Dynamic Action**.
+5. Right-click the `P16_CANDIDATE_ID` page item and select **Create Dynamic Action**.
 
     ![Create Dynamic Action menu for the candidate item](images/09-create-candidate-dynamic-action.png)
 
@@ -98,7 +98,7 @@ Step 1 collects offer values and stages them in `OFFER_COLLECTION`.
 
     ![Derive Job ID dynamic action configured on candidate change](images/10-derive-job-id-dynamic-action.png)
 
-7. Select **Show** True action and enter/select the following:
+7. Select the **Show** True action and enter/select the following:
 
     - Identification > Type: **Set Value**
 
@@ -137,7 +137,7 @@ Step 1 collects offer values and stages them in `OFFER_COLLECTION`.
 
     ![Offer start date and expiry date picker items](images/15-offer-date-picker-items.png)
 
-9. Navigate to **Processing** tab and right-click **Processing** and select **Create Process**.
+9. Navigate to the **Processing** tab and right-click **Processing** and select **Create Process**.
 
     ![Create Process menu in the Processing tab](images/12-create-stage-to-collection-process.png)
 
@@ -170,7 +170,7 @@ Step 1 collects offer values and stages them in `OFFER_COLLECTION`.
 
 The cancel action must remove the staged offer collection before returning the user to the portal home page.
 
-1. Navigate to **Rendering Pane**, right-click the **Cancel** button and select **Create Trigger Action**.
+1. Navigate to the **Rendering Pane**, right-click the **Cancel** button and select **Create Trigger Action**.
 
     ![Create trigger action from the Cancel button](images/16-create-cancel-trigger-action.png)
 
@@ -196,11 +196,11 @@ The cancel action must remove the staged offer collection before returning the u
 
 Step 2 shows the staged offer data, creates the final offer row, and sends the offer email.
 
-1. From the Page Designer toolbar, navigate the Page Selector and select Page **19**: Preview & Send**.
+1. From the Page Designer toolbar, navigate to the Page Selector and select **Page 19: Preview & Send**.
 
     ![Page Finder with Preview and Send selected](images/18-open-preview-send-page.png)
 
-2. Navigate to **Wizard Sub Regions**, right-click **Preview & Send** region and select **Create Page Item**.
+2. Navigate to **Wizard Sub Regions**, right-click the **Preview & Send** region and select **Create Page Item**.
 
     ![Create page item on the Preview and Send wizard step](images/19-create-preview-page-item.png)
 
@@ -218,7 +218,7 @@ Step 2 shows the staged offer data, creates the final offer row, and sends the o
 
     ![Candidate display-only item on the Preview and Send step](images/20-preview-candidate-display-item.png)
 
-4. Select `P19_CANDIDATE` page item and enter/select the following:
+4. Select the `P19_CANDIDATE` page item and enter/select the following:
 
     - Under Source:
 
@@ -242,7 +242,7 @@ Step 2 shows the staged offer data, creates the final offer row, and sends the o
 
     ![Preview candidate default query](images/30-preview-candidate-default-query.png)
 
-5. Select `P19_JOB` page item and enter/select the following:
+5. Select the `P19_JOB` page item and enter/select the following:
 
     - Under Source:
 
@@ -264,7 +264,7 @@ Step 2 shows the staged offer data, creates the final offer row, and sends the o
 
     ![Preview job default query](images/28-preview-job-default-query.png)
 
-6. Update the **Source** for following page items as follow:
+6. Update the **Source** for the following page items as follows:
 
     | Page Item | Type | Item | Used |
     | -- | --- | --- | --- |
@@ -274,7 +274,7 @@ Step 2 shows the staged offer data, creates the final offer row, and sends the o
 
     ![Preview salary item source set from the first wizard step](images/29-preview-salary-source-item.png)
 
-7. Select `P19_OFFER_TO` page item and enter the following:
+7. Select the `P19_OFFER_TO` page item and enter the following:
 
     - Under Default:
 
@@ -296,7 +296,7 @@ Step 2 shows the staged offer data, creates the final offer row, and sends the o
 
 The final processing step reads the staged collection row, creates the offer, and deletes the collection.
 
-1. Navigate **Processing** tab, right-click **Processing** and select **Create Process**.
+1. Navigate to the **Processing** tab, right-click **Processing** and select **Create Process**.
 
     ![Create Offer process menu on the Preview and Send page](images/23-create-offer-process-menu.png)
 

@@ -12,7 +12,7 @@ In this lab, you will learn how to:
 
 - Create an Interview Feedback form on `TMS_INTERVIEW_STAGES`.
 - Configure candidate, interviewer, rating, and outcome items.
-- Open the form from the Interview Schedule interactive grid and refresh the grid after close.
+- Open the form from the Interview Schedule interactive grid and refresh the grid after the dialog closes.
 
 ## Task 1: Create the Interview Feedback page
 

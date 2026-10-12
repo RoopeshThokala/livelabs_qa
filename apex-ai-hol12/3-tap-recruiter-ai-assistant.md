@@ -53,7 +53,7 @@ In this task, you create and style a button that users select to open the recrui
 
 In this task, you configure the button Trigger Action to open the AI Assistant and test the recruiting prompt.
 
-1. Right-click button **AskAI** and select **Create Trigger Action**.
+1. Right-click the **AskAI** button and select **Create Trigger Action**.
 
     ![Create a Trigger Action for the Ask AI button](images/lab3-create-show-ai-assistant-trigger.png " ")
 
@@ -79,7 +79,7 @@ In this task, you configure the button Trigger Action to open the AI Assistant a
 
     ![Save and run the Home page](images/lab3-save-and-run-page.png " ")
 
-4. Click the **Ask AI** button. In the assistant, ask: `How many candidates are at Interview stage?` Confirm that the assistant returns a response through the configured provider.
+4. Click the **Ask AI** button. In the assistant, ask: `How many candidates are at the Interview stage?` Confirm that the assistant returns a response through the configured provider.
 
     ![Ask AI button opens the recruiting assistant and returns a response](images/lab3-recruiter-chatbot-response.png " ")
 

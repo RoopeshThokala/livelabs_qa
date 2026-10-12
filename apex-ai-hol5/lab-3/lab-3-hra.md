@@ -10,7 +10,7 @@ Estimated time: 5 minutes
 
 In this lab, you will:
 
-- Create HR Analytics App (HAA) using Application from File.
+- Create the HR Analytics App (HAA) using Application from File.
 
 ### What You Will Build
 

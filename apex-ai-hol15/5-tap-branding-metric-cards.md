@@ -25,7 +25,7 @@ Use the Lab 5 snapshot, **15_05 Talent Acquisition Portal** (App **158**). Retur
 
 ## Task 1: Apply the TAP Corporate Theme
 
-1. In App Builder, open **Talent Acquisition Portal** application.
+1. In App Builder, open the **Talent Acquisition Portal** application.
 
 2. Run the application and sign in with the TAP credentials supplied in your workshop environment.
 

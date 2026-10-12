@@ -16,11 +16,11 @@ In this lab, you will:
 
 ## Task 1: Replace the report with an Interactive Grid
 
-1. Navigate to **Employee Self Service application**, and open the **My Onboarding Tasks** page.
+1. Navigate to the **Employee Self Service application**, and open the **My Onboarding Tasks** page.
 
     ![Open My Onboarding Tasks page](images/open-my-tasks-page.png "")
 
-2. In the Rendering tree, select **Onboarding Tasks** region.
+2. In the Rendering tree, select the **Onboarding Tasks** region.
 
     ![Select Onboarding Tasks region](images/select-onboarding-tasks-region.png "")
 
@@ -55,7 +55,7 @@ In this lab, you will:
 
     ![Expand Columns](images/expand-columns.png "")
 
-2. Select **TASK_ID** column. Then, in the Property Editor, under **Source**, set **Primary Key** and **Query Only** to **Yes**.
+2. Select the **TASK_ID** column. Then, in the Property Editor, under **Source**, set **Primary Key** and **Query Only** to **Yes**.
 
     ![Select Primary Key](images/set-item-id-primary-key.png "")
 
@@ -79,7 +79,7 @@ In this lab, you will:
 
     ![Configure Status select list](images/configure-my-tasks-status-list.png "")
 
-5. Next, select **Task Name** column in the Rendering Tree. Then, in the **Property Editor**:
+5. Next, select the **Task Name** column in the Rendering Tab. Then, in the **Property Editor**:
     - Set **Identification** > Type: **Display Only**.
 
     ![Configure Task Name as Display only](images/configure-task-name-display.png "")
@@ -100,7 +100,7 @@ In this lab, you will:
 
     ![Hide My Tasks audit columns](images/hide-my-tasks-audit-columns.png "")
 
-8. Save and run the page. If prompted, log in to the Application. Verify the Onboarding Tasks assigned to a logged in User.
+8. Save and run the page. If prompted, log in to the Application. Verify the Onboarding Tasks assigned to the logged-in user.
 
     ![Run the Page](images/run-app.png "")
 

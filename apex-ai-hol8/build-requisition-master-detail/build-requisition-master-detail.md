@@ -83,7 +83,7 @@ In this lab, you will:
 
     ![Page Designer with the Editable Candidates interactive grid region below Requisition Info.](images/add-editable-candidates-region.png ' ')
 
-3. In the Property Editor, switch to Attributes tab, and toggle the **Edit** > **Enabled** button to **ON**.
+3. In the Property Editor, switch to the Attributes tab, and toggle the **Edit** > **Enabled** button to **ON**.
 
     ![Editable Candidates interactive grid attributes with editing enabled.](images/enable-grid-editing.png ' ')
 
@@ -91,7 +91,7 @@ In this lab, you will:
 
     ![CANDIDATE_ID column attributes with Primary Key set to Yes.](images/set-candidate-id-primary-key.png ' ')
 
-6. In the left pane, under Candidates region, select the `CANDIDATE_ID`, `NAME`, and `APPLIED_DATE` columns and change the Type to **Display Only**.
+6. In the left pane, under the Candidates region, select the `CANDIDATE_ID`, `NAME`, and `APPLIED_DATE` columns and change the Type to **Display Only**.
 
     ![Editable Candidates interactive grid attributes with editing enabled and Candidate ID configured as the primary key.](images/editable-candidates-grid.png ' ')
 
