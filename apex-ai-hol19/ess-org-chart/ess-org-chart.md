@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Create an ESS page that displays active employees in their manager hierarchy. Each tree node shows the employee name and provides job and department details in a tooltip.
+In this lab, you create an ESS page that displays active employees in their manager hierarchy. Each tree node shows the employee name and provides job and department details in a tooltip.
 
 Estimated Time: 5 minutes
 

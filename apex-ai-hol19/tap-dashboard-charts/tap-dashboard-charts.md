@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Update Candidate Pipeline to accept a stage filter, then add a recruitment funnel and a time-to-hire trend to TAP Home.
+In this lab, you update Candidate Pipeline to accept a stage filter, then add a recruitment funnel and a time-to-hire trend to TAP Home.
 
 Estimated Time: 15 minutes
 

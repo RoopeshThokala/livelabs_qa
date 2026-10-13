@@ -9,22 +9,22 @@
     },
     {
       "title": "Lab 1: Enable and Install ESS as a PWA",
-      "filename": "../../1-enable-install-ess-pwa.md",
+      "filename": "../../1-enable-install-ess-pwa/1-enable-install-ess-pwa.md",
       "description": "Enable PWA support, configure installation details and an icon, and install ESS."
     },
     {
       "title": "Lab 2: Add PWA Shortcuts and Screenshots",
-      "filename": "../../2-add-pwa-shortcuts-screenshots.md",
+      "filename": "../../2-add-pwa-shortcuts-screenshots/2-add-pwa-shortcuts-screenshots.md",
       "description": "Add shortcuts to employee pages and Narrow screenshots for the installation experience."
     },
     {
       "title": "Lab 3: Enable Push Notifications",
-      "filename": "../../3-enable-push-notifications.md",
+      "filename": "../../3-enable-push-notifications/3-enable-push-notifications.md",
       "description": "Subscribe an employee device and extend the existing overdue task automation with a push notification action."
     },
     {
       "title": "Lab 4: Verify ESS on Mobile and Review APEX To Go",
-      "filename": "../../4-verify-mobile-review-apex-to-go.md",
+      "filename": "../../4-verify-mobile-review-apex-to-go/4-verify-mobile-review-apex-to-go.md",
       "description": "Verify responsive employee pages and record future mobile enhancement ideas."
     },
     {

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Add headcount, leave-distribution, and new-hire charts to the ESS Home page. Replace the default chart gallery sample series before you configure each chart.
+In this lab, you add headcount, leave-distribution, and new-hire charts to the ESS Home page. You then replace the default chart gallery sample series before you configure each chart.
 
 Estimated Time: 10 minutes
 

@@ -9,17 +9,17 @@
     },
     {
       "title": "Lab 1: CV Screening Agent in TAP",
-      "filename": "../../1-cv-screening-agent-tap.md",
+      "filename": "../../1-cv-screening-agent-tap/1-cv-screening-agent-tap.md",
       "description": "Create a tool-enabled CV Screening Agent and integrate it with Candidate Pipeline."
     },
     {
       "title": "Lab 2: Onboarding Assistant in ESS",
-      "filename": "../../2-onboarding-assistant-ess.md",
+      "filename": "../../2-onboarding-assistant-ess/2-onboarding-assistant-ess.md",
       "description": "Create an Onboarding Assistant that retrieves tasks, answers policy questions, and completes tasks safely."
     },
     {
       "title": "Lab 3: Weekly HR AI Summary",
-      "filename": "../../3-weekly-hr-ai-summary.md",
+      "filename": "../../3-weekly-hr-ai-summary/3-weekly-hr-ai-summary.md",
       "description": "Create an HR Admin-only summary region that turns current HR metrics into a concise weekly briefing."
     },
     {
