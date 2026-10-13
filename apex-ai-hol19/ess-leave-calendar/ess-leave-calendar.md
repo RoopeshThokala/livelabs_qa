@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Update the native ESS Leave Calendar so submitted and pending requests can be dragged to a new date, while approved, rejected, and public-holiday entries remain protected.
+In this lab, you update the native ESS Leave Calendar so submitted and pending requests can be dragged to a new date, while approved, rejected, and public-holiday entries remain protected.
 
 Estimated Time: 5 minutes
 

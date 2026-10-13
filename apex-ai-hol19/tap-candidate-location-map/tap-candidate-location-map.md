@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Add latitude and longitude data to candidates and use the native APEX Map page to display one point for each candidate location.
+In this lab, you add latitude and longitude data to candidates and use the native APEX Map page to display one point for each candidate location.
 
 Estimated Time: 5 minutes
 
