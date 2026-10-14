@@ -18,5 +18,5 @@ In this workshop, you will learn how to:
 
 ## Acknowledgements
 
-- **Author -** Aravind Madhavan, Senior Product Manager.
+- **Author** - Aravind Madhavan, Senior Product Manager.
 - **Last Updated By/Date** - Aravind Madhavan, Senior Product Manager, July 2026
