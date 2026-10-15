@@ -44,7 +44,7 @@ The REST Data Source retrieves public holiday data by year and country code. APE
 
     ![Enter Public Holidays endpoint](images/enter-public-holidays-endpoint.png)
 
-6. For Remote Server, leave everything as default and click **Next**.
+6. For Remote Server, leave all settings at their defaults and click **Next**.
 
     ![Review remote server URL path](images/review-remote-server-url-path.png)
 
@@ -69,7 +69,7 @@ The REST Data Source retrieves public holiday data by year and country code. APE
 
     ![Preview discovered holidays](images/preview-discovered-holidays.png)
 
-11. Click newly created REST Data Source **Public Holidays**
+11. Click the newly created REST Data Source **Public Holidays**.
 
     ![Confirm REST Data Source created](images/confirm-rest-data-source-created.png)
 
@@ -101,11 +101,11 @@ Data Synchronization stores the public holiday response in a local table. The ca
 
 6. Under Details, for Synchronization Type, select **Replace**.
 
-7. Beside **Synchronization Schedule**, click **settings icon**.
+7. Beside **Synchronization Schedule**, click the **settings icon**.
 
     ![Set Replace sync type](images/set-replace-sync-type.png)
 
-8. In Interval Builder, enter/select the following:
+8. In the Interval Builder, enter/select the following:
 
     - Frequency: **Weekly**
 

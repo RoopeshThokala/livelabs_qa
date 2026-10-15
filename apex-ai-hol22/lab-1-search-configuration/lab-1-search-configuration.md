@@ -91,7 +91,7 @@ In this lab, you will load the ONNX Models into your database.
 
 ## Task 3: Create the Oracle APEX Vector Provider
 
-1. From the left navigation menu, hover on **App Builder** and select **Workspace Utilities**, then **All Workspace Utilities**.
+1. From the left navigation menu, hover over **App Builder** and select **Workspace Utilities**, then **All Workspace Utilities**.
 
     ![Opening Vector Providers in Workspace Utilities](images/open-workspace-utilities.png)
 

@@ -47,4 +47,4 @@ In this workshop, you will:
 ## Acknowledgements
 
 - **Author** - Roopesh Thokala, Principal Product Manager & Shanmukh Kornana, Principal Product Manager
-- **Last Updated By/Date** - Shanmukh Kornana, July 2026
+- **Last Updated By/Date** - Shanmukh Kornana.

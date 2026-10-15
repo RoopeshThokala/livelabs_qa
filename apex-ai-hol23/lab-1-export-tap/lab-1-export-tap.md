@@ -18,14 +18,14 @@ Estimated Time: 10 minutes
 
 Export the TAP application to a local project.
 
-1. Navigate to SQL Developer extension, expand the connection you created and further expand APEX.
+1. Navigate to the SQL Developer extension, expand the connection you created and further expand APEX.
 
 2. Under APEX, you will find all the apps that are part of the schema. Right-click **Talent Acquisition Portal
 application** and select **Export**.
 
    ![Candidate Pipeline page file](images/click-export.png)
 
-3. Accept the default values, for Folder, click **Browse** and select the applications folder. Then, click **Apply**.
+3. Accept the default values. For Folder, click **Browse** and select the applications folder. Then, click **Apply**.
 
     ![Candidate Pipeline page file](images/folder-path.png)
 

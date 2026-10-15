@@ -42,7 +42,7 @@ To install the required Oracle APEX and database skills:
 
     You are now ready to start building APEX applications with APEXlang in your preferred AI coding agent.
 
-    Our skills are publically available at [https://github.com/oracle/skills](https://github.com/oracle/skills).  More advanced users may clone, fork or download them from there and install in their local agents.
+    Our skills are publicly available at [https://github.com/oracle/skills](https://github.com/oracle/skills).  More advanced users may clone, fork or download them from there and install them in their local agents.
 
 ## Acknowledgements
 

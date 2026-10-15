@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Create a Calendar page in ESS. A Calendar region displays leave requests for the signed-in employee. The **CSS Class** setting applies a different style to each request status.
+In this lab, you create a Calendar page in ESS. A Calendar region displays leave requests for the signed-in employee. The **CSS Class** setting applies a different style to each request status.
 
 Estimated Workshop Time: 10 minutes
 
@@ -26,14 +26,10 @@ In this lab, you will learn how to:
 
     ![Calendar option in the Create Page wizard](images/task-01-step-03-create-page.png)
 
-4. Enter **Leave Calendar** as the page name.
-
-    - Enable navigation and select **Leave** as the navigation parent.
-
-    - For **Data Source**, select **Local Database** and **SQL Query**.
-
-    - Enter the following query:
-
+4. In the Create Calendar wizard, enter/select the following:
+    - Name: **Leave Calendar**
+    - Source Type: **SQL Query**
+    - Enter a SQL SELECT statement:
         ```sql
         <copy>SELECT lr.request_id AS event_id,
                lt.name || ': ' || lr.status AS event_title,
@@ -49,6 +45,8 @@ In this lab, you will learn how to:
           JOIN tms_employees e ON e.employee_id = lr.employee_id
          WHERE UPPER(e.email) = UPPER(:APP_USER)</copy>
         ```
+    - Parent Navigation Menu Entry: **Leave**
+        
     ![Task 1: Select data source](images/task-01-step-04-select-data-source.png)
 
 5. Map the following columns:
@@ -62,11 +60,13 @@ In this lab, you will learn how to:
 
 ## Task 2: Style and link calendar events
 
-1. In the left pane, Click on the Page Name and in the **Property Editor**, scroll down to **CSS** and update the following:
+1. Update the page CSS:
+
+    - In the left pane, select the page name.
+    - In the **Property Editor**, scroll to **CSS**.
+    - Under **Inline**, copy and paste the following CSS:
 
     ![Task 2: Calendar CSS settings, part 1](images/task-02-step-01-add-css-01.png)
-
-    - **Inline:** Copy and paste the following CSS:
 
         ```css
         <copy>
@@ -85,17 +85,23 @@ In this lab, you will learn how to:
     - In the right pane, open the **Attributes** tab.
     - Under **Settings**, enter or select the following:
         - **View / Edit Link:** Click **No Link Defined** to open the link target dialog.
-            - **Target** > **Page:** `5`, **Leave Request**.
-            - Set `P5_REQUEST_ID` to `&EVENT_ID.`.
+            - Target > Page: **`5`** (**Leave Request**)
+            - Set Items:
+                - Name: **`P5_REQUEST_ID`**
+                - Value: **`&EVENT_ID.`**
             - Click **OK**.
-                ![Configure the Leave Request link target](images/task-02-step-02-edit-event.png)
 
-        - **CSS Classes:** `CSS_CLASS`.
+        ![Configure the Leave Request link target](images/task-02-step-02-edit-event.png)
+
+        - CSS Classes: **`CSS_CLASS`**
+
         ![Task 2: Select CSS class](images/task-02-step-02-select-css-class.png)
 
-3. Save and run the page.
+3. Verify the page results:
 
-    - Confirm that only the signed-in employee leave requests appear.
+    - Click **Save**.
+    - Run the page.
+    - Confirm that only the signed-in employee's leave requests appear.
 
 ## Acknowledgements
 

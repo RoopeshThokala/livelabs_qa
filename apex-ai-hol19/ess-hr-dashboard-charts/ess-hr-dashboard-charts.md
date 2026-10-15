@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Add headcount, leave-distribution, and new-hire charts to the ESS Home page. Replace the default chart gallery sample series before you configure each chart.
+In this lab, you add headcount, leave-distribution, and new-hire charts to the ESS Home page. You then replace the default chart gallery sample series before you configure each chart.
 
 Estimated Time: 10 minutes
 
@@ -16,14 +16,14 @@ In this lab, you will:
 
 ## Task 1: Add the Headcount chart
 
-1. Open ESS Home in Page Designer. Drag a **Chart** region under **Your Onboarding Progress** Metric Card region.
+1. Open ESS Home in Page Designer. Drag a **Chart** region under the **Your Onboarding Progress** Metric Card region.
 
     ![ESS Home Page Designer showing the Headcount by Department chart region.](images/insert-chart.png ' ')
 
 2.  Name it **Headcount by Department**.
     ![ESS Home Page Designer showing the Headcount by Department chart region.](images/create-headcount-chart.png ' ')
 
-3. Switch to Attributes tab and for Type, select Bar.
+3. Switch to the Attributes tab and for Type, select Bar.
     ![ESS Home Page Designer showing the Headcount by Department chart region.](images/bar-chart.png ' ')
 
 4. Replace the default Employees sample series with the following:
@@ -51,7 +51,7 @@ In this lab, you will:
 
     ![Leave Requests by Type pie chart with the legend enabled.](images/create-leave-distribution-chart.png ' ')
 
-2. Switch to Attributes tab. For type, select **Pie**.
+2. Switch to the Attributes tab. For type, select **Pie**.
     ![Leave Requests by Type pie chart with the legend enabled.](images/pie-chart.png ' ')
 
 3. Select the Series and enter/select the following:
@@ -85,10 +85,10 @@ In this lab, you will:
 
     ![New Hires line chart configured in the third dashboard column.](images/create-new-hires-chart.png ' ')
 
-6. Switch to Attributes tab, set Type to **Line**.
+6. Switch to the Attributes tab and set Type to **Line**.
     ![New Hires line chart configured in the third dashboard column.](images/line-chart.png ' ')
 
-6. Select the Series, enter/select the following:
+6. Select the Series and enter/select the following:
     - Name: **New Hires**
     - SQL Query:
     ```sql

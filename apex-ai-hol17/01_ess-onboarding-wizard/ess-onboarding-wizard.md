@@ -21,7 +21,7 @@ In this lab, you will:
 
 Before you create the wizard, add the database objects that store onboarding templates and employee onboarding details.
 
-1. In Oracle APEX workspace home page, go to **SQL Workshop**.
+1. On the Oracle APEX workspace home page, go to **SQL Workshop**.
 
     ![Open SQL Workshop](images/open-sql-workshop.png)
 
@@ -79,7 +79,7 @@ Before you create the wizard, add the database objects that store onboarding tem
 
 The wizard provides a guided, multi-step flow for onboarding data. APEX Collections hold the staged values until the user finishes the wizard.
 
-1. From the left navigation menu, select **App Builder** icon.
+1. From the left navigation menu, select the **App Builder** icon.
 
     ![Confirm database prerequisites](images/confirm-database-prerequisites.png)
 
@@ -91,7 +91,7 @@ The wizard provides a guided, multi-step flow for onboarding data. APEX Collecti
 
     ![Click Create Page](images/click-create-page.png)
 
-4. Under **Component** tab, select **Wizard**.
+4. Under the **Component** tab, select **Wizard**.
 
     ![Select Wizard component](images/select-wizard-component.png)
 
@@ -134,11 +134,11 @@ Step 1 collects personal information and initializes the collection. The collect
 
     ![Configure last name item](images/configure-last-name-item.png)
 
-5. For `P9_EMAIL` page item, select Subtype as **E-Mail** under Settings.
+5. For the `P9_EMAIL` page item, select Subtype as **E-Mail** under Settings.
 
     ![Configure email item](images/configure-email-item.png)
 
-6. Navigate to **Processing** tab, right-click **Processing** and select **Create Process**.
+6. Navigate to the **Processing** tab, right-click **Processing** and select **Create Process**.
 
     ![Create save personal information process](images/create-save-personal-info-process.png)
 
@@ -180,11 +180,11 @@ Step 1 collects personal information and initializes the collection. The collect
 
 Step 2 stores uploaded documents in the collection. Each document goes into a separate row, which keeps the collection easy to query and avoids bundling multiple documents into one BLOB.
 
-1. From the Page Designer toolbar, navigate to page selector and open **Step 2** in Page Designer.
+1. From the Page Designer toolbar, navigate to the page selector and open **Step 2** in Page Designer.
 
     ![Open Step 2 page](images/open-step2-page.png)
 
-2. Navigate to **Rendering** tab, right-click **Wizard Sub Regions** and select **Create Region**.
+2. Navigate to the **Rendering** tab, right-click **Wizard Sub Regions** and select **Create Region**.
 
     ![Create Step 2 document region](images/create-step2-document-region.png)
 
@@ -210,7 +210,7 @@ Step 2 stores uploaded documents in the collection. Each document goes into a se
 
     ![Configure tax form upload item](images/configure-tax-form-upload-item.png)
 
-6. Navigate to **Processing** tab, right-click **Processing** and select **Create Process**.
+6. Navigate to the **Processing** tab, right-click **Processing** and select **Create Process**.
 
     ![Create upload documents process](images/create-upload-docs-process.png)
 
@@ -274,7 +274,7 @@ Step 2 stores uploaded documents in the collection. Each document goes into a se
 
     ![Configure upload documents process](images/configure-upload-docs-process.png)
 
-8. Navigate back to **Rendering** tab. Below the file upload items, create an **Interactive Report** region.
+8. Navigate back to the **Rendering** tab. Below the file upload items, create an **Interactive Report** region.
 
     ![Review Step 2 upload process](images/review-step2-upload-process.png)
 
@@ -315,11 +315,11 @@ Step 2 stores uploaded documents in the collection. Each document goes into a se
 
 Step 3 shows the staged data, previews onboarding tasks, commits the data to the database, and removes the temporary collection.
 
-1. From the Page Designer toolbar, navigate to page selector and open **Step 3** in Page Designer.
+1. From the Page Designer toolbar, navigate to the page selector and open **Step 3** in Page Designer.
 
     ![Open Step 3 page](images/open-step3-page.png)
 
-2. Now, we will create a **Classic Report** for profile summary. Right-click **Wizard Sub Regions** and select **Create Region**.
+2. Now, we will create a **Classic Report** for the profile summary. Right-click **Wizard Sub Regions** and select **Create Region**.
 
     ![Create Step 3 summary region](images/create-step3-summary-region.png)
 
@@ -388,7 +388,7 @@ Step 3 shows the staged data, previews onboarding tasks, commits the data to the
 
     ![Configure upcoming tasks report](images/configure-upcoming-tasks-report.png)
 
-6. Navigate to **Processing** tab, right-click **Processing** and select **Create Process**.
+6. Navigate to the **Processing** tab, right-click **Processing** and select **Create Process**.
 
 7. In the Property Editor, enter/select the following:
 

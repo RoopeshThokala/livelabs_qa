@@ -14,19 +14,7 @@ In this lab, you will:
 - Populate the report from the candidate data set.
 - Enable CSV, Excel, and PDF downloads.
 
-### Downloads
-
-Stuck or Missed out on completing the previous labs? Don't worry! You can download the following application:
-
-- **<a href="../introduction/files/tap-export2.sql" download="tap-export2.sql">Talent Acquisition Portal</a>**
-
-Import it into your workspace. In **App Builder**, select **Import**, upload `tap-export2.sql`, and follow the steps in the **Import Application** wizard.
-
-> **Note:** Supporting objects are already loaded in the workspace.
->
-> **AI Configuration:** Configure a Generative AI Service in the workspace and select it under **Shared Components > AI Attributes** for the application. See **Module 1, Lab 2: Configure Generative AI Service**.
-
-## Task 1: Update the Candidates Interactive Report
+## Task 1: Add the Interactive Report
 
 Add the report alongside the existing Cards region.
 
@@ -34,13 +22,17 @@ Add the report alongside the existing Cards region.
 
     ![Open Candidate Pipeline page](./images/open-candidate-pipeline.png " ")
 
-2. In the Rendering Tree, under **Body**, select the existing **Candidates** region.
+2. Add a second region. Right click on Body and select **Create Region**.
 
-3. In the Rendering Tree, select the **New** region. In the Property Editor, enter or select the following properties:
+    ![Create Region](images/create-region.png "")
 
+3. In the Rendering Tab, select the **New** region. In the Property Editor, enter/select the following properties:
+    - Under Identification:
+        - Name: **Candidates**
+        - Type: **Interactive Report**
     - Under Source:
         - Type: **SQL Query**
-        - SQL Query: **Replace the existing query with the following query**
+        - SQL Query: **Enter the Following Query**
             ```sql
             <copy>
                 SELECT
@@ -60,19 +52,15 @@ Add the report alongside the existing Cards region.
                     DIVERSITY_FLAG,
                     AI_SCORE,
                     CREATED_BY,
-                    CREATED,
+                    CREATED_AT,
                     UPDATED_BY,
-                    UPDATED
+                    UPDATED_AT
                 FROM
                     TMS_CANDIDATES
             </copy>
             ```
 
     ![Enter or Select IR properties](images/enter-ir-properties.png "")
-
-4. In the Rendering Tree, under **Columns**, select **CANDIDATE_ID**. Then, in the property Editor, set Identification Type as **Plain Text**.
-
-    ![Set Candidate ID Property Type as Plain Text](images/set-candidate-id-as-plain-text.png "")
 
 ## Task 2: Enable downloads and verify the report
 
@@ -96,5 +84,5 @@ You now have a Candidate Pipeline report that complements the Cards view. Recrui
 
 ## Acknowledgements
 
-* **Author** - Roopesh Thokala, Principal Product Manager
-* **Last Updated By/Date** - Roopesh Thokala, July 29, 2026
+* **Author** - Roopesh Thokala, Principal product manager
+* **Last Updated By/Date** - Roopesh Thokala, July, 2026
