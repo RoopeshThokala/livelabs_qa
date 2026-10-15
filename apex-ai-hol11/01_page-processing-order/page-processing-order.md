@@ -15,6 +15,18 @@ In this lab, you will:
 - Identify where computations, validations, processes, and branches execute.
 - Understand why processing order is important when troubleshooting page behavior.
 
+### Downloads
+
+Stuck or Missed out on completing the previous labs? Don't worry! You can download the following application:
+
+- **<a href="../00-introduction/files/tap-export5.sql" download="tap-export5.sql">Talent Acquisition Portal</a>**
+
+Import it into your workspace. In **App Builder**, select **Import**, upload `tap-export5.sql`, and follow the steps in the **Import Application** wizard.
+
+> **Note:** Supporting objects are already loaded in the workspace.
+>
+> **AI Configuration:** Configure a Generative AI Service in the workspace and select it under **Shared Components > AI Attributes** for the application. See **Module 1, Lab 2: Configure Generative AI Service**.
+
 ## Task 1: Explore Pre-Rendering Processes
 
 Pre-rendering processes execute before APEX displays the page. These processes prepare data, initialize page items, and control what the user sees when the page loads.

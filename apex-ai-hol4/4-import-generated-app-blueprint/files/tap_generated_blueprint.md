@@ -1,0 +1,1626 @@
+# Provenance
+- Source Prompt: blueprint_prompt.md (v26.1.220)
+- Functional Requirements: tms_module_04_functional_spec.md
+- Schema Metadata: tap_schema_metadata.md
+- UX Patterns: Built-in
+# Application Definition
+- Name: Talent Acquisition Portal - APEXlang Comparison
+- Description: Talent Acquisition Portal - APEXlang Comparison application for TMS_CANDIDATES, TMS_DEPARTMENTS, TMS_INTERVIEW_STAGES, TMS_JOBS, TMS_JOB_REQUISITIONS, TMS_OFFERS, TMS_EMPLOYEES maintenance, hierarchy browsing, reporting, and KPI analytics.
+- Comments: Uses TMS_CANDIDATES, TMS_DEPARTMENTS, TMS_INTERVIEW_STAGES, TMS_JOBS, TMS_JOB_REQUISITIONS, TMS_OFFERS, TMS_EMPLOYEES only for maintenance, hierarchy browsing, reporting, and KPI analytics.
+- Primary Application Language: en
+- Home Page: Page 1
+- Access Controls:
+  - Roles:
+    - Role: Recruiter
+      - Description: Manages requisitions, candidates, interviews, and offers in the recruiting workflow.
+    - Role: Hiring Manager
+      - Description: Reviews requisitions, candidates, interview outcomes, and offer status.
+    - Role: HR Administrator
+      - Description: Maintains all recruiting data and reviews the full talent pipeline.
+- List of Values:
+  - LOV
+    - Name: LOV_TMS_JOBS_TITLE
+    - Type: Table
+    - Table Name: TMS_JOBS
+    - Display: TITLE
+    - Return: JOB_ID
+  - LOV
+    - Name: LOV_TMS_DEPARTMENTS_NAME
+    - Type: Table
+    - Table Name: TMS_DEPARTMENTS
+    - Display: NAME
+    - Return: DEPT_ID
+  - LOV
+    - Name: LOV_REQUISITION_STATUS
+    - Type: Static
+    - Entries:
+      - Entry:
+        - Display: Draft
+        - Return: Draft
+      - Entry:
+        - Display: Pending Approval
+        - Return: Pending Approval
+      - Entry:
+        - Display: Open
+        - Return: Open
+      - Entry:
+        - Display: Filled
+        - Return: Filled
+      - Entry:
+        - Display: Cancelled
+        - Return: Cancelled
+      - Entry:
+        - Display: Closed
+        - Return: Closed
+  - LOV
+    - Name: LOV_TMS_JOB_REQUISITIONS_REQ_ID
+    - Type: Table
+    - Table Name: TMS_JOB_REQUISITIONS
+    - Display: REQ_ID
+    - Return: REQ_ID
+  - LOV
+    - Name: LOV_CANDIDATE_STAGE
+    - Type: Static
+    - Entries:
+      - Entry:
+        - Display: Applied
+        - Return: Applied
+      - Entry:
+        - Display: Screening
+        - Return: Screening
+      - Entry:
+        - Display: Interview
+        - Return: Interview
+      - Entry:
+        - Display: Offer
+        - Return: Offer
+      - Entry:
+        - Display: Hired
+        - Return: Hired
+      - Entry:
+        - Display: Rejected
+        - Return: Rejected
+  - LOV
+    - Name: LOV_TMS_CANDIDATES_EMAIL
+    - Type: Table
+    - Table Name: TMS_CANDIDATES
+    - Display: EMAIL
+    - Return: CANDIDATE_ID
+  - LOV
+    - Name: LOV_TMS_EMPLOYEES_EMAIL
+    - Type: Table
+    - Table Name: TMS_EMPLOYEES
+    - Display: EMAIL
+    - Return: EMPLOYEE_ID
+  - LOV
+    - Name: LOV_INTERVIEW_OUTCOME
+    - Type: Static
+    - Entries:
+      - Entry:
+        - Display: Scheduled
+        - Return: Scheduled
+      - Entry:
+        - Display: Proceed
+        - Return: Proceed
+      - Entry:
+        - Display: Hold
+        - Return: Hold
+      - Entry:
+        - Display: Rejected
+        - Return: Rejected
+      - Entry:
+        - Display: No Show
+        - Return: No Show
+      - Entry:
+        - Display: Completed
+        - Return: Completed
+      - Entry:
+        - Display: Cancelled
+        - Return: Cancelled
+  - LOV
+    - Name: LOV_OFFER_STATUS
+    - Type: Static
+    - Entries:
+      - Entry:
+        - Display: Draft
+        - Return: Draft
+      - Entry:
+        - Display: Pending Approval
+        - Return: Pending Approval
+      - Entry:
+        - Display: Sent
+        - Return: Sent
+      - Entry:
+        - Display: Accepted
+        - Return: Accepted
+      - Entry:
+        - Display: Rejected
+        - Return: Rejected
+      - Entry:
+        - Display: Expired
+        - Return: Expired
+      - Entry:
+        - Display: Withdrawn
+        - Return: Withdrawn
+- Page Groups
+  - Page Group
+    - Name: Dashboard
+    - Description: Recruiting overview and pipeline analytics.
+  - Page Group
+    - Name: Organization Setup
+    - Description: Requisition, job, and department review and maintenance.
+  - Page Group
+    - Name: Candidate Management
+    - Description: Candidate, interview, and offer workflow review and maintenance.
+- Menu
+  - Menu Name: Navigation Menu
+  - Entries:
+    - Entry
+      - Label: Home
+      - Icon: fa-home
+      - Action: Navigate
+      - Target: Page 1
+      - Authorized Roles: Recruiter, Hiring Manager, HR Administrator
+    - Entry
+      - Label: Job Requisitions
+      - Icon: fa-briefcase
+      - Action: Navigate
+      - Target: Page 2
+      - Authorized Roles: Recruiter, Hiring Manager, HR Administrator
+    - Entry
+      - Label: Jobs
+      - Icon: fa-briefcase
+      - Action: Navigate
+      - Target: Page 4
+      - Authorized Roles: Recruiter, Hiring Manager, HR Administrator
+    - Entry
+      - Label: Departments
+      - Icon: fa-building
+      - Action: Navigate
+      - Target: Page 6
+      - Authorized Roles: Recruiter, Hiring Manager, HR Administrator
+    - Entry
+      - Label: Candidate Pipeline
+      - Icon: fa-users
+      - Action: Navigate
+      - Target: Page 8
+      - Authorized Roles: Recruiter, Hiring Manager, HR Administrator
+    - Entry
+      - Label: Interview Schedule
+      - Icon: fa-calendar
+      - Action: Navigate
+      - Target: Page 10
+      - Authorized Roles: Recruiter, Hiring Manager, HR Administrator
+    - Entry
+      - Label: Offers
+      - Icon: fa-file-text
+      - Action: Navigate
+      - Target: Page 12
+      - Authorized Roles: Recruiter, Hiring Manager, HR Administrator
+- Breadcrumb
+  - Name: Breadcrumb
+  - Entries:
+    - Entry
+      - Name: Home
+      - Page: Page 1
+    - Entry
+      - Name: Job Requisitions
+      - Page: Page 2
+    - Entry
+      - Name: Jobs
+      - Page: Page 4
+    - Entry
+      - Name: Departments
+      - Page: Page 6
+    - Entry
+      - Name: Candidate Pipeline
+      - Page: Page 8
+    - Entry
+      - Name: Interview Schedule
+      - Page: Page 10
+    - Entry
+      - Name: Offers
+      - Page: Page 12
+## Pages
+### Page 1: Home
+- Description: Read-only recruiting dashboard with summary metrics and pipeline charts.
+- Comments: Gives all recruiting users a read-only operational snapshot of workload, candidates, interviews, and offers.
+- Pattern: metric-chart-two-up
+- Page Mode: standard
+- Menu: true
+- Page Group: Dashboard
+- Security Requirements:
+  - Authorized Roles: Recruiter, Hiring Manager, HR Administrator
+#### Regions
+##### Region: Open Requisitions KPI
+- Comments: Shows currently open hiring requests for dashboard review of active recruiting demand.
+- Position: body
+- Colstart: 1
+- Colspan: 6
+- Component:
+  - Component Type: Metric Card
+- Metric Subtitle: Currently open hiring requests
+- Metric Icon: fa-briefcase
+- Metric Icon Style: subtle
+- Data Source:
+  - Type: SQL
+  - SQL:
+```sql
+select count(*) as open_requisition_count
+from TMS_JOB_REQUISITIONS r
+where r.STATUS = 'Open'
+```
+  - Summary: Counts requisitions whose current status is Open.
+- Columns:
+  - Column Name: open_requisition_count
+    - Label: Open Requisitions
+    - Datatype: number
+    - Render As: metric
+    - Visible: true
+    - Format Mask: 999G999G999G999G990
+##### Region: Active Candidates KPI
+- Comments: Shows candidates still moving through the recruiting workflow rather than completed outcomes.
+- Position: body
+- Colstart: 7
+- Colspan: 6
+- Component:
+  - Component Type: Metric Card
+- Metric Subtitle: Excludes hired and rejected candidates
+- Metric Icon: fa-users
+- Metric Icon Style: subtle
+- Data Source:
+  - Type: SQL
+  - SQL:
+```sql
+select count(*) as active_candidate_count
+from TMS_CANDIDATES c
+where c.CURRENT_STAGE not in ('Hired', 'Rejected')
+```
+  - Summary: Counts candidates in active recruiting stages.
+- Columns:
+  - Column Name: active_candidate_count
+    - Label: Active Candidates
+    - Datatype: number
+    - Render As: metric
+    - Visible: true
+    - Format Mask: 999G999G999G999G990
+##### Region: Candidates in Interview Stage KPI
+- Comments: Shows candidates currently in the interview stage for recruiting workload monitoring.
+- Position: body
+- Colstart: 1
+- Colspan: 6
+- Component:
+  - Component Type: Metric Card
+- Metric Subtitle: Candidates in the Interview stage
+- Metric Icon: fa-calendar
+- Metric Icon Style: subtle
+- Data Source:
+  - Type: SQL
+  - SQL:
+```sql
+select count(*) as interview_stage_candidate_count
+from TMS_CANDIDATES c
+where c.CURRENT_STAGE = 'Interview'
+```
+  - Summary: Counts candidates whose current stage is Interview.
+- Columns:
+  - Column Name: interview_stage_candidate_count
+    - Label: Candidates in Interview Stage
+    - Datatype: number
+    - Render As: metric
+    - Visible: true
+    - Format Mask: 999G999G999G999G990
+##### Region: Offers Sent or Pending Approval KPI
+- Comments: Shows offers awaiting approval or candidate response for offer workflow monitoring.
+- Position: body
+- Colstart: 7
+- Colspan: 6
+- Component:
+  - Component Type: Metric Card
+- Metric Subtitle: Sent or pending approval offers
+- Metric Icon: fa-file-text
+- Metric Icon Style: subtle
+- Data Source:
+  - Type: SQL
+  - SQL:
+```sql
+select count(*) as pending_or_sent_offer_count
+from TMS_OFFERS o
+where o.STATUS in ('Sent', 'Pending Approval')
+```
+  - Summary: Counts offers in the pending approval or sent statuses.
+- Columns:
+  - Column Name: pending_or_sent_offer_count
+    - Label: Offers Sent or Pending Approval
+    - Datatype: number
+    - Render As: metric
+    - Visible: true
+    - Format Mask: 999G999G999G999G990
+##### Region: Candidates by Current Stage Chart
+- Comments: Displays the candidate pipeline distribution to support stage-based recruiting review.
+- Position: body
+- Colstart: 1
+- Colspan: 6
+- Component:
+  - Component Type: Chart
+  - Qualifier: Donut
+- Data Source:
+  - Type: SQL
+  - SQL:
+```sql
+select c.CURRENT_STAGE as label
+     , count(*) as value
+from TMS_CANDIDATES c
+group by c.CURRENT_STAGE
+order by value desc
+```
+  - Summary: Groups candidates by their current hiring stage.
+- Columns:
+  - Column Name: label
+    - Label: Current Stage
+    - Datatype: varchar2
+    - Render As: label
+  - Column Name: value
+    - Label: Candidate Count
+    - Datatype: number
+    - Render As: value
+##### Region: Requisitions by Status Chart
+- Comments: Displays requisition status distribution for hiring demand and approval workflow review.
+- Position: body
+- Colstart: 7
+- Colspan: 6
+- Component:
+  - Component Type: Chart
+  - Qualifier: Bar
+- Data Source:
+  - Type: SQL
+  - SQL:
+```sql
+select r.STATUS as label
+     , count(*) as value
+from TMS_JOB_REQUISITIONS r
+group by r.STATUS
+order by value desc
+```
+  - Summary: Groups job requisitions by status.
+- Columns:
+  - Column Name: label
+    - Label: Requisition Status
+    - Datatype: varchar2
+    - Render As: label
+  - Column Name: value
+    - Label: Requisition Count
+    - Datatype: number
+    - Render As: value
+##### Region: Offers by Status Chart
+- Comments: Displays offer status distribution for pending, accepted, and historical offer review.
+- Position: body
+- Colstart: 1
+- Colspan: 6
+- Component:
+  - Component Type: Chart
+  - Qualifier: Donut
+- Data Source:
+  - Type: SQL
+  - SQL:
+```sql
+select o.STATUS as label
+     , count(*) as value
+from TMS_OFFERS o
+group by o.STATUS
+order by value desc
+```
+  - Summary: Groups candidate offers by status.
+- Columns:
+  - Column Name: label
+    - Label: Offer Status
+    - Datatype: varchar2
+    - Render As: label
+  - Column Name: value
+    - Label: Offer Count
+    - Datatype: number
+    - Render As: value
+##### Region: Candidates by Source Chart
+- Comments: Displays candidate sourcing distribution for recruiting channel and pipeline review.
+- Position: body
+- Colstart: 7
+- Colspan: 6
+- Component:
+  - Component Type: Chart
+  - Qualifier: Bar
+- Data Source:
+  - Type: SQL
+  - SQL:
+```sql
+select c.SOURCE as label
+     , count(*) as value
+from TMS_CANDIDATES c
+group by c.SOURCE
+order by value desc
+```
+  - Summary: Groups candidates by their recorded source.
+- Columns:
+  - Column Name: label
+    - Label: Candidate Source
+    - Datatype: varchar2
+    - Render As: label
+  - Column Name: value
+    - Label: Candidate Count
+    - Datatype: number
+    - Render As: value
+### Page 2: Job Requisitions
+- Description: Interactive report of requisitions by status with create and edit access.
+- Comments: Lets users review requisitions, identify open demand, and navigate authorized maintenance work.
+- Pattern: metric-grid
+- Page Mode: standard
+- Menu: true
+- Page Group: Organization Setup
+- Security Requirements:
+  - Authorized Roles: Recruiter, Hiring Manager, HR Administrator
+#### Regions
+##### Region: Job Requisitions Report
+- Comments: Provides filtering, sorting, and authorized edit drill-down for requisition workflow management.
+- Position: body
+- Colstart: 1
+- Colspan: 12
+- Component:
+  - Component Type: Interactive Report
+- Data Source:
+  - Type: Table
+  - Name: TMS_JOB_REQUISITIONS
+  - Primary Keys: REQ_ID
+  - Order By: OPEN_DATE desc
+  - Summary: Lists job requisitions with hiring status and date details.
+- Columns:
+  - Column Name: REQ_ID
+    - Label: Requisition ID
+    - Datatype: number
+    - Render As: hidden
+    - Visible: false
+  - Column Name: JOB_ID
+    - Label: Job
+    - Datatype: number
+    - Render As: plainTextBasedOnLov
+    - LOV: LOV_TMS_JOBS_TITLE
+    - Visible: true
+  - Column Name: DEPT_ID
+    - Label: Department
+    - Datatype: number
+    - Render As: plainTextBasedOnLov
+    - LOV: LOV_TMS_DEPARTMENTS_NAME
+    - Visible: true
+  - Column Name: REQUESTED_BY
+    - Label: Requested By
+    - Datatype: varchar2
+    - Render As: plainText
+    - Visible: true
+  - Column Name: APPROVED_BY
+    - Label: Approved By
+    - Datatype: varchar2
+    - Render As: plainText
+    - Visible: true
+  - Column Name: HEADCOUNT
+    - Label: Headcount
+    - Datatype: number
+    - Render As: plainText
+    - Visible: true
+    - Format Mask: 999G999G999G999G990
+  - Column Name: STATUS
+    - Label: Status
+    - Datatype: varchar2
+    - Render As: plainTextBasedOnLov
+    - LOV: LOV_REQUISITION_STATUS
+    - Visible: true
+  - Column Name: OPEN_DATE
+    - Label: Open Date
+    - Datatype: date
+    - Render As: plainText
+    - Visible: true
+  - Column Name: CLOSE_DATE
+    - Label: Close Date
+    - Datatype: date
+    - Render As: plainText
+    - Visible: true
+- Links:
+  - Link:
+    - Link To: Page 3
+    - Link Passing: REQ_ID
+    - Link Target Items: P3_REQ_ID
+    - Label: Edit
+    - Link Icon: fa-edit
+    - Authorized Roles: Recruiter, HR Administrator
+- Actions:
+  - Action
+    - Label: Create Requisition
+    - Link To: Page 3
+    - slot: CREATE
+    - Action Type: navigate
+    - Authorized Roles: Recruiter, HR Administrator
+### Page 3: Requisition Form
+- Description: Modal form for requisitions with headcount above zero and valid close dates.
+- Comments: Captures authorized requisition maintenance with required request, status, and date workflow controls.
+- Pattern: modal-drawer
+- Page Mode: modalDialog
+- Menu: false
+- Page Group: Organization Setup
+- Security Requirements:
+  - Authorized Roles: Recruiter, HR Administrator
+#### Regions
+##### Region: Requisition Form
+- Comments: Maintains requisitions and validates headcount above zero and close date on or after open date.
+- Position: body
+- Colstart: 1
+- Colspan: 12
+- Component:
+  - Component Type: Form
+- Data Source:
+  - Type: Table
+  - Name: TMS_JOB_REQUISITIONS
+  - Primary Keys: REQ_ID
+  - Summary: Maintains one job requisition record.
+- Columns:
+  - Column Name: REQ_ID
+    - Label: Requisition ID
+    - Datatype: number
+    - Page Item Name: P3_REQ_ID
+    - Render As: hidden
+  - Column Name: JOB_ID
+    - Label: Job
+    - Datatype: number
+    - Page Item Name: P3_JOB_ID
+    - Render As: selectList
+    - LOV: LOV_TMS_JOBS_TITLE
+    - Required: true
+  - Column Name: DEPT_ID
+    - Label: Department
+    - Datatype: number
+    - Page Item Name: P3_DEPT_ID
+    - Render As: selectList
+    - LOV: LOV_TMS_DEPARTMENTS_NAME
+    - Required: true
+  - Column Name: REQUESTED_BY
+    - Label: Requested By
+    - Datatype: varchar2
+    - Page Item Name: P3_REQUESTED_BY
+    - Render As: textField
+    - Required: true
+    - MaxLength: 255
+  - Column Name: APPROVED_BY
+    - Label: Approved By
+    - Datatype: varchar2
+    - Page Item Name: P3_APPROVED_BY
+    - Render As: textField
+    - MaxLength: 255
+  - Column Name: HEADCOUNT
+    - Label: Headcount
+    - Datatype: number
+    - Page Item Name: P3_HEADCOUNT
+    - Render As: numberField
+    - Required: true
+  - Column Name: STATUS
+    - Label: Status
+    - Datatype: varchar2
+    - Page Item Name: P3_STATUS
+    - Render As: selectList
+    - LOV: LOV_REQUISITION_STATUS
+    - Required: true
+    - MaxLength: 30
+  - Column Name: OPEN_DATE
+    - Label: Open Date
+    - Datatype: date
+    - Page Item Name: P3_OPEN_DATE
+    - Render As: datePicker
+    - Required: true
+  - Column Name: CLOSE_DATE
+    - Label: Close Date
+    - Datatype: date
+    - Page Item Name: P3_CLOSE_DATE
+    - Render As: datePicker
+- Actions:
+  - Action
+    - Label: Create
+    - slot: CREATE
+    - Action Type: submit
+    - Process: Create
+  - Action
+    - Label: Apply Changes
+    - slot: CHANGE
+    - Action Type: submit
+    - Process: Apply
+  - Action
+    - Label: Delete
+    - slot: DELETE
+    - Action Type: submit
+    - Process: Delete
+  - Action
+    - Label: Cancel
+    - slot: CLOSE
+    - Action Type: navigate
+    - Process: cancelDialog
+### Page 4: Jobs
+- Description: Interactive report of job roles and salary ranges.
+- Comments: Lets recruiting users review job roles while restricting job maintenance to HR administrators.
+- Pattern: metric-grid
+- Page Mode: standard
+- Menu: true
+- Page Group: Organization Setup
+- Security Requirements:
+  - Authorized Roles: Recruiter, Hiring Manager, HR Administrator
+#### Regions
+##### Region: Jobs Report
+- Comments: Provides filtering, sorting, and authorized edit drill-down for job role and salary range data.
+- Position: body
+- Colstart: 1
+- Colspan: 12
+- Component:
+  - Component Type: Interactive Report
+- Data Source:
+  - Type: Table
+  - Name: TMS_JOBS
+  - Primary Keys: JOB_ID
+  - Summary: Lists jobs with department and salary range details.
+- Columns:
+  - Column Name: JOB_ID
+    - Label: Job ID
+    - Datatype: number
+    - Render As: hidden
+    - Visible: false
+  - Column Name: DEPT_ID
+    - Label: Department
+    - Datatype: number
+    - Render As: plainTextBasedOnLov
+    - LOV: LOV_TMS_DEPARTMENTS_NAME
+    - Visible: true
+  - Column Name: TITLE
+    - Label: Title
+    - Datatype: varchar2
+    - Render As: plainText
+    - Visible: true
+  - Column Name: MIN_SALARY
+    - Label: Minimum Salary
+    - Datatype: number
+    - Render As: plainText
+    - Visible: true
+    - Format Mask: 999G999G999G999G990D00
+  - Column Name: MAX_SALARY
+    - Label: Maximum Salary
+    - Datatype: number
+    - Render As: plainText
+    - Visible: true
+    - Format Mask: 999G999G999G999G990D00
+- Links:
+  - Link:
+    - Link To: Page 5
+    - Link Passing: JOB_ID
+    - Link Target Items: P5_JOB_ID
+    - Label: Edit
+    - Link Icon: fa-edit
+    - Authorized Roles: HR Administrator
+- Actions:
+  - Action
+    - Label: Create Job
+    - Link To: Page 5
+    - slot: CREATE
+    - Action Type: navigate
+    - Authorized Roles: HR Administrator
+### Page 5: Job Form
+- Description: Modal form for job maintenance with a maximum salary no less than minimum salary.
+- Comments: Captures HR job maintenance with required title, department, and salary range controls.
+- Pattern: modal-drawer
+- Page Mode: modalDialog
+- Menu: false
+- Page Group: Organization Setup
+- Security Requirements:
+  - Authorized Roles: HR Administrator
+#### Regions
+##### Region: Job Form
+- Comments: Maintains job data and validates maximum salary is not below minimum salary.
+- Position: body
+- Colstart: 1
+- Colspan: 12
+- Component:
+  - Component Type: Form
+- Data Source:
+  - Type: Table
+  - Name: TMS_JOBS
+  - Primary Keys: JOB_ID
+  - Summary: Maintains one job record.
+- Columns:
+  - Column Name: JOB_ID
+    - Label: Job ID
+    - Datatype: number
+    - Page Item Name: P5_JOB_ID
+    - Render As: hidden
+  - Column Name: DEPT_ID
+    - Label: Department
+    - Datatype: number
+    - Page Item Name: P5_DEPT_ID
+    - Render As: selectList
+    - LOV: LOV_TMS_DEPARTMENTS_NAME
+    - Required: true
+  - Column Name: TITLE
+    - Label: Title
+    - Datatype: varchar2
+    - Page Item Name: P5_TITLE
+    - Render As: textField
+    - Required: true
+    - MaxLength: 150
+  - Column Name: MIN_SALARY
+    - Label: Minimum Salary
+    - Datatype: number
+    - Page Item Name: P5_MIN_SALARY
+    - Render As: numberField
+    - Format Mask: 999G999G999G999G990D00
+  - Column Name: MAX_SALARY
+    - Label: Maximum Salary
+    - Datatype: number
+    - Page Item Name: P5_MAX_SALARY
+    - Render As: numberField
+    - Format Mask: 999G999G999G999G990D00
+- Actions:
+  - Action
+    - Label: Create
+    - slot: CREATE
+    - Action Type: submit
+    - Process: Create
+  - Action
+    - Label: Apply Changes
+    - slot: CHANGE
+    - Action Type: submit
+    - Process: Apply
+  - Action
+    - Label: Delete
+    - slot: DELETE
+    - Action Type: submit
+    - Process: Delete
+  - Action
+    - Label: Cancel
+    - slot: CLOSE
+    - Action Type: navigate
+    - Process: cancelDialog
+### Page 6: Departments
+- Description: Interactive report of departments linked to jobs and requisitions.
+- Comments: Lets users review department ownership while restricting department maintenance to HR administrators.
+- Pattern: metric-grid
+- Page Mode: standard
+- Menu: true
+- Page Group: Organization Setup
+- Security Requirements:
+  - Authorized Roles: Recruiter, Hiring Manager, HR Administrator
+#### Regions
+##### Region: Departments Report
+- Comments: Provides filtering, sorting, and authorized edit drill-down for department reference data.
+- Position: body
+- Colstart: 1
+- Colspan: 12
+- Component:
+  - Component Type: Interactive Report
+- Data Source:
+  - Type: Table
+  - Name: TMS_DEPARTMENTS
+  - Primary Keys: DEPT_ID
+  - Summary: Lists departments used by jobs and job requisitions.
+- Columns:
+  - Column Name: DEPT_ID
+    - Label: Department ID
+    - Datatype: number
+    - Render As: hidden
+    - Visible: false
+  - Column Name: NAME
+    - Label: Name
+    - Datatype: varchar2
+    - Render As: plainText
+    - Visible: true
+  - Column Name: MANAGER_ID
+    - Label: Manager ID
+    - Datatype: number
+    - Render As: plainText
+    - Visible: true
+  - Column Name: LOCATION
+    - Label: Location
+    - Datatype: varchar2
+    - Render As: plainText
+    - Visible: true
+  - Column Name: COLOR
+    - Label: Color
+    - Datatype: varchar2
+    - Render As: plainText
+    - Visible: true
+- Links:
+  - Link:
+    - Link To: Page 7
+    - Link Passing: DEPT_ID
+    - Link Target Items: P7_DEPT_ID
+    - Label: Edit
+    - Link Icon: fa-edit
+    - Authorized Roles: HR Administrator
+- Actions:
+  - Action
+    - Label: Create Department
+    - Link To: Page 7
+    - slot: CREATE
+    - Action Type: navigate
+    - Authorized Roles: HR Administrator
+### Page 7: Department Form
+- Description: Modal form for department maintenance with a unique required department name.
+- Comments: Captures HR department maintenance with required name and uniqueness controls.
+- Pattern: modal-drawer
+- Page Mode: modalDialog
+- Menu: false
+- Page Group: Organization Setup
+- Security Requirements:
+  - Authorized Roles: HR Administrator
+#### Regions
+##### Region: Department Form
+- Comments: Maintains department data and validates department name uniqueness before save.
+- Position: body
+- Colstart: 1
+- Colspan: 12
+- Component:
+  - Component Type: Form
+- Data Source:
+  - Type: Table
+  - Name: TMS_DEPARTMENTS
+  - Primary Keys: DEPT_ID
+  - Summary: Maintains one department record.
+- Columns:
+  - Column Name: DEPT_ID
+    - Label: Department ID
+    - Datatype: number
+    - Page Item Name: P7_DEPT_ID
+    - Render As: hidden
+  - Column Name: NAME
+    - Label: Name
+    - Datatype: varchar2
+    - Page Item Name: P7_NAME
+    - Render As: textField
+    - Required: true
+    - MaxLength: 100
+  - Column Name: MANAGER_ID
+    - Label: Manager ID
+    - Datatype: number
+    - Page Item Name: P7_MANAGER_ID
+    - Render As: numberField
+  - Column Name: LOCATION
+    - Label: Location
+    - Datatype: varchar2
+    - Page Item Name: P7_LOCATION
+    - Render As: textField
+    - MaxLength: 150
+  - Column Name: COLOR
+    - Label: Color
+    - Datatype: varchar2
+    - Page Item Name: P7_COLOR
+    - Render As: textField
+    - MaxLength: 30
+- Actions:
+  - Action
+    - Label: Create
+    - slot: CREATE
+    - Action Type: submit
+    - Process: Create
+  - Action
+    - Label: Apply Changes
+    - slot: CHANGE
+    - Action Type: submit
+    - Process: Apply
+  - Action
+    - Label: Delete
+    - slot: DELETE
+    - Action Type: submit
+    - Process: Delete
+  - Action
+    - Label: Cancel
+    - slot: CLOSE
+    - Action Type: navigate
+    - Process: cancelDialog
+### Page 8: Candidate Pipeline
+- Description: Interactive candidate pipeline report by requisition and hiring stage.
+- Comments: Lets users track candidate progression, find Offer or Hired stages, and open authorized maintenance.
+- Pattern: metric-grid
+- Page Mode: standard
+- Menu: true
+- Page Group: Candidate Management
+- Security Requirements:
+  - Authorized Roles: Recruiter, Hiring Manager, HR Administrator
+#### Regions
+##### Region: Candidate Pipeline Report
+- Comments: Provides requisition and stage analysis with filtering, sorting, and authorized candidate edit drill-down.
+- Position: body
+- Colstart: 1
+- Colspan: 12
+- Component:
+  - Component Type: Interactive Report
+- Data Source:
+  - Type: Table
+  - Name: TMS_CANDIDATES
+  - Primary Keys: CANDIDATE_ID
+  - Order By: APPLIED_DATE desc
+  - Summary: Lists candidates by requisition and current hiring stage.
+- Columns:
+  - Column Name: CANDIDATE_ID
+    - Label: Candidate ID
+    - Datatype: number
+    - Render As: hidden
+    - Visible: false
+  - Column Name: REQ_ID
+    - Label: Requisition
+    - Datatype: number
+    - Render As: plainTextBasedOnLov
+    - LOV: LOV_TMS_JOB_REQUISITIONS_REQ_ID
+    - Visible: true
+  - Column Name: FIRST_NAME
+    - Label: First Name
+    - Datatype: varchar2
+    - Render As: plainText
+    - Visible: true
+  - Column Name: LAST_NAME
+    - Label: Last Name
+    - Datatype: varchar2
+    - Render As: plainText
+    - Visible: true
+  - Column Name: EMAIL
+    - Label: Email
+    - Datatype: varchar2
+    - Render As: plainText
+    - Visible: true
+  - Column Name: PHONE
+    - Label: Phone
+    - Datatype: varchar2
+    - Render As: plainText
+    - Visible: true
+  - Column Name: SOURCE
+    - Label: Source
+    - Datatype: varchar2
+    - Render As: plainText
+    - Visible: true
+  - Column Name: CURRENT_STAGE
+    - Label: Current Stage
+    - Datatype: varchar2
+    - Render As: plainTextBasedOnLov
+    - LOV: LOV_CANDIDATE_STAGE
+    - Visible: true
+  - Column Name: APPLIED_DATE
+    - Label: Applied Date
+    - Datatype: date
+    - Render As: plainText
+    - Visible: true
+  - Column Name: AI_SCORE
+    - Label: AI Score
+    - Datatype: number
+    - Render As: plainText
+    - Visible: true
+- Links:
+  - Link:
+    - Link To: Page 9
+    - Link Passing: CANDIDATE_ID
+    - Link Target Items: P9_CANDIDATE_ID
+    - Label: Edit
+    - Link Icon: fa-edit
+    - Authorized Roles: Recruiter, HR Administrator
+- Actions:
+  - Action
+    - Label: Create Candidate
+    - Link To: Page 9
+    - slot: CREATE
+    - Action Type: navigate
+    - Authorized Roles: Recruiter, HR Administrator
+### Page 9: Candidate Form
+- Description: Modal form for candidates with requisition-scoped email uniqueness and AI score from 0 to 10.
+- Comments: Captures recruiter candidate maintenance with requisition, identity, stage, resume, and score controls.
+- Pattern: modal-drawer
+- Page Mode: modalDialog
+- Menu: false
+- Page Group: Candidate Management
+- Security Requirements:
+  - Authorized Roles: Recruiter, HR Administrator
+#### Regions
+##### Region: Candidate Form
+- Comments: Maintains candidate data and validates requisition-scoped email uniqueness and AI score from 0 to 10.
+- Position: body
+- Colstart: 1
+- Colspan: 12
+- Component:
+  - Component Type: Form
+- Data Source:
+  - Type: Table
+  - Name: TMS_CANDIDATES
+  - Primary Keys: CANDIDATE_ID
+  - Summary: Maintains one candidate record.
+- Columns:
+  - Column Name: CANDIDATE_ID
+    - Label: Candidate ID
+    - Datatype: number
+    - Page Item Name: P9_CANDIDATE_ID
+    - Render As: hidden
+  - Column Name: REQ_ID
+    - Label: Requisition
+    - Datatype: number
+    - Page Item Name: P9_REQ_ID
+    - Render As: selectList
+    - LOV: LOV_TMS_JOB_REQUISITIONS_REQ_ID
+    - Required: true
+  - Column Name: FIRST_NAME
+    - Label: First Name
+    - Datatype: varchar2
+    - Page Item Name: P9_FIRST_NAME
+    - Render As: textField
+    - Required: true
+    - MaxLength: 80
+  - Column Name: LAST_NAME
+    - Label: Last Name
+    - Datatype: varchar2
+    - Page Item Name: P9_LAST_NAME
+    - Render As: textField
+    - Required: true
+    - MaxLength: 80
+  - Column Name: EMAIL
+    - Label: Email
+    - Datatype: varchar2
+    - Page Item Name: P9_EMAIL
+    - Render As: textField
+    - Required: true
+    - MaxLength: 320
+  - Column Name: PHONE
+    - Label: Phone
+    - Datatype: varchar2
+    - Page Item Name: P9_PHONE
+    - Render As: textField
+    - MaxLength: 50
+  - Column Name: RESUME_BLOB
+    - Label: Resume
+    - Datatype: blob
+    - Page Item Name: P9_RESUME_BLOB
+    - Render As: fileUpload
+  - Column Name: SOURCE
+    - Label: Source
+    - Datatype: varchar2
+    - Page Item Name: P9_SOURCE
+    - Render As: textField
+    - MaxLength: 100
+  - Column Name: CURRENT_STAGE
+    - Label: Current Stage
+    - Datatype: varchar2
+    - Page Item Name: P9_CURRENT_STAGE
+    - Render As: selectList
+    - LOV: LOV_CANDIDATE_STAGE
+    - Required: true
+    - MaxLength: 30
+  - Column Name: APPLIED_DATE
+    - Label: Applied Date
+    - Datatype: date
+    - Page Item Name: P9_APPLIED_DATE
+    - Render As: datePicker
+  - Column Name: DIVERSITY_FLAG
+    - Label: Diversity Flag
+    - Datatype: varchar2
+    - Page Item Name: P9_DIVERSITY_FLAG
+    - Render As: textField
+    - MaxLength: 1
+  - Column Name: AI_SCORE
+    - Label: AI Score
+    - Datatype: number
+    - Page Item Name: P9_AI_SCORE
+    - Render As: numberField
+- Actions:
+  - Action
+    - Label: Create
+    - slot: CREATE
+    - Action Type: submit
+    - Process: Create
+  - Action
+    - Label: Apply Changes
+    - slot: CHANGE
+    - Action Type: submit
+    - Process: Apply
+  - Action
+    - Label: Delete
+    - slot: DELETE
+    - Action Type: submit
+    - Process: Delete
+  - Action
+    - Label: Cancel
+    - slot: CLOSE
+    - Action Type: navigate
+    - Process: cancelDialog
+### Page 10: Interview Schedule
+- Description: Interactive reports for upcoming interviews and interview outcomes.
+- Comments: Lets users schedule and review interviews while keeping confidential feedback in authorized access.
+- Pattern: metric-grid
+- Page Mode: standard
+- Menu: true
+- Page Group: Candidate Management
+- Security Requirements:
+  - Authorized Roles: Recruiter, Hiring Manager, HR Administrator
+#### Regions
+##### Region: Upcoming Interviews Report
+- Comments: Provides upcoming interview filtering, sorting, authorized edit drill-down, and clear scheduled dates.
+- Position: body
+- Colstart: 1
+- Colspan: 12
+- Component:
+  - Component Type: Interactive Report
+- Data Source:
+  - Type: Table
+  - Name: TMS_INTERVIEW_STAGES
+  - Primary Keys: STAGE_ID
+  - Where: SCHEDULED_DATE >= SYSTIMESTAMP and OUTCOME = 'Scheduled'
+  - Order By: SCHEDULED_DATE asc
+  - Summary: Lists upcoming candidate interview stages by scheduled date.
+- Columns:
+  - Column Name: STAGE_ID
+    - Label: Interview Stage ID
+    - Datatype: number
+    - Render As: hidden
+    - Visible: false
+  - Column Name: CANDIDATE_ID
+    - Label: Candidate
+    - Datatype: number
+    - Render As: plainTextBasedOnLov
+    - LOV: LOV_TMS_CANDIDATES_EMAIL
+    - Visible: true
+  - Column Name: REQ_ID
+    - Label: Requisition
+    - Datatype: number
+    - Render As: plainTextBasedOnLov
+    - LOV: LOV_TMS_JOB_REQUISITIONS_REQ_ID
+    - Visible: true
+  - Column Name: STAGE_NAME
+    - Label: Stage Name
+    - Datatype: varchar2
+    - Render As: plainText
+    - Visible: true
+  - Column Name: INTERVIEWER_ID
+    - Label: Interviewer
+    - Datatype: number
+    - Render As: plainTextBasedOnLov
+    - LOV: LOV_TMS_EMPLOYEES_EMAIL
+    - Visible: true
+  - Column Name: SCHEDULED_DATE
+    - Label: Scheduled Date
+    - Datatype: timestamp
+    - Render As: plainText
+    - Visible: true
+    - Format Mask: DD-MON-YYYY HH24:MI
+  - Column Name: OUTCOME
+    - Label: Outcome
+    - Datatype: varchar2
+    - Render As: plainTextBasedOnLov
+    - LOV: LOV_INTERVIEW_OUTCOME
+    - Visible: true
+  - Column Name: SCORE
+    - Label: Score
+    - Datatype: number
+    - Render As: plainText
+    - Visible: true
+- Links:
+  - Link:
+    - Link To: Page 11
+    - Link Passing: STAGE_ID
+    - Link Target Items: P11_STAGE_ID
+    - Label: Edit
+    - Link Icon: fa-edit
+    - Authorized Roles: Recruiter, HR Administrator
+- Actions:
+  - Action
+    - Label: Create Interview
+    - Link To: Page 11
+    - slot: CREATE
+    - Action Type: navigate
+    - Authorized Roles: Recruiter, HR Administrator
+##### Region: Interview Outcomes Report
+- Comments: Provides outcome analysis with filtering, sorting, and authorized drill-down without feedback notes.
+- Position: body
+- Colstart: 1
+- Colspan: 12
+- Component:
+  - Component Type: Interactive Report
+- Data Source:
+  - Type: Table
+  - Name: TMS_INTERVIEW_STAGES
+  - Primary Keys: STAGE_ID
+  - Summary: Lists interview outcomes and scheduled interview context.
+- Columns:
+  - Column Name: STAGE_ID
+    - Label: Interview Stage ID
+    - Datatype: number
+    - Render As: hidden
+    - Visible: false
+  - Column Name: CANDIDATE_ID
+    - Label: Candidate
+    - Datatype: number
+    - Render As: plainTextBasedOnLov
+    - LOV: LOV_TMS_CANDIDATES_EMAIL
+    - Visible: true
+  - Column Name: REQ_ID
+    - Label: Requisition
+    - Datatype: number
+    - Render As: plainTextBasedOnLov
+    - LOV: LOV_TMS_JOB_REQUISITIONS_REQ_ID
+    - Visible: true
+  - Column Name: STAGE_NAME
+    - Label: Stage Name
+    - Datatype: varchar2
+    - Render As: plainText
+    - Visible: true
+  - Column Name: INTERVIEWER_ID
+    - Label: Interviewer
+    - Datatype: number
+    - Render As: plainTextBasedOnLov
+    - LOV: LOV_TMS_EMPLOYEES_EMAIL
+    - Visible: true
+  - Column Name: SCHEDULED_DATE
+    - Label: Scheduled Date
+    - Datatype: timestamp
+    - Render As: plainText
+    - Visible: true
+    - Format Mask: DD-MON-YYYY HH24:MI
+  - Column Name: OUTCOME
+    - Label: Outcome
+    - Datatype: varchar2
+    - Render As: plainTextBasedOnLov
+    - LOV: LOV_INTERVIEW_OUTCOME
+    - Visible: true
+  - Column Name: SCORE
+    - Label: Score
+    - Datatype: number
+    - Render As: plainText
+    - Visible: true
+- Links:
+  - Link:
+    - Link To: Page 11
+    - Link Passing: STAGE_ID
+    - Link Target Items: P11_STAGE_ID
+    - Label: Edit
+    - Link Icon: fa-edit
+    - Authorized Roles: Recruiter, HR Administrator
+### Page 11: Interview Form
+- Description: Modal form for interviews with candidate/requisition consistency and score from 0 to 5.
+- Comments: Captures authorized interview maintenance with candidate context, outcome, score, and internal feedback.
+- Pattern: modal-drawer
+- Page Mode: modalDialog
+- Menu: false
+- Page Group: Candidate Management
+- Security Requirements:
+  - Authorized Roles: Recruiter, HR Administrator
+#### Regions
+##### Region: Interview Form
+- Comments: Maintains interviews and validates candidate/requisition consistency and score from 0 to 5.
+- Position: body
+- Colstart: 1
+- Colspan: 12
+- Component:
+  - Component Type: Form
+- Data Source:
+  - Type: Table
+  - Name: TMS_INTERVIEW_STAGES
+  - Primary Keys: STAGE_ID
+  - Summary: Maintains one candidate interview stage record.
+- Columns:
+  - Column Name: STAGE_ID
+    - Label: Interview Stage ID
+    - Datatype: number
+    - Page Item Name: P11_STAGE_ID
+    - Render As: hidden
+  - Column Name: CANDIDATE_ID
+    - Label: Candidate
+    - Datatype: number
+    - Page Item Name: P11_CANDIDATE_ID
+    - Render As: selectList
+    - LOV: LOV_TMS_CANDIDATES_EMAIL
+    - Required: true
+  - Column Name: REQ_ID
+    - Label: Requisition
+    - Datatype: number
+    - Page Item Name: P11_REQ_ID
+    - Render As: selectList
+    - LOV: LOV_TMS_JOB_REQUISITIONS_REQ_ID
+    - Required: true
+  - Column Name: STAGE_NAME
+    - Label: Stage Name
+    - Datatype: varchar2
+    - Page Item Name: P11_STAGE_NAME
+    - Render As: textField
+    - Required: true
+    - MaxLength: 60
+  - Column Name: INTERVIEWER_ID
+    - Label: Interviewer
+    - Datatype: number
+    - Page Item Name: P11_INTERVIEWER_ID
+    - Render As: selectList
+    - LOV: LOV_TMS_EMPLOYEES_EMAIL
+  - Column Name: SCHEDULED_DATE
+    - Label: Scheduled Date
+    - Datatype: timestamp
+    - Page Item Name: P11_SCHEDULED_DATE
+    - Render As: datePicker
+    - Format Mask: DD-MON-YYYY HH24:MI
+  - Column Name: OUTCOME
+    - Label: Outcome
+    - Datatype: varchar2
+    - Page Item Name: P11_OUTCOME
+    - Render As: selectList
+    - LOV: LOV_INTERVIEW_OUTCOME
+    - Required: true
+    - MaxLength: 30
+  - Column Name: FEEDBACK_NOTES
+    - Label: Feedback Notes
+    - Datatype: clob
+    - Page Item Name: P11_FEEDBACK_NOTES
+    - Render As: textarea
+  - Column Name: SCORE
+    - Label: Score
+    - Datatype: number
+    - Page Item Name: P11_SCORE
+    - Render As: numberField
+- Actions:
+  - Action
+    - Label: Create
+    - slot: CREATE
+    - Action Type: submit
+    - Process: Create
+  - Action
+    - Label: Apply Changes
+    - slot: CHANGE
+    - Action Type: submit
+    - Process: Apply
+  - Action
+    - Label: Delete
+    - slot: DELETE
+    - Action Type: submit
+    - Process: Delete
+  - Action
+    - Label: Cancel
+    - slot: CLOSE
+    - Action Type: navigate
+    - Process: cancelDialog
+### Page 12: Offers
+- Description: Interactive reports of offers by status and accepted offer history.
+- Comments: Lets users track offers and accepted history while limiting offered salary visibility to authorized roles.
+- Pattern: metric-grid
+- Page Mode: standard
+- Menu: true
+- Page Group: Candidate Management
+- Security Requirements:
+  - Authorized Roles: Recruiter, Hiring Manager, HR Administrator
+#### Regions
+##### Region: Offers by Status Report
+- Comments: Provides offer status filtering, sorting, authorized edit drill-down, and historical status visibility.
+- Position: body
+- Colstart: 1
+- Colspan: 12
+- Component:
+  - Component Type: Interactive Report
+- Data Source:
+  - Type: Table
+  - Name: TMS_OFFERS
+  - Primary Keys: OFFER_ID
+  - Summary: Lists candidate offers across all current and historical statuses.
+- Columns:
+  - Column Name: OFFER_ID
+    - Label: Offer ID
+    - Datatype: number
+    - Render As: hidden
+    - Visible: false
+  - Column Name: CANDIDATE_ID
+    - Label: Candidate
+    - Datatype: number
+    - Render As: plainTextBasedOnLov
+    - LOV: LOV_TMS_CANDIDATES_EMAIL
+    - Visible: true
+  - Column Name: REQ_ID
+    - Label: Requisition
+    - Datatype: number
+    - Render As: plainTextBasedOnLov
+    - LOV: LOV_TMS_JOB_REQUISITIONS_REQ_ID
+    - Visible: true
+  - Column Name: OFFERED_SALARY
+    - Label: Offered Salary
+    - Datatype: number
+    - Render As: plainText
+    - Visible: true
+    - Authorized Roles: Recruiter, HR Administrator
+    - Format Mask: 999G999G999G999G990D00
+  - Column Name: START_DATE
+    - Label: Start Date
+    - Datatype: date
+    - Render As: plainText
+    - Visible: true
+  - Column Name: EXPIRY_DATE
+    - Label: Expiry Date
+    - Datatype: date
+    - Render As: plainText
+    - Visible: true
+  - Column Name: STATUS
+    - Label: Status
+    - Datatype: varchar2
+    - Render As: plainTextBasedOnLov
+    - LOV: LOV_OFFER_STATUS
+    - Visible: true
+  - Column Name: APPROVED_BY
+    - Label: Approved By
+    - Datatype: varchar2
+    - Render As: plainText
+    - Visible: true
+- Links:
+  - Link:
+    - Link To: Page 13
+    - Link Passing: OFFER_ID
+    - Link Target Items: P13_OFFER_ID
+    - Label: Edit
+    - Link Icon: fa-edit
+    - Authorized Roles: Recruiter, HR Administrator
+- Actions:
+  - Action
+    - Label: Create Offer
+    - Link To: Page 13
+    - slot: CREATE
+    - Action Type: navigate
+    - Authorized Roles: Recruiter, HR Administrator
+##### Region: Accepted Offers Report
+- Comments: Provides accepted offer history filtering, sorting, and authorized drill-down for completed records.
+- Position: body
+- Colstart: 1
+- Colspan: 12
+- Component:
+  - Component Type: Interactive Report
+- Data Source:
+  - Type: Table
+  - Name: TMS_OFFERS
+  - Primary Keys: OFFER_ID
+  - Where: STATUS = 'Accepted'
+  - Order By: START_DATE desc
+  - Summary: Lists offers with an Accepted status for hiring history review.
+- Columns:
+  - Column Name: OFFER_ID
+    - Label: Offer ID
+    - Datatype: number
+    - Render As: hidden
+    - Visible: false
+  - Column Name: CANDIDATE_ID
+    - Label: Candidate
+    - Datatype: number
+    - Render As: plainTextBasedOnLov
+    - LOV: LOV_TMS_CANDIDATES_EMAIL
+    - Visible: true
+  - Column Name: REQ_ID
+    - Label: Requisition
+    - Datatype: number
+    - Render As: plainTextBasedOnLov
+    - LOV: LOV_TMS_JOB_REQUISITIONS_REQ_ID
+    - Visible: true
+  - Column Name: OFFERED_SALARY
+    - Label: Offered Salary
+    - Datatype: number
+    - Render As: plainText
+    - Visible: true
+    - Authorized Roles: Recruiter, HR Administrator
+    - Format Mask: 999G999G999G999G990D00
+  - Column Name: START_DATE
+    - Label: Start Date
+    - Datatype: date
+    - Render As: plainText
+    - Visible: true
+  - Column Name: EXPIRY_DATE
+    - Label: Expiry Date
+    - Datatype: date
+    - Render As: plainText
+    - Visible: true
+  - Column Name: STATUS
+    - Label: Status
+    - Datatype: varchar2
+    - Render As: plainTextBasedOnLov
+    - LOV: LOV_OFFER_STATUS
+    - Visible: true
+  - Column Name: APPROVED_BY
+    - Label: Approved By
+    - Datatype: varchar2
+    - Render As: plainText
+    - Visible: true
+- Links:
+  - Link:
+    - Link To: Page 13
+    - Link Passing: OFFER_ID
+    - Link Target Items: P13_OFFER_ID
+    - Label: Edit
+    - Link Icon: fa-edit
+    - Authorized Roles: Recruiter, HR Administrator
+### Page 13: Offer Form
+- Description: Modal form for offers with candidate/requisition consistency and salary above zero.
+- Comments: Captures authorized offer maintenance with salary, status, dates, and offer letter history controls.
+- Pattern: modal-drawer
+- Page Mode: modalDialog
+- Menu: false
+- Page Group: Candidate Management
+- Security Requirements:
+  - Authorized Roles: Recruiter, HR Administrator
+#### Regions
+##### Region: Offer Form
+- Comments: Maintains offers and validates candidate/requisition consistency and salary above zero.
+- Position: body
+- Colstart: 1
+- Colspan: 12
+- Component:
+  - Component Type: Form
+- Data Source:
+  - Type: Table
+  - Name: TMS_OFFERS
+  - Primary Keys: OFFER_ID
+  - Summary: Maintains one candidate offer record.
+- Columns:
+  - Column Name: OFFER_ID
+    - Label: Offer ID
+    - Datatype: number
+    - Page Item Name: P13_OFFER_ID
+    - Render As: hidden
+  - Column Name: CANDIDATE_ID
+    - Label: Candidate
+    - Datatype: number
+    - Page Item Name: P13_CANDIDATE_ID
+    - Render As: selectList
+    - LOV: LOV_TMS_CANDIDATES_EMAIL
+    - Required: true
+  - Column Name: REQ_ID
+    - Label: Requisition
+    - Datatype: number
+    - Page Item Name: P13_REQ_ID
+    - Render As: selectList
+    - LOV: LOV_TMS_JOB_REQUISITIONS_REQ_ID
+    - Required: true
+  - Column Name: OFFERED_SALARY
+    - Label: Offered Salary
+    - Datatype: number
+    - Page Item Name: P13_OFFERED_SALARY
+    - Render As: numberField
+    - Required: true
+    - Format Mask: 999G999G999G999G990D00
+  - Column Name: START_DATE
+    - Label: Start Date
+    - Datatype: date
+    - Page Item Name: P13_START_DATE
+    - Render As: datePicker
+  - Column Name: EXPIRY_DATE
+    - Label: Expiry Date
+    - Datatype: date
+    - Page Item Name: P13_EXPIRY_DATE
+    - Render As: datePicker
+  - Column Name: STATUS
+    - Label: Status
+    - Datatype: varchar2
+    - Page Item Name: P13_STATUS
+    - Render As: selectList
+    - LOV: LOV_OFFER_STATUS
+    - Required: true
+    - MaxLength: 30
+  - Column Name: OFFER_LETTER_BLOB
+    - Label: Offer Letter
+    - Datatype: blob
+    - Page Item Name: P13_OFFER_LETTER_BLOB
+    - Render As: fileUpload
+  - Column Name: APPROVED_BY
+    - Label: Approved By
+    - Datatype: varchar2
+    - Page Item Name: P13_APPROVED_BY
+    - Render As: textField
+    - MaxLength: 255
+- Actions:
+  - Action
+    - Label: Create
+    - slot: CREATE
+    - Action Type: submit
+    - Process: Create
+  - Action
+    - Label: Apply Changes
+    - slot: CHANGE
+    - Action Type: submit
+    - Process: Apply
+  - Action
+    - Label: Delete
+    - slot: DELETE
+    - Action Type: submit
+    - Process: Delete
+  - Action
+    - Label: Cancel
+    - slot: CLOSE
+    - Action Type: navigate
+    - Process: cancelDialog

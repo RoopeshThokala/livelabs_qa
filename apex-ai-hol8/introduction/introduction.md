@@ -22,6 +22,18 @@ In this workshop, you will:
 
 ![The TAP application home page with the Candidate Pipeline and Job Openings pages available.](images/tap-pages-overview.png ' ')
 
+## Downloads
+
+Stuck or Missed out on completing the previous labs? Don't worry! You can download the following application:
+
+- **<a href="files/tap-export3.sql" download="tap-export3.sql">Talent Acquisition Portal</a>**
+
+Import it into your workspace. In **App Builder**, select **Import**, upload `tap-export3.sql`, and follow the steps in the **Import Application** wizard.
+
+> **Note:** Supporting objects are already loaded in the workspace.
+
+> **AI Configuration:** To use AI features in the application, configure a Generative AI Service in the workspace and select it under **Shared Components > AI Attributes**. See **Module 1, Lab 2: Configure Generative AI Service**.
+
 ## Acknowledgements
 
 * **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager

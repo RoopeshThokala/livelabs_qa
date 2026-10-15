@@ -16,11 +16,11 @@ In this lab, you will:
 
 In this task, you use Generative AI to create the Talent Acquisition Portal page. The cards page gives recruiters a high-level view of open requisitions, candidate activity, interviews, and pending offers.
 
-1. Return to **App Builder** and navigate to Page Designer Toolbar, hover over **+v** and select **Page**.
+1. Return to **App Builder** and navigate to the Page Designer Toolbar, hover over **+v** and select **Page**.
 
     ![Create page from the Jobs page](images/jobs-create-page-menu.png " ")
 
-2. On the Create a Page page, select **Generative AI** tab.
+2. On the Create a Page page, select the **Generative AI** tab.
 
 3. If prompted, accept the Generative AI terms.
 
@@ -42,7 +42,7 @@ In this task, you use Generative AI to create the Talent Acquisition Portal page
 
     ![APEX AI page generation response](images/ai-dashboard-create-page-response.png " ")
 
-6. Review the cards layout and attributes settings and click **Create Page**.
+6. Review the cards layout and attribute settings and click **Create Page**.
 
     ![Create the generated cards page](images/ai-dashboard-cards-layout-create-page.png " ")
 
@@ -62,6 +62,5 @@ In this lab, you used a natural-language prompt to generate and run a Recruitmen
 
 ## Acknowledgements
 
-- **Author** - Ankita Beri, Senior Product Manager
-
+- **Author** - Ankita Beri, Senior Product Manager; Roopesh Thokala, Principal Product Manager
 - **Last Updated By/Date** - Ankita Beri, Senior Product Manager, July 2026

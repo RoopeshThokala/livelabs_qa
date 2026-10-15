@@ -1,0 +1,10675 @@
+prompt --application/set_environment
+set define off verify off feedback off
+whenever sqlerror exit sql.sqlcode rollback
+--------------------------------------------------------------------------------
+--
+-- Oracle APEX export file
+--
+-- You should run this script using a SQL client connected to the database as
+-- the owner (parsing schema) of the application or as a database user with the
+-- APEX_ADMINISTRATOR_ROLE role.
+--
+-- This export file has been automatically generated. Modifying this file is not
+-- supported by Oracle and can lead to unexpected application and/or instance
+-- behavior now or in the future.
+--
+-- NOTE: Calls to apex_application_install override the defaults below.
+--
+--------------------------------------------------------------------------------
+begin
+wwv_flow_imp.import_begin (
+ p_version_yyyy_mm_dd=>'2026.04.07'
+,p_release=>'26.2.0'
+,p_default_workspace_id=>4572114388865144911
+,p_default_application_id=>27966
+,p_default_id_offset=>0
+,p_default_owner=>'APEX262_LL'
+);
+end;
+/
+ 
+prompt APPLICATION 27966 - Employee Self-Service Portal
+--
+-- Application Export:
+--   Application:     27966
+--   Name:            Employee Self-Service Portal
+--   Date and Time:   17:09 Tuesday October 13, 2026
+--   Exported By:     ROOPESH.THOKALA@ORACLE.COM
+--   Flashback:       0
+--   Export Type:     Application Export
+--     Pages:                      8
+--       Items:                   54
+--       Computations:             1
+--       Validations:              2
+--       Processes:               13
+--       Regions:                 17
+--       Buttons:                  9
+--       Dynamic Actions:          5
+--     Shared Components:
+--       Logic:
+--         Build Options:          1
+--       Navigation:
+--         Lists:                  3
+--         Breadcrumbs:            1
+--           Entries:              5
+--       Security:
+--         Authentication:         1
+--         Authorization:          1
+--       User Interface:
+--         Themes:                 1
+--         Templates:
+--         LOVs:                   5
+--       PWA:
+--       Globalization:
+--       Reports:
+--       E-Mail:
+--     Supporting Objects:  Included
+--       Install scripts:          5
+--   Version:         26.2.0
+--   Instance ID:     63102946836549
+--
+
+prompt --application/delete_application
+begin
+wwv_flow_imp.remove_flow(wwv_flow.g_flow_id);
+end;
+/
+prompt --application/create_application
+begin
+wwv_imp_workspace.create_flow(
+ p_id=>wwv_flow.g_flow_id
+,p_owner=>nvl(wwv_flow_application_install.get_schema,'APEX262_LL')
+,p_name=>nvl(wwv_flow_application_install.get_application_name,'Employee Self-Service Portal')
+,p_alias=>nvl(wwv_flow_application_install.get_application_alias,'EMPLOYEE-SELF-SERVICE-PORTAL')
+,p_page_view_logging=>'YES'
+,p_page_protection_enabled_y_n=>'Y'
+,p_checksum_salt=>'398D8C88017E50D6266D79D78DDABB1EB26581307752D3957755116F47899009'
+,p_bookmark_checksum_function=>'SH512'
+,p_compatibility_mode=>'26.1'
+,p_flow_language=>'en'
+,p_flow_language_derived_from=>'FLOW_PRIMARY_LANGUAGE'
+,p_allow_feedback_yn=>'Y'
+,p_date_format=>'DS'
+,p_timestamp_format=>'DS'
+,p_timestamp_tz_format=>'DS'
+,p_flow_image_prefix=>nvl(wwv_flow_application_install.get_image_prefix,'')
+,p_authentication_id=>wwv_flow_imp.id(4585221700514463711)
+,p_application_tab_set=>1
+,p_logo_type=>'T'
+,p_logo_text=>'Employee Self-Service Portal'
+,p_proxy_server=>nvl(wwv_flow_application_install.get_proxy,'')
+,p_no_proxy_domains=>nvl(wwv_flow_application_install.get_no_proxy_domains,'')
+,p_flow_version=>'Release 1.0'
+,p_flow_status=>'AVAILABLE_W_EDIT_LINK'
+,p_browser_cache=>'N'
+,p_browser_frame=>'D'
+,p_authorize_batch_job=>'N'
+,p_rejoin_existing_sessions=>'N'
+,p_csv_encoding=>'Y'
+,p_substitution_string_01=>'APP_NAME'
+,p_substitution_value_01=>'Employee Self-Service Portal'
+,p_created_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261013170130Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_last_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_file_prefix=>nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
+,p_files_version=>2461327061006
+,p_version_scn=>'50864139753607'
+,p_print_server_type=>'INSTANCE'
+,p_file_storage=>'DB'
+,p_is_pwa=>'Y'
+,p_pwa_is_installable=>'N'
+,p_pwa_is_push_enabled=>'N'
+,p_ai_remote_server_id=>4572187351983162766
+,p_theme_id=>42
+,p_home_url=>'f?p=&APP_ID.:1:&APP_SESSION.::&DEBUG.:::'
+,p_login_url=>'f?p=&APP_ID.:LOGIN:&APP_SESSION.::&DEBUG.:::'
+,p_theme_style_by_user_pref=>false
+,p_built_with_love=>false
+,p_global_page_id=>0
+,p_navigation_list_id=>wwv_flow_imp.id(4585222659080463715)
+,p_navigation_list_position=>'SIDE'
+,p_navigation_list_template_id=>2471166859590295591
+,p_nav_list_template_options=>'#DEFAULT#:t-TreeNav--styleA:js-navCollapsed--hidden'
+,p_nav_bar_type=>'LIST'
+,p_nav_bar_list_id=>wwv_flow_imp.id(4585224711575463884)
+,p_nav_bar_list_template_id=>2850970698196720012
+,p_nav_bar_template_options=>'#DEFAULT#'
+);
+end;
+/
+prompt --workspace/credentials/credentials_for_oci_generative_ai
+begin
+wwv_imp_workspace.create_credential(
+ p_id=>4572186934182162758
+,p_name=>'Credentials for oci generative ai'
+,p_static_id=>'credentials-for-oci-generative-ai'
+,p_authentication_type=>'OCI'
+,p_namespace=>'ocid1.tenancy.oc1..aaaaaaaansast2ca2dhk2jyp7ygazbb2l5nt6f6ocw3qfxzmgufyxmpndo3a'
+,p_valid_for_urls=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'https://inference.generativeai.us-chicago-1.oci.oraclecloud.com',
+''))
+,p_prompt_on_install=>true
+,p_created_on=>wwv_flow_imp.dz('20261013051955Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013051955Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --workspace/remote_servers/oci_generative_ai
+begin
+wwv_imp_workspace.create_remote_server(
+ p_id=>4572187351983162766
+,p_name=>'OCI Generative AI'
+,p_static_id=>'oci-generative-ai'
+,p_base_url=>nvl(wwv_flow_application_install.get_remote_server_base_url('oci-generative-ai'),'https://inference.generativeai.us-chicago-1.oci.oraclecloud.com')
+,p_https_host=>nvl(wwv_flow_application_install.get_remote_server_https_host('oci-generative-ai'),'')
+,p_server_type=>'GENERATIVE_AI'
+,p_credential_id=>4572186934182162758
+,p_ai_provider_type=>'OCI_GENAI'
+,p_ai_provider_api=>'GENERIC'
+,p_ai_is_builder_service=>true
+,p_ai_is_default_for_new_apps=>true
+,p_ai_model_name=>nvl(wwv_flow_application_install.get_remote_server_ai_model('oci-generative-ai'),'xai.grok-4.5')
+,p_ai_oci_compartment_id=>nvl(wwv_flow_application_install.get_remote_server_ai_oci_comp('oci-generative-ai'),'ocid1.compartment.oc1..aaaaaaaal6p4vtvg6ykzv426wxb4cwvgfrw6ztfpti2elpkali6wj3v23yla')
+,p_ai_oci_serving_mode=>nvl(wwv_flow_application_install.get_remote_server_ai_oci_srvmd('oci-generative-ai'),'ON_DEMAND')
+,p_ai_oci_endpoint_id=>nvl(wwv_flow_application_install.get_remote_server_ai_oci_endpt('oci-generative-ai'),'')
+,p_ai_oci_project_id=>nvl(wwv_flow_application_install.get_remote_server_ai_oci_proj('oci-generative-ai'),'')
+,p_ai_http_headers=>nvl(wwv_flow_application_install.get_remote_server_ai_headers('oci-generative-ai'),'')
+,p_ai_attributes=>nvl(wwv_flow_application_install.get_remote_server_ai_attrs('oci-generative-ai'),'')
+,p_ai_max_tokens=>nvl(wwv_flow_application_install.get_remote_server_ai_maxtokens('oci-generative-ai'),'')
+,p_prompt_on_install=>false
+,p_created_on=>wwv_flow_imp.dz('20261013051955Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013051955Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/plugin_settings
+begin
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(4585217321122463701)
+,p_plugin_type=>'DYNAMIC ACTION'
+,p_plugin=>'NATIVE_OPEN_AI_ASSISTANT'
+,p_version_scn=>'SH256:NcagEyRP_F17oe14bnrSYSYienkBgpdRSvH17g_NxoE'
+,p_created_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(4585217686771463702)
+,p_plugin_type=>'ITEM TYPE'
+,p_plugin=>'NATIVE_COLOR_PICKER'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'display_as', 'POPUP',
+  'mode', 'FULL')).to_clob
+,p_version_scn=>'SH256:FJR60MFzlfEjx0PvnpYBK4631rNeUHXaF3eGFKxcTgE'
+,p_created_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(4585217932926463703)
+,p_plugin_type=>'ITEM TYPE'
+,p_plugin=>'NATIVE_DATE_PICKER_APEX'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'appearance_behavior', 'MONTH-PICKER:YEAR-PICKER:TODAY-BUTTON',
+  'days_outside_month', 'VISIBLE',
+  'show_on', 'FOCUS',
+  'time_increment', '15')).to_clob
+,p_version_scn=>'SH256:dQTHqehcDG0h-d-qmHe5lf-DuViElEHDw9zMkscLr6M'
+,p_created_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(4585218298764463703)
+,p_plugin_type=>'ITEM TYPE'
+,p_plugin=>'NATIVE_GEOCODED_ADDRESS'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'background', 'default',
+  'display_as', 'LIST',
+  'map_preview', 'POPUP:ITEM',
+  'match_mode', 'RELAX_HOUSE_NUMBER')).to_clob
+,p_version_scn=>'SH256:CU9J9l4sUtY-UffjdBCosfDW6ER-I0swXpw8GekLiYQ'
+,p_created_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(4585218515518463704)
+,p_plugin_type=>'ITEM TYPE'
+,p_plugin=>'NATIVE_SELECT_MANY'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'display_values_as', 'separated')).to_clob
+,p_version_scn=>'SH256:jJTPfH8wphTXe7ahDytF6PbWlPl1mXrDRYylCDda0k0'
+,p_created_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(4585218856219463704)
+,p_plugin_type=>'ITEM TYPE'
+,p_plugin=>'NATIVE_SINGLE_CHECKBOX'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'checked_value', 'Y',
+  'unchecked_value', 'N')).to_clob
+,p_version_scn=>'SH256:oAqKgc-cSRXHDMjfwwNIgo78WqYXKjQz8MWGBG6Euj0'
+,p_created_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(4585219159291463705)
+,p_plugin_type=>'ITEM TYPE'
+,p_plugin=>'NATIVE_STAR_RATING'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'default_icon', 'fa-star',
+  'tooltip', '#VALUE#')).to_clob
+,p_version_scn=>'SH256:uT4QhQbZQY61UFxAGl7ieo2urrCo8jUsFNprrg7lGHo'
+,p_created_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(4585219462804463705)
+,p_plugin_type=>'ITEM TYPE'
+,p_plugin=>'NATIVE_YES_NO'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'display_style', 'SWITCH_CB',
+  'off_value', 'N',
+  'on_value', 'Y')).to_clob
+,p_version_scn=>'SH256:wAjuCAsVhoIbbuKGWTMQ__Rd_YS_sY9KgWhpqOO11mc'
+,p_created_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(4585219782054463706)
+,p_plugin_type=>'PROCESS TYPE'
+,p_plugin=>'NATIVE_GEOCODING'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'match_mode', 'RELAX_HOUSE_NUMBER')).to_clob
+,p_version_scn=>'SH256:GIeRbUJQ8yKfen6-dFvkghmSUZXFoUAXCCTNRhCJgh0'
+,p_created_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(4585220039692463706)
+,p_plugin_type=>'REGION TYPE'
+,p_plugin=>'NATIVE_DISPLAY_SELECTOR'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'include_slider', 'Y')).to_clob
+,p_version_scn=>'SH256:4M27aN0U-JyQ0prILtI8ITLXOphqUdO-xWNcwkSL1SI'
+,p_created_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(4585220398310463707)
+,p_plugin_type=>'REGION TYPE'
+,p_plugin=>'NATIVE_IR'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'actions_menu_structure', 'IG',
+  'auto_ir_reset_button', 'Y')).to_clob
+,p_version_scn=>'SH256:TC1mqO_n1hWvorH6XHVejgQzJq9VjDsWoq0rKaIQUNo'
+,p_created_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(4585220638936463708)
+,p_plugin_type=>'REGION TYPE'
+,p_plugin=>'NATIVE_MAP_REGION'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'use_vector_tile_layers', 'Y')).to_clob
+,p_version_scn=>'SH256:vJP7K77hiNj1R2RE6dHVyRAhlmxDg6KGn4yRE20J9Qw'
+,p_created_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(4585220911657463709)
+,p_plugin_type=>'WEB SOURCE TYPE'
+,p_plugin=>'NATIVE_ADFBC'
+,p_version_scn=>'SH256:fiSZ-OfcUl-d0e0dtJUYffG7q61xKsHlomsv7ZU1BMw'
+,p_created_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(4585221299386463709)
+,p_plugin_type=>'WEB SOURCE TYPE'
+,p_plugin=>'NATIVE_BOSS'
+,p_version_scn=>'SH256:dRkCWi6vQMhdQUSqb0QlRls9iYcsZ93IPYrbTqFqJFE'
+,p_created_on=>wwv_flow_imp.dz('20261013061004Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061005Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/shared_components/navigation/lists/navigation_bar
+begin
+wwv_flow_imp_shared.create_list(
+ p_id=>wwv_flow_imp.id(4585224711575463884)
+,p_name=>'Navigation Bar'
+,p_static_id=>'navigation-bar'
+,p_version_scn=>'SH256:vnb1-G39r80BPE-5P2Enpuf0sMSVvBeNQDVbFiNwRto'
+,p_created_on=>wwv_flow_imp.dz('20261013061006Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061014Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(4585295405487464615)
+,p_list_item_display_sequence=>10
+,p_list_item_link_text=>'&APP_USER.'
+,p_static_id=>'app-user'
+,p_list_item_link_target=>'#'
+,p_list_item_icon=>'fa-user'
+,p_list_text_02=>'has-username'
+,p_list_item_current_type=>'TARGET_PAGE'
+,p_created_on=>wwv_flow_imp.dz('20261013061014Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061014Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(4585296069722464616)
+,p_list_item_display_sequence=>20
+,p_list_item_link_text=>'---'
+,p_static_id=>'list_item'
+,p_list_item_link_target=>'separator'
+,p_list_item_disp_cond_type=>'USER_IS_NOT_PUBLIC_USER'
+,p_parent_list_item_id=>wwv_flow_imp.id(4585295405487464615)
+,p_list_item_current_type=>'TARGET_PAGE'
+,p_created_on=>wwv_flow_imp.dz('20261013061014Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061014Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(4585296567225464617)
+,p_list_item_display_sequence=>30
+,p_list_item_link_text=>'Sign Out'
+,p_static_id=>'sign-out'
+,p_list_item_link_target=>'&LOGOUT_URL.'
+,p_list_item_icon=>'fa-sign-out'
+,p_list_item_disp_cond_type=>'USER_IS_NOT_PUBLIC_USER'
+,p_parent_list_item_id=>wwv_flow_imp.id(4585295405487464615)
+,p_list_item_current_type=>'TARGET_PAGE'
+,p_created_on=>wwv_flow_imp.dz('20261013061014Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061014Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/shared_components/navigation/lists/navigation_menu
+begin
+wwv_flow_imp_shared.create_list(
+ p_id=>wwv_flow_imp.id(4585222659080463715)
+,p_name=>'Navigation Menu'
+,p_static_id=>'navigation-menu'
+,p_version_scn=>'SH256:o7EmATn2t9u_rQlwX7yIBdRA81L9dsRC_YFE-di05LA'
+,p_created_on=>wwv_flow_imp.dz('20261013061005Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(4585237355680463944)
+,p_list_item_display_sequence=>10
+,p_list_item_link_text=>'Home'
+,p_static_id=>'home'
+,p_list_item_link_target=>'f?p=&APP_ID.:1:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-home'
+,p_list_item_current_type=>'TARGET_PAGE'
+,p_created_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(4585268519704464576)
+,p_list_item_display_sequence=>40
+,p_list_item_link_text=>'Leave Request'
+,p_static_id=>'leave-request'
+,p_list_item_link_target=>'f?p=&APP_ID.:5:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-file-o'
+,p_list_item_current_type=>'TARGET_PAGE'
+,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(4585238834074463950)
+,p_list_item_display_sequence=>20
+,p_list_item_link_text=>'My Onboarding Tasks'
+,p_static_id=>'my-onboarding-tasks'
+,p_list_item_link_target=>'f?p=&APP_ID.:2:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-table'
+,p_list_item_current_type=>'TARGET_PAGE'
+,p_created_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(4585270206593464579)
+,p_list_item_display_sequence=>50
+,p_list_item_link_text=>'My Payslip'
+,p_static_id=>'my-payslip'
+,p_list_item_link_target=>'f?p=&APP_ID.:6:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-file-o'
+,p_list_item_current_type=>'TARGET_PAGE'
+,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(4585266852503464572)
+,p_list_item_display_sequence=>30
+,p_list_item_link_text=>'My Profile'
+,p_static_id=>'my-profile'
+,p_list_item_link_target=>'f?p=&APP_ID.:4:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-file-o'
+,p_list_item_current_type=>'TARGET_PAGE'
+,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/shared_components/navigation/lists/page_navigation
+begin
+wwv_flow_imp_shared.create_list(
+ p_id=>wwv_flow_imp.id(4585291751964464607)
+,p_name=>'Page Navigation'
+,p_static_id=>'page-navigation'
+,p_version_scn=>'SH256:mErkZ8no93s_eVACEd4GSsU2bSJpsSYc-Pvdry9To30'
+,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061014Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(4585293217385464610)
+,p_list_item_display_sequence=>40
+,p_list_item_link_text=>'Leave Request'
+,p_static_id=>'leave-request'
+,p_list_item_link_target=>'f?p=&APP_ID.:5:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-file-o'
+,p_list_item_current_type=>'TARGET_PAGE'
+,p_created_on=>wwv_flow_imp.dz('20261013061014Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061014Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(4585292204613464608)
+,p_list_item_display_sequence=>20
+,p_list_item_link_text=>'My Onboarding Tasks'
+,p_static_id=>'my-onboarding-tasks'
+,p_list_item_link_target=>'f?p=&APP_ID.:2:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-table'
+,p_list_item_current_type=>'TARGET_PAGE'
+,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(4585293664511464611)
+,p_list_item_display_sequence=>50
+,p_list_item_link_text=>'My Payslip'
+,p_static_id=>'my-payslip'
+,p_list_item_link_target=>'f?p=&APP_ID.:6:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-file-o'
+,p_list_item_current_type=>'TARGET_PAGE'
+,p_created_on=>wwv_flow_imp.dz('20261013061014Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061014Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(4585292724923464609)
+,p_list_item_display_sequence=>30
+,p_list_item_link_text=>'My Profile'
+,p_static_id=>'my-profile'
+,p_list_item_link_target=>'f?p=&APP_ID.:4:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-file-o'
+,p_list_item_current_type=>'TARGET_PAGE'
+,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/shared_components/navigation/listentry
+begin
+null;
+end;
+/
+prompt --application/shared_components/files/icons_app_icon_144_rounded_png
+begin
+wwv_flow_imp.g_varchar2_table := wwv_flow_imp.empty_varchar2_table;
+wwv_flow_imp.g_varchar2_table(1) := '89504E470D0A1A0A0000000D4948445200000090000000900806000000E746E2B800000B0F494441547801EC9DDFAB5CD515C7F7448B24607F05928291D04A6369D3AB557C6A4B73F1E6A5A585D23F4194D27FA10F3779E8BF508A258F7D2C8596F6E5DE';
+wwv_flow_imp.g_varchar2_table(2) := '7263B54F9AA8631415FC85113410050545D41CCFE74C563C77EE3967CE9CBDCE9C397BAD4BD69C7DF6CFB5BFEB337BEFB933737328F88F2B10A1800314219E370DC101720AA2147080A2E4F3C60E903310A5800314259F3776809C8128053A031435AA37';
+wwv_flow_imp.g_varchar2_table(3) := '4E4601072899500E3311076818DD9319D5014A2694C34CC4011A46F7644675809209E53013718086D13D9951570FD002E9EE7B72F754D9362EFEF7D7D6ADACC702F9565E3C3840F7EFED9CD9D8DB3977DFDEEEDEC6DE6E967D1E5E295BC8B27F5AB7B21E';
+wwv_flow_imp.g_varchar2_table(4) := '68845E18DAAD9C98B901070188890B3037C2642F84C97616C299E03F2D15986C875C33B42B031506F8592940020E13776034A33D034A60D2EC79515F2B0188E596C939388BC2A1513ED9466B34D7E86D511FBD03349B08CF9045AE78B9AE0280B4734EB7';
+wwv_flow_imp.g_varchar2_table(5) := 'CF83BDF506906C5721DFAB83FF0CA4C0649BB326B1E8CB815E00C261FDEDAA2F09D2EE97B326B120267DCC541D201CC5E13E9CF53EBB2B404C884DF71EAA5BAA0394F99655ADF41AE4F6111B5580383067FEFB9C3540A5DA0562438CAA4BBBE5AA013473';
+wwv_flow_imp.g_varchar2_table(6) := 'CC5F6D750BC32A5B4DF297F97AAFCED4000ABE7585F1FCE83DD155009AAD3EE391CF3D0D41EB40AD025058EFD527F8CF410532A5984503E4ABCFC1E08C2127CB5FEC68AC42D1008D412CF7B15A814C6115520048EF40563D4DCFED4B812C5F8562FB8E02';
+wwv_flow_imp.g_varchar2_table(7) := '4863098C9D80B78F532036865100DD5020386EFADE3A5681D818460114EBBCB71F5E814998FC22C68B488026DB3183AF7B5B0BFEC59E833A03C437052C086C618E31B1EC0C9005617D8E8B157080166BE4351A14E80C50F6C5E4DE867EBDC888029D0132';
+wwv_flow_imp.g_varchar2_table(8) := 'A28F8969C62C060E900944FA9BA403D487B686FA74801A82FDD9F5EB016BA862BEC801AA4100703ECF01C248D754339FED00552000308073FCDB4703469ABC8AAAE6B31CA039040005600067EBF4E98091268FB2B9EAE66F1DA012020002280003385244';
+wwv_flow_imp.g_varchar2_table(9) := '9A3CCAA823F97E0DFEBFF50804800120DC030CD7B26D9C3C59DC5287BAC58D3F38403000108041FAEC4F1EE072C08EDD79679032EADEF8F8930375E233C6D7836F6179CC0022BF848D7BEE098042BACA2813883EBDFA7655157379E60162F521EAC0F3E3';
+wwv_flow_imp.g_varchar2_table(10) := 'BB4E906C3420A22E95A42D69AB661A200090D5A70D3C020975E5506D7D2B330D90045F561401A4CD550ED540D8A67EAA75CC0244E06F7CF27171EE61455936C0B295D1077D2DDB3E95FA660192ADEBF8D7BF11AE7DF45127A3ADF5ADCC2440E51563E7D9';
+wwv_flow_imp.g_varchar2_table(11) := 'CB21C6DE7BFF7AB19894FB2C3256FB30D868260192D5E70F3FFD59D0B0874E7E37B095C9996AB0680E30B0398064A5009CC77EF0C3A061BF7FA0FA978F03C473E5439A03485609C0D152FBC1FC5D7BFA1238495B315300010F5B0DAB8F7680AD6E63A600';
+wwv_flow_imp.g_varchar2_table(12) := 'FA227FD9DE169C4BF9E1F8D1DD9D803DFEF24B0B9BC936666D153205901C9E9BB62F01E7917FFC3D3CFDD61B85FDF9FF4F85FB2F3C1E28AB2349B6B1BAF254F3CD00242BC3A2EDEB2F972F17D06CFDE874F8D32F7F55186900A08C6B9D8D711BAB9B4BDB';
+wwv_flow_imp.g_varchar2_table(13) := '7C3300B511841586550760366F7EFE8776A4BF77EC3B0558D421AFCA641B5B66ABACEA674C79E6007AF0D8F1DAF85CBAF65E6DD9C3A7BE5F9435D5292AE40F1CD6F38B897F660092A0369D559AE07AE3830F1602D1D4F7C2C623AD6007A0255E81EDBE78';
+wwv_flow_imp.g_varchar2_table(14) := '655F38DFFCF0C320794D07F07D8D8CDC9801887872C8E55A67AC2072C8FEE37FFE1D2E3C73A9B0BF3EF564D144CA8A9B9A07C6E0774D35C5C9659B02A84DF458610494D7AFBD1B30DA5DF8EDEF8AB73D48BB7DA5800980E4FCF3D089BBBE9A79430A889E';
+wwv_flow_imp.g_varchar2_table(15) := '7BE4B180010E5756A78626B78A640C19F356416A899BF3310150CCCBEAB6E0DCD4D3DCC50440B71D3EB2F2C0C640BB72672306340150843E9D9B0E016D6767231A9A02E8E9ABEF4448E54DAB143005509500DA79D620350190BC91AA0D4B537F438CD9E4';
+wwv_flow_imp.g_varchar2_table(16) := '4F5F65C903F4E9DB578BCF2B23206F94726D6BBC71DAE6B340E5FE640C7E99C8D8E5B214D3CB03342215082081E4AB3718AE0305D736C66782F82C509BBAE53A7C5191F1181B1FCA65A9A5930588C0114002C99F6B916F92F619C0F26AC5988C8D0FF8D2';
+wwv_flow_imp.g_varchar2_table(17) := 'E7B843F69D2440048CC0114002591678D187C2CA75BBA6E59BAE8C8D0FF8824F5DFB5BE776C901C4E1958011380228E2F35564F2E48C22F99AD7AAED0E1F18179FF04D73BC75E82B298078FF493EF74CE0EA045EE61C54D7C77CBE6C5F9C7FE6CBF00588';
+wwv_flow_imp.g_varchar2_table(18) := 'F00D1FE7CBC77C9F1440F20CAF0A22419273509FDB18DF9767AC7993B1C5C7F9F2B1DE270510DB04CF743983CC07856D6C3E4FEB5EB6AFBA31C8C7377CD41A731DFA592140FD4E57B686E3DFFA66E340AC4E9C8334B7B1A6EDABEC8CF826BE96CBC69A4E';
+wwv_flow_imp.g_varchar2_table(19) := '06A0B6EF7ECBEAA4B98DC9EA237DD7C120DB5B5B5FEBFA59A7FC640012512548725F75D55C85DAAE3E557EA490971C406D82222B85C62AD476F569E3D718EB9804884069AC42D6571F74340B90AC42BCDFD5F5406D7DF5310D1093E76535D72E5BD9A3BB';
+wwv_flow_imp.g_varchar2_table(20) := '3B342DFE379F2261F4610C2B502FA1D9BD7225C8DF37E465BD6C476D06A32E6DA84B1FF445DAA2990388BFC84AC009FCA1C347C2E153A78AB8B31DB5D9CA8087BA34A2EDED478F1620D2277D936FC94C014480F98BACC043E0EFB87BF65F1BDC71E2EE22';
+wwv_flow_imp.g_varchar2_table(21) := 'E69C878A44CD0380093CB4A7DAD7728048D3277D3306F956CC0C402FBC73B5F873BE0496801378D2D8A123870379A4F94352AC3218F71869CE3C021875CBED4993475D20622CD216CC04400474FADA6B453C596D087871537A204F206095C1A498B49C79';
+wwv_flow_imp.g_varchar2_table(22) := 'A8435D29932B799471CF588C493A754B1E200249400924F0B0DA90AE3220E05C433D4CEA90C628A38EE4CF5F29A31EF98CC9D8A453B66401E22CC2C19640CA61B9099E7290A987491E694CEE9BAED40334C6646C7C4819A4E400E20CF2B7FF3D519C7738';
+wwv_flow_imp.g_varchar2_table(23) := 'D81248392C37055EBB8C31D9D2F00190C427ED7186EE2F1980F82A31B0948DED844076151900B0AEEDD9D2688F95FDC2D7AE7DAE5BBB640062EB0096B29117233800601A7D68FA15E38F76DB6400D216C6FB6BA78003D44E27AF55A340678026B765AFD4';
+wwv_flow_imp.g_varchar2_table(24) := 'F4E9D98614E80C90218D929F6ACC62E00055E1E179AD1570805A4BE515AB14E80CD0F33FDF7AB5AA43CF1B9F0231B1EC0C10324D42B818FC67E40A64E7632610055016B2276206F7B6E357200AA0BCB1AF40236720368679FBEE0A3CB779D601EA2EDF5A';
+wwv_flow_imp.g_varchar2_table(25) := 'B48C8D61144028E0E72054101BDB358B3AFF305B0580E29DC011B7712A100D104BA0AF42E30CFE74F3ECB958CFA301C28149F055081DC6653A3153018855685CE2B9B71AAB0F2AAA004447C157A1990CA378D4597D98AA1A4033A2F51CC339B73E14C8CE';
+wwv_flow_imp.g_varchar2_table(26) := 'CF62A5D3B71A40B883637EA04689A56D250D880D31D21C4C15201CF303352AACA7F5111B758038501F0AD9E67A4A68D72B62426CB415500708077114875932B9771B4E0162402C88491F5EF402108EE2F0F39B5BF94A9445FFBA9CFEDCBA28909D2706C4';
+wwv_flow_imp.g_varchar2_table(27) := 'A24BEB366D7A0348069F1DDA1C22D1637557DD575B757EF70E100303D174732B5F4D1D24F4E8CB72812FB25DA1F554E16D8A367EAE04207184494D6F81E430892E3157DA0A387D6F578C356F2B0548069FE6CF8E996D4D78C6CC7E8BED40893E8BAE0083';
+wwv_flow_imp.g_varchar2_table(28) := '666837CD9F904380233E0E02900CCE9503DEB404D4E4F670AF58984C7E63DD440BB94E6F0233CD35433B341CD20607687EF27C43406C7AE6E17F5937D142AEF37A0D7DBF76000D2D888FBF9C020ED0727A79ED39051CA03941FC7639051CA0E5F44AA7B6';
+wwv_flow_imp.g_varchar2_table(29) := 'D24C1C202521AD76E300598DBCD2BC1D202521AD76E300598DBCD2BC1D202521AD76E300598DBCD2BC1D202521ED74B37FA60ED07E3DFC6E49051CA02505F3EAFB15F8120000FFFFC30FBEB2000000064944415403008F302A7B8F8F4C0F000000004945';
+wwv_flow_imp.g_varchar2_table(30) := '4E44AE426082';
+wwv_flow_imp_shared.create_app_static_file(
+ p_id=>wwv_flow_imp.id(4585226012106463889)
+,p_file_name=>'icons/app-icon-144-rounded.png'
+,p_mime_type=>'image/png'
+,p_file_charset=>'utf-8'
+,p_file_content=>wwv_flow_imp.varchar2_to_blob(wwv_flow_imp.g_varchar2_table)
+,p_created_on=>wwv_flow_imp.dz('20261013061006Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061006Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/shared_components/files/icons_app_icon_192_png
+begin
+wwv_flow_imp.g_varchar2_table := wwv_flow_imp.empty_varchar2_table;
+wwv_flow_imp.g_varchar2_table(1) := '89504E470D0A1A0A0000000D49484452000000C0000000C0080600000052DC6C0700000F14494441547801EC9DD1EF154715C737A8692001B5289840F3D39234462969C13E591F4CE0459F8C7F02A131FE0B3EFB2F1843C3631F9B3EE90B244D6B7DAAA0';
+wwv_flow_imp.g_varchar2_table(2) := 'A9687CA14AA08945E9439B40885A7B3F0B677BEEDEBBBF9DDD9DDDBBB3F325BFB9337366E6CC39DF39DFD973EF0F2E07CEBC79EDFF2AC220D7183850E88F10C818011120E3C397EB452102280AB2464004C8FAF8E57CC604D0E10B01A5408A81CC11D013';
+wwv_flow_imp.g_varchar2_table(3) := '20F300C8DD7D1120F708C8DC7F1120F300C8DD7D1120C70890CF1502224005851A39222002E478EAF2B9424004A8A05023470444801C4F5D3E5708880015146AE48040DD4711A08E88FA592120026475DC72B68E8008504744FDAC101001B23A6E395B47';
+wwv_flow_imp.g_varchar2_table(4) := '4004A823A27E5608644480ACCE55CE062220020402A569CB44400458E6B9CAAB4004448040A0346D99088800CB3C577915888008100854D2D3647C2302224023341AC8010111208753968F8D0888008DD06820070444801C4E593E362220023442A38125';
+wwv_flow_imp.g_varchar2_table(5) := '20D0E68308D08690C6178D8008B0E8E395736D0888006D08697CD10888008B3E5E39D7868008D08690C6178DC08209B0E8739373911010012201293569222002A4796EB23A120222402420A5264D04448034CF4D56474240048804E4ACD4C89860044480';
+wwv_flow_imp.g_varchar2_table(6) := '60A83471890888004B3C55F9148C8008100C95262E1101116089A72A9F8211100182A1D2C41410E86AA308D015B148F33F7DF0B07874E76E596847522B351D1110013A0216633A01FFE8EE9DE2D3870FCA52B6578488A15B3ABA21200274C36BF06C0BFE';
+wwv_flow_imp.g_varchar2_table(7) := 'BA2291A08EC8347D11601A9CCB5D9A82BF1C5CBD88042B1026FE110126027C5BF05F78F16C41F12688041E8DF1DB0B22C0F860F5DDE13FF7EF1704B65F4FE01F3B7CB8A0D0F663CC85305EA6F638088800E3E05A692590FFBB22402558350878027FD52C';
+wwv_flow_imp.g_varchar2_table(8) := '7F68232B3B4F5E448227408C5C890023034C20FB2DCE9C3A55DEFA5E467B1B09787230A6321E0222C078D8969FF17BF504FFF3274E7AD15A1B1230C7847C4CCAEF0AACAF3A3E0222407C4C4B8DDCDE0470D959BD10D8FB05FF6A4AF9C31CE6969DD50B3A';
+wwv_flow_imp.g_varchar2_table(9) := 'D0B56AEA6704044480114025607DDE4F4013D8A15B319735361F5DE8B4FE462D416F044480DED06D5F48A012B0364A2013D0D60FAD59C35A9B8F4EDE505B5F751C0444803838565A0854EB1C7FFA6841205BBF6BCD5A74D83AC8656DD571101001E2E058';
+wwv_flow_imp.g_varchar2_table(10) := '6AA907E899BDBD523EE4C5EBE0FD80DE140F417373AD08B089492F09C1EF6F7FD2173ED5E9A5CC2D4207BA4C0409940A191AC36B11603886A5061FFCA42DA42FE540841774A1D354D57FB760F21CEBA13E8B0043115CADE7F65F55D58F4F5B2AE1C0465D';
+wwv_flow_imp.g_varchar2_table(11) := 'A752A181803E592E023C01A26F45F0FBDB9F7485B4A5AFBEA675E844B78D2B15322486D522C030FC8A7AF093AE0C54D9B81CDD3E15827C8D9335108480081004D3F649F5002440B7CF8C27F5A9909E02C3711501066058BFFD07A80A5E5A4F85F4863818';
+wwv_flow_imp.g_varchar2_table(12) := 'BAAD131326C0567F2613D66FFFF76EDD2A5E7BFBAD490A7B7947EBB6F831B5F7474004D81F9FC6517FFB374E9A68604EB64CE472B46D44801E50CEF1C6D52FC77A1CE46A8908B002A1EB8FBF717FFEFD978B3F5D7C6527E5CA4F7E5A993E475256C6CDB8';
+wwv_flow_imp.g_varchar2_table(13) := '2102743C9C7AA0BDF2EDEF74D4106FFAB9A78F56CAF489500545A78608D009AEF5C9DCFEEB92897A6E1B6F439D9C6E9A9A0D0888000DC034897DFAB3CBDBDFEC3B77ECB835CB6F99D37B810A8EA086081004D3E349FE86F537EFE3D1DDBC9206BDB4F7AD';
+wwv_flow_imp.g_varchar2_table(14) := '6A736F632554A3110111A0119ACD017FFB6F8EEE4EF2B3B36777B779E23B8B008107584F2D86A43F97FFF6D7E2D2B5ABC50B572E978536B2405336A6F11430A1DE0C1B1261B508108653F1BF870FAA997DD39FEB1FDD2F03FE57BF7FA778F7F6DF2B7DB4';
+wwv_flow_imp.g_varchar2_table(15) := '914188BE44F06950A578818DD82E89008188D69F0081CBAA6904F6C5375EAFFA4D0D88C0DCA6F126B94F83F43EA009A54DB908B089C95609A9850D744D7FB8F9096C5BFFECB16F14975EFE41F1CB1FFDB82CE7BF7BBA4066E3CC658DF543EA7A1A14B246';
+wwv_flow_imp.g_varchar2_table(16) := '738A42040888027FA3F649357E7DE346B50BC17EF17BE78A6F1E3952C97EB8B75720F324F06BAA892D0D6FDBD02756CB568B1916013A1EE54B274F745C51ACE5FB047B9302486063BC2FE8FA14F0B679D29A4ED59B0888009B986C48FC6DEA7FF1B43171';
+wwv_flow_imp.g_varchar2_table(17) := '8BC0E7F3DCFE5BA6AC89FC53606D20A0D3D5B600958B9F9210017677163EFFF7B9F618163DFBF5AF556AAFDFFBB06A776D789BBBAECD69BE0830F269FB5BF9FD7FFD7BD4DDEAE4F44FAE51374E58B908D072783E88FC9BCC96655B87DFBFF7CFAD722FBC';
+wwv_flow_imp.g_varchar2_table(18) := 'F6979B55B7EBA74D2C1C6A233A722A2240CB69FB5F80F937992DCBAA616E651F9457FE70BD1AAB37DEBC7DBB12F93595B063C3DBDE716936D34580098EDAFF928AA70024F0C1FE8F8F3F2E90F9DBDFAFE962A25FE79F5E5D74E434570468396D1F443E9F';
+wwv_flow_imp.g_varchar2_table(19) := '6F59B636CC53C0FFF5094840B0FFE2B7BF2928AFBEF3BB02992D622E6BAC5FA8311A0222C068D0AE2B269F27B0D7A59B3DFE99237337472419030111600C541B7412D8FCFB6188E0737CDAC818D3CDDF00DE486211602460F7530B115E3D7FA1FA87F4B4';
+wwv_flow_imp.g_varchar2_table(20) := '91EDB74663E3202002B4E0EA7FA194C2EDEC6DF4B6B7B899EDB00890EDD1A7E1F8D8568A0063232CFDB346400498F5F1C8B8B11110015A103E70F05035A3EB5F4FAE164ED8F0367ADB273421A9AD4480A48E4BC6C6464004888DA8F42585C08C0990148E';
+wwv_flow_imp.g_varchar2_table(21) := 'B33176C8BF21988D13131A2202B4807DE0D0C16A8682AB8262310D11609FA3E4DFD5FA6F837BF7EE07FBCC9EDF10BF08C387F959361F8B448086B320707CF0374C9B9DB84E527CC097D9193A138344802D0741C01038F521BEA9A12E1BD2BF74ED6AF915';
+wwv_flow_imp.g_varchar2_table(22) := '89FEA3CB21FA58BBCD467CC127C655D6111001D6F128081402C6C4FE3FA746162B58F9B608829582DEB512A9E36DC7277C8BA47A316A44007794040881622202E8F913278BE3EE7F62B1B19875AC37D790CAECC2666CC70793E11B3E5A5FB5BE19AE8A01';
+wwv_flow_imp.g_varchar2_table(23) := '0283003101814300D13FFED5AF5095A5CF37B6950B277E319BF1015F6C7B7CC457EBE75EEB09B08A000282C05835CB1F0286C0293BAB97E347BEBC7A9DFF8F7F03EC6DC6177C320FF0159FAD9F739D3D01080402C28280402160AC4F7DECF061AAB28C99';
+wwv_flow_imp.g_varchar2_table(24) := 'B3971B0C78F1B6799B51894FF8469B82CFF84E3BE7923501080002C10280002150ACEF6B726AEBC77A236CFA62D4F5FC7F9B4E7CC3471BC37730B0FE1CEAA96DC896001C3C01608013180488F5F7ABE7FE3EC0F2FF6D3EE023BEDA1818F86FBE30792E75';
+wwv_flow_imp.g_varchar2_table(25) := 'B604E0E0ED90B9DD090CEB6FABCFECED55629F6A54C21D37F83F05CC84365F18C7679BCF6560EDDCEA2C09503FF0F3A74FB79E3B39B50F9A39A54121E94FDD41EF337F6522D7A7409604F0B7BF4F07EA4152EFFBA7C05CD3A0FDD29F0D7F4E9DAA448FEE';
+wwv_flow_imp.g_varchar2_table(26) := 'DEA9DA3935B22340FDA6231DE873E0734A83BAA43FDE577CF74FB53A367EEE52DB3322C03410FB2F8CED72FB63DD1CD3209FFE74F5079F7CA9A7867E6CA9EDEC0830F4969B5B1AE46FFF3E41EAFDE9B33EF535D911C01F98FF6DA997EFD7F64F01D2A05D';
+wwv_flow_imp.g_varchar2_table(27) := 'BE19F6B73F3693D250AB8423901D01F8C4C3E02198ADDDA5F6B7E65CDE0CF74D7F3C061E9B2E78A43C373B02C4382C1F34BB7A0A70FBFBF447B77FBF931501FAE156F81B77F053A0870DFE2FBE795B7AA8CA7A8908D0F3F8FD8D3BF55380DB9F3DCD746F';
+wwv_flow_imp.g_varchar2_table(28) := '8BC9548721200284E1B475D68517CF56F2299F023EF5D1ED5F1D41AF8608D00BB6C78B782F60BF48E246E6667E3C32DEABDF83BD75FB0FC35A0418865FE13F11E2661EF3635174B38799DCE5AF3DD81AD5EB088800EB7874EEF9A7008BC74C85BC6E529F';
+wwv_flow_imp.g_varchar2_table(29) := '25DCFE60B6CB22024440DFDFC463A542A43EE88E60AE543804440007469FE69F3FB85BBC77EBD6DA52D214D29535E1800EBAD0E955B0277B7B99DADD111001BA6356ADB876F3E646F0DBA04F574CD6B7F6BAFC77FE8B047D11FD7C9D08F03916C1AD7B9F';
+wwv_flow_imp.g_varchar2_table(30) := '7C5210FC1F7E74BF5AF3C5A3478B83CF3D57588092AEF0CD6FD5849E8D7AEAF3D433270BF6327590005BACAFBA1B02224037BC0A82FFEA1F6F14F5E0FFD28A00A8B29A3624208069F729ACF5A9CF53279F29D5B0872701B6BCF6F65BA56DE504BD0423B0';
+wwv_flow_imp.g_varchar2_table(31) := '430204DB389B89E4DC04BF37884024204DC6D7A923B33E014C205B3FB4660D6B6D3E3AD16D7DF644667D6A6CC346DA2A610888006138150416E9869FCE8D4C207A196D643E380964029AB1B6C21B5EE6B2C6E6A20B9DD6B71A1936589F1A1BB195B64A3B';
+wwv_flow_imp.g_varchar2_table(32) := '0222403B461BC14F9E4FE0F91BB9AE86E0649EC909E817AE5C2EACD0DF3676F18DD70B3F860E74D9DC7A8D0DFEBD07E3220128841511A00527DE601250368D80E48D288167B2A69A79DCDE4DE36D72DBAB6D1EE3F5BDB0594F0290D9BF88000DF8F06697';
+wwv_flow_imp.g_varchar2_table(33) := 'E0E70DA64D21980934EB87D4DCDEACA384CC27E8293C61FAEE65FB40027CB0BEEA4D0444804D4CCA4F537843590F7E8279CBF45611EB28A42A65597D5CEA0941DBE4043D25E409B36D63F6419F8DE1833E213234366B11A086096903C1EFC5041481E565';
+wwv_flow_imp.g_varchar2_table(34) := '736E632B367B1BF109DFBC4C6DFDFF00650C90EE504817481B4AE19317521102EA4937990A9BB1DD1B8C6F9080E2E539B7B37E02901A50B81D29A40B160C9687F74D454CCF2E6B6C27B5C217B3031250F0DB8A8DE558674D80A603277D18928737E9F5F2';
+wwv_flow_imp.g_varchar2_table(35) := '2F1C3CE4BBA3B6F1059F46DD2451E5D911605B2070435218236D207D98E23CD99332C57EECC1D3001F29DBFC6B926F9BDB5736B775D911C0028160B0C20D49618CB4618A43621FF6A44CB19FED818F14F3DDD7C86D5E2E757604C8E560E5671802224018';
+wwv_flow_imp.g_varchar2_table(36) := '4E9AB550044480851EACDC0A43400408C349B3168AC08404582882722B69044480A48F4FC60F454004188AA0D6278D800890F4F1C9F8A10888004311D4FAA4111001A6383EED315B044480D91E8D0C9B020111600A94B5C76C111001667B34326C0A0444';
+wwv_flow_imp.g_varchar2_table(37) := '802950D61EB345400498EDD12CC3B0B97B2102CCFD8464DFA8088800A3C22BE57347400498FB09C9BE51111001468557CAE78E800830F713927DA32230220146B55BCA85401404448028304A49AA088800A99E9CEC8E828008100546294915011120D593';
+wwv_flow_imp.g_varchar2_table(38) := '93DD51101001A2C05853A26E32088800C91C950C1D030111600C54A53319044480648E4A868E8180083006AAD2990C02224032479586A1A9592902A47662B2372A0222405438A52C35044480D44E4CF646454004880AA794A586800890DA89C9DEA80844';
+wwv_flow_imp.g_varchar2_table(39) := '244054BBA44C084C8280083009CCDA64AE088800733D19D935090222C024306B93B9222002CCF56464D7240888003160968E64111001923D3A191E03011120068AD2912C022240B24727C363202002C440513A9245400448F6E8E66178EA567C060000FF';
+wwv_flow_imp.g_varchar2_table(40) := 'FF6E817BB000000006494441540300F468B8DBC4BF5FEA0000000049454E44AE426082';
+wwv_flow_imp_shared.create_app_static_file(
+ p_id=>wwv_flow_imp.id(4585226316152463889)
+,p_file_name=>'icons/app-icon-192.png'
+,p_mime_type=>'image/png'
+,p_file_charset=>'utf-8'
+,p_file_content=>wwv_flow_imp.varchar2_to_blob(wwv_flow_imp.g_varchar2_table)
+,p_created_on=>wwv_flow_imp.dz('20261013061006Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061006Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/shared_components/files/icons_app_icon_256_rounded_png
+begin
+wwv_flow_imp.g_varchar2_table := wwv_flow_imp.empty_varchar2_table;
+wwv_flow_imp.g_varchar2_table(1) := '89504E470D0A1A0A0000000D49484452000001000000010008060000005C72A86600001000494441547801EC9D5DAF25C75586EB38A0C8966C628FE441F25843B0B0104C86C4265704E21133377085B8E4D27284F8131E5FF017108AE54B2E113F60064D';
+wwv_flow_imp.g_varchar2_table(2) := '02E1CAD884C380905108962712B634364AA458168977FAE93DB5CF3AB5BBF7E9EEDD5D1F5DEFD159BBAAEB73AD77F57AABBA76CF99C79C7E848010A816011140B5AE97E142C0391180EE022150310222808A9D2FD3EB4600EB4500A020110295222002A8';
+wwv_flow_imp.g_varchar2_table(3) := 'D4F1325B0880800800142442A052044400953A5E66D78D80B75E04E091502A042A44400450A1D365B210F00888003C124A8540850888002A74BA4CAE1B016BBD08C0A2A1BC10A80C011140650E97B942C0222002B068282F042A4340045099C3656EDD08';
+wwv_flow_imp.g_varchar2_table(4) := '84D68B004244742D042A4240045091B365AA10081110018488E85A0854848008A02267CBD4BA11E8B25E04D0858ACA8440250888002A71B4CC14025D088800BA50519910A804011140258E96997523D067BD08A00F19950B810A101001F438F9ABF7EEBC';
+wwv_flow_imp.g_varchar2_table(5) := 'D225D7EFDDB92DC917832E9F51D6E3E6EA8BAB25006E0A8460FE9D7B77EF79B97EEFEE06F9DC9DDCEB12E74E5E97E48B4197CF28C3A75ECE7CBD2532EE0357E94F35048093CF1C7F77C34D81B826A037CEBDE2C5E967F5089CF97A4B64DC079003F7070B';
+wwv_flow_imp.g_varchar2_table(6) := '02B226100ED9B25A0220E071E4D6A9DB803F73FC214854572B02DC1FAE5910104B08DC4B6EA53FAB23009C45D0C3EAAE71E6D6A94E3F42603402DB7BE7E475EE2508810565F4209977580501F8A0C749386BEBB8CC91977A052270F23AF71844801468C0';
+wwv_flow_imp.g_varchar2_table(7) := '9ECA4513800F7C05FD9E5F55B02802DBB30348005974AA2307BFA87B9104A0C0BFC8ADAA8F83C01911C4996FFE598A230018572BFEFC3782463C0681B34783634649D1B71802F0ABBE6B0EF69C7E844096084004776E67A95A8F5245108056FD1EEFA938';
+wwv_flow_imp.g_varchar2_table(8) := '430420015E264B4F0443C0C99E00087EA755DFE9A734042082FC49206B0250F09776D34BDFF308E44F02D9128082FFFCADA4AB5211C89B04B22400057FA937BBF4EE46203E0974EBB15F9A1D0128F8F79DA49235209027096445000AFE35DCE8B2A11F81';
+wwv_flow_imp.g_varchar2_table(9) := 'FC48202B02703AED77FA593B0227AFF34E4B2E56664300DBD53F1758A48710580E81CDC20BDD18CDB320806DF0F35EF518D5D556089489C0C6B957B6F77C7AFDB320009711233AFD08812808E4F128909C007261C2283ED72442C020B0C960E14B4A00DB';
+wwv_flow_imp.g_varchar2_table(10) := 'E0D7D6DFDC13CA5684C0A6791498FB40702C7C490960ACB26A2F04D686C026F12E20190168F55FDBAD2C7BA620B049BC0B48460053C0521F21B0460436097701090940CFFE6BBC9965D3780436CD2E607CAFFD1E534A9210C076FB3F455DF51102EB4420';
+wwv_flow_imp.g_varchar2_table(11) := 'D5616012027009B73C4E3F42204304368962223A01A462BA0C7D2E9584C00E814DF318902236A213C0E78DA13BAB951102426087C031B1B11B6464263A019CB8936F8ED451CD85401508A4888DE804C056A70A6FCA482130128114B111950074FA3FF28E';
+wwv_flow_imp.g_varchar2_table(12) := '50F3EA10887D0E109500AAF3A60C16022311D84CF83660E414E79A47258014CF38E7ACD585101002E710884A001B7D03700E7C5D08811081D831128D00623FDB84C0EA5A08948240CC5889460029BEE32CC5E1D253084C45E0D87ED108E05845D55F08D4';
+wwv_flow_imp.g_varchar2_table(13) := '8240CCC5321A01E800B096DB57761E8B40CC58894600C782A2FE424008CC8F403402887DBA393F541A5108E485C01CDA4423803994D51842A00604622E9622801AEE28D928047A1088420031BFD7ECB153C542A0280462C54C1402280A79292B040A4060';
+wwv_flow_imp.g_varchar2_table(14) := '2E1545007321A9718440810888000A749A54160273212002980B498D23040A44400450A0D3A472DD08CC697D140288F96EF39CE0682C21900A8158311385005281A879FB11F8FF870FDDA7EFBDD70AF9FE96AA5933022280357BB7C73602FE670D01F86A';
+wwv_flow_imp.g_varchar2_table(15) := 'F294F96BA5F5202002A8C7D7ADA5043A01DF5E980FCAA83345CA6688C0DC2A8900E64634E3F1087002BD4F45EA68D357AFF2F5212002589F4F3B2D22B009705B79EB6B2F39C496D186B6B64CF9F522200258AF6F779611D004F6AEA0C910F8CF3EF9A443';
+wwv_flow_imp.g_varchar2_table(16) := 'C83745BB5FDAD26757A0CC6A111001ACD6B55BC30864027A7BE5DCE5672EB5AB3E81EFCBC88B043C1AF9A64B6826025802D54CC60C831FB56E5EBBD6AEFAE4AD40027FF607DF6C09C297431C9FFFF4537FA9748508880056E8544C22700960F25EC255DE';
+wwv_flow_imp.g_varchar2_table(17) := '97DBF4FAD5ABF6D27DF6E003C758E70A75B11A044400AB71E5794358FD6D09C1CF2A6FCBBAF2B4A1ADAD0BC7B275CA978D8008A06CFF756AFFD9070FDCE79FFE745777FD85173AB7FDBB06410612A08F2F662CC6F4D74AE323B0D48C2280A5904D342EAB';
+wwv_flow_imp.g_varchar2_table(18) := '3501EBA72790BFF2DC157F3938A50F7D7D07C6646C7FAD741D088800D6E1C7D60A02D43EF713C004725B39E183BE7C6BE0BB32B6CE033C1AEB484500EBF0636B0501DA661E7D10C08FB29313BE35B024C0A1E0E4C1D4313B044400D9B9649A42ACFEB667';
+wwv_flow_imp.g_varchar2_table(19) := '789067EBC6E6F7BE1968CE18C68EA1F6D31158B2A708604974238D4DF0DBD59FAD3F0779734DCF588CE9C7D3798047A2FC540450BE0F5D18FC736CFD435818D33E0A30A7CE034294CABB160194E7B3731AB3FADB0202D55ECF990F1F05C2B9E79C4B63C5';
+wwv_flow_imp.g_varchar2_table(20) := '4140041007E7456621005989FDE0769BEECBE64CBB1E05B40B9813E1FDB1962E11012C8DF082E3DBE0677BBEE4EAEFCD600EE6F2D79090CF2B2D0F011140793E6B350E03EFF2D35F6ACB637CD847011D08C6407CB9394400CB61BBE8C876F567EBCFCABC';
+wwv_flow_imp.g_varchar2_table(21) := 'E88466701E05EC2EC0EA629A295B00022280029C14AA18AEFE1F7EF27FEEEEFDFB51E5229DC27A5D8F4720460F11400C94679E235C713FFCF8A14B21D62C74D281A045A48CBC08A00C3FEDB40C57FF5D4506999C75CB009E2C55100164E9967EA558697D';
+wwv_flow_imp.g_varchar2_table(22) := 'EDD7AF7ED9FDC5EF7D23B9787D3810F479A56520200228C34FAD96E10AFBE6CD5BEE5BBFF95B49E5E5672FB7BAF90F3D0678248E4B63F51601C4427A86796C70B1F2CF30E4D143BCFCCC25C74EC40F1492942F579A270222803CFDB2A715C19FEB16FBCF';
+wwv_flow_imp.g_varchar2_table(23) := '5F7A69A72F3AA2EBAE4099AC11100164ED9E33E57E6EFEC417A56CFD497310ED0272F0C2341D4400D3708BDECB1EFEE5B2FDB72084BB005BA7FC380462B61601C4447BE25CE173F55CABFF3B1F3F9CA8D17E377601B6548F01168D7CF322807C7DD3A9D9';
+wwv_flow_imp.g_varchar2_table(24) := 'B1AB3F41FFDADD3BEEAB6F7DDBBDFA777FDBA6E429FBF67FFE47E79C430B75183814A97CDA8900F2F145AF2676FBDFDB684005014ED0BFFDFE0FF75A53F657FFF43D479BBDCA81057A0C18085446CD44001939A34B95702B3D75FBCF2A4F8077CD61CB68';
+wwv_flow_imp.g_varchar2_table(25) := 'C36EC0964DCD87BA4F1DA7A67EB16D1501C4467CE47CF6F4DF6EB1C70C13AEEABFFEECAFBAD7BEF1FBEE2FFFE88F5BB9F9DBD71C657E4C7603611F5F7728E51CC0EA68753FD44F75E9101001A4C37ED0CC7615FDFA95E706F5B18D78E66755F76504FBAB';
+wwv_flow_imp.g_varchar2_table(26) := 'BFFBB2FBB5A79EF245EEC6D5AB8E32EA7C217DE8EBAFA7A456F729FDD56779044400CB637CD40CBC58E307085FBBF5E587D2773EFAF05C35C17EAEC05C506777027FFDEEBBA6765856E700C370CAA5950820174F74E811AEA06CB13B9A1D2C7AFBC18F76';
+wwv_flow_imp.g_varchar2_table(27) := 'F57685DF1506993F7CF13782927197A18EA10DE346ABAB750A6B450029501F38A77D86B6CFD603BBB7CD789E6F33CDC7979F7EBAF91CFE6BFB0EEFE5CEFDDB8031FDD4363E022280F8984F9A71CAF33F138D258E1F7EF209DD6693F025A6D906D640B320';
+wwv_flow_imp.g_varchar2_table(28) := '20029805C66506997BFBFCF7EFFDD72845A7BE743495AC4629A7C6B32020029805C66506B107805367B08772FFFDD1FFBAFFF9F18F7B87A2EEEEBFDFEFAD1F5A610F2BE7B061E8BC25B74BA5BB082015F223E7B54135A62B8772F631E0CDEFFDA3BBF7FE';
+wwv_flow_imp.g_varchar2_table(29) := 'FB7B4310FCE10E61EA4B47E1E073EF64C2F1753D1D0111C074EC16ED19060D813C7542BB0B600C567948C0CB5BFFFC8E8318D821508F4CDDFED3F7185DE92F89878008201ED6C9662220C3808604BCD8C04749DACEB5FA339E245F044400F9FA6656CD08';
+wwv_flow_imp.g_varchar2_table(30) := '6802FBD0A03C2ABCF5277FDAFE8DC143ED86D431D690766AE35C4A0C440029D13F30F71CEF0084C34302DF7FF55BBBBF224C9022100381FFE6CD5B8EDD42D8EFD86B6BCBB163A9FFBC088800E6C5B388D12002848047C82F11F8458051B9922280CA6F00';
+wwv_flow_imp.g_varchar2_table(31) := '995F3702228002FCAF176B0A70D2441553771301A4F6C080F9DF36FFA06740F32C9A88B4B270C3854A88002E84480DA6205022694DB1B3F43E2280D23D28FD85C0110888008E006FC9AE5F78FC892587D7D8192090830A22801CBCB0721D4466F93A5804';
+wwv_flow_imp.g_varchar2_table(32) := '90AF6F769A4DFDC31CBB0112644AD439014CC9A71401247781141002E9101001A4C3FEE0CCE15FD239F62FF41E9C6CE6CA50D7D09699A72B72B85C941601E4E209A3C7671F3C7025FF218DF02F11630B36191395CD04011140268EF06A1028048CBFF669';
+wwv_flow_imp.g_varchar2_table(33) := '1854BEFC9894951A39668CA17DB109DB86B657BB38088800E2E03C6816028440E96A3CF78B35FCCF3FFC3F818848A00BF13ACA440099F8390CFECBCF5C72B7BEF65214EDE6DE5DF0BF0A79C5AFBFF082C3167F0DC161ABBFAE31CDC966114006DE202008';
+wwv_flow_imp.g_varchar2_table(34) := '0CAF0A0173F3DA357FD9A6A57EAD76F9A95F71D8824DAD21CD07B6627393D56F62044400891D402010105E0D028580E1FAD9279F24D949ACADFA6EC209191E2D6C376F0336619BAFC3666CF7D74AD320200248837B3B2B014020B417CD070142A034D9DD';
+wwv_flow_imp.g_varchar2_table(35) := '2F65FE62CAFFD5E7FBA648ADEECC8F6DB60CDBC1803A491A0444006970777C374E00F8E9090C02C45FFBF4F2D35FF2D922527B58D9A53B3662AB37060C6A22016F772EA90820812708FE9F3D7CB89B99802030760526C333B4BF2CE11CC0EA6875F73690';
+wwv_flow_imp.g_varchar2_table(36) := '622B369347200130212F898B8008202EDEEDCA3F34F851CD3F439347723E07E87BFE47EF5042120013914088D2F2D72280E5313E370337BA2F60152410FC755F4A3B5F57CA39005FFF799DFB526CB7B6596CFAFAA87C5E044400F3E27970B47085BB7EF5';
+wwv_flow_imp.g_varchar2_table(37) := 'EAC1F6BED2B6B35B6C5F9F4B6ABFFF1FAA93B58D3E6B3E0FC0BEDC440410D123768563850CB7F77DAA84ED727C0C08B7FF5F79EE4A9F39E7CAB10D2C7C21E701E17F8BE6EB94CE8F8008607E4C3B470C57FFA101E207B35BE5DC1F036C407BFD0FA563B1';
+wwv_flow_imp.g_varchar2_table(38) := '383496EAC62120021887D7E4D676551B1B204C6AB7CA3C06E4B60BB0DBFFBED37FECE8134B702159F6F551F9F10888008EC770D0086C6D0735EC69C456D906494EBB8070FB8FAE3D66F4165B823B16ABDE491256E43AB508208267ECEACF7453B7BC3648';
+wwv_flow_imp.g_varchar2_table(39) := 'D80530560E6257FF29BB1B6C084923C48C3692F9111001CC8FE962231224761710AEBC8B4D7C60E05087A9E476600A552D888008604170FDD0F67FC7B501ECEBC7A4F6F55AFBDAED9831E66C3BC7EAEFF539161B3F8ED2E1088800866395454BBBC2F218';
+wwv_flow_imp.g_varchar2_table(40) := '10AEC031950CE7B6BA1DAB8725CD63C74ADD3FE7F94500397BA74737BB52DA15B8A7F962C576EEA9CFFE8B29A781072120021804535E8D7885D66A14AEC4B66EA97C38E79CABFF523A6BDC7D044400FB98145162575C56E2D8EF0530A707CAEAE2CB9496';
+wwv_flow_imp.g_varchar2_table(41) := '818008A00C3FED69C98A6B1F0562BE1760577F7440973D0555D02290FB870820770F1DD02F7C2F20C62E80E0B7ABBFFD56E280AAAACA14011140A68E19A256F85E007FE27B48BF63DAD8E067EBAFD5FF1834D3F71501A4F7C1511A842BF06B77EF1C35DE';
+wwv_flow_imp.g_varchar2_table(42) := 'A1CEACFE87EA55571E022280F27CB6D3F8DF7EF4C09DFEE007BB6B32BC1BB0C4A300C16F57CAABE107000007E4494441547FE6626E74202FD947A084121140095EEAD091C023003BAA1C8F0273934018FC7E5E7440177FADB42C04440065F9ABD5F6EEFD';
+wwv_flow_imp.g_varchar2_table(43) := 'FB7B2BFF2F5DBAD4D6F98F39BF15081F2BBE78E5793F4D9B8A045A188AFC100114E63682FFC38FCFFEA2F0638F3FE108C85F6E0880D49BC3A34018B8BE6E4CCAD69FB17C1F88E6B1271E6FE7646E5F0E09A09BBF565A0602228032FCE43EFAC94FDCDFFC';
+wwv_flow_imp.g_varchar2_table(44) := 'C377DD5EF03F7FC5119098414A809247085C0298FC14A1AFDDFA333644C358CCF545E66E08886B04DDD0115DB9AE594AB15D045080A708A83BFFF2EE394D094602F05C61734180DA95990026909BAA51BFF4A1AFEFC47C8CEDAF7D8A0ED4F96B5274D5B9';
+wwv_flow_imp.g_varchar2_table(45) := '0048E42F2280CC7D44201150564D02AE2B187D1B82B28B04086A2FF69F1293F7E5A43C3AD8E067DC43F351874EB4F3C22301BAFB6BA579222002C8D32FAD56041081D45E3CFA20D008B84797BD49D88680B6C2E381EF4CBEAF8E36F66C81EB2E613E74B3';
+wwv_flow_imp.g_varchar2_table(46) := '75E88E0DB64CF9BC101001E4E58F9D361CA81140BB8226432012684DF6C25F9ED11F7FF14567770217760A1AD09739192BA8EABC4437DADB4A6CA88D04ACFDB9E74500197A88E0E740CDAB3636107D3F521E07589911C6F1429D175FE653DA12C8F41D1A';
+wwv_flow_imp.g_varchar2_table(47) := 'FCBBB1F40D8187A288540490919B38ECE3147D2FF8396D6F026BAAAAACCC0801ED8520F7E311E4BE9C94B694F9FAB1297D190742F17DB109DBB0D197294D8F800820BD0F5A0D088CAEC33E02A96D50E007BA5BA2C1046CD4230148E4212280847E20E811';
+wwv_flow_imp.g_varchar2_table(48) := 'B6FC04865585C06125B66525E6B1015BACEEFE5C0022C07E5B577ABE34FD4500913DE6B7C26C87097A8432AB060143E0D8B292F3D8824DD6064800C17EB040421C6C7BE597414004B00CAEE746FD82795BEE5C4570C13333876F044C5055FC2536F1AD44';
+wwv_flow_imp.g_varchar2_table(49) := '4804C51B56B8012280080EE450AC6F1A821E21F079663ED4B66F8C29E5434969CAD887FA40049000D2D70E3C68D757AFF2F9101001CC87E5C19158FDDA20BFF27CFB0F69C8B765CD097FCCC0F74A4234CC8FC40E36E643981B018B73D260E2F52C292D51';
+wwv_flow_imp.g_varchar2_table(50) := 'D72804D04CF29D12C1995B6782CECADCE3973A9EC5847CA976CCA977AC9869E699536D8D25048440490888004AF296741502332320029819500D572702A55A2D0228D573D25B08CC8080086006103584102815812804F0FD1BB7F42D40A97788F44E8240';
+wwv_flow_imp.g_varchar2_table(51) := 'AC988942004910D4A442201202254F138D004E9CD32EC0E94708E485403402C8CB6C692304F24520E6622902C8F73E906642607104A211C0C66DBEBBB8359A400844466089E962C64A34026826D219C012778BC614024720D0C4E511BDD555080881D911';
+wwv_flow_imp.g_varchar2_table(52) := '688232DA62D9CC35BBFE9D03C6FA5EB37372150A81821088192BD10800FC639E6E329F44082C89C01263C78E91A804B004601A5308AC0981980780E01695004EDCE60D2695080121900702510920E6B34D1EF04A0B21300E81D31BB76E8FEB715CEBA804';
+wwv_flow_imp.g_varchar2_table(53) := '80AAB19F7198532204E6466089F152C4467402D8E885A025EE1D8DB9020452C446740268268CF61DE70AEE09995011022962A399332EC29C03A4D8EAC4B552B30981F108101BE37B1DD7233A01A0AEBE0D000549A9082CA3779A6FC89210400AA65BC669';
+wwv_flow_imp.g_varchar2_table(54) := '1A5508CC8340ECD37FAF75120260723D068082440880409AD59F991312403AA3315C2204848073C90880C78013FD9930DD83852130BFBA9B37526DFFB125190130B90E0341412204D221909400B40B48E778CD9C030269577F10484A0028A05D0028486A';
+wwv_flow_imp.g_varchar2_table(55) := '4420E5D6DFE39D9C00D80538FD2B41EF0FA5192330AF6A791C8227270040850975200812923A1048BFF5F73867410028A347015090D480000B5E2E766643007A14C8E596901ECB2290C7D6DFDB980D01A0D09619F30208BD2442601E04F2D9FA7B7BB222';
+wwv_flow_imp.g_varchar2_table(56) := '009412098082647D08E417FC609C1D01A09448001424EB4120CFE007DF2C0900C54402A020291F817C831F6CB325009413098082243502D3E7CF3BF8B12B6B02404191002848CA4320FFE007D3EC0900252181D31B374FF4C62068487246A0B949BFF398';
+wwv_flow_imp.g_varchar2_table(57) := 'DBDC388DFCE7BDA76252040178E3B6A0EA6B428F87D2DC10D8BCF1AF376EDED8BED3929B6EDDFA1445009800099C6A3700149208080C99A2B455DFDA541C0178E54FDB2D16BB01C4972A1502F110F0815FDAAA6F112A960030021240B66703220230912C';
+wwv_flow_imp.g_varchar2_table(58) := '8FC01A02DFA354340178232081ADE8A0D063A2745E047CD09F368F9F25AFF8212AAB20006BD469F36870DA38899358760638CED62B2F048622B0BD77366F702FAD29E8ADFDAB23006F1C27B1A70D19E0B8D38610200364EB54DF4AA9103843807B0321E0';
+wwv_flow_imp.g_varchar2_table(59) := 'B967B6F7CEADDBDC4B67ADD6955B2D01846E3A6DC800D93AF5E6094E8610109C8E847D74BD3E04F0B3177CCF7D809C368B04F706B2E6800F3D5A0D018486E3E453430A38FEB4B909BC70537409378D8403D73CA5CB679479BFE2672FA78DFFB90F90F0FE';
+wwv_flow_imp.g_varchar2_table(60) := 'A8E5BA5A02B8C8C1DC145DC24D23B9753B570CBA7C46D945FE0EEB6BB91601D4E269D929043A1010017480A22221500B0222805A3C2D3B8540070222800E505454370235592F02A8C9DBB255080408880002407429046A4240045093B765AB1008101001';
+wwv_flow_imp.g_varchar2_table(61) := '0480E8B26E046AB35E04509BC765AF10300888000C18CA0A81DA101001D4E671D92B040C0222000386B2752350A3F522801ABD2E9B85C0230444008F805022046A44400450A3D765B31078848008E011104AEA46A056EB4500B57A5E760B810601114003';
+wwv_flow_imp.g_varchar2_table(62) := '827E8540AD0888006AF5BCEC16020D0222800604FDD68D40CDD68B006AF6BE6CAF1E011140F5B78000A819011140CDDE97EDD5232002A8FE16A81B80DAADFF05000000FFFF9D54E5480000000649444154030036E870978587321A0000000049454E44AE';
+wwv_flow_imp.g_varchar2_table(63) := '426082';
+wwv_flow_imp_shared.create_app_static_file(
+ p_id=>wwv_flow_imp.id(4585226613932463889)
+,p_file_name=>'icons/app-icon-256-rounded.png'
+,p_mime_type=>'image/png'
+,p_file_charset=>'utf-8'
+,p_file_content=>wwv_flow_imp.varchar2_to_blob(wwv_flow_imp.g_varchar2_table)
+,p_created_on=>wwv_flow_imp.dz('20261013061006Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061006Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/shared_components/files/icons_app_icon_32_png
+begin
+wwv_flow_imp.g_varchar2_table := wwv_flow_imp.empty_varchar2_table;
+wwv_flow_imp.g_varchar2_table(1) := '89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7AF4000001BE494441547801EC94CD4AC34010C7A7A9426DA9D6265541F1E352A5A0087D01C58B1E3DFA02BE8AAF208A176F9EBC78147D0069113FAAA2152AEDA142B4A868';
+wwv_flow_imp.g_varchar2_table(2) := 'EB476BFF2B9BC682C9EEE65090046677767632F3DB4976B499C3FD462745A30E3F3E805F01BF029E2AF0619A04F1729395019038158BD1FCE898270825009E7C7A788406A2510248FDF54DA9104A00895088253B2D15098205A030CB8A3400122D8F4FD0';
+wwv_flow_imp.g_varchar2_table(3) := 'F6DCC22FD95C5C22952A4803E084AB53294CB4769C6582453AAED36C2402554AA401D2468225C83C986456AB4C984171500030582A9C38D9BC052BC949B6C690367EF6A08B8A34C051B164C5C6A70088655050A400F0033AE5009C9B4FFBFBC200088CFB';
+wwv_flow_imp.g_varchar2_table(4) := '5EEB6ABD82FF00C283620F3E32B7A1158D47F9631E8AF5131ACF606F1FD99372F78DCB1CDB874FBC51E766D75918204E0D160C9D6FF736CF74FB500B04AC256F5496C1411106B0C7B87B79269C98DBA0EFE5727C29354B03A0F55ED5DE9B0017B49ECD52';
+wwv_flow_imp.g_varchar2_table(5) := 'E6BECCF44A386CB56519026180F263850EF237741D0C9216EEA16E5DA793AF4FDA2A14980E1BF676CECF08BEA2109AA8E393A153A5ADD52229C41E0360F0B5DB9C746100A7205EF67C00BF02FFBF026E37E41B0000FFFF4A5B3114000000064944415403';
+wwv_flow_imp.g_varchar2_table(6) := '00D9DCE5414B7F27860000000049454E44AE426082';
+wwv_flow_imp_shared.create_app_static_file(
+ p_id=>wwv_flow_imp.id(4585225797884463888)
+,p_file_name=>'icons/app-icon-32.png'
+,p_mime_type=>'image/png'
+,p_file_charset=>'utf-8'
+,p_file_content=>wwv_flow_imp.varchar2_to_blob(wwv_flow_imp.g_varchar2_table)
+,p_created_on=>wwv_flow_imp.dz('20261013061006Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061006Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/shared_components/files/icons_app_icon_512_png
+begin
+wwv_flow_imp.g_varchar2_table := wwv_flow_imp.empty_varchar2_table;
+wwv_flow_imp.g_varchar2_table(1) := '89504E470D0A1A0A0000000D4948445200000200000002000806000000F478D4FA00001000494441547801ECDD4FAF74C95D1FF0D62411B2251B8C250F11634D8815142583053664035944319B6415E51DC4328A780B59E72D1064E41DB0888258251B3B';
+wwv_flow_imp.g_varchar2_table(2) := '421058391E1021081139C49AB1145B1A138C34230B3CE17EEFF3F433FDF4EDEEAAEE3E7FAA4E7D46CFB9DD7D4E9DAAFA7DEAA8EB77FEDC3BAF7CFAB7BEF2FF2D0C1C038E01C78063C03130D631F0CACE7F040810204080C06002BB9D0460B82117300102';
+wwv_flow_imp.g_varchar2_table(3) := '040810900038060810204080C0700209D8158028580810204080C060021280C1065CB80408102030BAC0B3F82500CF1CFC24408000010243094800861A6EC112204080C0E802FBF825007B09AF040810204060200109C040832D5402040810185DE083F8';
+wwv_flow_imp.g_varchar2_table(4) := '25001F5878478000010204861190000C33D4022540800081D1050EE397001C6A784F8000010204061190000C32D0C22440800081D1055E8E5F02F0B2874F040810204060080109C010C32C4802040810185DE0387E09C0B188CF040810204060000109C0';
+wwv_flow_imp.g_varchar2_table(5) := '00832C4402040810185DE069FC1280A726D6102040800081CD0B4800363FC4022440800081D1054EC52F0138A5621D0102040810D8B8800460E3032C3C02040810185DE074FC1280D32ED61220408000814D0B4800363DBC822340800081D105CEC52F01';
+wwv_flow_imp.g_varchar2_table(6) := '3827633D0102040810D8B0800460C3832B3402040810185DE07CFC1280F336B6102040800081CD0A4800363BB4022340800081D1052EC52F01B8A4631B0102040810D8A8800460A3032B2C02040810185DE072FC1280CB3EB61220408000814D0A480036';
+wwv_flow_imp.g_varchar2_table(7) := '39AC822240800081D1054AF14B004A42B61320408000810D0A48003638A8422240800081D105CAF14B00CA464A102040800081CD0948003637A4022240800081D1056AE29700D4282943800001020436262001D8D8800A87000102044617A88B5F0250E7';
+wwv_flow_imp.g_varchar2_table(8) := 'A4140102040810D89480046053C3291802040810185DA0367E0940AD9472040810204060430212800D0DA65008102040607481FAF82500F5564A122040800081CD084800363394022140800081D105AE895F02708D96B2040810204060230212808D0CA4';
+wwv_flow_imp.g_varchar2_table(9) := '3008102040607481EBE297005CE7A5340102040810D88480046013C3280802040810185DE0DAF82500D78A294F800001020436202001D8C0200A81000102044617B83E7E09C0F566F6204080000102DD0B4800BA1F420110204080C0E802B7C42F01B845';
+wwv_flow_imp.g_varchar2_table(10) := 'CD3E0408102040A073010940E703A8FB0408102030BAC06DF14B006E73B3170102040810E85A4002D0F5F0E93C010204088C2E706BFC12805BE5EC4780000102043A169000743C78BA4E80000102A30BDC1EBF04E0763B7B1220408000816E052400DD0E';
+wwv_flow_imp.g_varchar2_table(11) := '9D8E13204080C0E802F7C42F01B847CFBE0408102040A053010940A703A7DB0408102030BAC07DF14B00EEF3B3370102040810E8524002D0E5B0E934010204088C2E706FFC12807B05ED4F80000102043A149000743868BA4C80000102A30BDC1FBF04E0';
+wwv_flow_imp.g_varchar2_table(12) := '7E4335102040800081EE042400DD0D990E13204080C0E80253C42F019842511D0408102040A0330109406703A6BB0408102030BAC034F14B00A671540B0102040810E84A4002D0D570E92C010204088C2E3055FC1280A924D54380000102043A12900074';
+wwv_flow_imp.g_varchar2_table(13) := '3458BA4A80000102A30B4C17BF04603A4B351120408000816E042400DD0C958E12204080C0E80253C62F019852535D0408102040A0130109402703A59B0408102030BAC0B4F14B00A6F5541B0102040810E8424002D0C530E924010204088C2E3075FC12';
+wwv_flow_imp.g_varchar2_table(14) := '80A945D54780000102043A109000743048BA4880000102A30B4C1FBF04607A5335122040800081E6052400CD0F910E12204080C0E80273C42F019843559D0408102040A071010940E303A47B0408102030BAC03CF14B00E671552B0102040810685A4002';
+wwv_flow_imp.g_varchar2_table(15) := 'D0F4F0E81C010204088C2E3057FC1280B964D54B80000102041A169000343C38BA4680000102A30BCC17BF04603E5B3513204080008166052400CD0E8D8E11204080C0E80273C62F01985357DD0408102040A051010940A303A35B0408102030BAC0BCF1';
+wwv_flow_imp.g_varchar2_table(16) := '4B00E6F5553B010204081068524002D0E4B0E814010204088C2E3077FC1280B985D54F80000102041A149000343828BA4480000102A30BCC1FBF04607E632D102040800081E6042400CD0D890E11204080C0E8024BC42F015842591B0408102040A03101';
+wwv_flow_imp.g_varchar2_table(17) := '09406303A23B0408102030BAC032F14B009671D60A0102040810684A4002D0D470E80C010204088C2EB054FC1280A5A4B54380000102041A129000343418BA4280000102A30B2C17BF0460396B2D11204080008166042400CD0C858E10204080C0E8024B';
+wwv_flow_imp.g_varchar2_table(18) := 'C62F0158525B5B0408102040A0110109402303A11B0408102030BAC0B2F14B0096F5D61A010204081068424002D0C430E804010204088C2EB074FC1280A5C5B54780000102041A109000343008BA4080000102A30B2C1FBF046079732D122040800081D5';
+wwv_flow_imp.g_varchar2_table(19) := '052400AB0F810E10204080C0E8026BC42F0158435D9B040810204060650109C0CA03A07902040810185D609DF82500EBB86B950001020408AC2A200158955FE30408102030BAC05AF14B00D692D72E010204081058514002B022BEA609102040607481F5';
+wwv_flow_imp.g_varchar2_table(20) := 'E29700AC67AF650204081020B09A800460357A0D13204080C0E8026BC62F0158535FDB040810204060250109C04AF09A2540800081D105D68D5F02B0AEBFD60910204080C02A02128055D8354A80000102A30BAC1DBF0460ED11D03E818505DE7FF7BDDD';
+wwv_flow_imp.g_varchar2_table(21) := 'F7DE7A7BF7DE9FFEE9E3F257EFBCB3700F344780400B0212801646411F082C24F038F9BFFDD6EEFDF7DE7DD1E25F3F24004906B2EDC54A6F0810985960FDEA2500EB8F811E1058442067FADF7B98FCCF35966D29736EBBF504086C4B4002B0ADF1140D81';
+wwv_flow_imp.g_varchar2_table(22) := '930299D873A67F72E3C1CA9449D98355DE12203083400B554A005A18057D2030A34026F44CECB54DA46CF6A92DAF1C01027D0A4800FA1C37BD26502590893C137A55E18342D927FB1EACF2960081C904DAA84802D0C638E80581C90532816722BFB5E2EC';
+wwv_flow_imp.g_varchar2_table(23) := '9B3A6EDDDF7E0408B42D2001687B7CF48EC04D0299B83381DFB4F3C14EA923751DACF29600813B055AD95D02D0CA48E807818904326167E29EA8BA5DEA4A9D53D5A71E0204DA109000B4310E7A416012814CD499B06B2A7BF5873FBECB52533675A6EE9A';
+wwv_flow_imp.g_varchar2_table(24) := 'B2CA10207049A09D6D128076C6424F08DC2590093A13754D2599F83FF7C61BBB2C795FB34FEA4E1B3565952140A07D010940FB63A487048A0299983341170B3E14C8849F89FFE1EDE3BFBCCFBAC70F851F69236D158AD94C80C0198196564B005A1A0D7D';
+wwv_flow_imp.g_varchar2_table(25) := '2170834026E44CCC35BB66A2CF847F5C36EBB2ED78FDA9CF692B6D9EDA661D0102FD084800FA192B3D25F04420137126E4271B4EACC8049F89FEC4A6C755D996328F1F0A3FD266DA2E14B39900819704DAFA2001686B3CF48640B54026E04CC4353B6462';
+wwv_flow_imp.g_varchar2_table(26) := 'CF045F2A9B32295B2A97ED693B7DC87B0B0102FD094800FA1B333D26B0CBC49B09B88622137A26F69AB22993B2D927EF4B4BFA90BE94CAD94E80C06ED79A8104A0B511D11F0205814CB899780BC51E376722CF84FEF8E18A1FD927FBD6EC92BEA44F3565';
+wwv_flow_imp.g_varchar2_table(27) := '952140A01D0109403B63A127048A02EFBFFBDEE31FE629167C2890093C13F9C3DB9BFE65DF4F7FEA5355FB260948DFAA0A2B44604881F6829600B437267A44E0A44026D8EFBDFDD6C96DC72B337167023F5E7FEDE79FF8D1D776A9AB66BFF42D7DAC29AB';
+wwv_flow_imp.g_varchar2_table(28) := '0C0102EB0B4800D61F033D2050259009B6A66026EC4CDC35656BCAA4AED45953367D9404D44829339A408BF14A005A1C157D227024F0BDB7DE3E5A73FA632EFB67C23EBDF5F6B5A93375D7D4E079801A256508AC2F2001587F0CF480C045814CFEEFBFF7';
+wwv_flow_imp.g_varchar2_table(29) := 'EEC532D998097A8ACBFEA9EBD492BAD3C6A96D87EBD2D7F4F9709DF704C61668337A09409BE3A257041E0572369D09F5F143E1C7A75F7FBD50E2FECDB56DA4CFE9FBFD2DAA810081B904240073C9AA97C09D029940F3747D4D353FFF539FD97DE2231FA9';
+wwv_flow_imp.g_varchar2_table(30) := '297A5799B491B66A2A49DF13434D5965086C59A0D5D82400AD8E8C7E0D2D90893313680D421ED0CBC45C53768A32692B6DD6D495183C145823A50C81E5052400CB9B6B914051201367B1D043814CC47940EFE1EDA2FFD266DAAE69D46F06D42829B35D81';
+wwv_flow_imp.g_varchar2_table(31) := '76239300B43B367A36A840ED037499803311AFC594B6D3879AF67345A3A69C3204082C27200158CE5A4B048A029928F3005DA96026DE4CC0A572736F4F1F6A7F3320B1CDDD1FF513684DA0E5FE48005A1E1D7D1B4A201364CDA5FF4CB899785BC1A9FDF5';
+wwv_flow_imp.g_varchar2_table(32) := 'C0C496185BE9B77E10185D400230FA1120FE260432316682ACE94C26DC9A724B96A9FDF5C0C4E8A1C02547465BEB0AB4DDBA04A0EDF1D1BB41043231D6845AFB2B7835754D5926BF1950DBB73C143865DBEA2240E0360109C06D6EF622309940CEFE6B2A';
+wwv_flow_imp.g_varchar2_table(33) := 'CB7DFF4CB43565D72893BEA58F356DD73EE858539732045A1568BD5F1280D64748FF362D90C9BFE6EC3F136B4BF7FDCF0D4AFA98BE9EDBBE5F9F071D13FBFEB3570204961790002C6FAE45028F02B9175E33F9B7F6D0DF63E72FFC4812903E5F28F2B829';
+wwv_flow_imp.g_varchar2_table(34) := 'B1C7E0F1831F043627D07E401280F6C7480F372A507B2FBCF601BB96986AFBEC2A404BA3A62FA3094800461B71F13621503BF1E5727AEEAD37D1E92B3A913EA7EFA55DDC0A2809D9DEAB400FFD9600F4304AFAB829814CFEB9FC5D0A2A13682EA797CAB5';
+wwv_flow_imp.g_varchar2_table(35) := 'BA3D7D772BA0D5D1D12F02BB9D04C051406061819AC93F5DCA049AD79E97DABF59507B3BA4670B7D1F49A08F5825007D8C935E6E442067FF35A1E4ECBFA65C0F65AAFF3EC05B6FF7108E3E12D88C80046033432990D60532F9D79CFD67F2DFC2D9FF7E3C';
+wwv_flow_imp.g_varchar2_table(36) := 'AE791EC06F05ECD5BCF62CD04BDF2500BD8C947E762F5033F9E79EF99626FFFDA025A6C4B6FF7CEED5AD807332D613985E400230BDA91A093C11C8D9FF93952756D4DE333FB16BF3AB6A7F35D05F096C7E2875F0A2403F1B2500FD8C959E762A90C9BFE6';
+wwv_flow_imp.g_varchar2_table(37) := 'EC3F97FE3B0DB1AADBB91550F33C407E35D0AD802A528508DC252001B88BCFCE04CA02B5937F2E93976BEBBB449200B702FA1E43BDBF2CD0D35609404FA3A5AFDD09E4ECBFA6D3234CFE7B87DADB1CB576FB7ABD1220709D8004E03A2FA509540BE43276';
+wwv_flow_imp.g_varchar2_table(38) := 'EDD97F75A51B295873BB237631DC48C8C21842A0AF2025007D8D97DE7624F0FDF7DE2DF63613E14867FF7B90C45C732BC05580BD985702D30B4800A6375523815D26AE9CC196285EFDE80F968A6C767BCD6F05782070B3C3BFC9C07A0B4A02D0DB88E96F';
+wwv_flow_imp.g_varchar2_table(39) := '170235937FCEFEF3505C1701CDD0C9C41E8352D549A64A656C2740E07A0109C0F566F6207051A076C2CA65F08B150DB0B1C62057016A4D07201362B302FD754C02D0DF98E971E302B567FF8D87B158F76AFE36404C3D10B8D8906868100109C020032DCC';
+wwv_flow_imp.g_varchar2_table(40) := '65046ACE5473D9BBE6CC77991EAFDF4A6E05782070FD71D083FB047ADC5B02D0E3A8E973930299FC73A65AEA9CC9FFA99007029F9A5843606E0109C0DCC2EA27702090B3FF838FDE3E17C855801A9B2459CF77F142A021813EBB2201E873DCF4BA31814C';
+wwv_flow_imp.g_varchar2_table(41) := '4CCEFEEF1B945C1929DD0AC803819E05B8CFD9DE04F6021280BD845702330BD49CE1CEDC85E6ABAFB9159064ABF940747028815E839500F43A72FADD8C4026A49AB3FF3FFCFAD777BFF63BBF6DB960F0E5DF7FB338AEAE021489142050252001A8625288';
+wwv_flow_imp.g_varchar2_table(42) := 'C079819AC9FFFCDEB6DC2290A4EB96FDEC43607A817E6B9400F43B767ADE808089689D41706FA69CD5000010004944415415601D77AD6E4B4002B0ADF114CDC202CEFE17063F684EF27580E1ED6A023D372C01E879F4F47D550113D0AAFC3B5701D6F5D7';
+wwv_flow_imp.g_varchar2_table(43) := '7AFF021280FEC750042B09F875B495E00F9A95841D6078BB8240DF4D4A00FA1E3FBD5F4920134FCE40576A5EB3CF05320612B1E7185E085C292001B8124C710204DA124832D6568FF4661481DEE39400F43E82FABF8A40E9E1BF5FFCD99FDBFDC1E77FC1';
+wwv_flow_imp.g_varchar2_table(44) := '3281C1CFBCFE6317C7D855808B3C3612382B2001384B630381D30235679C9FFDC4ABA777B6F66A817FFB99CF14F7A9199362250A10B84AA0FFC21280FEC750040B0BD49CFD7FF6873FBE70AFB6DB5C2C6BAE026C57406404E6119000CCE3AAD68D0A38D3';
+wwv_flow_imp.g_varchar2_table(45) := '5C67605D0558C75DABE705B6B04502B0855114C36202A5B3FF74E417FEE13FCA8B6542819AAB0035633361975445A07B010940F7432880A5046ACEFEF3F0DF52FD19AD9D9AAB007E2570B4A362AD78B7D1AE04601BE3288A46049CFDCF37103557016A92';
+wwv_flow_imp.g_varchar2_table(46) := 'B4F97AA866027D094800FA1A2FBD5D51A07489D9D9FFFC83F333AFFDE8C546FC4AE0451E1B2712D84A351280AD8CA4386615A839B374F63FEB103C565EF3EB95DF7FEFDDC7B27E10207059400270D9C756028F02CEFE1F1956FF51731BC07300AB0FD3C6';
+wwv_flow_imp.g_varchar2_table(47) := '3BB09DF02400DB194B91CC245073F63F53D3AA3D21507A18D06D80136856113821200138816215816B055CFEBF56ECF6F2B90A50DA5BD25612B2FD56812DED2701D8D2688A65160197FF6761BDAB527F19F02E3E3B13781490003C32F841E0B440CD99A4';
+wwv_flow_imp.g_varchar2_table(48) := 'B3FFD37673AE2DDD0648DB9E058882655A816DD52601D8D6788A666101BFFAB730F8F3E6721BA07415A026797B5E9D1702430A4800861C7641D70A942EFFD7D6A3DCF402A5AB00791870FA56D538B2C0D66297006C6D44C5339940CD19642F97FFBFF69D';
+wwv_flow_imp.g_varchar2_table(49) := '777659BEF0952FEFF6CB4F7EE98BBB2CFBCF5FFC933FDE65990C70E68A7215A0D484DB002521DB471690008C3CFA62BF4BA07409FAAECA27DA39137A26F8CFFFE66FECB27CF51B7FB6DB2FFB26F69F7FE9F77E77972549C1677EFD57BB48064A635093C4';
+wwv_flow_imp.g_varchar2_table(50) := 'ED1DBC12B82CB0BDAD1280ED8DA9882612285DFEFF99C29FA59DA81B375593893F137926F44CF0D75692CBE7D93775A4AE6BF75FAABCDB004B496B678B0212802D8EAA98EE16A839736CF1F27F2EF367D2CEE47D37C2F30A5257EA6C391178DED5932F6E';
+wwv_flow_imp.g_varchar2_table(51) := '039C64B1F24A812D1697006C7154C534BB40E9D2F3EC1D38D14026E85CE63FB16992554904D2C624954D54499E03288D454D323751775443A02B01094057C3A5B34B09F476F93F137326E8B97DD246DA9ABB9D6BEA771BE01A2D656F13D8E65E12806D8E';
+wwv_flow_imp.g_varchar2_table(52) := 'ABA8EE10A8B964DCD2E5FF4CC89998EF08F9AA5DD356DABC6AA7950BD78CE9CA5DD43C81C50524008B936BB07581D2FF4EB674C979C9F8321167425EB2CDB49536D376DEAFBDD4DC0658BB8FDAEF5B60ABBD97006C7564C5359B402B4FFF6702CE445C1B';
+wwv_flow_imp.g_varchar2_table(53) := 'E8DFFFC48FECB27CE1E7FEE92ECBBFFF17FF729725EF3FF78FDFD865A9AD2BE5D2761E3ACCFBD617CF01B43E42FAB7868004600D756D362D50BAFFDF4AE73301D7F4653FE97FFEA73FBBCBF2F73EFAD15D96FDBE79FFCF5E7F7D972509C13589C09C0F1D';
+wwv_flow_imp.g_varchar2_table(54) := 'EEFB57F3EA39801A25656E13D8EE5EAF6C37349111B85EA0E65E710BF7FF73F65F135D26FFFDA45F533E65AE4D046AFB92BAE75A721BA05477CDD896EAB09DC0960424005B1A4DB1DC2DD0CBFDFF9AB3FF9CC967F2BF15258940EA28ED5FD397521D536C';
+wwv_flow_imp.g_varchar2_table(55) := '2F3D9B511ADB29FAA08EED096C392209C09647576C570B94CE125BB8FF5F73C69D893B13F8D500473BA48E5C45385AFDE4634D9F9EEC34F18AD2D894C676E2EEA88E40F3021280E68748079714C89FC0BDD4DE673FF1EAA5CD8B6CAB39E3CEC43D556772';
+wwv_flow_imp.g_varchar2_table(56) := '15A194047CF5ED6F4ED5DCCDF594C6A634B637376CC70D0B6C3B3409C0B6C757745708D49C21D6DC6BBEA2C9598AE6EC7FEA8AFFF98FFF838B55E6FF37B0F66F04D48C4DCD185F0CD446021B1290006C683085729F40E91E71E91EF37DADD7ED5D73A97D';
+wwv_flow_imp.g_varchar2_table(57) := 'CAB3FF7DAFF29B02A5AB00FBB26BBEB630466BC6AFED6905B65E9B0460EB232CBEC9044AF798276BE88E8AE638FBAFEDCE2FBFF9666DD1D5CAF97B00ABD16BB8410109408383A24BEB08F4707978CD7BEDA5DB00EB8CDACBAD96FE1EC0CBA57D22704960';
+wwv_flow_imp.g_varchar2_table(58) := 'FBDB2400DB1F6311560A941E126BE1F7FF4BA1FCD8C73E562A32F4F6D2180F8D23F8E1042400C30DB9804F09F470F69F7EE761BBBC9E5B72AFFEDCB67BD797EA2EF5EDDEF66BF6F720608D92323502239491008C30CA622C0AF4F000603108051E053C08';
+wwv_flow_imp.g_varchar2_table(59) := 'F8C8E00781A28004A048A40081DDAE9507004B93DBFFF9EE77671BAE52DDA5BECDD6B1A38A4B63E541C023301F4F088CB14A0230C6388BB220D0CB2D804218B36EFEB33FFFF359EB9FAAF2D21F049AAA1DF510E85D4002D0FB08EAFF2402A587C37A9954';
+wwv_flow_imp.g_varchar2_table(60) := 'FEEB9FFEAF493C6EA9A474E67D4B9D73EC531AEB39DA54675F02A3F4560230CA488BF32E819A87CBEE6AA072E7357FCDED2BFFF38F2A7BB96EB19AB172C567DD31D27A1B02128036C6412F5614284D06ADDCDBAE21FADFDFFEBFBBD2BDFA9A7A8ECBFCD6';
+wwv_flow_imp.g_varchar2_table(61) := '37BE71BCEAC9E7967E4DB2A7317B0269C5CA02E3342F011867AC457A46A0F41B0067765B6575CE6E4B93DB1CB7014A67FF3FFD237F77150F8D122070BB8004E0763B7B0E22D0DABDED527F7215E04BFFFD6B938D4ECDD9FF3FF9D4A7266B6F8A8A4A463D';
+wwv_flow_imp.g_varchar2_table(62) := '257D5378A8A35E60A492128091465BAC27054AB7004EEEB4E2CA9A4BED49026A26EE5218A9A374F69F3A6AFA94724B2DA587367B1BF3A5DCB43396800460ACF116ED0D02A5C9E4862AEFDEE5177FF6E78A7564E2CE045E2C78A640AE22A48E339B5FACAE';
+wwv_flow_imp.g_varchar2_table(63) := 'E9CB8BC2DE10685A60ACCE4900C61A6FD19E1028FD5A58EEBB9FD86DD555B567DC99C0FFDD7FF9CFBB6B12813C4498C93F57116A82ACED4B4D5D4B95298DF952FDD00E81350524006BEA6B9BC01D025FFA57FFBA7AEFC34420C94026F9FDCE799F25937E';
+wwv_flow_imp.g_varchar2_table(64) := '965FF9DDFFB6AB9DFC5B3DFB6F3169DB7B7B6D5760B49E4900461B71F1BE24D0F3BDE04C72D74EC04904B26492CF95812C799F25937E9697802E7C48DB3D9EFDEF43EA79ECF7317825708F8004E01E3DFB6E5EA0F42B776B036402CE44BC743FD266DA5E';
+wwv_flow_imp.g_varchar2_table(65) := 'BADD6BDA6B7DECAE8945D92504C66B430230DE988B786302998833212F1556DA4A9B4BB5A71D0204E6119000CCE3AAD64E044ABF0F5EFA7DF256C2CC849C8979EEFEA48DB435773B4BD45F1AFB25FAA08D760446EC890460C45117F32605323167829E2B';
+wwv_flow_imp.g_varchar2_table(66) := 'B83C749836E6AA7FEA7A7B49DEA68E5B7D046A052400B552CA11E8402013F41F7CFE1776532602A92B75E6A1C30E08AABBE821C06AAA010A8E19A20460CC7117F57381AD4E02F7260279806E3FF1A7AEE75C5DBDB4F8079CBA02D4D9CD0B4800363FC402';
+wwv_flow_imp.g_varchar2_table(67) := 'BC47A0F749249377CEDEB36442CF92C93DCBDE25EFF74B2EF367F995CFFDFC2EFBEECB7825B06581516393008C3AF2E21E4E20137A964CEE59921464C9FBFD92CBFC5986C311308101052400030EBA9009102040602F30EEAB0460DCB11739010204080C';
+wwv_flow_imp.g_varchar2_table(68) := '2C20011878F0854E800081D105468E5F0230F2E88B7D57FABFC2B91FDEEF41521ABBD2D8F71BB99E13A8139000D4392945800001029B13183B2009C0D8E32F7A020408101854400230E8C00B9B000102A30B8C1EBF0460F42340FC0408102030A4800460';
+wwv_flow_imp.g_varchar2_table(69) := 'C8611734010204461710BF04C03140E082C0D7BEF3CE85AD36B52C60EC5A1E1D7D6B414002D0C228E8C36A02AF7CE8C3ABB5AD610204D613D0F26E27017014102030A480E46FC86117F4818004E000C35B020408101841408C11900044C14280C0E604BE';
+wwv_flow_imp.g_varchar2_table(70) := 'F6ED6F6D2E2601119852400230A5A6BA36276012D9DC900A88C00EC1330109C033073F0910204080C050021280A1865BB00408EC055EF9F087F66FBD0E2520D8BD8004602FE175480193C090C32E6802041E0424000F08FE113827F0D5B7BF796E93F58D';
+wwv_flow_imp.g_varchar2_table(71) := '0B18BBC60768A5EE69F6030109C00716DE0D28F0B7FC21A001475DC8040844400210050B0102C30948FE861BF2DD6E27E6430109C0A186F7048E04BEFA8D3F3B5AE3632F02C6AE9791D2CFB50424006BC96BB709010F0136310CAB74C2D8AFC2BE6AA31A';
+wwv_flow_imp.g_varchar2_table(72) := '7F594002F0B2874F049E08F8BFCA3D21697E85316B7E8874B0010109400383A00BEB09BCFFEE7BEB35AEE5D9046AFE82A3B19F8DBFD18A75EB584002702CE2F330029900BEF7F65BC5786B269362250A342790B1CF31D05CC77488C04202128085A035D3';
+wwv_flow_imp.g_varchar2_table(73) := '9640BEF83301D4F4CAEF93D728F55926C7408E853E7BAFD7D70828FB544002F0D4C49A8D0BE40B3F5FFC1B0F73E8F0AE49DA722CE498181A4CF0430A4800861CF67183CE177DBEF0AF11F0EB64D768B551F6DA31CB319163A38DDEEBC5F4026A3C252001';
+wwv_flow_imp.g_varchar2_table(74) := '38A562DD2605F2059F2FFA4D0627A8BB05726CE418B9BB221510E8444002D0C940E9E67D02F962CF17FCADB5F8B5B25BE596DFEF9EB1CA31926365F95E6B714E01759F1690009C76B1764302F942CF17FB8642BA2B9437FFE2FFEDBEF0952FEF3EF3EBBF';
+wwv_flow_imp.g_varchar2_table(75) := 'BAFBC92F7D71F7C53FF9E3BBEA6B6DE77B7F6B23C74A8E99D6E2D21F02530B4800A616555F5302F922CF17FABD9DBA7752B9B7FD29F7FF37FFE93FEE728FFCFDF7DE7DACF6977EEF771F138124068F2BFCD8E598C9B183620B0262382720013827637DF7';
+wwv_flow_imp.g_varchar2_table(76) := '02F902CF17F914815CF354F914EDCD55C7A5B3FDFFF0D5AFCED56C97F5E6D8C931D465E7759A40858004A0024991FE04F2C59D2FF0DA9E7FFA539FAA2DDA75B99CED9F0B205705CE6DEB697D29597BF5873F5E1D4E8EA11C4BD53B28D89C800E9D179000';
+wwv_flow_imp.g_varchar2_table(77) := '9CB7B1A553817C61E78BBBB6FB3FFF539FD9BDFAD11FBC587C2B93E3C52037B2B134569F7EFDF55DC6BC36DC1C4B39A66ACB2B47A0170109402F23A59F5502F9A2CE177655E1874299083EF1918FECB23C7CBCF8EF9EA7CB2F566CE36402976E71EC1BC9';
+wwv_flow_imp.g_varchar2_table(78) := '5867C9D8EFD7955E734CE5D82A95B3BD3501FDB9242001B8A4635B5702F982CE17756DA733016422D8972F5D1ADED28380FB98477B3DBCD593B1CF31506B90632BC7586D79E508B42E2001687D84F4AF4A205FCCF982AE2AFC50285FFC99001EDEBEF8F7';
+wwv_flow_imp.g_varchar2_table(79) := 'EAC77EE8C5FB536F4AF7964FED63DDB202D78E518E811C0BB5BDCC319663ADB6BC72EB0A68FDB28004E0B28FAD1D08E40B395FCCB55DCD177EBEF88FCB7B0EE058A4BFCFA5FBFFA7C638C7428E89DA6873ACE598AB2DAF1C8156052400AD8E8C7E5509E4';
+wwv_flow_imp.g_varchar2_table(80) := '8B385FC855851F0AE58B3E5FF80F6F9FFC3BB7FEB0A0E7000E35DA7A5F3336E7C638EB736CD44694632EC75E6D79E5D610D0664940025012B2BD59817C01E78BB8B683F982CF17FDA5F29E03B8A4D3F6B6D2331AA5B1CDB19163A436CA1C7B39066BCB2B';
+wwv_flow_imp.g_varchar2_table(81) := '47A0350109406B23A23F5502F9E2CD177055E18742F962CF17FCC3DB8BFF3C077091A7E98DA5FBFFA5B14D70394672ACE47DCD926330C7624D59659615D05A594002503652A231817CE1E68BB7B65BF942CF177B4DF953F7880FF72BDD633E2CEBFDB202';
+wwv_flow_imp.g_varchar2_table(82) := 'A5B1298DEDBEB7395672CCEC3F975E732CE6982C95B39D406B021280D646447F2E0AE48B365FB8170B1D6CCC1779BED00F565D7C5B53B6E65EF3C5466C9C5CA0664C6AC676DFB194CDB1B3FF5C7ACD319963B354CEF6A504B453232001A85152A609817C';
+wwv_flow_imp.g_varchar2_table(83) := 'C1E68BB6B633F902CF17796DF97DB9D2BDE27D39AFED08DC7BFFFF54243976720C9DDA766A5D8ECD1CA3A7B65995E190BA000010004944415447A0450109408BA3A24F2705F2057B72C38995F9E2CE17F8894D77AFFAE537DFBCBB0E152C2B5073FFFF54';
+wwv_flow_imp.g_varchar2_table(84) := '8F720CE5583AB5EDD4BA6B8ED153FB5B378D805AEA042400754E4AAD2CF0BDB7DEAEEE41BEB0F3C55DBDC351C1FCADF8A3552F7D2CDD6B7EA9B00F8B085CFA9F1CDDDB811C4B39A66AEBB9E658ADAD53390273084800E65055E7A4027FF5CE3BBBF7DF7B';
+wwv_flow_imp.g_varchar2_table(85) := 'B7AACE7C51E70BBBAAF0994235FBD7DC733E53BDD5130BD48CC54FFCE86B77B59A6322C7564D25395673CCD69455660E0175D60A48006AA5945B45205FA47FFD9000D4349E2FE87C51D7942D95293D07E036404970B9ED73DCFF3FD5FB1C5B39C64E6D3B';
+wwv_flow_imp.g_varchar2_table(86) := '5E976336C7EEF17A9F09B4242001686934F4E525817C81E68BF4A595673EE48B395FD067365BBD6181D2E5FF5BEFFF9F22CB319663EDD4B6E37539763D1478AC32FF672DD40B4800EAAD945C58205FA0354DE60B395FCC35656BCBD43C075073E9B9B63D';
+wwv_flow_imp.g_varchar2_table(87) := 'E56E13A819837B2FFF1FF72CC75A8EB9E3F5A73EE7A14049C02919EB5A109000B4300AFAF0442067FF4F569E5891FFBD6BBE904F6CBA6B55EA741BE02EC245765EEAF2FF7130393E72EC1DAF3FF5B9F6583EB5AF75D70A287F8D8004E01A2D651711C817';
+wwv_flow_imp.g_varchar2_table(88) := '66CDD97FBE80A73EBB3B0CB07415E0B0ACF7EB082C79F9FF38C21C7B39068FD71F7FCE4381AE021CABF8DC828004A08551D087AB05F2C59B2FE0AB779C7087FC3A60CD25E8099B54D581408DFDDCC748EA2F5D294A9793D4E6D532AF80DAAF1390005CE7';
+wwv_flow_imp.g_varchar2_table(89) := 'A5F4CC02F9A22C9DFDE70B375FBC33776597CBBC69EB523B7E1BE092CEBCDBD6BAFC7F1CD5E7DE7863573A4E5C053856F3B9050109400BA3A00F2F044A937F0A2E7969BED456AE02A44F96E505D6BCFC7F1C6DE93849F924B779B5CC25A0DE6B052400D7';
+wwv_flow_imp.g_varchar2_table(90) := '8A293F9B40CD17642EFDE7CC7CB64EDC5071CDA5E81BAAB5CB05812FFEC91F5FD8FA6CD31257899EB5B4ABBA5AE42AC05ECB6B2B0212805646423F763567FF4B7EA96748926C942EEFBA0D10A9B696248A4BF7C85580A5C55F6ECFA7EB052400D79BD963';
+wwv_flow_imp.g_varchar2_table(91) := '06819AA7A4D7F8524FA8A52F76B701A2B4EC52BAFCBF6C6F9EB556932CBA0AF0CCCACF360424006D8CC3F0BDF87EC5DFFA5FFAEC7F3F28F962DFBF3FF7EA36C03999E9D7B776F9FF30C23C1078F8F9D4FB9A5B5DA7F6B3EE92806DB70848006E51B3CFE4';
+wwv_flow_imp.g_varchar2_table(92) := '02A5CBFF6B9DFDEF03751B602FD1FEEBDAC7CADAEDB73F427AD88A8004A09591D08F8B02AF7EF4072F6E9F7B63CD6D005701E61E8567F5B778F9FF59CF9EFD2C1DAB6E033C739AF2A7BA6E139000DCE666AF09056A2E89D65C869FB04B4FAAAA69BFF47B';
+wwv_flow_imp.g_varchar2_table(93) := 'E94F2AB5E26A81962FFFEF83C9B152BA62B42FEB95C09A02128035F5B5FD28507A00B0954BAAA52FF5D6CF4C1FB13BFF51326EE5582931D724BDA53A6CDF0B78BD55400270AB9CFD2613C825D1C92A9BB1A2D26D8034ED364014E6596ACEFEE769F9FA5A';
+wwv_flow_imp.g_varchar2_table(94) := '4BC74A2FC7FCF591DBA3270109404FA3B5C1BE96CEFE13F25A4FFFA7EDC3A5E6D2AEBF09702836EDFB9AB3FF968E9552F435C77EA90EDB773B06B70B48006EB7B3E70402A55FFF6BED926EE9CC2E7F13C05580090E8CA32A7A3AFBDF77BD74CB685FCE2B';
+wwv_flow_imp.g_varchar2_table(95) := '81B50424006BC96BB74B015701DA1DB656CEFEF742AF7EEC87F66F4FBE9692DF933B597924E0E33D0212807BF4EC3BA480AB00CB0F7BCDE5FFE57BA545027D0B4800FA1EBFEE7B5FBA0F5AFA9DEA35007215A0D4AE67014A42F5DB6B2EFFB776F69FE84A';
+wwv_flow_imp.g_varchar2_table(96) := 'C76EE9D84F1D96CB02B6DE272001B8CFCFDE830A949E4DC8B30083D24C1EB6B3FFC9495548E0514002F0C8E0C75A02A55F87AA39DB5EA3EF35679C3567AE6BF4BDA7366B0C6BC6A2A798F5B55640B97B052400F70ADA7F5881D253DEA533D761E1AE08BC';
+wwv_flow_imp.g_varchar2_table(97) := '6458BA1273455393172D25AFA5E477F20EA990C0918004E008C44702B502A58701534FCD196CCA599E0AD4D839FB7FEA36CA1A71DE2F2001B8DF500D830AE40CCF5580F906BFE7B3FFF954D44C603A0109C074966A1A50C055807906DDD9FF3CAEDBA955';
+wwv_flow_imp.g_varchar2_table(98) := '2453084800A65054C7B002B55701FC75C0EB0E1167FFD779294DE0160109C02D6AF6217020507315C0DF0538002BBCAD39FB2F5461F3C60584378D8004601A47B50C2C507315207F17C05580F24192C9BFE6ECDFC37F654B2508940424002521DB095408';
+wwv_flow_imp.g_varchar2_table(99) := 'B80A5081345191D25FD89BA819D5342BA06353094800A69254CFD002AE02DC3FFCB567FFB1BEBF353510202001700C109848E0736FBC51ACC9B300E7894A97FEB3A74BFF51187B11FD74021280E92CD5446057FACB749E05387D90E4ECFFF4960FD6966C';
+wwv_flow_imp.g_varchar2_table(100) := '3F28E91D0102350212801A256508540AE40CB5F4C7813EFF9BBF5159DB38C54A67FF318DED3822223D2D60ED940212802935D545E041A0E681C09A33DE87AA86F85763F1EAC77E68080B411258524002B0A4B6B68610C8436A3963BD146CCE78FD5AE033';
+wwv_flow_imp.g_varchar2_table(101) := 'A1583C7B77FA672EFD3BFB3F6D33DA5AF14E2B200198D6536D041E056AAE02782070B7AB39FB37F93F1E527E10985C40023039A90A09EC76B90A9033D74B167920B06602BC5447CFDB127BCDD97FCF31EAFB9402EA9A5A400230B5A8FA083C17C899AB5B';
+wwv_flow_imp.g_varchar2_table(102) := '01CF318E5E72FBA334F9679718E6D54280C0F4021280E94DD548E085805B012F285E7A5373FBA37405E5A50A7DD8BC8000A71790004C6FAA46022F04722BA0741560B45B01B9F49F985F209D7893C9DFD9FF0918AB084C28200198105355044E09D45C05';
+wwv_flow_imp.g_varchar2_table(103) := 'C8E5F05C163FB5FF96D625C6C45A8AC9E45F121A6DBB78E7109000CCA1AA4E020702DFFAEE5F1C7C3AFFB6E6B2F8F9BDFBD8521BE3FFF8E6DB7D04A497043A169000743C78BADEBE4026B23FFCFAD7AB3A9ACBE2B93C5E55B8C342892D31D6743D66B1AB';
+wwv_flow_imp.g_varchar2_table(104) := '29ABCCF60544388F8004601E57B512D86502CB44760D452E8FE732F935FBF450363125B66BFA1ABB185EB38FB20408D40B4800EAAD9424502DF0953FFAA35D26B0EA1D0E0AD65E263FD8A5F9B7B7C614C358361FA00ECE28A0EAB904240073C9AA774881';
+wwv_flow_imp.g_varchar2_table(105) := '6FFFE55FEE32617DEB3BEFDC1C7F2E93E772F9CD1534B66362494CB7762B96BFF63BBFBD8BEDAD75D88F0081A7021280A726D610B8492013D4977FFFCD5D26AC9B2A38D82997CB33711EACEAF26D62482C53743EB66E094C21D9571D7A3B9F8004603E5B';
+wwv_flow_imp.g_varchar2_table(106) := '350F2490892913546DC8AF7CE8C3C5A2993873EFBC58B0D102E97B6298B27BB92510EB29EB54178151052400A38EBCB82713C8849489A9B6C24CFE3FF0C9D776792DED73EBBDF352BD4B6CFFFC6FFE46B199187CE8C77F7CF7B73FFEF162D97D8158C77C';
+wwv_flow_imp.g_varchar2_table(107) := 'FFD9EB9605C436A78004604E5D756F5E20135126A4DA4033D165F24FF9BF5331E9E5DEF917BEF2E514EF6AA9EDF3A1456C6A838C79EC6BCB2B4780C0530109C053136B085409E461BF4C4455851F0A65823B9CF45FF9F087AACE7C9304E45EFA43155DFC';
+wwv_flow_imp.g_varchar2_table(108) := '4B5FD3E75267E371582636C7EB0EB71FBF8F7DC6E078BDCFDB1110C9BC021280797DD5BE41813CEC9789E79A87FD7EE0B54FEE32C11D73645DCDA4977BE999588FF76FED73FA98BE96FA959813FB71B9ACCBB6E3F5E73E670CFC86C0391DEB095C169000';
+wwv_flow_imp.g_varchar2_table(109) := '5CF6B195C04B0299FCF3B05F269E97365CF890C93F67FBE78A64D2CBBDF073DBF7EB33B1E6C1BAFDE7D65EEF9DFCF7F1C42366FBCF35AF1913B7046AA47A2AA3AF730B4800E61656FF660432C164A2A90D28937A1E70BB34F9EFEBCAA4B77F7FE9350FD6';
+wwv_flow_imp.g_varchar2_table(110) := 'B59A042441B9D4F7FDB69A5863F66857F1DB12FB7A734B2063B4FFEC950081CB021280CB3EB6127814C8C49209E6F143C58F4CFEFB07DC2A8AEF32E1D55EFA6EF13703AA1FFA7BB81552E3B12F13C35A97EC9331CA58E5BDA56F01BD9F5F400230BFB116';
+wwv_flow_imp.g_varchar2_table(111) := '3A17C8849289A5368C4C5899B86ACBEFCBE5CC38FBEE3F9F7BCD0376B9DC7E6EFBD2EBD397F4A9D46E624BA2532A77BCBDD665BF5FC62A63B6FFEC950081D3021280D32ED6127814C8C37E99501E3F54FCC8249709ABA2E8C922D937570F4E6E3C5899CB';
+wwv_flow_imp.g_varchar2_table(112) := 'ED99780F56ADF2367D485F4A8D4FE1923A4AEDECB767CC3276FBCF5E7B13D0DF250424004B286BA33B813CEC9709E4DA87FD3281DF1B6CEDD5834CBCB9F4BEC6330169336DA70FA57893D04CE1923AAE490232767E43A0343AB68F2C20011879F4C57E52';
+wwv_flow_imp.g_varchar2_table(113) := '20937F1EF6CB0472B2C08995796AFD96CBDB27AA7A5C95FA1EDF147EE4D27B1E0CCC9978964CCC855D6EDE9CBAB364E24F9B69BBA6B2DA84A6A6AE2401B536FBFA32966E09EC35FA78D5CB65042400CB386BA513814C1499306ABB9BB3DBC7A7D53FFCA1';
+wwv_flow_imp.g_varchar2_table(114) := 'DA5DAACA2599B8E66C3767E2593231FFE497BEB83BB7941A3FB75FD6A7EE2CB5137FDABA268694AF5962F368EE37046AB89421705640027096C686D10432F9E7DE716DDC99FCA73CBB3D6E3767BB734CA0C7EDCCF5397D4F0C73D51FFBB4515B7FC63663';
+wwv_flow_imp.g_varchar2_table(115) := '5C5B5EB9B504B4BB948004602969ED342D90892113446D2733F16402AA2D7F6BB94CA069EBD6FDD7DA2F7D4EDFE76E3F6DA4ADDA7632C619EBDAF2CA11D8B2800460CBA32BB62A813CEC9789A1AAF043A14C3899781EDE2EF22F6DA5CD451A9BA091F435';
+wwv_flow_imp.g_varchar2_table(116) := '7D9EA0AAAA2AD256DAAC2AFC5028639D317F78EB5F8302BAB49C800460396B2D35269087FD32115CFBB05F269CA543499BD74C724BF76FDF5EFA98BEEE3F2FF59A36D3766D7B1973BF2150ABA5DC560524005B1D59715D14C8E49F87FD32115C2CF87CE3';
+wwv_flow_imp.g_varchar2_table(117) := 'E3FDFED73EF9F817FB9EAF5AFCE5DA496EC90EEE7DD2C725DB3D6C2B6DFB0D8143911EDFEBF39202128025B5B5D58440EE0167F2AFEDCCE3E4F6C9D7569DFCF77DCD249727E073B69B7EEDD7AFF59A3E64D2CDF310793A7FAD7EECDB4D1FE2937EEDD795';
+wwv_flow_imp.g_varchar2_table(118) := '5E734B20C744A99CED04B6262001D8DA888AE7A240BEE8F3857FB1D0C1C64CB499DC0E5635F1368940FA95C92E7DCC849765EECEA58D2C8F93FEC31591F42193EEDCED5E5B7FFA1597DAFD724CE4D8A82DAFDC3C026A5D564002B0ACB7D65614C8177CBE';
+wwv_flow_imp.g_varchar2_table(119) := 'E86BBB900924136D6DF9B5CAA58F99F0B22421B8B494FA7869DF6C4B1B5932E96729D5B7E6F6B8640C6BFB906323C7486D79E508F42E2001E87D04F5BF4A200FFBE50BBEAAF043A14C1C99401EDEFAD7B140C63063591B428E911C2BB5E5959B52405D4B';
+wwv_flow_imp.g_varchar2_table(120) := '0B48009616D7DEA20279D82F5FE8B50FFBA573B9BC9D8923EF2DFD0B642CAF490272ACF80D81FEC75D0465010940D948894E0532F9E761BF7CA1D784B0BFB7DDFAA5ED9A5894795920494012BB97D75EFE9463C72D81CB46536E55D7F2021280E5CDB5B8';
+wwv_flow_imp.g_varchar2_table(121) := '8040BEB8F3055EDBD4E3E4DFC893FEB57D56EE3A812476798E21635DBB676E09E458AA2DAF1C819E0424003D8D96BE160572D69F4BFEF9E22E167E5E209787F360DBF38F5E362E90B1CE98D7869963491250AB756B39FBAD21200158435D9B930BEC27FE';
+wwv_flow_imp.g_varchar2_table(122) := '9CF5D75EF24F273211E4F270DE5BC611C89867EC6B234E1290E7022402B562CAF5202001E86194F4F1894026FC2C39DBCF72EDC49F0A33016422C87BCB780219FB1C03D744BE4F0472CC2519C892E3F09A3A947D2A60CD3A02128075DCB55A2990B3AE53';
+wwv_flow_imp.g_varchar2_table(123) := '4B26FC2C39DBCF5259DD8B6279202C13C08B15DE0C299063E0DA24205039E6920C64C97178EA18CDBA94B51068554002D0EAC8E8D72C0279002C937F1E089BA501957627902420C744771DDF4C8705B2968004602D79ED2E2EF038F97BD27F71F71E1A4C';
+wwv_flow_imp.g_varchar2_table(124) := '4298DF10B8E56A400FF1E9238153021280532AD66D4E205FEC79FA7B7381096852815C0DC8B13269A52ABB2860E37A021280F5ECB56AA8E8310000081649444154BC80C0E359FF6B9FDCE58B7D81E634B101811C2BB9252011D8C0600AE1A28004E0228F';
+wwv_flow_imp.g_varchar2_table(125) := '8D730B64829EA38DD49B2FF19CF5E7F2EE1C6DF458675CCEF5DB84F7814C8E99240231C9F2C196E9DECD55EF743D5CA2266DAC29200158535FDB939E996772CB62E23F7F6065523BB7F5D2B673FB6C7D7D4CB264B2CE3265BCA977CAFAD445E05A0109C0';
+wwv_flow_imp.g_varchar2_table(126) := 'B562CA4F2A9033AD5B1EBECA44BF5F1E27FC87CBFC39DBCF923A27EDE4862A8BCDB1771C63B8A130270F25937596D8C52AC94096D865B9A6C1944F1DD7ECB3D5B2E25A574002B0AEBFD69F0BECBF5CF3055BB364A2DF2F99D4B23CAFCA4B85C0A1771CF9';
+wwv_flow_imp.g_varchar2_table(127) := '55A03D2F12ABF865895D969A63765F26E553C7F3EABC10584D4002B01ABD8609102030B280D8D7169000AC3D02DA2740800001022B0848005640D724010204461710FFFA021280F5C7400F0810204080C0E2021280C5C93548800081D105C4DF828004A0';
+wwv_flow_imp.g_varchar2_table(128) := '8551D0070204081020B0B08004606170CD112040607401F1B721200168631CF48200010204082C2A200158945B63040810185D40FCAD0848005A1909FD2040800001020B0A480016C4D6140102044617107F3B02128076C6424F0810204080C062021280';
+wwv_flow_imp.g_varchar2_table(129) := 'C5A83544800081D105C4DF928004A0A5D1D0170204081020B0908004602168CD102040607401F1B7252001686B3CF48600010204082C22200158845923040810185D40FCAD0948005A1B11FD2140800001020B0848001640D6040102044617107F7B0212';
+wwv_flow_imp.g_varchar2_table(130) := '80F6C6448F0810204080C0EC021280D9893540800081D105C4DFA28004A0C551D127020408102030B38004606660D5132040607401F1B729200168735CF48A0001020408CC2A2001989557E5040810185D40FCAD0A48005A1D19FD224080000102330A48';
+wwv_flow_imp.g_varchar2_table(131) := '0066C455350102044617107FBB02128076C746CF0810204080C06C021280D968554C800081D105C4DFB28004A0E5D1D137020408102030938004602658D5122040607401F1B72D2001687B7CF48E0001020408CC222001988555A5040810185D40FCAD0B';
+wwv_flow_imp.g_varchar2_table(132) := '48005A1F21FD23408000010233084800664055250102044617107FFB021280F6C7480F0910204080C0E4021280C9495548800081D105C4DF838004A08751D247020408102030B18004606250D5112040607401F1F7212001E8639CF49200010204084C2A';
+wwv_flow_imp.g_varchar2_table(133) := '200198945365040810185D40FCBD0848007A1929FD244080000102130A480026C454150102044617107F3F0212807EC64A4F0910204080C064021280C9285544800081D105C4DF938004A0A7D1D257020408102030918004602248D5102040607401F1F7';
+wwv_flow_imp.g_varchar2_table(134) := '252001E86BBCF49600010204084C22200198845125040810185D40FCBD0948007A1B31FD25408000010213084800264054050102044617107F7F021280FEC64C8F0910204080C0DD021280BB095540800081D105C4DFA38004A0C751D367020408102070';
+wwv_flow_imp.g_varchar2_table(135) := 'A78004E04E40BB132040607401F1F7292001E873DCF49A0001020408DC252001B88BCFCE040810185D40FCBD0A48007A1D39FD26408000010277084800EEC0B32B0102044617107FBF0212807EC74ECF0910204080C0CD0212809BE9EC48800081D105C4';
+wwv_flow_imp.g_varchar2_table(136) := 'DFB38004A0E7D1D377020408102070A38004E04638BB112040607401F1F72D2001E87BFCF49E0001020408DC242001B889CD4E040810185D40FCBD0B48007A1F41FD274080000102370848006E40B30B0102044617107FFF021280FEC750040408102040';
+wwv_flow_imp.g_varchar2_table(137) := 'E06A0109C0D56476204080C0E802E2DF828004600BA32806020408102070A58004E04A30C509102030BA80F8B7212001D8C6388A8200010204085C252001B88A4B610204088C2E20FEAD084800B63292E220408000010257084800AEC05294000102A30B';
+wwv_flow_imp.g_varchar2_table(138) := '887F3B021280ED8CA548081020408040B58004A09A4A410204088C2E20FE2D094800B6349A62214080000102950212804A28C508102030BA80F8B7252001D8D6788A86000102040854094800AA9814224080C0E802E2DF9A8004606B232A1E0204081020';
+wwv_flow_imp.g_varchar2_table(139) := '50212001A8405284000102A30B887F7B021280ED8DA98808102040804051400250245280000102A30B887F8B0212802D8EAA980810204080404140025000B299000102A30B887F9B0212806D8EABA80810204080C0450109C0451E1B09102030BA80F8B7';
+wwv_flow_imp.g_varchar2_table(140) := '2A2001D8EAC88A8B00010204085C1090005CC0B189000102A30B887FBB021280ED8EADC80810204080C0590109C0591A1B08102030BA80F8B72C2001D8F2E88A8D00010204089C1190009C81B19A000102A30B887FDB0212806D8FAFE80810204080C049';
+wwv_flow_imp.g_varchar2_table(141) := '0109C049162B09102030BA80F8B72E2001D8FA088B8F00010204089C1090009C40B18A000102A30B887FFB021280ED8FB1080910204080C0130109C013122B08102030BA80F8471090008C30CA622440800001024702128023101F09102030BA80F8C710';
+wwv_flow_imp.g_varchar2_table(142) := '90008C31CEA22440800001022F0948005EE2F081000102A30B887F140109C028232D4E02040810207020200138C0F096000102A30B887F1C0109C038632D520204081020F0424002F082C21B0204088C2E20FE91042400238DB6580910204080C0730109';
+wwv_flow_imp.g_varchar2_table(143) := 'C073082F040810185D40FC63094800C61A6FD1122040800081470109C023831F040810185D40FCA3094800461B71F1122040800081070109C003827F040810185D40FCE3094800C61B73111320408000819D04C04140800081E105008C2820011871D4C5';
+wwv_flow_imp.g_varchar2_table(144) := '4C80000102C30B4800863F0400102030BA80F8C71490008C39EEA22640800081C1052400831F00C22740607401F18F2A20011875E4C54D80000102430B4800861E7EC1132030BA80F8C71590008C3BF622274080008181052400030FBED00910185D40FC';
+wwv_flow_imp.g_varchar2_table(145) := '230B4800461E7DB113204080C0B002128061875EE004088C2E20FEB105FE060000FFFF36D2A9E60000000649444154030094D7E20060CEAF460000000049454E44AE426082';
+wwv_flow_imp_shared.create_app_static_file(
+ p_id=>wwv_flow_imp.id(4585226909134463890)
+,p_file_name=>'icons/app-icon-512.png'
+,p_mime_type=>'image/png'
+,p_file_charset=>'utf-8'
+,p_file_content=>wwv_flow_imp.varchar2_to_blob(wwv_flow_imp.g_varchar2_table)
+,p_created_on=>wwv_flow_imp.dz('20261013061006Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061006Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/shared_components/security/authorizations/administration_rights
+begin
+wwv_flow_imp_shared.create_security_scheme(
+ p_id=>wwv_flow_imp.id(4585228235810463891)
+,p_name=>'Administration Rights'
+,p_static_id=>'administration-rights'
+,p_scheme_type=>'NATIVE_FUNCTION_BODY'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'plsql_function_body', 'return true;')).to_clob
+,p_error_message=>'Insufficient privileges, user is not an Administrator'
+,p_version_scn=>'SH256:K94FzTYWdjDQ6WIg6w48Or20nhyD_tWnqCuRh9rK4CU'
+,p_caching=>'BY_USER_BY_PAGE_VIEW'
+,p_created_on=>wwv_flow_imp.dz('20261013061006Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061006Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/shared_components/navigation/navigation_bar
+begin
+null;
+end;
+/
+prompt --application/shared_components/logic/application_settings
+begin
+null;
+end;
+/
+prompt --application/shared_components/navigation/tabs/standard
+begin
+null;
+end;
+/
+prompt --application/shared_components/navigation/tabs/parent
+begin
+null;
+end;
+/
+prompt --application/shared_components/user_interface/lovs/boolean
+begin
+wwv_flow_imp_shared.create_list_of_values(
+ p_id=>wwv_flow_imp.id(4585294369002464613)
+,p_lov_name=>'BOOLEAN'
+,p_static_id=>'boolean'
+,p_lov_query=>'.'||wwv_flow_imp.id(4585294369002464613)||'.'
+,p_location=>'STATIC'
+,p_version_scn=>'SH256:CnCBOq-zabcz-aPWKwU8C5KDeZy6YuyjvpJoTrTywfI'
+,p_created_on=>wwv_flow_imp.dz('20261013061014Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061014Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(4585295078054464614)
+,p_lov_disp_sequence=>2
+,p_lov_disp_value=>'No'
+,p_lov_return_value=>'FALSE'
+,p_static_id=>'false'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(4585294610638464613)
+,p_lov_disp_sequence=>1
+,p_lov_disp_value=>'Yes'
+,p_lov_return_value=>'TRUE'
+,p_static_id=>'true'
+);
+end;
+/
+prompt --application/shared_components/user_interface/lovs/tms_employees_first_name
+begin
+wwv_flow_imp_shared.create_list_of_values(
+ p_id=>wwv_flow_imp.id(4585242144040464143)
+,p_lov_name=>'TMS_EMPLOYEES.FIRST_NAME'
+,p_static_id=>'tms-employees-first-name'
+,p_source_type=>'TABLE'
+,p_location=>'LOCAL'
+,p_query_table=>'TMS_EMPLOYEES'
+,p_return_column_name=>'EMPLOYEE_ID'
+,p_display_column_name=>'FIRST_NAME'
+,p_default_sort_column_name=>'FIRST_NAME'
+,p_default_sort_direction=>'ASC'
+,p_version_scn=>'SH256:O1vm05Yj4GZy2MD94fbGr32RnvGbVrvoK2ArKsWJAWQ'
+,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/shared_components/user_interface/lovs/tms_leave_types
+begin
+wwv_flow_imp_shared.create_list_of_values(
+ p_id=>wwv_flow_imp.id(4615845595422597722)
+,p_lov_name=>'TMS_LEAVE.TYPES'
+,p_static_id=>'tms-leave-types'
+,p_source_type=>'TABLE'
+,p_location=>'LOCAL'
+,p_query_table=>'TMS_LEAVE_TYPES'
+,p_return_column_name=>'LEAVE_TYPE_ID'
+,p_display_column_name=>'NAME'
+,p_default_sort_column_name=>'NAME'
+,p_default_sort_direction=>'ASC'
+,p_version_scn=>'SH256:tA-eA7iVBg_V6DU1x5h-TZRho0wjBbs-gTxw0IcQqKs'
+,p_created_on=>wwv_flow_imp.dz('20261013091905Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013091905Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/shared_components/user_interface/lovs/tms_task_category
+begin
+wwv_flow_imp_shared.create_list_of_values(
+ p_id=>wwv_flow_imp.id(4615895333722607882)
+,p_lov_name=>'TMS_TASK.CATEGORY'
+,p_static_id=>'tms-task-category'
+,p_lov_query=>'.'||wwv_flow_imp.id(4615895333722607882)||'.'
+,p_location=>'STATIC'
+,p_version_scn=>'SH256:HHJXNDLctQ-9J7UHuEAM5zBIq5WSSV13IhW6Xy2IEms'
+,p_created_on=>wwv_flow_imp.dz('20261013092046Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013092046Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(4615896742401607886)
+,p_lov_disp_sequence=>4
+,p_lov_disp_value=>'Benefits'
+,p_lov_return_value=>'Benefits'
+,p_static_id=>'benefits'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(4615897109294607887)
+,p_lov_disp_sequence=>5
+,p_lov_disp_value=>'Facilities'
+,p_lov_return_value=>'Facilities'
+,p_static_id=>'facilities'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(4615895913976607885)
+,p_lov_disp_sequence=>2
+,p_lov_disp_value=>'HR Documents'
+,p_lov_return_value=>'HR Documents'
+,p_static_id=>'hr-documents'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(4615895534485607884)
+,p_lov_disp_sequence=>1
+,p_lov_disp_value=>'IT Setup'
+,p_lov_return_value=>'IT Setup'
+,p_static_id=>'it-setup'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(4615896336056607886)
+,p_lov_disp_sequence=>3
+,p_lov_disp_value=>'Training'
+,p_lov_return_value=>'Training'
+,p_static_id=>'training'
+);
+end;
+/
+prompt --application/shared_components/user_interface/lovs/tms_task_status
+begin
+wwv_flow_imp_shared.create_list_of_values(
+ p_id=>wwv_flow_imp.id(4615862582118602441)
+,p_lov_name=>'TMS_TASK.STATUS'
+,p_static_id=>'tms-task-status'
+,p_lov_query=>'.'||wwv_flow_imp.id(4615862582118602441)||'.'
+,p_location=>'STATIC'
+,p_version_scn=>'SH256:H4uzTvMRCIk06XYVcAY91L9IdAX3ay5IZrNfnht16UY'
+,p_created_on=>wwv_flow_imp.dz('20261013091952Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013091952Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(4615863970392602444)
+,p_lov_disp_sequence=>4
+,p_lov_disp_value=>'Blocked'
+,p_lov_return_value=>'Blocked'
+,p_static_id=>'blocked'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(4615863561991602443)
+,p_lov_disp_sequence=>3
+,p_lov_disp_value=>'Done'
+,p_lov_return_value=>'Done'
+,p_static_id=>'done'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(4615863150307602443)
+,p_lov_disp_sequence=>2
+,p_lov_disp_value=>'In Progress'
+,p_lov_return_value=>'In Progress'
+,p_static_id=>'in-progress'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(4615862721803602442)
+,p_lov_disp_sequence=>1
+,p_lov_disp_value=>'Pending'
+,p_lov_return_value=>'Pending'
+,p_static_id=>'pending'
+);
+end;
+/
+prompt --application/pages/page_groups
+begin
+wwv_flow_imp_page.create_page_group(
+ p_id=>wwv_flow_imp.id(4585228586165463893)
+,p_group_name=>'Administration'
+,p_static_id=>'administration'
+);
+end;
+/
+prompt --application/shared_components/navigation/breadcrumbs/breadcrumb
+begin
+wwv_flow_imp_shared.create_menu(
+ p_id=>wwv_flow_imp.id(4585222197427463713)
+,p_name=>'Breadcrumb'
+,p_static_id=>'breadcrumb'
+,p_created_on=>wwv_flow_imp.dz('20261013061005Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(4585222369218463714)
+,p_short_name=>'Home'
+,p_static_id=>'home'
+,p_link=>'f?p=&APP_ID.:1:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>1
+,p_created_on=>wwv_flow_imp.dz('20261013061005Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061005Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(4585269875090464578)
+,p_short_name=>'Leave Request'
+,p_static_id=>'leave-request'
+,p_link=>'f?p=&APP_ID.:5:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>5
+,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(4585266153928464571)
+,p_short_name=>'My Onboarding Tasks'
+,p_static_id=>'my-onboarding-tasks'
+,p_link=>'f?p=&APP_ID.:2:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>2
+,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(4585271564298464581)
+,p_short_name=>'My Payslip'
+,p_static_id=>'my-payslip'
+,p_link=>'f?p=&APP_ID.:6:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>6
+,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(4585268189613464575)
+,p_short_name=>'My Profile'
+,p_static_id=>'my-profile'
+,p_link=>'f?p=&APP_ID.:4:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>4
+,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/shared_components/navigation/breadcrumbentry
+begin
+null;
+end;
+/
+prompt --application/shared_components/user_interface/themes
+begin
+wwv_flow_imp_shared.create_theme(
+ p_id=>wwv_flow_imp.id(4585223074282463717)
+,p_theme_id=>42
+,p_static_id=>'universal-theme'
+,p_theme_name=>'Universal Theme'
+,p_theme_internal_name=>'UNIVERSAL_THEME'
+,p_version_identifier=>'26.2'
+,p_navigation_type=>'L'
+,p_nav_bar_type=>'LIST'
+,p_is_locked=>false
+,p_current_theme_style_id=>4194319937007846
+,p_default_page_template=>4075783602716660119
+,p_default_dialog_template=>2103835248774687739
+,p_error_template=>2104585595298951431
+,p_printer_friendly_template=>4075783602716660119
+,p_login_template=>2104585595298951431
+,p_default_button_template=>4075790603270660137
+,p_default_region_template=>4075786578761660127
+,p_default_chart_template=>4075786578761660127
+,p_default_form_template=>4075786578761660127
+,p_default_reportr_template=>4075786578761660127
+,p_default_wizard_template=>4075786578761660127
+,p_default_menur_template=>2534890969069732905
+,p_default_listr_template=>4075786578761660127
+,p_default_irr_template=>2103954283454391425
+,p_default_report_template=>2542081983073888486
+,p_default_label_template=>1612549609962752680
+,p_default_menu_template=>4075790987805660140
+,p_default_list_template=>4075788786379660133
+,p_default_top_nav_list_temp=>2530182346535839887
+,p_default_side_nav_list_temp=>2471166859590295591
+,p_default_nav_list_position=>'SIDE'
+,p_default_dialogbtnr_template=>2129856781885180476
+,p_default_dialogr_template=>4504868307683981366
+,p_default_option_label=>1612549609962752680
+,p_default_required_label=>1612549789555753698
+,p_default_navbar_list_template=>2850970698196720012
+,p_file_prefix=>nvl(wwv_flow_application_install.get_static_theme_file_prefix(42),'#APEX_FILES#themes/theme_42/26.2/')
+,p_files_version=>64
+,p_icon_library=>'FONTAPEX'
+,p_javascript_file_urls=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'#APEX_FILES#libraries/apex/#MIN_DIRECTORY#widget.stickyWidget#MIN#.js?v=#APEX_VERSION#',
+'#THEME_FILES#js/theme42#MIN#.js?v=#APEX_VERSION#'))
+,p_css_file_urls=>'#THEME_FILES#css/Core#MIN#.css?v=#APEX_VERSION#'
+,p_reference_id=>wwv_imp_util.get_subscription_id(4075791579648660165,2000,'universal-theme',8842.262)
+,p_version_scn=>'SH256:_ZA2OCAT0oe8zXeYXS4pqku9eJXOHXBko77-CJUyv6E'
+,p_version_scn_master=>'SH256:S3Fh7S4ZMPpy-ID1j0RgxJIrTUyM6ZXOJB4KD7haOtc'
+,p_created_on=>wwv_flow_imp.dz('20261013061005Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061006Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/shared_components/user_interface/theme_style
+begin
+null;
+end;
+/
+prompt --application/shared_components/user_interface/theme_files
+begin
+null;
+end;
+/
+prompt --application/shared_components/user_interface/template_opt_groups
+begin
+null;
+end;
+/
+prompt --application/shared_components/user_interface/template_options
+begin
+null;
+end;
+/
+prompt --application/shared_components/globalization/language
+begin
+null;
+end;
+/
+prompt --application/shared_components/globalization/translations
+begin
+null;
+end;
+/
+prompt --application/shared_components/logic/build_options
+begin
+wwv_flow_imp_shared.create_build_option(
+ p_id=>wwv_flow_imp.id(4585221416796463710)
+,p_build_option_name=>'Commented Out'
+,p_static_id=>'commented-out'
+,p_build_option_status=>'EXCLUDE'
+,p_version_scn=>'SH256:1lQI3DW9n-0ZEGoDXUirkaB0JWCIATVWpJZCTCkODmI'
+,p_created_on=>wwv_flow_imp.dz('20261013061005Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061005Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/shared_components/globalization/messages
+begin
+null;
+end;
+/
+prompt --application/shared_components/globalization/dyntranslations
+begin
+null;
+end;
+/
+prompt --application/shared_components/security/authentications/oracle_apex_accounts
+begin
+wwv_flow_imp_shared.create_authentication(
+ p_id=>wwv_flow_imp.id(4585221700514463711)
+,p_name=>'Oracle APEX Accounts'
+,p_static_id=>'oracle-apex-accounts'
+,p_scheme_type=>'NATIVE_APEX_ACCOUNTS'
+,p_invalid_session_type=>'LOGIN'
+,p_use_secure_cookie_yn=>'N'
+,p_ras_mode=>0
+,p_version_scn=>'SH256:MwlwV9vQNyvTGV3nRFfTrp5n7mJ1Ugme2lUrlsOYuxw'
+,p_created_on=>wwv_flow_imp.dz('20261013061005Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061005Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/user_interfaces/combined_files
+begin
+null;
+end;
+/
+prompt --application/pages/page_00000
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>0
+,p_name=>'Global Page'
+,p_reload_on_submit=>null
+,p_warn_on_unsaved_changes=>null
+,p_autocomplete_on_off=>'OFF'
+,p_protection_level=>'D'
+,p_page_component_map=>'14'
+,p_created_on=>wwv_flow_imp.dz('20261013061006Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261013061006Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_last_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/pages/page_00001
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>1
+,p_name=>'Home'
+,p_alias=>'HOME'
+,p_step_title=>'Employee Self-Service Portal'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>4075783602716660119
+,p_page_template_options=>'#DEFAULT#'
+,p_protection_level=>'C'
+,p_page_component_map=>'13'
+,p_created_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261013072244Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_last_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(4585238259421463948)
+,p_plug_name=>'Employee Self-Service Portal'
+,p_static_id=>'employee-self-service-portal'
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>2677445476673898083
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_plug_item_display_point=>'ABOVE'
+,p_location=>null
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<h2>Welcome, <span>&APP_USER.</span>!</h2>',
+'<p>You have onboarding tasks waiting.</p>'))
+,p_plug_query_num_rows=>15
+,p_region_image=>'#APP_FILES#icons/app-icon-512.png'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'expand_shortcuts', 'N',
+  'output_as', 'HTML')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013072151Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(4585293968996464612)
+,p_plug_name=>'Page Navigation'
+,p_static_id=>'page-navigation'
+,p_region_template_options=>'#DEFAULT#:t-Region--hideHeader js-addHiddenHeadingRoleDesc:t-Region--noUI:t-Region--scrollBody'
+,p_component_template_options=>'#DEFAULT#:u-colors:t-Cards--featured t-Cards--block force-fa-lg:t-Cards--displayIcons:t-Cards--4cols:t-Cards--hideBody:t-Cards--animColorFill'
+,p_escape_on_http_output=>'Y'
+,p_plug_template=>4075786578761660127
+,p_plug_display_sequence=>30
+,p_plug_item_display_point=>'ABOVE'
+,p_list_id=>wwv_flow_imp.id(4585291751964464607)
+,p_plug_source_type=>'NATIVE_LIST'
+,p_list_template_id=>2890197131116233323
+,p_plug_query_num_rows=>15
+,p_created_on=>wwv_flow_imp.dz('20261013061014Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061014Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(4472947109277473017)
+,p_plug_name=>'Your Onboarding Progress'
+,p_static_id=>'your-onboarding-progress'
+,p_title=>'Your Onboarding Progress'
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4075786578761660127
+,p_plug_display_sequence=>10
+,p_plug_item_display_point=>'ABOVE'
+,p_location=>null
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<div style="width:100%;height:16px;overflow:hidden;background:#e0e0e0;border-radius:8px;">',
+'  <div id="prog" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="width:0%;height:100%;background:#3B82F6;border-radius:8px;">',
+'  </div>',
+'</div>',
+'<p id="prog-status" style="margin:8px 0 0;">0% complete - tasks not yet loaded</p>'))
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'expand_shortcuts', 'N',
+  'output_as', 'HTML')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013072244Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013072244Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/pages/page_00002
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>2
+,p_name=>'My Onboarding Tasks'
+,p_alias=>'MY-ONBOARDING-TASKS'
+,p_step_title=>'My Onboarding Tasks'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>4075783602716660119
+,p_page_template_options=>'#DEFAULT#'
+,p_protection_level=>'C'
+,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<p>To find data enter a search term into the search dialog, or click on the column headings to limit the records returned.</p>',
+'',
+'<p>You can perform numerous functions by clicking the <strong>Actions</strong> button. This includes selecting the columns that are displayed / hidden and their display sequence, plus numerous data and format functions.  You can also define additiona'
+||'l views of the data using the chart, group by, and pivot options.</p>',
+'',
+'<p>If you want to save your customizations select report, or click download to unload the data. Enter you email address and time frame under subscription to be sent the data on a regular basis.</p>',
+'',
+'<p>For additional information click Help at the bottom of the Actions menu.</p> ',
+'',
+'<p>Click the <strong>Reset</strong> button to reset the interactive report back to the default settings.</p>'))
+,p_page_component_map=>'21'
+,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261013075035Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_last_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(4585265586260464570)
+,p_plug_name=>'Breadcrumb'
+,p_static_id=>'breadcrumb'
+,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>2534890969069732905
+,p_plug_display_sequence=>20
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_plug_item_display_point=>'ABOVE'
+,p_menu_id=>wwv_flow_imp.id(4585222197427463713)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>4075790987805660140
+,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(4585257873428464543)
+,p_plug_name=>'Onboarding Tasks'
+,p_static_id=>'my-onboarding-tasks'
+,p_region_template_options=>'#DEFAULT#:t-IRR-region--hideHeader js-addHiddenHeadingRoleDesc'
+,p_plug_template=>2103954283454391425
+,p_plug_display_sequence=>10
+,p_plug_item_display_point=>'ABOVE'
+,p_query_type=>'SQL'
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT',
+'        T.*, E.Email',
+'    FROM',
+'        TMS_ONBOARDING_TASKS T',
+'        JOIN TMS_EMPLOYEES E ON E.EMPLOYEE_ID = T.EMPLOYEE_ID',
+'    WHERE',
+'        lower(T.ASSIGNED_TO) = LOWER(:APP_USER)',
+''))
+,p_plug_source_type=>'NATIVE_IG'
+,p_prn_units=>'INCHES'
+,p_prn_paper_size=>'LETTER'
+,p_prn_width=>11
+,p_prn_height=>8.5
+,p_prn_orientation=>'HORIZONTAL'
+,p_prn_page_header_font_color=>'#000000'
+,p_prn_page_header_font_family=>'Helvetica'
+,p_prn_page_header_font_weight=>'normal'
+,p_prn_page_header_font_size=>'12'
+,p_prn_page_footer_font_color=>'#000000'
+,p_prn_page_footer_font_family=>'Helvetica'
+,p_prn_page_footer_font_weight=>'normal'
+,p_prn_page_footer_font_size=>'12'
+,p_prn_header_bg_color=>'#EEEEEE'
+,p_prn_header_font_color=>'#000000'
+,p_prn_header_font_family=>'Helvetica'
+,p_prn_header_font_weight=>'bold'
+,p_prn_header_font_size=>'10'
+,p_prn_body_bg_color=>'#FFFFFF'
+,p_prn_body_font_color=>'#000000'
+,p_prn_body_font_family=>'Helvetica'
+,p_prn_body_font_weight=>'normal'
+,p_prn_body_font_size=>'10'
+,p_prn_border_width=>.5
+,p_prn_page_header_alignment=>'CENTER'
+,p_prn_page_footer_alignment=>'CENTER'
+,p_prn_border_color=>'#666666'
+,p_ai_enabled=>false
+,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013075035Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(4594983478761740408)
+,p_name=>'APEX$ROW_ACTION'
+,p_session_state_data_type=>'VARCHAR2'
+,p_item_type=>'NATIVE_ROW_ACTION'
+,p_display_sequence=>20
+,p_updated_on=>wwv_flow_imp.dz('20261013074933Z')
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(4594983501178740409)
+,p_name=>'APEX$ROW_SELECTOR'
+,p_session_state_data_type=>'VARCHAR2'
+,p_item_type=>'NATIVE_ROW_SELECTOR'
+,p_display_sequence=>10
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'enable_multi_select', 'Y',
+  'hide_control', 'N',
+  'show_select_all', 'Y')).to_clob
+,p_updated_on=>wwv_flow_imp.dz('20261013074933Z')
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(4472950239029473048)
+,p_name=>'ASSIGNED_TO'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'ASSIGNED_TO'
+,p_data_type=>'VARCHAR2'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_DISPLAY_ONLY'
+,p_heading=>'Assigned To'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>60
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN')).to_clob
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_lov_type=>'DISTINCT'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20261013075022Z')
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(4472950368313473049)
+,p_name=>'CATEGORY'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'CATEGORY'
+,p_data_type=>'VARCHAR2'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_DISPLAY_ONLY'
+,p_heading=>'Category'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>70
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN')).to_clob
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_lov_type=>'DISTINCT'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20261013075022Z')
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(4594982821992740402)
+,p_name=>'COMPLETED_DATE'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'COMPLETED_DATE'
+,p_data_type=>'DATE'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_DATE_PICKER_APEX'
+,p_heading=>'Completed Date'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>100
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'display_as', 'POPUP',
+  'max_date', 'NONE',
+  'min_date', 'NONE',
+  'multiple_months', 'N',
+  'show_time', 'N',
+  'use_defaults', 'Y')).to_clob
+,p_is_required=>false
+,p_enable_filter=>true
+,p_filter_date_ranges=>'ALL'
+,p_filter_lov_type=>'DISTINCT'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20261013074933Z')
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(4594982951797740403)
+,p_name=>'CREATED'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'CREATED'
+,p_data_type=>'DATE'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_HIDDEN'
+,p_heading=>'Created'
+,p_display_sequence=>110
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'N')).to_clob
+,p_use_as_row_header=>false
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>false
+,p_updated_on=>wwv_flow_imp.dz('20261013075035Z')
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(4594983034213740404)
+,p_name=>'CREATED_BY'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'CREATED_BY'
+,p_data_type=>'VARCHAR2'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_HIDDEN'
+,p_heading=>'Created By'
+,p_display_sequence=>120
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'N')).to_clob
+,p_use_as_row_header=>false
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>false
+,p_updated_on=>wwv_flow_imp.dz('20261013075035Z')
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(4472950439356473050)
+,p_name=>'DUE_DATE'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'DUE_DATE'
+,p_data_type=>'DATE'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_DISPLAY_ONLY'
+,p_heading=>'Due Date'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>80
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN')).to_clob
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_date_ranges=>'ALL'
+,p_filter_lov_type=>'DISTINCT'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20261013075022Z')
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(4594983318171740407)
+,p_name=>'EMAIL'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'EMAIL'
+,p_data_type=>'VARCHAR2'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_TEXTAREA'
+,p_heading=>'Email'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>150
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'auto_height', 'N',
+  'character_counter', 'N',
+  'resizable', 'Y',
+  'trim_spaces', 'BOTH')).to_clob
+,p_is_required=>true
+,p_max_length=>1280
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_lov_type=>'NONE'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>false
+,p_enable_hide=>true
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20261013074933Z')
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(4472950013035473046)
+,p_name=>'EMPLOYEE_ID'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'EMPLOYEE_ID'
+,p_data_type=>'NUMBER'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_NUMBER_FIELD'
+,p_heading=>'Employee Id'
+,p_heading_alignment=>'RIGHT'
+,p_display_sequence=>40
+,p_value_alignment=>'RIGHT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'number_alignment', 'left',
+  'virtual_keyboard', 'decimal')).to_clob
+,p_is_required=>false
+,p_enable_filter=>true
+,p_filter_lov_type=>'NONE'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20261013074932Z')
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(4594982708316740401)
+,p_name=>'STATUS'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'STATUS'
+,p_data_type=>'VARCHAR2'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_SELECT_LIST'
+,p_heading=>'Status'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>90
+,p_value_alignment=>'LEFT'
+,p_is_required=>false
+,p_lov_type=>'STATIC'
+,p_lov_source=>'STATIC:Pending;Pending,In Progress;In Progress,Done;Done,Blocked;Blocked'
+,p_lov_display_extra=>true
+,p_lov_display_null=>true
+,p_lov_null_text=>'--Select Status--'
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_lov_type=>'LOV'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20261013074933Z')
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(4472949979484473045)
+,p_name=>'TASK_ID'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'TASK_ID'
+,p_data_type=>'NUMBER'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>true
+,p_item_type=>'NATIVE_HIDDEN'
+,p_display_sequence=>30
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_use_as_row_header=>false
+,p_is_primary_key=>true
+,p_include_in_export=>false
+,p_updated_on=>wwv_flow_imp.dz('20261013074932Z')
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(4472950131566473047)
+,p_name=>'TASK_NAME'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'TASK_NAME'
+,p_data_type=>'VARCHAR2'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_DISPLAY_ONLY'
+,p_heading=>'Task Name'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>50
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN')).to_clob
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_lov_type=>'DISTINCT'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20261013074955Z')
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(4594983156698740405)
+,p_name=>'UPDATED'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'UPDATED'
+,p_data_type=>'DATE'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_HIDDEN'
+,p_heading=>'Updated'
+,p_display_sequence=>130
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'N')).to_clob
+,p_use_as_row_header=>false
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>false
+,p_updated_on=>wwv_flow_imp.dz('20261013075035Z')
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(4594983216994740406)
+,p_name=>'UPDATED_BY'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'UPDATED_BY'
+,p_data_type=>'VARCHAR2'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_HIDDEN'
+,p_heading=>'Updated By'
+,p_display_sequence=>140
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'N')).to_clob
+,p_use_as_row_header=>false
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>false
+,p_updated_on=>wwv_flow_imp.dz('20261013075035Z')
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_interactive_grid(
+ p_id=>wwv_flow_imp.id(4472949887919473044)
+,p_internal_uid=>4472949887919473044
+,p_is_editable=>true
+,p_edit_operations=>'i:u:d'
+,p_lost_update_check_type=>'VALUES'
+,p_add_row_if_empty=>true
+,p_lazy_loading=>false
+,p_requires_filter=>false
+,p_select_first_row=>true
+,p_fixed_row_height=>true
+,p_pagination_type=>'SCROLL'
+,p_show_total_row_count=>true
+,p_show_toolbar=>true
+,p_enable_save_public_report=>false
+,p_enable_subscriptions=>true
+,p_enable_flashback=>true
+,p_define_chart_view=>true
+,p_enable_download=>true
+,p_download_formats=>'CSV:HTML:XLSX:PDF'
+,p_enable_mail_download=>true
+,p_fixed_header=>'PAGE'
+,p_show_icon_view=>false
+,p_show_detail_view=>false
+,p_updated_on=>wwv_flow_imp.dz('20261013074933Z')
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_ig_report(
+ p_id=>wwv_flow_imp.id(4595053514262752278)
+,p_interactive_grid_id=>wwv_flow_imp.id(4472949887919473044)
+,p_static_id=>'primary'
+,p_type=>'PRIMARY'
+,p_default_view=>'GRID'
+,p_show_row_number=>false
+,p_settings_area_expanded=>true
+,p_updated_on=>wwv_flow_imp.dz('20261013074933Z')
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_ig_report_view(
+ p_id=>wwv_flow_imp.id(4595053623944752279)
+,p_report_id=>wwv_flow_imp.id(4595053514262752278)
+,p_view_type=>'GRID'
+,p_stretch_columns=>true
+,p_srv_exclude_null_values=>false
+,p_srv_only_display_columns=>true
+,p_edit_mode=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(4595054138724752280)
+,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+,p_display_seq=>1
+,p_column_id=>wwv_flow_imp.id(4472949979484473045)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(4595055106590752282)
+,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+,p_display_seq=>2
+,p_column_id=>wwv_flow_imp.id(4472950013035473046)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(4595056055870752284)
+,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+,p_display_seq=>3
+,p_column_id=>wwv_flow_imp.id(4472950131566473047)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(4595057068356752286)
+,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+,p_display_seq=>4
+,p_column_id=>wwv_flow_imp.id(4472950239029473048)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(4595057822556752288)
+,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+,p_display_seq=>5
+,p_column_id=>wwv_flow_imp.id(4472950368313473049)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(4595058790762752290)
+,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+,p_display_seq=>6
+,p_column_id=>wwv_flow_imp.id(4472950439356473050)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(4595059635871752292)
+,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+,p_display_seq=>7
+,p_column_id=>wwv_flow_imp.id(4594982708316740401)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(4595060590182752293)
+,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+,p_display_seq=>8
+,p_column_id=>wwv_flow_imp.id(4594982821992740402)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(4595061489831752295)
+,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+,p_display_seq=>9
+,p_column_id=>wwv_flow_imp.id(4594982951797740403)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(4595062328213752297)
+,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+,p_display_seq=>10
+,p_column_id=>wwv_flow_imp.id(4594983034213740404)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(4595063270345752299)
+,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+,p_display_seq=>11
+,p_column_id=>wwv_flow_imp.id(4594983156698740405)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(4595064128301752301)
+,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+,p_display_seq=>12
+,p_column_id=>wwv_flow_imp.id(4594983216994740406)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(4595065030876752303)
+,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+,p_display_seq=>13
+,p_column_id=>wwv_flow_imp.id(4594983318171740407)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(4595065957241752304)
+,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+,p_display_seq=>0
+,p_column_id=>wwv_flow_imp.id(4594983478761740408)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(4585264264763464568)
+,p_button_sequence=>10
+,p_button_plug_id=>wwv_flow_imp.id(4585257873428464543)
+,p_button_name=>'CREATE'
+,p_static_id=>'create'
+,p_show_as_disabled=>false
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4075790603270660137
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Create'
+,p_button_position=>'RIGHT_OF_IR_SEARCH_BAR'
+,p_button_redirect_url=>'f?p=&APP_ID.:3:&APP_SESSION.::&DEBUG.:3::'
+,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013074932Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(4585264614597464569)
+,p_name=>'Edit Report - Dialog Closed'
+,p_static_id=>'edit-report-dialog-closed'
+,p_event_sequence=>10
+,p_triggering_element_type=>'REGION'
+,p_triggering_region_id=>wwv_flow_imp.id(4585257873428464543)
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'apexafterclosedialog'
+,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(4585265069526464569)
+,p_event_id=>wwv_flow_imp.id(4585264614597464569)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_static_id=>'native-refresh'
+,p_action=>'NATIVE_REFRESH'
+,p_affected_elements_type=>'REGION'
+,p_affected_region_id=>wwv_flow_imp.id(4585257873428464543)
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'maintain_pagination', 'N')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(4594983636671740410)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_region_id=>wwv_flow_imp.id(4585257873428464543)
+,p_process_type=>'NATIVE_IG_DML'
+,p_process_name=>'Onboarding Tasks - Save Interactive Grid Data'
+,p_static_id=>'onboarding-tasks-save-interactive-grid-data'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'lock_row', 'Y',
+  'prevent_lost_updates', 'Y',
+  'return_primary_keys_after_insert', 'Y',
+  'target_type', 'REGION_SOURCE')).to_clob
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_internal_uid=>4594983636671740410
+,p_created_on=>wwv_flow_imp.dz('20261013074932Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013074932Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/pages/page_00003
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>3
+,p_name=>'Onboarding Task'
+,p_alias=>'ONBOARDING-TASK'
+,p_page_mode=>'MODAL'
+,p_step_title=>'Onboarding Task'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>1664614232864994871
+,p_page_template_options=>'#DEFAULT#:js-dialog-class-t-Drawer--pullOutEnd'
+,p_dialog_chained=>'N'
+,p_dialog_resizable=>'Y'
+,p_protection_level=>'C'
+,p_page_component_map=>'02'
+,p_created_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_last_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(4585250453616464155)
+,p_plug_name=>'Buttons'
+,p_static_id=>'buttons'
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>2129856781885180476
+,p_plug_display_sequence=>20
+,p_plug_display_point=>'REGION_POSITION_03'
+,p_plug_item_display_point=>'ABOVE'
+,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(4585241356105464142)
+,p_plug_name=>'Onboarding Task'
+,p_static_id=>'onboarding-task'
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>4504868307683981366
+,p_plug_display_sequence=>10
+,p_plug_item_display_point=>'ABOVE'
+,p_query_type=>'TABLE'
+,p_query_table=>'TMS_ONBOARDING_TASKS'
+,p_include_rowid_column=>false
+,p_is_editable=>true
+,p_edit_operations=>'i:u:d'
+,p_lost_update_check_type=>'VALUES'
+,p_plug_source_type=>'NATIVE_FORM'
+,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(4585250878131464155)
+,p_button_sequence=>10
+,p_button_plug_id=>wwv_flow_imp.id(4585250453616464155)
+,p_button_name=>'CANCEL'
+,p_static_id=>'cancel'
+,p_show_as_disabled=>false
+,p_button_action=>'DEFINED_BY_DA_ACTION'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4075790603270660137
+,p_button_image_alt=>'Cancel'
+,p_button_position=>'CLOSE'
+,p_warn_on_unsaved_changes=>null
+,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_component_da_action(
+ p_id=>wwv_flow_imp.id(4585251399432464156)
+,p_button_id=>wwv_flow_imp.id(4585250878131464155)
+,p_action_sequence=>10
+,p_action=>'NATIVE_DIALOG_CANCEL'
+,p_static_id=>'native-dialog-cancel'
+,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(4585252637872464157)
+,p_button_sequence=>40
+,p_button_plug_id=>wwv_flow_imp.id(4585250453616464155)
+,p_button_name=>'CREATE'
+,p_static_id=>'create'
+,p_show_as_disabled=>false
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4075790603270660137
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Create'
+,p_button_position=>'NEXT'
+,p_button_condition=>'P3_TASK_ID'
+,p_button_condition_type=>'ITEM_IS_NULL'
+,p_database_action=>'INSERT'
+,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(4585251873494464157)
+,p_button_sequence=>20
+,p_button_plug_id=>wwv_flow_imp.id(4585250453616464155)
+,p_button_name=>'DELETE'
+,p_static_id=>'delete'
+,p_show_as_disabled=>false
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#:t-Button--danger:t-Button--simple'
+,p_button_template_id=>4075790603270660137
+,p_button_image_alt=>'Delete'
+,p_button_position=>'DELETE'
+,p_button_execute_validations=>'N'
+,p_confirm_message=>'&APP_TEXT$DELETE_MSG!RAW.'
+,p_confirm_style=>'danger'
+,p_button_condition=>'P3_TASK_ID'
+,p_button_condition_type=>'ITEM_IS_NOT_NULL'
+,p_database_action=>'DELETE'
+,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(4585252264648464157)
+,p_button_sequence=>30
+,p_button_plug_id=>wwv_flow_imp.id(4585250453616464155)
+,p_button_name=>'SAVE'
+,p_static_id=>'save'
+,p_show_as_disabled=>false
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4075790603270660137
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Apply Changes'
+,p_button_position=>'NEXT'
+,p_button_condition=>'P3_TASK_ID'
+,p_button_condition_type=>'ITEM_IS_NOT_NULL'
+,p_database_action=>'UPDATE'
+,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4585243181647464145)
+,p_name=>'P3_ASSIGNED_TO'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>40
+,p_item_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_item_source_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_prompt=>'Assigned To'
+,p_source=>'ASSIGNED_TO'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_label_alignment=>'RIGHT'
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4585243503050464146)
+,p_name=>'P3_CATEGORY'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_item_source_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_prompt=>'Category'
+,p_source=>'CATEGORY'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>80
+,p_label_alignment=>'RIGHT'
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4585244788723464149)
+,p_name=>'P3_COMPLETED_DATE'
+,p_source_data_type=>'DATE'
+,p_item_sequence=>80
+,p_item_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_item_source_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_prompt=>'Completed Date'
+,p_source=>'COMPLETED_DATE'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_label_alignment=>'RIGHT'
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'display_as', 'POPUP',
+  'max_date', 'NONE',
+  'min_date', 'NONE',
+  'multiple_months', 'N',
+  'show_time', 'N',
+  'use_defaults', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4585245185138464150)
+,p_name=>'P3_CREATED'
+,p_source_data_type=>'DATE'
+,p_is_required=>true
+,p_item_sequence=>90
+,p_item_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_item_source_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_prompt=>'Created'
+,p_source=>'CREATED'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_label_alignment=>'RIGHT'
+,p_field_template=>1612549789555753698
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4585245557742464151)
+,p_name=>'P3_CREATED_BY'
+,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
+,p_item_sequence=>100
+,p_item_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_item_source_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_prompt=>'Created By'
+,p_source=>'CREATED_BY'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_label_alignment=>'RIGHT'
+,p_field_template=>1612549789555753698
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4585243900954464147)
+,p_name=>'P3_DUE_DATE'
+,p_source_data_type=>'DATE'
+,p_item_sequence=>60
+,p_item_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_item_source_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_prompt=>'Due Date'
+,p_source=>'DUE_DATE'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_label_alignment=>'RIGHT'
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'display_as', 'POPUP',
+  'max_date', 'NONE',
+  'min_date', 'NONE',
+  'multiple_months', 'N',
+  'show_time', 'N',
+  'use_defaults', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4585242001932464143)
+,p_name=>'P3_EMPLOYEE_ID'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_item_source_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_prompt=>'Employee'
+,p_source=>'EMPLOYEE_ID'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_named_lov=>'TMS_EMPLOYEES.FIRST_NAME'
+,p_lov_display_null=>'YES'
+,p_label_alignment=>'RIGHT'
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'YES'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'page_action_on_selection', 'NONE')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4585244357447464147)
+,p_name=>'P3_STATUS'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>70
+,p_item_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_item_source_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_prompt=>'Status'
+,p_source=>'STATUS'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>30
+,p_label_alignment=>'RIGHT'
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4585241605756464142)
+,p_name=>'P3_TASK_ID'
+,p_source_data_type=>'NUMBER'
+,p_is_required=>true
+,p_is_primary_key=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_item_source_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_prompt=>'Task ID'
+,p_source=>'TASK_ID'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_field_template=>1612549789555753698
+,p_is_persistent=>'N'
+,p_protection_level=>'S'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4585242738079464145)
+,p_name=>'P3_TASK_NAME'
+,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_item_source_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_prompt=>'Task Name'
+,p_source=>'TASK_NAME'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>200
+,p_label_alignment=>'RIGHT'
+,p_field_template=>1612549789555753698
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4585245905279464151)
+,p_name=>'P3_UPDATED'
+,p_source_data_type=>'DATE'
+,p_is_required=>true
+,p_item_sequence=>110
+,p_item_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_item_source_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_prompt=>'Updated'
+,p_source=>'UPDATED'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_label_alignment=>'RIGHT'
+,p_field_template=>1612549789555753698
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4585246396950464152)
+,p_name=>'P3_UPDATED_BY'
+,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
+,p_item_sequence=>120
+,p_item_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_item_source_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_prompt=>'Updated By'
+,p_source=>'UPDATED_BY'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_label_alignment=>'RIGHT'
+,p_field_template=>1612549789555753698
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(4585253842501464159)
+,p_process_sequence=>50
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_CLOSE_WINDOW'
+,p_process_name=>'Close Dialog'
+,p_static_id=>'close-dialog'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when=>'CREATE,SAVE,DELETE'
+,p_process_when_type=>'REQUEST_IN_CONDITION'
+,p_internal_uid=>4585253842501464159
+,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(4585253061567464158)
+,p_process_sequence=>10
+,p_process_point=>'BEFORE_HEADER'
+,p_region_id=>wwv_flow_imp.id(4585241356105464142)
+,p_process_type=>'NATIVE_FORM_INIT'
+,p_process_name=>'Initialize form Onboarding Task'
+,p_static_id=>'initialize-form-onboarding-task'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'current_row_total_item', '',
+  'next_primary_key_items', '',
+  'previous_primary_key_items', '')).to_clob
+,p_internal_uid=>4585253061567464158
+,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(4585253440858464158)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_region_id=>wwv_flow_imp.id(4585241356105464142)
+,p_process_type=>'NATIVE_FORM_DML'
+,p_process_name=>'Process form Onboarding Task'
+,p_static_id=>'process-form-onboarding-task'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'lock_row', 'Y',
+  'prevent_lost_updates', 'Y',
+  'return_primary_keys_after_insert', 'Y',
+  'target_type', 'REGION_SOURCE')).to_clob
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_internal_uid=>4585253440858464158
+,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061009Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/pages/page_00004
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>4
+,p_name=>'My Profile'
+,p_alias=>'MY-PROFILE'
+,p_step_title=>'My Profile'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>4075783602716660119
+,p_page_template_options=>'#DEFAULT#'
+,p_protection_level=>'C'
+,p_page_component_map=>'02'
+,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261013145217Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_last_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(4585267505338464574)
+,p_plug_name=>'Breadcrumb'
+,p_static_id=>'breadcrumb'
+,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>2534890969069732905
+,p_plug_display_sequence=>20
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_plug_item_display_point=>'ABOVE'
+,p_menu_id=>wwv_flow_imp.id(4585222197427463713)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>4075790987805660140
+,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(4653997762382295442)
+,p_plug_name=>'Emergency Contact'
+,p_static_id=>'emergency-contact'
+,p_parent_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4075786578761660127
+,p_plug_display_sequence=>20
+,p_plug_display_point=>'SUB_REGIONS'
+,p_plug_item_display_point=>'ABOVE'
+,p_location=>null
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'expand_shortcuts', 'N',
+  'output_as', 'HTML')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013142235Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013142235Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(4653995071841295415)
+,p_plug_name=>'Employee Details'
+,p_static_id=>'employee-details'
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4075786578761660127
+,p_plug_display_sequence=>10
+,p_plug_item_display_point=>'ABOVE'
+,p_query_type=>'TABLE'
+,p_query_table=>'TMS_EMPLOYEES'
+,p_include_rowid_column=>false
+,p_is_editable=>false
+,p_plug_source_type=>'NATIVE_FORM'
+,p_created_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(4653997841496295443)
+,p_plug_name=>'Employment Details'
+,p_static_id=>'employment-details'
+,p_parent_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4075786578761660127
+,p_plug_display_sequence=>30
+,p_plug_display_point=>'SUB_REGIONS'
+,p_plug_item_display_point=>'ABOVE'
+,p_location=>null
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'expand_shortcuts', 'N',
+  'output_as', 'HTML')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013142235Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013142235Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(4653997664969295441)
+,p_plug_name=>'Personal'
+,p_static_id=>'personal'
+,p_parent_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4075786578761660127
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'SUB_REGIONS'
+,p_plug_item_display_point=>'ABOVE'
+,p_location=>null
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'expand_shortcuts', 'N',
+  'output_as', 'HTML')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013142234Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013142235Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(4653998097914295445)
+,p_button_sequence=>20
+,p_button_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_button_name=>'SAVE_PROFILE'
+,p_static_id=>'save-profile_1'
+,p_show_as_disabled=>false
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4075790603270660137
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Save Profile'
+,p_button_position=>'CHANGE'
+,p_database_action=>'UPDATE'
+,p_created_on=>wwv_flow_imp.dz('20261013145217Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013145217Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4653995358332295418)
+,p_name=>'P4_CANDIDATE_ID'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_item_source_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_prompt=>'Candidate Id'
+,p_source=>'CANDIDATE_ID'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>30
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'number_alignment', 'left',
+  'virtual_keyboard', 'decimal')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4653996421300295429)
+,p_name=>'P4_CREATED'
+,p_source_data_type=>'DATE'
+,p_is_required=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_item_source_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_prompt=>'Created'
+,p_source=>'CREATED'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
+,p_cSize=>30
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'display_as', 'POPUP',
+  'max_date', 'NONE',
+  'min_date', 'NONE',
+  'multiple_months', 'N',
+  'show_time', 'N',
+  'use_defaults', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4653996564349295430)
+,p_name=>'P4_CREATED_BY'
+,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_item_source_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_prompt=>'Created By'
+,p_source=>'CREATED_BY'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_cMaxlength=>255
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4653995510834295420)
+,p_name=>'P4_DEPT_ID'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4653997841496295443)
+,p_item_source_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_prompt=>'Dept Id'
+,p_source=>'DEPT_ID'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_lov=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT',
+'    name AS display_value,',
+'    dept_id AS return_value',
+'FROM tms_departments',
+'ORDER BY name'))
+,p_lov_display_null=>'YES'
+,p_cHeight=>1
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'YES'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'page_action_on_selection', 'NONE')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013143934Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4653995891726295423)
+,p_name=>'P4_EMAIL'
+,p_source_data_type=>'VARCHAR2'
+,p_is_query_only=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4653997664969295441)
+,p_item_source_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_prompt=>'Email'
+,p_source=>'EMAIL'
+,p_display_as=>'NATIVE_DISPLAY_ONLY'
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN',
+  'send_on_page_submit', 'Y',
+  'show_line_breaks', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013142841Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4653996907041295434)
+,p_name=>'P4_EMERGENCY_CONTACT_NAME'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4653997762382295442)
+,p_item_source_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_prompt=>'Emergency Contact Name'
+,p_source=>'EMERGENCY_CONTACT_NAME'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_cMaxlength=>160
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013143112Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4653997067673295435)
+,p_name=>'P4_EMERGENCY_CONTACT_PHONE'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4653997762382295442)
+,p_item_source_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_prompt=>'Emergency Contact Phone'
+,p_source=>'EMERGENCY_CONTACT_PHONE'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_cMaxlength=>40
+,p_begin_on_new_line=>'N'
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013143229Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4653995293778295417)
+,p_name=>'P4_EMPLOYEE_ID'
+,p_source_data_type=>'NUMBER'
+,p_is_primary_key=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_item_source_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_source=>'EMPLOYEE_ID'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_is_persistent=>'N'
+,p_protection_level=>'S'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4653995686574295421)
+,p_name=>'P4_FIRST_NAME'
+,p_source_data_type=>'VARCHAR2'
+,p_is_query_only=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4653997664969295441)
+,p_item_source_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_prompt=>'First Name'
+,p_source=>'FIRST_NAME'
+,p_display_as=>'NATIVE_DISPLAY_ONLY'
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN',
+  'send_on_page_submit', 'Y',
+  'show_line_breaks', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013142841Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4653996146008295426)
+,p_name=>'P4_HIRE_DATE'
+,p_source_data_type=>'DATE'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4653997841496295443)
+,p_item_source_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_prompt=>'Hire Date'
+,p_format_mask=>'DD-MON-YYYY'
+,p_source=>'HIRE_DATE'
+,p_display_as=>'NATIVE_DISPLAY_ONLY'
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN',
+  'send_on_page_submit', 'Y',
+  'show_line_breaks', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013145217Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4653995448575295419)
+,p_name=>'P4_JOB_ID'
+,p_source_data_type=>'NUMBER'
+,p_is_query_only=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4653997841496295443)
+,p_item_source_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_prompt=>'Job Id'
+,p_source=>'JOB_ID'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_lov=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT',
+'    title AS display_value,',
+'    job_id AS return_value',
+'FROM tms_jobs',
+'ORDER BY title',
+''))
+,p_lov_display_null=>'YES'
+,p_cHeight=>1
+,p_read_only_when_type=>'ALWAYS'
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'YES'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'page_action_on_selection', 'NONE')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013143708Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4653995758762295422)
+,p_name=>'P4_LAST_NAME'
+,p_source_data_type=>'VARCHAR2'
+,p_is_query_only=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4653997664969295441)
+,p_item_source_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_prompt=>'Last Name'
+,p_source=>'LAST_NAME'
+,p_display_as=>'NATIVE_DISPLAY_ONLY'
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN',
+  'send_on_page_submit', 'Y',
+  'show_line_breaks', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013142841Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4653995989325295424)
+,p_name=>'P4_MANAGER_ID'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4653997841496295443)
+,p_item_source_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_prompt=>'Manager Id'
+,p_source=>'MANAGER_ID'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_lov=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT',
+'    first_name || '' '' || last_name AS display_value,',
+'    employee_id AS return_value',
+'FROM tms_employees',
+'ORDER BY first_name, last_name',
+''))
+,p_lov_display_null=>'YES'
+,p_cHeight=>1
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'YES'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'page_action_on_selection', 'NONE')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013143934Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4653996806789295433)
+,p_name=>'P4_PHONE'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4653997664969295441)
+,p_item_source_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_prompt=>'Phone'
+,p_source=>'PHONE'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_cMaxlength=>40
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013142841Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4653996333358295428)
+,p_name=>'P4_PHOTO_BLOB'
+,p_source_data_type=>'BLOB'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4653997664969295441)
+,p_item_source_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_prompt=>'Change Profile Photo'
+,p_source=>'PHOTO_BLOB'
+,p_display_as=>'NATIVE_IMAGE_UPLOAD'
+,p_cSize=>30
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'allow_copy_paste', 'N',
+  'allow_cropping', 'N',
+  'display_as', 'DROPZONE_ICON',
+  'display_download_link', 'Y',
+  'filename_column', 'PHOTO_FILENAME',
+  'mime_type_column', 'PHOTO_MIME_TYPE',
+  'preview_size', 'XL',
+  'storage_type', 'DB_COLUMN')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013142841Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4653997246028295437)
+,p_name=>'P4_PHOTO_FILENAME'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_item_source_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_prompt=>'Photo Filename'
+,p_source=>'PHOTO_FILENAME'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_cMaxlength=>255
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4653997119149295436)
+,p_name=>'P4_PHOTO_MIME_TYPE'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_item_source_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_prompt=>'Photo Mime Type'
+,p_source=>'PHOTO_MIME_TYPE'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_cMaxlength=>255
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4653996043451295425)
+,p_name=>'P4_SALARY'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_item_source_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_prompt=>'Salary'
+,p_source=>'SALARY'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>30
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'number_alignment', 'left',
+  'virtual_keyboard', 'decimal')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4653996234421295427)
+,p_name=>'P4_STATUS'
+,p_source_data_type=>'VARCHAR2'
+,p_is_query_only=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4653997841496295443)
+,p_item_source_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_prompt=>'Status'
+,p_source=>'STATUS'
+,p_display_as=>'NATIVE_DISPLAY_ONLY'
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN',
+  'send_on_page_submit', 'Y',
+  'show_line_breaks', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013145217Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4653996668287295431)
+,p_name=>'P4_UPDATED'
+,p_source_data_type=>'DATE'
+,p_is_required=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_item_source_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_prompt=>'Updated'
+,p_source=>'UPDATED'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
+,p_cSize=>30
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'display_as', 'POPUP',
+  'max_date', 'NONE',
+  'min_date', 'NONE',
+  'multiple_months', 'N',
+  'show_time', 'N',
+  'use_defaults', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4653996774475295432)
+,p_name=>'P4_UPDATED_BY'
+,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_item_source_plug_id=>wwv_flow_imp.id(4653995071841295415)
+,p_prompt=>'Updated By'
+,p_source=>'UPDATED_BY'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_cMaxlength=>255
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(4653998102835295446)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_region_id=>wwv_flow_imp.id(4653995071841295415)
+,p_process_type=>'NATIVE_FORM_DML'
+,p_process_name=>'Automatic Row Processing'
+,p_static_id=>'automatic-row-processing'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'lock_row', 'Y',
+  'prevent_lost_updates', 'Y',
+  'return_primary_keys_after_insert', 'Y',
+  'target_type', 'REGION_SOURCE')).to_clob
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_success_message=>'Profile updated successfully.'
+,p_internal_uid=>4653998102835295446
+,p_created_on=>wwv_flow_imp.dz('20261013145217Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013145217Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(4653995134200295416)
+,p_process_sequence=>20
+,p_process_point=>'BEFORE_HEADER'
+,p_region_id=>wwv_flow_imp.id(4653995071841295415)
+,p_process_type=>'NATIVE_FORM_INIT'
+,p_process_name=>'Initialize form My Profile'
+,p_static_id=>'initialize-form-my-profile'
+,p_internal_uid=>4653995134200295416
+,p_created_on=>wwv_flow_imp.dz('20261013140541Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013141043Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(4653997416402295439)
+,p_process_sequence=>10
+,p_process_point=>'BEFORE_HEADER'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'Set Logged-in Employee'
+,p_static_id=>'set-logged-in-employee'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'BEGIN',
+'    SELECT employee_id',
+'      INTO :P4_EMPLOYEE_ID',
+'      FROM tms_employees',
+'     WHERE UPPER(email) = UPPER(:APP_USER);',
+'EXCEPTION',
+'    WHEN NO_DATA_FOUND THEN',
+'        :P4_EMPLOYEE_ID := NULL;',
+'END;'))
+,p_process_clob_language=>'PLSQL'
+,p_internal_uid=>4653997416402295439
+,p_created_on=>wwv_flow_imp.dz('20261013141043Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013141504Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/pages/page_00005
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>5
+,p_name=>'Leave Request'
+,p_alias=>'LEAVE-REQUEST'
+,p_step_title=>'Leave Request'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>4075783602716660119
+,p_page_template_options=>'#DEFAULT#'
+,p_protection_level=>'C'
+,p_page_component_map=>'02'
+,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261013145857Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_last_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(4585269241589464577)
+,p_plug_name=>'Breadcrumb'
+,p_static_id=>'breadcrumb'
+,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>2534890969069732905
+,p_plug_display_sequence=>20
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_plug_item_display_point=>'ABOVE'
+,p_menu_id=>wwv_flow_imp.id(4585222197427463713)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>4075790987805660140
+,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(4594986464650740438)
+,p_plug_name=>'Leave Request Form'
+,p_static_id=>'leave-request-form'
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4075786578761660127
+,p_plug_display_sequence=>10
+,p_plug_item_display_point=>'ABOVE'
+,p_query_type=>'TABLE'
+,p_query_table=>'TMS_LEAVE_REQUESTS'
+,p_include_rowid_column=>false
+,p_is_editable=>false
+,p_plug_source_type=>'NATIVE_FORM'
+,p_created_on=>wwv_flow_imp.dz('20261013100008Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013145857Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(4623772370365840405)
+,p_plug_name=>'My Leave History'
+,p_static_id=>'my-leave-history'
+,p_region_template_options=>'#DEFAULT#:t-IRR-region--hideHeader js-addHiddenHeadingRoleDesc'
+,p_plug_template=>2103954283454391425
+,p_plug_display_sequence=>20
+,p_plug_item_display_point=>'ABOVE'
+,p_query_type=>'SQL'
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT leave_type_id,',
+'       start_date,',
+'       end_date,',
+'       days_requested,',
+'       status',
+'  FROM tms_leave_requests',
+' WHERE employee_id = :P5_EMPLOYEE_ID',
+' ORDER BY start_date DESC'))
+,p_plug_source_type=>'NATIVE_IR'
+,p_ajax_items_to_submit=>'P5_EMPLOYEE_ID'
+,p_prn_content_disposition=>'ATTACHMENT'
+,p_prn_units=>'INCHES'
+,p_prn_paper_size=>'LETTER'
+,p_prn_width=>11
+,p_prn_height=>8.5
+,p_prn_orientation=>'HORIZONTAL'
+,p_prn_page_header_font_color=>'#000000'
+,p_prn_page_header_font_family=>'Helvetica'
+,p_prn_page_header_font_weight=>'normal'
+,p_prn_page_header_font_size=>'12'
+,p_prn_page_footer_font_color=>'#000000'
+,p_prn_page_footer_font_family=>'Helvetica'
+,p_prn_page_footer_font_weight=>'normal'
+,p_prn_page_footer_font_size=>'12'
+,p_prn_header_bg_color=>'#EEEEEE'
+,p_prn_header_font_color=>'#000000'
+,p_prn_header_font_family=>'Helvetica'
+,p_prn_header_font_weight=>'bold'
+,p_prn_header_font_size=>'10'
+,p_prn_body_bg_color=>'#FFFFFF'
+,p_prn_body_font_color=>'#000000'
+,p_prn_body_font_family=>'Helvetica'
+,p_prn_body_font_weight=>'normal'
+,p_prn_body_font_size=>'10'
+,p_prn_border_width=>.5
+,p_prn_page_header_alignment=>'CENTER'
+,p_prn_page_footer_alignment=>'CENTER'
+,p_prn_border_color=>'#666666'
+,p_ai_enabled=>false
+,p_created_on=>wwv_flow_imp.dz('20261013100434Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013100527Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_worksheet(
+ p_id=>wwv_flow_imp.id(4623772409735840406)
+,p_pagination_type=>'ROWS_X_TO_Y'
+,p_pagination_display_pos=>'BOTTOM_RIGHT'
+,p_report_list_mode=>'TABS'
+,p_lazy_loading=>false
+,p_show_detail_link=>'N'
+,p_show_notify=>'Y'
+,p_download_formats=>'CSV:HTML:XLSX:PDF'
+,p_enable_mail_download=>'Y'
+,p_internal_uid=>4623772409735840406
+,p_created_on=>wwv_flow_imp.dz('20261013100434Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013100527Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(4623772880445840410)
+,p_db_column_name=>'DAYS_REQUESTED'
+,p_display_order=>40
+,p_column_identifier=>'D'
+,p_column_label=>'Days Requested'
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261013100435Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013100435Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(4623772757760840409)
+,p_db_column_name=>'END_DATE'
+,p_display_order=>30
+,p_column_identifier=>'C'
+,p_column_label=>'End Date'
+,p_column_type=>'DATE'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261013100435Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013100435Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(4623772516216840407)
+,p_db_column_name=>'LEAVE_TYPE_ID'
+,p_display_order=>10
+,p_column_identifier=>'A'
+,p_column_label=>'Leave Type Id'
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261013100434Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013100434Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(4623772675081840408)
+,p_db_column_name=>'START_DATE'
+,p_display_order=>20
+,p_column_identifier=>'B'
+,p_column_label=>'Start Date'
+,p_column_type=>'DATE'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261013100434Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013100434Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(4623772937189840411)
+,p_db_column_name=>'STATUS'
+,p_display_order=>50
+,p_column_identifier=>'E'
+,p_column_label=>'Status'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261013100435Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013100435Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_worksheet_rpt(
+ p_id=>wwv_flow_imp.id(4627435743958567689)
+,p_application_user=>'APXWS_DEFAULT'
+,p_report_seq=>10
+,p_report_alias=>'primary'
+,p_status=>'PUBLIC'
+,p_is_default=>'Y'
+,p_report_columns=>'LEAVE_TYPE_ID:START_DATE:END_DATE:DAYS_REQUESTED:STATUS'
+,p_created_on=>wwv_flow_imp.dz('20261013100527Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013100527Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(4623772286132840404)
+,p_button_sequence=>20
+,p_button_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_button_name=>'Cancel'
+,p_static_id=>'cancel'
+,p_show_as_disabled=>false
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4075790603270660137
+,p_button_image_alt=>'Cancel'
+,p_button_position=>'CLOSE'
+,p_button_redirect_url=>'f?p=&APP_ID.:1:&SESSION.::&DEBUG.:::'
+,p_warn_on_unsaved_changes=>null
+,p_created_on=>wwv_flow_imp.dz('20261013100048Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013100048Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(4623772187867840403)
+,p_button_sequence=>20
+,p_button_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_button_name=>'SUBMIT_LEAVE'
+,p_static_id=>'submit-leave'
+,p_show_as_disabled=>false
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4075790603270660137
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Submit Leave'
+,p_button_position=>'CREATE'
+,p_database_action=>'INSERT'
+,p_created_on=>wwv_flow_imp.dz('20261013100009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013104715Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4594987425934740448)
+,p_name=>'P5_APPROVER_ID'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_item_source_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_source=>'APPROVER_ID'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013100009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013100230Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4660516868340300101)
+,p_name=>'P5_ATTACHMENT_BLOB'
+,p_source_data_type=>'BLOB'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_item_source_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_prompt=>'Supporting Attachment'
+,p_source=>'ATTACHMENT_BLOB'
+,p_display_as=>'NATIVE_FILE'
+,p_cSize=>30
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'allow_copy_paste', 'N',
+  'content_disposition', 'attachment',
+  'display_as', 'INLINE',
+  'display_download_link', 'Y',
+  'download_link_text', 'Download Attachment',
+  'filename_column', 'ATTACHMENT_FILENAME',
+  'mime_type_column', 'ATTACHMENT_MIME_TYPE',
+  'storage_type', 'DB_COLUMN')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013145857Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013145857Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4660517062904300103)
+,p_name=>'P5_ATTACHMENT_FILENAME'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_item_source_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_prompt=>'Attachment Filename'
+,p_source=>'ATTACHMENT_FILENAME'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_cMaxlength=>255
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013145857Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013145857Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4660516928633300102)
+,p_name=>'P5_ATTACHMENT_MIME_TYPE'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_item_source_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_prompt=>'Attachment Mime Type'
+,p_source=>'ATTACHMENT_MIME_TYPE'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_cMaxlength=>255
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013145857Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013145857Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4623774986707840431)
+,p_name=>'P5_AVAILABLE_BALANCE'
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_prompt=>'Available Balance'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_DISPLAY_ONLY'
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN',
+  'send_on_page_submit', 'N',
+  'show_line_breaks', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013114844Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013114844Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4623775087840840432)
+,p_name=>'P5_BALANCE_WARNING'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013114844Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013114844Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4653998217567295447)
+,p_name=>'P5_CREATED'
+,p_source_data_type=>'DATE'
+,p_is_required=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_item_source_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_prompt=>'Created'
+,p_source=>'CREATED'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
+,p_cSize=>30
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'display_as', 'POPUP',
+  'max_date', 'NONE',
+  'min_date', 'NONE',
+  'multiple_months', 'N',
+  'show_time', 'N',
+  'use_defaults', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013145857Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013145857Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4653998320527295448)
+,p_name=>'P5_CREATED_BY'
+,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_item_source_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_prompt=>'Created By'
+,p_source=>'CREATED_BY'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_cMaxlength=>255
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013145857Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013145857Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4594987177008740445)
+,p_name=>'P5_DAYS_REQUESTED'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_item_source_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_prompt=>'Days Requested'
+,p_source=>'DAYS_REQUESTED'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>30
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'number_alignment', 'left',
+  'virtual_keyboard', 'decimal')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013100008Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013100008Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4594986738784740441)
+,p_name=>'P5_EMPLOYEE_ID'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_item_source_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_prompt=>'Employee Id'
+,p_source=>'EMPLOYEE_ID'
+,p_display_as=>'NATIVE_DISPLAY_ONLY'
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN',
+  'send_on_page_submit', 'Y',
+  'show_line_breaks', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013100008Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013100147Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4594987062507740444)
+,p_name=>'P5_END_DATE'
+,p_source_data_type=>'DATE'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_item_source_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_prompt=>'End Date'
+,p_source=>'END_DATE'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
+,p_cSize=>30
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'display_as', 'POPUP',
+  'max_date', 'NONE',
+  'min_date', 'NONE',
+  'multiple_months', 'N',
+  'show_time', 'N',
+  'use_defaults', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013100008Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013100008Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4594986854499740442)
+,p_name=>'P5_LEAVE_TYPE_ID'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_item_source_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_prompt=>'Leave Type Id'
+,p_source=>'LEAVE_TYPE_ID'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_named_lov=>'TMS_LEAVE.TYPES'
+,p_lov_display_null=>'YES'
+,p_lov_null_text=>'---Select Leave Type---'
+,p_cHeight=>1
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'YES'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'page_action_on_selection', 'NONE')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013100008Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013100147Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4594987257249740446)
+,p_name=>'P5_REASON'
+,p_data_type=>'CLOB'
+,p_source_data_type=>'CLOB'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_item_source_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_prompt=>'Reason'
+,p_source=>'REASON'
+,p_display_as=>'NATIVE_TEXTAREA'
+,p_cSize=>30
+,p_cHeight=>5
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'auto_height', 'N',
+  'character_counter', 'N',
+  'resizable', 'Y',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013100008Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013100008Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4594986683608740440)
+,p_name=>'P5_REQUEST_ID'
+,p_source_data_type=>'NUMBER'
+,p_is_primary_key=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_item_source_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_source=>'REQUEST_ID'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_is_persistent=>'N'
+,p_protection_level=>'S'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013100008Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013100008Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4594986932724740443)
+,p_name=>'P5_START_DATE'
+,p_source_data_type=>'DATE'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_item_source_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_prompt=>'Start Date'
+,p_source=>'START_DATE'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
+,p_cSize=>30
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'display_as', 'POPUP',
+  'max_date', 'NONE',
+  'min_date', 'NONE',
+  'multiple_months', 'N',
+  'show_time', 'N',
+  'use_defaults', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013100008Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013100008Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4594987392424740447)
+,p_name=>'P5_STATUS'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_item_source_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_item_default=>'Submitted'
+,p_source=>'STATUS'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013100008Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013100219Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4653998412882295449)
+,p_name=>'P5_UPDATED'
+,p_source_data_type=>'DATE'
+,p_is_required=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_item_source_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_prompt=>'Updated'
+,p_source=>'UPDATED'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
+,p_cSize=>30
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'display_as', 'POPUP',
+  'max_date', 'NONE',
+  'min_date', 'NONE',
+  'multiple_months', 'N',
+  'show_time', 'N',
+  'use_defaults', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013145857Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013145857Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4653998585328295450)
+,p_name=>'P5_UPDATED_BY'
+,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_item_source_plug_id=>wwv_flow_imp.id(4594986464650740438)
+,p_prompt=>'Updated By'
+,p_source=>'UPDATED_BY'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_cMaxlength=>255
+,p_field_template=>1612549609962752680
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013145857Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013145857Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_computation(
+ p_id=>wwv_flow_imp.id(4623773273474840414)
+,p_computation_sequence=>10
+,p_computation_item=>'P5_DAYS_REQUESTED'
+,p_static_id=>'p5-days-requested'
+,p_computation_type=>'EXPRESSION'
+,p_computation_language=>'PLSQL'
+,p_computation=>'TRUNC(TO_DATE(:P5_END_DATE, ''MM/DD/YYYY'')) - TRUNC(TO_DATE(:P5_START_DATE, ''MM/DD/YYYY'')) + 1'
+,p_created_on=>wwv_flow_imp.dz('20261013104426Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013104426Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(4623773313939840415)
+,p_validation_name=>'End date must be after start date'
+,p_static_id=>'end-date-must-be-after-start-date'
+,p_validation_sequence=>10
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'IF :P_END_DATE IS NOT NULL',
+'AND :P_START_DATE IS NOT NULL',
+'AND TRUNC(:P_END_DATE) < TRUNC(:P_START_DATE)',
+'THEN',
+'RETURN ''End date must be after start date'';',
+'END IF;',
+'',
+'RETURN NULL;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_ERR_TEXT'
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+,p_created_on=>wwv_flow_imp.dz('20261013104544Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013104544Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(4623773428091840416)
+,p_validation_name=>'Sufficient balance'
+,p_static_id=>'sufficient-balance'
+,p_validation_sequence=>20
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'DECLARE',
+'l_balance NUMBER;',
+'',
+'BEGIN',
+'',
+'l_balance := ess_util.calculate_leave_balance(:P5_EMPLOYEE_ID, :P5_LEAVE_TYPE_ID);',
+'IF l_balance IS NULL THEN',
+'',
+'RETURN ''Unable to determine leave balance.'';',
+'',
+'ELSIF l_balance < :P5_DAYS_REQUESTED THEN',
+'',
+'RETURN ''Insufficient leave balance.'';',
+'',
+'END IF;',
+'RETURN NULL;',
+'END;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_ERR_TEXT'
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+,p_created_on=>wwv_flow_imp.dz('20261013104544Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013104544Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(4623775112217840433)
+,p_name=>'Calculate Leave Balance'
+,p_static_id=>'calculate-leave-balance'
+,p_event_sequence=>10
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_LEAVE_TYPE_ID'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+,p_created_on=>wwv_flow_imp.dz('20261013115029Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013115029Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(4623775259706840434)
+,p_event_id=>wwv_flow_imp.id(4623775112217840433)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_static_id=>'native-set-value'
+,p_action=>'NATIVE_SET_VALUE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_AVAILABLE_BALANCE'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'escape_special_characters', 'Y',
+  'items_to_submit', 'P5_EMPLOYEE_ID,P5_LEAVE_TYPE_ID',
+  'plsql_function_body', 'RETURN ess_util.calculate_leave_balance(:P5_EMPLOYEE_ID, :P5_LEAVE_TYPE_ID);',
+  'suppress_change_event', 'N',
+  'type', 'FUNCTION_BODY')).to_clob
+,p_wait_for_result=>'Y'
+,p_created_on=>wwv_flow_imp.dz('20261013115029Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013115029Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(4623775362784840435)
+,p_name=>'Calculate Requested Days'
+,p_static_id=>'calculate-requested-days'
+,p_event_sequence=>20
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_START_DATE,P5_END_DATE'
+,p_triggering_condition_type=>'JAVASCRIPT_EXPRESSION'
+,p_triggering_expression=>'$v(''P5_START_DATE'') != '''' && $v(''P5_END_DATE'') != '''''
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+,p_created_on=>wwv_flow_imp.dz('20261013115400Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013115421Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(4623775507902840437)
+,p_event_id=>wwv_flow_imp.id(4623775362784840435)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_static_id=>'native-clear'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_DAYS_REQUESTED'
+,p_created_on=>wwv_flow_imp.dz('20261013115421Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013115421Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(4623775426438840436)
+,p_event_id=>wwv_flow_imp.id(4623775362784840435)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_static_id=>'native-set-value'
+,p_action=>'NATIVE_SET_VALUE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_DAYS_REQUESTED'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'escape_special_characters', 'Y',
+  'items_to_submit', 'P5_END_DATE,P5_START_DATE',
+  'plsql_expression', wwv_flow_string.join(wwv_flow_t_varchar2(
+    'TO_DATE(:P5_END_DATE, ''MM/DD/YYYY'')',
+    '    - TO_DATE(:P5_START_DATE, ''MM/DD/YYYY'')')),
+  'suppress_change_event', 'N',
+  'type', 'PLSQL_EXPRESSION')).to_clob
+,p_wait_for_result=>'Y'
+,p_created_on=>wwv_flow_imp.dz('20261013115400Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013115400Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(4623775658667840438)
+,p_name=>'Exceed remaining balance'
+,p_static_id=>'exceed-remaining-balance'
+,p_event_sequence=>30
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_AVAILABLE_BALANCE,P5_DAYS_REQUESTED'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+,p_created_on=>wwv_flow_imp.dz('20261013115542Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013115542Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(4623775755098840439)
+,p_event_id=>wwv_flow_imp.id(4623775658667840438)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_static_id=>'native-set-value'
+,p_action=>'NATIVE_SET_VALUE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_BALANCE_WARNING'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'escape_special_characters', 'Y',
+  'items_to_submit', 'P5_AVAILABLE_BALANCE,P5_DAYS_REQUESTED',
+  'plsql_function_body', wwv_flow_string.join(wwv_flow_t_varchar2(
+    'IF :P5_DAYS_REQUESTED > :P5_AVAILABLE_BALANCE THEN',
+    '  RETURN ''Requested days exceed your remaining balance.'';',
+    'END IF;',
+    'RETURN NULL;',
+    '')),
+  'suppress_change_event', 'N',
+  'type', 'FUNCTION_BODY')).to_clob
+,p_wait_for_result=>'Y'
+,p_created_on=>wwv_flow_imp.dz('20261013115542Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013115542Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(4623775869961840440)
+,p_name=>'Leave Balance Warning'
+,p_static_id=>'leave-balance-warning'
+,p_event_sequence=>40
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_BALANCE_WARNING'
+,p_condition_element=>'P5_BALANCE_WARNING'
+,p_triggering_condition_type=>'NOT_NULL'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+,p_created_on=>wwv_flow_imp.dz('20261013115728Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013115728Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(4623775954804840441)
+,p_event_id=>wwv_flow_imp.id(4623775869961840440)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_static_id=>'native-alert'
+,p_action=>'NATIVE_ALERT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'message', 'Requested days exceed your remaining balance.')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013115728Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013115728Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(4594986539440740439)
+,p_process_sequence=>10
+,p_process_point=>'BEFORE_HEADER'
+,p_region_id=>wwv_flow_imp.id(4594986464650740438)
+,p_process_type=>'NATIVE_FORM_INIT'
+,p_process_name=>'Initialize form Leave Request'
+,p_static_id=>'initialize-form-leave-request'
+,p_internal_uid=>4594986539440740439
+,p_created_on=>wwv_flow_imp.dz('20261013100009Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013100009Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(4623773635184840418)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_region_id=>wwv_flow_imp.id(4594986464650740438)
+,p_process_type=>'NATIVE_FORM_DML'
+,p_process_name=>'Process form Leave Request'
+,p_static_id=>'process-form-leave-request'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'lock_row', 'Y',
+  'prevent_lost_updates', 'Y',
+  'return_primary_keys_after_insert', 'Y',
+  'target_type', 'REGION_SOURCE')).to_clob
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_internal_uid=>4623773635184840418
+,p_created_on=>wwv_flow_imp.dz('20261013104652Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013104652Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/pages/page_00006
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>6
+,p_name=>'My Payslip'
+,p_alias=>'MY-PAYSLIP'
+,p_step_title=>'My Payslip'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>4075783602716660119
+,p_page_template_options=>'#DEFAULT#'
+,p_protection_level=>'C'
+,p_page_component_map=>'11'
+,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_last_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(4585270991267464580)
+,p_plug_name=>'Breadcrumb'
+,p_static_id=>'breadcrumb'
+,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>2534890969069732905
+,p_plug_display_sequence=>20
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_plug_item_display_point=>'ABOVE'
+,p_menu_id=>wwv_flow_imp.id(4585222197427463713)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>4075790987805660140
+,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061013Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/pages/page_09999
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>9999
+,p_name=>'Login Page'
+,p_alias=>'LOGIN'
+,p_step_title=>'Employee Self-Service Portal - Log In'
+,p_warn_on_unsaved_changes=>'N'
+,p_first_item=>'AUTO_FIRST_ITEM'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>2104585595298951431
+,p_page_template_options=>'#DEFAULT#'
+,p_page_is_public_y_n=>'Y'
+,p_protection_level=>'C'
+,p_page_component_map=>'12'
+,p_created_on=>wwv_flow_imp.dz('20261013061006Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_last_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(4585230519800463898)
+,p_plug_name=>'Employee Self-Service Portal'
+,p_static_id=>'employee-self-service-portal'
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>2677585639786677191
+,p_plug_display_sequence=>10
+,p_plug_item_display_point=>'ABOVE'
+,p_region_image=>'#APP_FILES#icons/app-icon-512.png'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'expand_shortcuts', 'N',
+  'output_as', 'HTML')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(4585232753484463937)
+,p_button_sequence=>40
+,p_button_plug_id=>wwv_flow_imp.id(4585230519800463898)
+,p_button_name=>'LOGIN'
+,p_static_id=>'login'
+,p_show_as_disabled=>false
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4075790603270660137
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Sign In'
+,p_button_position=>'NEXT'
+,p_grid_new_row=>'Y'
+,p_created_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4585231973768463936)
+,p_name=>'P9999_PASSWORD'
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_imp.id(4585230519800463898)
+,p_prompt=>'Password'
+,p_placeholder=>'Password'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_PASSWORD'
+,p_cSize=>40
+,p_cMaxlength=>100
+,p_tag_attributes=>'autocomplete="current-password"'
+,p_label_alignment=>'RIGHT'
+,p_field_template=>2044213549383960320
+,p_item_icon_css_classes=>'fa-key'
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'submit_when_enter_pressed', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4585232488820463937)
+,p_name=>'P9999_REMEMBER'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(4585230519800463898)
+,p_prompt=>'Remember username'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_SINGLE_CHECKBOX'
+,p_label_alignment=>'RIGHT'
+,p_display_when=>'apex_authentication.persistent_cookies_enabled'
+,p_display_when2=>'PLSQL'
+,p_display_when_type=>'EXPRESSION'
+,p_field_template=>2044213549383960320
+,p_item_template_options=>'#DEFAULT#'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'use_defaults', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(4585231491873463935)
+,p_name=>'P9999_USERNAME'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(4585230519800463898)
+,p_prompt=>'Username'
+,p_placeholder=>'Username'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>40
+,p_cMaxlength=>100
+,p_tag_attributes=>'autocomplete="username"'
+,p_label_alignment=>'RIGHT'
+,p_field_template=>2044213549383960320
+,p_item_icon_css_classes=>'fa-user'
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(4585236985933463943)
+,p_process_sequence=>30
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_SESSION_STATE'
+,p_process_name=>'Clear Page(s) Cache'
+,p_static_id=>'clear-page-s-cache'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'type', 'CLEAR_CACHE_CURRENT_PAGE')).to_clob
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_internal_uid=>4585236985933463943
+,p_created_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(4585236559617463943)
+,p_process_sequence=>10
+,p_process_point=>'BEFORE_HEADER'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'Get Username Cookie'
+,p_static_id=>'get-username-cookie'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+':P9999_USERNAME := apex_authentication.get_login_username_cookie;',
+':P9999_REMEMBER := case when :P9999_USERNAME is not null then ''Y'' end;'))
+,p_process_clob_language=>'PLSQL'
+,p_internal_uid=>4585236559617463943
+,p_created_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(4585233103995463938)
+,p_process_sequence=>20
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_INVOKE_API'
+,p_process_name=>'Login'
+,p_static_id=>'login'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'package', 'APEX_AUTHENTICATION',
+  'package_method', 'LOGIN',
+  'type', 'PLSQL_PACKAGE')).to_clob
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_internal_uid=>4585233103995463938
+,p_created_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_invokeapi_comp_param(
+ p_id=>wwv_flow_imp.id(4585234225928463940)
+,p_page_process_id=>wwv_flow_imp.id(4585233103995463938)
+,p_page_id=>9999
+,p_name=>'p_password'
+,p_direction=>'IN'
+,p_data_type=>'VARCHAR2'
+,p_has_default=>false
+,p_display_sequence=>2
+,p_value_type=>'ITEM'
+,p_value=>'P9999_PASSWORD'
+,p_created_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_invokeapi_comp_param(
+ p_id=>wwv_flow_imp.id(4585234749090463941)
+,p_page_process_id=>wwv_flow_imp.id(4585233103995463938)
+,p_page_id=>9999
+,p_name=>'p_set_persistent_auth'
+,p_direction=>'IN'
+,p_data_type=>'BOOLEAN'
+,p_has_default=>true
+,p_display_sequence=>3
+,p_value_type=>'API_DEFAULT'
+,p_created_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_invokeapi_comp_param(
+ p_id=>wwv_flow_imp.id(4585233686841463939)
+,p_page_process_id=>wwv_flow_imp.id(4585233103995463938)
+,p_page_id=>9999
+,p_name=>'p_username'
+,p_direction=>'IN'
+,p_data_type=>'VARCHAR2'
+,p_has_default=>false
+,p_display_sequence=>1
+,p_value_type=>'ITEM'
+,p_value=>'P9999_USERNAME'
+,p_created_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(4585235165232463941)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_INVOKE_API'
+,p_process_name=>'Set Username Cookie'
+,p_static_id=>'set-username-cookie'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'package', 'APEX_AUTHENTICATION',
+  'package_method', 'SEND_LOGIN_USERNAME_COOKIE',
+  'type', 'PLSQL_PACKAGE')).to_clob
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_internal_uid=>4585235165232463941
+,p_created_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_invokeapi_comp_param(
+ p_id=>wwv_flow_imp.id(4585236195849463942)
+,p_page_process_id=>wwv_flow_imp.id(4585235165232463941)
+,p_page_id=>9999
+,p_name=>'p_consent'
+,p_direction=>'IN'
+,p_data_type=>'BOOLEAN'
+,p_has_default=>false
+,p_display_sequence=>2
+,p_value_type=>'ITEM'
+,p_value=>'P9999_REMEMBER'
+,p_created_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_invokeapi_comp_param(
+ p_id=>wwv_flow_imp.id(4585235659208463942)
+,p_page_process_id=>wwv_flow_imp.id(4585235165232463941)
+,p_page_id=>9999
+,p_name=>'p_username'
+,p_direction=>'IN'
+,p_data_type=>'VARCHAR2'
+,p_has_default=>false
+,p_display_sequence=>1
+,p_value_type=>'EXPRESSION'
+,p_value_language=>'PLSQL'
+,p_value=>'lower( :P9999_USERNAME )'
+,p_created_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013061007Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/deployment/definition
+begin
+wwv_flow_imp.g_varchar2_table := wwv_flow_imp.empty_varchar2_table;
+wwv_flow_imp_shared.create_install(
+ p_id=>wwv_flow_imp.id(4592381611947774032)
+,p_deinstall_script_clob=>wwv_flow_imp.varchar2_to_clob(wwv_flow_imp.g_varchar2_table)
+,p_created_on=>wwv_flow_imp.dz('20261013070148Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261013170130Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_last_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/deployment/install/install_tms_ddl
+begin
+wwv_flow_imp.g_varchar2_table := wwv_flow_imp.empty_varchar2_table;
+wwv_flow_imp.g_varchar2_table(1) := '-- TMS supporting objects extracted from APEX_262_LL_Exp (schema APEX262_LL).'||wwv_flow.LF||
+'-- Run this script bef';
+wwv_flow_imp.g_varchar2_table(2) := 'ore TMS_SUPPORTING_OBJECTS_DML.sql.'||wwv_flow.LF||
+'-- Rerunning drops the 14 TMS tables and their dependent indexes';
+wwv_flow_imp.g_varchar2_table(3) := ' and triggers.'||wwv_flow.LF||
+'SET DEFINE OFF'||wwv_flow.LF||
+'WHENEVER SQLERROR EXIT SQL.SQLCODE'||wwv_flow.LF||
+''||wwv_flow.LF||
+'DECLARE'||wwv_flow.LF||
+'    PROCEDURE drop_table(p';
+wwv_flow_imp.g_varchar2_table(4) := '_table_name IN VARCHAR2) IS'||wwv_flow.LF||
+'    BEGIN'||wwv_flow.LF||
+'        EXECUTE IMMEDIATE ''DROP TABLE '' || p_table_name || '' C';
+wwv_flow_imp.g_varchar2_table(5) := 'ASCADE CONSTRAINTS'';'||wwv_flow.LF||
+'    EXCEPTION'||wwv_flow.LF||
+'        WHEN OTHERS THEN'||wwv_flow.LF||
+'            IF SQLCODE != -942 THEN'||wwv_flow.LF||
+'    ';
+wwv_flow_imp.g_varchar2_table(6) := '            RAISE;'||wwv_flow.LF||
+'            END IF;'||wwv_flow.LF||
+'    END drop_table;'||wwv_flow.LF||
+'BEGIN'||wwv_flow.LF||
+'    drop_table(''TMS_INTERVIEW_STAGE';
+wwv_flow_imp.g_varchar2_table(7) := 'S'');'||wwv_flow.LF||
+'    drop_table(''TMS_OFFERS'');'||wwv_flow.LF||
+'    drop_table(''TMS_ONBOARDING_TASKS'');'||wwv_flow.LF||
+'    drop_table(''TMS_LEAVE';
+wwv_flow_imp.g_varchar2_table(8) := '_REQUESTS'');'||wwv_flow.LF||
+'    drop_table(''TMS_LEAVE_BALANCES'');'||wwv_flow.LF||
+'    drop_table(''TMS_EMPLOYEES'');'||wwv_flow.LF||
+'    drop_table(''';
+wwv_flow_imp.g_varchar2_table(9) := 'TMS_CANDIDATES'');'||wwv_flow.LF||
+'    drop_table(''TMS_JOB_REQUISITIONS'');'||wwv_flow.LF||
+'    drop_table(''TMS_JOBS'');'||wwv_flow.LF||
+'    drop_table';
+wwv_flow_imp.g_varchar2_table(10) := '(''TMS_DEPARTMENTS'');'||wwv_flow.LF||
+'    drop_table(''TMS_LEAVE_TYPES'');'||wwv_flow.LF||
+'    drop_table(''TMS_HR_POLICY'');'||wwv_flow.LF||
+'    drop_ta';
+wwv_flow_imp.g_varchar2_table(11) := 'ble(''TMS_AUDIT_LOG'');'||wwv_flow.LF||
+'    drop_table(''TMS_CANDIDATE_PIPELINE'');'||wwv_flow.LF||
+'END;'||wwv_flow.LF||
+'/'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE TABLE "TMS_AUDIT_LOG"';
+wwv_flow_imp.g_varchar2_table(12) := ''||wwv_flow.LF||
+'   (	"LOG_ID" NUMBER GENERATED BY DEFAULT ON NULL AS IDENTITY MINVALUE 1 MAXVALUE 99999999999999999';
+wwv_flow_imp.g_varchar2_table(13) := '99999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  NOT NULL ENABLE,';
+wwv_flow_imp.g_varchar2_table(14) := ''||wwv_flow.LF||
+'	"TABLE_NAME" VARCHAR2(255 BYTE) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"OPERATION" VARCHAR2(50 BYTE) NOT NULL ENABLE,'||wwv_flow.LF||
+'	';
+wwv_flow_imp.g_varchar2_table(15) := '"OLD_VALUES" CLOB,'||wwv_flow.LF||
+'	"NEW_VALUES" CLOB,'||wwv_flow.LF||
+'	"CHANGED_BY" VARCHAR2(255 BYTE) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"CHANGED_A';
+wwv_flow_imp.g_varchar2_table(16) := 'T" DATE NOT NULL ENABLE,'||wwv_flow.LF||
+'	"ROW_VERSION" NUMBER(*,0) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"CREATED_ON" DATE NOT NULL ENA';
+wwv_flow_imp.g_varchar2_table(17) := 'BLE,'||wwv_flow.LF||
+'	"CREATED_BY" VARCHAR2(255 BYTE) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"UPDATED_ON" DATE NOT NULL ENABLE,'||wwv_flow.LF||
+'	"UPDATED';
+wwv_flow_imp.g_varchar2_table(18) := '_BY" VARCHAR2(255 BYTE) NOT NULL ENABLE'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE TABLE "TMS_CANDIDATES"'||wwv_flow.LF||
+'   (	"CANDIDATE_ID" NU';
+wwv_flow_imp.g_varchar2_table(19) := 'MBER DEFAULT ON NULL to_number(sys_guid(), ''XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'') NOT NULL ENABLE,'||wwv_flow.LF||
+'	"RE';
+wwv_flow_imp.g_varchar2_table(20) := 'Q_ID" NUMBER,'||wwv_flow.LF||
+'	"FIRST_NAME" VARCHAR2(80 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"LAST_NAME" VARCHAR2(80 CHAR) NOT NU';
+wwv_flow_imp.g_varchar2_table(21) := 'LL ENABLE,'||wwv_flow.LF||
+'	"EMAIL" VARCHAR2(320 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"PHONE" VARCHAR2(50 CHAR),'||wwv_flow.LF||
+'	"RESUME_BLOB" B';
+wwv_flow_imp.g_varchar2_table(22) := 'LOB,'||wwv_flow.LF||
+'	"SOURCE" VARCHAR2(100 CHAR),'||wwv_flow.LF||
+'	"CURRENT_STAGE" VARCHAR2(30 CHAR),'||wwv_flow.LF||
+'	"APPLIED_DATE" DATE,'||wwv_flow.LF||
+'	"DIVER';
+wwv_flow_imp.g_varchar2_table(23) := 'SITY_FLAG" VARCHAR2(1 CHAR),'||wwv_flow.LF||
+'	"AI_SCORE" NUMBER,'||wwv_flow.LF||
+'	"CREATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
+'	"CREATED_BY" VARC';
+wwv_flow_imp.g_varchar2_table(24) := 'HAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"UPDATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
+'	"UPDATED_BY" VARCHAR2(255 CHAR) NO';
+wwv_flow_imp.g_varchar2_table(25) := 'T NULL ENABLE'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE TABLE "TMS_CANDIDATE_PIPELINE"'||wwv_flow.LF||
+'   (	"ID" NUMBER GENERATED BY DEFAULT ON';
+wwv_flow_imp.g_varchar2_table(26) := ' NULL AS IDENTITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE';
+wwv_flow_imp.g_varchar2_table(27) := ' 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  NOT NULL ENABLE,'||wwv_flow.LF||
+'	"CANDIDATE_NAME" VARCHAR2(100 BYTE),'||wwv_flow.LF||
+'	"FIRS';
+wwv_flow_imp.g_varchar2_table(28) := 'T_NAME" VARCHAR2(100 BYTE),'||wwv_flow.LF||
+'	"LAST_NAME" VARCHAR2(100 BYTE),'||wwv_flow.LF||
+'	"EMAIL" VARCHAR2(50 BYTE),'||wwv_flow.LF||
+'	"JOB_TITLE';
+wwv_flow_imp.g_varchar2_table(29) := '" VARCHAR2(100 BYTE),'||wwv_flow.LF||
+'	"DEPARTMENT" VARCHAR2(50 BYTE),'||wwv_flow.LF||
+'	"REQUISITION_STATUS" VARCHAR2(50 BYTE),'||wwv_flow.LF||
+'	"SO';
+wwv_flow_imp.g_varchar2_table(30) := 'URCE" VARCHAR2(50 BYTE),'||wwv_flow.LF||
+'	"CURRENT_STAGE" VARCHAR2(50 BYTE),'||wwv_flow.LF||
+'	"APPLIED_DATE" DATE,'||wwv_flow.LF||
+'	"SCREENING_DATE"';
+wwv_flow_imp.g_varchar2_table(31) := ' DATE,'||wwv_flow.LF||
+'	"INTERVIEW_DATE" DATE,'||wwv_flow.LF||
+'	"OFFER_DATE" DATE,'||wwv_flow.LF||
+'	"HIRED_DATE" DATE,'||wwv_flow.LF||
+'	"REJECTED_DATE" DATE,'||wwv_flow.LF||
+'	"DAYS';
+wwv_flow_imp.g_varchar2_table(32) := '_IN_PIPELINE" NUMBER,'||wwv_flow.LF||
+'	"AI_SCORE" NUMBER,'||wwv_flow.LF||
+'	"INTERVIEW_SCORE" NUMBER,'||wwv_flow.LF||
+'	"OFFER_STATUS" VARCHAR2(50 BYT';
+wwv_flow_imp.g_varchar2_table(33) := 'E),'||wwv_flow.LF||
+'	"OFFERED_SALARY" NUMBER,'||wwv_flow.LF||
+'	"START_DATE" DATE,'||wwv_flow.LF||
+'	"RECRUITER" VARCHAR2(50 BYTE),'||wwv_flow.LF||
+'	"HIRING_MANAGER" ';
+wwv_flow_imp.g_varchar2_table(34) := 'VARCHAR2(50 BYTE),'||wwv_flow.LF||
+'	"LOCATION" VARCHAR2(50 BYTE),'||wwv_flow.LF||
+'	"DIVERSITY_FLAG" BOOLEAN'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE TABLE "TM';
+wwv_flow_imp.g_varchar2_table(35) := 'S_DEPARTMENTS"'||wwv_flow.LF||
+'   (	"DEPT_ID" NUMBER DEFAULT ON NULL to_number(sys_guid(), ''XXXXXXXXXXXXXXXXXXXXXXXX';
+wwv_flow_imp.g_varchar2_table(36) := 'XXXXXXXX'') NOT NULL ENABLE,'||wwv_flow.LF||
+'	"NAME" VARCHAR2(100 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"MANAGER_ID" NUMBER,'||wwv_flow.LF||
+'	"LOCA';
+wwv_flow_imp.g_varchar2_table(37) := 'TION" VARCHAR2(150 CHAR),'||wwv_flow.LF||
+'	"COLOR" VARCHAR2(30 CHAR),'||wwv_flow.LF||
+'	"CREATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
+'	"CREATED_BY"';
+wwv_flow_imp.g_varchar2_table(38) := ' VARCHAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"UPDATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
+'	"UPDATED_BY" VARCHAR2(255 CHA';
+wwv_flow_imp.g_varchar2_table(39) := 'R) NOT NULL ENABLE'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE TABLE "TMS_EMPLOYEES"'||wwv_flow.LF||
+'   (	"EMPLOYEE_ID" NUMBER DEFAULT ON NULL to';
+wwv_flow_imp.g_varchar2_table(40) := '_number(sys_guid(), ''XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'') NOT NULL ENABLE,'||wwv_flow.LF||
+'	"CANDIDATE_ID" NUMBER,'||wwv_flow.LF||
+'	"J';
+wwv_flow_imp.g_varchar2_table(41) := 'OB_ID" NUMBER,'||wwv_flow.LF||
+'	"DEPT_ID" NUMBER,'||wwv_flow.LF||
+'	"FIRST_NAME" VARCHAR2(80 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"LAST_NAME" VARC';
+wwv_flow_imp.g_varchar2_table(42) := 'HAR2(80 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"EMAIL" VARCHAR2(320 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"MANAGER_ID" NUMBER,'||wwv_flow.LF||
+'	"';
+wwv_flow_imp.g_varchar2_table(43) := 'SALARY" NUMBER,'||wwv_flow.LF||
+'	"HIRE_DATE" DATE,'||wwv_flow.LF||
+'	"STATUS" VARCHAR2(30 CHAR),'||wwv_flow.LF||
+'	"PHOTO_BLOB" BLOB,'||wwv_flow.LF||
+'	"CREATED" DATE ';
+wwv_flow_imp.g_varchar2_table(44) := 'NOT NULL ENABLE,'||wwv_flow.LF||
+'	"CREATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"UPDATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
+'';
+wwv_flow_imp.g_varchar2_table(45) := '	"UPDATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE TABLE "TMS_HR_POLICY"'||wwv_flow.LF||
+'   (	"POLICY_I';
+wwv_flow_imp.g_varchar2_table(46) := 'D" NUMBER DEFAULT ON NULL to_number(sys_guid(), ''XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'') NOT NULL ENABLE,';
+wwv_flow_imp.g_varchar2_table(47) := ''||wwv_flow.LF||
+'	"CATEGORY" VARCHAR2(100 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"TITLE" VARCHAR2(200 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"CONT';
+wwv_flow_imp.g_varchar2_table(48) := 'ENT" CLOB,'||wwv_flow.LF||
+'	"CREATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
+'	"CREATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"UPDA';
+wwv_flow_imp.g_varchar2_table(49) := 'TED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
+'	"UPDATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"EMBEDDING_VECTOR" VEC';
+wwv_flow_imp.g_varchar2_table(50) := 'TOR'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE TABLE "TMS_INTERVIEW_STAGES"'||wwv_flow.LF||
+'   (	"STAGE_ID" NUMBER DEFAULT ON NULL to_number(sys';
+wwv_flow_imp.g_varchar2_table(51) := '_guid(), ''XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'') NOT NULL ENABLE,'||wwv_flow.LF||
+'	"CANDIDATE_ID" NUMBER,'||wwv_flow.LF||
+'	"REQ_ID" NUMB';
+wwv_flow_imp.g_varchar2_table(52) := 'ER,'||wwv_flow.LF||
+'	"STAGE_NAME" VARCHAR2(60 CHAR),'||wwv_flow.LF||
+'	"INTERVIEWER_ID" NUMBER,'||wwv_flow.LF||
+'	"SCHEDULED_DATE" TIMESTAMP (6),'||wwv_flow.LF||
+'	"OU';
+wwv_flow_imp.g_varchar2_table(53) := 'TCOME" VARCHAR2(30 CHAR),'||wwv_flow.LF||
+'	"FEEDBACK_NOTES" CLOB,'||wwv_flow.LF||
+'	"SCORE" NUMBER,'||wwv_flow.LF||
+'	"CREATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
+'';
+wwv_flow_imp.g_varchar2_table(54) := '	"CREATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"UPDATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
+'	"UPDATED_BY" VAR';
+wwv_flow_imp.g_varchar2_table(55) := 'CHAR2(255 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE TABLE "TMS_JOBS"'||wwv_flow.LF||
+'   (	"JOB_ID" NUMBER DEFAULT ON NULL';
+wwv_flow_imp.g_varchar2_table(56) := ' to_number(sys_guid(), ''XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'') NOT NULL ENABLE,'||wwv_flow.LF||
+'	"DEPT_ID" NUMBER,'||wwv_flow.LF||
+'	"TIT';
+wwv_flow_imp.g_varchar2_table(57) := 'LE" VARCHAR2(150 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"MIN_SALARY" NUMBER,'||wwv_flow.LF||
+'	"MAX_SALARY" NUMBER,'||wwv_flow.LF||
+'	"CREATED" DATE ';
+wwv_flow_imp.g_varchar2_table(58) := 'NOT NULL ENABLE,'||wwv_flow.LF||
+'	"CREATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"UPDATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
+'';
+wwv_flow_imp.g_varchar2_table(59) := '	"UPDATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE TABLE "TMS_JOB_REQUISITIONS"'||wwv_flow.LF||
+'   (	"R';
+wwv_flow_imp.g_varchar2_table(60) := 'EQ_ID" NUMBER DEFAULT ON NULL to_number(sys_guid(), ''XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'') NOT NULL ENA';
+wwv_flow_imp.g_varchar2_table(61) := 'BLE,'||wwv_flow.LF||
+'	"JOB_ID" NUMBER,'||wwv_flow.LF||
+'	"DEPT_ID" NUMBER,'||wwv_flow.LF||
+'	"REQUESTED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"APPR';
+wwv_flow_imp.g_varchar2_table(62) := 'OVED_BY" VARCHAR2(255 CHAR),'||wwv_flow.LF||
+'	"HEADCOUNT" NUMBER,'||wwv_flow.LF||
+'	"STATUS" VARCHAR2(30 CHAR),'||wwv_flow.LF||
+'	"OPEN_DATE" DATE,'||wwv_flow.LF||
+'	"';
+wwv_flow_imp.g_varchar2_table(63) := 'CLOSE_DATE" DATE,'||wwv_flow.LF||
+'	"CREATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
+'	"CREATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE,';
+wwv_flow_imp.g_varchar2_table(64) := ''||wwv_flow.LF||
+'	"UPDATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
+'	"UPDATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE TA';
+wwv_flow_imp.g_varchar2_table(65) := 'BLE "TMS_LEAVE_BALANCES"'||wwv_flow.LF||
+'   (	"BALANCE_ID" NUMBER DEFAULT ON NULL to_number(sys_guid(), ''XXXXXXXXXXX';
+wwv_flow_imp.g_varchar2_table(66) := 'XXXXXXXXXXXXXXXXXXXXX'') NOT NULL ENABLE,'||wwv_flow.LF||
+'	"EMPLOYEE_ID" NUMBER,'||wwv_flow.LF||
+'	"LEAVE_TYPE_ID" NUMBER,'||wwv_flow.LF||
+'	"YEAR" NUM';
+wwv_flow_imp.g_varchar2_table(67) := 'BER,'||wwv_flow.LF||
+'	"ACCRUED" NUMBER,'||wwv_flow.LF||
+'	"USED" NUMBER,'||wwv_flow.LF||
+'	"REMAINING" NUMBER,'||wwv_flow.LF||
+'	"CREATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
+'	"CREA';
+wwv_flow_imp.g_varchar2_table(68) := 'TED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"UPDATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
+'	"UPDATED_BY" VARCHAR2(';
+wwv_flow_imp.g_varchar2_table(69) := '255 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE TABLE "TMS_LEAVE_REQUESTS"'||wwv_flow.LF||
+'   (	"REQUEST_ID" NUMBER DEFAULT';
+wwv_flow_imp.g_varchar2_table(70) := ' ON NULL to_number(sys_guid(), ''XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'') NOT NULL ENABLE,'||wwv_flow.LF||
+'	"EMPLOYEE_ID" N';
+wwv_flow_imp.g_varchar2_table(71) := 'UMBER,'||wwv_flow.LF||
+'	"LEAVE_TYPE_ID" NUMBER,'||wwv_flow.LF||
+'	"START_DATE" DATE,'||wwv_flow.LF||
+'	"END_DATE" DATE,'||wwv_flow.LF||
+'	"DAYS_REQUESTED" NUMBER,'||wwv_flow.LF||
+'	"RE';
+wwv_flow_imp.g_varchar2_table(72) := 'ASON" CLOB,'||wwv_flow.LF||
+'	"STATUS" VARCHAR2(30 CHAR),'||wwv_flow.LF||
+'	"APPROVER_ID" NUMBER,'||wwv_flow.LF||
+'	"CREATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
+'	"C';
+wwv_flow_imp.g_varchar2_table(73) := 'REATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"UPDATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
+'	"UPDATED_BY" VARCHA';
+wwv_flow_imp.g_varchar2_table(74) := 'R2(255 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE TABLE "TMS_LEAVE_TYPES"'||wwv_flow.LF||
+'   (	"LEAVE_TYPE_ID" NUMBER DEFA';
+wwv_flow_imp.g_varchar2_table(75) := 'ULT ON NULL to_number(sys_guid(), ''XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'') NOT NULL ENABLE,'||wwv_flow.LF||
+'	"NAME" VARCH';
+wwv_flow_imp.g_varchar2_table(76) := 'AR2(100 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"MAX_DAYS_PER_YEAR" NUMBER,'||wwv_flow.LF||
+'	"CREATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
+'	"CREAT';
+wwv_flow_imp.g_varchar2_table(77) := 'ED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"UPDATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
+'	"UPDATED_BY" VARCHAR2(2';
+wwv_flow_imp.g_varchar2_table(78) := '55 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE TABLE "TMS_OFFERS"'||wwv_flow.LF||
+'   (	"OFFER_ID" NUMBER DEFAULT ON NULL to';
+wwv_flow_imp.g_varchar2_table(79) := '_number(sys_guid(), ''XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'') NOT NULL ENABLE,'||wwv_flow.LF||
+'	"CANDIDATE_ID" NUMBER,'||wwv_flow.LF||
+'	"R';
+wwv_flow_imp.g_varchar2_table(80) := 'EQ_ID" NUMBER,'||wwv_flow.LF||
+'	"OFFERED_SALARY" NUMBER,'||wwv_flow.LF||
+'	"START_DATE" DATE,'||wwv_flow.LF||
+'	"EXPIRY_DATE" DATE,'||wwv_flow.LF||
+'	"STATUS" VARCHAR2';
+wwv_flow_imp.g_varchar2_table(81) := '(30 CHAR),'||wwv_flow.LF||
+'	"OFFER_LETTER_BLOB" BLOB,'||wwv_flow.LF||
+'	"APPROVED_BY" VARCHAR2(255 CHAR),'||wwv_flow.LF||
+'	"CREATED" DATE NOT NULL EN';
+wwv_flow_imp.g_varchar2_table(82) := 'ABLE,'||wwv_flow.LF||
+'	"CREATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"UPDATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
+'	"UPDATED_B';
+wwv_flow_imp.g_varchar2_table(83) := 'Y" VARCHAR2(255 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE TABLE "TMS_ONBOARDING_TASKS"'||wwv_flow.LF||
+'   (	"TASK_ID" NUM';
+wwv_flow_imp.g_varchar2_table(84) := 'BER DEFAULT ON NULL to_number(sys_guid(), ''XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'') NOT NULL ENABLE,'||wwv_flow.LF||
+'	"EMP';
+wwv_flow_imp.g_varchar2_table(85) := 'LOYEE_ID" NUMBER,'||wwv_flow.LF||
+'	"TASK_NAME" VARCHAR2(200 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"ASSIGNED_TO" VARCHAR2(255 CHAR)';
+wwv_flow_imp.g_varchar2_table(86) := ','||wwv_flow.LF||
+'	"CATEGORY" VARCHAR2(80 CHAR),'||wwv_flow.LF||
+'	"DUE_DATE" DATE,'||wwv_flow.LF||
+'	"STATUS" VARCHAR2(30 CHAR),'||wwv_flow.LF||
+'	"COMPLETED_DATE" DA';
+wwv_flow_imp.g_varchar2_table(87) := 'TE,'||wwv_flow.LF||
+'	"CREATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
+'	"CREATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
+'	"UPDATED" DA';
+wwv_flow_imp.g_varchar2_table(88) := 'TE NOT NULL ENABLE,'||wwv_flow.LF||
+'	"UPDATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'ALTER TABLE "TMS_AUDIT_';
+wwv_flow_imp.g_varchar2_table(89) := 'LOG" ADD CONSTRAINT "TMS_AUDIT_LOG_PK" PRIMARY KEY ("LOG_ID")'||wwv_flow.LF||
+'  USING INDEX  ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TM';
+wwv_flow_imp.g_varchar2_table(90) := 'S_CANDIDATES" ADD CONSTRAINT "TMS_CANDIDATES_CANDIDATE_ID_PK" PRIMARY KEY ("CANDIDATE_ID")'||wwv_flow.LF||
+'  USING I';
+wwv_flow_imp.g_varchar2_table(91) := 'NDEX  ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_CANDIDATE_PIPELINE" ADD PRIMARY KEY ("ID")'||wwv_flow.LF||
+'  USING INDEX  ENABLE;'||wwv_flow.LF||
+'ALT';
+wwv_flow_imp.g_varchar2_table(92) := 'ER TABLE "TMS_DEPARTMENTS" ADD CONSTRAINT "TMS_DEPARTMENTS_DEPT_ID_PK" PRIMARY KEY ("DEPT_ID")'||wwv_flow.LF||
+'  USI';
+wwv_flow_imp.g_varchar2_table(93) := 'NG INDEX  ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_EMPLOYEES" ADD CONSTRAINT "TMS_EMPLOYEES_EMPLOYEE_ID_PK" PRIMARY ';
+wwv_flow_imp.g_varchar2_table(94) := 'KEY ("EMPLOYEE_ID")'||wwv_flow.LF||
+'  USING INDEX  ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_HR_POLICY" ADD CONSTRAINT "TMS_HR_POLICY';
+wwv_flow_imp.g_varchar2_table(95) := '_POLICY_ID_PK" PRIMARY KEY ("POLICY_ID")'||wwv_flow.LF||
+'  USING INDEX  ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_INTERVIEW_STAGES" A';
+wwv_flow_imp.g_varchar2_table(96) := 'DD CONSTRAINT "TMS_INTERVIEW_STAGES_STAGE_ID_PK" PRIMARY KEY ("STAGE_ID")'||wwv_flow.LF||
+'  USING INDEX  ENABLE;'||wwv_flow.LF||
+'ALT';
+wwv_flow_imp.g_varchar2_table(97) := 'ER TABLE "TMS_JOBS" ADD CONSTRAINT "TMS_JOBS_JOB_ID_PK" PRIMARY KEY ("JOB_ID")'||wwv_flow.LF||
+'  USING INDEX  ENABLE';
+wwv_flow_imp.g_varchar2_table(98) := ';'||wwv_flow.LF||
+'ALTER TABLE "TMS_JOB_REQUISITIONS" ADD CONSTRAINT "TMS_JOB_REQUISITIONS_REQ_ID_PK" PRIMARY KEY ("R';
+wwv_flow_imp.g_varchar2_table(99) := 'EQ_ID")'||wwv_flow.LF||
+'  USING INDEX  ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_LEAVE_BALANCES" ADD CONSTRAINT "TMS_LEAVE_BALANCES_B';
+wwv_flow_imp.g_varchar2_table(100) := 'ALANCE_ID_PK" PRIMARY KEY ("BALANCE_ID")'||wwv_flow.LF||
+'  USING INDEX  ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_LEAVE_REQUESTS" ADD';
+wwv_flow_imp.g_varchar2_table(101) := ' CONSTRAINT "TMS_LEAVE_REQUESTS_REQUEST_ID_PK" PRIMARY KEY ("REQUEST_ID")'||wwv_flow.LF||
+'  USING INDEX  ENABLE;'||wwv_flow.LF||
+'ALT';
+wwv_flow_imp.g_varchar2_table(102) := 'ER TABLE "TMS_LEAVE_TYPES" ADD CONSTRAINT "TMS_LEAVE_TYPES_LEAVE_TYPE_ID_PK" PRIMARY KEY ("LEAVE_TYP';
+wwv_flow_imp.g_varchar2_table(103) := 'E_ID")'||wwv_flow.LF||
+'  USING INDEX  ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_OFFERS" ADD CONSTRAINT "TMS_OFFERS_OFFER_ID_PK" PRIMA';
+wwv_flow_imp.g_varchar2_table(104) := 'RY KEY ("OFFER_ID")'||wwv_flow.LF||
+'  USING INDEX  ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_ONBOARDING_TASKS" ADD CONSTRAINT "TMS_ON';
+wwv_flow_imp.g_varchar2_table(105) := 'BOARDING_TASKS_TASK_ID_PK" PRIMARY KEY ("TASK_ID")'||wwv_flow.LF||
+'  USING INDEX  ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_AUDIT_LOG';
+wwv_flow_imp.g_varchar2_table(106) := '" ADD CONSTRAINT "TMS_AUDIT_LOG_OP_CK" CHECK (operation in (''INSERT'', ''UPDATE'', ''DELETE'')) ENABLE;'||wwv_flow.LF||
+'A';
+wwv_flow_imp.g_varchar2_table(107) := 'LTER TABLE "TMS_CANDIDATES" ADD CONSTRAINT "TMS_CANDIDATES_CURRENT_STAGE_CK" CHECK (current_stage in';
+wwv_flow_imp.g_varchar2_table(108) := ' (''Applied'',''Screening'',''Interview'',''Offer'',''Hired'',''Rejected'')) ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_CANDIDATES';
+wwv_flow_imp.g_varchar2_table(109) := '" ADD CONSTRAINT "TMS_CANDIDATES_DIVERSITY_FLAG_CK" CHECK (diversity_flag in (''Y'',''N'')) ENABLE;'||wwv_flow.LF||
+'ALTE';
+wwv_flow_imp.g_varchar2_table(110) := 'R TABLE "TMS_EMPLOYEES" ADD CONSTRAINT "TMS_EMPLOYEES_STATUS_CK" CHECK (status in (''Onboarding'',''Act';
+wwv_flow_imp.g_varchar2_table(111) := 'ive'',''Inactive'',''Terminated'')) ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_INTERVIEW_STAGES" ADD CONSTRAINT "TMS_INTERV';
+wwv_flow_imp.g_varchar2_table(112) := 'IEW_STAGES_STAGE_NAME_CK" CHECK (stage_name in (''Screening'',''Phone Screen'',''Technical Interview'',''Ma';
+wwv_flow_imp.g_varchar2_table(113) := 'nager Interview'',''HR Interview'',''Offer Review'',''Final'')) ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_INTERVIEW_STAGES" ';
+wwv_flow_imp.g_varchar2_table(114) := 'ADD CONSTRAINT "TMS_INTERVIEW_STAGES_OUTCOME_CK" CHECK (outcome in (''Scheduled'',''Proceed'',''Hold'',''Re';
+wwv_flow_imp.g_varchar2_table(115) := 'jected'',''No Show'',''Completed'',''Cancelled'')) ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_JOB_REQUISITIONS" ADD CONSTRAIN';
+wwv_flow_imp.g_varchar2_table(116) := 'T "TMS_JOB_REQUISITIONS_STATUS_CK" CHECK (status in (''Draft'',''Pending Approval'',''Open'',''Filled'',''Can';
+wwv_flow_imp.g_varchar2_table(117) := 'celled'',''Closed'')) ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_LEAVE_REQUESTS" ADD CONSTRAINT "TMS_LEAVE_REQUESTS_STATU';
+wwv_flow_imp.g_varchar2_table(118) := 'S_CK" CHECK (status in (''Draft'',''Submitted'',''Approved'',''Rejected'',''Cancelled'')) ENABLE;'||wwv_flow.LF||
+'ALTER TABLE ';
+wwv_flow_imp.g_varchar2_table(119) := '"TMS_OFFERS" ADD CONSTRAINT "TMS_OFFERS_STATUS_CK" CHECK (status in (''Draft'',''Pending Approval'',''Sen';
+wwv_flow_imp.g_varchar2_table(120) := 't'',''Accepted'',''Rejected'',''Expired'',''Withdrawn'')) ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_ONBOARDING_TASKS" ADD CONS';
+wwv_flow_imp.g_varchar2_table(121) := 'TRAINT "TMS_ONBOARDING_TASKS_STATUS_CK" CHECK (status in (''Not Started'',''In Progress'',''Completed'',''B';
+wwv_flow_imp.g_varchar2_table(122) := 'locked'',''Cancelled'',''Overdue'')) ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_CANDIDATES" ADD CONSTRAINT "TMS_CANDIDATES_';
+wwv_flow_imp.g_varchar2_table(123) := 'REQ_ID_FK" FOREIGN KEY ("REQ_ID")'||wwv_flow.LF||
+'	  REFERENCES "TMS_JOB_REQUISITIONS" ("REQ_ID") ENABLE;'||wwv_flow.LF||
+'ALTER TABL';
+wwv_flow_imp.g_varchar2_table(124) := 'E "TMS_EMPLOYEES" ADD CONSTRAINT "TMS_EMPLOYEES_CANDIDATE_ID_FK" FOREIGN KEY ("CANDIDATE_ID")'||wwv_flow.LF||
+'	  REF';
+wwv_flow_imp.g_varchar2_table(125) := 'ERENCES "TMS_CANDIDATES" ("CANDIDATE_ID") ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_EMPLOYEES" ADD CONSTRAINT "TMS_EM';
+wwv_flow_imp.g_varchar2_table(126) := 'PLOYEES_JOB_ID_FK" FOREIGN KEY ("JOB_ID")'||wwv_flow.LF||
+'	  REFERENCES "TMS_JOBS" ("JOB_ID") ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "T';
+wwv_flow_imp.g_varchar2_table(127) := 'MS_EMPLOYEES" ADD CONSTRAINT "TMS_EMPLOYEES_DEPT_ID_FK" FOREIGN KEY ("DEPT_ID")'||wwv_flow.LF||
+'	  REFERENCES "TMS_D';
+wwv_flow_imp.g_varchar2_table(128) := 'EPARTMENTS" ("DEPT_ID") ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_INTERVIEW_STAGES" ADD CONSTRAINT "TMS_INTERVIEW_STA';
+wwv_flow_imp.g_varchar2_table(129) := 'GES_CANDIDATE_ID_FK" FOREIGN KEY ("CANDIDATE_ID")'||wwv_flow.LF||
+'	  REFERENCES "TMS_CANDIDATES" ("CANDIDATE_ID") EN';
+wwv_flow_imp.g_varchar2_table(130) := 'ABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_INTERVIEW_STAGES" ADD CONSTRAINT "TMS_INTERVIEW_STAGES_REQ_ID_FK" FOREIGN KEY';
+wwv_flow_imp.g_varchar2_table(131) := ' ("REQ_ID")'||wwv_flow.LF||
+'	  REFERENCES "TMS_JOB_REQUISITIONS" ("REQ_ID") ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_JOBS" ADD CONST';
+wwv_flow_imp.g_varchar2_table(132) := 'RAINT "TMS_JOBS_DEPT_ID_FK" FOREIGN KEY ("DEPT_ID")'||wwv_flow.LF||
+'	  REFERENCES "TMS_DEPARTMENTS" ("DEPT_ID") ENAB';
+wwv_flow_imp.g_varchar2_table(133) := 'LE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_JOB_REQUISITIONS" ADD CONSTRAINT "TMS_JOB_REQUISITIONS_JOB_ID_FK" FOREIGN KEY (';
+wwv_flow_imp.g_varchar2_table(134) := '"JOB_ID")'||wwv_flow.LF||
+'	  REFERENCES "TMS_JOBS" ("JOB_ID") ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_JOB_REQUISITIONS" ADD CONSTRA';
+wwv_flow_imp.g_varchar2_table(135) := 'INT "TMS_JOB_REQUISITIONS_DEPT_ID_FK" FOREIGN KEY ("DEPT_ID")'||wwv_flow.LF||
+'	  REFERENCES "TMS_DEPARTMENTS" ("DEPT';
+wwv_flow_imp.g_varchar2_table(136) := '_ID") ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_LEAVE_BALANCES" ADD CONSTRAINT "TMS_LEAVE_BALANCES_EMPLOYEE_ID_FK" FO';
+wwv_flow_imp.g_varchar2_table(137) := 'REIGN KEY ("EMPLOYEE_ID")'||wwv_flow.LF||
+'	  REFERENCES "TMS_EMPLOYEES" ("EMPLOYEE_ID") ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_LEA';
+wwv_flow_imp.g_varchar2_table(138) := 'VE_BALANCES" ADD CONSTRAINT "TMS_LEAVE_BALANCES_LEAVE_TYPE_ID_FK" FOREIGN KEY ("LEAVE_TYPE_ID")'||wwv_flow.LF||
+'	  R';
+wwv_flow_imp.g_varchar2_table(139) := 'EFERENCES "TMS_LEAVE_TYPES" ("LEAVE_TYPE_ID") ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_LEAVE_REQUESTS" ADD CONSTRAIN';
+wwv_flow_imp.g_varchar2_table(140) := 'T "TMS_LEAVE_REQUESTS_EMPLOYEE_ID_FK" FOREIGN KEY ("EMPLOYEE_ID")'||wwv_flow.LF||
+'	  REFERENCES "TMS_EMPLOYEES" ("EM';
+wwv_flow_imp.g_varchar2_table(141) := 'PLOYEE_ID") ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_LEAVE_REQUESTS" ADD CONSTRAINT "TMS_LEAVE_REQUESTS_LEAVE_TYPE_I';
+wwv_flow_imp.g_varchar2_table(142) := 'D_FK" FOREIGN KEY ("LEAVE_TYPE_ID")'||wwv_flow.LF||
+'	  REFERENCES "TMS_LEAVE_TYPES" ("LEAVE_TYPE_ID") ENABLE;'||wwv_flow.LF||
+'ALTER ';
+wwv_flow_imp.g_varchar2_table(143) := 'TABLE "TMS_OFFERS" ADD CONSTRAINT "TMS_OFFERS_CANDIDATE_ID_FK" FOREIGN KEY ("CANDIDATE_ID")'||wwv_flow.LF||
+'	  REFER';
+wwv_flow_imp.g_varchar2_table(144) := 'ENCES "TMS_CANDIDATES" ("CANDIDATE_ID") ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_OFFERS" ADD CONSTRAINT "TMS_OFFERS_';
+wwv_flow_imp.g_varchar2_table(145) := 'REQ_ID_FK" FOREIGN KEY ("REQ_ID")'||wwv_flow.LF||
+'	  REFERENCES "TMS_JOB_REQUISITIONS" ("REQ_ID") ENABLE;'||wwv_flow.LF||
+'ALTER TABL';
+wwv_flow_imp.g_varchar2_table(146) := 'E "TMS_ONBOARDING_TASKS" ADD CONSTRAINT "TMS_ONBOARDING_TASKS_EMPLOYEE_ID_FK" FOREIGN KEY ("EMPLOYEE';
+wwv_flow_imp.g_varchar2_table(147) := '_ID")'||wwv_flow.LF||
+'	  REFERENCES "TMS_EMPLOYEES" ("EMPLOYEE_ID") ENABLE;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE INDEX "TMS_CANDIDATES_I1" ON "TM';
+wwv_flow_imp.g_varchar2_table(148) := 'S_CANDIDATES" ("REQ_ID");'||wwv_flow.LF||
+'CREATE INDEX "TMS_EMPLOYEES_I1" ON "TMS_EMPLOYEES" ("CANDIDATE_ID");'||wwv_flow.LF||
+'CREAT';
+wwv_flow_imp.g_varchar2_table(149) := 'E INDEX "TMS_EMPLOYEES_I2" ON "TMS_EMPLOYEES" ("JOB_ID");'||wwv_flow.LF||
+'CREATE INDEX "TMS_EMPLOYEES_I3" ON "TMS_EM';
+wwv_flow_imp.g_varchar2_table(150) := 'PLOYEES" ("DEPT_ID");'||wwv_flow.LF||
+'CREATE INDEX "TMS_INTERVIEW_STAGES_I1" ON "TMS_INTERVIEW_STAGES" ("CANDIDATE_I';
+wwv_flow_imp.g_varchar2_table(151) := 'D");'||wwv_flow.LF||
+'CREATE INDEX "TMS_INTERVIEW_STAGES_I2" ON "TMS_INTERVIEW_STAGES" ("REQ_ID");'||wwv_flow.LF||
+'CREATE INDEX "TMS_';
+wwv_flow_imp.g_varchar2_table(152) := 'JOBS_I1" ON "TMS_JOBS" ("DEPT_ID");'||wwv_flow.LF||
+'CREATE INDEX "TMS_JOB_REQUISITIONS_I1" ON "TMS_JOB_REQUISITIONS"';
+wwv_flow_imp.g_varchar2_table(153) := ' ("JOB_ID");'||wwv_flow.LF||
+'CREATE INDEX "TMS_JOB_REQUISITIONS_I2" ON "TMS_JOB_REQUISITIONS" ("DEPT_ID");'||wwv_flow.LF||
+'CREATE IN';
+wwv_flow_imp.g_varchar2_table(154) := 'DEX "TMS_LEAVE_BALANCES_I1" ON "TMS_LEAVE_BALANCES" ("EMPLOYEE_ID");'||wwv_flow.LF||
+'CREATE INDEX "TMS_LEAVE_BALANCE';
+wwv_flow_imp.g_varchar2_table(155) := 'S_I2" ON "TMS_LEAVE_BALANCES" ("LEAVE_TYPE_ID");'||wwv_flow.LF||
+'CREATE INDEX "TMS_LEAVE_REQUESTS_I1" ON "TMS_LEAVE_';
+wwv_flow_imp.g_varchar2_table(156) := 'REQUESTS" ("EMPLOYEE_ID");'||wwv_flow.LF||
+'CREATE INDEX "TMS_LEAVE_REQUESTS_I2" ON "TMS_LEAVE_REQUESTS" ("LEAVE_TYPE';
+wwv_flow_imp.g_varchar2_table(157) := '_ID");'||wwv_flow.LF||
+'CREATE INDEX "TMS_OFFERS_I1" ON "TMS_OFFERS" ("CANDIDATE_ID");'||wwv_flow.LF||
+'CREATE INDEX "TMS_OFFERS_I2" O';
+wwv_flow_imp.g_varchar2_table(158) := 'N "TMS_OFFERS" ("REQ_ID");'||wwv_flow.LF||
+'CREATE INDEX "TMS_ONBOARDING_TASKS_I1" ON "TMS_ONBOARDING_TASKS" ("EMPLOY';
+wwv_flow_imp.g_varchar2_table(159) := 'EE_ID");'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE OR REPLACE TRIGGER "TMS_AUDIT_LOG_BIU"'||wwv_flow.LF||
+'BEFORE INSERT OR UPDATE ON "TMS_AUDIT_LOG"'||wwv_flow.LF||
+'F';
+wwv_flow_imp.g_varchar2_table(160) := 'OR EACH ROW'||wwv_flow.LF||
+'begin '||wwv_flow.LF||
+'    :new.updated_on := sysdate; '||wwv_flow.LF||
+'    :new.updated_by := coalesce(sys_context(''APE';
+wwv_flow_imp.g_varchar2_table(161) := 'X$SESSION'', ''APP_USER''), user); '||wwv_flow.LF||
+'    if inserting then '||wwv_flow.LF||
+'        :new.row_version := 1; '||wwv_flow.LF||
+'        :new';
+wwv_flow_imp.g_varchar2_table(162) := '.created_on  := :new.updated_on; '||wwv_flow.LF||
+'        :new.created_by  := :new.updated_by; '||wwv_flow.LF||
+'        :new.changed';
+wwv_flow_imp.g_varchar2_table(163) := '_at  := :new.created_on; '||wwv_flow.LF||
+'    elsif updating then '||wwv_flow.LF||
+'        :new.row_version := nvl(:old.row_version,';
+wwv_flow_imp.g_varchar2_table(164) := ' 0) + 1; '||wwv_flow.LF||
+'    end if; '||wwv_flow.LF||
+'end tms_audit_log_biu;'||wwv_flow.LF||
+'/'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE OR REPLACE TRIGGER "TMS_CANDIDATES_BIU"'||wwv_flow.LF||
+'BEFO';
+wwv_flow_imp.g_varchar2_table(165) := 'RE INSERT OR UPDATE ON "TMS_CANDIDATES"'||wwv_flow.LF||
+'FOR EACH ROW'||wwv_flow.LF||
+'begin '||wwv_flow.LF||
+'    if inserting then '||wwv_flow.LF||
+'        :new.crea';
+wwv_flow_imp.g_varchar2_table(166) := 'ted := sysdate; '||wwv_flow.LF||
+'        :new.created_by := user; '||wwv_flow.LF||
+'    end if; '||wwv_flow.LF||
+'    :new.updated := sysdate; '||wwv_flow.LF||
+'    :n';
+wwv_flow_imp.g_varchar2_table(167) := 'ew.updated_by := user; '||wwv_flow.LF||
+'end tms_candidates_biu;'||wwv_flow.LF||
+'/'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE OR REPLACE TRIGGER "TMS_DEPARTMENTS_BIU"'||wwv_flow.LF||
+'B';
+wwv_flow_imp.g_varchar2_table(168) := 'EFORE INSERT OR UPDATE ON "TMS_DEPARTMENTS"'||wwv_flow.LF||
+'FOR EACH ROW'||wwv_flow.LF||
+'begin '||wwv_flow.LF||
+'    if inserting then '||wwv_flow.LF||
+'        :new.';
+wwv_flow_imp.g_varchar2_table(169) := 'created := sysdate; '||wwv_flow.LF||
+'        :new.created_by := user; '||wwv_flow.LF||
+'    end if; '||wwv_flow.LF||
+'    :new.updated := sysdate; '||wwv_flow.LF||
+'  ';
+wwv_flow_imp.g_varchar2_table(170) := '  :new.updated_by := user; '||wwv_flow.LF||
+'end tms_departments_biu;'||wwv_flow.LF||
+'/'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE OR REPLACE TRIGGER "TMS_EMPLOYEES_BIU';
+wwv_flow_imp.g_varchar2_table(171) := '"'||wwv_flow.LF||
+'BEFORE INSERT OR UPDATE ON "TMS_EMPLOYEES"'||wwv_flow.LF||
+'FOR EACH ROW'||wwv_flow.LF||
+'begin '||wwv_flow.LF||
+'    if inserting then '||wwv_flow.LF||
+'        :new';
+wwv_flow_imp.g_varchar2_table(172) := '.created := sysdate; '||wwv_flow.LF||
+'        :new.created_by := user; '||wwv_flow.LF||
+'    end if; '||wwv_flow.LF||
+'    :new.updated := sysdate; '||wwv_flow.LF||
+' ';
+wwv_flow_imp.g_varchar2_table(173) := '   :new.updated_by := user; '||wwv_flow.LF||
+'end tms_employees_biu;'||wwv_flow.LF||
+'/'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE OR REPLACE TRIGGER "TMS_HR_POLICY_BIU"';
+wwv_flow_imp.g_varchar2_table(174) := ''||wwv_flow.LF||
+'BEFORE INSERT OR UPDATE ON "TMS_HR_POLICY"'||wwv_flow.LF||
+'FOR EACH ROW'||wwv_flow.LF||
+'begin '||wwv_flow.LF||
+'    if inserting then '||wwv_flow.LF||
+'        :new.';
+wwv_flow_imp.g_varchar2_table(175) := 'created := sysdate; '||wwv_flow.LF||
+'        :new.created_by := user; '||wwv_flow.LF||
+'    end if; '||wwv_flow.LF||
+'    :new.updated := sysdate; '||wwv_flow.LF||
+'  ';
+wwv_flow_imp.g_varchar2_table(176) := '  :new.updated_by := user; '||wwv_flow.LF||
+'end tms_hr_policy_biu;'||wwv_flow.LF||
+'/'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE OR REPLACE TRIGGER "TMS_INTERVIEW_STAGE';
+wwv_flow_imp.g_varchar2_table(177) := 'S_BIU"'||wwv_flow.LF||
+'BEFORE INSERT OR UPDATE ON "TMS_INTERVIEW_STAGES"'||wwv_flow.LF||
+'FOR EACH ROW'||wwv_flow.LF||
+'begin '||wwv_flow.LF||
+'    if inserting then '||wwv_flow.LF||
+'';
+wwv_flow_imp.g_varchar2_table(178) := '        :new.created := sysdate; '||wwv_flow.LF||
+'        :new.created_by := user; '||wwv_flow.LF||
+'    end if; '||wwv_flow.LF||
+'    :new.updated :=';
+wwv_flow_imp.g_varchar2_table(179) := ' sysdate; '||wwv_flow.LF||
+'    :new.updated_by := user; '||wwv_flow.LF||
+'end tms_interview_stages_biu;'||wwv_flow.LF||
+'/'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE OR REPLACE TRIGGER ';
+wwv_flow_imp.g_varchar2_table(180) := '"TMS_JOBS_BIU"'||wwv_flow.LF||
+'BEFORE INSERT OR UPDATE ON "TMS_JOBS"'||wwv_flow.LF||
+'FOR EACH ROW'||wwv_flow.LF||
+'begin '||wwv_flow.LF||
+'    if inserting then '||wwv_flow.LF||
+'    ';
+wwv_flow_imp.g_varchar2_table(181) := '    :new.created := sysdate; '||wwv_flow.LF||
+'        :new.created_by := user; '||wwv_flow.LF||
+'    end if; '||wwv_flow.LF||
+'    :new.updated := sys';
+wwv_flow_imp.g_varchar2_table(182) := 'date; '||wwv_flow.LF||
+'    :new.updated_by := user; '||wwv_flow.LF||
+'end tms_jobs_biu;'||wwv_flow.LF||
+'/'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE OR REPLACE TRIGGER "TMS_JOB_REQUISI';
+wwv_flow_imp.g_varchar2_table(183) := 'TIONS_BIU"'||wwv_flow.LF||
+'BEFORE INSERT OR UPDATE ON "TMS_JOB_REQUISITIONS"'||wwv_flow.LF||
+'FOR EACH ROW'||wwv_flow.LF||
+'begin '||wwv_flow.LF||
+'    if inserting th';
+wwv_flow_imp.g_varchar2_table(184) := 'en '||wwv_flow.LF||
+'        :new.created := sysdate; '||wwv_flow.LF||
+'        :new.created_by := user; '||wwv_flow.LF||
+'    end if; '||wwv_flow.LF||
+'    :new.update';
+wwv_flow_imp.g_varchar2_table(185) := 'd := sysdate; '||wwv_flow.LF||
+'    :new.updated_by := user; '||wwv_flow.LF||
+'end tms_job_requisitions_biu;'||wwv_flow.LF||
+'/'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE OR REPLACE TRIG';
+wwv_flow_imp.g_varchar2_table(186) := 'GER "TMS_LEAVE_BALANCES_BIU"'||wwv_flow.LF||
+'BEFORE INSERT OR UPDATE ON "TMS_LEAVE_BALANCES"'||wwv_flow.LF||
+'FOR EACH ROW'||wwv_flow.LF||
+'begin '||wwv_flow.LF||
+'   ';
+wwv_flow_imp.g_varchar2_table(187) := ' if inserting then '||wwv_flow.LF||
+'        :new.created := sysdate; '||wwv_flow.LF||
+'        :new.created_by := user; '||wwv_flow.LF||
+'    end if; ';
+wwv_flow_imp.g_varchar2_table(188) := ''||wwv_flow.LF||
+'    :new.updated := sysdate; '||wwv_flow.LF||
+'    :new.updated_by := user; '||wwv_flow.LF||
+'end tms_leave_balances_biu;'||wwv_flow.LF||
+'/'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE O';
+wwv_flow_imp.g_varchar2_table(189) := 'R REPLACE TRIGGER "TMS_LEAVE_REQUESTS_BIU"'||wwv_flow.LF||
+'BEFORE INSERT OR UPDATE ON "TMS_LEAVE_REQUESTS"'||wwv_flow.LF||
+'FOR EACH ';
+wwv_flow_imp.g_varchar2_table(190) := 'ROW'||wwv_flow.LF||
+'begin '||wwv_flow.LF||
+'    if inserting then '||wwv_flow.LF||
+'        :new.created := sysdate; '||wwv_flow.LF||
+'        :new.created_by := user;';
+wwv_flow_imp.g_varchar2_table(191) := ' '||wwv_flow.LF||
+'    end if; '||wwv_flow.LF||
+'    :new.updated := sysdate; '||wwv_flow.LF||
+'    :new.updated_by := user; '||wwv_flow.LF||
+'end tms_leave_requests_bi';
+wwv_flow_imp.g_varchar2_table(192) := 'u;'||wwv_flow.LF||
+'/'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE OR REPLACE TRIGGER "TMS_LEAVE_TYPES_BIU"'||wwv_flow.LF||
+'BEFORE INSERT OR UPDATE ON "TMS_LEAVE_TYPES"'||wwv_flow.LF||
+'F';
+wwv_flow_imp.g_varchar2_table(193) := 'OR EACH ROW'||wwv_flow.LF||
+'begin '||wwv_flow.LF||
+'    if inserting then '||wwv_flow.LF||
+'        :new.created := sysdate; '||wwv_flow.LF||
+'        :new.created_by ';
+wwv_flow_imp.g_varchar2_table(194) := ':= user; '||wwv_flow.LF||
+'    end if; '||wwv_flow.LF||
+'    :new.updated := sysdate; '||wwv_flow.LF||
+'    :new.updated_by := user; '||wwv_flow.LF||
+'end tms_leave_typ';
+wwv_flow_imp.g_varchar2_table(195) := 'es_biu;'||wwv_flow.LF||
+'/'||wwv_flow.LF||
+''||wwv_flow.LF||
+'CREATE OR REPLACE TRIGGER "TMS_OFFERS_BIU"'||wwv_flow.LF||
+'BEFORE INSERT OR UPDATE ON "TMS_OFFERS"'||wwv_flow.LF||
+'FOR EA';
+wwv_flow_imp.g_varchar2_table(196) := 'CH ROW'||wwv_flow.LF||
+'begin '||wwv_flow.LF||
+'    if inserting then '||wwv_flow.LF||
+'        :new.created := sysdate; '||wwv_flow.LF||
+'        :new.created_by := us';
+wwv_flow_imp.g_varchar2_table(197) := 'er; '||wwv_flow.LF||
+'    end if; '||wwv_flow.LF||
+'    :new.updated := sysdate; '||wwv_flow.LF||
+'    :new.updated_by := user; '||wwv_flow.LF||
+'end tms_offers_biu;'||wwv_flow.LF||
+'/'||wwv_flow.LF||
+'';
+wwv_flow_imp.g_varchar2_table(198) := ''||wwv_flow.LF||
+'CREATE OR REPLACE TRIGGER "TMS_ONBOARDING_TASKS_BIU"'||wwv_flow.LF||
+'BEFORE INSERT OR UPDATE ON "TMS_ONBOARDING_TAS';
+wwv_flow_imp.g_varchar2_table(199) := 'KS"'||wwv_flow.LF||
+'FOR EACH ROW'||wwv_flow.LF||
+'begin '||wwv_flow.LF||
+'    if inserting then '||wwv_flow.LF||
+'        :new.created := sysdate; '||wwv_flow.LF||
+'        :new.create';
+wwv_flow_imp.g_varchar2_table(200) := 'd_by := user; '||wwv_flow.LF||
+'    end if; '||wwv_flow.LF||
+'    :new.updated := sysdate; '||wwv_flow.LF||
+'    :new.updated_by := user; '||wwv_flow.LF||
+'end tms_onbo';
+wwv_flow_imp.g_varchar2_table(201) := 'arding_tasks_biu;'||wwv_flow.LF||
+'/'||wwv_flow.LF||
+'';
+wwv_flow_imp_shared.create_install_script(
+ p_id=>wwv_flow_imp.id(4592415510916777124)
+,p_install_id=>wwv_flow_imp.id(4592381611947774032)
+,p_name=>'TMS_DDL'
+,p_sequence=>10
+,p_script_type=>'INSTALL'
+,p_script_clob=>wwv_flow_imp.varchar2_to_clob(wwv_flow_imp.g_varchar2_table)
+,p_created_on=>wwv_flow_imp.dz('20261013070219Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013170130Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/deployment/install/install_tms_dml
+begin
+wwv_flow_imp.g_varchar2_table := wwv_flow_imp.empty_varchar2_table;
+wwv_flow_imp.g_varchar2_table(1) := '-- TMS supporting-object seed data for TAP, ESS, HR Analytics, and shared tables.'||wwv_flow.LF||
+'-- Run this script';
+wwv_flow_imp.g_varchar2_table(2) := ' once after TMS_SUPPORTING_OBJECTS_DDL.sql completes.'||wwv_flow.LF||
+'-- The DDL recreates empty tables; rerun that ';
+wwv_flow_imp.g_varchar2_table(3) := 'DDL before rerunning this script.'||wwv_flow.LF||
+'SET DEFINE OFF'||wwv_flow.LF||
+''||wwv_flow.LF||
+'PROMPT Loading TMS supporting-object data...'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSE';
+wwv_flow_imp.g_varchar2_table(4) := 'RT INTO tms_departments (name, location, color)'||wwv_flow.LF||
+'VALUES (''Engineering'', ''Bengaluru - Tower A'', ''#2563';
+wwv_flow_imp.g_varchar2_table(5) := 'EB'');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_departments (name, location, color)'||wwv_flow.LF||
+'VALUES (''Human Resources'', ''Bengaluru - T';
+wwv_flow_imp.g_varchar2_table(6) := 'ower B'', ''#10B981'');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_departments (name, location, color)'||wwv_flow.LF||
+'VALUES (''Sales'', ''Mumbai -';
+wwv_flow_imp.g_varchar2_table(7) := ' West Wing'', ''#F59E0B'');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_departments (name, location, color)'||wwv_flow.LF||
+'VALUES (''Finance'', ''Be';
+wwv_flow_imp.g_varchar2_table(8) := 'ngaluru - Tower B'', ''#8B5CF6'');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_departments (name, location, color)'||wwv_flow.LF||
+'VALUES (''IT Ope';
+wwv_flow_imp.g_varchar2_table(9) := 'rations'', ''Hyderabad - Cloud Hub'', ''#06B6D4'');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_departments (name, location, color)'||wwv_flow.LF||
+'';
+wwv_flow_imp.g_varchar2_table(10) := 'VALUES (''Product'', ''Pune - Innovation Lab'', ''#EF4444'');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_jobs (title, min_salary, ma';
+wwv_flow_imp.g_varchar2_table(11) := 'x_salary, dept_id)'||wwv_flow.LF||
+'VALUES (''Engineering Manager'', 115000, 145000, (SELECT dept_id FROM tms_departmen';
+wwv_flow_imp.g_varchar2_table(12) := 'ts WHERE name = ''Engineering''));'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_jobs (title, min_salary, max_salary, dept_id)'||wwv_flow.LF||
+'VALU';
+wwv_flow_imp.g_varchar2_table(13) := 'ES (''Senior Developer'', 85000, 105000, (SELECT dept_id FROM tms_departments WHERE name = ''Engineerin';
+wwv_flow_imp.g_varchar2_table(14) := 'g''));'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_jobs (title, min_salary, max_salary, dept_id)'||wwv_flow.LF||
+'VALUES (''DevOps Engineer'', 7800';
+wwv_flow_imp.g_varchar2_table(15) := '0, 98000, (SELECT dept_id FROM tms_departments WHERE name = ''IT Operations''));'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_jobs';
+wwv_flow_imp.g_varchar2_table(16) := ' (title, min_salary, max_salary, dept_id)'||wwv_flow.LF||
+'VALUES (''HR Business Partner'', 78000, 98000, (SELECT dept_';
+wwv_flow_imp.g_varchar2_table(17) := 'id FROM tms_departments WHERE name = ''Human Resources''));'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_jobs (title, min_salary, ';
+wwv_flow_imp.g_varchar2_table(18) := 'max_salary, dept_id)'||wwv_flow.LF||
+'VALUES (''HR Generalist'', 52000, 68000, (SELECT dept_id FROM tms_departments WHE';
+wwv_flow_imp.g_varchar2_table(19) := 'RE name = ''Human Resources''));'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_jobs (title, min_salary, max_salary, dept_id)'||wwv_flow.LF||
+'VALUES';
+wwv_flow_imp.g_varchar2_table(20) := ' (''Sales Account Executive'', 60000, 90000, (SELECT dept_id FROM tms_departments WHERE name = ''Sales''';
+wwv_flow_imp.g_varchar2_table(21) := '));'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_jobs (title, min_salary, max_salary, dept_id)'||wwv_flow.LF||
+'VALUES (''Product Manager'', 90000,';
+wwv_flow_imp.g_varchar2_table(22) := ' 125000, (SELECT dept_id FROM tms_departments WHERE name = ''Product''));'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_jobs (title';
+wwv_flow_imp.g_varchar2_table(23) := ', min_salary, max_salary, dept_id)'||wwv_flow.LF||
+'VALUES (''Payroll Specialist'', 50000, 65000, (SELECT dept_id FROM ';
+wwv_flow_imp.g_varchar2_table(24) := 'tms_departments WHERE name = ''Finance''));'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_jobs (title, min_salary, max_salary, dept';
+wwv_flow_imp.g_varchar2_table(25) := '_id)'||wwv_flow.LF||
+'VALUES (''Data Analyst'', 65000, 85000, (SELECT dept_id FROM tms_departments WHERE name = ''Financ';
+wwv_flow_imp.g_varchar2_table(26) := 'e''));'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_jobs (title, min_salary, max_salary, dept_id)'||wwv_flow.LF||
+'VALUES (''UX Designer'', 70000, 9';
+wwv_flow_imp.g_varchar2_table(27) := '5000, (SELECT dept_id FROM tms_departments WHERE name = ''Product''));'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_job_requisitio';
+wwv_flow_imp.g_varchar2_table(28) := 'ns ('||wwv_flow.LF||
+'  job_id, dept_id, requested_by, approved_by, headcount, status, open_date'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT';
+wwv_flow_imp.g_varchar2_table(29) := ' job_id FROM tms_jobs WHERE title = ''Senior Developer''),'||wwv_flow.LF||
+'  (SELECT dept_id FROM tms_departments WHER';
+wwv_flow_imp.g_varchar2_table(30) := 'E name = ''Engineering''),'||wwv_flow.LF||
+'  ''maya.patel@acme.example'','||wwv_flow.LF||
+'  ''priya.nair@acme.example'','||wwv_flow.LF||
+'  2,'||wwv_flow.LF||
+'  ''Open'','||wwv_flow.LF||
+'  ';
+wwv_flow_imp.g_varchar2_table(31) := 'DATE ''2026-06-01'''||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_job_requisitions ('||wwv_flow.LF||
+'  job_id, dept_id, requested_by, approved_b';
+wwv_flow_imp.g_varchar2_table(32) := 'y, headcount, status, open_date'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT job_id FROM tms_jobs WHERE title = ''DevOps Engi';
+wwv_flow_imp.g_varchar2_table(33) := 'neer''),'||wwv_flow.LF||
+'  (SELECT dept_id FROM tms_departments WHERE name = ''IT Operations''),'||wwv_flow.LF||
+'  ''liam.chen@acme.exam';
+wwv_flow_imp.g_varchar2_table(34) := 'ple'','||wwv_flow.LF||
+'  ''priya.nair@acme.example'','||wwv_flow.LF||
+'  1,'||wwv_flow.LF||
+'  ''Open'','||wwv_flow.LF||
+'  DATE ''2026-06-03'''||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_job_requis';
+wwv_flow_imp.g_varchar2_table(35) := 'itions ('||wwv_flow.LF||
+'  job_id, dept_id, requested_by, approved_by, headcount, status, open_date'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SE';
+wwv_flow_imp.g_varchar2_table(36) := 'LECT job_id FROM tms_jobs WHERE title = ''HR Generalist''),'||wwv_flow.LF||
+'  (SELECT dept_id FROM tms_departments WHE';
+wwv_flow_imp.g_varchar2_table(37) := 'RE name = ''Human Resources''),'||wwv_flow.LF||
+'  ''priya.nair@acme.example'','||wwv_flow.LF||
+'  NULL,'||wwv_flow.LF||
+'  1,'||wwv_flow.LF||
+'  ''Pending Approval'','||wwv_flow.LF||
+'  DATE';
+wwv_flow_imp.g_varchar2_table(38) := ' ''2026-06-10'''||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_job_requisitions ('||wwv_flow.LF||
+'  job_id, dept_id, requested_by, approved_by, h';
+wwv_flow_imp.g_varchar2_table(39) := 'eadcount, status, open_date'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT job_id FROM tms_jobs WHERE title = ''Sales Account E';
+wwv_flow_imp.g_varchar2_table(40) := 'xecutive''),'||wwv_flow.LF||
+'  (SELECT dept_id FROM tms_departments WHERE name = ''Sales''),'||wwv_flow.LF||
+'  ''sofia.garcia@acme.examp';
+wwv_flow_imp.g_varchar2_table(41) := 'le'','||wwv_flow.LF||
+'  ''priya.nair@acme.example'','||wwv_flow.LF||
+'  3,'||wwv_flow.LF||
+'  ''Open'','||wwv_flow.LF||
+'  DATE ''2026-05-25'''||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_job_requisi';
+wwv_flow_imp.g_varchar2_table(42) := 'tions ('||wwv_flow.LF||
+'  job_id, dept_id, requested_by, approved_by, headcount, status, open_date, close_date'||wwv_flow.LF||
+') VAL';
+wwv_flow_imp.g_varchar2_table(43) := 'UES ('||wwv_flow.LF||
+'  (SELECT job_id FROM tms_jobs WHERE title = ''Product Manager''),'||wwv_flow.LF||
+'  (SELECT dept_id FROM tms_de';
+wwv_flow_imp.g_varchar2_table(44) := 'partments WHERE name = ''Product''),'||wwv_flow.LF||
+'  ''ethan.brooks@acme.example'','||wwv_flow.LF||
+'  ''priya.nair@acme.example'','||wwv_flow.LF||
+'  1,'||wwv_flow.LF||
+'';
+wwv_flow_imp.g_varchar2_table(45) := '  ''Filled'','||wwv_flow.LF||
+'  DATE ''2026-04-15'','||wwv_flow.LF||
+'  DATE ''2026-06-15'''||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_job_requisitions ('||wwv_flow.LF||
+'  job_id';
+wwv_flow_imp.g_varchar2_table(46) := ', dept_id, requested_by, approved_by, headcount, status, open_date'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT job_id FROM ';
+wwv_flow_imp.g_varchar2_table(47) := 'tms_jobs WHERE title = ''Data Analyst''),'||wwv_flow.LF||
+'  (SELECT dept_id FROM tms_departments WHERE name = ''Finance';
+wwv_flow_imp.g_varchar2_table(48) := '''),'||wwv_flow.LF||
+'  ''noah.reed@acme.example'','||wwv_flow.LF||
+'  NULL,'||wwv_flow.LF||
+'  1,'||wwv_flow.LF||
+'  ''Draft'','||wwv_flow.LF||
+'  DATE ''2026-06-18'''||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_cand';
+wwv_flow_imp.g_varchar2_table(49) := 'idates ('||wwv_flow.LF||
+'  req_id, first_name, last_name, email, phone, source, current_stage,'||wwv_flow.LF||
+'  applied_date, diver';
+wwv_flow_imp.g_varchar2_table(50) := 'sity_flag, ai_score'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.j';
+wwv_flow_imp.g_varchar2_table(51) := 'ob_id = r.job_id WHERE j.title = ''Senior Developer'' AND r.requested_by = ''maya.patel@acme.example'' A';
+wwv_flow_imp.g_varchar2_table(52) := 'ND r.open_date = DATE ''2026-06-01''),'||wwv_flow.LF||
+'  ''Anika'', ''Rao'', ''anika.rao@example.com'', ''+91-98765-11001'', ''';
+wwv_flow_imp.g_varchar2_table(53) := 'LinkedIn'','||wwv_flow.LF||
+'  ''Offer'', DATE ''2026-06-04'', ''Y'', 8.70'||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_candidates ('||wwv_flow.LF||
+'  req_id, first_';
+wwv_flow_imp.g_varchar2_table(54) := 'name, last_name, email, phone, source, current_stage,'||wwv_flow.LF||
+'  applied_date, diversity_flag, ai_score'||wwv_flow.LF||
+') VAL';
+wwv_flow_imp.g_varchar2_table(55) := 'UES ('||wwv_flow.LF||
+'  (SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.';
+wwv_flow_imp.g_varchar2_table(56) := 'title = ''Senior Developer'' AND r.requested_by = ''maya.patel@acme.example'' AND r.open_date = DATE ''20';
+wwv_flow_imp.g_varchar2_table(57) := '26-06-01''),'||wwv_flow.LF||
+'  ''Marcus'', ''Hill'', ''marcus.hill@example.com'', ''+1-415-555-0134'','||wwv_flow.LF||
+'  ''Employee Referral'',';
+wwv_flow_imp.g_varchar2_table(58) := ' ''Interview'', DATE ''2026-06-05'', ''N'', 7.90'||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_candidates ('||wwv_flow.LF||
+'  req_id, first_name, la';
+wwv_flow_imp.g_varchar2_table(59) := 'st_name, email, phone, source, current_stage,'||wwv_flow.LF||
+'  applied_date, diversity_flag, ai_score'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  ';
+wwv_flow_imp.g_varchar2_table(60) := '(SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.title = ';
+wwv_flow_imp.g_varchar2_table(61) := '''Senior Developer'' AND r.requested_by = ''maya.patel@acme.example'' AND r.open_date = DATE ''2026-06-01';
+wwv_flow_imp.g_varchar2_table(62) := '''),'||wwv_flow.LF||
+'  ''Nina'', ''Park'', ''nina.park@example.com'', ''+82-10-5555-0135'','||wwv_flow.LF||
+'  ''Careers Site'', ''Screening'', DA';
+wwv_flow_imp.g_varchar2_table(63) := 'TE ''2026-06-07'', ''Y'', 6.40'||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_candidates ('||wwv_flow.LF||
+'  req_id, first_name, last_name, email, ';
+wwv_flow_imp.g_varchar2_table(64) := 'phone, source, current_stage,'||wwv_flow.LF||
+'  applied_date, diversity_flag, ai_score'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT r.req_id';
+wwv_flow_imp.g_varchar2_table(65) := ' FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.title = ''Senior Develope';
+wwv_flow_imp.g_varchar2_table(66) := 'r'' AND r.requested_by = ''maya.patel@acme.example'' AND r.open_date = DATE ''2026-06-01''),'||wwv_flow.LF||
+'  ''Jacob'', ''';
+wwv_flow_imp.g_varchar2_table(67) := 'Lee'', ''jacob.lee@example.com'', ''+1-206-555-0136'','||wwv_flow.LF||
+'  ''Campus Event'', ''Rejected'', DATE ''2026-06-08'', ''';
+wwv_flow_imp.g_varchar2_table(68) := 'N'', 4.20'||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_candidates ('||wwv_flow.LF||
+'  req_id, first_name, last_name, email, phone, source, cur';
+wwv_flow_imp.g_varchar2_table(69) := 'rent_stage,'||wwv_flow.LF||
+'  applied_date, diversity_flag, ai_score'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT r.req_id FROM tms_job_requ';
+wwv_flow_imp.g_varchar2_table(70) := 'isitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.title = ''DevOps Engineer'' AND r.requested_';
+wwv_flow_imp.g_varchar2_table(71) := 'by = ''liam.chen@acme.example'' AND r.open_date = DATE ''2026-06-03''),'||wwv_flow.LF||
+'  ''Tom'', ''Alvarez'', ''tom.alvarez';
+wwv_flow_imp.g_varchar2_table(72) := '@example.com'', ''+1-512-555-0141'','||wwv_flow.LF||
+'  ''Recruiter Sourced'', ''Interview'', DATE ''2026-06-06'', ''N'', 8.10'||wwv_flow.LF||
+')';
+wwv_flow_imp.g_varchar2_table(73) := ';'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_candidates ('||wwv_flow.LF||
+'  req_id, first_name, last_name, email, phone, source, current_stage';
+wwv_flow_imp.g_varchar2_table(74) := ','||wwv_flow.LF||
+'  applied_date, diversity_flag, ai_score'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT r.req_id FROM tms_job_requisitions r';
+wwv_flow_imp.g_varchar2_table(75) := ' JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.title = ''DevOps Engineer'' AND r.requested_by = ''liam';
+wwv_flow_imp.g_varchar2_table(76) := '.chen@acme.example'' AND r.open_date = DATE ''2026-06-03''),'||wwv_flow.LF||
+'  ''Mei'', ''Wong'', ''mei.wong@example.com'', ''';
+wwv_flow_imp.g_varchar2_table(77) := '+65-8123-0142'','||wwv_flow.LF||
+'  ''Careers Site'', ''Applied'', DATE ''2026-06-09'', ''Y'', 6.90'||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_candid';
+wwv_flow_imp.g_varchar2_table(78) := 'ates ('||wwv_flow.LF||
+'  req_id, first_name, last_name, email, phone, source, current_stage,'||wwv_flow.LF||
+'  applied_date, diversi';
+wwv_flow_imp.g_varchar2_table(79) := 'ty_flag, ai_score'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job';
+wwv_flow_imp.g_varchar2_table(80) := '_id = r.job_id WHERE j.title = ''HR Generalist'' AND r.requested_by = ''priya.nair@acme.example'' AND r.';
+wwv_flow_imp.g_varchar2_table(81) := 'open_date = DATE ''2026-06-10''),'||wwv_flow.LF||
+'  ''Grace'', ''Kim'', ''grace.kim@example.com'', ''+1-646-555-0143'','||wwv_flow.LF||
+'  ''Lin';
+wwv_flow_imp.g_varchar2_table(82) := 'kedIn'', ''Applied'', DATE ''2026-06-12'', ''Y'', 7.20'||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_candidates ('||wwv_flow.LF||
+'  req_id, first_nam';
+wwv_flow_imp.g_varchar2_table(83) := 'e, last_name, email, phone, source, current_stage,'||wwv_flow.LF||
+'  applied_date, diversity_flag, ai_score'||wwv_flow.LF||
+') VALUES';
+wwv_flow_imp.g_varchar2_table(84) := ' ('||wwv_flow.LF||
+'  (SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.tit';
+wwv_flow_imp.g_varchar2_table(85) := 'le = ''Sales Account Executive'' AND r.requested_by = ''sofia.garcia@acme.example'' AND r.open_date = DA';
+wwv_flow_imp.g_varchar2_table(86) := 'TE ''2026-05-25''),'||wwv_flow.LF||
+'  ''Olivia'', ''Grant'', ''olivia.grant@example.com'', ''+44-7700-900141'','||wwv_flow.LF||
+'  ''Agency'', ''O';
+wwv_flow_imp.g_varchar2_table(87) := 'ffer'', DATE ''2026-05-29'', ''N'', 8.30'||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_candidates ('||wwv_flow.LF||
+'  req_id, first_name, last_name';
+wwv_flow_imp.g_varchar2_table(88) := ', email, phone, source, current_stage,'||wwv_flow.LF||
+'  applied_date, diversity_flag, ai_score'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT';
+wwv_flow_imp.g_varchar2_table(89) := ' r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.title = ''Sales ';
+wwv_flow_imp.g_varchar2_table(90) := 'Account Executive'' AND r.requested_by = ''sofia.garcia@acme.example'' AND r.open_date = DATE ''2026-05-';
+wwv_flow_imp.g_varchar2_table(91) := '25''),'||wwv_flow.LF||
+'  ''Daniel'', ''Brown'', ''daniel.brown@example.com'', ''+1-312-555-0145'','||wwv_flow.LF||
+'  ''Careers Site'', ''Screeni';
+wwv_flow_imp.g_varchar2_table(92) := 'ng'', DATE ''2026-06-01'', ''N'', 6.80'||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_candidates ('||wwv_flow.LF||
+'  req_id, first_name, last_name, ';
+wwv_flow_imp.g_varchar2_table(93) := 'email, phone, source, current_stage,'||wwv_flow.LF||
+'  applied_date, diversity_flag, ai_score'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT r';
+wwv_flow_imp.g_varchar2_table(94) := '.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.title = ''Sales Ac';
+wwv_flow_imp.g_varchar2_table(95) := 'count Executive'' AND r.requested_by = ''sofia.garcia@acme.example'' AND r.open_date = DATE ''2026-05-25';
+wwv_flow_imp.g_varchar2_table(96) := '''),'||wwv_flow.LF||
+'  ''Aisha'', ''Khan'', ''aisha.khan@example.com'', ''+971-50-555-0146'','||wwv_flow.LF||
+'  ''Referral'', ''Applied'', DATE ''';
+wwv_flow_imp.g_varchar2_table(97) := '2026-06-04'', ''Y'', 7.10'||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_candidates ('||wwv_flow.LF||
+'  req_id, first_name, last_name, email, phon';
+wwv_flow_imp.g_varchar2_table(98) := 'e, source, current_stage,'||wwv_flow.LF||
+'  applied_date, diversity_flag, ai_score'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT r.req_id FRO';
+wwv_flow_imp.g_varchar2_table(99) := 'M tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.title = ''Product Manager'' AN';
+wwv_flow_imp.g_varchar2_table(100) := 'D r.requested_by = ''ethan.brooks@acme.example'' AND r.open_date = DATE ''2026-04-15''),'||wwv_flow.LF||
+'  ''Ravi'', ''Meno';
+wwv_flow_imp.g_varchar2_table(101) := 'n'', ''ravi.menon@example.com'', ''+91-98765-11451'','||wwv_flow.LF||
+'  ''Executive Referral'', ''Hired'', DATE ''2026-04-22'',';
+wwv_flow_imp.g_varchar2_table(102) := ' ''N'', 9.10'||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_candidates ('||wwv_flow.LF||
+'  req_id, first_name, last_name, email, phone, source, c';
+wwv_flow_imp.g_varchar2_table(103) := 'urrent_stage,'||wwv_flow.LF||
+'  applied_date, diversity_flag, ai_score'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT r.req_id FROM tms_job_re';
+wwv_flow_imp.g_varchar2_table(104) := 'quisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.title = ''Product Manager'' AND r.requeste';
+wwv_flow_imp.g_varchar2_table(105) := 'd_by = ''ethan.brooks@acme.example'' AND r.open_date = DATE ''2026-04-15''),'||wwv_flow.LF||
+'  ''Elena'', ''Petrova'', ''elen';
+wwv_flow_imp.g_varchar2_table(106) := 'a.petrova@example.com'', ''+49-30-555-0148'','||wwv_flow.LF||
+'  ''LinkedIn'', ''Rejected'', DATE ''2026-04-25'', ''Y'', 5.10'||wwv_flow.LF||
+');';
+wwv_flow_imp.g_varchar2_table(107) := ''||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_employees ('||wwv_flow.LF||
+'  first_name, last_name, email, job_id, dept_id, manager_id, salary, h';
+wwv_flow_imp.g_varchar2_table(108) := 'ire_date, status'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  ''Maya'', ''Patel'', ''maya.patel@acme.example'','||wwv_flow.LF||
+'  (SELECT job_id FROM tms_';
+wwv_flow_imp.g_varchar2_table(109) := 'jobs WHERE title = ''Engineering Manager''),'||wwv_flow.LF||
+'  (SELECT dept_id FROM tms_departments WHERE name = ''Engi';
+wwv_flow_imp.g_varchar2_table(110) := 'neering''),'||wwv_flow.LF||
+'  NULL, 132000, DATE ''2018-04-02'', ''Active'''||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_employees ('||wwv_flow.LF||
+'  first_name,';
+wwv_flow_imp.g_varchar2_table(111) := ' last_name, email, job_id, dept_id, manager_id, salary, hire_date, status'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  ''Liam'', ''Chen';
+wwv_flow_imp.g_varchar2_table(112) := ''', ''liam.chen@acme.example'','||wwv_flow.LF||
+'  (SELECT job_id FROM tms_jobs WHERE title = ''DevOps Engineer''),'||wwv_flow.LF||
+'  (SEL';
+wwv_flow_imp.g_varchar2_table(113) := 'ECT dept_id FROM tms_departments WHERE name = ''IT Operations''),'||wwv_flow.LF||
+'  NULL, 98000, DATE ''2019-09-16'', ''A';
+wwv_flow_imp.g_varchar2_table(114) := 'ctive'''||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_employees ('||wwv_flow.LF||
+'  first_name, last_name, email, job_id, dept_id, manager_id, ';
+wwv_flow_imp.g_varchar2_table(115) := 'salary, hire_date, status'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  ''Priya'', ''Nair'', ''priya.nair@acme.example'','||wwv_flow.LF||
+'  (SELECT job_id ';
+wwv_flow_imp.g_varchar2_table(116) := 'FROM tms_jobs WHERE title = ''HR Business Partner''),'||wwv_flow.LF||
+'  (SELECT dept_id FROM tms_departments WHERE nam';
+wwv_flow_imp.g_varchar2_table(117) := 'e = ''Human Resources''),'||wwv_flow.LF||
+'  NULL, 94000, DATE ''2017-11-20'', ''Active'''||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_employees ('||wwv_flow.LF||
+' ';
+wwv_flow_imp.g_varchar2_table(118) := ' first_name, last_name, email, job_id, dept_id, manager_id, salary, hire_date, status'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  ''';
+wwv_flow_imp.g_varchar2_table(119) := 'Sofia'', ''Garcia'', ''sofia.garcia@acme.example'','||wwv_flow.LF||
+'  (SELECT job_id FROM tms_jobs WHERE title = ''Sales A';
+wwv_flow_imp.g_varchar2_table(120) := 'ccount Executive''),'||wwv_flow.LF||
+'  (SELECT dept_id FROM tms_departments WHERE name = ''Sales''),'||wwv_flow.LF||
+'  NULL, 88000, DAT';
+wwv_flow_imp.g_varchar2_table(121) := 'E ''2020-02-10'', ''Active'''||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_employees ('||wwv_flow.LF||
+'  first_name, last_name, email, job_id, dep';
+wwv_flow_imp.g_varchar2_table(122) := 't_id, manager_id, salary, hire_date, status'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  ''Noah'', ''Reed'', ''noah.reed@acme.example'','||wwv_flow.LF||
+' ';
+wwv_flow_imp.g_varchar2_table(123) := ' (SELECT job_id FROM tms_jobs WHERE title = ''Payroll Specialist''),'||wwv_flow.LF||
+'  (SELECT dept_id FROM tms_depart';
+wwv_flow_imp.g_varchar2_table(124) := 'ments WHERE name = ''Finance''),'||wwv_flow.LF||
+'  NULL, 64000, DATE ''2021-05-03'', ''Active'''||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_employ';
+wwv_flow_imp.g_varchar2_table(125) := 'ees ('||wwv_flow.LF||
+'  first_name, last_name, email, job_id, dept_id, manager_id, salary, hire_date, status'||wwv_flow.LF||
+') VALUE';
+wwv_flow_imp.g_varchar2_table(126) := 'S ('||wwv_flow.LF||
+'  ''Ethan'', ''Brooks'', ''ethan.brooks@acme.example'','||wwv_flow.LF||
+'  (SELECT job_id FROM tms_jobs WHERE title = ''';
+wwv_flow_imp.g_varchar2_table(127) := 'Product Manager''),'||wwv_flow.LF||
+'  (SELECT dept_id FROM tms_departments WHERE name = ''Product''),'||wwv_flow.LF||
+'  NULL, 120000, D';
+wwv_flow_imp.g_varchar2_table(128) := 'ATE ''2018-08-27'', ''Active'''||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_employees ('||wwv_flow.LF||
+'  candidate_id, first_name, last_name, em';
+wwv_flow_imp.g_varchar2_table(129) := 'ail, job_id, dept_id, manager_id,'||wwv_flow.LF||
+'  salary, hire_date, status'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT candidate_id FROM';
+wwv_flow_imp.g_varchar2_table(130) := ' tms_candidates WHERE email = ''ravi.menon@example.com''),'||wwv_flow.LF||
+'  ''Ravi'', ''Menon'', ''ravi.menon@acme.example';
+wwv_flow_imp.g_varchar2_table(131) := ''','||wwv_flow.LF||
+'  (SELECT job_id FROM tms_jobs WHERE title = ''Product Manager''),'||wwv_flow.LF||
+'  (SELECT dept_id FROM tms_depar';
+wwv_flow_imp.g_varchar2_table(132) := 'tments WHERE name = ''Product''),'||wwv_flow.LF||
+'  (SELECT employee_id FROM tms_employees WHERE email = ''ethan.brooks';
+wwv_flow_imp.g_varchar2_table(133) := '@acme.example''),'||wwv_flow.LF||
+'  118000, DATE ''2026-06-24'', ''Onboarding'''||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_interview_stages ('||wwv_flow.LF||
+'  ';
+wwv_flow_imp.g_varchar2_table(134) := 'candidate_id, req_id, stage_name, interviewer_id, scheduled_date, outcome,'||wwv_flow.LF||
+'  feedback_notes, score'||wwv_flow.LF||
+')';
+wwv_flow_imp.g_varchar2_table(135) := ' VALUES ('||wwv_flow.LF||
+'  (SELECT candidate_id FROM tms_candidates WHERE email = ''anika.rao@example.com''),'||wwv_flow.LF||
+'  (SELE';
+wwv_flow_imp.g_varchar2_table(136) := 'CT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.title = ''Seni';
+wwv_flow_imp.g_varchar2_table(137) := 'or Developer'' AND r.requested_by = ''maya.patel@acme.example'' AND r.open_date = DATE ''2026-06-01''),'||wwv_flow.LF||
+' ';
+wwv_flow_imp.g_varchar2_table(138) := ' ''Screening'','||wwv_flow.LF||
+'  (SELECT employee_id FROM tms_employees WHERE email = ''priya.nair@acme.example''),'||wwv_flow.LF||
+'  T';
+wwv_flow_imp.g_varchar2_table(139) := 'O_TIMESTAMP(''2026-06-11 10:00'', ''YYYY-MM-DD HH24:MI''),'||wwv_flow.LF||
+'  ''Proceed'','||wwv_flow.LF||
+'  TO_CLOB(''Strong communication ';
+wwv_flow_imp.g_varchar2_table(140) := 'and strong Java/Spring foundation. Move to technical panel.''),'||wwv_flow.LF||
+'  4.4'||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_interview_s';
+wwv_flow_imp.g_varchar2_table(141) := 'tages ('||wwv_flow.LF||
+'  candidate_id, req_id, stage_name, interviewer_id, scheduled_date, outcome,'||wwv_flow.LF||
+'  feedback_note';
+wwv_flow_imp.g_varchar2_table(142) := 's, score'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT candidate_id FROM tms_candidates WHERE email = ''anika.rao@example.com''';
+wwv_flow_imp.g_varchar2_table(143) := '),'||wwv_flow.LF||
+'  (SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.tit';
+wwv_flow_imp.g_varchar2_table(144) := 'le = ''Senior Developer'' AND r.requested_by = ''maya.patel@acme.example'' AND r.open_date = DATE ''2026-';
+wwv_flow_imp.g_varchar2_table(145) := '06-01''),'||wwv_flow.LF||
+'  ''Technical Interview'','||wwv_flow.LF||
+'  (SELECT employee_id FROM tms_employees WHERE email = ''maya.patel';
+wwv_flow_imp.g_varchar2_table(146) := '@acme.example''),'||wwv_flow.LF||
+'  TO_TIMESTAMP(''2026-06-18 14:30'', ''YYYY-MM-DD HH24:MI''),'||wwv_flow.LF||
+'  ''Proceed'','||wwv_flow.LF||
+'  TO_CLOB(''E';
+wwv_flow_imp.g_varchar2_table(147) := 'xcellent backend design discussion with practical AWS experience.''),'||wwv_flow.LF||
+'  4.8'||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_inter';
+wwv_flow_imp.g_varchar2_table(148) := 'view_stages ('||wwv_flow.LF||
+'  candidate_id, req_id, stage_name, interviewer_id, scheduled_date, outcome,'||wwv_flow.LF||
+'  feedbac';
+wwv_flow_imp.g_varchar2_table(149) := 'k_notes, score'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT candidate_id FROM tms_candidates WHERE email = ''marcus.hill@exam';
+wwv_flow_imp.g_varchar2_table(150) := 'ple.com''),'||wwv_flow.LF||
+'  (SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHE';
+wwv_flow_imp.g_varchar2_table(151) := 'RE j.title = ''Senior Developer'' AND r.requested_by = ''maya.patel@acme.example'' AND r.open_date = DAT';
+wwv_flow_imp.g_varchar2_table(152) := 'E ''2026-06-01''),'||wwv_flow.LF||
+'  ''Technical Interview'','||wwv_flow.LF||
+'  (SELECT employee_id FROM tms_employees WHERE email = ''ma';
+wwv_flow_imp.g_varchar2_table(153) := 'ya.patel@acme.example''),'||wwv_flow.LF||
+'  TO_TIMESTAMP(''2026-06-24 11:00'', ''YYYY-MM-DD HH24:MI''),'||wwv_flow.LF||
+'  ''Scheduled'','||wwv_flow.LF||
+'  ';
+wwv_flow_imp.g_varchar2_table(154) := 'TO_CLOB(''Panel booked; resume shows strong API experience.''),'||wwv_flow.LF||
+'  NULL'||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_interview_s';
+wwv_flow_imp.g_varchar2_table(155) := 'tages ('||wwv_flow.LF||
+'  candidate_id, req_id, stage_name, interviewer_id, scheduled_date, outcome,'||wwv_flow.LF||
+'  feedback_note';
+wwv_flow_imp.g_varchar2_table(156) := 's, score'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT candidate_id FROM tms_candidates WHERE email = ''tom.alvarez@example.co';
+wwv_flow_imp.g_varchar2_table(157) := 'm''),'||wwv_flow.LF||
+'  (SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.t';
+wwv_flow_imp.g_varchar2_table(158) := 'itle = ''DevOps Engineer'' AND r.requested_by = ''liam.chen@acme.example'' AND r.open_date = DATE ''2026-';
+wwv_flow_imp.g_varchar2_table(159) := '06-03''),'||wwv_flow.LF||
+'  ''Technical Interview'','||wwv_flow.LF||
+'  (SELECT employee_id FROM tms_employees WHERE email = ''liam.chen@';
+wwv_flow_imp.g_varchar2_table(160) := 'acme.example''),'||wwv_flow.LF||
+'  TO_TIMESTAMP(''2026-06-25 15:00'', ''YYYY-MM-DD HH24:MI''),'||wwv_flow.LF||
+'  ''Scheduled'','||wwv_flow.LF||
+'  TO_CLOB(''';
+wwv_flow_imp.g_varchar2_table(161) := 'Focus areas: Kubernetes operations, Terraform modules, incident response.''),'||wwv_flow.LF||
+'  NULL'||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO ';
+wwv_flow_imp.g_varchar2_table(162) := 'tms_interview_stages ('||wwv_flow.LF||
+'  candidate_id, req_id, stage_name, interviewer_id, scheduled_date, outcome,'||wwv_flow.LF||
+'';
+wwv_flow_imp.g_varchar2_table(163) := '  feedback_notes, score'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT candidate_id FROM tms_candidates WHERE email = ''olivia.';
+wwv_flow_imp.g_varchar2_table(164) := 'grant@example.com''),'||wwv_flow.LF||
+'  (SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.';
+wwv_flow_imp.g_varchar2_table(165) := 'job_id WHERE j.title = ''Sales Account Executive'' AND r.requested_by = ''sofia.garcia@acme.example'' AN';
+wwv_flow_imp.g_varchar2_table(166) := 'D r.open_date = DATE ''2026-05-25''),'||wwv_flow.LF||
+'  ''Manager Interview'','||wwv_flow.LF||
+'  (SELECT employee_id FROM tms_employees ';
+wwv_flow_imp.g_varchar2_table(167) := 'WHERE email = ''sofia.garcia@acme.example''),'||wwv_flow.LF||
+'  TO_TIMESTAMP(''2026-06-07 12:00'', ''YYYY-MM-DD HH24:MI'')';
+wwv_flow_imp.g_varchar2_table(168) := ','||wwv_flow.LF||
+'  ''Proceed'','||wwv_flow.LF||
+'  TO_CLOB(''Clear enterprise selling examples; strong territory planning.''),'||wwv_flow.LF||
+'  4.5'||wwv_flow.LF||
+');'||wwv_flow.LF||
+'';
+wwv_flow_imp.g_varchar2_table(169) := ''||wwv_flow.LF||
+'INSERT INTO tms_interview_stages ('||wwv_flow.LF||
+'  candidate_id, req_id, stage_name, interviewer_id, scheduled_da';
+wwv_flow_imp.g_varchar2_table(170) := 'te, outcome,'||wwv_flow.LF||
+'  feedback_notes, score'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT candidate_id FROM tms_candidates WHERE ema';
+wwv_flow_imp.g_varchar2_table(171) := 'il = ''ravi.menon@example.com''),'||wwv_flow.LF||
+'  (SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.';
+wwv_flow_imp.g_varchar2_table(172) := 'job_id = r.job_id WHERE j.title = ''Product Manager'' AND r.requested_by = ''ethan.brooks@acme.example''';
+wwv_flow_imp.g_varchar2_table(173) := ' AND r.open_date = DATE ''2026-04-15''),'||wwv_flow.LF||
+'  ''Final'','||wwv_flow.LF||
+'  (SELECT employee_id FROM tms_employees WHERE ema';
+wwv_flow_imp.g_varchar2_table(174) := 'il = ''ethan.brooks@acme.example''),'||wwv_flow.LF||
+'  TO_TIMESTAMP(''2026-05-16 16:00'', ''YYYY-MM-DD HH24:MI''),'||wwv_flow.LF||
+'  ''Comp';
+wwv_flow_imp.g_varchar2_table(175) := 'leted'','||wwv_flow.LF||
+'  TO_CLOB(''Strong roadmap judgment and stakeholder management. Recommended hire.''),'||wwv_flow.LF||
+'  4.9'||wwv_flow.LF||
+');';
+wwv_flow_imp.g_varchar2_table(176) := ''||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_offers ('||wwv_flow.LF||
+'  candidate_id, req_id, offered_salary, start_date, expiry_date, status, ';
+wwv_flow_imp.g_varchar2_table(177) := 'approved_by'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT candidate_id FROM tms_candidates WHERE email = ''anika.rao@example.c';
+wwv_flow_imp.g_varchar2_table(178) := 'om''),'||wwv_flow.LF||
+'  (SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.';
+wwv_flow_imp.g_varchar2_table(179) := 'title = ''Senior Developer'' AND r.requested_by = ''maya.patel@acme.example'' AND r.open_date = DATE ''20';
+wwv_flow_imp.g_varchar2_table(180) := '26-06-01''),'||wwv_flow.LF||
+'  95000, DATE ''2026-07-15'', DATE ''2026-07-02'', ''Sent'', ''maya.patel@acme.example'''||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INS';
+wwv_flow_imp.g_varchar2_table(181) := 'ERT INTO tms_offers ('||wwv_flow.LF||
+'  candidate_id, req_id, offered_salary, start_date, expiry_date, status, appro';
+wwv_flow_imp.g_varchar2_table(182) := 'ved_by'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT candidate_id FROM tms_candidates WHERE email = ''olivia.grant@example.com';
+wwv_flow_imp.g_varchar2_table(183) := '''),'||wwv_flow.LF||
+'  (SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.ti';
+wwv_flow_imp.g_varchar2_table(184) := 'tle = ''Sales Account Executive'' AND r.requested_by = ''sofia.garcia@acme.example'' AND r.open_date = D';
+wwv_flow_imp.g_varchar2_table(185) := 'ATE ''2026-05-25''),'||wwv_flow.LF||
+'  82000, DATE ''2026-07-22'', DATE ''2026-07-05'', ''Pending Approval'', ''sofia.garcia@';
+wwv_flow_imp.g_varchar2_table(186) := 'acme.example'''||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_offers ('||wwv_flow.LF||
+'  candidate_id, req_id, offered_salary, start_date, expir';
+wwv_flow_imp.g_varchar2_table(187) := 'y_date, status, approved_by'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT candidate_id FROM tms_candidates WHERE email = ''rav';
+wwv_flow_imp.g_varchar2_table(188) := 'i.menon@example.com''),'||wwv_flow.LF||
+'  (SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = ';
+wwv_flow_imp.g_varchar2_table(189) := 'r.job_id WHERE j.title = ''Product Manager'' AND r.requested_by = ''ethan.brooks@acme.example'' AND r.op';
+wwv_flow_imp.g_varchar2_table(190) := 'en_date = DATE ''2026-04-15''),'||wwv_flow.LF||
+'  118000, DATE ''2026-06-24'', DATE ''2026-06-10'', ''Accepted'', ''ethan.bro';
+wwv_flow_imp.g_varchar2_table(191) := 'oks@acme.example'''||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_onboarding_tasks ('||wwv_flow.LF||
+'  employee_id, task_name, assigned_to, cate';
+wwv_flow_imp.g_varchar2_table(192) := 'gory, due_date, status'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT employee_id FROM tms_employees WHERE email = ''ravi.menon';
+wwv_flow_imp.g_varchar2_table(193) := '@acme.example''),'||wwv_flow.LF||
+'  ''IT Setup'', ''liam.chen@acme.example'', ''IT'', DATE ''2026-06-28'', ''In Progress'''||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'';
+wwv_flow_imp.g_varchar2_table(194) := 'INSERT INTO tms_onboarding_tasks ('||wwv_flow.LF||
+'  employee_id, task_name, assigned_to, category, due_date, status';
+wwv_flow_imp.g_varchar2_table(195) := ', completed_date'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT employee_id FROM tms_employees WHERE email = ''ravi.menon@acme.';
+wwv_flow_imp.g_varchar2_table(196) := 'example''),'||wwv_flow.LF||
+'  ''HR Documents'', ''priya.nair@acme.example'', ''HR'', DATE ''2026-06-27'','||wwv_flow.LF||
+'  ''Completed'', DATE';
+wwv_flow_imp.g_varchar2_table(197) := ' ''2026-06-26'''||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_onboarding_tasks ('||wwv_flow.LF||
+'  employee_id, task_name, assigned_to, category';
+wwv_flow_imp.g_varchar2_table(198) := ', due_date, status'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT employee_id FROM tms_employees WHERE email = ''ravi.menon@acm';
+wwv_flow_imp.g_varchar2_table(199) := 'e.example''),'||wwv_flow.LF||
+'  ''Department Orientation'', ''ethan.brooks@acme.example'', ''Department'','||wwv_flow.LF||
+'  DATE ''2026-06-';
+wwv_flow_imp.g_varchar2_table(200) := '30'', ''Not Started'''||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_onboarding_tasks ('||wwv_flow.LF||
+'  employee_id, task_name, assigned_to, cat';
+wwv_flow_imp.g_varchar2_table(201) := 'egory, due_date, status'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT employee_id FROM tms_employees WHERE email = ''ravi.meno';
+wwv_flow_imp.g_varchar2_table(202) := 'n@acme.example''),'||wwv_flow.LF||
+'  ''Payroll Setup'', ''noah.reed@acme.example'', ''Payroll'','||wwv_flow.LF||
+'  DATE ''2026-06-29'', ''In P';
+wwv_flow_imp.g_varchar2_table(203) := 'rogress'''||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_onboarding_tasks ('||wwv_flow.LF||
+'  employee_id, task_name, assigned_to, category, due';
+wwv_flow_imp.g_varchar2_table(204) := '_date, status'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT employee_id FROM tms_employees WHERE email = ''ravi.menon@acme.exa';
+wwv_flow_imp.g_varchar2_table(205) := 'mple''),'||wwv_flow.LF||
+'  ''Security Awareness Training'', ''liam.chen@acme.example'', ''Compliance'','||wwv_flow.LF||
+'  DATE ''2026-07-03''';
+wwv_flow_imp.g_varchar2_table(206) := ', ''Not Started'''||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_leave_types (name, max_days_per_year)'||wwv_flow.LF||
+'VALUES (''Annual Leave'', 25';
+wwv_flow_imp.g_varchar2_table(207) := ');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_leave_types (name, max_days_per_year)'||wwv_flow.LF||
+'VALUES (''Sick Leave'', 10);'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tm';
+wwv_flow_imp.g_varchar2_table(208) := 's_leave_types (name, max_days_per_year)'||wwv_flow.LF||
+'VALUES (''Personal Leave'', 5);'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_leave_types (';
+wwv_flow_imp.g_varchar2_table(209) := 'name, max_days_per_year)'||wwv_flow.LF||
+'VALUES (''Parental Leave'', 60);'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_leave_types (name, max_days';
+wwv_flow_imp.g_varchar2_table(210) := '_per_year)'||wwv_flow.LF||
+'VALUES (''Bereavement Leave'', 5);'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_leave_balances (employee_id, leave_type';
+wwv_flow_imp.g_varchar2_table(211) := '_id, year, accrued, used, remaining)'||wwv_flow.LF||
+'VALUES ((SELECT employee_id FROM tms_employees WHERE email = ''m';
+wwv_flow_imp.g_varchar2_table(212) := 'aya.patel@acme.example''), (SELECT leave_type_id FROM tms_leave_types WHERE name = ''Annual Leave''), 2';
+wwv_flow_imp.g_varchar2_table(213) := '026, 25, 5, 20);'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_leave_balances (employee_id, leave_type_id, year, accrued, used, r';
+wwv_flow_imp.g_varchar2_table(214) := 'emaining)'||wwv_flow.LF||
+'VALUES ((SELECT employee_id FROM tms_employees WHERE email = ''maya.patel@acme.example''), (';
+wwv_flow_imp.g_varchar2_table(215) := 'SELECT leave_type_id FROM tms_leave_types WHERE name = ''Sick Leave''), 2026, 10, 1, 9);'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO ';
+wwv_flow_imp.g_varchar2_table(216) := 'tms_leave_balances (employee_id, leave_type_id, year, accrued, used, remaining)'||wwv_flow.LF||
+'VALUES ((SELECT empl';
+wwv_flow_imp.g_varchar2_table(217) := 'oyee_id FROM tms_employees WHERE email = ''liam.chen@acme.example''), (SELECT leave_type_id FROM tms_l';
+wwv_flow_imp.g_varchar2_table(218) := 'eave_types WHERE name = ''Annual Leave''), 2026, 25, 2, 23);'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_leave_balances (employee';
+wwv_flow_imp.g_varchar2_table(219) := '_id, leave_type_id, year, accrued, used, remaining)'||wwv_flow.LF||
+'VALUES ((SELECT employee_id FROM tms_employees W';
+wwv_flow_imp.g_varchar2_table(220) := 'HERE email = ''priya.nair@acme.example''), (SELECT leave_type_id FROM tms_leave_types WHERE name = ''An';
+wwv_flow_imp.g_varchar2_table(221) := 'nual Leave''), 2026, 25, 7, 18);'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_leave_balances (employee_id, leave_type_id, year, a';
+wwv_flow_imp.g_varchar2_table(222) := 'ccrued, used, remaining)'||wwv_flow.LF||
+'VALUES ((SELECT employee_id FROM tms_employees WHERE email = ''sofia.garcia@';
+wwv_flow_imp.g_varchar2_table(223) := 'acme.example''), (SELECT leave_type_id FROM tms_leave_types WHERE name = ''Annual Leave''), 2026, 25, 4';
+wwv_flow_imp.g_varchar2_table(224) := ', 21);'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_leave_balances (employee_id, leave_type_id, year, accrued, used, remaining)'||wwv_flow.LF||
+'';
+wwv_flow_imp.g_varchar2_table(225) := 'VALUES ((SELECT employee_id FROM tms_employees WHERE email = ''sofia.garcia@acme.example''), (SELECT l';
+wwv_flow_imp.g_varchar2_table(226) := 'eave_type_id FROM tms_leave_types WHERE name = ''Sick Leave''), 2026, 10, 2, 8);'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_leav';
+wwv_flow_imp.g_varchar2_table(227) := 'e_balances (employee_id, leave_type_id, year, accrued, used, remaining)'||wwv_flow.LF||
+'VALUES ((SELECT employee_id ';
+wwv_flow_imp.g_varchar2_table(228) := 'FROM tms_employees WHERE email = ''noah.reed@acme.example''), (SELECT leave_type_id FROM tms_leave_typ';
+wwv_flow_imp.g_varchar2_table(229) := 'es WHERE name = ''Annual Leave''), 2026, 25, 6, 19);'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_leave_balances (employee_id, lea';
+wwv_flow_imp.g_varchar2_table(230) := 've_type_id, year, accrued, used, remaining)'||wwv_flow.LF||
+'VALUES ((SELECT employee_id FROM tms_employees WHERE ema';
+wwv_flow_imp.g_varchar2_table(231) := 'il = ''ethan.brooks@acme.example''), (SELECT leave_type_id FROM tms_leave_types WHERE name = ''Annual L';
+wwv_flow_imp.g_varchar2_table(232) := 'eave''), 2026, 25, 3, 22);'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_leave_balances (employee_id, leave_type_id, year, accrued';
+wwv_flow_imp.g_varchar2_table(233) := ', used, remaining)'||wwv_flow.LF||
+'VALUES ((SELECT employee_id FROM tms_employees WHERE email = ''ravi.menon@acme.exa';
+wwv_flow_imp.g_varchar2_table(234) := 'mple''), (SELECT leave_type_id FROM tms_leave_types WHERE name = ''Annual Leave''), 2026, 25, 0, 25);'||wwv_flow.LF||
+''||wwv_flow.LF||
+'';
+wwv_flow_imp.g_varchar2_table(235) := 'INSERT INTO tms_leave_balances (employee_id, leave_type_id, year, accrued, used, remaining)'||wwv_flow.LF||
+'VALUES (';
+wwv_flow_imp.g_varchar2_table(236) := '(SELECT employee_id FROM tms_employees WHERE email = ''ravi.menon@acme.example''), (SELECT leave_type_';
+wwv_flow_imp.g_varchar2_table(237) := 'id FROM tms_leave_types WHERE name = ''Sick Leave''), 2026, 10, 0, 10);'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_leave_request';
+wwv_flow_imp.g_varchar2_table(238) := 's ('||wwv_flow.LF||
+'  employee_id, leave_type_id, start_date, end_date, days_requested, reason, status, approver_id'||wwv_flow.LF||
+'';
+wwv_flow_imp.g_varchar2_table(239) := ') VALUES ('||wwv_flow.LF||
+'  (SELECT employee_id FROM tms_employees WHERE email = ''maya.patel@acme.example''),'||wwv_flow.LF||
+'  (SEL';
+wwv_flow_imp.g_varchar2_table(240) := 'ECT leave_type_id FROM tms_leave_types WHERE name = ''Annual Leave''),'||wwv_flow.LF||
+'  DATE ''2026-07-08'', DATE ''2026';
+wwv_flow_imp.g_varchar2_table(241) := '-07-12'', 5,'||wwv_flow.LF||
+'  TO_CLOB(''Family trip booked after sprint planning.''),'||wwv_flow.LF||
+'  ''Approved'','||wwv_flow.LF||
+'  (SELECT employee';
+wwv_flow_imp.g_varchar2_table(242) := '_id FROM tms_employees WHERE email = ''priya.nair@acme.example'')'||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_leave_requests (';
+wwv_flow_imp.g_varchar2_table(243) := ''||wwv_flow.LF||
+'  employee_id, leave_type_id, start_date, end_date, days_requested, reason, status, approver_id'||wwv_flow.LF||
+') V';
+wwv_flow_imp.g_varchar2_table(244) := 'ALUES ('||wwv_flow.LF||
+'  (SELECT employee_id FROM tms_employees WHERE email = ''sofia.garcia@acme.example''),'||wwv_flow.LF||
+'  (SELE';
+wwv_flow_imp.g_varchar2_table(245) := 'CT leave_type_id FROM tms_leave_types WHERE name = ''Sick Leave''),'||wwv_flow.LF||
+'  DATE ''2026-06-20'', DATE ''2026-06';
+wwv_flow_imp.g_varchar2_table(246) := '-21'', 2,'||wwv_flow.LF||
+'  TO_CLOB(''Fever and recovery time.''),'||wwv_flow.LF||
+'  ''Approved'','||wwv_flow.LF||
+'  (SELECT employee_id FROM tms_employe';
+wwv_flow_imp.g_varchar2_table(247) := 'es WHERE email = ''priya.nair@acme.example'')'||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_leave_requests ('||wwv_flow.LF||
+'  employee_id, leav';
+wwv_flow_imp.g_varchar2_table(248) := 'e_type_id, start_date, end_date, days_requested, reason, status, approver_id'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT em';
+wwv_flow_imp.g_varchar2_table(249) := 'ployee_id FROM tms_employees WHERE email = ''ravi.menon@acme.example''),'||wwv_flow.LF||
+'  (SELECT leave_type_id FROM ';
+wwv_flow_imp.g_varchar2_table(250) := 'tms_leave_types WHERE name = ''Annual Leave''),'||wwv_flow.LF||
+'  DATE ''2026-08-12'', DATE ''2026-08-14'', 3,'||wwv_flow.LF||
+'  TO_CLOB(''';
+wwv_flow_imp.g_varchar2_table(251) := 'Planned travel after onboarding activities are complete.''),'||wwv_flow.LF||
+'  ''Submitted'','||wwv_flow.LF||
+'  (SELECT employee_id FRO';
+wwv_flow_imp.g_varchar2_table(252) := 'M tms_employees WHERE email = ''ethan.brooks@acme.example'')'||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_leave_requests ('||wwv_flow.LF||
+'  em';
+wwv_flow_imp.g_varchar2_table(253) := 'ployee_id, leave_type_id, start_date, end_date, days_requested, reason, status, approver_id'||wwv_flow.LF||
+') VALUES';
+wwv_flow_imp.g_varchar2_table(254) := ' ('||wwv_flow.LF||
+'  (SELECT employee_id FROM tms_employees WHERE email = ''noah.reed@acme.example''),'||wwv_flow.LF||
+'  (SELECT leave';
+wwv_flow_imp.g_varchar2_table(255) := '_type_id FROM tms_leave_types WHERE name = ''Personal Leave''),'||wwv_flow.LF||
+'  DATE ''2026-07-03'', DATE ''2026-07-03''';
+wwv_flow_imp.g_varchar2_table(256) := ', 1,'||wwv_flow.LF||
+'  TO_CLOB(''Personal appointment.''),'||wwv_flow.LF||
+'  ''Rejected'','||wwv_flow.LF||
+'  (SELECT employee_id FROM tms_employees WHER';
+wwv_flow_imp.g_varchar2_table(257) := 'E email = ''priya.nair@acme.example'')'||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_leave_requests ('||wwv_flow.LF||
+'  employee_id, leave_type_';
+wwv_flow_imp.g_varchar2_table(258) := 'id, start_date, end_date, days_requested, reason, status, approver_id'||wwv_flow.LF||
+') VALUES ('||wwv_flow.LF||
+'  (SELECT employee_';
+wwv_flow_imp.g_varchar2_table(259) := 'id FROM tms_employees WHERE email = ''liam.chen@acme.example''),'||wwv_flow.LF||
+'  (SELECT leave_type_id FROM tms_leav';
+wwv_flow_imp.g_varchar2_table(260) := 'e_types WHERE name = ''Annual Leave''),'||wwv_flow.LF||
+'  DATE ''2026-09-01'', DATE ''2026-09-05'', 5,'||wwv_flow.LF||
+'  TO_CLOB(''Tentativ';
+wwv_flow_imp.g_varchar2_table(261) := 'e vacation plan pending release freeze confirmation.''),'||wwv_flow.LF||
+'  ''Draft'','||wwv_flow.LF||
+'  NULL'||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_hr_pol';
+wwv_flow_imp.g_varchar2_table(262) := 'icy (category, title, content)'||wwv_flow.LF||
+'VALUES (''Leave'', ''Annual Leave Policy'', TO_CLOB(''Full-time employees ';
+wwv_flow_imp.g_varchar2_table(263) := 'receive 25 days of annual leave per calendar year. Leave should be requested at least two weeks in a';
+wwv_flow_imp.g_varchar2_table(264) := 'dvance and approved by the reporting manager. Unused annual leave may be carried forward according t';
+wwv_flow_imp.g_varchar2_table(265) := 'o local policy limits.''));'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_hr_policy (category, title, content)'||wwv_flow.LF||
+'VALUES (''Leave'', ''S';
+wwv_flow_imp.g_varchar2_table(266) := 'ick Leave Policy'', TO_CLOB(''Employees receive 10 days of paid sick leave per year. For absences long';
+wwv_flow_imp.g_varchar2_table(267) := 'er than two consecutive working days, employees may be asked to provide medical documentation to HR.';
+wwv_flow_imp.g_varchar2_table(268) := '''));'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_hr_policy (category, title, content)'||wwv_flow.LF||
+'VALUES (''Probation'', ''Probation Period'', ';
+wwv_flow_imp.g_varchar2_table(269) := 'TO_CLOB(''New hires serve a three-month probation period. Managers review onboarding progress, role e';
+wwv_flow_imp.g_varchar2_table(270) := 'xpectations, and performance checkpoints before confirming regular employment status.''));'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT IN';
+wwv_flow_imp.g_varchar2_table(271) := 'TO tms_hr_policy (category, title, content)'||wwv_flow.LF||
+'VALUES (''Remote Work'', ''Remote Work Policy'', TO_CLOB(''El';
+wwv_flow_imp.g_varchar2_table(272) := 'igible employees may work remotely up to two days per week with manager approval. New employees shou';
+wwv_flow_imp.g_varchar2_table(273) := 'ld coordinate remote work during onboarding so training, equipment setup, and team introductions are';
+wwv_flow_imp.g_varchar2_table(274) := ' not delayed.''));'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_hr_policy (category, title, content)'||wwv_flow.LF||
+'VALUES (''Benefits'', ''Health ';
+wwv_flow_imp.g_varchar2_table(275) := 'Insurance Enrollment'', TO_CLOB(''Employees are eligible for company-sponsored health insurance from t';
+wwv_flow_imp.g_varchar2_table(276) := 'heir hire date. HR sends enrollment instructions during onboarding and employees should complete the';
+wwv_flow_imp.g_varchar2_table(277) := ' form within seven calendar days.''));'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_hr_policy (category, title, content)'||wwv_flow.LF||
+'VALUES (';
+wwv_flow_imp.g_varchar2_table(278) := '''Security'', ''Information Security Policy'', TO_CLOB(''Employees must use company-managed devices for w';
+wwv_flow_imp.g_varchar2_table(279) := 'ork, enable multi-factor authentication, and report suspected security incidents immediately to IT O';
+wwv_flow_imp.g_varchar2_table(280) := 'perations.''));'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_hr_policy (category, title, content)'||wwv_flow.LF||
+'VALUES (''Conduct'', ''Code of Con';
+wwv_flow_imp.g_varchar2_table(281) := 'duct'', TO_CLOB(''Acme Corp expects respectful communication, inclusive collaboration, and responsible';
+wwv_flow_imp.g_varchar2_table(282) := ' handling of confidential information in every workplace interaction.''));'||wwv_flow.LF||
+''||wwv_flow.LF||
+'INSERT INTO tms_hr_policy';
+wwv_flow_imp.g_varchar2_table(283) := ' (category, title, content)'||wwv_flow.LF||
+'VALUES (''Travel'', ''Business Travel Policy'', TO_CLOB(''Business travel req';
+wwv_flow_imp.g_varchar2_table(284) := 'uires manager approval before booking. Employees should use preferred travel vendors and submit rece';
+wwv_flow_imp.g_varchar2_table(285) := 'ipts within five business days after the trip.''));'||wwv_flow.LF||
+''||wwv_flow.LF||
+'COMMIT;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'prompt TMS sample data load complete.'||wwv_flow.LF||
+''||wwv_flow.LF||
+'';
+wwv_flow_imp.g_varchar2_table(286) := ''||wwv_flow.LF||
+'-- TMS_CANDIDATE_PIPELINE rows from APEX_262_LL_Exp.'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_';
+wwv_flow_imp.g_varchar2_table(287) := 'NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED';
+wwv_flow_imp.g_varchar2_table(288) := '_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,IN';
+wwv_flow_imp.g_varchar2_table(289) := 'TERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLA';
+wwv_flow_imp.g_varchar2_table(290) := 'G) values (''Anika Rao'',''Anika'',''Rao'',''anika.rao@example.com'',''Senior Developer'',''Engineering'',''Open''';
+wwv_flow_imp.g_varchar2_table(291) := ',''LinkedIn'',''Offer'',to_date(''04-06-26'',''DD-MM-RR''),to_date(''08-06-26'',''DD-MM-RR''),to_date(''18-06-26''';
+wwv_flow_imp.g_varchar2_table(292) := ',''DD-MM-RR''),to_date(''24-06-26'',''DD-MM-RR''),null,null,20,8.7,4.8,''Sent'',95000,to_date(''15-07-26'',''DD';
+wwv_flow_imp.g_varchar2_table(293) := '-MM-RR''),''Priya Nair'',''Maya Patel'',''Bengaluru'', TRUE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE';
+wwv_flow_imp.g_varchar2_table(294) := '_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIE';
+wwv_flow_imp.g_varchar2_table(295) := 'D_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,I';
+wwv_flow_imp.g_varchar2_table(296) := 'NTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FL';
+wwv_flow_imp.g_varchar2_table(297) := 'AG) values (''Marcus Hill'',''Marcus'',''Hill'',''marcus.hill@example.com'',''Senior Developer'',''Engineering''';
+wwv_flow_imp.g_varchar2_table(298) := ',''Open'',''Employee Referral'',''Interview'',to_date(''05-06-26'',''DD-MM-RR''),to_date(''09-06-26'',''DD-MM-RR''';
+wwv_flow_imp.g_varchar2_table(299) := '),to_date(''24-06-26'',''DD-MM-RR''),null,null,null,19,7.9,null,''Draft'',null,null,''Priya Nair'',''Maya Pat';
+wwv_flow_imp.g_varchar2_table(300) := 'el'',''Bengaluru'', FALSE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMA';
+wwv_flow_imp.g_varchar2_table(301) := 'IL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIE';
+wwv_flow_imp.g_varchar2_table(302) := 'W_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OF';
+wwv_flow_imp.g_varchar2_table(303) := 'FERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Nina Park'',''Nina''';
+wwv_flow_imp.g_varchar2_table(304) := ',''Park'',''nina.park@example.com'',''Senior Developer'',''Engineering'',''Open'',''Careers Site'',''Screening'',t';
+wwv_flow_imp.g_varchar2_table(305) := 'o_date(''07-06-26'',''DD-MM-RR''),to_date(''12-06-26'',''DD-MM-RR''),null,null,null,null,17,6.4,null,''Draft''';
+wwv_flow_imp.g_varchar2_table(306) := ',null,null,''Priya Nair'',''Maya Patel'',''Bengaluru'', TRUE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (CANDIDA';
+wwv_flow_imp.g_varchar2_table(307) := 'TE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPL';
+wwv_flow_imp.g_varchar2_table(308) := 'IED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE';
+wwv_flow_imp.g_varchar2_table(309) := ',INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_';
+wwv_flow_imp.g_varchar2_table(310) := 'FLAG) values (''Jacob Lee'',''Jacob'',''Lee'',''jacob.lee@example.com'',''Senior Developer'',''Engineering'',''Op';
+wwv_flow_imp.g_varchar2_table(311) := 'en'',''Campus Event'',''Rejected'',to_date(''08-06-26'',''DD-MM-RR''),to_date(''13-06-26'',''DD-MM-RR''),null,nul';
+wwv_flow_imp.g_varchar2_table(312) := 'l,null,to_date(''16-06-26'',''DD-MM-RR''),8,4.2,null,''Rejected'',null,null,''Priya Nair'',''Maya Patel'',''Ben';
+wwv_flow_imp.g_varchar2_table(313) := 'galuru'', FALSE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_T';
+wwv_flow_imp.g_varchar2_table(314) := 'ITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,O';
+wwv_flow_imp.g_varchar2_table(315) := 'FFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SA';
+wwv_flow_imp.g_varchar2_table(316) := 'LARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Tom Alvarez'',''Tom'',''Alvar';
+wwv_flow_imp.g_varchar2_table(317) := 'ez'',''tom.alvarez@example.com'',''DevOps Engineer'',''IT Operations'',''Open'',''Recruiter Sourced'',''Intervie';
+wwv_flow_imp.g_varchar2_table(318) := 'w'',to_date(''06-06-26'',''DD-MM-RR''),to_date(''10-06-26'',''DD-MM-RR''),to_date(''25-06-26'',''DD-MM-RR''),null';
+wwv_flow_imp.g_varchar2_table(319) := ',null,null,18,8.1,null,''Draft'',null,null,''Priya Nair'',''Liam Chen'',''Hyderabad'', FALSE);'||wwv_flow.LF||
+'Insert into T';
+wwv_flow_imp.g_varchar2_table(320) := 'MS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_ST';
+wwv_flow_imp.g_varchar2_table(321) := 'ATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_';
+wwv_flow_imp.g_varchar2_table(322) := 'DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRI';
+wwv_flow_imp.g_varchar2_table(323) := 'NG_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Mei Wong'',''Mei'',''Wong'',''mei.wong@example.com'',''DevOps E';
+wwv_flow_imp.g_varchar2_table(324) := 'ngineer'',''IT Operations'',''Open'',''Careers Site'',''Applied'',to_date(''09-06-26'',''DD-MM-RR''),null,null,nu';
+wwv_flow_imp.g_varchar2_table(325) := 'll,null,null,15,6.9,null,''Draft'',null,null,''Priya Nair'',''Liam Chen'',''Hyderabad'', TRUE);'||wwv_flow.LF||
+'Insert into ';
+wwv_flow_imp.g_varchar2_table(326) := 'TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_S';
+wwv_flow_imp.g_varchar2_table(327) := 'TATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED';
+wwv_flow_imp.g_varchar2_table(328) := '_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIR';
+wwv_flow_imp.g_varchar2_table(329) := 'ING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Grace Kim'',''Grace'',''Kim'',''grace.kim@example.com'',''HR G';
+wwv_flow_imp.g_varchar2_table(330) := 'eneralist'',''Human Resources'',''Pending Approval'',''LinkedIn'',''Applied'',to_date(''12-06-26'',''DD-MM-RR''),';
+wwv_flow_imp.g_varchar2_table(331) := 'null,null,null,null,null,12,7.2,null,''Draft'',null,null,''Priya Nair'',''Priya Nair'',''Bengaluru'', TRUE);';
+wwv_flow_imp.g_varchar2_table(332) := ''||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,';
+wwv_flow_imp.g_varchar2_table(333) := 'REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_';
+wwv_flow_imp.g_varchar2_table(334) := 'DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,';
+wwv_flow_imp.g_varchar2_table(335) := 'RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Olivia Grant'',''Olivia'',''Grant'',''olivia.gr';
+wwv_flow_imp.g_varchar2_table(336) := 'ant@example.com'',''Sales Account Executive'',''Sales'',''Open'',''Agency'',''Offer'',to_date(''29-05-26'',''DD-MM';
+wwv_flow_imp.g_varchar2_table(337) := '-RR''),to_date(''02-06-26'',''DD-MM-RR''),to_date(''07-06-26'',''DD-MM-RR''),to_date(''21-06-26'',''DD-MM-RR''),n';
+wwv_flow_imp.g_varchar2_table(338) := 'ull,null,23,8.3,4.5,''Pending Approval'',82000,to_date(''22-07-26'',''DD-MM-RR''),''Priya Nair'',''Sofia Garc';
+wwv_flow_imp.g_varchar2_table(339) := 'ia'',''Mumbai'', FALSE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,';
+wwv_flow_imp.g_varchar2_table(340) := 'JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_D';
+wwv_flow_imp.g_varchar2_table(341) := 'ATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFER';
+wwv_flow_imp.g_varchar2_table(342) := 'ED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Daniel Brown'',''Danie';
+wwv_flow_imp.g_varchar2_table(343) := 'l'',''Brown'',''daniel.brown@example.com'',''Sales Account Executive'',''Sales'',''Open'',''Careers Site'',''Scree';
+wwv_flow_imp.g_varchar2_table(344) := 'ning'',to_date(''01-06-26'',''DD-MM-RR''),to_date(''06-06-26'',''DD-MM-RR''),null,null,null,null,23,6.8,null,';
+wwv_flow_imp.g_varchar2_table(345) := '''Draft'',null,null,''Priya Nair'',''Sofia Garcia'',''Mumbai'', FALSE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (';
+wwv_flow_imp.g_varchar2_table(346) := 'CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STA';
+wwv_flow_imp.g_varchar2_table(347) := 'GE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,A';
+wwv_flow_imp.g_varchar2_table(348) := 'I_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIV';
+wwv_flow_imp.g_varchar2_table(349) := 'ERSITY_FLAG) values (''Aisha Khan'',''Aisha'',''Khan'',''aisha.khan@example.com'',''Sales Account Executive'',';
+wwv_flow_imp.g_varchar2_table(350) := '''Sales'',''Open'',''Referral'',''Applied'',to_date(''04-06-26'',''DD-MM-RR''),null,null,null,null,null,20,7.1,n';
+wwv_flow_imp.g_varchar2_table(351) := 'ull,''Draft'',null,null,''Priya Nair'',''Sofia Garcia'',''Mumbai'', TRUE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELIN';
+wwv_flow_imp.g_varchar2_table(352) := 'E (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_';
+wwv_flow_imp.g_varchar2_table(353) := 'STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELIN';
+wwv_flow_imp.g_varchar2_table(354) := 'E,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,';
+wwv_flow_imp.g_varchar2_table(355) := 'DIVERSITY_FLAG) values (''Ravi Menon'',''Ravi'',''Menon'',''ravi.menon@example.com'',''Product Manager'',''Prod';
+wwv_flow_imp.g_varchar2_table(356) := 'uct'',''Filled'',''Executive Referral'',''Hired'',to_date(''22-04-26'',''DD-MM-RR''),to_date(''29-04-26'',''DD-MM-';
+wwv_flow_imp.g_varchar2_table(357) := 'RR''),to_date(''16-05-26'',''DD-MM-RR''),to_date(''28-05-26'',''DD-MM-RR''),to_date(''24-06-26'',''DD-MM-RR''),nu';
+wwv_flow_imp.g_varchar2_table(358) := 'll,63,9.1,4.9,''Accepted'',118000,to_date(''24-06-26'',''DD-MM-RR''),''Priya Nair'',''Ethan Brooks'',''Pune'', F';
+wwv_flow_imp.g_varchar2_table(359) := 'ALSE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPAR';
+wwv_flow_imp.g_varchar2_table(360) := 'TMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,';
+wwv_flow_imp.g_varchar2_table(361) := 'HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START';
+wwv_flow_imp.g_varchar2_table(362) := '_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Elena Petrova'',''Elena'',''Petrova'',''e';
+wwv_flow_imp.g_varchar2_table(363) := 'lena.petrova@example.com'',''Product Manager'',''Product'',''Filled'',''LinkedIn'',''Rejected'',to_date(''25-04-';
+wwv_flow_imp.g_varchar2_table(364) := '26'',''DD-MM-RR''),to_date(''01-05-26'',''DD-MM-RR''),to_date(''14-05-26'',''DD-MM-RR''),null,null,to_date(''18-';
+wwv_flow_imp.g_varchar2_table(365) := '05-26'',''DD-MM-RR''),23,5.1,3.1,''Rejected'',null,null,''Priya Nair'',''Ethan Brooks'',''Pune'', TRUE);'||wwv_flow.LF||
+'Insert';
+wwv_flow_imp.g_varchar2_table(366) := ' into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISI';
+wwv_flow_imp.g_varchar2_table(367) := 'TION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,RE';
+wwv_flow_imp.g_varchar2_table(368) := 'JECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUIT';
+wwv_flow_imp.g_varchar2_table(369) := 'ER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Chris Morgan'',''Chris'',''Morgan'',''chris.morgan@exa';
+wwv_flow_imp.g_varchar2_table(370) := 'mple.com'',''Data Analyst'',''Finance'',''Draft'',''Careers Site'',''Applied'',to_date(''18-06-26'',''DD-MM-RR''),n';
+wwv_flow_imp.g_varchar2_table(371) := 'ull,null,null,null,null,6,6.3,null,''Draft'',null,null,''Priya Nair'',''Noah Reed'',''Bengaluru'', FALSE);'||wwv_flow.LF||
+'I';
+wwv_flow_imp.g_varchar2_table(372) := 'nsert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,RE';
+wwv_flow_imp.g_varchar2_table(373) := 'QUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DA';
+wwv_flow_imp.g_varchar2_table(374) := 'TE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RE';
+wwv_flow_imp.g_varchar2_table(375) := 'CRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Sara Ibrahim'',''Sara'',''Ibrahim'',''sara.ibrahi';
+wwv_flow_imp.g_varchar2_table(376) := 'm@example.com'',''Data Analyst'',''Finance'',''Draft'',''LinkedIn'',''Applied'',to_date(''19-06-26'',''DD-MM-RR''),';
+wwv_flow_imp.g_varchar2_table(377) := 'null,null,null,null,null,5,7.4,null,''Draft'',null,null,''Priya Nair'',''Noah Reed'',''Bengaluru'', TRUE);'||wwv_flow.LF||
+'I';
+wwv_flow_imp.g_varchar2_table(378) := 'nsert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,RE';
+wwv_flow_imp.g_varchar2_table(379) := 'QUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DA';
+wwv_flow_imp.g_varchar2_table(380) := 'TE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RE';
+wwv_flow_imp.g_varchar2_table(381) := 'CRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Farah Ali'',''Farah'',''Ali'',''farah.ali@example';
+wwv_flow_imp.g_varchar2_table(382) := '.com'',''HR Generalist'',''Human Resources'',''Pending Approval'',''Agency'',''Screening'',to_date(''13-06-26'',''';
+wwv_flow_imp.g_varchar2_table(383) := 'DD-MM-RR''),to_date(''18-06-26'',''DD-MM-RR''),null,null,null,null,11,6.7,null,''Draft'',null,null,''Priya N';
+wwv_flow_imp.g_varchar2_table(384) := 'air'',''Priya Nair'',''Bengaluru'', TRUE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,';
+wwv_flow_imp.g_varchar2_table(385) := 'LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_';
+wwv_flow_imp.g_varchar2_table(386) := 'DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OF';
+wwv_flow_imp.g_varchar2_table(387) := 'FER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Ben ';
+wwv_flow_imp.g_varchar2_table(388) := 'Carter'',''Ben'',''Carter'',''ben.carter@example.com'',''DevOps Engineer'',''IT Operations'',''Open'',''LinkedIn'',';
+wwv_flow_imp.g_varchar2_table(389) := '''Rejected'',to_date(''30-05-26'',''DD-MM-RR''),to_date(''04-06-26'',''DD-MM-RR''),to_date(''12-06-26'',''DD-MM-R';
+wwv_flow_imp.g_varchar2_table(390) := 'R''),null,null,to_date(''14-06-26'',''DD-MM-RR''),15,5.6,2.8,''Rejected'',null,null,''Priya Nair'',''Liam Chen';
+wwv_flow_imp.g_varchar2_table(391) := ''',''Hyderabad'', FALSE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL';
+wwv_flow_imp.g_varchar2_table(392) := ',JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_';
+wwv_flow_imp.g_varchar2_table(393) := 'DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFE';
+wwv_flow_imp.g_varchar2_table(394) := 'RED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Ivy Chen'',''Ivy'',''Ch';
+wwv_flow_imp.g_varchar2_table(395) := 'en'',''ivy.chen@example.com'',''Senior Developer'',''Engineering'',''Open'',''Referral'',''Interview'',to_date(''1';
+wwv_flow_imp.g_varchar2_table(396) := '0-06-26'',''DD-MM-RR''),to_date(''14-06-26'',''DD-MM-RR''),to_date(''28-06-26'',''DD-MM-RR''),null,null,null,14';
+wwv_flow_imp.g_varchar2_table(397) := ',8.4,null,''Draft'',null,null,''Priya Nair'',''Maya Patel'',''Bengaluru'', TRUE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_';
+wwv_flow_imp.g_varchar2_table(398) := 'PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,C';
+wwv_flow_imp.g_varchar2_table(399) := 'URRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_';
+wwv_flow_imp.g_varchar2_table(400) := 'PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LO';
+wwv_flow_imp.g_varchar2_table(401) := 'CATION,DIVERSITY_FLAG) values (''Owen Miller'',''Owen'',''Miller'',''owen.miller@example.com'',''Senior Devel';
+wwv_flow_imp.g_varchar2_table(402) := 'oper'',''Engineering'',''Open'',''Careers Site'',''Applied'',to_date(''15-06-26'',''DD-MM-RR''),null,null,null,nu';
+wwv_flow_imp.g_varchar2_table(403) := 'll,null,9,6.1,null,''Draft'',null,null,''Priya Nair'',''Maya Patel'',''Bengaluru'', FALSE);'||wwv_flow.LF||
+'Insert into TMS_';
+wwv_flow_imp.g_varchar2_table(404) := 'CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATU';
+wwv_flow_imp.g_varchar2_table(405) := 'S,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DAT';
+wwv_flow_imp.g_varchar2_table(406) := 'E,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_';
+wwv_flow_imp.g_varchar2_table(407) := 'MANAGER,LOCATION,DIVERSITY_FLAG) values (''Priyanka Das'',''Priyanka'',''Das'',''priyanka.das@example.com'',';
+wwv_flow_imp.g_varchar2_table(408) := '''Sales Account Executive'',''Sales'',''Open'',''LinkedIn'',''Interview'',to_date(''31-05-26'',''DD-MM-RR''),to_da';
+wwv_flow_imp.g_varchar2_table(409) := 'te(''05-06-26'',''DD-MM-RR''),to_date(''19-06-26'',''DD-MM-RR''),null,null,null,24,7.6,4,''Draft'',null,null,''';
+wwv_flow_imp.g_varchar2_table(410) := 'Priya Nair'',''Sofia Garcia'',''Mumbai'', TRUE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST';
+wwv_flow_imp.g_varchar2_table(411) := '_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCRE';
+wwv_flow_imp.g_varchar2_table(412) := 'ENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SC';
+wwv_flow_imp.g_varchar2_table(413) := 'ORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values ';
+wwv_flow_imp.g_varchar2_table(414) := '(''Mateo Silva'',''Mateo'',''Silva'',''mateo.silva@example.com'',''Sales Account Executive'',''Sales'',''Open'',''A';
+wwv_flow_imp.g_varchar2_table(415) := 'gency'',''Rejected'',to_date(''28-05-26'',''DD-MM-RR''),to_date(''03-06-26'',''DD-MM-RR''),to_date(''11-06-26'',''';
+wwv_flow_imp.g_varchar2_table(416) := 'DD-MM-RR''),null,null,to_date(''13-06-26'',''DD-MM-RR''),16,5.3,2.7,''Rejected'',null,null,''Priya Nair'',''So';
+wwv_flow_imp.g_varchar2_table(417) := 'fia Garcia'',''Mumbai'', FALSE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAM';
+wwv_flow_imp.g_varchar2_table(418) := 'E,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INT';
+wwv_flow_imp.g_varchar2_table(419) := 'ERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STAT';
+wwv_flow_imp.g_varchar2_table(420) := 'US,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Hannah Scott';
+wwv_flow_imp.g_varchar2_table(421) := ''',''Hannah'',''Scott'',''hannah.scott@example.com'',''Product Manager'',''Product'',''Filled'',''Careers Site'',''R';
+wwv_flow_imp.g_varchar2_table(422) := 'ejected'',to_date(''20-04-26'',''DD-MM-RR''),to_date(''26-04-26'',''DD-MM-RR''),to_date(''09-05-26'',''DD-MM-RR''';
+wwv_flow_imp.g_varchar2_table(423) := '),null,null,to_date(''12-05-26'',''DD-MM-RR''),22,5.8,3,''Rejected'',null,null,''Priya Nair'',''Ethan Brooks''';
+wwv_flow_imp.g_varchar2_table(424) := ',''Pune'', FALSE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_T';
+wwv_flow_imp.g_varchar2_table(425) := 'ITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,O';
+wwv_flow_imp.g_varchar2_table(426) := 'FFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SA';
+wwv_flow_imp.g_varchar2_table(427) := 'LARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Kabir Mehta'',''Kabir'',''Meh';
+wwv_flow_imp.g_varchar2_table(428) := 'ta'',''kabir.mehta@example.com'',''Product Manager'',''Product'',''Filled'',''LinkedIn'',''Offer'',to_date(''21-04';
+wwv_flow_imp.g_varchar2_table(429) := '-26'',''DD-MM-RR''),to_date(''28-04-26'',''DD-MM-RR''),to_date(''15-05-26'',''DD-MM-RR''),to_date(''24-05-26'',''D';
+wwv_flow_imp.g_varchar2_table(430) := 'D-MM-RR''),null,null,33,8.5,4.6,''Withdrawn'',122000,to_date(''20-06-26'',''DD-MM-RR''),''Priya Nair'',''Ethan';
+wwv_flow_imp.g_varchar2_table(431) := ' Brooks'',''Pune'', FALSE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMA';
+wwv_flow_imp.g_varchar2_table(432) := 'IL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIE';
+wwv_flow_imp.g_varchar2_table(433) := 'W_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OF';
+wwv_flow_imp.g_varchar2_table(434) := 'FERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Marta Novak'',''Mar';
+wwv_flow_imp.g_varchar2_table(435) := 'ta'',''Novak'',''marta.novak@example.com'',''HR Generalist'',''Human Resources'',''Pending Approval'',''Careers ';
+wwv_flow_imp.g_varchar2_table(436) := 'Site'',''Applied'',to_date(''14-06-26'',''DD-MM-RR''),null,null,null,null,null,10,6.5,null,''Draft'',null,nul';
+wwv_flow_imp.g_varchar2_table(437) := 'l,''Priya Nair'',''Priya Nair'',''Bengaluru'', FALSE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,';
+wwv_flow_imp.g_varchar2_table(438) := 'FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE';
+wwv_flow_imp.g_varchar2_table(439) := ',SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVI';
+wwv_flow_imp.g_varchar2_table(440) := 'EW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) va';
+wwv_flow_imp.g_varchar2_table(441) := 'lues (''Noor Hassan'',''Noor'',''Hassan'',''noor.hassan@example.com'',''DevOps Engineer'',''IT Operations'',''Ope';
+wwv_flow_imp.g_varchar2_table(442) := 'n'',''Referral'',''Screening'',to_date(''08-06-26'',''DD-MM-RR''),to_date(''15-06-26'',''DD-MM-RR''),null,null,nu';
+wwv_flow_imp.g_varchar2_table(443) := 'll,null,16,7.5,null,''Draft'',null,null,''Priya Nair'',''Liam Chen'',''Hyderabad'', TRUE);'||wwv_flow.LF||
+'Insert into TMS_C';
+wwv_flow_imp.g_varchar2_table(444) := 'ANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS';
+wwv_flow_imp.g_varchar2_table(445) := ',SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE';
+wwv_flow_imp.g_varchar2_table(446) := ',DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_M';
+wwv_flow_imp.g_varchar2_table(447) := 'ANAGER,LOCATION,DIVERSITY_FLAG) values (''Arjun Nair'',''Arjun'',''Nair'',''arjun.nair@example.com'',''Senior';
+wwv_flow_imp.g_varchar2_table(448) := ' Developer'',''Engineering'',''Open'',''Recruiter Sourced'',''Screening'',to_date(''12-06-26'',''DD-MM-RR''),to_d';
+wwv_flow_imp.g_varchar2_table(449) := 'ate(''18-06-26'',''DD-MM-RR''),null,null,null,null,12,7,null,''Draft'',null,null,''Priya Nair'',''Maya Patel''';
+wwv_flow_imp.g_varchar2_table(450) := ',''Bengaluru'', FALSE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,';
+wwv_flow_imp.g_varchar2_table(451) := 'JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_D';
+wwv_flow_imp.g_varchar2_table(452) := 'ATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFER';
+wwv_flow_imp.g_varchar2_table(453) := 'ED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Tara Wilson'',''Tara'',';
+wwv_flow_imp.g_varchar2_table(454) := '''Wilson'',''tara.wilson@example.com'',''Data Analyst'',''Finance'',''Draft'',''LinkedIn'',''Applied'',to_date(''20';
+wwv_flow_imp.g_varchar2_table(455) := '-06-26'',''DD-MM-RR''),null,null,null,null,null,4,6.8,null,''Draft'',null,null,''Priya Nair'',''Noah Reed'',''';
+wwv_flow_imp.g_varchar2_table(456) := 'Bengaluru'', TRUE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB';
+wwv_flow_imp.g_varchar2_table(457) := '_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE';
+wwv_flow_imp.g_varchar2_table(458) := ',OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_';
+wwv_flow_imp.g_varchar2_table(459) := 'SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Leah Thompson'',''Leah'',''';
+wwv_flow_imp.g_varchar2_table(460) := 'Thompson'',''leah.thompson@example.com'',''Data Analyst'',''Finance'',''Draft'',''Employee Referral'',''Screenin';
+wwv_flow_imp.g_varchar2_table(461) := 'g'',to_date(''16-06-26'',''DD-MM-RR''),to_date(''21-06-26'',''DD-MM-RR''),null,null,null,null,8,7.6,null,''Dra';
+wwv_flow_imp.g_varchar2_table(462) := 'ft'',null,null,''Priya Nair'',''Noah Reed'',''Bengaluru'', FALSE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (CAND';
+wwv_flow_imp.g_varchar2_table(463) := 'IDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,A';
+wwv_flow_imp.g_varchar2_table(464) := 'PPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SC';
+wwv_flow_imp.g_varchar2_table(465) := 'ORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSI';
+wwv_flow_imp.g_varchar2_table(466) := 'TY_FLAG) values (''Samir Khan'',''Samir'',''Khan'',''samir.khan@example.com'',''DevOps Engineer'',''IT Operatio';
+wwv_flow_imp.g_varchar2_table(467) := 'ns'',''Open'',''Recruiter Sourced'',''Offer'',to_date(''27-05-26'',''DD-MM-RR''),to_date(''01-06-26'',''DD-MM-RR'')';
+wwv_flow_imp.g_varchar2_table(468) := ',to_date(''10-06-26'',''DD-MM-RR''),to_date(''18-06-26'',''DD-MM-RR''),null,null,28,8.6,4.4,''Expired'',99000,';
+wwv_flow_imp.g_varchar2_table(469) := 'to_date(''08-07-26'',''DD-MM-RR''),''Priya Nair'',''Liam Chen'',''Hyderabad'', FALSE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDA';
+wwv_flow_imp.g_varchar2_table(470) := 'TE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURC';
+wwv_flow_imp.g_varchar2_table(471) := 'E,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_';
+wwv_flow_imp.g_varchar2_table(472) := 'IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER';
+wwv_flow_imp.g_varchar2_table(473) := ',LOCATION,DIVERSITY_FLAG) values (''Mina George'',''Mina'',''George'',''mina.george@example.com'',''HR Genera';
+wwv_flow_imp.g_varchar2_table(474) := 'list'',''Human Resources'',''Pending Approval'',''Employee Referral'',''Interview'',to_date(''09-06-26'',''DD-MM';
+wwv_flow_imp.g_varchar2_table(475) := '-RR''),to_date(''14-06-26'',''DD-MM-RR''),to_date(''26-06-26'',''DD-MM-RR''),null,null,null,15,7.7,null,''Draf';
+wwv_flow_imp.g_varchar2_table(476) := 't'',null,null,''Priya Nair'',''Priya Nair'',''Bengaluru'', TRUE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (CANDI';
+wwv_flow_imp.g_varchar2_table(477) := 'DATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,AP';
+wwv_flow_imp.g_varchar2_table(478) := 'PLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCO';
+wwv_flow_imp.g_varchar2_table(479) := 'RE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSIT';
+wwv_flow_imp.g_varchar2_table(480) := 'Y_FLAG) values (''Lucas Evans'',''Lucas'',''Evans'',''lucas.evans@example.com'',''Sales Account Executive'',''S';
+wwv_flow_imp.g_varchar2_table(481) := 'ales'',''Open'',''Careers Site'',''Applied'',to_date(''10-06-26'',''DD-MM-RR''),null,null,null,null,null,14,6.2';
+wwv_flow_imp.g_varchar2_table(482) := ',null,''Draft'',null,null,''Priya Nair'',''Sofia Garcia'',''Mumbai'', FALSE);'||wwv_flow.LF||
+'';
+wwv_flow_imp_shared.create_install_script(
+ p_id=>wwv_flow_imp.id(4592425231586779351)
+,p_install_id=>wwv_flow_imp.id(4592381611947774032)
+,p_name=>'TMS_DML'
+,p_sequence=>20
+,p_script_type=>'INSTALL'
+,p_script_clob=>wwv_flow_imp.varchar2_to_clob(wwv_flow_imp.g_varchar2_table)
+,p_created_on=>wwv_flow_imp.dz('20261013070241Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013070241Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/deployment/install/install_ess_util
+begin
+wwv_flow_imp.g_varchar2_table := wwv_flow_imp.empty_varchar2_table;
+wwv_flow_imp.g_varchar2_table(1) := 'create or replace PACKAGE ess_util AS'||wwv_flow.LF||
+'  FUNCTION calculate_leave_balance ('||wwv_flow.LF||
+'      p_emp_id        I';
+wwv_flow_imp.g_varchar2_table(2) := 'N NUMBER,'||wwv_flow.LF||
+'      p_leave_type_id IN NUMBER'||wwv_flow.LF||
+'  ) RETURN NUMBER;'||wwv_flow.LF||
+'END ess_util;'||wwv_flow.LF||
+'/'||wwv_flow.LF||
+'create or replace ';
+wwv_flow_imp.g_varchar2_table(3) := 'PACKAGE BODY ess_util AS'||wwv_flow.LF||
+'  FUNCTION calculate_leave_balance ('||wwv_flow.LF||
+'      p_emp_id        IN NUMBER,'||wwv_flow.LF||
+'  ';
+wwv_flow_imp.g_varchar2_table(4) := '    p_leave_type_id IN NUMBER'||wwv_flow.LF||
+'  ) RETURN NUMBER'||wwv_flow.LF||
+'  IS'||wwv_flow.LF||
+'      l_year        NUMBER := EXTRACT(YEAR F';
+wwv_flow_imp.g_varchar2_table(5) := 'ROM SYSDATE);'||wwv_flow.LF||
+'      l_remaining   TMS_LEAVE_BALANCES.REMAINING%TYPE;'||wwv_flow.LF||
+'      l_entitlement TMS_LEAVE';
+wwv_flow_imp.g_varchar2_table(6) := '_TYPES.MAX_DAYS_PER_YEAR%TYPE;'||wwv_flow.LF||
+'      l_used        NUMBER := 0;'||wwv_flow.LF||
+'  BEGIN'||wwv_flow.LF||
+'      IF p_emp_id IS NULL';
+wwv_flow_imp.g_varchar2_table(7) := ' OR p_leave_type_id IS NULL THEN'||wwv_flow.LF||
+'          RETURN NULL;'||wwv_flow.LF||
+'      END IF;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'      -- First try the cu';
+wwv_flow_imp.g_varchar2_table(8) := 'rrent balance table.'||wwv_flow.LF||
+'      BEGIN'||wwv_flow.LF||
+'          SELECT b.remaining'||wwv_flow.LF||
+'            INTO l_remaining'||wwv_flow.LF||
+'     ';
+wwv_flow_imp.g_varchar2_table(9) := '       FROM tms_leave_balances b'||wwv_flow.LF||
+'           WHERE b.employee_id   = p_emp_id'||wwv_flow.LF||
+'             AND b.le';
+wwv_flow_imp.g_varchar2_table(10) := 'ave_type_id = p_leave_type_id'||wwv_flow.LF||
+'             AND b.year          = l_year;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'          RETURN l_rema';
+wwv_flow_imp.g_varchar2_table(11) := 'ining;'||wwv_flow.LF||
+'      EXCEPTION'||wwv_flow.LF||
+'          WHEN NO_DATA_FOUND THEN'||wwv_flow.LF||
+'              NULL;'||wwv_flow.LF||
+'      END;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'     ';
+wwv_flow_imp.g_varchar2_table(12) := ' -- Fallback: calculate from entitlement minus approved leave requests.'||wwv_flow.LF||
+'      BEGIN'||wwv_flow.LF||
+'          SELE';
+wwv_flow_imp.g_varchar2_table(13) := 'CT lt.max_days_per_year'||wwv_flow.LF||
+'            INTO l_entitlement'||wwv_flow.LF||
+'            FROM tms_leave_types lt'||wwv_flow.LF||
+'      ';
+wwv_flow_imp.g_varchar2_table(14) := '     WHERE lt.leave_type_id = p_leave_type_id;'||wwv_flow.LF||
+'      EXCEPTION'||wwv_flow.LF||
+'          WHEN NO_DATA_FOUND THEN'||wwv_flow.LF||
+'';
+wwv_flow_imp.g_varchar2_table(15) := '              RETURN NULL;'||wwv_flow.LF||
+'      END;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'      SELECT NVL(SUM(lr.days_requested), 0)'||wwv_flow.LF||
+'        INTO ';
+wwv_flow_imp.g_varchar2_table(16) := 'l_used'||wwv_flow.LF||
+'        FROM tms_leave_requests lr'||wwv_flow.LF||
+'       WHERE lr.employee_id   = p_emp_id'||wwv_flow.LF||
+'         AND l';
+wwv_flow_imp.g_varchar2_table(17) := 'r.leave_type_id = p_leave_type_id'||wwv_flow.LF||
+'         AND lr.status        = ''Approved'''||wwv_flow.LF||
+'         AND EXTRACT(';
+wwv_flow_imp.g_varchar2_table(18) := 'YEAR FROM lr.start_date) = l_year;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'      RETURN GREATEST(l_entitlement - l_used, 0);'||wwv_flow.LF||
+'  END calcu';
+wwv_flow_imp.g_varchar2_table(19) := 'late_leave_balance;'||wwv_flow.LF||
+'END ess_util;'||wwv_flow.LF||
+'/ ';
+wwv_flow_imp_shared.create_install_script(
+ p_id=>wwv_flow_imp.id(4633840513004137369)
+,p_install_id=>wwv_flow_imp.id(4592381611947774032)
+,p_name=>'ess_util'
+,p_sequence=>30
+,p_script_type=>'INSTALL'
+,p_script_clob=>wwv_flow_imp.varchar2_to_clob(wwv_flow_imp.g_varchar2_table)
+,p_created_on=>wwv_flow_imp.dz('20261013104901Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013104901Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+wwv_flow_imp_shared.create_install_object(
+ p_id=>wwv_flow_imp.id(4633840693908137369)
+,p_script_id=>wwv_flow_imp.id(4633840513004137369)
+,p_object_owner=>'#OWNER#'
+,p_object_type=>'PACKAGE'
+,p_object_name=>'ESS_UTIL'
+,p_created_on=>wwv_flow_imp.dz('20261013104901Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261013104901Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_last_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/deployment/install/install_tms_candidate_images_sql
+begin
+wwv_flow_imp.g_varchar2_table := wwv_flow_imp.empty_varchar2_table;
+wwv_flow_imp.g_varchar2_table(1) := '-- Runnable data script extracted from the APEX export.'||wwv_flow.LF||
+'-- Each candidate update commits separately ';
+wwv_flow_imp.g_varchar2_table(2) := 'to shorten row-lock duration.'||wwv_flow.LF||
+'-- The updates are repeatable; a later failure can leave earlier rows ';
+wwv_flow_imp.g_varchar2_table(3) := 'committed.'||wwv_flow.LF||
+'SET DEFINE OFF;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'ALTER TABLE tms_candidates ADD ('||wwv_flow.LF||
+'    photo_blob         BLOB,'||wwv_flow.LF||
+'    photo_';
+wwv_flow_imp.g_varchar2_table(4) := 'mime_type    VARCHAR2(255),'||wwv_flow.LF||
+'    photo_filename     VARCHAR2(255),'||wwv_flow.LF||
+'    photo_charset      VARCHAR2(25';
+wwv_flow_imp.g_varchar2_table(5) := '5),'||wwv_flow.LF||
+'    photo_last_updated DATE'||wwv_flow.LF||
+');'||wwv_flow.LF||
+''||wwv_flow.LF||
+'/'||wwv_flow.LF||
+''||wwv_flow.LF||
+'UPDATE tms_candidates'||wwv_flow.LF||
+'   SET photo_blob = apex_web_service.cl';
+wwv_flow_imp.g_varchar2_table(6) := 'obbase642blob('||wwv_flow.LF||
+'                    TO_CLOB(q''[iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAABIeElEQV';
+wwv_flow_imp.g_varchar2_table(7) := 'R4nO29eZQlV3Xm++1zIuKOOVVmzXOpqjSBJgTCMgIMWMIDg5fh+bVXm7axaS/ofnjsXrZ7+a32em2wMRiMl8FugxtDY7dBxmAmCU';
+wwv_flow_imp.g_varchar2_table(8) := 'kYoVkqSmNJKqlKpRqyhpxu3vneiDhnvz9ORGZWKee8NyIyM35riSqqKm/EjTj7O3vvs88+9K5bhxkpKSnrEhH3DaSkpMRHKgApKe';
+wwv_flow_imp.g_varchar2_table(9) := 'uYVABSUtYxqQCkpKxjUgFISVnHpAKQkrKOSQUgJWUdkwpASso6JhWAlJR1TCoAKSnrGCvuG0iJDl5k0TdRd+8jJTmkArAGmMuwSQ';
+wwv_flow_imp.g_varchar2_table(10) := 'AzbVnKxVm21tMfyABYz/H5qVCselIBWEVcauhExsglEYQIDJ4AIQAwIC4xeKKFjZYZYL74H2nFAAFaB3+vze81M1jPfl8pq4NUAB';
+wwv_flow_imp.g_varchar2_table(11) := 'JMaFih4UpJEBIQhOBXmjL6+X5+oT+7lEs/z7JnvwAzGTFghlaAZphfNQdCMvvnpSSHVAASxKUGb1kEKQNjF/SKGTz894uN7Vd6X7';
+wwv_flow_imp.g_varchar2_table(12) := 'NBArCIpkZS6EFobURBKUCpVBCSSioAMTPTKCybYMnpmT4OY18Os4UAljVTFCgQA4avAOVzKgYJIRWAGAgHvxCB0VuB0YuL/00SjX';
+wwv_flow_imp.g_varchar2_table(13) := '2xXHrv0gKkRXAAaE1GDHwjBjpIMqZiED2pAETEpUZvBwYRDvrVbvALMfO7EQG2TbBt4x0on+GlYhALqQB0GeZp9962jWu8Xox+Pm';
+wwv_flow_imp.g_varchar2_table(14) := 'Z+b8smWIEY+D7D86bDhFQIuksqAF1g5mzvZAi2Pe3er2ejn4uZzyP0DLQmeB7Dc1OvoJukAtBBwoFsWeGMb2b71OgXz8zkYCZDcB';
+wwv_flow_imp.g_varchar2_table(15) := 'wjBL5ncgbh36V0hlQAOsC04ROcTJABR2r4KyV8do5jhMD3GW4b8H3zF6kQrJxUAFZAGKM6Dk1l88M/T+kcMwXWsgDfJ/gew/PSPM';
+wwv_flow_imp.g_varchar2_table(16) := 'FKSQVgGcwckJnsdI19avjd5aIQyyLYDtBupR7BSkgFYAnM5+qnREf4vKUk5AuA7yMNDZZJKgCLhBmQcjqrH/5ZSnxcGhp4HuC2GU';
+wwv_flow_imp.g_varchar2_table(17) := 'qlIrBYUgFYgDDGzGRNIirM6qckh/B92DbBsgiuy3DbaX5gMaQCMA/MgO0QMhmzjr+6svo86+95gS9AF1nMXL9PJuFXywReWrtt6g';
+wwv_flow_imp.g_varchar2_table(18) := 'hSEZibVABmgdkU8WRzq8XdZwAMZp5hwFbwewmi8DUTQHKBj1IIBYPZB6AC0fCDPwuvEf6XPML3l8uZ0KDdMsVEqRC8klQALmG2WT';
+wwv_flow_imp.g_varchar2_table(19) := '9ZXGrsAkQOiGyALIAVGBran4SGgvLH4fujIHKgdRlu+zjmbgWp4WQugxB9YHZhWRshrUEQJITVD4IwAsI+mD0wewB0IkVhZlggZe';
+wwv_flow_imp.g_varchar2_table(20) := 'oNzEUqAAGXzvrJcvd5ui8X2SDhQJANsIbWdXjeMDz3FNz2CXjuSfj+CHzvHLRuQusGtK6BSIBZA+zPfymypv6tEEUIkYcQOVj2Vl';
+wwv_flow_imp.g_varchar2_table(21) := 'jWJtjObjiZvbCdXbCsTRCiByBhBEG7AHvB5wgkQQzCPEDqDcxOKgAwg8SyCNlckmZ9BrMGEZkZXmYBBpSaQLv5PNrNI2i1noHnno';
+wwv_flow_imp.g_varchar2_table(22) := 'LvnYdWFTMjk4DxCuzgVwEhigDCRiPzj/wwR2D+mYJSZShVguueBKAB1iCyIWQvLHsLbGcXstlXIZO7Go6zB1JuAAhg3QKzG3gH8Y';
+wwv_flow_imp.g_varchar2_table(23) := 'sB87Q30GoyfD/1BgCA3nXrcCKGeywwgLDmPEMJMXwNgEGUAYkswBqeN4xm40doNZ5As/k4fO8CWDcBEiCyQOTAxPpkonc2YYJhpV';
+wwv_flow_imp.g_varchar2_table(24) := '+Kpn8lAiEUCRUYuG9EQeRg2ZuRy12PbP465PKvgW1vN96BboG5HXxW/J3oicxyYbvNU2NgvbJuBYDZtNrKZQnSitv4w9leQog8AI';
+wwv_flow_imp.g_varchar2_table(25) := 'LnnUGzcQj16n1otZ6C8sYCG8wEMb8IjF1PfUa0BFZDIhAFHQhCG2BA2kPIZq9BoecW5PI3wrZ3AGBo3QCzit0rIDJbjpst07psvX';
+wwv_flow_imp.g_varchar2_table(26) := 'oD61IAQpc/l497XZ+DWNsBiTy0qqPVPIxq5U40ag9CqXEABCFyANnBjxgPIZkEbYoBgD1o3QTAkHIQ+eLN6Om9DdncDRCyANYNaO';
+wwv_flow_imp.g_varchar2_table(27) := '3GKgThu2821m9IsO4EgNlU82Wzcc76Mw2/AN87i3rtPlQmvw63dRQM33gCZM9w51fbawpWBIgCMWiAYMHJXo7e/nejULwFlr0NrO';
+wwv_flow_imp.g_varchar2_table(28) := 'uJEIJWyxQPrTcRWFcCwACyQUVfXMbPrCCEAyEK8LyzqEx+HZXJr8P3zoGEA6JcYDRJnumXSuAZMIO5CdYuLHsrevvfjd7+d8O2t0';
+wwv_flow_imp.g_varchar2_table(29) := 'FPCcECdQrdukMCXJfRavG6SgmsCwEIl4LyBZMFjsX4WQEkIWQPfO/clOF73lkIUYAQTpBcm+MYnjWDABFBaxda12Hb26aEwLK3Qq';
+wwv_flow_imp.g_varchar2_table(30) := 'vq1LOKGiLTubhRXz9lxGteAKaqwvICUsYR7xv3XYgitG6gXPpHlEu3w/POzTD8tTTbLxYCkZghBFvRN/Ae9A38OwiRh9Y1xFFYZE';
+wwv_flow_imp.g_varchar2_table(31) := 'QAaDb0uqgXWNMCEO7gyxdEPMk+ViBhsvb12n2YGP0s2q3nQCK/jg3/UqaFgHUDmeyV2LDxgygUbzGrCroduTcQjpVGXa/5nYVrVg';
+wwv_flow_imp.g_varchar2_table(32) := 'BmGn8MV4eZ9Xvg++cxPvKXqFbuAJEFIXKp4c9KKARNMPvo6X07Bjf9P7CsLdC6irjKjNe6CKzJSsBYjZ8VIGwIUUCldDvGRz8Lpc';
+wwv_flow_imp.g_varchar2_table(33) := 'ZNySxMEjBlNjioD8iCCKhWvotG/VEMbvwgegfeA63rgPYi9wbyBbGmRWDNeQBhyWc2F/3bYvYhZS+UmsDYhU+gWrkTRJnA3U8Nfy';
+wwv_flow_imp.g_varchar2_table(34) := 'kQSRMWcBs9vbdhaPPvQMoNUKoyY3djdLSapgfhWhOB+OsyO0ho/Ll81G/JuPzS2oBm8wkMn/wAquXvQMgeEFmp8S8D4w1YELIH1f';
+wwv_flow_imp.g_varchar2_table(35) := 'J3MHzyA2g2n4C0NiCOuohcfnqT2FpizQhA6PZnc1G/JA1AQIg8Jse/iLOnPgTPG4a0Bi7aW5+yHBhgBWkNwPOGcfbUhzA5/sWgXF';
+wwv_flow_imp.g_varchar2_table(36) := 'ogyiVTZjO24llJ6h5rQgDii/nNzjgiCyPnP4LRC38S/P9s]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[0EwjpRMw+0FuwMbohT/By';
+wwv_flow_imp.g_varchar2_table(37) := 'PmPBJugbERdN5EvxLWc3B1WvQDEZfxhwkrrBs6e+hAqpX+GtAaDv13rxTxxYJ6ptAZRKf0zzp76kCkvpmzkIdZaEoFVLQBhkU/kM';
+wwv_flow_imp.g_varchar2_table(38) := 'z8rSFmE1jWcO/1baDYOQVr9qcvfdcKQoB/NxiGcO/1b0LoGKYvBs4+OfEEkqHfE8lnVAkBkKvwizcyygpB9aLWexfDJ96PVOgJp9';
+wwv_flow_imp.g_varchar2_table(39) := 'acuf4Qw+5BWP1qtI8E7eBZC9kUqArGMvS6wqgUg8vJeVhCyiFbrKZw7/Rtw3TMQsphm+WOAg3fhumdw7vRvoNV6CiJCTyAMPXP5V';
+wwv_flow_imp.g_varchar2_table(40) := 'W1Cq1MAmE2ffsuK0gVTELIA1z2Nc6d/E1rXIWUhctczZQasIGUBWtdx7vRvwnVPQ8gCgOhEwLLMWFytocCqE4BwP3+0W3o1iLJQq';
+wwv_flow_imp.g_varchar2_table(41) := 'oKRs39oilFE9MmnlFfCrEDikndDWUSViGUOTi9OTEu5pbGqBGCqeWekissgsqdmmVbraTPLpMafHNh4Z63W01PemVkijGaQMJs+E';
+wwv_flow_imp.g_varchar2_table(42) := '1bsreWWzqoRgOltvVE/ZAbIwej5P0Wz+TikHEiNP4mwgpQDaDYfx+j5PwXIQZQrMsxmbK62lYFVIwBEQDYXbdaV2YeQAyiN/S1ql';
+wwv_flow_imp.g_varchar2_table(43) := 'e/AsgaDwzBSkgizB8saRK3yHZTG/hZCDkS6OhPHGF0pq0IA4kj6cVCCGtdgSlkel4q2tAYiy9WsxqRg4gUgjPujTvoJkYPbPo7R8';
+wwv_flow_imp.g_varchar2_table(44) := 'x+L3J1MWSlh2PYxuO3jpqtyxEnB1ZIPSLwAhMd1Rf4wSWDswp9DqYng4I1V8DZTAhhETrAt+8+nW5VHdfVg45BIvHUlXABC1z/aB';
+wwv_flow_imp.g_varchar2_table(45) := '6kgZD8qpa+iUbsPQvQiqnXllE6iIEQvGrX7UCl9FUL2I8r3KMTqCAUSKwChKxXtHmyz3u+2X8DE6N+ARAHpxp7VjAaJAiZG/wZu+';
+wwv_flow_imp.g_varchar2_table(46) := '4XI6wNsO94W9IshsQIQl4IS2Rgf+TSULke6lpzSDUwNh9JljI98OnifEV49Fg92aSTy1sIHF+2Sn4IQPahW7kC9dn/Qwy91/Vc/5';
+wwv_flow_imp.g_varchar2_table(47) := 'r3Wa/ejWrkDQvREWsFJlOxQIHECwAzYkbv+YQ+6BibHvwBCPKfTpHQPgsTk+BeCHgLRvd8wFLATGgokTgAoOK47SszOsh6US/+Ad';
+wwv_flow_imp.g_varchar2_table(48) := 'usohMwjjf3XEhpC5tFuHUW59A8QMlovADBjOokFQokSgJkxU5S1/kI48L1zKJduB4l80Lc/ZS3BrEEij3LpdvjeOQgR3dJuWMaex';
+wwv_flow_imp.g_varchar2_table(49) := 'FAgMQIQ7q+O2vUPB0Z4QGeUAyMlSqaFvjL59ciFPgwFktZKLDECAESf+AMAQRa0qqBWvSfY4pvO/msVI/ZZ1Kr3QKsKRMTnC4QJw';
+wwv_flow_imp.g_varchar2_table(50) := 'SSRCAFgBiw7jvJJBZIF1Cp3wW0dM0dzp7P/GoZBlIPbOoZa5S5QhM1DgOmyditB5wskQgCiT/xpMCswa2jdQrX87aBcNCFvJaWLM';
+wwv_flow_imp.g_varchar2_table(51) := 'EAC1fK3oXULzDpICEbn+SUpIRi7AEQfG5mjuqXVD9vZAbd1FK3m0xBp1d86QUOIAlrNp+G2jsJ2dkBa/RCiiCgmgLhyXXMR++GgR';
+wwv_flow_imp.g_varchar2_table(52) := 'IhwjdRUhlXK/wrPPQUhetFsPIZ05l+PMCbG/ieajcehdQW2sws9vW8P+j10d3oOa108L/5xF6sAhPX+Uc7+IBuVyW+gUbsPJAoQw';
+wwv_flow_imp.g_varchar2_table(53) := 'gGJ6GrEU5KASQY2G4+iXrsfrOvIF29BT987AHYRxTHkoRfguvEeOBqrAEQ7+4eEIcAAhChGHv+lJAWTELSsIrR2IgsBpq6eEC8gt';
+wwv_flow_imp.g_varchar2_table(54) := 'hzAzNg/esIkYGr865t4x0EScgGxCUA8s39KSnIIvYA4Q4BYBCDe2T8lJTnE7QXE5gFYTlxXTklJFnHaQuQCMFUNJVP3PyWFGbBkf';
+wwv_flow_imp.g_varchar2_table(55) := 'E1EY1kFsBM6+xNNx2PMAKcKtSZYDe/VdgA/hq7zkQuAjFHtAJgj5i+5tiACCPA8BdfzgxyFhGNbIAK0Tt6ASVkYIcw4cz0fnqdAB';
+wwv_flow_imp.g_varchar2_table(56) := 'Di2BduWAAN6xkBgRmz1YKFXLGX0Yy1SATCbfswKQFwCoIPVnjDxKoVAs+3C8xW2DPVh9/Yh2FJgeKSE0+dKUFqjJ5+F0uly4WpCC';
+wwv_flow_imp.g_varchar2_table(57) := 'oFqowUpBHZuHcD2TQPwlMbJ4TGcHyvDtiRyGQdKT48FrRFbRp7I2Ea7Fe09RCoARIj4SO+LudT9k1KgXK3jsp0b8b533YzXX3cZ+';
+wwv_flow_imp.g_varchar2_table(58) := 'nvyEIJQa7Tx7LFh/O9vPoyHnjiOnnwGiFG4UhYHEQAGyrUmfuy6y/Dv3/F6XLV/O4r5DLRmTFYbePiJ4/jiNx7E8dOj6OspwA+0P';
+wwv_flow_imp.g_varchar2_table(59) := 'RwbcYhAeKqQG/G1IxOA6aW/+Nx/nuH+G+Nv4p1vuQ6//cu3ob8nh3qzjbbrmXu1JF5/7WW46drL8A/fehh/+aW7kcnYsXovKfMTv';
+wwv_flow_imp.g_varchar2_table(60) := 'pt228Nv//Kt+MWffT0IQLPtodF0QQQU8xm8663X402vuwJ//oU78a/ffwq9BZMLD99rXF6ACY8Bz4uuPDjSVQAr2q7Mr0DPMP5Sp';
+wwv_flow_imp.g_varchar2_table(61) := 'YF3vuU6/NF/fjdsS6JUaUApBhEFsSOj2mih3mjjfT9/C373/W9HvdEGJWUfZ8orICLUG2387vvfjvf9/C2oN9qoNlpgZghBICIox';
+wwv_flow_imp.g_varchar2_table(62) := 'ShVGrAtiT/6z+/GO99yHUqVBqQ0phB3uidqG4lMAIRArMk/ZoA1QwiBRrONqw9sx+++/+1otNrwfQVLvvJUVykEiAiTE1X8wk+/D';
+wwv_flow_imp.g_varchar2_table(63) := 'j/3thtQqTWnBktKcpBSoFJr4ufedgN+4adfh8mJKogI8pKm/ESAJQV8X6HRMmJx9YHtaDTbEEKANcc6Ri0r2nMEIrkUMyCteEsew';
+wwv_flow_imp.g_varchar2_table(64) := '9ldawUpBX7v134K+awDz1MQYu4bIwKEEKg32/jw+96GfTs2otl05/2ZlGgRgtBsuti3YyM+/L63oR4Y83zjTQiC5ynksw5+79d+C';
+wwv_flow_imp.g_varchar2_table(65) := 'lIKaK2mvIS4IDK2EpUIRaY1cbr/4cMUglBvevj5W1+Lay7fiVqjtajZnIIlwt5iDh9475vM8lGaB0gOwZLeB977JvQWc1NLfgshp';
+wwv_flow_imp.g_varchar2_table(66) := 'UCt0cI1l+/Ez9/6WtSb3pSwx5nnidJWIhEAIQAp4nP/wxU8pYC+oof33rodbRdYyiQupUC13sLbbr4K]'')'||wwv_flow.LF||
+'               ||';
+wwv_flow_imp.g_varchar2_table(67) := ' TO_CLOB(q''[112xE/VW6gUkASEI9ZaL667YibfdfBWq9cWJ+tTPE9B2gffeuh19RQ8qaBEY16ovs7GVqMKArl8mdP/jPB+NmSEF';
+wwv_flow_imp.g_varchar2_table(68) := 'o9G2ccPlI9jYPwnXk0sOSVgzLClw6xteBd9XoAgaR6TMD4Hg+wq3vuFVsKSJ4Zf08wS4nsTG/knccPkIGm0bUnCs1YJCRBcGRGKW';
+wwv_flow_imp.g_varchar2_table(69) := 'dozuf6jkmgHHUrjlumEwaFlNX4QQaLY9vOE1B7Bj8wBcz09Mc8f1iDFeHzs2D+ANrzmAZtuDWM5MQwCDcMt1w3AsNbUSEGftV1Q2';
+wwv_flow_imp.g_varchar2_table(70) := '03UBEGK6JDMOQiX3fImNAw1ctmMSrmuBlhHEhwNuy1Afrt6/Hc22ly4LxggRodn2cPX+7dgy1LdsQSYwXNfCZTsmsXGgAc83+9Tj';
+wwv_flow_imp.g_varchar2_table(71) := '8gLMSULReM1dvYTpgBq3+w9IwXA9iav2TKA378JXy1+RIAYAwuuv2wczb6QCEBfm2XPwLih4N8v4HAJ8RejNu7hqzwRcTwZhQCfv';
+wwv_flow_imp.g_varchar2_table(72) := 'dmkIgUiK5rpumjLGroMzXTgGsGdrBSR4ZQl8IihfYd/OjchlHOh0j0BsaK2RyzjYt3MjlK9WVMLHAEgw9mytXDQ+4ny9UdhOJCFA';
+wwv_flow_imp.g_varchar2_table(73) := 'XIQuXBj/79hcXdHsDxi301UKWzf2Y0N/AZ7SaR4gBogAT2ls6C9g68Z+uEqtKBwLvYAdm6sX5QHiTgZ2/Rrd/HAp46/9JwC+Eugp';
+wwv_flow_imp.g_varchar2_table(74) := 'uNgyWIfvy2XF/yFEgO8r9PfmsXPzBnien+YBYoCI4Hk+dm7egP7evFmVWYmwg+H7ElsG6+gpuPCVMAFGjGM3tJ9u0jUngxkQMr6t';
+wwv_flow_imp.g_varchar2_table(75) := 'v1OuW/D8LKlhy875c1IQHMeKrB5I0MWyZQbnCsOZDkAwxnjpvekIXjoDcBwLsoP1GLbUsOSMPeNsxlIcniyRsSG1suhmXrr6tawY';
+wwv_flow_imp.g_varchar2_table(76) := '4//prZ0Mz5PYNlhHb6jsK3yYrBmWZeHyPVuCmad7Kh1+dsPzMNlsYrzRwESjgUq7DU9r08wkJgQRPK1Rabcx0WhgvNHAZLOJhudd';
+wwv_flow_imp.g_varchar2_table(77) := 'dO/dgMis/1++Zwssy1ry+v8rP894ir0FF9sG6/A8CQqyinGGAd22oa5+fNzZf/Mb84sUPPVCO4VldfcLEhE8pTDZasENStRCk2r6';
+wwv_flow_imp.g_varchar2_table(78) := 'Pmqui6LjoCeTiXyQEhEq7TZqrgvNPHVfDKDueXCkRH82C1vKrt5bp98BkSkaAzA1duJeDejq53frg6WMb/1/tmt24za6+d1C4x9v';
+wwv_flow_imp.g_varchar2_table(79) := 'NOApBUEEQRT0t6Opmb/SbqPcakWahyAilFstVNptAHjFfYlL7r2b99aNdzDbR8Y1joXobvv8rggA88WNGKMmqpfVzcswM8qtlpld';
+wwv_flow_imp.g_varchar2_table(80) := '53mQggg110XTi6YoiYjQ9DzUXHfe8IOIoIPv0E0PICq7jMsLIApyLF26fvc8gATE/zMR1PkuK5fuNe8UgghN30d7kbMnBSIQRRjA';
+wwv_flow_imp.g_varchar2_table(81) := 'zKi57qLvq60Umr7ftVxFp98BkRkrlxJnHqCbttQ1AUhE/B9AxGi0Lbie6EwegEyWu1Jrdm3WdX1/0TWGBMDXGn4EVSvhdZZyb26X';
+wwv_flow_imp.g_varchar2_table(82) := '+l0TESq1pllx6MBrIGK4nkCjbb1inKzVPEBXPto00YjH/7/0RTEIlqUxUsqj3nI6UuJJRNBK4cSZUUgpOj47MAC1xM9k5gXDhZUS';
+wwv_flow_imp.g_varchar2_table(83) := 'uvVL/b6qC8uVzAwpBU6cGYXuQJ4hLBmvtxyMlPKwLA2+RFViO75LdC+c7poAxLX+P9s1wyWelis74gEQEVxPodX2Yl2GW+8IIrTa';
+wwv_flow_imp.g_varchar2_table(84) := 'HlyvM4lGIkbLlXMuFcc1nkN76gYdjy5mbgBKQvdco+walbqD4dEitg7V4K6gGtB0DBaYKNdxZqSErGN33OMRRMja1tTS30KYPncS';
+wwv_flow_imp.g_varchar2_table(85) := 'jiWnkkYLwXp6HicAtEglcywJ25JQWi/q/VLwXaSgjjbcJAKyjo0zIyWUynVs6CvA85dflh16isOjRVTqDnIZH8zJEPdwR63vdz6P';
+wwv_flow_imp.g_varchar2_table(86) := '1ZX0QhLq/2ciAg/gzIUevP7qc2bgLnegMMOxLZwYHsOZ8yXkHBu63VmlM+XLGq22h3zOmfe0GCGMN6K0Rkt4C1bgsVm0p2zGIQpe';
+wwv_flow_imp.g_varchar2_table(87) := 'FGuNVrMNMHghIRBEcFs+tAAcWy54b42mizxZqPqtjocBAoRStYETw2PBduDld21mBizBOHOhB74SEARc2hqQVzJwVki3bKorAkAJ';
+wwv_flow_imp.g_varchar2_table(88) := 'SgCGfyYF49iZfni+WFIrsFmvAaDRdHHTNXtRyGU6fpwTA7ClwNlSBfc9dQy9+axJPM64DhEgpUSt3sJgXwG3vHo/tL40ap0BAVpp';
+wwv_flow_imp.g_varchar2_table(89) := 'zmYdAoCXXjpbskmNAYDHztC+a/cNAKBWy2UhxZwOEsMY9n1PH8N4uY5iIQul1EXPXQgCGKjUW7jlmv3YNtBrNk2t/NFchOnx2Eaj';
+wwv_flow_imp.g_varchar2_table(90) := '6a5YXAQBni9w7Ez/nHmiOD3abtnUmvMAZoNBcGyFF073Y7KWQTHnLXtXoBCEZsvFj9+wH2+56Yqur0P/4We/gc99/X5kHQtZx54y';
+wwv_flow_imp.g_varchar2_table(91) := 'Lk8pTFab2Ll5AH/zB7+E1756L9ptb9ZQhAAorTmTz9HEyHjlnnsePjLQnhz3PNcDANt27CsvGxh861tff/WGTYO97UaTpZhtMcyI';
+wwv_flow_imp.g_varchar2_table(92) := 'UCZj47GnT+DXP/IlnL5QQjGfgS3llEg1Wi5aro9fe/cb8P998F1dfT4EoO35aK6gR6M5oVdjspbBC6f74djqFQnAuOmWTdG7bh3u';
+wwv_flow_imp.g_varchar2_table(93) := '6BhmBvKFeA4AZcacLZ0FMeptGx/+vw7jzTecRrXhTJd8LhOtO7P8NCtBFVg+l8HX/+1xfPb2e3Hi7BiaLRdSCAz05fGWG6/A7/zS';
+wwv_flow_imp.g_varchar2_table(94) := 'rdg21IdqvWUqL2e9T825bIZGLoyX//Zz//zQyFip6di22DDQmwOAiVKl6Xqe3jQ0kPvAr/38j23aPNjXbLVZzGJRFHzvnkIWZ8fK';
+wwv_flow_imp.g_varchar2_table(95) := '+MSXvofvH3oepXIDSmvksg72bhvCB9/zJrz7J65Ho9mO5DmtBKUJPXkXPzi8E5/+yg0oZDzoOeJ/KaMvcDM7UBmNeudzAB0XACIg';
+wwv_flow_imp.g_varchar2_table(96) := 'X1j5hpvlsKAAtGxcf3AEv//Lj6DtvnKtN2mEZxn2FrNotFy8eGoEo6UqHNvCZTs2YvumfrRdHy3Xm7MgJlguY621+p9/c/sPT506';
+wwv_flow_imp.g_varchar2_table(97) := 'Xxka6s/detvN]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[B/bv37kNAI4dO332e3c++OLY2GRz164tvf/x19/zRiGEVErTXDG10hp';
+wwv_flow_imp.g_varchar2_table(98) := 'Zx0bGsTA8MonjZ0bhej42DvTgwK5NyGcdVGqtWCtCFwszIeP4+OgXbsLjL2xCIZssAQDMWGjUF5d4XQox1ut1nvkejmZCLuPj2Zc';
+wwv_flow_imp.g_varchar2_table(99) := '34OS5PuzeWkbLtWat+koKYUa/XGtCCoGr920znW+Z0fZ8lGtNiFlOv5kJM3M2m6E773zw6ImTZyu5bMb6hV+47TUHr7psqF6pAwB';
+wwv_flow_imp.g_varchar2_table(100) := 'uuvm6fQP9Pb1/+7mvPXzi5NnKffc9fvS2226+ulZr8FwKIIWA6xnxGewrYNtQn9mhpzRarjd1z0lHMyHr+Dh5rg/PvrwBuYw/p/E';
+wwv_flow_imp.g_varchar2_table(101) := 'D08tya4WOvqG49wAshCDT/PErdx9ccSIwSkJDarRdlOtNVBtteL6aOrpsLjQzshmHzp0brd1//+GXBQm85S037d1/YNfQ5HhZK6W';
+wwv_flow_imp.g_varchar2_table(102) := 'glMLkeFnvP7Br6C1vuWmvIIH77z/88rlzo7VsxqH5VhXCo7c8X6HaaKNcb6LRdi+659WAIOArdx+Em+AJoVt7Ajr+lrpZtLBSNBP';
+wwv_flow_imp.g_varchar2_table(103) := 'yWQ+PPbcFDzy5DT1Bg9DVQjjbhwddLgQzs+PYeP65E6cnJyvuxqH+3Gtfe/WBdsuDECSmdvAJEu2Wh9e+9uoDG4f6c5OTFff5506';
+wwv_flow_imp.g_varchar2_table(104) := 'cdhwbvIiyv/BAVSnEqiqM8pWJ/R94chsee24L8vO4/nHTLbtaPTK9CBZTohquCPzdt16FMyM9KOR8+GpNPYYAhiUE1epN/fwLJ0a';
+wwv_flow_imp.g_varchar2_table(105) := 'JBA4c2DXY11d0XN/nmQJCRHB9n/v6is6BA3sGiQSef+HEaK3e1Fa47LDG8JVAIefjzEgP/u5br1p05j/OTUHdoOMjP85dgIvBVPJ';
+wwv_flow_imp.g_varchar2_table(106) := 'pVOsOPv1P16PWsNGTd6EUQbNxsRjGW9A6mbPBYtAabDs2ShPl6skTZ8uNRtM/cGDPFilm37tgTk8SOHhw1+Zmq+WfPHG2XJooV23';
+wwv_flow_imp.g_varchar2_table(107) := 'HhtarVwG0Dt4rzLvXTFDBzF9r2Pj0P12Pat2BbXU+wdZpumFbHV0FYAYyWUImE08jEKUWv9FHCkataWPf9jI+8K6ncMWeCShF8Hx';
+wwv_flow_imp.g_varchar2_table(108) := 'pCnEsDSk06k07sSHNQhABSrEuT1Yrp86cG9+/b+e2vv6e3GyHZzIDti1Rnqw2Tp+5MLpl82Bfb19Pr5Qkkm4Yc8EMFHIelBbwfNP';
+wwv_flow_imp.g_varchar2_table(109) := 'k07YUpGQ8//IG/O03rsFLw30o5jyoRYq9KcCKfkAQAe02o93q7FLgmhIA31/aRaVgNNsWLEvjjdedwc3XnMXWwRqkZJSqWdx7eAc';
+wwv_flow_imp.g_varchar2_table(110) := '2DTTwjlteQq1hQ6ywbiAOiEzzUtuy0Gi2oeZpY24KYgSyWQe+r+B6/qp0ebUmFPMevnnfPoyU8njTDWcw0NOCUoRz40U8+NQ2/PC';
+wwv_flow_imp.g_varchar2_table(111) := 'JHfB9gVzGX7Txh1jW2hGAhDvs3UVpswSkmfC9R3bj+4d2oa/YhhCMesPG2GQOP3nTSbzjDS/FVQK+YpgZzZbLDW5DEM25rg+EuyY';
+wwv_flow_imp.g_varchar2_table(112) := 'VqrUGw7T2Wp3fmgAwcPTkBtz1yG58/7FdKOQ9aE0o1zLwFSGf9ZF1lm78a42OC0A3+5d1gzDrW8x7YAbqTTuoxdcY6G3h/HgBjbY';
+wwv_flow_imp.g_varchar2_table(113) := 'FSbyiTURxIpawNhusDKzCbxnAgAwawJwfL2CgtwUhGJW6AwKQcXxkaTo3sJrohm2txfT3stCawEyQgmFJBoMgJOPceAHnxguwElg';
+wwv_flow_imp.g_varchar2_table(114) := 'fnvJKGATLVlPvTQTv0pIcbPJZ3cndTpMKwCWE2WIOZpJmMJMYUUhJOgzAkozz4wU0Z3hu4epOysWkAjAPBFMn/tSLG83cn46g5BP';
+wwv_flow_imp.g_varchar2_table(115) := 'sO3rqxY1gTs9uXohUAOZBg2BLjWOn+9FoWmb3YCoCySXo+9BoWjh2uh+21Oh8F4K1RSoA88AALFvhfKmA8xMmD5AeBp5cNIL3NVH';
+wwv_flow_imp.g_varchar2_table(116) := 'A+VKYt0mZj1QA5iNoE1Vv2HjyxY1wLJ2YPnEpr4SZ4FgaT764EfWGDSv12BZkTQlANxavwm4xjx/dBNeVq2oX4XpDEOC6Eo8f3QR';
+wwv_flow_imp.g_varchar2_table(117) := 'Ldqe0dxUvkM7KmhKAbqCZ4DgKx4f7cWa0CMdWHe1um9IZNAOOrXBmtIjjw/1wHLXq1vnjIBWARWAJRr1p49EjW82usXRgJQ5ms8v';
+wwv_flow_imp.g_varchar2_table(118) := 'z0SNbUW8G7n/KgnRcAFZh6fiC6GBwPfT0VlTrDiy5Br/kKseSjGrdwUNPbw28tLUn0t2wrY4LQATH081JtypYmYGMrXDqQi+eeWk';
+wwv_flow_imp.g_varchar2_table(119) := 'I2QXaRqVEi2ZCNuPjmZeGcOpCLzK26tpEFGeVdDdsKw0BlgARcM+ju6CCraUpyYAAKF/gnkd3rbkkXbdZUwLQzZcfNo985sQQTp7';
+wwv_flow_imp.g_varchar2_table(120) := 'vRcbx02RgAtBsNvicPN+LZ04MTe3u7BZrTWDWVAjQbaRgtNoW7nx4N2ypgTQMiB821Zp3Prwbrba14rMeksyqCAE41hxAdz9faUI';
+wwv_flow_imp.g_varchar2_table(121) := 'u6+GBp7bj+HA/sk68S4LMgNY6lqYdzAytdayFNpqBbLBE+8BT25HLLr6zz3KJ0wPohm2tqRAgCixhDhj57kN7YVsqVi9ASoFcIQc';
+wwv_flow_imp.g_varchar2_table(122) := 'pZaSrL+YEaIl8IQeSFF/XICbYlsJ3H9qLeitd+lsOHRUACs6Gi3cloLufrzShkPXw4FPbjBcQ04qAkAKtZhtPPHAEpbEyLEtEMxs';
+wwv_flow_imp.g_varchar2_table(123) := 'zYFkCpbEyHr//GfiuDydjR778G2b+jw/348GntqGwxmd/rY1tdfoe1pwHEMUyjQh6Cf6fuy6PfFCwZtgZG9//lwfwF//1c/jin30';
+wwv_flow_imp.g_varchar2_table(124) := 'FTz34LHLFHJSvun595Svkijk89dCz+Ps/+yo+/XufxwN3PIZM1gZHHA8RAf/nrsvRbFuR9GtczY2S5qIrhUBr7fikS9HaHDDyo+c';
+wwv_flow_imp.g_varchar2_table(125) := '34/Gjm5bUVbYTCCJs37MF1VIVfRt68dD3DuHYMy+jZ6AI5XcnJ8DMUL5Gz0ARx555GQ/deQj9Q72YuDCJ/sG+SI1DaUIx5+Hxo5v';
+wwv_flow_imp.g_varchar2_table(126) := 'wo+c3mwM91nCXH6Jpu+o0XRKA+GKxqMYhwawKfOm7V6FccyLrGESC0Gq08aqbrsD1b3w1apU6fE/hS5+4Hc8eegHF/jxML39tTuV';
+wwv_flow_imp.g_varchar2_table(127) := 'dyU1xGNJp2I6NYn8ezx56AV/6xO3wPYVauY4b3vRqXPNj]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[V6LVaIMi2CkVdvwp1xx86b';
+wwv_flow_imp.g_varchar2_table(128) := 'tXQYroGrXFmgDkxbe8XwpdCQHWcg4gxNQFKJw424dvP7APxZwb3SxEBK/t4Wff95PYe8UutBot+K6PL33idnzlr76JC2dGkS/mkS';
+wwv_flow_imp.g_varchar2_table(129) := 'tkIILDRLUygsCajUDzjFklEG3WbAxeGS9CSIFcIYN8MY8LZ0bxlb/6pjF+10er0cLeK3bhZ9/3k3BbXmQPXmtCMefi2w/sw4mzfc';
+wwv_flow_imp.g_varchar2_table(130) := 'FKTDTXjjsH0A06fjx43GcDAEs7IKQTMAP/7VcewZV7JtBoRROPhrmAZr2Fr37mX/Hc4WPIFbJwWy4yuQyuft3luPrGg9i+byt6+o';
+wwv_flow_imp.g_varchar2_table(131) := 'uwbBl4BAzfVyZeDwc0G8/CsiQQnPPnewrVyRqGXzqHI4dewJFHj6LdbMPJOmjWW7jyhv1474feiVwhC6/tRTL7m9DLx3Mvb8Af/6';
+wwv_flow_imp.g_varchar2_table(132) := '+bIjXIuA4ECa/djTMBgC4JgGUR8oX4BCDMmEaBIEbLtbB1qIaPfPB+WFJD6WhOSGbNkLaEEAI//OZDuP/bj6JebcDJOPBcDyQEeg';
+wwv_flow_imp.g_varchar2_table(133) := 'eK2LxzI7bt2Yxte7Ygk3MwMNSHTD4zlbQjQWg32iiNldFuujj78nmcffkCLpweRaVUAwchgNt2UejJ4w0/8zq88R0/Bq01lKeicf';
+wwv_flow_imp.g_varchar2_table(134) := '2Ddl++EviDz74B58aKXa/6m4kQhLgOPCYCGnWG768CAQDMw8oX4vOXmI0XEBVSMKoNBz/5upfxofc8GekpQmG+pdCTx9mTF3Dftx';
+wwv_flow_imp.g_varchar2_table(135) := '7Gcz86hnq1ASnN8eGhWy+kABGQK+Rg2XLqZ4nMjN+sN01xUfBvhTBr/EppFHryuPI1+3HLz74e23ZvRr3amPrZKAhP+/nM7dfirk';
+wwv_flow_imp.g_varchar2_table(136) := 'f3mPMcI0z8SRnvsfeNOndlUuuKABAB+YKI9YEt9ZiwlSKIUWs6+NB7nsDbX38Ck7VMpGWpWmk4WQeWJTF2fgJHHj2K5x8/hgtnxt';
+wwv_flow_imp.g_varchar2_table(137) := 'CsN6GVBgmziYmIXnnASZgHAMBaB/F/Dpt3DOGK6/fj6tddjqEtG8yRYS0XQkY3HSpN6C+2ccfDe/GZ268z+ZaIay/iOA4shBlo1L';
+wwv_flow_imp.g_varchar2_table(138) := 'vU4agbAsAM5AsEy1o/eQAKTpuRQuO//cojOLCzZE4UilAETKaYYTs2nIwNr+2hNFbG8EvnMXpuHCNnxtCacvXbEIFPq7VGJpfBwF';
+wwv_flow_imp.g_varchar2_table(139) := 'AfsvkMNu0Ywsatg9i+bwsGhvpgZ2y4bc+EFebkoMi+k9KEfMbHi6cH8Mf/6yYoLSBE9O82zvjf9xmNeufdf6CLApDNERxnfeQBQo';
+wwv_flow_imp.g_varchar2_table(140) := 'RgtF2JvmIbH/3Q/ejvaaEVUZHKTMKMPgmCZVuwbAtCEpSvAWY0ak14rj9lyEY0LOSLOYAI0hLQiuF7PnzPn/qsqAthtDbVfpPVLH';
+wwv_flow_imp.g_varchar2_table(141) := '7/M29AuZZBxlGRr/nHHf+7LqPV7I4AdO1wUNX9orR5iSP80NosDZaqWXz8yzfi9973KHIZH54SEBSdCBARKJixfM+H5/oA85QB2x';
+wwv_flow_imp.g_varchar2_table(142) := 'kbTta56GeYGe2mO/V7BMcJzvysKNFMsC2NWsPBx798I0rVLPLLOMm3E8Rd1NZNW+qarul1KADAtMv6/Msb8PEv3wghwjPp4rkfCp';
+wwv_flow_imp.g_varchar2_table(143) := 'b1hBRmFhcEVgzlKyhfB/8psOKpvw8TgHGVvoYZfyEYH//yjXj+5Q2xGT8QvwB005a6IgDhpqC4vQARUw9vpQm9BRdHXhrE577xam';
+wwv_flow_imp.g_varchar2_table(144) := 'QdHyAkp41YOLMTpmb5pLQ40mzuJev4+Nw3Xo0jLw2itxBtxn8mcY2hEKW6swkopGseQFgSHKd6xnltpQk9eQ93PLQHf/21a1HI+r';
+wwv_flow_imp.g_varchar2_table(145) := 'CkTo4IJBDNBEtqFLI+/vpr1+KOh/agJx/tPotLiXv8dqsEOKRrOQDAqJfV1SvMT9yum9KE3qKLOx/djVrLwn9819PIZ300XZnuXb';
+wwv_flow_imp.g_varchar2_table(146) := '8EXxNyjkKjZeEvv3odHnhqO3qL8c38IbGPoS570V3NbSq/m5++OOJy4ZiC/zRhIOPj4UO78NEv3IRGy0Jvxoe/hnevLRVfE3ozPh';
+wwv_flow_imp.g_varchar2_table(147) := 'otCx/9wk14+NAuDGR8sKap5xgHcbv/QPdtqGsCkITmIOF9RAXDDFYCYCuC7RMUMcayPkYOjOEfJfDue67E0xMFDGQ9eKkIwNOEga';
+wwv_flow_imp.g_varchar2_table(148) := 'yHpycKePc9V+IfJTByYAxjWR+KGLZPsJU55psp2g5kcc/+3WoCMpOu1AGEMAO5PMG246sHALpbFMSASaoxIDWBGGjbGuWch9FeF6';
+wwv_flow_imp.g_varchar2_table(149) := 'W8i7at4AvAAaPatjGU8fA3P34cP7m9hErbAoMiXSZMApoJBEZvxsddwwP49Qcuw1jbRk/GgwuCpYGMJzHQcLCx4qCvaSPjCTABSr';
+wwv_flow_imp.g_varchar2_table(150) := 'DxCrh7ucs4i3/C63seo9lY5QLgZAjZbLwC0I29ARwYvWCC0ARfakzmPVzoa6FU8NC0FZgAoc2/oWBrvhSMthbwNOG/vHoY//VVw9';
+wwv_flow_imp.g_varchar2_table(151) := 'AA6t76yQv4mlCwFQSAjz2zHX/29HbYgpERwUYqmOeriaGFec45T2KgbmNzOYv+hg1LCWjB0MRT76KTxF37TwS0Wgy3vYoFAIh/Y1';
+wwv_flow_imp.g_varchar2_table(152) := 'BIp/YGhIPN0mQMN+tjpLeNkZ426lkfmownIMJ99rN8dRG4sqW2hbdvL+EjN57EFf0NlNsWsIa9AR1M230ZH89P5vEHh3bjjuEBDG';
+wwv_flow_imp.g_varchar2_table(153) := 'R8EDBrh2VimCXUYOYXDBRaFjZVM9hUyaDQsiAA+KKzQhBn7X9ItzYAzaTrAgCYfQFxJ1RWWhoczuaWFnClRqng4syGJibzHnypIT';
+wwv_flow_imp.g_varchar2_table(154) := 'RNz/SL/KqWYEy2LQxkfPz+tWfwqwcuAADqvoSg6DrddBuGMf6CZVLan39xMz765A6U2hb6l5AQDZ+t8QwYlhLob9jYMZHDQN2Bow';
+wwv_flow_imp.g_varchar2_table(155) := 'R8oae8huUSZ+lviNam/r/bdF0AmIFsluDE2CAkZKleQBjfS02QmtBwFC70tXC+r4VKzr8o7scyE1SSGJ4WqHgSP7WjhP9+/Sm8eq';
+wwv_flow_imp.g_varchar2_table(156) := 'CBphJoKQG5ioWAASgmZKVGTmo8Xcrjvz++C989M4BeW8EWGmoZKX4KPnxmPqC3aWFLOYvN5SzyroQSDCV4WXmCuGd/IsBtM1pdaA';
+wwv_flow_imp.g_varchar2_table(157) := 'DyimtFIQBxNwgJWYoXwKErrwnVrIeRvjaG+5toOmpKEJZr9JdCMNuJK55ETjLet38Ev3n1WWwrtNH0]'')'||wwv_flow.LF||
+'               || ';
+wwv_flow_imp.g_varchar2_table(158) := 'TO_CLOB(q''[JFp6dQnBlOELjZytcLaewaeObMMXj21CUxF6g9N7O/XswJgy+JwrsX0yh03lDHpaNnTw54v1CJIw+3ezAcgrrhVFC';
+wwv_flow_imp.g_varchar2_table(159) := 'AAkIwwAFvYCQldfaoFqzsOpwQYu9LbhSQ1LC4gunggmiaGYUPEkduRd/IcDI3jfZSPYXmyj5Uu0lJgSiyQSGnVWamQtheFaBl88v';
+wwv_flow_imp.g_varchar2_table(160) := 'gl//+ImnGk46LXV1HfsBsSAFoAvNGwlsLmSwa7xPHqaNtQiQ4O4Z38gOvcfiEgAkhQGKDV712ImgDRga4GGo/DSxjou9LXgS4all';
+wwv_flow_imp.g_varchar2_table(161) := 'hbbrxRJZqWg5knsKrTxHw6M4N/tG8WeYhuaCXVfIIg6EkXB0hDEeLmWwT++tBF//+ImnKpnULSVyfBH1bwzeFfhu9tczmLfaAF5V';
+wwv_flow_imp.g_varchar2_table(162) := '8ITGjyHEBARpIzkFuckSvcfiFAAkhIGABd7AeHvbCXgWgqnB5sYHmiiZStYSkRq+DMhGCFoKYG6L7Ax5+Nnd07g/947ius2NCAFw';
+wwv_flow_imp.g_varchar2_table(163) := 'wuWzOKEYarJNICnJ/L4xxMb8a3TGzDatFCwNLLSGH4cr31aCDSynsT2Ug47x3NwfAlPmgq1mc8vCbN/lO4/EGEIACQnDAhzAUyAp';
+wwv_flow_imp.g_varchar2_table(164) := 'Uy56bn+Fk4O1lHN+l139ZdC6PJ7mlDzJRzBuLq/gc+94Rj2FNtoaQER0wmdDEACaGnCL917EA+M9EIzULAUbMEdi/NXyszQoKdlY';
+wwv_flow_imp.g_varchar2_table(165) := 'fd4AVsnsyA2XgJxMmJ/IFr3H4jwaDBmwIuuffy8UPCtbV+gnPfw+O5JHNleRsNRcPz4Zv3ZCBNqkoABx0ePrfDASC++c2YAGSve0';
+wwv_flow_imp.g_varchar2_table(166) := '4k1E7JS4dnJPO6/0IseW6Hf8SEJsc36sxHWBzi+Ce+ObC/j8d2TKOc92L4ZDJQA4zfVf905AWguIvvaRGZjQ9whABNgMUES4fimG';
+wwv_flow_imp.g_varchar2_table(167) := 'n60ZxITBRe2LyCYEmP4lxIKgWagz/Fx13A/vBhnf8AU7kiLcddwPxQIApwow78UJlOVafsCEwUXP9ozieObapBEsBLw7pmNjUQ5S';
+wwv_flow_imp.g_varchar2_table(168) := 'Uaqe0pFF9tcSjgoHV9gMuvh0J4Sjm2umao+Ff/LXyyKCQVL45HRHv7BuT7uy/jsx3DzGkDRUjxcy/DtLw9ywVKRJflWShj6EQPHN';
+wwv_flow_imp.g_varchar2_table(169) := 'tdwaE8Jk1kPTuANxJKvIJObirKdPRDD6cC+F/UVp9f0iYEXhmp4dOclL7zr4zbYudIpmNFSRL/18F46VctSRmhEuekyrHtSAP3OI';
+wwv_flow_imp.g_varchar2_table(170) := '3vohUqOMkJ38Bt2f40jfOfhhPDozhJeGKpNFXfFoWVx2EakAhCHyjFNx36P7Szh6MbqVC1/NC+ZwMIDOOyMsrLvbqoTid+4xx4v9';
+wwv_flow_imp.g_varchar2_table(171) := 'A2Mfe3CwfGspUOJ6f6KDsDMhF7bpwfKO8sv6x1jb9snJhjUgejOfAKxZZ5ZBGscTGYsEANHN1bx2M7SVC4oShGIyzuOdBUAiPbsQ';
+wwv_flow_imp.g_varchar2_table(172) := 'AbgKIGzvU0c2VyFKzXsSN19BmkHzY0/AsDIjd4IJt8UHCxzcAsCN3zCX7x32+FfumnDywBsd+zlzd6pB6+Tup3xtOiaEBBAFjEUw';
+wwv_flow_imp.g_varchar2_table(173) := 'PbWa561dtzwkgTcLz48vvc3bz93fd5i6GUXLDLAAsQWWoNPgoWP3OhrwMJFVBUPxIAnGY4SuPpCD7ZVcnCl7vrVu3n230JE3rCLC';
+wwv_flow_imp.g_varchar2_table(174) := 'PBchm13b7slAxAMSCa8MFTDsaGaSf7EEesLH9quQOVGwLKN3OhrQCoDlt6yYw9BRJ+8e+SKX3zthgsSCs7QnvNWz6YfuicfuoIq5';
+wwv_flow_imp.g_varchar2_table(175) := '7Za7FtA51SAAIAYvhZMhaGx7PbXHLX6to5prR0F5D51z+jlgsJT7JdzAQ1SDli6aA7+CG7vCViNzYCItqUUk2nkogTjiW1l1ByF/';
+wwv_flow_imp.g_varchar2_table(176) := 'eMFs/mIuidDWhubiCM3FkvHPq1NKNCNg0PCeF8T4+nNFZzqbyCjxFS3nkhhAS3bYKsBUln4+fOob7sXudEbIVtDYNle8k1pBmWl5';
+wwv_flow_imp.g_varchar2_table(177) := 'uMTKPz1D0d2/Kc3bzrueirrZPKt7MG3HtbtakGVTg+pytkhdpu5lT5eAgDL9kRx03i+f9eYLA6VAcD1VMaxZeuz947uOz6uCj2O5';
+wwv_flow_imp.g_varchar2_table(178) := 'mXN/qRBKguVmUBr6DBUpgTh58FWA1q0QSrT+c3+8zC13ZsJRzdW0bQVrhrpgWRa0p6CxRI2/tA6niXyyEOAkG70CQizu55kHNpRQ';
+wwv_flow_imp.g_varchar2_table(179) := 'innRh7LzbgbkLbh5y+gsflBEFsAm3wAsUR2/FrY1b1g0Q7+/eJvkgB4TNiQo/b9v3vw3qEe21VaCwkAQigAKvhnnfrmQXcDCK21Z';
+wwv_flow_imp.g_varchar2_table(180) := 'S4jdK2trB//sxfeeLas8o4wx4ks7SMB0hl4xVNoDT4Bli5IOQAxmHzkL9wMq7E5snzApRADrqUx0HRw45kB2IqmCoc6SRT7/ucit';
+wwv_flow_imp.g_varchar2_table(181) := 'vIHpRie1zm3JzT+hqNwaIfJ8mdiM34E41VAOZMAqSCxrY0QEKO58UdoDT4ZCIPAUhx2BpARms9WkfnE3SN7AXiKBYIzyAS0dqC1D';
+wwv_flow_imp.g_varchar2_table(182) := 'a2tDv1nQ2tHa20JIdhnAQDe//jO+ctemtD5rNRLN34WIG2hPXAEzU2PAUKBtG3yIwyAlHl2ELFtemACMuGy8Q6THOzkknE4+0e99';
+wwv_flow_imp.g_varchar2_table(183) := 'DeT2AQgzAV0IgRgAmyfUM56eGjXBMpZD7YixNpzMzB47ZRh0mcz/oIJpG24fS+gsflBQPjB4F/8w9BMlLeYv3q4vHt40is6ckb/V';
+wwv_flow_imp.g_varchar2_table(184) := 'REcq9Ph/4QQrAE4Enq06hVuP1zenbeYNS9Bxkmb7yoUmpseQ3vgCEhfIoIm6WCeXSgIMaGDvMBFY8vvjAgwxxf7h8RaAKkUVuwFh';
+wwv_flow_imp.g_varchar2_table(185) := 'MY/mfNwaMckfKGTUdjDBCYf2q6BMNsWMwYpZyovoLITS4p3GYAtNEbr7PzBvwxfCcBXETTR95WJQP787pG9I3V2nKWs/0/F+5Nob';
+wwv_flow_imp.g_varchar2_table(186) := 'LkfXvEUSGUxHWHM+KeQ0HbNrJrE/DJD79IXGod2TGIyt3IRmJ79O3efyyFWAVipFxC+mJnGLxNQ0mkQ0FYT2mrM7eKTEQFt1Y1B9';
+wwv_flow_imp.g_varchar2_table(187) := 'JwwIjCLQcyGYqKCrfmu52vbnhxu9ttS+N0cT8Hsr5471+z/h0PlPXl7sbO/+T6ksvCKp9DYcj9UZtIYP81WwmRCBG01oK0mYh6m5';
+wwv_flow_imp.g_varchar2_table(188) := 'o7IrCrNFIGV]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[TDRJmP2BBDzZ5XoBDEAqQtvSOLx9Er4MjL8rd7lUGMQCbNeCIqB5vhzx';
+wwv_flow_imp.g_varchar2_table(189) := 'ivICkhh1n8TH7zx/AIDWXfQCAg9DfeS75w+WmmzbtJjZf3p9f9Z4f84fMwlTtmugJeZIugUjEAFpxlzb0pBq6WMuKbM/kAABWI4X';
+wwv_flow_imp.g_varchar2_table(190) := 'EK7z+5JX9CK6RpgAtCvTCcB5WX5eQDFR0dZ8x3P1bd89Ut1sS+F5XRABBcCWwn9yuNl/z9H61qKtWS00+4fiJhSaG+eI9+ciTATa';
+wwv_flow_imp.g_varchar2_table(191) := 'FcSZCLyUV048plPxUsZeUmZ/IAECACzdCzDrW4TD20sordAV6wpzJgAX/sHl5AUIgM9En7r7/EGgOy818Cz0x+88f6Duk5AL5Spm';
+wwv_flow_imp.g_varchar2_table(192) := 'hjebH4TXM3e8P/vPm/9JQiLwUsLQs5TzcHh7CYTFN2ZJ0uwPJEQAwjZIizlGjGEe/rObKhjPe3A6lJHtLDMTgEt8xMvIC2gG5S3N';
+wwv_flow_imp.g_varchar2_table(193) := 'h063B7/2eGmr7LAX4ClNthTed49UN9/xXH3bwrP/LELmzxXvzw1BTCcCk+ICBJg9JoTxvIdnN1XMJLSIn9MaXT/sYykkQgCA4MEs';
+wwv_flow_imp.g_varchar2_table(194) := '4BYxmdr+0/1NnBxowEnazB9A2mSwtV0DtMSSp69l5AUIpqfdR75z/moAli07d8xQMEjoU3efP+gzzfOK5gtllrpfkYEZz5F0zM36';
+wwv_flow_imp.g_varchar2_table(195) := 'ZsGMR8LJgQZO9zfhqPnrTojMGI/7vMyZJEYAwlyAUrOXRIYz/2TOw3ObqrBUnK0w5iOoxVnxzLW0vEBYIvzihC585t7RHQA8V618';
+wwv_flow_imp.g_varchar2_table(196) := '2vSUJimF9+2ny5sOnW4P5q05Sn5XmMycnWlPygzV5L1xMy4FnttUnV4ZmOXfEQWhbkJi/5DECABgkiPt1twzHBNwZHPFHBEV7a0t';
+wwv_flow_imp.g_varchar2_table(197) := 'no7HrkvICzBgC8bn7x/bD8B2JHilk004+3/yngsHea5Yd4XLmXOy7FxKtAiYcwmObK5MnQ49G+1W9w6pXS6JsqOwX8ClKskw1VhH';
+wwv_flow_imp.g_varchar2_table(198) := 'N1ZRyrlmL39sd7kA3cheL9LANEA5qfnYuC784TfOHADg+SvwAlwFklK4n7l3dPdjp7wNs8/+Kytompclr6bEA8P0FCjlXBzdWDW7';
+wwv_flow_imp.g_varchar2_table(199) := 'Tmf8fejdxtUNaz4SJQDA9N7oME6aerh5Dyf7G7AT6/oHdGv9epEutmairMX8D4fKe8eqXv6iEuEl4kijvX93/9h+W1661tWZkub5';
+wwv_flow_imp.g_varchar2_table(200) := 'WUI9RcyYSUrgZH8Dpbx30SSltRnTSTN+IIECAFz8wAimHvu5TdV53aukQFMVbC10/vEubHQMwBEaY3XYf/q9kX0A/OV4AUH+wPur';
+wwv_flow_imp.g_varchar2_table(201) := 'H4zsfHFCF7KSWYePvyvx/lwIaKsFbTUCQU0uYZj63KbqVP+ASye0pJHIJxq6TK7PcLTp6DORcxe91BIfDEzVsHdzxprf7dZMlLc1';
+wwv_flow_imp.g_varchar2_table(202) := 'f/nR0r6nhpv9jsSSSoTDDT9jVS//l/82enlGMphnGH834v25YAKTFyQCl7GiEiFhonoi5+JsbxOOFnBnCWmTRCIFAAhEoMGoC4Xj';
+wwv_flow_imp.g_varchar2_table(203) := 'gzVYOsatvYsluD+Vmeh+8co8hshgWARTIvy9C/uxxBLhcMPPJ+4e2Xu2ikxGaA79i67F+3MRJAJVZsL8/4SPAdNjUOD4YA11oeA1';
+wwv_flow_imp.g_varchar2_table(204) := 'kmv8QIIFgAkQPuGlYgONjIZIqAt1EUEC0GStIyhfnccVV8xUsJjvnrFRaDHFQTO3+371cHl3zpp2/Uk7cHuPo7H5gS7E+3N9RwAQ';
+wwv_flow_imp.g_varchar2_table(205) := 'wapKchOBMxEaaGQ0Xio2IBJZqDZNYgVAaKCV1Tg/1DR1/gl+iFOwgJYutFUHcVTu6tx5ASEUmorE739t+FXA4l52MPv7H/veyL7R';
+wwv_flow_imp.g_varchar2_table(206) := 'Oju2VGAtQSzQGnocraHHuxjvzwaDWEJbdWjpBtdNNkxmv8D5oSZa2WRPXol8muEDHNvQRnu1zP5hxtpqQMt2DAP1le45+1nKWz4/';
+wwv_flow_imp.g_varchar2_table(207) := 'fLI19O2ny5sWKhFWABwJ/6nhZv+XHy3tyzuKWTnEso361vvh9h4HaWfqepExs7diQnYGLoTQQDujMbahnegJLJECQAx4FmN0Qwsi';
+wwv_flow_imp.g_varchar2_table(208) := 'yWv+MwldVbtiutnGcdOz5AWEygIAPnnPhYPA/EfgqXDDz/fO76/7ELZ24GfG0Nj2A6jsWGD8MXwxxlR35STtDJwPBiA0YXRDC57V';
+wwv_flow_imp.g_varchar2_table(209) := '+T6CnSJxAhDO/uVeF7WCD7n8FvqxoJwyYp2hLskLNAafpIIU/NgpteEz917YLaVwZysR9pQmRwr/qeFG/93P17cVhcWtnuPU3Ho/';
+wwv_flow_imp.g_varchar2_table(210) := 'WLZNvB+rFHPwbFcJBEgN1Ao+yr1uYr2AxAlAOMZGhtoX/f/EM5UArCL+WerivEB984OwLRd/d19lP6DtoMBn1h/8H98eubzpSeFu';
+wwv_flow_imp.g_varchar2_table(211) := 'PIzm0OMmlIksnzEHU4nA6qpJBAJYFWM5cQIgGGhlFCpFz7j/CVTNWZlKANYiTAAuhAkJvNx50jt/wEdrY4W/uru6E5dsFAq3+377';
+wwv_flow_imp.g_varchar2_table(212) := 'iebmu45NbqWdP+RWz0sUS7w/K2EisLZqEoFAsJKlCZWih1ZGoXP7MztHop5k6P5P9nrw7NWS/AOmE4D1mBKA8xDkBXyrTnr7ffjE';
+wwv_flow_imp.g_varchar2_table(213) := '4UcvH5vExSXCJkClP3/4mQP1bf8Wb7w/F1OJwPqqSQQCJhno2RqTvV4iw4AEjVSEnism+9y472RpEABIqEwJEF7yxiYxoC04luYT';
+wwv_flow_imp.g_varchar2_table(214) := '2ccyHz38g70APF8p8rQiW0jvm8eObbrPu2cw57SYtU2J+xIMQHjmGUOuqrwQYMY0ExL3WBMlAMSAbzPqeR+0mtx/AAAHOwCTetMM';
+wwv_flow_imp.g_varchar2_table(215) := 'rQXlheAvH//R7jPVatGRUkshGYD8fx/+/pVEnKDwZTYoeMZJvb9XwgSQJtTzPnw7easBiRGAsO1yI+uj7SjIhD2oeQmXqZxkL1Mx';
+wwv_flow_imp.g_varchar2_table(216) := 'GA4JjLTazm/fe8eVAJQA/E8dfnTnE6WxvjxJ1kmV3alEYIzLrMtEMtB2FBpZP0Ft6w2JEQDAlM/X8j5Ukieh2VhFhSoKTEUh+Y5T';
+wwv_flow_imp.g_varchar2_table(217) := 'J7Y9OXKuDwB99qnH9mco4dusYy+0WgEMKGnG9pI7o3WZWE4HnpUg/q8Xoj0SeuWYdXcVZKiT7UIbJBEmfU/8xZOHdt+8ZUfpxcpk';
+wwv_flow_imp.g_varchar2_table(218) := 'oU/arBI1N83CjJUWy8ubHZdJdbdmoV7wE5cHSI4AwAiA]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[a+vExUnzMtM1JWWagCZ8TCp';
+wwv_flow_imp.g_varchar2_table(219) := 'mKkoLXz/2/O5vvfTCzryUSLzxA0Gopcyzbm4JNuDHfVOLg9iM7aQ95cQIgGDAt3SwXpqsOGlhwgTg6oEAeFoLV2shsUrKrQNWYyJ';
+wwv_flow_imp.g_varchar2_table(220) := 'QMKGVUfDDQ2wSMr6TFUiRaa64it4toAksXOhMyRwCmpAXuxgISW+xcQkEc2hopgQWLuI9/nmJcDC2E3bLyRAAAogJrqWhxWw9p5N';
+wwv_flow_imp.g_varchar2_table(221) := 'M2LKqGeEW2c6x6u6Ww0NXu9FyrXsQAC0YrqVBCeptl4gQgGFipLajoSR3p/XXzC7DzAyCXnkQaRKAbNUEC4+IrRV+XsqChE1XrRq';
+wwv_flow_imp.g_varchar2_table(222) := 'T26NXfmpQMAYYgmaeedLh10hszrJsOxqFRjDmO3uJZZEIAZiCASWNm9RpM+LA+2LWTNImS+ZWftQMmSOvdfYYAAWwlYy3upYJN11';
+wwv_flow_imp.g_varchar2_table(223) := 'l60R+r4RsdaT3oq+aYO0xkSDG7IfTrARCMsPbxAgAk+n9PzDpdOWYbykJzEpbVl60Va1RtscfJ6Vs0AqOamAmIOf5/eevImkPwLT';
+wwv_flow_imp.g_varchar2_table(224) := 'OSyWgqzCTtMm3zpes+sizQNMGrWDdiIlYSq/fy12fkf15329oIimU6uwIJACK2JwZkKARkggBIDbxUaFh4dVH+zsvkgzYjuZCsSB';
+wwv_flow_imp.g_varchar2_table(225) := 'Y+5XhE9//5bsO/+qDAHIwbfCWw1T8UPjkH90lRXGA4XLn546Ui2Em4ZBnnxud/IsbfjH4w5XEcgJA85obPn/z9r3v/AKJ/t56rc6';
+wwv_flow_imp.g_varchar2_table(226) := 'eKxZ/5O8iMS3u2eS5EuIJJEIAQpgAn7gLy7vMStmsm2759Pl/+tVHDn/4EbuwaZPnNZZ/SLNtC/iqlXnza/cIJ7ObfR9IZ/8oIPZ';
+wwv_flow_imp.g_varchar2_table(227) := '9CCezO3PbWw+2f/DYy7BkFp637Bo728733HX4Vx+5SXz6V3Zu+YXPu8ruhfTQSTEPx3TSBkiiBACYfkCdfFDM0BmnIM+ev+djjxz';
+wwv_flow_imp.g_varchar2_table(228) := '68L2Fwvbt9frwyrYc2gVCu97Evl27KZPJcKutQfN23ErpBEQEzZqymQz27dqNO+95DlYhA7e+bAHw3JouFLYPPXLow/daN+7+2Lb';
+wwv_flow_imp.g_varchar2_table(229) := 'Nb/1I251UROjokcRJM35gNa2jLBtmKTOy3R67cOTkH3/HcXqG6vVRb8Uf6xiPzt40dD2EAHjZoUTKUmFoCAF709D1AHTwLlZEvT7';
+wwv_flow_imp.g_varchar2_table(230) := 'qOU7P0JGTf/yddnvsgpQZicQd5dl51rwAMEMLkYHSzWOTo49OMGsLcFf+YuueBmBRMX+daa2RpNTOWocJWoOK+esAWMG7WCEuM2t';
+wwv_flow_imp.g_varchar2_table(231) := 'rcvTRCaWbx4TIgNeBqK95AQAAZgVA9iKTsWklGeMQxyG4rm/v3T7AtrOPfd+4pinRQETs+2Db2Wfv3T4A1/XhOCt+/kTEyGRsQPa';
+wwv_flow_imp.g_varchar2_table(232) := 'aMbP2WfMCQERSqQY7dv8VV+7+jctdt1a37YEVxnYOAXDp2mu2k2MPwawZrflnmSAElGJy7CG69prtANzgnSwb2x6QrlurX7n7Ny5';
+wwv_flow_imp.g_varchar2_table(233) := '37P4rlGowEXU0B5BE1sWgZWYtZNbeu+1XfhOAT0QacJb/3W0mAK7cs+sgZRwbeu27iolDQ1PGseWeXQcBuME7WSaOMGMC/t5tv/K';
+wwv_flow_imp.g_varchar2_table(234) := 'bQmZtZl4X73RdCAARSc+rqHx+5623vfmJT7nuRBWAWrYnYJJOLDb0XQUhgMTVd60LGEJAbOi7CgAvNxEYjAHluhPV2978xKfy+Z2';
+wwv_flow_imp.g_varchar2_table(235) := '3el5FrYfZH1gnAgAEIuBP+r2Fy9/zU29+6pOZTM7zvFLNtgesJbuPQQJQZPNXQSmkCcA4YIJSENn8VVhWItAh2x6wPK9Uy2Ry3k+';
+wwv_flow_imp.g_varchar2_table(236) := '9+alP9hYuf4/nT/rrxfiBdSQABrLa7rgq5Pe+57Y3Pv0vr7328zd4XmkccH3bHrAcFBd+HjMTgI59WZoAjIkwEejYly0lEeigKIz';
+wwv_flow_imp.g_varchar2_table(237) := 'ou77nlcZfe+3nb7jtjU//SyG/9z1td1wBlLjamG6yzgTAeAKuN6lsq+ea7Vve8dW3v/mZP9m38/19nlcad1Fr2vaANG7hXIPJJAD';
+wwv_flow_imp.g_varchar2_table(238) := 'Fq67eRo6VJgDjI0gEWkPiVVdvw7yJQIfC9+qi1vS80vi+ne/ve/ubn/mT7Vve8VXb6rnG9SbXjds/k3WldiFEQnp+TRMJWczved+';
+wwv_flow_imp.g_varchar2_table(239) := 'rr/zjnzm478P/+/yFO779xPO/9yxM0VbBtgdsIk+7rquBoHCwwAIu2vKKgzdQNmtzvaGwDgdOItCsqZCz5RUHb8A3v/ckClyEGyZ';
+wwv_flow_imp.g_varchar2_table(240) := 'kHTiOI5ht4Xklz/PcKgC+7oo/uWrL5rf/TCaz+d/bVs+g55fh+W1NJNblO1yXAgAARCZ753olJYQz2FM88BuZzJYPbtv67m/XGsf';
+wwv_flow_imp.g_varchar2_table(241) := 'u+NEz/+WBev25MQAOgHyYMPQAAuoQfT1XBZ+UJgBjwzz76XfhkG075j15JeW6bg2AWyhcOfiaV/3ZTxfz+99u2/0/49g9jufX4Ho';
+wwv_flow_imp.g_varchar2_table(242) := 'lRSRkOBbWI+tWAEKIhGT2uO1OaCLp5HPbfy6X2/Zzb735ey+5Xume8dLhu5987vefct1zJQCEEvKZTF8OudwV0wnANAUQDyYRiFz';
+wwv_flow_imp.g_varchar2_table(243) := 'uikymL9culVoe0ADAjrO199orP/r6wYEb3ubYA2+17b59BILnV9F2JxQRifU6689k3QuAgcjEf5pdr6wBJilz+3qcDfty2a0f2Lb';
+wwv_flow_imp.g_varchar2_table(244) := 'pbcc8v/ZErXXy34bP/uvjx62/qtiWtZeVAtL4P04EKwVY1t72jnLuMv8/9W7f9s7ri9ndP2FbxeuEzOy3ZB6+asLzyhogJkJq+DO';
+wwv_flow_imp.g_varchar2_table(245) := 'gd906nLqws2AKQZiJSEiRIyEyYNLQzXptZPD4C0/8xA+uldqWnJYAxAqBoISnrvu3Nz+5afyygyJXKBILaN2G0k0275GI0p2as5J';
+wwv_flow_imp.g_varchar2_table(246) := '6AHNgBoxx7X3V1FBNZlKURU+RN+Ru0BZDtpF6/3HDgLZY8obcDdZ4Bi2vpIml6epFJNZjZn8ppKq4CMKBRCQEa8WlwiltNoql1h8';
+wwv_flow_imp.g_varchar2_table(247) := '/BIZGqXBKs1ZMJIJ3lc74iyH1AJaEgG/5VN4wRmLVHWC4VmEIJVHeMCZ8y0c6py2N9GktAaEF3FwDjWIFQgtwugIYO0wMoQUaxQr';
+wwv_flow_imp.g_varchar2_table(248) := 'cXANCp0N6KaRPa5EwMaSSqBcq8DItCJ2GlklBaAkv00K9UIFUMhXmJZAKwKJhkBao9ZWg5EoPo0jp]'')'||wwv_flow.LF||
+'               || T';
+wwv_flow_imp.g_varchar2_table(249) := 'O_CLOB(q''[LAQlfdT6SiC9+k5nipNUAJYAg1HtH083/yURJlT7x5Euyy6NVAAWjYCyPNR6S0GcmQ605GDyALXeEpTlIR3Wiyd9Uo';
+wwv_flow_imp.g_varchar2_table(250) := 'vEJACbaBSqaQIwYUwlAgtVuLlmmghcAumTWgRpAjD5pInA5ZEKwKJgEAtU+yegpEKaAEwiBCUVqv0ToFV4THtcpAKwKEy12eTghW';
+wwv_flow_imp.g_varchar2_table(251) := 'BcpYMreZiTdycHLyCt0lw8qQAsAmKCb3uo95QhlEhbACQRYgglUO8pw7c9ULpSsyhSAVgEQku0cnU081VILdP5P4EwAKklmvkqWr';
+wwv_flow_imp.g_varchar2_table(252) := 'l6mqdZJKkALECYYa73lOE7bhBfpiQRYgHfcY2nlq7ULIp0NC9IWAE4AS3SBGCyIWihUOubSCsCF0kqAAtCYNKo9k0EcWU6qJILg5';
+wwv_flow_imp.g_varchar2_table(253) := 'hQ7ZsAU5oIXAypACxAmACs9U6aWSV1K5MLBd5a72SaCFwkqQDMBwFSWWgUy2gUy5DKSuf/BMN45ftKnYD5SQVgHjiM/3vTpaXVwr';
+wwv_flow_imp.g_varchar2_table(254) := 'THVgZpkW4OWoBUAOYljSlXH2nOZimkAjAvYVZ5PM0qrxrCVZvxdNVmEaQCMA/puvLqI63bWBrp05kLCivLamll2SpjunKzBqll6g';
+wwv_flow_imp.g_varchar2_table(255) := 'TMQyoAc8BgkDJNJtIE4OpiOhFYAqk0ETgfqQDMiUkA1vpKaQJw1WESgbW+UpoIXIBUAOaEoKWP8sBomgBcdZhEYHlgFDpt4DovqQ';
+wwv_flow_imp.g_varchar2_table(256) := 'DMgdASbqaFWm8p7TCzygg7ONV6S3DTDk7zkgrALFzUYy6b9phbjQgt4GbTHo4LkY7sWQm6zE6dAZA+ptWHmDorIO3iPDf/P2r9AC';
+wwv_flow_imp.g_varchar2_table(257) := 'IqKP8vAAAAAElFTkSuQmCC]'')),'||wwv_flow.LF||
+'       photo_mime_type = ''image/png'''||wwv_flow.LF||
+' WHERE candidate_id = 1;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'COMMIT;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'';
+wwv_flow_imp.g_varchar2_table(258) := 'UPDATE tms_candidates'||wwv_flow.LF||
+'   SET photo_blob = apex_web_service.clobbase642blob('||wwv_flow.LF||
+'                    TO_C';
+wwv_flow_imp.g_varchar2_table(259) := 'LOB(q''[iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAABIAUlEQVR4nO29d5hdx3nY/Zs55ZZt2F10gAABAmAVqySKo';
+wwv_flow_imp.g_varchar2_table(260) := 'khFlETZVo0jl0RxEj+WHftzt5Mv7XHiPEqR4yim4ny2ZcV5XELTkizZVrEoiRQpWYUUi1jAikoQvWy99ZwzM98fc85iAe5i75Zzz';
+wwv_flow_imp.g_varchar2_table(261) := '9nd83ueJbCL5b3nzsz7ztvmHdF/7ylDQUHBqkRm/QAFBQXZUSiAgoJVTKEACgpWMYUCKChYxRQKoKBgFVMogIKCVUyhAAoKVjGFA';
+wwv_flow_imp.g_varchar2_table(262) := 'igoWMUUCqCgYBVTKICCglWMm/UDFHSPTmu+RapPUZAnCgWwAphNsC8271zZmWgrfeEr6ll+r1AUy59CASwjLhZ0AUgBUgicqb9bw';
+wwv_flow_imp.g_varchar2_table(263) := 'TeAIwRimpR26u/paaJtDChjEFhFoI39UoA2Bm1mfq6C5UGhAHLMdMGS2B3cEeAATiz4UswucBcL5kJcACGsIpn59UWsEAwqVgrKW';
+wwv_flow_imp.g_varchar2_table(264) := 'AtiutVQKIT8UiiAHJEIaLKzO0LgCSvsjhSv2cHNRX+m/VwzMfWc036mEShtlUIYWxDTLYVCIeSHQgFkTCIUEvCkFXhXiilTfvrv5';
+wwv_flow_imp.g_varchar2_table(265) := 'bVxw0wugCetUihjFYI2EGlDGP+pp/1uQXYUCiADEoFxBLhC4Eu7izriwt/Jq8B3wvRnF4ArwHUEZUAZgTKGQEMUuw/J7xV0l0IBd';
+wwv_flow_imp.g_varchar2_table(266) := 'ImZhN6dZtYvd4GfiwviGbHb4EtrHUS6UAZZUSiAlDHYxexLu+C9VST0l2J6PCAZG40gjJVBqM3U2BWkR6EAUmDKrxdQkQJfnjfvV';
+wwv_flow_imp.g_varchar2_table(267) := '7PQz8Z0ZVCSgpK0bkKgDS1tA4jJvxcsLYUCWEKShewJKDniNbt9wdxMd5UqjqDkWKugrWwAEQpFsJQUCmAJmBJ8KajEZn7y80LwF';
+wwv_flow_imp.g_varchar2_table(268) := '8ZrrQKrCJqxe5D8W8HiKBTAIkh81LIU+I5N4SU/L1g6pitYT0JoBIEytIs4waIpFMACmL4gq46N6k//eUE6THexPFdQMtBQhUWwG';
+wwv_flow_imp.g_varchar2_table(269) := 'AoFMA8uZeoXdI9kvF0h6Hch1BSuwQIpFECHGGwxS9mx/mjys4LsuNg1aGtoKUNkCiXQKYUCmIPEx6w6grIjEBSCnzeS+SjFKdeWM';
+wwv_flow_imp.g_varchar2_table(270) := 'jRVER/ohEIBXAKDXVQVx+bxl1dUf9rpG2Mu/PklmSYyySlAEf/HGPsl89lIKvlkFccqgmYcKCyUwOwUCmAGDLaIp2e5mPuJYCZ7n';
+wwv_flow_imp.g_varchar2_table(271) := 'gCkG9fcOvbvGBASpHP+9y58EfszrcDo+O8RKBU3BYjAdcErQ6t+/vVyiO2FAL2uwNPQULaYqFAEr6VQABeR7PpVx57Iy5/gm2kCL';
+wwv_flow_imp.g_varchar2_table(272) := '+xu7PngeOC4VoC1hvqY/fvEORg/a3+nMQEnDswuuEbDpiug2g9hAANroX/YvkfvEEyOwMuPw+5bwC1B2LLvhbHWghDkRcymuwWeE';
+wwv_flow_imp.g_varchar2_table(273) := 'DQKa2BGCgUQc/Gunytz35h4V8YKuh8LvNF2Nz53HE4fgVOH7Z9jp2H0JLQbEDShWbM7v9agQpgxkhH/zPGswGsFlV7wK/Zr/TY4/';
+wwv_flow_imp.g_varchar2_table(274) := 'QqceRU++C/g6jdbRVHtswpFhVZpqDB+OQmzNBLpJgb7GIU1MDOi/95TuVnnWWGwkeTePO36U0Iv7O7tl+2D1UasIL7yPLzynBX40';
+wwv_flow_imp.g_varchar2_table(275) := 'ZPQnIQoslpMSHC9WAildQOmSuvmWPpJvEAQm//afoWhfQ7Xg3bTKofBjVYxbL8Wtl8D67dbS0EAQcsqhMRVyIEyENh2ZjVlCAtrA';
+wwv_flow_imp.g_varchar2_table(276) := 'FjlCuDiCH8uBkLHO30i9FrDuWOw/0k4+DQceBrGTtmdXUi7Y7ue3eGnhMycF2SzyE81FQicFgQUsYUQhXbHN9paCWs2wBU3wM4bY';
+wwv_flow_imp.g_varchar2_table(277) := 'NfNMLzFWhNTyoBcBBAFNl3YKDIFq1cBTA8UuSJj4U92e+lAqWqF7exR2PcEPPdtOPQsTJy1v+uXwPXP+/FGx7t7tz9BHGyc/hxRA';
+wwv_flow_imp.g_varchar2_table(278) := 'EHbft+/Fna8Dq693cYM1m61n7PdsMojY6tAYPsP1CLbg2C1KoFVqQCmTH5XTHXQzeZBYsF3fShVoNWAA0/Bk1+BFx6xATwhrSXgx';
+wwv_flow_imp.g_varchar2_table(279) := 'l33jF78rp4WQpxXCFFod36jbSDx6jfBze+CK26EctW6EVGQqSJIOh3XotXrEqw6BWCweeJqlib/dMEv99gg3vPfhu/+DRzbZ4WnX';
+wwv_flow_imp.g_varchar2_table(280) := 'LXmPcY6rvlwUOZB3KMcYd2EVsMqsS274bb3wzW3w/BmG8TMgSJoxMVDq00JrDoF0OMKylLMetlF6mh1XvBHjsN3Pw+PfB5GTtif+';
+wwv_flow_imp.g_varchar2_table(281) := 'xUrCEl6bUUQpyuNsbGLKIChTfCm98Ft74OhaYpAOpk8oQRa2lCPVsqYd8aqUAAGO8F9Xob+vtZWCCp9MHrCCv53P2+VQLnHCv/0d';
+wwv_flow_imp.g_varchar2_table(282) := 'N9KJdnpo8AK/dBmqwRuex8MbrLZjGSsuv1o2LjAZGi7Fq8Ga2DFK4DzwT6Jm0WKL4mcV3rt7vfwX8C3PwcjJ62Z7/r59uvTIokXR';
+wwv_flow_imp.g_varchar2_table(283) := 'IF1D4Y2wu0/DH/vx60V1KxNKy7q4mMBkYFapFdFcHBFK4DkBF+/J7M5xKMVeHHU/rlvwZc+AUdftJH+1Sr4FzNdEbQbsPUqePc/h';
+wwv_flow_imp.g_varchar2_table(284) := '2vfYn8WtrvuFiRrZSLUK/5k4YpVAJkKf7LrV/tskc4Xfg+e+IqtyS9VCsGfiUQRtJv2DMIt74L3/j+22Kgx2XVrYLUogRWpADIVf';
+wwv_flow_imp.g_varchar2_table(285) := 'q1stLvUY039L/2BraGv9sXHCVe4j79YhIzD8pPQNwTv/lnrGrTrNjvSRWtgNSiBFacApg7zdDvHb4wNXlX7oDYKn/sdeOKr5wt3t';
+wwv_flow_imp.g_varchar2_table(286) := 'OrWk6wMpHO+sOiWu+GHfxV6B61ikN1LGSa1Ao1oZR4mWlEKwGAvmehzux3pj9Nc5aqt3vuL/wonD0LPmsLcXwyJW1Afg4074cf/j';
+wwv_flow_imp.g_varchar2_table(287) := 'a0qbDW6niYVwGRkCFaYElgxCmC62d91osAenPn+A/CF/88Kfalqz9AXLB7HtQFCIeG9Pw83vcMecHL9rj/KSnMHVoQCyMzn18oK+';
+wwv_flow_imp.g_varchar2_table(288) := 'uQ5+P1ftmfty73xcdrC119SkjFt1WzPgp/7OPQNW8XQpbjASowJZH80a5FkKvx+xTbZ+LPfhDNH7fn4qSq+giVFazu21X471n/2m';
+wwv_flow_imp.g_varchar2_table(289) := '3bs/UrX]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[4ivJycF+L6OakhRY1gogKfLpuvArZav3WjX45L+Elx6zwT5d+PupkgRa/ZId';
+wwv_flow_imp.g_varchar2_table(290) := '80/+SzsH5R47J914BM4rAWcFKIFlrQAktsKvq8JvNPSugSMvwD0/DUees98Xu3730MkcPGfn4NUXoKe/65ZAryuXtwCxjBWAAfq6';
+wwv_flow_imp.g_varchar2_table(291) := 'bYppbU/o7XscPvkv4Owx6/MXKb7uo5Ud+7PH4BO/Dof3dnUuEtezz5PL2gpYlgrAkDTy6KbZH9mDPKcO2YBfu2FNz0L4s0Mnrlgd';
+wwv_flow_imp.g_varchar2_table(292) := '/vDXbROVLrsDbtxUZrkqgWWnAAz2dp6y7OKga21LeOuj8Jcfs98XxT35QCvbMCUJxjYmoFTumktmsJfD5qal3DxZVgog6eTT43Tx';
+wwv_flow_imp.g_varchar2_table(293) := 'PL8xtrQ32WUOPm2VQSH8+SGxBF7Za+eoVbdz1qWArMZ2k/a6uSktEctGAUzv4dfdQTa2Qednftu26+pdUwh/HtEKegbsHH3mt+2c';
+wwv_flow_imp.g_varchar2_table(294) := 'dXGlJG7pcssMLBsFkEnUVUW2/vz+P4LH77e97YrqvvyiIjtHj99v56x3sKvzNT0rtVxYFgrAYFt3dzfir+wCevzL8JXuL6aCBZIo';
+wwv_flow_imp.g_varchar2_table(295) := '7a/8kZ273sGuZwYy7Tc5T3KvABK/v6tBFh33uT950Ab9nO6akwWLxdg5+8uP2Tn0K90NCi6jeEDuFYA1q7o8mAJbe/65e+xZft8v';
+wwv_flow_imp.g_varchar2_table(296) := 'KvyWE8bYOZscsXMoZVcL95N4QO6Fi5wrAIPt4ttdv1/ZY7zf+qxt41Xt71peuWAJUcrO3XPfsnPZs6ar8yixazfv20ZuFUCSX/W7';
+wwv_flow_imp.g_varchar2_table(297) := 'aUqZON9/fB98+ZNQ6Sk6+CxnjLZz+OVP2jlN2rF1462xvSm6Wq+yAHKrACRQyUKDOi78zf+C+nh8A2+ep6/gkhhj57A+bufU6e5l';
+wwv_flow_imp.g_varchar2_table(298) := '2Aa7hnMrZORUAWRi+mtlS32f/Iq9pafaV+T7VwJa2bl8/tt2bivdnde8uwK5UwBJT7/umv7YphLtBnztzzK7naYgRaRj5zZpINKl';
+wwv_flow_imp.g_varchar2_table(299) := 'xZW4AqWcugK5UwACe3dfd9t4x7v/w38Bx16yXX6K470rBx23aDv2kp3jSp+d8y5hsGs6jwVCuVIAScGP082RMsYe7Bk9Ydt4l6pF';
+wwv_flow_imp.g_varchar2_table(300) := '4G8lkvRp/Pbn7Fy73U3tOjktEMqNAkhq/Utd3/3jhfHdaRd0FoG/lUei6Efiexm7rOgNdm3n7axAbhQA2BNVXTWTDDYy3JyAp75u';
+wwv_flow_imp.g_varchar2_table(301) := 'j5UWu//KxWg7x0993c6543ZVGgV2jeeJXCiAJFDS9fJJEx8j/f4DtqOvXyl2/5WMMXaOTxywc17u6XoswOt2gHsOcqEABNY/6hpa';
+wwv_flow_imp.g_varchar2_table(302) := '26owoyFowfe+HF9HnZdpKUgPY+f6e1+2c2/itdDFoG81RwHBzBVAsvt3zzcy9qrungEY3gRHX7aNJEo9ReR/NaC1netX9tq5H95k';
+wwv_flow_imp.g_varchar2_table(303) := '10Kll26swCTWlRcroLulUTPQ3bRfXBn26Bfg9Ku2k+zLjxdm/2rEGLj/f8PBp6A+AesvszcSq5C0Tw4lacFAZ7/uMlUASdFP13b/';
+wwv_flow_imp.g_varchar2_table(304) := 'pDT0kS/YQyKVXvt9EfxbXSTBwJcfgxe+A80aXPsWeON77DVvXbh4NLECsr5wNFMFkEnRT+IC9A7aP5NYQMHqIgkIOvEm0CUXYOrt';
+wwv_flow_imp.g_varchar2_table(305) := 'yYcVkFkMYLrv33W0tvXguhD+VY2Ztg4yiP/kIRaQmQLIZvcvKMgPeSgRzkQBTPf9CwpWM44g04NCmVkApeLAXUEBkK0sdF0BJNVQ';
+wwv_flow_imp.g_varchar2_table(306) := 'rijM/4IC20k4uyaimWQBypmXH82MECDiFJAxYIr6gBWBEGIqs2eMyWXZR1lCmEE8uusKwMlQ28H5RM/08IOMF0g7VASRwhjwXEnJ';
+wwv_flow_imp.g_varchar2_table(307) := 'c5ECVA4KNgrmjyMF2kA7jAgjjRDguw4lz8EY0NM0wUzrolskVrEjLnymbtBVBWCDf3aQsxApAShj/0wm2pGCRjsiVIotQ33s3LQG';
+wwv_flow_imp.g_varchar2_table(308) := '15G8emaCw6fGUdrQX/ULJbDMcKRgohHgSMHlGwa4bF0/kdIcPDHGsZFJPMehWnJJjgIZ4hPDZLc2SxIaqrtKqKsKQAC+zO7IjQGU';
+wwv_flow_imp.g_varchar2_table(309) := 'MVMf2pGSsckGe7YM8s9/8Ebe+rrLGOwtI6VgshHw9KHTfPL+Z/jm3lfpr/r2NQo9kGsSU3+s3ubO6y7jp3/gem7YsZ6+qo/WhtFa';
+wwv_flow_imp.g_varchar2_table(310) := 'i288+yqf+PJTvHxslDV91SkloIwhq3icrYuBZpfbUHZNAZwv/MnO/FfGPocAXEcyUmvxY3dcxW/8wzcz2Fui3gppBvb6L891uPO6';
+wwv_flow_imp.g_varchar2_table(311) := 'y7jj2sv4o68+w0c//Qhl30WIQgnklWRuWkHEb/zDN/NTd1+PENBoR9RbIQB9FZ8fu/Mq7r55Bx+57zt86lsvM+RKQpINgszS09Y9';
+wwv_flow_imp.g_varchar2_table(312) := 'hqCL5cFdDcf5GQf/EivekYKRyRY/esdVfOzDb8N3JSOTLSJtkEIghcAYw0QjoNYM+IX33sx/+NDt1JrBVJCwIH8IIag1A/7Dh27n';
+wwv_flow_imp.g_varchar2_table(313) := 'F957M7VmwEQjwJjz8xppw8hkC9+VfOzDb+NH77iKkckWjrTzmrWn120Z6drbSbIte9QGDAZHCGqtkBt2ruc3P/Rm6u2QMNK4zmtv';
+wwv_flow_imp.g_varchar2_table(314) := 'dXWkQAjB6bE6P/mO1/Hjb72a8XobR+Y0jbGKcaRkvN7mx996NT/5jtdxeqyOEGJKsBMS6y+MNPV2yG9+6M3csHM9tVYYW6cmMyWQ';
+wwv_flow_imp.g_varchar2_table(315) := 'WMndXF1deS8DeBmXPCpjEAiUNrhS8pGfeAs9ZZ8w0kg5+5MJAVJIJlsB//bH3sTuzYM02iGysARygxSCRjtk9+ZB/u2PvYnJVoAU';
+wwv_flow_imp.g_varchar2_table(316) := '8pKH+qQUhJGmp+zzkZ94C66UKB2vkQx9PIGVlW49QdeUjZ+hvOjY95cC6q2QD911Hbfs2sBEo/2aHWImhIAwVKzpKfPL739911M1';
+wwv_flow_imp.g_varchar2_table(317) := 'BXOjjeGX3/961vSUCUPV0Ylemyloc8uuDXzoruuot0JkfDQ9S1egm7LSFQUgATdL8z/+M0Iy7AR8+JZBmkrOK9jjOJLxRpt3v2En';
+wwv_flow_imp.g_varchar2_table(318) := 'b9i90S6WDpRHQbpIKai3Qt6weyPvfsNOxhttHKfzZe0IaCrJh28ZZNgJiGKRyOqMqMHKSrd25tTfJzH/s/SatTE4GCaNx13+Mbaq';
+wwv_flow_imp.g_varchar2_table(319) := 'EVo483ZJjDG4juS9t+4iUIr8dHZbvQgEgVK899Zd]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[uI6cd/WmAFo4bFUj3OUfY9J4OJh';
+wwv_flow_imp.g_varchar2_table(320) := 'MrTxJ99yArshllua/ikfRACUUP+wdxIjXBvw6QQpJox1x1w3b2b6un3YYdaN5TMEs2OrNiO3r+rnrhu002hFSzH9JC8AIyQ97Bym';
+wwv_flow_imp.g_varchar2_table(321) := 'hpgRPrQI3IHUFkLX5b7A51TYOlzk1bnTP0jQuC3kiISCIIrYM93LjFRtoBlGRFswQIQTNIOLGKzawZbiXIFqYQhYYmsblRvcslzk';
+wwv_flow_imp.g_varchar2_table(322) := '12rF1aDJatd10A1J9j277M695f2ODOTKe4FvdUwyKNuEijHcR/+eOa7fG3xcKICuSsb/j2q0gFl5CK4AQwaBoc6t7iqZxkXE6MCt';
+wwv_flow_imp.g_varchar2_table(323) := 'PoFsbZ+qy6WUZ/Y//TM4eXOuMIBet1wVRpNm9eZBKyUMXrcQzQ2tNpeSxe/MgUaRZTBW9wW4U1zojU9WikF0wELojO6krADfD6F8';
+wwv_flow_imp.g_varchar2_table(324) := 'i6hooo9gjxwhZnEUihKAdabau62Ndf4VQ6SIOkAFCQKg06/orbF3XRzvSi3LHJNYK2CPHKKOmBD8rNwC6IzupvoUjsqv9T8x/a95';
+wwv_flow_imp.g_varchar2_table(325) := 'JhmSLHc4k4QL9/wQhIFKKod4y29f3E4SqiANkgBCCIFRsX9/PUG+ZSHWW+5/19TCExmWHM8mQbBFiA8VZuQH2AhErP2mSmgKw/n8';
+wwv_flow_imp.g_varchar2_table(326) := '256vhQtNNAx4aD71kJp0jBWXf7aJyExd9SbIb3elMf5bpX+ljgLLvdlTM1QmzrZOs3ACBlaE011iqFoCX5ovPQWK6SQyBcdnpTFy';
+wwv_flow_imp.g_varchar2_table(327) := 'g2Rf12sbguQ7XbBsmUjrlQKB9balbyGgCJxzDicaRqoYwEdne7iYRJkKqGk40jhOOIaMJpG7F/57euAgEkdJcs20Yz3UW3b1puqW';
+wwv_flow_imp.g_varchar2_table(328) := '405kgiAOBkK0bkLYMpXoceB4FWUvOxaWcLmZqQpcKN/UPKKyARZMIEzAlUAYELVANtFNFOz10v8uCQKoaUjWwe6R9NmEA3UQIH+3';
+wwv_flow_imp.g_varchar2_table(329) := '2YUS6LTaWeg4khovtOj09KthlHAmk2CMgtRXsQGb+/3ThNxf9uZSk6xta4XfCUYQJea2ZbadOqhoymqS7K1Qgo0mkqsXfv/bZhAn';
+wwv_flow_imp.g_varchar2_table(330) := 'jZ49SfbY05mCmNZPF2YCpOECK75GKAjDYGu2sPNRuzVW672NiwZ5r+5FI3UDo1hy/t1QIhG4hdYNLLx+bfD3/GdJhZcz17AisLKX';
+wwv_flow_imp.g_varchar2_table(331) := '1/qlZAFnm/2fy2SRmUdH/mXBTOwwkEbp9odl/SQSOatCdZWri9+rsuYQJELpNWkttqedAzOIqZhoHSFGW0nMBslQAF82VjA8Ctac';
+wwv_flow_imp.g_varchar2_table(332) := 'FdhaLNoaxeju1FKDUnQo/9veMsl9pM/U+nT+b/SxLjxCCsXp7yQ7uSAxt4zJpvNeskyxPgKcpS6koAAGp5y9nw5gL90GDwBOKI7q';
+wwv_flow_imp.g_varchar2_table(333) := 'XcVPCXQJdLoRARZr9x0dxpEhhdzDMP/lkEGZx1XBzI+L3mO/nXcj/c2kMBkcK9h8fRS2yCMi+ng0Uj5sSR3QvnlBM78yXdA3OAke';
+wwv_flow_imp.g_varchar2_table(334) := 'k506npgCEyMZvmklsBLYXQGOJLAAhBIHSNNtR0RkoQ6QQNNsRgVq8AgBrATSMSzRLqjiLegBDfGFNSq+/5GlAgy2SkWQXOJmOwRZ';
+wwv_flow_imp.g_varchar2_table(335) := '3jOgK+3Q/O5xxWsZZcDzAGPAcydmJJq+cmaBScmzbsCX1RSXS8REm6Cj6bNuWOWjXS5Jxc/4/5iK7WXSqyaSHox200R3tiFKAcXy';
+wwv_flow_imp.g_varchar2_table(336) := 'MlCylCAkBlZLDK2cmODvRZG3f4sqyE0txn+5nRFfoFQE6F4VWdpeW0jY0XeonSqUOwM1dABACBC+rNbzbO4Jm4aaPMYaS77Dv+Ci';
+wwv_flow_imp.g_varchar2_table(337) := 'vnJ6g6rtoEy3mkWdAgBGUlKJa9tCX0AJSCCIVMRFJdKSYS8iMrZgR5ZI//b4sWs02gBFzbqUSGUGPq3Ad95L+t5SCRiuiHQkQbZZ';
+wwv_flow_imp.g_varchar2_table(338) := '6S5BCcG5ygn3HR9nyul6CxsLLsm0VoOFltYYgPi9y8UiaOTMy6eEKWOpVBikpgCxr02ZaYhrr3z2t1tJGLvr5DNBohdxx7RZ6y/6';
+wwv_flow_imp.g_varchar2_table(339) := 'Sd48xBhzHoTZxjqdeOkBvpQyCCxSBELYTbq3ZZqivhzfu2UOomHEHTJat0tqUS7bVxKEjp0Z7HHUWoK7ctTu2bR0ERKsdGEdKMdt';
+wwv_flow_imp.g_varchar2_table(340) := 'StxbQFp5/+WVGJuv0VkoofaE1IOPGerVGixuvvILe/mHUImv1Z0IKQa0V0GiFi1YtEmgjeVqtxcXMqEaztGjTkqlUFECeMgBgzbu';
+wwv_flow_imp.g_varchar2_table(341) := 'yiHgiWssZXWFABEQLLOC1u1rI267fxg+8fkeqq8Ig+Mif3s+f3P8oJd+j7LlTwhUpxXitxZZ1A/zPX/ogb7x6G612OPMOKEArY3q';
+wwv_flow_imp.g_varchar2_table(342) := 'qJXHm7NjEN7/75HP7pTwXKR0CuI70du2qDN95283Xrlu7pr/eaBs5SxWXMYZyyeN7Lxzhl/7nX3LszDi9FR/XcaaUVKMd0g5C/uk';
+wwv_flow_imp.g_varchar2_table(343) := 'P3Mpv/JMfWPL068WfrR0oGovo0Zi4iWd0hSeitZRFxEzGtsmyIjCl9xX9955a0tkxQL+bzQWg2kA0y27sYBg3Pr/b83f8qL+fUVP';
+wwv_flow_imp.g_varchar2_table(344) := 'CWeQTptk3zhgbS6mWfb74nb387y99l1dOjtBoBzhSMthb5c4bd/FL/+CtbBzqY7LRnlUAtDamXPLFmbNj4/d++m+/e3ZkrOl6rhw';
+wwv_flow_imp.g_varchar2_table(345) := 'c6K8AjI5PNKMw0muH1lQ+9KM/dNu6tWsGWu3AyFniAlob+qolTo5M8j8/+w2++dR+RmsNlNZUSz7bNw7x4XffxnvefB2NVmDbbae';
+wwv_flow_imp.g_varchar2_table(346) := 'Zylrki6u4Gcing138Yv0OBkSAmkXSXSHodi9YAYTaMBEtfQxgyRWAAAb8xR+4WQidKIC3ecf4s94HqS9hTUBa2NSTob9aptEKOHD';
+wwv_flow_imp.g_varchar2_table(347) := '8LGfHaniey85Nw2xaO0A7iAjCaFbhjxWJ0dqoP/2Lv/3m0eOnJ4aG+itve8stu3du37wZ4OArx48/9K0n9o2MTDS3bl7f/09+/If';
+wwv_flow_imp.g_varchar2_table(348) := 'ulFI4SptZXWqtDb7nUvJdTpwd5+CJc4RhxNo1vVyxeS3Vss9Eo2Wv5k5rgJYIjaBHRPxE7e08FG7JnQIAuxbGA73kK7br14OnyaU';
+wwv_flow_imp.g_varchar2_table(349) := 'GRyHoFSGPRht4Tg1yjTO6ZGnBtLDpVMF4vYkjJVdt34C7YxMGCMKIyXprzgyEMcaUyyXx9b97]'')'||wwv_flow.LF||
+'               || TO_CL';
+wwv_flow_imp.g_varchar2_table(350) := 'OB(q''[4qVXj52YKJVK7gd+6K23XLV7+9qJyQYAt95y7c6B/t7+//vpLz/y6rETE488sfelu+645dpavTVrUNBerGGVz1B/lY3D/T';
+wwv_flow_imp.g_varchar2_table(351) := 'bdqjXtIJp65ryjEVRFxHNqkEejDfSKcFbhh3xktpaSJZ0hgzXH8qrxk96AH2veiJNpcef8SASp2Q6ZbLSpNdqEkbLnLS5h/mpjKJ';
+wwv_flow_imp.g_varchar2_table(352) := 'U8cfL0SO3Rx/ceFkJy52037rhix5a158YmtNIKpRXnxib0FTu2rL3ztht3CCF59PG9h0+eHqmVSp64lJsjhIgVgaLWaDPZaNNshx';
+wwv_flow_imp.g_varchar2_table(353) := 'c8c94xWOvwY80bp3oB5hGBla2lfroln6U0ixYWi0bQJwK+Gl7GXwc7GBJtwkxzFvNDxgI3l+AnGGOM77ns23/k1bHxWjA0NFC54f';
+wwv_flow_imp.g_varchar2_table(354) := 'ord7fbIVJIKYR9HSmkbLdDbrj+yt1DQwOVsfFasG//kVd9z03ShpdETHuu5VQYFSIZEm3+OtjBV8PL6MtR7v9ikuK6pWb5rP4O6G';
+wwv_flow_imp.g_varchar2_table(355) := 'RPNwgqIuLfN9/Ay2oN/SJYVkpgPrhSinqjpfcfPHrGkYIrLt883N9X9YMoMtMXU9zu3PT3Vf0rLt88LKRg/8GjZ+qNlnZX6PVHIZ';
+wwv_flow_imp.g_varchar2_table(356) := 'J+EfCyWsO/b76ByiyR/4tZPnZjZyz5ys/yFGAnGMBHM6LL/GLjLYybEoOiTYRExwkrW4kvLukL5h2tjfE8j9Gx2uSrx06O15vtaM';
+wwv_flow_imp.g_varchar2_table(357) := 'flWzc6cubuOcYYHOmwc8fWDe12O3r12Mnx0bGJSc/z0Mv4MkSFeM28RkgGRZtxU+IXG29hRJfxWfoA21KThmwtaRbAAFVHUOni7a';
+wwv_flow_imp.g_varchar2_table(358) := 'bTiUznVzsnWYHXOef4aPUR3uCeJkLSNvbgsC8ULoYJ46ebx04RAShj9MREbeLo8TPndmzftHmgr7cSRq8tyjEGPM9hfKLWOH7y7J';
+wwv_flow_imp.g_varchar2_table(359) := 'n1awcH+np7+h0p5PL89Nba649rPoK4/LskNC6ax6L1/OvGm3hWDV8y6n8xUthMQLcRQFMZGmppU4ErSgEE82zb4mCoGw9PKD7oH+';
+wwv_flow_imp.g_varchar2_table(360) := 'A93ivscCbw0JzSVT4b7mSrrPGzpecZNf6i6wayQAiB77m4rkOzFaD07F6urUCUlEseSmmCMFp0r70ssHn9gD9oX8NR3cs/8A6yQT';
+wwv_flow_imp.g_varchar2_table(361) := 'YIkRxS/Xwx3M5fBlcQGoeeOaL+M+Fn4BWlpQBWVBpwvigEVRGiEfxJ+0r+vL2HdbKJg2HM+JzUvfyj0kvo0vNZP+qCMcbQagfGtA';
+wwv_flow_imp.g_varchar2_table(362) := 'xCyEvGDoUApTS1etPEAcJl6wNp4PFoPX/evpI/b+9mTbzLn9EVQgT9IsRbgPCvNJZcAWR5EGghJPvhoAhssYXxrQuAYp1scFj1UT';
+wwv_flow_imp.g_varchar2_table(363) := 'PekvQRyAph6fB3QYjlHfhzMdSMx2HVxzrZwMFwzpQRGHpEaF2jODawnEhDtlZm+HsBJAvCxeChMQgcNId0P4dUP6WLGkQU5BODoC';
+wwv_flow_imp.g_varchar2_table(364) := 'QUh1Q/h3Q/TjyXHjo+5LO8g7tLTaEALsJM+5raSXQf3rTrogryiz3WqzisL7Tckq+CCykUwBxoBN+MNi/w7GBBFoh4zpabiZ8FhQ';
+wwv_flow_imp.g_varchar2_table(365) := 'K4BDo2J78frWUi3k0K8o1N3Xp8P1pLSahCCcxBoQAugS0aUryi+zis+ymhChWQYwxQQnFY9/OK7sMv5mtOCgUwB15cMPTNcBMloY';
+wwv_flow_imp.g_varchar2_table(366) := 'oAUo5RscX2zXAT48bHK8R/TlaUAkgja53cGPtgtJUmbqrXNBUsDgdo4vJgtHVJb4KezvKtjJiZlaUAUnhNHR8eeiYaZr8aoExU7C';
+wwv_flow_imp.g_varchar2_table(367) := 's5xABlIvarAZ6JhqmIKBX/f4XJ/8pSAGnhxm7Al8NtlAs3IJcoBGWh+HK4jXHjFwHbDllyBbASc+U6XlxfDLYzYkqFb5lDPAwjps';
+wwv_flow_imp.g_varchar2_table(368) := 'QXg+2UV2j0Pw3ZWnoFkKFspJWrN0CViBfVIN+JNs7ZNqqguyTt3r4TbeRFNUg1RTcty3qQNGSrcAE6xHaENtzb3kM4y9VRBdkgsA';
+wwv_flow_imp.g_varchar2_table(369) := '0+7m3vIY2bGlcyK0oBpCmUSefY70QbeT7eZVaiu7Pc0Fjr7PnYOutJKfiXsNIU/5IrALWC1W/SP+BP2lfiF4eDckHSvOVP2ldSN9';
+wwv_flow_imp.g_varchar2_table(370) := '6y7NnQKWnI1ooKAqado1VxU9HPBzt4Vg3Tk7UVYGx//ix6dhjDJe8s7AYa6CHiWTXM54Md9M2js89CybIOYFkEAbNEkL6JlrQJ+z';
+wwv_flow_imp.g_varchar2_table(371) := '/tq/EzjjZLR1CplnAc2VUlkHQOqlRLCCEy6xqk493//7SvZqILqb9urK9us6QKQGB70a90K6BfBHw+uJxn1TC9KfucM2JASkm7Fb';
+wwv_flow_imp.g_varchar2_table(372) := 'D38ZcZG5nAdWV3zrsacF3J2MgEzz72ElEY4fle18/aagS9Itn9L6d/Fez+2iy907nkFkDWLeS6kaZx4j4Bv9W8qesXSRhj8Eou37';
+wwv_flow_imp.g_varchar2_table(373) := 'r/Mf7wv9zHp/7gCzz/+D7K1RJKqdTfXylFuVri+Sf28ak/+CKf/Ohf8NjDT+OV3a5bAhLDbzVvotYl3z/rI+FpDO/SKwBsvnKlmU';
+wwv_flow_imp.g_varchar2_table(374) := 'rTSayAB8OtfD3cOq+usovG2EafGy9bx+R4nf41vTz2zWc49NJRegd60EqnIojGGLTS9A70cOilozz2jWcYGOxj9OwE/YO9Vji6JP';
+wwv_flow_imp.g_varchar2_table(375) := '8KwYAI+Hq4lQfDrV3Z/bPEWtbpDG8qCiDLTrLdXAYOhv/UvIVzphy3EUsfIQXtVsDVN+3i+jdeRX2yhYoUn/nDL/HyMwfp6avgeS';
+wwv_flow_imp.g_varchar2_table(376) := '5aa8xiV40Bow1aazzPpaevwsvPHOQzf/glVKSoTza54daruOaW3bRbAd1oJZhc5X3OlPlPzVu6GvXPUsUYk059QypBwCxTgd1qZ5';
+wwv_flow_imp.g_varchar2_table(377) := 'nUBexVQ3yydU3cdbY7MVUBhEHI3R+8g227NtFqtolCxac/8SX+5k+/xpmTI1R7KpSrJaQj7e4dKwSjjVXQ0/tkmXiBxf+utbUipC';
+wwv_flow_imp.g_varchar2_table(378) := 'MpV0tUeyqcOTnC3/zp1/j0J75EFCpazTbbdm3i7g/eQdgOuyYcCskaEfDJ1jXsVUOp5/2nk2Wr1LRkasmvBzdAxRFUM7obAOZ3Qc';
+wwv_flow_imp.g_varchar2_table(379) := 'hSoBHc2/s13uieZnIGf9QY09FdfvPBaIPnuzQbbT7/Z19j37OHKVdLBO2QUtnnyht2cuUNV7B5+3p6+6q4nhOnDA1KaYzWnN/TDE';
+wwv_flow_imp.g_varchar2_table(380) := 'JKHEdO]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[3fMXhYraZIPjr5zmpacP8NLTB2m3AvySR6vRZvfrLud9P/FOKtUSYRAt+e4/0';
+wwv_flow_imp.g_varchar2_table(381) := '5jZNGzI96L1fKj2zq7GX7K6EATsLDWUobnEdwJASgrAl4I+NzsFoAyoLrkhEkPDuOxwJvlC35fw0KiLwkWuI4nU0udGjDY4roN0B';
+wwv_flow_imp.g_varchar2_table(382) := 'N/52pM8+vWnaNSa+CVvSij7BnpYv2mYDZetY+PWtZTKPgND/ZQqfqwEQEhJuxkwPjJBuxVw8uhZTr16htMnzjE5Xp9SNkE7pNpb4';
+wwv_flow_imp.g_varchar2_table(383) := 'da7buTN77wZrQwqUqmY/hePWXKLb4jkvZPv5pDqo9rF3d8RAicjC0AAk5Eh0MtAAYC9xXYgw0sCtbFWQOoYbdNiQjNqSvxj/2X+R';
+wwv_flow_imp.g_varchar2_table(384) := '8+3GdHlqd3JAH/3/f289eZdS24FwPl4S7W3wqmjZ/nuA0+yb+8hGrXW1C3COg7gOY51USo9ZRzXOR8fEKAiRbPeAuzlINKR9jpqY';
+wwv_flow_imp.g_varchar2_table(385) := '9DaUO0ts/u6Hdz2jpvZsHUtjVrT/q8pfaZvPLmfO27aNbXgNYIh2eLX6rfzf4M99j5HI+PkfPqulytEpi7AeGhI44rGVG4GsgGL7';
+wwv_flow_imp.g_varchar2_table(386) := 'JImUtCViLTxKxjpEmDox/An5hZuEC1+pvo849qnWnLZ9+ppvv30fu5+01W0g2jJBSZ5vfpEg6F1A7zvJ97ByJlxXnzqAPv2HuLsy';
+wwv_flow_imp.g_varchar2_table(387) := 'RGa9bZ9XmOPNDXrLZvUnqYAMElFYfxDA6Wqz9qNQ+y+bgdX3XgFQ+sGbPBvooF00hE6Ywwl3+XbT+/n2is2sfuy9TTaEQMy5A/bt';
+wwv_flow_imp.g_varchar2_table(388) := '/An8hYGK20CSoBA6AgRtlN5lulkKfxpBtZTUQAaUNrgyezcACnSPJpsMMKhdPQ5nMY4SBeBwTOCj4uIDdUzDNCiVC7znacPsO/oW';
+wwv_flow_imp.g_varchar2_table(389) := 'ZqtENe1fngq97w7kjCMCIKI/jU93P6uW3jj225gfGSSE0dOc+7UKGdPjtBqBoyPTBJMi9obbfDLPgNDfZQrVuiHNwyyadt6Bob68';
+wwv_flow_imp.g_varchar2_table(390) := 'HyXsB3SbLQRghSF3xY4NVsh+46e5cvffo7xG1q0Wy3GKfPxRov15hu4wm4w6AhVHaC9cQ/CKNKK02cp/AKItC2uS+MxUrsbUBnw0';
+wwv_flow_imp.g_varchar2_table(391) := 'nrxDrD2R0oawBiM57P2/t+l98W/Q1f6MEYjMSgj+AguTnwsVSAolzxOjUxw+aZh2kqllk+y9/lBFCnCMEIIycBQH8Pr1yClRCmFM';
+wwv_flow_imp.g_varchar2_table(392) := 'dCsN4kiNWU9GGNwXYdKTwUhwHEctNZEkSIKFWEQTgUHU8WA50iOnR6l1mjz6Qee5FMPPDF1ldcw9+EIe7uPEBLZnKR21R0c/fAnE';
+wwv_flow_imp.g_varchar2_table(393) := 'EEjtVK9rAuA0syqpaYAorReuEO6MWXG8dClHrRfBaOxdXiG3mm/I6VkrNbgpSOn2bNtA80gxEk5XRhf7AlAFEaEQQScj6p7vodf8';
+wwv_flow_imp.g_varchar2_table(394) := 'i/8LMYQtIOpv4OI7wm0wtYNNBrfK/HSkdNMNlqs6a2itZ72795UwY8RErTGOOlvM1mXGKUpS6nNbApB73khRcq120KiK31gVBwMT';
+wwv_flow_imp.g_varchar2_table(395) := 'L5ssOb8l0YKwXefPYTSS58OnPMx451bSjmlGJJUoI6/VFw9mPy7lHIqgNjtZ1Xa8N1nDyGFQBt9wVhizEVjrewcpKighMjWBYB0Z';
+wwv_flow_imp.g_varchar2_table(396) := 'SmVkRPYNFz6lemXJq2+PcIYjOMSbLgCoRXmEoJijKFc8th74DjHz47hu07m5yUgVo7xVx5aXRsDvutw/OwYew8cp1zyLhn4MkIgt';
+wwv_flow_imp.g_varchar2_table(397) := 'CLYcAXGcREpDWrWvZ8UVpbSeorUVKfBnhfPcvjSfm8j5JzSYwx4jsPZsRrfeuoAlZKPNkUvoYvRRlMp+XzrqQOcHavhOR0oSiHsH';
+wwv_flow_imp.g_varchar2_table(398) := 'KRI1utX63RbnKU6elHGO11absDU7rNpN0bOvftoYyh5Lg987yUmGy0c2aWju8sFA46UTDZaPPC9lyh57pw5b2GMTcFu2j2nFbZQ8';
+wwv_flow_imp.g_varchar2_table(399) := 'mD+py1DqSqAMAeLPDUTTkdE/evRfsX6o5d4G2MMlZLPi6+c5OEnXqa3UkIVVsAUymh6KyUefuJlXnzlJJWSf+m8twCMRvsVov71o';
+wwv_flow_imp.g_varchar2_table(400) := 'NMJk2Vt/kP6MpSaAhDYWoCsl3k6H1AiwjbB2u0Ew9viQpRLv5MxBt91+exDT1Fvtq0VUADY3b/ebPPZh57CdzvpKxCP//A2grXbO';
+wwv_flow_imp.g_varchar2_table(401) := 'xr/hZD1DCX1NGmqoVQ/o8YWMWTqR6VhxgkQRqFLPYTDlyFUOOf/oo2hUvJ46ZXTfPahpxjoraRyPmC5ESnNQG+Fzz70FC+9cppKy';
+wwv_flow_imp.g_varchar2_table(402) := 'euo5FWokHD4MnSpxxYBLfEcp55FmoPpBUBpkrqSyzoOAOmYcsLYWEDjyttsVW0Hq0UbTW/F51Nfe4K9B45TLfuZN9bMEq0N1bLP3';
+wwv_flow_imp.g_varchar2_table(403) := 'gPH+dTXnqC30lmA1MQFT40rb7N/T6VTTvbmfzdkJ1UFIIBAZx/vWlILICmVdx2EDmkNX4n2exB67qSnMfaU22SjzT33PWTP3EuRi';
+wwv_flow_imp.g_varchar2_table(404) := '7Rgt7Flv7Ym4Z77HmKy0cbtsLmp0Art99AavhKhQ4wb39m8hOOYdfDPYGUn7cdI3QKYKuLIGGex9pwtjgMvHrLRNnLvcdqn+2msv';
+wwv_flow_imp.g_varchar2_table(405) := 'Q6pWh0VpCht6K2UeO7QCX730w/TWynlYny6jTZ2HH730w/z3KETNjDaiTUkJFK1aKy9jvbpfuTe4zAaHwby4tOBixzORa+VJaBbc';
+wwv_flow_imp.g_varchar2_table(406) := 'pO6AjBA2AVNNhcLPsttsNuBJ+0HOTYJz52Fl0YQo02M9Kltvh2ho44vClFa01ct8VcPP83nHn6Kob4qahXFA5TSDPVV+dzDT/FXD';
+wwv_flow_imp.g_varchar2_table(407) := 'z9NX7WE0p19fhOfAKxtvh0jfcRoE14asXNybNLOkSftnC1QfrI6958gsB+jG9tCamcBphMYKHfjjebAEaLzRiEGuxKEgEYI55pwu';
+wwv_flow_imp.g_varchar2_table(408) := 'gHtKGkPgzEOMmpSX3cTQc8m3PYYRrh0MnXGGPqqJe657yEcKfn7f+8GRicaU2f2VypKaQb7rfDfc99D9FVL8zjqKpA6IOjZRH3dT';
+wwv_flow_imp.g_varchar2_table(409) := 'cioac3/ZI4OB3CiDuurMFyBqmd9DdV5l9o87P5gZaYbpL7akmhmtzr0XIqOPqzBLihP2kV1YBT2noFXJyC6eHexCzKsbqK2+Q67I';
+wwv_flow_imp.g_varchar2_table(410) := 'DusTEuGo1Ly+O/3PsBfPfw0g/0r2xJIhP+vHn6a]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[/37vA1RK9iBPxzpZSGTUpLb5DsLq';
+wwv_flow_imp.g_varchar2_table(411) := 'JqQOIOlGnFhpkbZztfeMnbtGGLsGnVkEeVC/ypiuZc+68nnz4gbYlOAsT5EsDk9CqGD/qDUrT9XP/3wG/9IIiVRtJrbeifbilFSH';
+wwv_flow_imp.g_varchar2_table(412) := 'mLjFd7Xk89/vfYDPPfQ0QwM9uYmbLBXJ5xka6OFzD1nhr5b8+GBS568jjEJ7PUxsvROp2q9VthfHaU7V7RzuH7Vzmvx8lveUcXYh';
+wwv_flow_imp.g_varchar2_table(413) := 'S7pp/kMXFV63TJq5eI1/l3TG9aTtIHIk3j2mC37yezMiEKpJa80exrfdjRPVQTgdP09yCq9a8vmd+x7knvseolry8V1nRVgDSml8';
+wwv_flow_imp.g_varchar2_table(414) := '16Fa8rnnvof4nfsenCb885F+ByeqM77tblpr9iBUk1m3lOnKHOxc7j1j51Yb+3PDa+Y0a98/oZuykkpPwNno90QufKyppqGJnw9w';
+wwv_flow_imp.g_varchar2_table(415) := 'pgHHa9ZkdKRVjR2PjMEIFyesse0bv4wT1jqOBSQkwzJZb3Pb9Tv49Q+9g03D/YzXW5e2XHKKjluMDfSUOXFugo/d+wDffeYQfT0l';
+wwv_flow_imp.g_varchar2_table(416) := 'YL633AiEiVBeL0fe+nGU14swER3blIKkrM7GBTb3wrqq/bc4PpBl08/pKGOY6GINfdcsgG7lNTthan/2JNQCeOGcNRNb0QJTSQKh';
+wwv_flow_imp.g_varchar2_table(417) := 'A8LyWkZ2/wgyas77jHpy3H2gt8Kjew/zC7/9Kb766Av0V8uUfQ+l07nxZ6kxxqC0pux79FfLfPXRF/iF3/4Uj+49zEBvZepzzovY';
+wwv_flow_imp.g_varchar2_table(418) := '9x/Z/SOE5bWIxPfv+KE47xq0IjvXL5yzcx9bCZ3bbOmRRd1MVy2ArLsFA3Z0XYFSBnVsEo7VrFnoLjxtdMHLC4fLvvNvKI++jHbj';
+wwv_flow_imp.g_varchar2_table(419) := 'g0LzxJGSIIxohRHvfONV/KN3vYHdl62j2Q4JwiiTZh1zkXQP9j2XSslj36tn+POvPMbXvvciZc/F99yOU30XEAt/a3APr775v84r';
+wwv_flow_imp.g_varchar2_table(420) := 'xjL7a2LL7KSALb04W/pwHGF/lvGwptX9dza6qgAM0OcK/CyahSa7gCsxE22iQ+OYiTa4S1M8Yt9Do90K5bGXuezb/wYjHBb64kl/';
+wwv_flow_imp.g_varchar2_table(421) := 'v8lGm2rZ50fuuon33Xk9G4f7YkVgBSH1Pn1zkJQy+55DpeRx8twkn//mM3zm69+n0QriNN9Cu9rasRNG8ert/5XWmj0Lsq4u8dIQ';
+wwv_flow_imp.g_varchar2_table(422) := 'aUR/CXfHAKK/ZLMIyVrpInb3N0xG3T0703UFkMmlIYmvbwzqaM3u/Eu461/4Xgrl9zO0/3Osf/YPiEprEIs4rupIidKaWqPNhuE+';
+wwv_flow_imp.g_varchar2_table(423) := '3vOW1/GuN13NprUDtsFnO0BpbVt5dckqsP69wZGSSslHCDhxdpyvPPICX/zWs5w6N0lvtTT17AvFSBe3Pcbp1/0sI7t+GCeYmFeA';
+wwv_flow_imp.g_varchar2_table(424) := 'tSOmWQPOlj6crb02IDOP2oGleoy0Lv+45Pt2UwEkDHjdW6xJhN80QqL9o5jxJd71Z3xPjfZ62PT4b9H/6oNE5cGOzgpcCkdKgiii';
+wwv_flow_imp.g_varchar2_table(425) := '2Q4Z6u/h1msv5+1vvJLrd22hp+ITRZp2GNn+fvGtDElTz0V9lDiYl7ym40hKnovrSurNgGf2H+PB773Eo88dZmSiTqXk4bsLNPen';
+wwv_flow_imp.g_varchar2_table(426) := 'v690cFujTFz2dk68/l8hw3p6vf+mWwMDJdxdg4iq19XctTaG8QwaaHRdARig6ggq3bo70JXoMw2ig2N2QtPY9V+DzQrIqMmWRz9C';
+wwv_flow_imp.g_varchar2_table(427) := 'eexllFtGLLIJSLLLh0rRaAX4rsOOzWt5/TXbeNN1O9ixeZiB3gpSCpTShJEiVPGloNNuAZltTZtp/xUIhBR4jsRzHRxHorVhvNbk';
+wwv_flow_imp.g_varchar2_table(428) := '0PFzPLL3EI8/f4RDx88SRIpq2cdznCnrYDEYIXGiFq01ezh262+g3cr8ov4LJbEGPIm7cw1yXdW6BCkjgKYyNFK4+2/O987CAhDA';
+wwv_flow_imp.g_varchar2_table(429) := 'gJ/igUuDzW8IgTo6iToyYb9fRH34/J9BY5wKTnCWbX/3a7jNGtr1FhACfy0C225cG0M7CGmHirLvsnG4nyu2ruO6Kzaxc8s6Nq/r';
+wwv_flow_imp.g_varchar2_table(430) := 'Z6i/Bz8WYCEEOr79dyaSbsBJ1+AgUoxM1Dl+ZoKDx86w98AJDhw9w8lzE7SCiJLnUPI928FXL9H16EIgo5Co0suRO/4Hyl9rc/5d';
+wwv_flow_imp.g_varchar2_table(431) := 'ak1uU4YGNDjb+nG29tk5S+tmDuySHA+6c738xWSiAAzQ6whKaVgBSVmoMUSHxtAn6uBn04NPaENUBuF8hp1f/BJOoDCOXBIlMPUe';
+wwv_flow_imp.g_varchar2_table(432) := 'sVWgjSYIFUGk7E0/nstAb5kt69bQ11Pmii1rQcCGoX42DfcTKT1Ve5AcUz5xboJTIxNg4MCxs0zWWxw7M8Z4rUUQ2stGfdfB9xyk';
+wwv_flow_imp.g_varchar2_table(433) := 'kEuy21/0YRBKo3yHg+95N0b9CG4LTBaBzjgnJzf14O5YY+MCeunjAgJoK0Mtg90fMlIAkFJKMAn2RZrwhXM2yu9lI/xgENpDlU8w';
+wwv_flow_imp.g_varchar2_table(434) := 'cfmT9B85za6//mqqVmySORDYC0GTXVxrbY/aGoPjSBwpubjXrECgtL0jACFw4rsEEutBCoHBLCKi3yEG9n/gbia2raf/8M04rU0Y';
+wwv_flow_imp.g_varchar2_table(435) := 'GZJJfi6uyxX9Jbyrh23sKIXgYLdTf9PpymnAmVDGEGgoLVVKMM7vm2ZEtG8UM5ml8BMvEklUmcBr1ZnYtpXRK3ew9pkXiaoVxCKD';
+wwv_flow_imp.g_varchar2_table(436) := 'ZDORBOySD+04gqrj2RZmyY06mNnHZIbfs0Kf/mEuIyVuo8nZ669iYttWvNYoUWUCp7Ul3YDtJR8KG0CebBO+cA539yCi4i5ZvYAA';
+wwv_flow_imp.g_varchar2_table(437) := '2vFBuaySuZkdfkoCH0sq/JMB4bNnMJOB1dZZFs4ZQGi0N44RDk4QcOrm6wh7qgjVnStTjIkP4mhbnae0tjGA19xeZGb9vW5tTEIp';
+wwv_flow_imp.g_varchar2_table(438) := 'wp4qp26+DicIMMJBe+MgMm4pZbC1IxesrSUqGsPKQJaVHJmeflSGxec9pwv/C+ds1LYrkf65nktgRIT2ahjhIKOI5rphTt98LU47';
+wwv_flow_imp.g_varchar2_table(439) := 'wBRdgacwUuK0A07ffC3NdcPIKIoVQA0jIjD5qB6dci2XQAkkhT9pXvzZCZmuwkVbAbHPf4HwOzkQfgAk2m2i3QbCSIwUOK02p2+6';
+wwv_flow_imp.g_varchar2_table(440) := 'jtqWjVYJ5KycNwuMEDjtgNqWjZy+6TqcVhsjBcJItNtAu01ycUr/4vjSZLCotZaH3R9yMLIL]'')'||wwv_flow.LF||
+'               || TO_CLO';
+wwv_flow_imp.g_varchar2_table(441) := 'B(q''[tgKSCQkV4YsjORN+Y4Xeq9kAVryDCWPQrsPRt96KcWRq99ktJ+w9i5Kjb70V7Trnx8QIjAwxXg1h5nU0Mz2mK4EXR2yPgQW';
+wwv_flow_imp.g_varchar2_table(442) := 'subzs/pADBbAgKyDJ8y9yIlIjDgAqbwKEmnquqd1u8waO3f563GZrVbsCRkrcZotjt7+e2uYNF1pFBhDKjiEy80M6U8y08cxTP+V';
+wwv_flow_imp.g_varchar2_table(443) := 'l94ccKACwVkB7PgMi7Ff4Ypzqy5Pww/kAoD9OHFo//09STrkCZ66/GrfRXJVKIIn6n7n+6mmm/7RxEPY/2s9BIPBiEtdzok344rm';
+wwv_flow_imp.g_varchar2_table(444) := 'p9dgJSd4/D7s/5EQBJFZAR4mxePCjg+OY8SDbVN+snA8AilmGWEQRR996K7UtG1edJZDs/LUtGzn61lsR0cyHpQTyfCAwF/vlNJI';
+wwv_flow_imp.g_varchar2_table(445) := 'U4XhAdHC8401Ik5/dH3KiAKDDgYkHXZ9qoE/UwMvZzh8jtI1ga68G2uE1DykEUmu043Dg/e+ktnkDbmt1KAEjJW6rRW3zBg68/51';
+wwv_flow_imp.g_varchar2_table(446) := 'ox0FqzWub8RmYNo5C56Flx0UYwBPoEzX0qcacm9G8NroukZsVN900mlEJTIv4R4fHbNuuHAp/EqCYa+cyQiCVQvm+VQKbVr4SmBL';
+wwv_flow_imp.g_varchar2_table(447) := '+TVb4le8j1aWu9j5vSc3b0e4WBnAk0eGxS2YGBAtwdbtArlabAeqzOUcCW99/cCw+v93FB5sP8/BdjRDIKLpQCazQmEDi818g/FF';
+wwv_flow_imp.g_varchar2_table(448) := '06VToJWIpuUICUbw2zexVgvWlKnxbQnK10mzptaF9cVowLsRQRybiLj75NP2BeUevL1AC73sH4zu34bZaxIf5u/HE6RJ/DrfVYnz';
+wwv_flow_imp.g_varchar2_table(449) := 'nNg687x2dCT/Mmk3JHUkx2kTbnjy9aH0mJb9hxjdlz0SuFADYwWpE0/ykqcENUCfq2Zf4zsUC8tdTSsDz2P+Bd3H6hmtwWi3QOpu';
+wwv_flow_imp.g_varchar2_table(450) := 'TcEuEkQK0xmm1OH3DNez/wLtQnteZ8NtXmLGeIpfEJcPqRB0zcWGloMau6Tw+fe4UAFw0YPH57OjQeCrHMZea8xVsLeYzvEYIhNb';
+wwv_flow_imp.g_varchar2_table(451) := 'IMOTIXbdz+O47MY7EacVlw8vJGhAiTncGGEdy+O47OXLX7cgwRGg9zwpIiXZbUxWVuWaGtfqaDS1nZHYa8FIkJpOvoeQ7hCdrGR/';
+wwv_flow_imp.g_varchar2_table(452) := 't7RQDJDXsIcJ4zOuBY8Fw2m3Ovu4q6ps3sPUbjzJw6FW059pKuU5u0M0QIwUyUjhhxPiOyzj61ltpDg/itNoLc2uMwIgQ7dVw2oO';
+wwv_flow_imp.g_varchar2_table(453) := 'AIre7wHRX4EwDb2Mv7UC91qXNEblVqQKoK4haEfroZI6j/tOIZ1mVRhZXvCIEbrNFe6Cf/e+/myN3vZmoVMJt2muw8+gWJM/kNtt';
+wwv_flow_imp.g_varchar2_table(454) := 'EpRJH7noz+99/N+2Bftxma+EWTBwIVKUR+33+PvqFxFkBfXSSqBVRV/l+5FxaAIBNA7uC1rEaXjNaBrs/UwFAG7VeXPmqkRIRRQj';
+wwv_flow_imp.g_varchar2_table(455) := 'g9I3XMrb7cjY89gxr976E2wxQvhefJ2BJOwzNCyEwAoTSU8906ubrOPWG6wl6enDaicJaxD4TBwJtViXHgcDpSKAZ0TpRR2/pQ4T';
+wwv_flow_imp.g_varchar2_table(456) := '5dV3zqwAkyFaEc6Yet9HK+oE6wEi0E6DdOsLMUAA0X+Jd023ZXfXVt93GuWv3sP6p5xg4cASv0cQ4DtpzrSB2QxkkQm9AhpE9x1+';
+wwv_flow_imp.g_varchar2_table(457) := 'tMHrlTk7feC2N9cPIMMKNT/UtHoMwDtqto50Aobz4g+YYg43fnKkjhyuYHG9e+VQABowr8U43kG2V6wE8T7JQG2invaQn2Iy0vfJ';
+wwv_flow_imp.g_varchar2_table(458) := 'c1aY5vIbD77yD0hsnGX5hP2v2H6Z8bgxHKYzroB3HCl6y6SxWIYi4Y5OwPQ5lFCEihXYcmsNrGNt1Oeeu3kV7oA+htRV8xNK6KUa';
+wwv_flow_imp.g_varchar2_table(459) := 'inTbGbSCjwXyWBl+MBNlWuKMtgk29iDxcjz0D+VQAAkSkcUeatsHnciAxVb0JkBEof2knXIBB2F0XCHuqHL/tZk7d8jp6j55kcP8';
+wwv_flow_imp.g_varchar2_table(460) := 'hqqfOUR4Zw2lHIMR5ZSAl8U0BSDF7Rz8bxBbC3gFgQGuE0jhKgTFo16U5NEhjwzCju3ZQ27oR5Xt2x28HGEinx4EBnAjtTeC0hrN';
+wwv_flow_imp.g_varchar2_table(461) := 'rETZfpMAdaRKuq+ZS+CGPCsCAcQXeaAtZD5aP+R+j/HFSfeB4RxZK4UYKIwUTl29lfOdlOK02lbOj9Jw6Q8+J01TPjOC0WritEEE';
+wwv_flow_imp.g_varchar2_table(462) := 'bg6IRuUJI+RoZEoDSmqoT4QiJoUxU9lDlMo11Q9Q3rae+YR3NtYOocslaA2GI22xjREqCfwEG5Y/jpfwuS4aJMyL1AHeiTThYRuT';
+wwv_flow_imp.g_varchar2_table(463) := 'g7sGLyZ8CiHOn7rkmAutvLgsFMBUAnKQr59djXxzACYKpBVffvJ7a1o0IY3Cabdxmg/JYSO/hNfSESv3gFZNHTxw+1HtRVN5obcS';
+wwv_flow_imp.g_varchar2_table(464) := 'uPTvH7z/Us+VEWCk1Lq/RXBsSlXtQldK0OoXIZiNioe9KRmIqEDi5fAKBMNVk1T3XJBos5074Ia8KoK2QtWDKl10WTAUAa0sTAJz';
+wwv_flow_imp.g_varchar2_table(465) := 'PW4vzdfIyCG2MTIBxHYKBAVpDMLlt0HDyjfKaD7zuzH++iceA0kUPGX3nVdbd88n9l4frHzFR2QgZgdAapx0rGEFc5NPtlZzEV2r';
+wwv_flow_imp.g_varchar2_table(466) := 'LJxAI562AWoDIaSwrX3UAcfTUnWgjQ5W3p7sEccmqW0c7bciyYi0WUCMEGIOIItyWQpjjIhr+ovh3X7n/+jOj9EMow1C5Sim3FQY';
+wwv_flow_imp.g_varchar2_table(467) := 'e4P27zz9y7fiav5FCHsRtRfacvjHnd/osqxGnAoH1/LQI6wQJMlS4E+1curP5EjFhe8Q5E21yaS/NhgBwUKVRkGG+JlkIjARjSpQ';
+wwv_flow_imp.g_varchar2_table(468) := '8YV6pPul/9PsP7QAvMBK0gLLnB3+zf/+6b+uHh6rlwGhTFiZvh5EMIEM7xjjLanmAwJlo236HOXvu/CmA0CAb4fIy/wEw8QnAnM3';
+wwv_flow_imp.g_varchar2_table(469) := 'wFAatpahKae498OT2o5OTvb7jaEc6BnB+85GvXy2E6br7Mj9EPMZ5fb4ZSNyARpjLgqD8KAATH4hphYgg5/WTF2MAGaH9nDWwvAi';
+wwv_flow_imp.g_varchar2_table(470) := 'DwReS0622/2vfuP9qQEmI7nnye5c9NXp2oCoco/N65G4qEBinWZeRDkCACBSiFcauWdYPdJ78KAAAKXAaISKF+9dSZVqhSt79U4U';
+wwv_flow_imp.g_varchar2_table(471) := 'RvdIx]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[9x85tPnp0ycGAPH7zzy2qyRkjp8azsdZGtnHWeaLAKEMTiPMXV1LfrIASXlpY+';
+wwv_flow_imp.g_varchar2_table(472) := 'YGkfnFIIyLSiLUuTahLY4QjEWh/PjTj29/88ato/smxnoGHM+ovO7+CdMyLW5YxYiMLg1dILIRTWVo8kJ+FADYqHWo8hV8movppq';
+wwv_flow_imp.g_varchar2_table(473) := 'lQtglozh9fGSN6HZe/3v/i9i8efPmyquOQe+GH2NVSdqybG5dPRSCAEHZt5+wymPwogLj8V7Sj3PlJc5MEAJcPAgi1loHW0mGJbm';
+wwv_flow_imp.g_varchar2_table(474) := 'juEssyECgEoh0hIo3J0T0W+XKkjD1wkvcd9AK0wMgAXRpFLLP0lADy77BMQ4DAQZdGMTKwOczlQnyYKm+DnR8FIAQi0raV0rIiaV';
+wwv_flow_imp.g_varchar2_table(475) := 'nVjANTy+v5l93TmuTS1fm1XMsF2tg1niMXNx8uQFxmKgJlMwBOygNkD8TpxTuRNgBo3Jo0MhTCuIt8vYI5SZquujUjgj69+KPBU2';
+wwv_flow_imp.g_varchar2_table(476) := 'tAIlKUzDgTIAKFqbq5CQbmQwEkxIOUhgwlL2mMNsJxhShVF3/VjDAIVUaX9wMKjJuLSV3RJIeuynUhon4Hp8VSxC9Nu4GJIiOEzd';
+wwv_flow_imp.g_varchar2_table(477) := 'OlMo05dG/zowDicwDRmlIqJpInBUYr7ZSqUjdrDT1x7vto5S0qLGuMgEoYrTl5jXC8QbTJiV5fyRgjHE9E7slRt376eWh6iMWcDB';
+wwv_flow_imp.g_varchar2_table(478) := 'IC6YSyv3qTUxms6nZDC+nIMA1XNL4KPU9GYj4UQBwg0VWX1p7hJX9526hCm96eXqmVmgi+++A/O/0/fuo7QAUW3LF5ynbs+Z3/+D';
+wwv_flow_imp.g_varchar2_table(479) := 'VH9g4aApMrB29FYoyQvgi9E2fGPn7zP4p/uBhfTgLN9f/qj95cufGDf+w5a/tr9ZppGZnORBqTq0B3PhRAQko97YQxpuV4xjTb4/';
+wwv_flow_imp.g_varchar2_table(480) := 'qhv/ipkd//+UcZXL+eekMt+EU9TxKpVunvveFy6Ze2G3vDbU6mdUUjTBQh/dL20rvevqf98GOHcZ0yYbjw1vs91b7Tv/VTjw79XO';
+wwv_flow_imp.g_varchar2_table(481) := 'sn5dt+/I/axusXKiTVmEBOyJcCSAuDlpUep/bk1/5b6/d//hus37KF08eCRb2m1yNo15vs3LZdlEol02prhFhmYelliBACbbQol0';
+wwv_flow_imp.g_varchar2_table(482) := 'rs3Ladrzz4Am5PiaC+cAUQ1DTrt6wd+f2f/0Z53bb/Vrr5nf/FTI4pm9dd2az8BWuMwS85evzsKXXfR/6Wvr61jJ0JF/26vm2h56';
+wwv_flow_imp.g_varchar2_table(483) := '1fexNSQn4vf1l5GDRS4q1fexOg47lYHGNnQvr61qr7PvK3evzsKfySw+ztE1cMK18BgBZ+GcLm/nDf90bQ2iUIFj+x9VADruit3o';
+wwv_flow_imp.g_varchar2_table(484) := 'jWLEkouqBDjEBrRG/1RsCN52JxBIFBazfc970RwuZ+4Zdh4fGhZcNqUACgFQinn1JpkRHjGN8XBEHk7dgyaDx/p4miVeEv5gYhhI';
+wwv_flow_imp.g_varchar2_table(485) := 'kijOfv9HZsGSQIInx/8eMvhLFrxOlHLzw8tJxY+QpACMe06kb0rLnK/8CvX0mtVqdncJG+nS+AQNxw/Rbhe2tRyrAaxjI/SJQywv';
+wwv_flow_imp.g_varchar2_table(486) := 'fWihuu3wIE8ZwsnJ5Bh1qt7n/g168UPWuuMq26QYgiBrAiMEYLv+L5b/+nvwJECKHx/YV/ds8IIHAu37ZHlHwPvfJNxdyh0aLke8';
+wwv_flow_imp.g_varchar2_table(487) := '7l2/YAQTwnC8P3JUJoIPLf/k9/RfgVD2NWxZyuDgUghGMa48pZv/3uvt979h5qI5OAWrAlYINORg4NXIO9927FB4tyiEFK5NDANY';
+wwv_flow_imp.g_varchar2_table(488) := 'BZcCDQrgFFbWSy7/eevcdZv/1u0xhXq2H3h9WiAMAqgdpYJLde/cG+33vud6hUQuqjNXoG3Xn7j3EAUJar16AURQAwC4xAKWS5eg';
+wwv_flow_imp.g_varchar2_table(489) := '0LCQT6vqBn0KU+WqNSCft+77nfkVuv/qCpjUWrRfhhNSkAACFcM3FWyU07P9j3v174q8qv/vHN1EfPEQQRgxtc/N65x2N6AND3ri';
+wwv_flow_imp.g_varchar2_table(490) := 'gCgBmRBAJ974p5BQL9XsngBpcgiKiPnqv86h/f3Pe/XvgruWnnB83EWYUQq6M2JmZ1KQBILAElK33Xe7e+/zO9n3jho+4P/swAo6';
+wwv_flow_imp.g_varchar2_table(491) := 'fOEdSa9Aw61iycbTHZAKC87trNwneLAGB2xIFAd6287trNXDIQ6IupeQ1qTUZPnXN/8GcGej/xwke9W9//GVnpu97UxlaN2T+dVa';
+wwv_flow_imp.g_varchar2_table(492) := 'XtppDSMa2aRkjH2bDjn1R/4j+/W7/3l/5v+L0vfqn9x//6eWxJbw89gx4i1NQCDXHhYI+RBLSdq/bcLMplz9Qbq3Lh5AJttOipeM';
+wwv_flow_imp.g_varchar2_table(493) := '5Ve27mC199mh7TS5AEZH3o9SXGk9RHQ+rBJGBK/+yj13hvfM+75ZoN/1hU+4ZNfRwTtTRSrso5XJ0KAEDE0bvJUYXnDzubd/+yvP';
+wwv_flow_imp.g_varchar2_table(494) := 'vDP+e/5Ue+pI7vv7/xyV/5Nq++cBbwgepUwNBDQB050HdN/EJFADAz7NhPzYXnC3p8O0/1UUUtqAEBl109XP3pe37I2bzrB0R14N';
+wwv_flow_imp.g_varchar2_table(495) := '2i2uebVs3OvZROshZWI6tXASRI6RCFxkyOaBzHl8Ob/74c2vT3+/7Lgwepjz8Y7nv8gdYf/7/PcO7EKCCoU2VgoEKlctX5AGARAs';
+wwv_flow_imp.g_varchar2_table(496) := 'gGGwikUrmKgYEKp0dbQAMwDG/qL/+z//Ymb/fr30HPwNtlz5qdCIFpTmImRxRCyNW660+nUABgg3hCOBhtTH1cgxGiVN0p+od3+k';
+wwv_flow_imp.g_varchar2_table(497) := 'Obftq76Z37aU4+ZU4dfqj1yBe/Hz308Qk8d4eJFBT+f5ZIEynw3B1E4xX3Pb/cX37Te24SGy5/G5W+G4Vf3iVKFUy7iWmMa9vBhU';
+wwv_flow_imp.g_varchar2_table(498) := 'LwpyH67z1VmLAzYjTaGISQlCpCuPYyXV2v1WgceJnWAzfgeE7e2jyvOoQAFSrK73ia6hV7ZE9vLwhM1IZ202CMRgoBxUnNmSgsgF';
+wwv_flow_imp.g_varchar2_table(499) := 'kRcuoWl6CpTbtpQAnh9vWKvvLNup2/Dq+rEgMI48i+8s1GlDD1EQ2OQSAQQhYB2ktTaMWOiBeSkBKljKm9ou1BscL3zx4BaEztFY';
+wwv_flow_imp.g_varchar2_table(500) := '1SBiFjoS92/E4oBmleSBCRMNEZucw66q9gDOBgojMSEYliSc+PYrTmhQTdAD0ebzCFAsgeY+dCj9u5KZb0vChGq2MMCAfUOOgWrP';
+wwv_flow_imp.g_varchar2_table(501) := 'xuUcsIx86JGrdzVCjmjikUQMfEFb9qBFjsZRQF]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[S4sAonhuCstsPhQKYF4YiM5RCH8eE';
+wwv_flow_imp.g_varchar2_table(502) := 'fHcFMI/HwoF0DESCDHFLpNDrHVm5yakWNadU4xUx0jQTdATRQAwdySBwAk7R8Wy7phipDqiCADmnyIQuBAKBdARSQDwHKAoYgB5R';
+wwv_flow_imp.g_varchar2_table(503) := 'AAqnqPCQuuUQgF0RFxtFp6Mvy8WV/6wc2LnqKjS7JRCAXSEABOCGiv8/9wSxwHUmJ2rQgF0RKEAOsIBXQc9SeH/5xnHzpGuU8xTZ';
+wwv_flow_imp.g_varchar2_table(504) := 'xQKYE6SCPMYmIBiyPKMtHOkxwpLrUOK1TwncQAwKgKA+ScOBEZFILBTCgUwJ3EAcKoCsFhU+cVgm4GcowgEdkahAOYkCQCOFmZl7';
+wwv_flow_imp.g_varchar2_table(505) := 'kkCgaNFILBDCgUwF8KNj5qOUzRQWg5Mm6/VdcfHgigUwCVJCoCKHWX5MM1iK+IAc1IogEtifUp7zLTwKZcHNmZj56yI2cxFoQAui';
+wwv_flow_imp.g_varchar2_table(506) := 'Y0qm/AsxW6yXIhPBoZnKbI2c1MogEtS5JWXH0XdxnwoRudSiKKybHkyrXKz6Ap+SQoFMCtFAHD5UgQCO6VQALNSBACXL0UgsFMKB';
+wwv_flow_imp.g_varchar2_table(507) := 'TArttGkCU9T7CLLjSQQeJqigeulKRTArCQdZkaKDjPLjqSD00jRwWkOCgUwI0WPueVP0cOxE4qVPSMX3wFQDNPyQ1LcFTA3/z/w7';
+wwv_flow_imp.g_varchar2_table(508) := 'c016zRfSwAAAABJRU5ErkJggg==]'')),'||wwv_flow.LF||
+'       photo_mime_type = ''image/png'''||wwv_flow.LF||
+' WHERE candidate_id = 2;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'COMM';
+wwv_flow_imp.g_varchar2_table(509) := 'IT;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'UPDATE tms_candidates'||wwv_flow.LF||
+'   SET photo_blob = apex_web_service.clobbase642blob('||wwv_flow.LF||
+'                   ';
+wwv_flow_imp.g_varchar2_table(510) := ' TO_CLOB(q''[iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAABKi0lEQVR4nO29eXRf13Xf+9nn3Ht/EwaSAAhSFEWK';
+wwv_flow_imp.g_varchar2_table(511) := 'mm1Zsjw7djwoiVs7cVzHQ9PUY5z4tU1WX+q2SbrS55U0XU0Tuy9p4yRO8+Jl98WOM9TDi6c6nlTbsgbbsiRbkiWKokRSJAgQ42+8';
+wwv_flow_imp.g_varchar2_table(512) := 'w9nvj3t/AEiCIAjgN4C4n7VgSxD5u/d379nfs/c+++wj73tLXcnJydmWmF7fQE5OTu/IBSAnZxuTC0BOzjYmF4CcnG1MLgA5OduY';
+wwv_flow_imp.g_varchar2_table(513) := 'XABycrYxuQDk5GxjcgHIydnG5AKQk7ONyQUgJ2cb4/X6BnK6yFqLvqWjd5HTR+QCcDmgS7Z9lu0KyLJfiF3jx7ll/6ycJRxnXScX';
+wwv_flow_imp.g_varchar2_table(514) := 'ii1PLgBbiXMNPTNwsSBG0n8WkCywk2UB3qLBXsxo9ezrwJIgqEsFQRXU6eK/r3RfOVuDXAD6mcywZJmhGyNgwJjUwGWZUcvSXzvn';
+wwv_flow_imp.g_varchar2_table(515) := 'H87+zIsiZ9uweCt9vqT3p6kwOAc4cMuEQTUXhH4nF4B+4hyDNx6IlbOMve3S6+L/LP1/x/Z1r/L5IqlAtKMLVTlLFDRRXJILQr+S';
+wwv_flow_imp.g_varchar2_table(516) := 'C0CPWW4UxgPjCcamM3x7Jl5u7NqP3RvOCRmWi4JmnoJz4BJwcSoIy8Uup3fkAtAD2kYvBqwnWK8dx59j8NrBWb3TnHPvxoK1oIGk';
+wwv_flow_imp.g_varchar2_table(517) := 'IUICSQwuyUIGcjHoBbkAdIvMGhaN3s+Mvj3Lb3WDvxjLE4UCxk9/VCUVg2hJDNI/1Ksb3V7kAtBhVJfieeuns/1Z2bTL2ehXoR3K';
+wwv_flow_imp.g_varchar2_table(518) := 'CGm4YDxAhSSGJFrKG+ReQWfJBaATLJvtvSCd7Y0527XPWcay52F98HzBudQrSKLcK+gkuQBsJtlANt4yN1+WMuA5a2BZctAvpAKa';
+wwv_flow_imp.g_varchar2_table(519) := 'RJDEiouzP5MLwaaRC8BmsMzwvUBSdzb7fW7466f97GwANhBcDHGYC8FmkgvABmjHqDZIY/vlhp+ziSwT2MBLhaCdK8jzBBsjF4D1';
+wwv_flow_imp.g_varchar2_table(520) := '0J6ZPPAKki5vLft9Toc4K8SCxBfiVu4RbIRcAC6FC7j6uZvfZbI8gbEQlPPQYCPkArBGVNMB187qp7/s6S3lnBMaJFEmBEkeFqyV';
+wwv_flow_imp.g_varchar2_table(521) := 'XAAuQjvG9AuCFyxl9XP6iOx9eH66+hKHqRDk+YGLkwvAami6Ju0VsnX8LZfVb28gcOdvKrggyzYgLO4n3hpW1H43fiEtuopbaaJw';
+wwv_flow_imp.g_varchar2_table(522) := 'i9x+T8gFYCU0K+IpCp6f1e70teG3Swqz/xcDGBAfae8dzrjYjHjW91SH4kBjwGWNAdpbEtfSXKA3aPYIghLEXpoobN96ztnkAnAu';
+wwv_flow_imp.g_varchar2_table(523) := 'ms4eXiEdRP1p+EpqkNlIFx8Rf2mrsIJqhCbTJEmNJHwcxEeTWaLmD5ALtAZSTfCLz0TsDtAIG1yDsRXE7kSkeN7no1HmXQhpe8k+';
+wwv_flow_imp.g_varchar2_table(524) := 'srAsUWh9MDb3Bi5ELgBtls361qcPS3Z1ydgkQMRbzEe4eIo4fIKo+QhJeISo9TAaTxOHT4JGuGSKdOS71HBXQcQnNWbF2FEQHy84';
+wwv_flow_imp.g_varchar2_table(525) := 'gHi78As3YYND+MUbscHVGG90WaVjDBouiVK/WFo7h1NKt1rn3sDZ5AIAoGkm2S9KOnb7xvCXjF6kgFiLKiTRBHHzIaLGPYS1u4lb';
+wwv_flow_imp.g_varchar2_table(526) := 'j+DiSdTVUNyiEYsEIAYxg9nnCbKmGECzf6yBc4T1U4CjqZ9CMIipYLwxvMKNBJUX4pdegFd8BtYfTwXBJai2+ksMdMkbiJrZkmEf';
+wwv_flow_imp.g_varchar2_table(527) := '3FavyQWA1PBtQP/M+poAIKa4ZPThk7RqX6c1/znCxndw0QSqrcwTKKZhgLcLaWfwzurmubzL56XciAWxmZDIss92uHiSVnSM5sLn';
+wwv_flow_imp.g_varchar2_table(528) := 'ESlg/HGC0nMpDL2GQuVHscGBJTFwzfTj1tqVtFNk3kBQFpIQolY/vOzeIu97S31bPgXVNDfml7JKvp4/hWWzvSkjQLzc6Ot34aJT';
+wwv_flow_imp.g_varchar2_table(529) := '6YwuJchm9/TGHd1XrizuT60cNES1Aeow/h6C8osWxcALDqTa6up94xWIQJJA1FBcO42xDdmeAtB2+UtpJ92ez/qagHgYW0Cd0qp9';
+wwv_flow_imp.g_varchar2_table(530) := 'hcbMX9Na+CIunsjc+HJq9JBl43t90+eyrB2xhpmxO4w3TmHwVZR2vplC5XbECC5ppSsLvfYIsvxF1Ni+IcH2EwBNq/m8Ir23IU1A';
+wwv_flow_imp.g_varchar2_table(531) := 'LMYWcUmdxuzf0pj9KGH9XtQ1MXYQJCs77EujvxDLxSDCJQuIKRKUn09pxz+ltOONGFvGJc3FZ9Dr242bafHQdhOB7SUAmsb7XtBj';
+wwv_flow_imp.g_varchar2_table(532) := 'l/8cw2/O/U+qUx8katyXLueZgSXXessY/YWQxVBFXRXVCL90GwOj/4zi8Bv6RghEIA4ham4vEdgeAqBAlvwxlh7aVJqME1NG3TmG';
+wwv_flow_imp.g_varchar2_table(533) := 'bwqp4avjrKTdZUXa31xdFXWts4Sg/UwW/1wvkLRzcVjXxTFzuXP5C0CWc/JLvTT+NMGXxvFCc/ZvWZj8L0SN+7eJ4Z/LuUJwK4Nj';
+wwv_flow_imp.g_varchar2_table(534) := '/5rijjdmnkK9d4nCTASixvaoF7i8TwfOdvAVKj00fk0AwXgV4tbDTB99MzPH3kncfATjjSBSXiq13Tak5cUiZYw3Qtx8hJlj72T6';
+wwv_flow_imp.g_varchar2_table(535) := '6JuJWw9jvApphi7p/q31w5jpIpevAOjSfvH2v3f/HmLEVkAM86d+h6nHb6c1/3nEDKfewLYz/HPJhMCUETNMa/7zTD1+O/Onfidd';
+wwv_flow_imp.g_varchar2_table(536) := '+bCV7Bl1mWys9D5k7DyXpQDoucbfdVJ33ngDRPVvM33k1SxM/BYgiDcMJGxvwz8XByTZsxEWJn6L6SOvJqp/G+MN0H6evaAtAr2v';
+wwv_flow_imp.g_varchar2_table(537) := 'E+kMl58AZFt4e2b8Gqdlu6bEwsR/5syR1xDWv43xxuiZW7tVWAyXxgjr3+bMkdewMPGfEVNCpNAbb4BUBDxfLktP4LISAM128gWl';
+wwv_flow_imp.g_varchar2_table(538) := 'Xt1BgngDJPFppo++iflTv5mW0trBbPBehiNo09EsdBoEscyf+k2mj76JJD6NeAOk3lP3CUrp2LrcPIHLRwA0PXvOL/bCXUvLccVW';
+wwv_flow_imp.g_varchar2_table(539) := 'aM1/mTNZrJ/P+htgmTfQmv989ky/nOYFelD6rJqOLXuZ5QQuDwHoacyfDkZjy9SnPsT00X9EEk8i3q581t8wmTfg7SKJJ5k++o+o';
+wwv_flow_imp.g_varchar2_table(540) := 'T30IY8u0Rbfb]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[XG6Jwa0vAL02fvExpszsifcwe+KXETPY03j1smQxrzLI7IlfZvbEezC';
+wwv_flow_imp.g_varchar2_table(541) := 'mnJVJ5yKwEba2ALSLfHpi/AkiBTRZYPqpd1Cb+iDG7sr+W57h33zSZ2rsLmpTH2T6qXegyUIqtj3IC/jlfusdsT62tACknV6kB1s';
+wwv_flow_imp.g_varchar2_table(542) := '5E0SKODfP9JNvojH7MYw3SjoQt/iI6GsUSDDeKI3ZjzH95Jtwbj7th9BlEejd2NtctrQA9Ka8d5nxH30jUe0ujLcXLtJqK2cT0Qj';
+wwv_flow_imp.g_varchar2_table(543) := 'j7SWq3cX00Tf2RgSy0NMvbW0F2JoCoGmf/vRM+W5e+HzjF28k7YWX0100RLyR3ouAl47Frer4bT0B0OwwznYLr67hLmD8+czfMzS';
+wwv_flow_imp.g_varchar2_table(544) := '6gAh0MQejS6cXb0UR2FoCsNi8k64bP2JxyWxu/P3GuSKQzGZ9BborAn6RHnikG2frCMCybb3dfcjpxnCRArPH301Y+0Zu/P1GJgJ';
+wwv_flow_imp.g_varchar2_table(545) := 'h7RvMHn93tjLQ5V5vmiUFt9jKwNYRAMnadnc956KIKTJ34l/Rmv8CxtudG38/ohHG201r/gvMnfhXiOl+zzfJxuhW6iGwNQSgV0k';
+wwv_flow_imp.g_varchar2_table(546) := '/jTG2TG3qg9SmPoDYdnVfTl+iMWJ3UZv6QFaXUe7u+9qCScH+F4DsoXY96acxxhugMftp5k/+KsYbp1cbUXIuhQTjjTN/8ldpzH4';
+wwv_flow_imp.g_varchar2_table(547) := '63U7cZRGwwdbJB/S9AIjJ3KpuL/eZEnHzceae/pUss9wvp4bkrE76nkSKzD39K8TNxxFTotvLg4unTPU5/X2LCl5Blh9u252LYoG';
+wwv_flow_imp.g_varchar2_table(548) := 'E2RO/hIunoNtLSzkbxIEUcfEUsyd+idT4u1sxZkw6dvt9zuhfAWiv9/vd3t7rMLbI/KnfolX9WnpSLnncv/WIEbuDVvVrzJ/6LYz';
+wwv_flow_imp.g_varchar2_table(549) := 'trohrdhZhv9cH9K0AiAGvQA9c/wrN+a9Sm/pDjB3Jk35bGY0xdoTa1B/SnP8qYip0OxRoHzPfr/TnrWWuf3eX/BTEQ5M55k/+Kkh';
+wwv_flow_imp.g_varchar2_table(550) := '+buplg3jMn/xVNJnL3mv3ZhWR/g4F+k4A2m29rE/Xq/2MKbAw8Z+Img8i0u48k7O1cYhUiJoPsjDxnzCmQNdLhf3+bSfWdwKQKma';
+wwv_flow_imp.g_varchar2_table(551) := '3r5q6/q2Fb1A788HU9c/j/suILBQ480FaC9/ofihAFgr0YYFQfwlAVvDT3XLKLOvvWsxP/Gb2uz58UzkbJH2n8xO/Ca5FV1cF2mX';
+wwv_flow_imp.g_varchar2_table(552) := 'sfRgK9I8AaLqHo/uuf4LYIrWZjxDWvomYIfKCn8uRBDFDhLVvUpv5CGK7v3XY+tk+pT4Sgf4RADKF7Hrir4ALJ6lOvg9jetd2Oqc';
+wwv_flow_imp.g_varchar2_table(553) := 'bJBgzQHXyfbhwEqTLy0ySjfE+oj8EICv37X75pEOMT3Xq/bjw6azgp4/kOWeT0bRAKHya6tT7EdPlpqI9G+cXpj8EoCfK6BBTJK4';
+wwv_flow_imp.g_varchar2_table(554) := '/TH36w+lBFPnsvw1IEDtIffrDxPWHs12D3V3t6b6ne2F6LwDZsl/3YyNFxFKb/mM0WchaTPeJLOd0EAXx0WSB2vQfI90eeIu5rv5';
+wwv_flow_imp.g_varchar2_table(555) := 'ICPZeAAS8Hqz5ixSJ6g/RmP1bxA7nFX/bCY0RO0xj9m+J6g/1pI2Y59MXXkBvBWD57N/V6zrEWGozf5a1kMqr/rYd4uGSWWozf4Y';
+wwv_flow_imp.g_varchar2_table(556) := 'YC9rdMKBfvIDeCkBPZn8FUyAJJ2jOfz7N/Odn920/NF0RaM5/niScANPlFYE+8QJ6JwA9m/0TjPGpz3yYJDwKPWgdldMPKJgiSXi';
+wwv_flow_imp.g_varchar2_table(557) := 'U+syHMcbv+kTQD15A7wSgV7O/+Li4SmPuE+n5cl12/XL6CHUYU6Yx9wlcXO1+IrgPvIDeCECvZn8cYgq0qncQN38AUibf8LOdcSB';
+wwv_flow_imp.g_varchar2_table(558) := 'l4uYPaFXvQLq9UYjeewE98wBsT/JuqdQ25v6yFxfP6WOWxkT3p+Pe2EJK9wWgZ9VQChKQhMcIa3ci+eyfA6RLwmXC2p0k4TGQLne';
+wwv_flow_imp.g_varchar2_table(559) := 'f7XF1YE88AM/vpsq6NLmjIcZYmvOfIolOrpj1FRHEGIwxSD/u3cxZFyKSvtMV32u2KhSdpDn/KYyxoGGWEOzeBNFdm1ii6wIgtrt';
+wwv_flow_imp.g_varchar2_table(560) := 'qJ6aM2Epa7IPQnP8cImc3GmwPkCSOaTXqNOo14iha/H3O1qQt5HEU0ajXaDXqJHF8vsCrIuLTnP8cIIgdTseMKXfnRjMvoPs5Meh';
+wwv_flow_imp.g_varchar2_table(561) := 'q9KEKnpe2+up8d5S05jKqfweXnAFTxoUniJoPZC82XfIxxhC2WiRxzI7RUcb2XIH1PKYnTzN16iTOOUrlMs7l4cJWwhhDo17HGMP';
+wwv_flow_imp.g_varchar2_table(562) := 'onr3sGttNEsdMnnqa2akprOcRFArZe00QUyZqPkB9+q8wwT5wdYwdwSs9K/MGOjtDi4D1hKilXW0c0lUBSL9kt7r8KiIB8xPvpTX';
+wwv_flow_imp.g_varchar2_table(563) := '/ecTsoN3vv/0yjTHUa1XG9+3n5T/5Oq6/+VbKg4MYY2jW6xx74jBf/9zf8ej376dYLiMI2o99nXIWEREUpV6rcv3Nt/Kjr3kt+6+';
+wwv_flow_imp.g_varchar2_table(564) := '+lmIm4vWFBR79/v3c8dlPM3HiGOXKQCYCApowe/zdgEXdLIWhVzNy9WdRrdNpAVBNbSPu8knz3RMABdODhggiJcQMIot7/dOZ3Bh';
+wwv_flow_imp.g_varchar2_table(565) := 'LvTrP815+Oz/1c++gMjBIq9kgCkNAsZ7H9TffynXPvJVv/K/P8Pm/+ih+ENAl9yVnPUgq0FEY8lM/93Ze+g9+ChEIWy1azQYgFMt';
+wwv_flow_imp.g_varchar2_table(566) := 'lnv+y23nGc57PZz72Yb59x1coDwzhXDrLp+MkPRdCpNTd28/CYxfRtcWIrga41pMeLLK4c37AWEttYZ7nvex23vzuX8bzPGoL8zi';
+wwv_flow_imp.g_varchar2_table(567) := 'XpIlAMagqjXqdVqPOy3/6Dbz2Le+k1ajnycE+RkRoNeq89i3v5OU//YYsn1NHVRFJ437nEmoL83iex5vf/cs872W3U1uYx9h2AH7';
+wwv_flow_imp.g_varchar2_table(568) := '+eOna/ZPaSDfpmgCISdWt15OnGEOr0WD/Ndfy2re+k7DZTBND1nKu7BpjQITazDQvedWref4rfpxGtZpminP6CmMsjWqV57/ix3n';
+wwv_flow_imp.g_varchar2_table(569) := 'Jq15NbWYaVkziCsZakjgmbDZ57Vvfyf5rrqXVaCA9TvhqOxnYxdvoyqVUwVjB9HryFEGdw1rL697+CxQKJeI4WvXFt5cGm40Gr/n';
+wwv_flow_imp.g_varchar2_table(570) := 'ZtzK+70rCVgPp59MethkihrDVYHzflbzmZ99KMzPm1bw1]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[MYY4jigUSrzu7b+AtRZ1ru';
+wwv_flow_imp.g_varchar2_table(571) := 'ete42kttKtibIrozh1bXq/5caI0Go0eMErf4ID195As15b02wuIiRRRLkywI+9/k2oyw8K7S8UdcqPvf5NlCsDJNkS7sUwxtKs1z';
+wwv_flow_imp.g_varchar2_table(572) := 'hw7Q284JU/QavRwPRYAJTUVrp1F90RANP7bqgikCQxlaEhXvoPf5Ko1bokl89YS6Ne41kveDEHrr+RVrPZc5cxJwvpmk0OXH8jz3';
+wwv_flow_imp.g_varchar2_table(573) := 'rBi2nUa8vi+bX9/ajV4qX/8CepDA2RJHFvnYCsY1C3HMyOX2bR/e+xrbRj/xtuuY2do2NEUXjJCT3VNHy49UUvIYnjXm/lziGdKZ';
+wwv_flow_imp.g_varchar2_table(574) := 'M45tYXvSR14y9xd6eIEEUhO0fHuOGW2/oiF2BM98KAjn9TIe2H3muHWVXx/IBnv/ilaeXXOj5DxBA2W9x023MZ2T2+WC247nvq0s';
+wwv_flow_imp.g_varchar2_table(575) := '9G6Of7a1f5jewe56bbnkvYbK0rNyMAqjz7xS/F84Oe13oo2RkCXbhW5wXA0OWTfla8C+IoYufoGFceuoawFa4r2SMixHHE8MgoV1';
+wwv_flow_imp.g_varchar2_table(576) := '5zLWHY2lDSKBCHj8NDO/ITiMOi63r0Ckj2GZ26v/Y9yjrvERHCsMWV11zL8MhomtBdz/sQIWyFXHnoGnaOjhFHXVyIXwldZjcdpr';
+wwv_flow_imp.g_varchar2_table(577) := 'OFQJq22+uZAGja78NYQ6ve4uANN1EeGKJRq667xl9IvYfrb76VB+66E+HSvpoCBkURnoqHmEjKxGx+fYQCgyZkv60yJC0izJqvoY';
+wwv_flow_imp.g_varchar2_table(578) := 'CH0lLLE/EgZ1xxk+9uiRHT5Eq7QEGSS34O6cydvgshfTfrQURIkpjywBAHb7iJe+/4KqWySXvF9GjiaufNtMNa1FEBUMBauWQj2S';
+wwv_flow_imp.g_varchar2_table(579) := 'ycnu1k7r3qYJbl3ZDjiYtjxvftX1ZLvnYMSqyW70S7mUzKGNFs4G6+BJxOyhyNh3mWP8VVdn5NIpAav2PWFflONE7d+Rjp3NubSC';
+wwv_flow_imp.g_varchar2_table(580) := 'ocTYZ4rj/BDtMkvgShcs4RFAqM79uPi2M29gwVI8Leqw6e9Tu3znBxowip7SRRZ6/fUQEQUiXrjYhmRiU+6hI8r8z4vivTLO9GHq';
+wwv_flow_imp.g_varchar2_table(581) := 'kIcZywY2yMgeEdVOdmsZ635rhREb4T7WbKlSlKnMXBnZFIXxwO4f5oDA/HFV6VSO2qM6VFqWrAvdEeQjUUJEYRsmr5TSP1hEBEaa';
+wwv_flow_imp.g_varchar2_table(582) := 'rl3mgPLw6epiIRbg1XEhGSOGZgeAc7xsaI42RD4ZiQegHj+67E8wLU1bMWYb2ZvpTMC+jwdToaZYjt1fKfA4rEjcdIWt/DaYHKYI';
+wwv_flow_imp.g_varchar2_table(583) := 'WR8XHiKN7YQMncxcrgECO7x4miaE2fpwi+OE4mA0wmJQrEJAgJBl8c3gV+fHF4OGz247H07x4X/jsGXZzxBXgs3kGiZlXjV1IBeC';
+wwv_flow_imp.g_varchar2_table(584) := 'IepuE8fBwxBiXNV6x4jyvcV/vfV/tegTgUiDH4OBrO44l4eO05CxGiLAFYGWwv321Q2KOYkfFxKoMVnBZIWt8jbjwGdP/0IHSZ/X';
+wwv_flow_imp.g_varchar2_table(585) := 'SQjnkAqmBNWv3Xi6SqIixM/DouPgEMYa3FWn/TPl+MwQuCS7ojVWEiKafPJLvHZ/pn2GerxLqCX5I9OxEIJDUMl+5JxAgkToiURS';
+wwv_flow_imp.g_varchar2_table(586) := 'NPr5ItjSF8L9rNrCvg4ahqwKwrsMs0Luhmmyzun3SlRe8hkITb/NMMmhC37B7bwZUvYI3iNP0+JvNnQpXFez/XohUwoiy4gPui3c';
+wwv_flow_imp.g_varchar2_table(587) := 'SaiuCkK9FSixXHWh1fLwg2ddnOWh9rLeDj4hMsTPw6Ow/+TU/CACNgjBAnndsi3NEQwPSi15nGGG+A6uSf0ap+Ds/fTas+z8ie66';
+wwv_flow_imp.g_varchar2_table(588) := 'gMDaUFQBt8mqoOz3pcceAgD33nnswk1/D3YDHRpZlx7TNVLMmKFWiK4BslUXii5nGyaaknBivKrsBxsBQzVnC0HCx3VRVDRSLGTZ';
+wwv_flow_imp.g_varchar2_table(589) := '0zSREvM6i1BD8OWRSZBMOINNhtGoQYPGnPgum1CgYmW4ajDY/p0JCoULaOvcWEq8sx1kCkgqyQQ1CE3abBsLQ4rRUsbvHaa5n0BM';
+wwv_flow_imp.g_varchar2_table(590) := 'ElMVccOIhnPVrqsmO+1seiZzc0xMievcyceZBSeZRW9XM0pv+cgbFfzDoHd3dQGw+IOvf5Hfs2vYn/0wM/o+ZjLJz+bYwZYnnjj8';
+wwv_flow_imp.g_varchar2_table(591) := '3eyWfX0c3x3DuIEczi2sISDgiMcqZl+eZ0gYmWTZ9pZudP1OHB+YBbhiJuHQ5Jshm4LQNJZkyrXXsttIVDs09oexhWhG/PBjww7x';
+wwv_flow_imp.g_varchar2_table(592) := 'M6SWPJzGN5pAoPFRJesqvFrkKy9N/P+lyyz93YO1nPO1iNs7tAJRgzxMLp36Yw+Aq84GpUQ7q1h64beYCOfZPFcsZuu//iMX/qN9';
+wwv_flow_imp.g_varchar2_table(593) := 'D4DEiw3hXmNbEZBSMrvdw05lamW5YvnC4x2bKUjFIwSiBKYJSSTU3nnpmAu6cLnNtSbjMHzbmf5QvcPV3gnpkAAUo2vadA0nssGW';
+wwv_flow_imp.g_varchar2_table(594) := 'Uyu/fpll0MXy72ueuhk0U7iqZjKD7D/Knf6Prsv1gP0ME8QGcEIIv9ulpTrQliyzRnP5H2/bM7ga154KcAsQp3ThdoOqFglPaSdP';
+wwv_flow_imp.g_varchar2_table(595) := 'vHZeO+YpXvL/g8XvMomE7KXXrdglEer3l8f8GnYtOrpfH/snvL/lzTpd9hxfzGliFG7E6a85+jOfsJxJbp5glCi3bUoRfbEQFQ0l';
+wwv_flow_imp.g_varchar2_table(596) := 'rm7r30NGWqSYOFyfchnN919GLbQ9dDJxqGtl3/o3WPUy1LQXTV/LMCVuDBeZ/Irf7MN1qaK0DkhAfnfays/mcdUBDlVMtytO4RmN';
+wwv_flow_imp.g_varchar2_table(597) := 'W/x3rZ7HfQ3v59NorgsTD5PjRpdHVpS8j2BXTo8zsiAF2P/zXB2CK1qT8manwPsYMsX7YRk3aKWc8GoJVJW0/Vq9WOdQg62bRrEl';
+wwv_flow_imp.g_varchar2_table(598) := 'AFPFHmY8NsZPBWMUwPxcdd9OdCWIHZyDAfG7wLuPXnItl36QQiQr1azcKAjb+H9sagVqOOnNW8wiF2kKjxPWpTf4yxxa55AZ3OA3';
+wwv_flow_imp.g_varchar2_table(599) := 'QkqBGhi7v/dPG039r0n55/2q8qnucxMzlJs1ajVB7Y8JqxiJC4hNNPH0fMeqvtL/DZgFOhlqy9glKASKHhsoy7nv/dBJh16VkIyQ';
+wwv_flow_imp.g_varchar2_table(600) := 'V0X1BibS/knU176a7hhFjTPMDF7q1tlrVEzlpC3AwURYzl9NPHSbJWbhv6PFWs9WjUqsxMTuJ557Sv]'')'||wwv_flow.LF||
+'               || ';
+wwv_flow_imp.g_varchar2_table(601) := 'TO_CLOB(q''[yk4Trk3/KeWdb0G8XaAbrT5cG1ljqo5MqJ3JarQXprvhAmiCsSUWZj5MEj6F8cayF7PsdrKqsbDVpFwZ3PAl2w1CN';
+wwv_flow_imp.g_varchar2_table(602) := 'mNJ8UJcams44cLuXHv/wSPxrjUVHbclYKXXZ9bw98+lU23uRISo1VpzA5C1fF7YSlvErXyASJEkfIr6zIcZHP81XNzqfGKw/cI6Z';
+wwv_flow_imp.g_varchar2_table(603) := 'E+bP093cScTQHrab+2Cp/2qKsakTUAnn34az99YY0JVxViP6twsUxOnNvx5530+LK7zr7X81gFFqwz7jsStzRA0vevFn4v9eQFiJ';
+wwv_flow_imp.g_varchar2_table(604) := 'wz7jqJdWzwv2b3tChx2jSHDmlHF8z2mJk5RnZvF2LWXY6/2eZNPP502CTX2/M876zThWlYq3Hk6uaO2MyGA6dIGoKzopz79aaLGg';
+wwv_flow_imp.g_varchar2_table(605) := 'xhv14qxmYghSWImnj7OM5/3wtR9XPc1Fd+zTE+epr6wgF/Y3P3j6QoAHCjF/GB+tYg8xZC6/ofKMQPWEa7garcrA2/0ptlhWhojY';
+wwv_flow_imp.g_varchar2_table(606) := 'tHFOW5ZhaHGauTBeIxkhc9xwIB1XFlMeKTqU7pIYq+9GnCgFBPrJu8lyFz2+sIC05On2TkyShKtb5s3pCGFsR4TTx/PQkSDnjeWH';
+wwv_flow_imp.g_varchar2_table(607) := 'JgyUeNBmvOfpbzrzV0pDkpzap2xqE2fp5UuLv+JRV1MY+7jaRXYBZ5P+nItx48czvaMr/9rK4pYjxNPHCGONyupuEQazwu7CwnPG';
+wwv_flow_imp.g_varchar2_table(608) := 'opoJHJBt9uQltwOeo7bdoQkq1T6KTBsWrrH1mTc1hnx45mdJf+xnSX/sRE/nhm3dcZtXUZNUy+Uc24LyW07Qga9VGxWepLtcKSRC';
+wwv_flow_imp.g_varchar2_table(609) := 'M8aithdSNKKwEt+GquT9mcIOfHEEcR6G8rFiKRNQo8fOYyxq+R1FEQsjbmPoy7ufLH+4v11ZkLddAHo3gqAA1Mgbh0mrH1z2cEfK';
+wwv_flow_imp.g_varchar2_table(610) := '6CKHwQcO/xYuntvA+6iiMG5hMMPPZglADcfA7SccOtwyC1DUZZ4S81neTjYcGnp7e1jTSrWkax6M6KAtKQw3yhf8a3G4KFvNstXf';
+wwv_flow_imp.g_varchar2_table(611) := 'r9ZvvL76T9f8a1QCvMurQK+4CclCpXsmmXraLil6sC2gccqNJwsVim2VqgE3AzSDLnl8EMPZmc6rO8qbW+iOjfLscOPpQfAXHB8J';
+wwv_flow_imp.g_varchar2_table(612) := 'IgZIKx9k7h1ODtktrMbhTq5EtCZZcBueADqMGJozn8Klyys6oalL9hnfnaaxx/6PkGxcMm949qf4/sBp08c5/iRwwSFQkcr0RKFF';
+wwv_flow_imp.g_varchar2_table(613) := '+9qcftYk51+Km6RtrPwyo0DEa/d02AsuOgMq4JKLIU5hq68U4Mdp4yRRJJmRZJmxRhJNBg+5Yb23+kkmDOicqG8QNtDGQsSXrunw';
+wwv_flow_imp.g_varchar2_table(614) := 'Y0DEb4osaa/B9jpJ9w+1uTFu1oXEaWNoaoEhQLHjxzm9Inj+Ots56XqCIoFHn/o+8zPTmOtv/rniIdLFtLThMWcl3fqBFtmM1DXW';
+wwv_flow_imp.g_varchar2_table(615) := 'oCJRV1Cs/ql8077XfnPp7d0353f4NYXvWRds4Wqwy8EPHjvXVTn56gMDmdHSnWOUOGaSsSBUsxsZNKQQGCH76h4jkTlou61AhaN/';
+wwv_flow_imp.g_varchar2_table(616) := 'cGx7yTGNE3cLNvm1HUS1a4AUL/ydFIcfQwvaLjKnu9o070MLrwnpy0CRav86GiTWlaD4DQtC97hOzyjhBcpTNow7Zl7fo4H772LV';
+wwv_flow_imp.g_varchar2_table(617) := '73hHxOGzUveFCSSngx9353fSIftxcLt9mnC1S8xMPZvOx8GLEusb/Z8s0X7WjuQAnHzEeLGw9kZbqsbojpHoVji6A8f4uSxJwmCQ';
+wwv_flow_imp.g_varchar2_table(618) := 'noQxCVgjEe9VuPBe76FH6zPizjvvi7y3wUIMzd7V+DYX47ZV4wp2tTAkosn19QhctWA/HAkYD5yeKZ28rl+NH9IVIuiWvSj+UOmd';
+wwv_flow_imp.g_varchar2_table(619) := 'vK5sVOvFHjzV1S8H3IRMxBSDyV0qRDsK8bsL8fsCtJ9/h03/vaXU4cfFHjwnm9Rr9Uwl7gFVZ0jCAqcPPYkR3/4EIViaQ3jIj03M';
+wwv_flow_imp.g_varchar2_table(620) := 'G48TNx8BKTzYUCn2FwB6NYeAHUYY2jV7siO/l7bcowYQxiGfOkTf4PYS/vqLkkoDVT41t9/nlPHntwU919gsQHGxUpzlXR1oOWEl';
+wwv_flow_imp.g_varchar2_table(621) := 'spZrvWF/o5Jt9hK2Wj1mgF7tInFNiav9pPmaKRm8XiTSI3zk+aobUxeHWK5ZsAcLRutpufk6GJS4EIlw4lCS4VWViSkq9zX8h9Bs';
+wwv_flow_imp.g_varchar2_table(622) := '3Yj66cdBpw69iTf+vvPUxqo4JJL88rEGr70ib8hDMO19xYwPi45Q6t2R1qO3OEwoFN7AjbfA1ieDeoUkjabiOp3I7L2dXh1jmK5z';
+wwv_flow_imp.g_varchar2_table(623) := 'MP3fZv77/om5YFBkuTiG4bUOYJikVPHnuLrX/gMQbGU9RvcwFdAidSwoMEldd71s5/V/4xDVZjXggowVjLHAiuhxnHJhHPXpUt+S';
+wwv_flow_imp.g_varchar2_table(624) := '+9ewDgEE85dp3FcCqyEYyVzTIC6+tpUj+Ai3YvXcl9ndQPG0VSPmvobFgGnSlAs8fUvfIZTx54iKBbX5N2ljUAHuf+ub/Lwfd+mW';
+wwv_flow_imp.g_varchar2_table(625) := 'C6v3StURcQjqt+dDr9Oz3odsqtetOzYIArio8k8YfMBRNLy1rX/dcUvBHzmLz7MlQcPMTK+h0a9dsF95c45bHZ82Cc/9Kc0alWKp';
+wwv_flow_imp.g_varchar2_table(626) := 'fIlNwMFwYhjxDSZSMrpSUUI3w13M2zCTeu51676i9QyowUpSOLGC3YyRpCoOmLVBS5bETjn76lVFyRRdST2h+vjBTN5rJbcUFXf3';
+wwv_flow_imp.g_varchar2_table(627) := 'BXupZz16tvMe6yrT1V9fBwhllFprKs7cLvcu1Gr8skP/Sm/8OvvxRhL4pILbhZKkphSucLpp4/zmb/4MH5htcz/yt9CpEDYfABN5';
+wwv_flow_imp.g_varchar2_table(628) := 'sG09wdsrX2PmyoAytIuwM7lABXwSMLjuGgC8LmU+EtV8TyfWnWBv/rTD/COf/3vqAwMUq9V0648snT/LosP/ULA//x/PsiRRx6iP';
+wwv_flow_imp.g_varchar2_table(629) := 'DC4rsRfWmcvXGkXOJoM0VQPn4QIw4Qrb3KdfLpdyaBSsiwMFOxcgh+bqLpHJB3nKxS6pns4oup4wugT5QJzResWGokO19TXBQ1k8';
+wwv_flow_imp.g_varchar2_table(630) := '7oXp6VYJvNWXPbED3rzrPcazjmKpQpHHnmIT3/kz3nDL/wzolZIGLbSZjDZd0TTTr/lyuDiGKhVFyiWSpco6g7wcdEESXgcW7yRd';
+wwv_flow_imp.g_varchar2_table(631) := 'Pt5ZwSgvSsw]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[iTe3S/CW9ABEDFHrYTSZR+wOLpYAPJd0sJQ5duQxPvR7v83r3v6LHLz+';
+wwv_flow_imp.g_varchar2_table(632) := 'BpI4IY6jNLvseXh+wPTkBJ/77/9vFjIMbCjr7xAKkvBcf4J7wz001Fts+tkBJEGYjc3g02fO/OjBYutMnLRGsk05540hAXEqkIQj';
+wwv_flow_imp.g_varchar2_table(633) := 'wcLRF5yJ7HA1GRlUDBYn3lmR/WaQ5hXCbLHhVn+SMVO/pPMLzsW5hPLAAHd/9e9pNuq85p+8lV1j48RRSBKnzWA9z8d6lqOP/pBP';
+wwv_flow_imp.g_varchar2_table(634) := 'f+TPOPHkE5TK63yv4qHJLFHrYbzSM3p+otB6kPe9pb5pd60KfkHwC5u/XLF0kbT8d2Hifcyf+r9W3PyzVoyxtJoNPM/j2S95Gbc8';
+wwv_flow_imp.g_varchar2_table(635) := '/0WMjO/FWsvs9BSPPXg/d3/1S8zNTFOuVNbh9q9w+6Tbcmvq83g8zBlXWqzg26xH1v6sssTstwvss1UMiuPi+8rTUDNN/E25Mkfj';
+wwv_flow_imp.g_varchar2_table(636) := 'Iea0sHjvm0XbyIelxUFvfsPGvxxjDPVajeGdu3jhK3+c6551Kzt2jZIkCWcmTvLAvXfxvW/+b+I4plAsrV/UxcPFkwzt+W0Gx/9t';
+wwv_flow_imp.g_varchar2_table(637) := 'R8uCRSBqQdTa3AahW08ASBBTYe7Ev6Q+/eeI2cmlegDLEWNQ52g26ljrMTA0jDGGWnWBVrNBoVDE8/1NMf422bo8FqWJ3fStsu1r';
+wwv_flow_imp.g_varchar2_table(638) := 'BJLgoUSY9o75NV2mncj3caJAC2/FsGGj9ycChaxr06UcCLIWjDHEUUSr1aRQLFEZGMQ5R3V+jiSJKZbKi+9+/VjUzVDe9S6G9/03';
+wwv_flow_imp.g_varchar2_table(639) := '1NVYpXxiQ3RKADZVrtI4pdM1QOm3T8In2YxFjPYAKFcGUFUa9RpounegMjCIqm6q8cNSTX2C4KEgnVlCUoQw9S4uacy0hSLKnq+P';
+wwv_flow_imp.g_varchar2_table(640) := 'yyqJNxshzq6x2QLonMN6HhU/NfzawjyIEBQKiBRxzm3Q+NuYbCxCJxOAaX5t86+wBXMAsFhwsIm0jdzYtBNPJwx/Oct34nVy4Gzk';
+wwv_flow_imp.g_varchar2_table(641) := 'k7txj53MmavqYlxuvTSLsfx3m0Ynm/Z1mC1WCaggAS6aImo9mi0BbrKRdmKA5PQcbXc+2FQcIgWi1qO4aAokYKsJwRYTgDZKt9ox';
+wwv_flow_imp.g_varchar2_table(642) := '5eSsjmRjcWsZfpstKgCQG39O/7B1x+IWFoCcnJyNsoUFYOuqbs7lxtYdi1tUAFyeA8jpE9o5gHw7cBcQ0iPABrH+XlQjchHI6R2C';
+wwv_flow_imp.g_varchar2_table(643) := 'aoT196aH0WzBzUBbTACgXQlovHHSc5O31gPPuZwQIMJ444ipsJGK1F6x+V2BN7lk9IJINxoP5ORcjG50wMn2d3RgpXFTBUDpQn9E';
+wwv_flow_imp.g_varchar2_table(644) := 'dYiAX7wlDQG6egRxTs4yJA0B/OItWTFgh7sDu82vNtiCIUCKsaPkHkBO75FsLG5Ntp4AZO3A/OKzEOneKa05OeehCSJF/OKzutMW';
+wwv_flow_imp.g_varchar2_table(645) := 'rANsqgC0vaDOFkWmRzZ5wSGMN5IvB+b0CMl6U4zgBYeyY8Q6N5+2w+vNHukdSAJ2/EAA0Ajjj+EVDqHaIheAnO4jqLbwCocw/hh0';
+wwv_flow_imp.g_varchar2_table(646) := 'YUm6E7a19UIAAI0R4+OXnodqSPeOIu5DOtRLoO+v3WvEoBril56HGH/dXal6zeZajmQhQKfHRZYHCMovuaS24JcdKmhUAWfp7m40';
+wwv_flow_imp.g_varchar2_table(647) := 'BWfTayMdahbS52RtwYPyS7oS/y/a1SZfZotOnQbViKDyI9jgEGiTbRUGiOJag8S1PST1UVxc7u5sLA4Xl0nqo8TVcVw4sM1EQECb';
+wwv_flow_imp.g_varchar2_table(648) := '2OAQQeVHsorUrWlKm3/X7b4LHbVHAQ0x/k788rNRbbBVX8B6ERulM78kuNYAmhS7IwLi0KSIaw2AJOA8RLbbSoxBtYFffjbG3wka';
+wwv_flow_imp.g_varchar2_table(649) := '0tEBn7Vy74ST15FKwK55owqloTez3YwfFcRvIEEN1ABCUhtF41ImAp14AWnvQo1LJLWsBkMNEtQQvwG6jTwwAEw69ro41vu+EhA6';
+wwv_flow_imp.g_varchar2_table(650) := 't1xxPsvDgKu3Xxiggi3OIra1JAL1UVxjF+r8VAg2wyPIPkedj2vsIqkvM37bwhZnt5nxt93/q7vm/ndyeb0jd96dnJyAa2H9nZSG';
+wwv_flow_imp.g_varchar2_table(651) := 'X4dzC3T8mOa+w2ErU4jXyERAcWGFpLYb1xhBo3L6e9ElQZALuWh6/p9Tg0ZlXGMk/cywkv45NYjXwFam2KrbYNeNWJxboDT8Oqy/';
+wwv_flow_imp.g_varchar2_table(652) := 'E1x3lqE7ZVOb3hVYAJekRz91HEmLgorDP0tt+kNdWYvtL9JutLYyhWsN4lqDpJquuLAMURkkQUyE2AixIYgipr1/fXnfX4smXrqy';
+wwv_flow_imp.g_varchar2_table(653) := 'kARo4qeehGZ93hePE3SY4iymsJDN/NvpeZPWoHijFId/Ni3+6cIStJLaVCee9Oa3Bc8SFt3ZFWhQ1yQoP5PCwCtozn1qwweFbElU';
+wwv_flow_imp.g_varchar2_table(654) := 'MIV5xGug4SAuLqXGqQAWjS0aF5f+vFkpTyDgzHm/Wvxjohi/igQLaQJSt1neBWgfBFIc/kcE5Wfiks4dBLIc7WBivTPnAiwdAN8V';
+wwv_flow_imp.g_varchar2_table(655) := 'VJXyznfRnPssW7U764ZRg5gYKU1jnI+LSmhcRBOf1CtYZs0XNd7F41ERL0K8JsZvgIkyYdmOxg/pM/Ep73xXd1vHdzCx3hEBaBct';
+wwv_flow_imp.g_varchar2_table(656) := 'iEcX7NGirklh8JUUBl9Ja+HvEbODbecFAKn7JSAxpjAPwQKol7n0XubSC+o8zldnRWychQgRYuMsZIizfMB2NnxIx9kshcGfoDD4';
+wwv_flow_imp.g_varchar2_table(657) := 'StQ16cbsnzXB6kgREHRKAFhaCeiOTqYu7eDu3yCs3cn2NP7lyFJmXmLEjxA/+z1krv75ApCGBtk/w1KMv62y/Bci7UQ1uPs3aHtH';
+wwv_flow_imp.g_varchar2_table(658) := '3RCA5SsAnXgLHZP0DZyivQ4smjQIKs+jtOPNuGSWTp3SuvXIZm412Swu52T7l2f9ZWmm15VEYpsiHi6ZpbTjzQSV56FJg67M/hmd';
+wwv_flow_imp.g_varchar2_table(659) := 'tKWOCECqWtrdaFwE50IGxn4d6+8Dt83qAnI6hIBrYv19DIz9Os6FXd33n3rTnVtT64wH0N4U1FUvwIBG2MI+Bnf/Gs5V6aZK51yu';
+wwv_flow_imp.g_varchar2_table(660) := 'WJyrMrj717CFfdlSc/dyIZ2M/6GD36STSxcXxqJJnfLIL1Aceg3qZtiyByDn9AFeuuw39BrKI7+AJnW6OqksW1LvFJ0TANLYpSdO';
+wwv_flow_imp.g_varchar2_table(661) := 'uDqG9v4uYneRtw7PWR9py2+xuxja+7td2OO+8h24pLOJ]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[9I4JwFJFYLfJdmoVr2Vo/L2';
+wwv_flow_imp.g_varchar2_table(662) := '45EyeEMy5dMTDJWcYGn8vfvHanuw47WQFYJvOfaNuNQdZEQ+X1CmPvIvyrnfj4kmydbCcnIsjPi6epLzr3ZRH3oVL6vQilOxUE5D';
+wwv_flow_imp.g_varchar2_table(663) := 'ldFTSFhOBPfLAVSOGr/hdgvLz0GQm9wRyLo54aDJDUH4ew1f8brbbrxf3sSwB2EE6KwBA0qs8AAZchJgyw/v+BLEj2c6t7VzNlrM';
+wwv_flow_imp.g_varchar2_table(664) := '6BlwLsSPpmDFlcL3p9iOkttPpELqj30wkjWFcr8rzJV0V8Es3s2P/x1Fi0irBXARyzsUACUrMjv0fxy/dnGb9e7TF3GkW/3d49uy';
+wwv_flow_imp.g_varchar2_table(665) := '4Jaijt1vGxUNdlcLAixgc/wPUVbMbykUgp40BHOqqDI7/AYWBF6XjpJchY5fyZ50XAM3CgJ6uxHngapR3vY3BPX+Ui0DOMpYZ/54';
+wwv_flow_imp.g_varchar2_table(666) := '/orzrbeBq9LJ+RCRz/7vgOXfcAgRwcS+WA8+9EYu6BUq73s7g3g/kIpDDWca/9wOUdr0d7YPOUkpqM92YMzs/+iUrZuiDDXpifDR';
+wwv_flow_imp.g_varchar2_table(667) := 'eoLwzF4Gcs42/vPPtaLyQHvLRYzTJNgB1QQG6MvL7IwxIry/Gw50jAponBrcZBiU5y/hdvIAYry/GaLfcf+jSqO+bMAAwVtIqr0w';
+wwv_flow_imp.g_varchar2_table(668) := 'EBvb+IWiIaIRuu6ai2w8Vi2gEGjKw9w8XjR/x0rHR6/uje+4/dGvay8KA7vYIuDBiUhGIkwV27ngHOw58jsiWCOIFXF4sdNnixCO';
+wwv_flow_imp.g_varchar2_table(669) := 'IF4hsiR0HPsfOHe8gTlLjF9N744dldtKl2+ma36ua1lT02sUCFr91xRV4Sqb4+PhBPnXznzA1cAOlaDoTgX640ZzNQXDiUYqmmRq';
+wwv_flow_imp.g_varchar2_table(670) := '4gU/d/Cd8fPwgT8kUFVdI/0gfRIAiqY10s92gvO8t9a5dTgwEZempaTmUIpbIOb5WOMM3SmeIiBA7TDGa4xWP/w43nP48LW8IFYP';
+wwv_flow_imp.g_varchar2_table(671) := '0ZjNDzibRfoeFeJ4f7n41X7vm39H0h9FkDh+flzZGeEVrBN8YmiSYHo5OBcK6dnX/TFcFAIWgJBifrjfvbbcmKKnlqFfnM8UJjnp';
+wwv_flow_imp.g_varchar2_table(672) := '1SmoxCKoxiQlITIFnn/gLfuToHyEaE9kKZose/bzdceLhJzVUPO48+Et8b99bsK6FdSEiHg6lIQkH4zI/1RznYFymIUk3G1ovkc3';
+wwv_flow_imp.g_varchar2_table(673) := '+YaMr/fSXLtttATB+KgLdFACHEqjFiXJH4Qx3FKaIRSmqxS27EckOYGv6O7hy9l5uP/zbjNQO0/SGQST3BrYIKgZUKcZznKlcy1e';
+wwv_flow_imp.g_varchar2_table(674) := 'u/b84vuP5FKNZEDnr0BqD0JQET4WXt0Z5eWsEo0IoXfYGJDV+1+X2Fd0VgIxCWbpxoAqQGn9ZPU7bFp8oneSwV6OsNlsFXhmjCS1';
+wwv_flow_imp.g_varchar2_table(675) := 'vgEK8wIue/CDPOvnXgBDaMkY7dfhmzsYRnBiCpA4oD+59M3cd+Ge0vEEKcRV3gVWe9lioS8K1cYWfaexld1KgLnHXREAdtLpvit0';
+wwv_flow_imp.g_varchar2_table(676) := 'XAFXwC4Jf6Gyyo/3RFbXc58/x/5VOUTUJZbUkazBg0QQnPqE3wNVn7uAlR/8bY9VHaHkDqHhIP1Q25SySLu/FFOIqkwM38s2D/5I';
+wwv_flow_imp.g_varchar2_table(677) := 'nRl5OEFcxa1zitQh1SRhwlp9u7OG2aJhadvR5J2VABKIWRK3Ob/4579q98ABEsmRgh75setKdYFX4SnGKLxcn8VTwMGe5/Gv5JFF';
+wwv_flow_imp.g_varchar2_table(678) := 'H6A3iJQ2ee+J/8Jzj/wM/adDyBgDysKDHaOZKFuIqkS3x3Svfxnf2vY04W9ZN//vaB5pBiHHEovxYc4zbm6MkoiQdPO1SNUv+9cC';
+wwv_flow_imp.g_varchar2_table(679) := 'x7IkAoOAXBRuw6d60Q/HVEIvymdIEdwXTDKjXvuy6EE1Q8Wh5A+yuPsyLj/4RB6e/gYoQ2gqiimy3U3J7jGJQEYKkhqhydNdL+db';
+wwv_flow_imp.g_varchar2_table(680) := 'BX+L0wE0U4iqi8boLu9qGXpWYF4W7+KnGOJ4KkbjNDwkEkhCiZneTf4uX74kAkC4JFsqb+40daWKvLgkfqRzjCa/OoHprcvkvjmL';
+wwv_flow_imp.g_varchar2_table(681) := 'UEdoyIOyfvZsXPPXfuXLuO0SmSGRLuRB0gbbh+0kD3zU5Pvxc7rnq3Rzb8UJACZI67hJn/QthERYk5uq4zNtr+ymrpdmB5GCry0t';
+wwv_flow_imp.g_varchar2_table(682) := '/y+mZAGy2F9A2/jMm5K/KT/OUV6eyaca/hJCe09TyBvGTOtdP/i9uPflxdi88TGICIlumHTrkbB5tV95P6lgXcnrwJu7f+7M8OvY';
+wwv_flow_imp.g_varchar2_table(683) := 'PiGyZQryQttHa5Ioei1CTmKviMv+4fgUjLtg8Eejx7A+9FAA2zwtIUCrq8aTX4COVp6hLct4S32aThgU2yzAvcN3kF7n15McZq/4';
+wwv_flow_imp.g_varchar2_table(684) := 'QxaSegpg8WbhBVCyoI0jqCI7JgRu4f+/P8tjYqxaffftddIr2UmFZLW+vXcWBuERNYuwmWG0vZ3/osQBshhfQXuZrG39THIFearJ';
+wwv_flow_imp.g_varchar2_table(685) := 'v/RhNcJkQFKM5rpy7l5tPfYKrZu7CuJjIlkmMRVCkF1meLYhma/XWJfhJHWc8ntr5Ir6/52c4Pvx8mv4whXhh8dl3A4MQiqOoZlE';
+wwv_flow_imp.g_varchar2_table(686) := 'ENrRM2AezP/RaANiYF+BQCmo57jX4SOVYZvy9icLbgzG0A1gN2TP/fW6c+gSHznyVgXqTxBhCL0BFcjFYgbbRiypBHGKdo1oucmT';
+wwv_flow_imp.g_varchar2_table(687) := 'klTwy+jOcGrqZRAKCpNpVw1+OAULRTAT2c2VcorWBcKDXsz/0wblZmkAScclegAMKalkwMR8tH6chCQU1PUvBtQdkIZ4DEU4OPo+';
+wwv_flow_imp.g_varchar2_table(688) := 'n9lxJoXKQG48e5rrjj7Jv6gR+HBFbj8j6214Mlhu9H0d4SUzk+RzbvZ/HrryeRw5eS6v20/i1PfhuFk8bqNieGD+kYy5QoSEJHy0';
+wwv_flow_imp.g_varchar2_table(689) := 'f519Ur2bQebTEXVrmIZv9e9kyf/FWeu0BwKV7Ae11/pY4/kf5GMe9BoUOx/yXhCgm9gl3PkR19IfEMoCfhOybPMG1Jx7j0NNHGJ2';
+wwv_flow_imp.g_varchar2_table(690) := 'dwk+2nxicZfRJZvTWZ2rHKEeuOMThfddxYmwfkQ3wtMrA1A0EM8/AeVF6dHkfYBBaknBlXOJt9f0U1FxynUA/zP7QBx4AXJoX0N6';
+wwv_flow_imp.g_varchar2_table(691) := 'oIcBHy8c5mmX7+8b4ARTUQBxU8ZwjiOuogWPj+zm69yDFsMneMye55sThVAzmpvDjCCeG2PNIjE2N]'')'||wwv_flow.LF||
+'               || T';
+wwv_flow_imp.g_varchar2_table(692) := 'O_CLOB(q''[BAXN9ihsQRTJMvPpd7EuwYtijDoiz2dyxxhHrjjE4/uu5eTIXppBEesSgjjEj2Oc54iDKr6hr6qv26HnUa/OR8vHeV';
+wwv_flow_imp.g_varchar2_table(693) := 'ftKoSlsbkqfTT7Q58IAAJxqBjv4tWBSrqj75Olkxzxagx0YKlv4wgqMc6vAgZn0hEcRCGC4sTw1PhVPLH3akphg7GZSfafPsbBk0';
+wwv_flow_imp.g_varchar2_table(694) := '8wOjfFYH0B6xKcMcTGwxmzuLbd3rDUb6KQGnt7o01aM2FdgudijHMkxrJQHmRq9yhH917Nsd37mdw5RiMopcm+OKLcqqNI6iUYAQ';
+wwv_flow_imp.g_varchar2_table(695) := 'zOr6IS0xfWsgyHMqAeR7wanylO8PrGXuqSXPQu1aVjvV++Tn8IAO0HA36RC6q9y5b77g5muLMwvea6/m4jzpIU5lIBcJb2F9JlO9';
+wwv_flow_imp.g_varchar2_table(696) := 'GWi8GJsX08NX4Vdz3zRQzUq+yePc2+qRPsmzzOyNwZKs0ahbAFJsIZQyIBTmy29CXZzJM9B13uim7Ws5GlT5P2P8vib0UTrMZYF2';
+wwv_flow_imp.g_varchar2_table(697) := 'KcA+cR+QG1UoUzwyOcGLuSE6P7OL1jN9XyAImxKxq9O2uHmIKzOL+K86vY1jBq+mtJNUEpqeXOwjT7kiIvDHdSW21lQCBudf68v0';
+wwv_flow_imp.g_varchar2_table(698) := 'uhbwQAgSRSPF/SrsznjF0lTfodsw0+W5qgqP3av09ZPnOJrtz8YCUxUIRGscTj+67hsSuvw0tiyq06O6qzjM6e4YrjHqPzxxmKjl';
+wwv_flow_imp.g_varchar2_table(699) := 'IM5wniGkYTwC22MnPGRzEkCGI8XfIUZO3tmFQX71kR1MViUCwOk6Rn5aU9Eky28lGmVtjBfHCQMwMHeHpfzOSuYWYHdlIvlImth1';
+wwv_flow_imp.g_varchar2_table(700) := 'GHl8Rnfdfzjf5cBJUoE4CdQP95AgBFtXy2NMEVSZG9SZFQ3Pl3Ke1Qt39mf+gnAQDQdEdUsEJCUIBElE+XTtHK1mP7IIdyPpL+jw';
+wwv_flow_imp.g_varchar2_table(701) := 'vmQFyaOr5YWLNMDKxLsEmyaCRNv8iJkX08tXs/3zs4zODpmykvBFSSpyiHM+ysP0kpmma09hiiCcPNEwSuTkmipFWbt0g6U6sqmq';
+wwv_flow_imp.g_varchar2_table(702) := 'ytsYlYD2nP9KoElaGkqb4NTZm54j5ULFOV62j4u5gpH6Du76Tm76dREhbGHyQpTWITxSbpLB/E4VI+4Jz9+Ks/GMC49FlyFYuBdh';
+wwv_flow_imp.g_varchar2_table(703) := '+RJqShKY5Pl07xi7UDF/x2UUvXmCjoHv0lAAJJnCYEPX9pu7ADymr5TOlUlvSz/Wn8kL3ghMSfB8wlv+zliTMgjaXjBIlAzQLh2A';
+wwv_flow_imp.g_varchar2_table(704) := 'R4z6FVfRanKwlP7PpRwGBcCCJU4hlthk7+6S1y/N888/SxUzUNSoGXLMxMBU8/+sCQsVb1AhYogrokkSuuv2W+smM0DKPYjFUk+s';
+wwv_flow_imp.g_varchar2_table(705) := 'un9o598M74hqJvtObtFFRxJgAcog6bGLR0jNbI3QS2gTQDlMzYL8Xgz7shAJM+S+nCSZnrxAFFNRz16nyxeJqfauyhLsni0qAIxF';
+wwv_flow_imp.g_varchar2_table(706) := 'E6tvuiJ+Yy+ksAyB5WSzE2TQi2H+6TXp1vBTOU+tn4AVRQE6F+FdHNSV+nhgRQAHG0Ru4l8KYpTt+cGgZusQY+NGVJCoZPH7N7/u';
+wwv_flow_imp.g_varchar2_table(707) := 'PPv+D7e2F5j5m1Prqz/PK/+trjt4Z+hDUJQVwDQJI0wYl6hMOHae76PmBBi6hslqUqogb1q6iJwF26oHYLR5qc/lYww7OiIfbHJZ';
+wwv_flow_imp.g_varchar2_table(708) := 'pZfYBz6ZjuN+OHvuiFej7tB4akNxiJ8pniBE42e6vH5iNqcF4d5zXZ/Meb+Y/q09pxmNqeu3BGUS2ipt0KK6EokU7OhYV//9dP3g';
+wwv_flow_imp.g_varchar2_table(709) := 'jQbEZBkkR+EoWFNf0kkd9oRgGgH/jKyasfnWgMVkyoqomomPRaFHBiqI/dR2PkAVA/Xfvc9Gna4Lwmzqtngtq/GMBlYzVqj9VsQn';
+wwv_flow_imp.g_varchar2_table(710) := 'N9Omv15RMVScOAOFbKWO735zjq1bNin34mjQjTBGAnC1cUSQLi8ilqV9xBUpxGkiJIKhBORcq+6l9+Z+HqB040dhSLfoT11frBmn';
+wwv_flow_imp.g_varchar2_table(711) := '7E+loq+snUQlT+wB3TNxQ8cCppbCKKJAWcV6O+5xtEg08gSSH77h3w0XUpEZhG230aB7BUnXrUq3O/P0cZSxwrSb+0w1+BvhQASG';
+wwv_flow_imp.g_varchar2_table(712) := '1Hm8I0EV8pTlFQQ3+cLbQK2UtOCtNpArCTtyupCKxkiIriCdRiMe//4sS1gHOJW/MQjNPl7Oi/fOn01U8vUCgYp4trAucJTyETng';
+wwv_flow_imp.g_varchar2_table(713) := '6hgLj0mULfhgBtFKWghq8Up5gmQpvSLwWMK9K/AoASJIZvmRnO2BAP0+/mv5gATLPWXYhXRRH1QJTG2Hdojtyf/rsaElWpeKpfeq';
+wwv_flow_imp.g_varchar2_table(714) := 'R6xf0nGjt8a+JoDSLggMDiJheiyt98d+5AyVN17bUNFxAOPU59/JtgYsT5nTV+WEwEpqsq/ZsIbKOAh+GMDfmWmSFI+nvi6lsB8D';
+wwv_flow_imp.g_varchar2_table(715) := 'DMeBHfLc9ScN3b3rsh1OBsiPNqiHbLXVVQQZxPOPwo9fE7F43TmIRGIubffeLEzbC2l53N/vHvffH0ocmaBr5NUGcRNTRH76M5et';
+wwv_flow_imp.g_varchar2_table(716) := '+iyHTr+4lanFfD2TC7bn/jUArO8N3yLDNehNe/Ztafd9Z+gD8ozzPb5w9wiSxj7dVxttWDgXq+e65xUcperHc92Rz97INzu6010W';
+wwv_flow_imp.g_varchar2_table(717) := 'peQAIElviBE40dH71n5lA5SFSTQNS2qO39BuHQ44gLFq/XNdTgbAtdTAT2/2TgYZj1In5Qnu/rCawvLcsg1E3Cg6V5/K0Q+8OSq+';
+wwv_flow_imp.g_varchar2_table(718) := 'rPg4l7M0ZXyAuYpAjA73954npY/TiGJBUH9/4vnrq2FmN8FxAXpqhf8TWS4lRm/D34YgqYOH223QitNgElbU77YGmeuuntkWOr0X';
+wwv_flow_imp.g_varchar2_table(719) := 'cCkJb8Gp4o1jhZaBBov217WZ0kmKOnM9Q5eYH6yP1SsUbvfSrZ9cd3TByw1oThCntWosRJYE38wIn6ji89UrtiwHjaHHxcGnu/gd';
+wwv_flow_imp.g_varchar2_table(720) := 'pWGu/39E1o9my3BkraO+BkocETxVqWxO4/+k4AIH14D5Tn0yWgXt/MWllMAC7Q+1nq7LxAbfxOfC/kQ1+fvxacH9gLPlb9j589fU';
+wwv_flow_imp.g_varchar2_table(721) := 'MjsiYc+y6N0fvSUKZr+YwLsJgIXNgSicA2CqDCA+X5vr3lvhMAD2HWizhWqG+t2X8xAVjtYgLwYqQhQVQ6JW7/1/SH1anKH31pYT';
+wwv_flow_imp.g_varchar2_table(722) := '8QLfcCosSJ]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[b0302e81xv/+8Oxe2f+/tTl4RHoS769IOxFY3TKJQFjyAo4V6lkuq//Cg';
+wwv_flow_imp.g_varchar2_table(723) := 'L56kg7Fd4YnCjUWbIztr9tbhXYCsNajBOAqZHmB2KuJ2/d1/st377lhapZyYJcVp6VLefJ/3/X962pXfLW38f6FWEwE1rZMIhDAY';
+wwv_flow_imp.g_varchar2_table(724) := 'liwMU8Uavh9mAzso5GatbsQ5XCxhqhsjeQfZC6qJSnMgIn6b2yKgvMIPKdPFO8t/M53v3Y1EMVJIpFLxDc2+rvDh3d/PfrySCloq';
+wwv_flow_imp.g_varchar2_table(725) := 'jpf+u5LKGCi9Bljt0QiENJkoKhwuFhDZamLQr/QVwLQzv5P+C28reT+A6DZDsD+esFLKM4ZKRujH338OweOLywMBNY6a6wC9r13f';
+wwv_flow_imp.g_varchar2_table(726) := 'eUmEe2j8GUlJHvG/Xp/56OAp8KE3+rL1YC+EYD2g5ryQ+ZstCmHLnSN9jJV0N/LVIoSiOF0sxW8544v3AQkBuI/+O49+783MzVcF';
+wwv_flow_imp.g_varchar2_table(727) := 'quuXwtXFxOBPVxmXScWYc5GTPlh301sfSQAiqfC036T0HTgEMZOsoUKVRJUBozVLzz1xBX3nz45DMifPHDvtQXpz2WqJXpdaLV+D';
+wwv_flow_imp.g_varchar2_table(728) := 'EJoHE/7zUwA+udJ91U/AAdM+M2+i5NWJ113T7IMdX+70ClWhNk4Mv/1/m8f+JE9V848Nj9bGba+Jv06+7dZttLiReV0x+UWGSuCM';
+wwv_flow_imp.g_varchar2_table(729) := 'OE3+243a98IgCA4UeZtjFH6SiVXZblrKknaBLTPx2SiKgPW41OHHznwmSOP7i9bS98bP2ShVpI+68aevmwRthKKYhTmbYzrs0Rg3';
+wwv_flow_imp.g_varchar2_table(730) := 'wiAQWiYhDkvwvZZnHRx2gnArYMAkXMmdC47uXDrsBUTgVaFOS+iYZK+Km/vm0BKSLuprNhRtZ9xgpoQV5hBttDyFKS32v8ByzIEB';
+wwv_flow_imp.g_varchar2_table(731) := 'IsrzKAmhLW3OOg5AoTiMg+gf+gbATBA1SRbTwAWW1Y1urhFdvPYcnerBuc1OtRyrXO0BaBqkr66674IARQwKlRtTGRcR8/5EwRVp';
+wwv_flow_imp.g_varchar2_table(732) := '+khwhsNItMEoHpVoyYSUW+Dn5dzUdpNV72qSjjoNn5qUDoGRDEiRjrlmlsMLZNQtTF7okJWFNR7+kIAltMS15Hucu127E6dWutL4';
+wwv_flow_imp.g_varchar2_table(733) := 'JU3frKIKJIUccXDQALqbakQYEvS3nRVrInEQxbb3JTei2FcJ3GRGjHSidb9bQ+g3+gbAXAoRWe4rjnQkWIJ6wmJc67gF0y9Va8fD';
+wwv_flow_imp.g_varchar2_table(734) := '8/cJ0nib+g4XlWBUhTvOPUMsf5O0tZ5uQR0FFWxvsTeqRmvdvohaPjIBvqSqYhaGx3QwdvK/lC5FbacNcYk8eaOQAFiScd4P+0H6';
+wwv_flow_imp.g_varchar2_table(735) := 'AsBaD+c8ajAWyev2vwLKBjfaWWgaFwzmv/hDz/9jvd/5c13AiXW3iv/XBbjh8rv/9bfWzOwUwm1f/u/Xi6oigkk8k9Ozv7X5/xc9';
+wwv_flow_imp.g_varchar2_table(736) := 'suNxHIGaLz19r/+kRtueN2HjfGHatWmush0ZLUuFkfcJ+4/9IkAtFE64yapOLXOU9dozd3z1F++62Nf+fm7K5Xdu2tRff2nTfq+I';
+wwv_flow_imp.g_varchar2_table(737) := 'U6ahVc8/6AJCgc0jiGf/buBaBxjgsKBwj/4setbX7v3KJ4tEkXrHjgVvzz4/q+8+e6fMx965wuu+id/HjszlJgYwWz6++y3AdJXA';
+wwv_flow_imp.g_varchar2_table(738) := 'gCdekDiin7BPnzsa7/3sS/9/B07Kvv2zdZOhBv6SL8itGoNDl11QAqFgjZbDlm141bOZiAiOHVSLBQ4dNUB/teXH8arFAhr6xaAW';
+wwv_flow_imp.g_varchar2_table(739) := 'lh1Oyr7Rj/2pZ+/Y+dPXP17N+1/xX+qh0ki6SrpZc1lP2AVVc8Gttqcn/js937tc0EwOFqvTUYb/uAgzSn6u0dvwxjQvqvyvHxRH';
+wwv_flow_imp.g_varchar2_table(740) := 'Mbg7x69DXDZu9gQ9dpkFASDo5/93q99rtqcn/BsYJUN5Ie2CJe9AADOMx5hVD98dPKeaVXnhYQbf7G1yAGeDJSfnbbW2AKltJcNK';
+wwv_flow_imp.g_varchar2_table(741) := 'jiHDJSfDXjZu9gQIaGqOu/o5D3TYVQ/7BkP1p8f2jJsBwFAVTHGGyoUhn3ZSMa4TRAIYRj7V+/bqX5wSOOYxfO0czqPiGgco35wy';
+wwv_flow_imp.g_varchar2_table(742) := 'L96307CMCYINvz8RUQLhWHfGG9IL//JH9gGAiCIDeOmloOhG2+/6T03hGFcq/g7NxjbBemy7q237JPAHyVJlG3wLPsIQ5KoBP6o3';
+wwv_flow_imp.g_varchar2_table(743) := 'HrLPiDM3sm6qfg7bRjGtdtves8N5WDoxjBuqiB5DuByQFHne4H/4ut+8VegGYuICwjW/919FSC0B6+6XgqBj7v8XcW+w+GkEPj24';
+wwv_flow_imp.g_varchar2_table(744) := 'FXXA2H2TtZFQGBExEEzfvF1v/grvhf4im6Ld7otBEAQ24jqya7Bva967xuO/EE1nF4gIFm3J5AmndTsGn4GxkBe/9sLFGMwu4afA';
+wwv_flow_imp.g_varchar2_table(745) := 'eh6E4EVf6clIKmG0wvvfcORP9g1uPdVjaiebIfZH7aJAEAmAmE93rPj6je+901P/L7IjqgWzVQr/k4vuFT3MUsAmmL5GSQJeQKwF';
+wwv_flow_imp.g_varchar2_table(746) := '6iQJJhi+RmsIxEYEEjF3+nVopmqyI7ovW964vf37Lj6jY2wHm8X44dtJAAp4lVb9WRs4OAb/8MbH/3k2172sefUopkzIWFc8ce9I';
+wwv_flow_imp.g_varchar2_table(747) := 'Bi4+PNYngAM/GvyBGCPaCcCA/+aS0kEBsGAqfjjXkgY16KZM2972cee8x/e+OgnxwYOvrHaqicgfVcb00m21ZeFpXCg6A/f8uyDP';
+wwv_flow_imp.g_varchar2_table(748) := '/M3h8af+ugXH/jdP7zzh390AihW/J1lgFpUc6y4XBgIhKG5+ZmHJPDyBGDvyBKB3qi5+ZlX8MSJRyAoX+idVfyKAaiFM/WQavNHb';
+wwv_flow_imp.g_varchar2_table(749) := 'vilfa+65df+/VBp9z+1pmC3k9u/nG0nAJCKQCuqORFjRwf3v+1nnv++n/yJm9/zFw8c/7vPfvLuX3mItCCxUvHH/UhqLgxDB1nhY';
+wwv_flow_imp.g_varchar2_table(750) := 'EUNIS174/XPkWLR11o9QbbfwOkLnDqplHx74/XP4e++eD8VHSBsJ2QDgiAwvlZMLZqIalG4AOjrX/gHz7jlytf+5GBp71uKQWmkE';
+wwv_flow_imp.g_varchar2_table(751) := 'TaIk3Qs9PS79IhtKQAAImn5Xj2sJdYEI7uHD/2fLy3/H//8OQf/yWcn5x7+wl/d/c+/OTHz8BQQAOV2wjAEiahhhgefkX1SngDsG';
+wwv_flow_imp.g_varchar2_table(752) := 'emzb78Ln0ACP7AAtWgmCcOwGlINx3feNPKPX/gnrxkb]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[vukfloOhnyz6xaAZR9TDWiKI';
+wwv_flow_imp.g_varchar2_table(753) := 'TcfC9mTbCkCKIIhNXKS1MHQGG+ys7H79jvLu17/nNfccqbemv/zEmbu+9Ilv/osHquGZGUCYoVwYHi5RKt24lADMUwC9IU0EUird';
+wwv_flow_imp.g_varchar2_table(754) := 'WBgeLrVmZpoR1AEdCEaGfuYlf/yiq0de9OPlwq4fKwcDh0SgGTaphbUExAjbc9ZfzjYXgBRBBMQqTuth3aEqgVc5NFAYOLSjfMUv';
+wwv_flow_imp.g_varchar2_table(755) := '3vymVx9uRbXvTVaPfPUHRz5535dr75/3fe9qTRLI4/9eYjRJwPeubg3NlX5s778Zeuah1982NnDolQW/8mzflq4NPI8wURphzSGi';
+wwv_flow_imp.g_varchar2_table(756) := 'ArnhL0Pe95Z67sKuhKpTUQUxgS2JZwUHJI2w+kjl4Uc/ctvf3RpoYPulu+t2RRBCCZO33/fa+2+s3XS9LaVLOXGihElDQZ2oSL5T';
+wwv_flow_imp.g_varchar2_table(757) := 'c2VyD+BCiCx2hIjihgsTVYeTQRkciHaWnpNYRaK8AqDXiELiqY12lp4T1AMWwgVnMCoqIiIGZEudMtdtclVcC5LGiyLGOOf0aPC4';
+wwv_flow_imp.g_varchar2_table(758) := 'S3f/5iOr9wiK42jwuHPOqYhJXfx8xl8TuQdwCRgMkY3k+NApsW5LddS/jFGssxwfOmUiG2HyOe2SyJ/WGlHAOMNCUONMcRZPLZqv';
+wwv_flow_imp.g_varchar2_table(759) := 'APYcFcVTy5niLAtBDeP6/ZDT/iIXgDWiovjO40xxhppfxzqbD7Q+QAHrLDW/zpniDL7zcmG+BHIBWDOKUcOpyiSxifvqgMftjiDE';
+wwv_flow_imp.g_varchar2_table(760) := 'JuZUZRKzBU9n6iW5AFwCivJ05XRu/H2IIDxdOd03h25uFXIBWCNZApCJ8hTG5bNMf6EYZ5goT5EnAi+N/EmtgeUJwJniXJ4A7DPa';
+wwv_flow_imp.g_varchar2_table(761) := 'icCZ4lyeCLxEcgFYA8sTgNU8Adh3tBOB1TwReMnkArAmFFHhZOU0iUnyHEAfIgiJSThZOY3oRk993j7kArAG2gZ/dOhENq7ywdV/';
+wwv_flow_imp.g_varchar2_table(762) := 'KGj2jiAX6TWSC8AaEBWaXovJ0jRWbd4CoB8RxaplsjRN02tlXkDOxcgF4CK048u5wgKzhXm8PP7vSxTwnGW2MM9cYSHP06yRXAAu';
+wwv_flow_imp.g_varchar2_table(763) := 'QjvDPFWcpuE3MZpnmPsRBYwaGn6TqeJ0vlKzRnIBuChpBeDJgUkSyROA/YwgJJJwciCvCFwruQBcBEFwuDy7vCVYWq1xuFys10Au';
+wwv_flow_imp.g_varchar2_table(764) := 'ABdBVGh5IadLZ/IEYL+TJQJPl87Q8sI8EbgGcgFYBSekBUClGc6U0gKTbXFg3BbFscL7yjVgVXIBWJV8RtlqnOex5SHbquQCsCp5';
+wwv_flow_imp.g_varchar2_table(765) := 'TLnVyHM2l0YuAKuQZ5W3IvmqzaWQC8AFyNeVtyZ53calkQvABVDJK8u2IitWbuZOwAXJBeCCLCUAm3kCcEuR7t3IE4FrIReAC9JO';
+wwv_flow_imp.g_varchar2_table(766) := 'AE6ieQJwSyHZWQEnK5N5IvAi5AJwAQQhlpgTg6fyBOCWI00Enhg8RSx5A9fVyAVgBRZbTQd1JkqTeYeZLUa7g9NEaZJakHdwWo1c';
+wwv_flow_imp.g_varchar2_table(767) := 'AFagnUmeLs6xENTzHnNbjKUejnWm8x6Oq5ILwIqkXWZPlSfzLrNblHYX51PlybyL8yr8/4hSgyz/mJs4AAAAAElFTkSuQmCC]''))';
+wwv_flow_imp.g_varchar2_table(768) := ','||wwv_flow.LF||
+'       photo_mime_type = ''image/png'''||wwv_flow.LF||
+' WHERE candidate_id = 3;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'COMMIT;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'UPDATE tms_candidates'||wwv_flow.LF||
+'   S';
+wwv_flow_imp.g_varchar2_table(769) := 'ET photo_blob = apex_web_service.clobbase642blob('||wwv_flow.LF||
+'                    TO_CLOB(q''[iVBORw0KGgoAAAANSUh';
+wwv_flow_imp.g_varchar2_table(770) := 'EUgAAAQAAAAEACAYAAABccqhmAABHSElEQVR4nO29ebwdV3Xn+127hjPeSfdqtiQkbHnEBgxxGGwghEBCQoCYNISkO2m6OyQhTZL';
+wwv_flow_imp.g_varchar2_table(771) := 'OS0i/l5DpBWcgDHlpyAChkyYTUwJhhhgb2wyebYxtWbJsybI13+nMVbXX+6PqXF3Juld3Oqfq6tb385Gt8VSdqr1+e621115b6h+';
+wwv_flow_imp.g_varchar2_table(772) := 'uKDk5OWsSk/YN5OTkpEcuADk5a5hcAHJy1jC5AOTkrGFyAcjJWcPkApCTs4bJBSAnZw2TC0BOzhomF4CcnDVMLgA5OWsYN+0byOk';
+wwv_flow_imp.g_varchar2_table(773) := 'nC636lp7eRU52yAXgvEBP/e802z3DwTMLfN02OvM3Tr/UzDVyoVjt5AKwqjhzBhcQA2IQceKfY5L/K4gDMttIFxrxzTZ4BY3ia6m';
+wwv_flow_imp.g_varchar2_table(774) := 'N/0wtqlH8a7Vnv6+cVUEuAJlmtmEZMG5i6N0fXWNPDE7O+CdPM8wlhAAi8bVm/5F2/4aeEgGNQKNYGGzEaSKSC0JmyQUgU3QNtDu';
+wwv_flow_imp.g_varchar2_table(775) := 'zO4jxYgM0Dk+fwfX0//dsY7ee9afAzH2CF/8SABuLgEaoDRJxmO0p5IKQFXIBSJ2uURgwXmzwxj3lzp/297LauuEsIYDxAA9xinT';
+wwv_flow_imp.g_varchar2_table(776) := 'DBmwYC4INOeUh5GKQJrkApEJiMOIgxgXjn3LrT/s7WTX4hTD73gXEBceNBSEJF7Ad1IZJjiH5ezl9JReAvnEWozcup2b51W7w52L';
+wwv_flow_imp.g_varchar2_table(777) := 'Wd+uGDcZHiD2DXAzSIReAXqMaJ9KMjxgfHI+1Y/TzMSsfYPxTYhAFqO2ADU49u5yekQtAT+jO9gZxSuD4cRJPu3+2Vo1+LmaJgVN';
+wwv_flow_imp.g_varchar2_table(778) := 'A3EKcRIw6qG0lCcTkz3NWlFwAVpSu4XuIUzh9ttfc6BeGJsVGDrglhELsFURt0CD5O7kQrBS5AKwIiXEbL57xjTfr93PDXxpneAV';
+wwv_flow_imp.g_varchar2_table(779) := 'OAWyARs04POj+Wc6yyAVgWcR1seIUYzdfZht+zsoxS2CNF3sCUSf2Cp5e/5yzCHIBWBKzZ/wyOO6s+D6nd5wKsfA8xBTQqJF7BMs';
+wwv_flow_imp.g_varchar2_table(780) := 'gF4BFMYern8f3fSbJExgXMYN5aLAMcgFYKKrxgHOLYArd30z1lnLOCA1sGw1bcV1Bvny4IHIBOBfJWrR4ZXCKnGXHTU7qdIWggPg';
+wwv_flow_imp.g_varchar2_table(781) := '+RC00bOZ1BAsgF4B50Tj77JaSdfzVk9XvpiSU0yOUc939bHMRSX4tq8WpTr6dW4qLrsImatuslrtPg1wAzooCBvEqp9z9DMf5qmD';
+wwv_flow_imp.g_varchar2_table(782) := '1VD5cBFwnrkBwHRBn1h86834URMz8XY2EMIq37YRR0hog+RgjGZ5cNemF4FUR66FBg/hbZPWG0yMXgKehiCmAVyY2oWwZfndGt8m';
+wwv_flow_imp.g_varchar2_table(783) := 'efNeA74HjamzcEaDCyRoEkXB0Sjg0LhQ8GK8L3zlkcOboCxJZuGKrZaSitAPYOqJsGFQ8R1lXBeTUNaJQCEIIbSKXMstjyASzwoK';
+wwv_flow_imp.g_varchar2_table(784) := 'CB0Ej9wbOQi4AM5w562fH3e8aPIDnQMHX+M1ZaLSE/ceEPUccHnjKsPeI4YmTwoEThuk21NvCZEMwRrEaG+18eC4YUawVhspKpaA';
+wwv_flow_imp.g_varchar2_table(785) := 'MFGD7qOWCdcqFGy2Xb7bs3mjZMqJUyxrrZAjtQAiSvTzZ8RASnyX3Bs6K1D9cycYoTxWNM8lu9VQ7rbTvaJbRFz1wC7H/PT4lPHz';
+wwv_flow_imp.g_varchar2_table(786) := 'Y8O39Dt981GHvEeHAScN4XehEseE5Ar6rGBP/3HVO5cPONey7HoZI7PZHCtZCJ5T45wq+AyMVZfs6y4Uble/dFfE9OyMu3mQZGYx';
+wwv_flow_imp.g_varchar2_table(787) := 'dk7AttJJVueyIQdzWTMNasmSYiZtKlTUuAEkln9vN8Kf/KKJk30vRA9ePjX7/McNNDzt84xGHr+9xODgu1NuCSQzdd+NQwMipb9A';
+wwv_flow_imp.g_varchar2_table(788) := 'Vj24icCnIzH/iz+7+0mrs+nfCWBisQqWgbBtRrt0d8YKLIl5yccTO9TYWg84pMZgr/OgvkqwUNFjrlYRrVwBUwTiIV4335aeY5Ov';
+wwv_flow_imp.g_varchar2_table(789) := 'O9o6BUjGeQfcfNdz8kMO/3efyjb0OT03Gg7TkKQUvntm7s7Uuw8iXSjfZ2PUqIoV2AM0gvs/NQ8oLLoz44StDrrskYueGOFnQbAm';
+wwv_flow_imp.g_varchar2_table(790) := 'RzYBXIBJ3KApq8c7DbLgofWeNCkDi8ntV0kz0qcaGU3TBKyqtlnDzHod//JbLF+53OTIVz/JlP57lIcn2Z/SNiZzyFDohNDqxd7B';
+wwv_flow_imp.g_varchar2_table(791) := 'xUHnVs0LeeE3IdbsjikUlaAmtMBay9GxPAJuIwNoMCdagAGhcxuuWSdXwbezmeyXlyeOGz97n8KGbPe49YOhEwkBR8ZIlO2uzEJw';
+wwv_flow_imp.g_varchar2_table(792) := 'sDgFM4u4HEUy3BN9Rrtpuect1Aa++MmLLmCVoxuGBY1IWgrARlxOvMRFYcwIgbgXc4qwmE/1DSQzfjQ3/qeOGD93s8aGvuzx+wlD';
+wwv_flow_imp.g_varchar2_table(793) := 'wlIqfeKer0OjnoisGqlDvxKsFO0Ytb7k25C3XBWzuCkGYCEEqN2kgbKFhPY2rp8YaEYBkic8fSC3ej2wS45eVp06cMvzHjhsGSkr';
+wwv_flow_imp.g_varchar2_table(794) := 'Rjd17e56/DZOECa0QppvCM8ZmCcGopdmQmWfVd7p5gc40a2WpcA0IQFwVJl417kzb53m1m+CrlpVmW3jflz0++DWPx08YBopK0Yv';
+wwv_flow_imp.g_varchar2_table(795) := 'FIatxfa8QiY28FcThwY5Ry1tfGvD2VwSUCkqtISklCgU0SQ52T0Q6jznPBUBBXMQfJI1NPKGFkgeup3zuXpd3fsrnzscdqgWl6K9';
+wwv_flow_imp.g_varchar2_table(796) := 'Nwz+TGSHoQK0tXL0j4nde1+GHrgoJA6EZxEucfb4rQNHOFGjI+SwC57EApGf8M7N+RXnihOH//oTPP3zTw3WUaiHO/K91wz8TSQq';
+wwv_flow_imp.g_varchar2_table(797) := 'Yam0II+FN3xvw//5YhwtGLbV6Gt7A2hCB81MAunv3UzD+yMbltIWi8jdf8/jNTxU4PCkMV+LF+vM9xl8uRgCBibqwaUj5vde1+Zm';
+wwv_flow_imp.g_varchar2_table(798) := 'XBrRbcRlzf3MDs0TgPO0xcB4KQHqbecIIBirKsWnhf/xDgX/4lkfJi+P8sP+LDqsaN8kPNAPhTdcEvPtNbdYPKNN1wT3XjsYVJa4';
+wwv_flow_imp.g_varchar2_table(799) := 'VOF83E51fAqCKOD74A331sbuVeJWqcutDDm/9SJEHnjSMVjXThTtZp1tYdKImXL7F8sGfbvGiSyLqNZmp]'')'||wwv_flow.LF||
+'               ';
+wwv_flow_imp.g_varchar2_table(800) := '|| TO_CLOB(q''[ROzrzXSm0ahzXnkCmajMXhlitx+v2leLszZe4y4Xlfd/wecH311i3zFhbEDzJN8y6RZMjQ0o+44JP/juEu//gk';
+wwv_flow_imp.g_varchar2_table(801) := '+5GG90sv30qlTjsWX6v5LUS84TATgz4dcfbBLvOw687e+KvP3vCngOVApxOJCzMoRR/Ew9B97+dwXe9ndFHCd+9n0VASQeYyksJ/';
+wwv_flow_imp.g_varchar2_table(802) := 'eK80AA0sn2hxEUfZhuC696d4kP3uixfjjeyBPl8f6KEyV1OeuHlQ/e6PGqd5eYbgtFv59im+wePY9EYJULQFLkk4LxD5SViabw2v';
+wwv_flow_imp.g_varchar2_table(803) := 'cXufEhh7EBnWmbldMbVONnPzag3PiQw2vfX2SiKQyUNSURcFjtIrDKBcAkO/r6bPxV5Y7HHK57V4lv74+NP8hd/r4RJCLw7f3xO7';
+wwv_flow_imp.g_varchar2_table(804) := 'jjMYeBagoiMLObdPWyiu9e49r+PrpiYRSX9N6+z+E17y2x76hhqK+zT06XMIKhsrLvqOE17y1x+z6Har89AXHjMbiKvYBVKgCatO';
+wwv_flow_imp.g_varchar2_table(805) := '/qv/E/etTwo+8vMtmCwdz4UyWM4ncw2YIffX+RR4+adETArbJaRWAVCoDGh3G6/WvhZS2UCnCybvhPf13kRM3kmf6M0F0hOFGL38';
+wwv_flow_imp.g_varchar2_table(806) := '3JuqFU6OfqgIJbjMfkKhSBVSYAcScf3Erf9vNbBdeDyabw2vcV+eY+J3f7M0Y3HPjmPofXvq/IZFNwvT6WXauNx6TxWG0isIoEYN';
+wwv_flow_imp.g_varchar2_table(807) := 'a23j495O5VPBfe/tECt+xxGOtrsilnoYQRjFWVW/Y4vP2jBbykhVof60GTLeera2VgFQlA/7OuUQSVAeVdn/H56DdcNgwpndz4M0';
+wwv_flow_imp.g_varchar2_table(808) := 'sngg1Dyke/4fKuz/hUBpSor+9r9qrU6mCVCIDGrbv7nPQbGFA++Q2P3/20x2i+1LcqCCIYHVB+99Men/yGx8BAGknB9PpNLpZVIA';
+wwv_flow_imp.g_varchar2_table(809) := 'BJ3N/HJIu1cXvuPYccfvHvfQr5+UmrjoILv/j3PnsOOZSK2t+koFNcNfmAVSAApq9xPwACRoRf/SefI5OGop/v419NWI3LtI9MGn';
+wwv_flow_imp.g_varchar2_table(810) := '71n3xM3w8t1FVTJJTtO1SNz+qT/t1mGMXbev/yRo9/u9dlXZ70W5WEEayrKv92r8tf3uhR6fd7lOScyYzXhmdYABRxi2D8vj1Eq7';
+wwv_flow_imp.g_varchar2_table(811) := 'Hr//BBh9/+V4/BouYbe1YxkYXBovLb/+rx8MEkFOjb0qCC8eMxnOFQIMMCYMAt0e+H5zrCOz7mc7xm8NM9MSxnmaiC78LxmuEdH/';
+wwv_flow_imp.g_varchar2_table(812) := 'NxnX5n5zUZw9k1s2zeWdf17+eSn4VKWfnYt1w+e5/LSEXzNl7nAaGNTzL+7H0uH/uWS6Xcb68u26FABgVAEacAjk/fCn6SgzkbLe';
+wwv_flow_imp.g_varchar2_table(813) := 'GGz3k4TpadtpzFosRNW274nEejJTimn/ao4PjxmM7gqMqgAEjsNvVRMSONT+z5sy/73H3AYaDQz2WjnF5jLQwUlLsPOPzZl31KZS';
+wwv_flow_imp.g_varchar2_table(814) := 'Xqpy1qNxTIXoFQxgSgW/DTv7avqlDw4KkThg98zaVa6PPgyOkLkUK1oHzgay5PnTAUvD575eJkskAoQwIQ1/rTZ1cpUvALyoe/7v';
+wwv_flow_imp.g_varchar2_table(815) := 'H4cUOx3wMjpy+oxqcxP37c8OGve/h9F3qNx3bG9gpkSACSk3v76Capxo0mG3Xh43c4lPOCn/Maq1D24eN3ODTqguf0W+wlGePZIS';
+wwv_flow_imp.g_varchar2_table(816) := 'MCEK+Z9rt8MlIoFpV/vsPl/iccyoU+rhPn9B2rUC4o9z/h8M93uBSLKXgBxovHeka8gIwIgCTxUX+ILDMNPIOO8Le3eekcR52TCo';
+wwv_flow_imp.g_varchar2_table(817) := '6Bv73NI+jITKPRfi4NxmM9GwnBDAz75DQf05/YSIlbew1UlcH1lnsOGL71aHxUd171d/4TWRgoKt961HDPAcPgestAVamWtX9dJo';
+wwv_flow_imp.g_varchar2_table(818) := 'wTj/kMeAEZ2Ocm4PRn2U8B34G/vcVjz2HDUFW5+UEnX/Jbg1gLv/tpn+secZisCbs3WX7impBO1Ie5WTUe81Gn11c6JymfDZgU/f';
+wwv_flow_imp.g_varchar2_table(819) := 'TpOC+rcf+4l/5hiZvudTFlxXeUciHP/K81RKDRhk4k2IbwkqtCvvbrTert5ITiftxAUEOjdA8cTdkD6N/sP5vhslIaVIbKShDmmf';
+wwv_flow_imp.g_varchar2_table(820) := '+1iCaTwbCrTLrxmOj7DWTAC0gxBzA79u8v3SRgGOXGv5axemocpJL/yUAuIEUBSGf2z8nJDF0vIMUQICUBSGL/FGb/nJxMYZxUNw';
+wwv_flow_imp.g_varchar2_table(821) := 'ql5wE4hSysguTkpIuSlL+nQwoCkFRDnSfHK+fkLI+4k3BaTURTWQWIj1HKHiIgEsdjqqB5fuK8QERIXiuqmsm0kzhF1AZ9v27/BU';
+wwv_flow_imp.g_varchar2_table(822) := 'CclFsm69OubZIB0g4iOqFFVfFch4LnYASifKlgVeIYwWr8XoMwQkTwXUPBc1AFe5oSdMdFGgm5rlfs9O3Iuy59FoAk+SeSUvZfQE';
+wwv_flow_imp.g_varchar2_table(823) := 'MUnXnPjhEa7ZAgsmxdV2HXpiFc13Dw2DSPHZ0miiyDZT8XgVWGY4SpRgfHMTxjwwDb1g8QhpZHD09y6GQdzzGUC0kYKsRjQiMgpc';
+wwv_flow_imp.g_varchar2_table(824) := 'lJBHEKaNignyLUZwGQvnb5fTqaKGz8gB0jnJhus3vrCD/7qmdx3RVbGakWMCJMNzvcu/84f/3F73DzA4cYLPvxJ+Q6kGm6rv5Evc';
+wwv_flow_imp.g_varchar2_table(825) := '11l2/lv7zyCq7aOcZAyceqMl5rc/N3DvEXX7ifPYfGGR3oJuAkGRspveCkizA0+3rZPgpA8gVTbIigGs1c2zHCeK3FG168m9984/';
+wwv_flow_imp.g_varchar2_table(826) := 'cwUi1QbwU0OyEAnutw3RVbufbyLXzoy9/lDz92B0XfSc95yTkn3XfT6kT8P2+8hre84jJEYg+v3o7j64GSx49fexGveM52fu8fv8';
+wwv_flow_imp.g_varchar2_table(827) := '0nbt2DM5OT0niM9LEj1elfIAmPbYd+eQH9WwVQ4qqnNHdBJvGVa4TWdJsfv/Yi3v2Wa/Fdw8npFqFVjAhGBFVlqtGh1gx426uv5J';
+wwv_flow_imp.g_varchar2_table(828) := '0/cQ21ZjCTJMzJHiJCrRnwzp+4hre9+kpqzYCpRgfVU+81tMrJ6Ra+a3j3W67lx6+9iNZ0G7e7AaDPMfjpXyCxkT5OMP0TADHpuv';
+wwv_flow_imp.g_varchar2_table(829) := '9d984ItVbAxbvGeOebrqHeDghCi+uYp2mTYwQR4ehkg59++aW88SW7may3cfqyWyRnMThGmKy3eeNLdvPTL7+Uo5MNRORp70oA1z';
+wwv_flow_imp.g_varchar2_table(830) := 'EEoaXeDnjnm67h]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[4l1j1FpBsgtI0xOBbhjQx5Ow+nMlVcTxTgVoKaAaIYC1iusYfufNL';
+wwv_flow_imp.g_varchar2_table(831) := '6BS8AhCi5nHoEXAiGG6FfAbb3g+F20ZptEO4/PmcjKBSdz8i7YM8xtveD7TrQAjZt7hZowQhJZKweN33vwCXMdgrSJ0Q8WUEIltp';
+wwv_flow_imp.g_varchar2_table(832) := 'U8TZX8EQEhm/75c7ekks7+I0GwF/NTLLua5F25gqtlZ0GwuAkFgGa4U+O+vefYZy0c5WcCq8t9f82yGKwWCwC5ornGMMNXs8NwLN';
+wwv_flow_imp.g_varchar2_table(833) := '/BTL7uYZqsb4qXpBZB4Af25XJ98DQMmzco/e+r/psx1Vz0La0NkEa6W4wiTjTavft5OnnfhRuqtYF7PIac/GCPUWwHPu3Ajr37eT';
+wwv_flow_imp.g_varchar2_table(834) := 'iYbbZxFHAEmYrA25LqrngWmzGljJRU0sZX+mGbvrzLj/qe37UDVAgZDh6bspBYMISy+6ko1jh9/5JpddKIoI13d1jYCdKKIH7lmF';
+wwv_flow_imp.g_varchar2_table(835) := '65jluQ5CwG1YIim7MTQAUwyZlJCTN/CgN5bZerufzeeUxSHOpck7uHizTeONQNefuUF7Fg/SHuBrmZOb4irNy071g/y8isvoNEOl';
+wwv_flow_imp.g_varchar2_table(836) := 'pibiStB61yCMmuZOq1cQB/DgD5My+m6/91Wj0JIyBAd2YwhYClPVwQ6oWXLaJWrdo3R7OTLgmkiIjQ7AVftGmPLaJVOuFRBFgwBH';
+wwv_flow_imp.g_varchar2_table(837) := 'dlMyBBCXAvSrzahT6d/YUCPr9DfeObpl+8mcwxCSFsuwFIClq7sXefh2su3nvp1Tip0n/21l2+N19CX9WkRlhJtuSARABOPndQSv';
+wwv_flow_imp.g_varchar2_table(838) := 'v2ZOHtrmQpivBStZHYcp3RYj67AzYShZfeWYUoFL+8onCLWQqngsXvLMOEKnOWuCB3Wc7rRpfSCJbGdHutPbwVAiFUsrdqfmQsri';
+wwv_flow_imp.g_varchar2_table(839) := 'kuHUeIXunQREBHaYcTWsSrrB0oEUZ4HSAMRCCLL+oESW8eqtJPdfsv4RMDSYRTl1MybWhigxLbT47HVYwFw0qv9n3H/BYiIKBPKM';
+wwv_flow_imp.g_varchar2_table(840) := 'IaQ5QkAhJFlXbXI9o1VOkGY5wFSQEToBCHbN1ZZVy0SLluIBUNIKMNElInDREkxDNBZ9tM7eicAqohxU6z+O9N1M8DKPUzHCEXP7';
+wwv_flow_imp.g_varchar2_table(841) := 'Zu0xQ1Kkl3rs36eNmfeT/fn/bp20XNXuDTb4elmkVYYILEN9fCB9tYDMF5PP34+ZrtuhpBA1s1S9mV+tsa7BS/bPhrPPMv+xHmul';
+wwv_flow_imp.g_varchar2_table(842) := 'fy/6FmqRctQMWKwFFEuWFyTbncbVXCNUi5YBksRQ8WIatFS9Oxp994LhNgTu2z7KJ7rrNBziD3FQNYlnmJMeqsB9NyGercdWEg6n';
+wwv_flow_imp.g_varchar2_table(843) := 'PTsCvPztEIOYaUDKncRFWdLIS48UqoFi+uc/iB9lJIHzY6hETx9I1OvUaDsW0r+6a63h4IHxUiptQ1hJD11Alf+HZxlnKhNrVFQH';
+wwv_flow_imp.g_varchar2_table(844) := 'Ab07hI99ADSjP/747L1cvbtGv9gKcJ19JSbrae72ZWCpVqwfX3KClQLlkrBztzrmT/OvPee3UvfYrA0woAkD7CCoeuZ9EgAFIwhv';
+wwv_flow_imp.g_varchar2_table(845) := 'fW//oyKnrq4EhuZOUcDEqtxeFBw+xMOqELBVYqenfdUJY13XlMt9HaVpH/Cl5YrK4kt9eb6vRGAlNf/zx6z9SAE6NFmoK6RLXT2V';
+wwv_flow_imp.g_varchar2_table(846) := 'KDkRX3Jt4rE11rIcOx6Ar0Up5V/B2cfJ6nlAXpcD9AbAUg9/j/9woogdJIKr5UZMFaViXq7Z0uArrMIl1PBMfGPXjNznUW820V9l';
+wwv_flow_imp.g_varchar2_table(847) := '0UgIkzU2yu4PVsQQoTO0wvGUmtkQ0/zAD0aMpJeXzVVTh+d8SYgVycxNFmJrywCUWjZ++QEjpGV1zlZ/BHVAhjpfbxtZPG1lGbln';
+wwv_flow_imp.g_varchar2_table(848) := 'a/4QB0j7H1ygmjJewDOxGBo4urk6ZuCuldMSwTEoVcK0EMBSBor9J2zzTaCECEEK1IKLAKdyNLs5J2B0sSI0OyEdFaoGjP2FAOkW';
+wwv_flow_imp.g_varchar2_table(849) := 'wT0NNJKBPZAQRN6sAyoyaGfvUtcLB6DoYGnJwlk3bJCAVXwHMPxqSYHjtUoFdy4bdgKxqJxUY3BiCVawKwjEkucYnAW6HjpGccey';
+wwv_flow_imp.g_varchar2_table(850) := 'QJjGUUQiTssLWRCNCLJd1nZ5UARKBVcDhyrcXyqydhAkSDSZVwj9hQ9PYmhgZLegZ1Px8SJQLtyIWyXntQBiKRy4hgwdwJQsHicA';
+wwv_flow_imp.g_varchar2_table(851) := 'HbDMk6AUVUKvsfepyY5eHSKou/2pEVYsw3rKhHlooedJ91uRIisZbweUmufoyhJQK0qIlLw3NnnZdEOAlBViS12ThQIw4iRioNjz';
+wwv_flow_imp.g_varchar2_table(852) := 'Lzfvdut52TdIerB5GlEGJ9usfepSbaOVuk0OsvIyShg8DiBYBNP8cxc0kr4j0tDxEVnFSetFCtvqUrc/SetCOCsF41fboEj87h3i';
+wwv_flow_imp.g_varchar2_table(853) := '7tCoxXwwsu2UC16PREAI4YgarLn4GHKhfhQktnXEcBxDPVWh+FKkYu3b6MzT4MSASJVLXieABx46sT4kM9xgMkOY9s3j44A0g4Cd';
+wwv_flow_imp.g_varchar2_table(854) := 'URkrm+kCr5nOHjkMBP1FpWiTxSdXofQDYsarQ67t23Cc0rYHqyjG4k7PDdawQoMtThMLHCEub3X9FYCELOceWtOVl4AMrYCkPwmF';
+wwv_flow_imp.g_varchar2_table(855) := 'hdfn8KROpYiS43njBEarYCXPusCXnn1jp5+TwX+5BO38Y83fYeC5yZnFcYTdGQtU9NNNq8b4A9+5uVcfeFm2p05NiYJWKtaLvpyY';
+wwv_flow_imp.g_varchar2_table(856) := 'nx66vZ79z7w+MHoRGTj0ygdY7wd29aPPv+qCy8fHRkYbLQ6aubwBGIPyOXOvU/xP//mqzx1cppKyccxcTWiVaXZCWkHIW98yRX86';
+wwv_flow_imp.g_varchar2_table(857) := 'o+9sLezpkC7E9FYdo9GB4c6vj6FZY59+KrnXUWg1D9cWeEhrIg3mM4BoGpRnctNEoQ2J+SHqMnlK7Ii0MvuwKpxlrtc8PjinXv5P';
+wwv_flow_imp.g_varchar2_table(858) := '/9+HwePT9HsBDjGMFQp8MJLt/PffvBq1g+VqTU7cxqAtapF35MTk9OT//LFb31jfLLW9BzXDFbLJYCpWqMZRKEdGaqWXvvKa14wO';
+wwv_flow_imp.g_varchar2_table(859) := 'jQw1OoEsQic/fOolnyOTTb4y8/fyW0PHmCy3iaylpLvsW1skJ/8vit55dUX0mgHRHY5sfm5WX4i1mIpUdUHGNXPzRv/i7gp9LcUs';
+wwv_flow_imp.g_varchar2_table(860) := 'AEaTLHSKtADARCkMEQqUnkOATC0acpOjsrrkqag2c7gx7vr]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[lIGST7Mdsv/IBCenG3iu';
+wwv_flow_imp.g_varchar2_table(861) := 'w44NQ2waqcYnGgfRnMavgBFRVRt96gvfuvnw0fGpocFq6XuvvuiibZvHtgAcfOr4k9+885FHJqdqzU0bRgZf96prrhMxjlWd07Ss';
+wwv_flow_imp.g_varchar2_table(862) := 'VXwvPkH58HiNx49OEoQR6wbK7Nw4TKngMt2MY/JsP2WIo3uPDfopSrofmzkBAFC0PclKT6rpZet6wnwPR7H4FPQJfDlGh/WZFwEh';
+wwv_flow_imp.g_varchar2_table(863) := 'LnaZbsSz++6t63DMGAp0gojpRuecKxCqqsWCL7fd9dDDTx4+OeUXXPcV11159TO3bxqrNVoAPPvSnbsGKqXBf/nit7755OGTU3c/';
+wwv_flow_imp.g_varchar2_table(864) := 'sP/hFz73ksvrrbbOtToQH6wRi89wpcSG3dU4z2At7eTeVkfb9Nj4fY5R0Cew+JxrHJ1PrLCUaaKOWX3xcfPHIb2N1PoULoGuITU7';
+wwv_flow_imp.g_varchar2_table(865) := 'IbVmh3qrQxjFJxrNl/VWhYLnytGTU7V7H9j/mDHC86+8aOeOLevHJqbqNoqUKFImpup2x5b1Y8+/8qKdxgj3PrD/saMnp2oFz5X5';
+wwv_flow_imp.g_varchar2_table(866) := 'ohwRwRghjCz1VodaszNzuOrqMP4uhiG9bcnNYvuDJLa1sgK08lbQw6KF5aNYCpR0H2V9MGkQunqa+pnE4Ba6pq6q6rkOjz1x5OB0';
+wwv_flow_imp.g_varchar2_table(867) := 'vdUZHqyWLt297aJ2ECImjvBFQIwx7SDk0t3bLhoerJam663OY08cORjvsz93oiM+Pu3Uva0e4ti/rA9S0n3zuv7p0y2uW1lWzzS4';
+wwv_flow_imp.g_varchar2_table(868) := 'ABa+YcNlnd6Ix/Ek4bN6RGAxGCPSaHXs4wePHhNg25ax0cFy0Q/DSGcPJQHCMNLBctHftmVsVIDHDx491mh17FyJwNWPRSngcZx1';
+wwv_flow_imp.g_varchar2_table(869) := 'eiMLjYZTbQ7SA1ZWAFLeBbgw4oovQ5Mx+3kMrVnLgmfUfq/il21V1fNcJmuN6aeOTkw220G4bevYJjPH6TmqYBzD9q3rN7aDIDx8';
+wwv_flow_imp.g_varchar2_table(870) := 'dGJystaY9jwXuwAvILs8fW9IPPMXMbSSMdA8S+1/xujRrsCVXQVQRbwyuKVUNk6ohoto3GAwtGizkZPy/bRlKxAlewZAceISVlpk';
+wwv_flow_imp.g_varchar2_table(871) := 'XNHmRdXa6Vpr6vDxiRPbNo1tGaiWSsFZjjVTwHMcpuuNxpHjk8dGhweGKpXCoBGzir1ExVJEsAhRIgVxg42CHmKdfoUCRxZXFyIm';
+wwv_flow_imp.g_varchar2_table(872) := 'nUpXEQibaNBY0VDg/BIA21nkvzDJ1k+HulxKg4sJZATF4FKjog8SMsiUPG/FdhL2GxHwXBfXMbQ6yZr8HH+3u8Ou4HtEkSUIw1R7';
+wwv_flow_imp.g_varchar2_table(873) := 'Di6dOLYf1DtwmaIulxJSjcvBdZwyD1PRBxNR8FlsCCjG781tz3vR3gjAebYMuFgsSlywNKD3UuU7RFqmWzPgMsW0XJUYzOr0AlSh';
+wwv_flow_imp.g_varchar2_table(874) := '3Qm0pfGGn/nGjgBRpNQbbY0ThKs1/o9rDwo8Gb9XvX8mwefQQIiwFJJ3f37mfxbKygqAAJLeQSBLI77Z2A0EQ2smBIio4jGB0Ga1';
+wwv_flow_imp.g_varchar2_table(875) := 'CgCc2/BP/7ur2fC7xFWfHhNEVAHBoZmEAN6M6K+qgarEtrXCb2b1+bQ9ozsgDJpsBlEMro7jMo6udWdpFaG4uIzj6vhp7/LUJp9V';
+wwv_flow_imp.g_varchar2_table(876) := 'ZPg9JheAeYlbiXk6kf0scU5Cd1//BEKH1ey59YNcAOYlbrNR5PHk17kAZJ/4HRV5HOnF/tnzjFwA5sWiOBQ4jKFN/rhWAwZDmwKH';
+wwv_flow_imp.g_varchar2_table(877) := 'E69tbSf5zkU+os+B4uLqRBJP5nmArBO/r3Fcncjf1wLIBeCcxMVAJR5PBlQ+o2QXi+JS4vGkgCsf3ufi/HpCPVm9ipNKJfZnfLdY';
+wwv_flow_imp.g_varchar2_table(878) := 'Tne3Z4n9vUvarvYV0jM4vwSgJ8aZ7BfXI7h6IllDzskiioerJ/D1yKy1/pUmF4A1SBwGlNmbhwGZJXb/y+zN3f9F0IOnlNJRyj2l';
+wwv_flow_imp.g_varchar2_table(879) := 'O7j24NAgH1xZxODQoMye81OkBXrxnVZ8O3A6xyjH9LL7nOLh6XEKejDjjSPWInGjl4IexNPjPQ3TUu1wqHbFh10+lS2SAe5PzhbI';
+wwv_flow_imp.g_varchar2_table(880) := 'yRJCxAD3p30bq47zTAB6qc6K4lPQg/gc62GSKWdxzG7qeTDZ3tvL93J+xbcrKwAC6Pk8OxoMHap6T743IDPEy7RVvQdDh/NuTpuN';
+wwv_flow_imp.g_varchar2_table(881) := 'Rtk/GUjVMue5Ur1GpMc2abEUqOjDTMtzCBhLvbV43LAjtQee8rJ47JX5HKGiDye5mR7noNL6whrb1kpzntVKdjsS99Ig4pOGB/Vu';
+wwv_flow_imp.g_varchar2_table(882) := 'jsurUt9x5roGxz17n79eIgJRaIl6cerngoln/0G9O+ntWKa3ApDljtdLY4UFQJJVAEtqD0qkx+3I4oaSZX0YP0UvQDU+HHTyZI3J';
+wwv_flow_imp.g_varchar2_table(883) := '8TqOY/rmB8SdgyxDIxUGR6pE0dyHkvaOU7N/WR9e1nmPCyZVd8cmtpX148FTbiInzHu69YpdxdBmWG/lmLy251c7G6qKV3DZ852D';
+wwv_flow_imp.g_varchar2_table(884) := 'fOPL91GqFLG2P7OxMYZmvcULXnElL/j+ZxHW28s4lns5CMN6K4ZOX5ZmUz/krBenUK/4J6I9Uaps0T1g5NHkLLkiqcXhqlirqCqq';
+wwv_flow_imp.g_varchar2_table(885) := '9OlHfM30xD7u9lvS/ZT00TVQl9H1rFf+O/YgB5AMjNTsv58XFob1JtqyOak+698gFAFrLYPrqjxj92b8otc3exSBTitgcF0Va9Nw';
+wwv_flow_imp.g_varchar2_table(886) := '/+Oqv2G9iX6/79TQbiuzrJ8OrIp4FXCLqc0Qi28PvlQMhjqT8iLG5SUY6vR7Gco4Jo7/+/ysRYQosti+JwEtlgojehNDeiuWCv0q';
+wwv_flow_imp.g_varchar2_table(887) := '+02lHTgkLcFbaFBf8TxEj1YBUq7DFtOnkuS4//yA3klTnkGbrX1fFbChJQrTqb0QpM+ToqIUKPI4A3pnf892TOVI8Nn05nv24HBQ';
+wwv_flow_imp.g_varchar2_table(888) := 'UBulGpL1N1kjCBGj9stJ+/A+D5S4jXcqP/rvERuEdvKsI/p5A+nuAUhsqge30IPRKkk1YJpJmX6+rHg5yuM4I3pzcr78ebYTLRNY';
+wwv_flow_imp.g_varchar2_table(889) := 'LD4jenNyqGuvS37PJM2ktiY2tVpOB55JWKRE3921uDZgQO9lQO/ta1y6Nojj/lPPtw9r/meSagjQuxWXHn0rC7a/LtrT6PsL02SG';
+wwv_flow_imp.g_varchar2_table(890) := 'uokCBzmfjx3vL/Ex3gUOMqI3JR5Wv8se0zR+SWxpteQAIOkL0JuYZaGkE7MZhJD19jM41FNwU8834vDK]'')'||wwv_flow.LF||
+'               |';
+wwv_flow_imp.g_varchar2_table(891) := '| TO_CLOB(q''[oc56+xmEkDQ2+6Qa/3c32PVoGPXuaWrYs49eGGm8tHhrqkON9fbTGFr5rsElE9f5G1qst5/GoZbiFuy0KwB7Z0u';
+wwv_flow_imp.g_varchar2_table(892) := '9EYAMrAQgJqXa7a7L+gTr7aeJB0/3TLqchRGf0QjCevtpCjyRXkglkm4I0MMVAOiZB9BdCUi3N4CktjfcYilT5CDr9KvJzNXrXYr';
+wwv_flow_imp.g_varchar2_table(893) := 'nC3G1m+KxTr9KkYN92OU3N+mNoS5Rz1YAoKcBlYJNe09Auru34iKhe1inX0rOo8/DgfmJ3X5LgXX6JQb0nv4W+5yVlMev7c0egC6';
+wwv_flow_imp.g_varchar2_table(894) := '96wegxLGLeCn2q4jdyPQ2rVgiypTt/VgJmTIvw+KjGmHO571SS8AqiLgYOgzaL1HWB4mkjKRp/Gm7/0JsQz0847R3305AbZD6hJe';
+wwv_flow_imp.g_varchar2_table(895) := 'GC6cIkRoidXAIqTiWjc5tbNRPYOhQdiIizRWgS6RC2YkwdNion2CjcxsVx+IQEqlDpAZNYSZO3f3XxIZ6+NV72BEoWb9Um3IjBUO';
+wwv_flow_imp.g_varchar2_table(896) := '/chGRxh6HbwIKThNQxsN13FW7nC9MvYRbpp9FyBi/ueNOnlU9zsmgiCtru1YgVMM6r8X9tTF+7/GrcXk2Lx64n1cN3sSlpX2MuCc';
+wwv_flow_imp.g_varchar2_table(897) := 'BoW1LdGy8CuD07ZmlLQC9r6dZ+d2Ap6GINwAm3fVw1bBnm4MsBlXBkYiyaYBEHA/W8436s/ni5HXcWnsuBzubadgSRdMhspZRr8k';
+wwv_flow_imp.g_varchar2_table(898) := 'f7LyVlw0/wUTooyqY1BoppoNVQUQZdjvcOHEB/3P/izgRlHCMoWV9yqbJNv8pXlS9i1cO3cwLKvcw5h0DdWjYMpE6iCimVyGCGET';
+wwv_flow_imp.g_varchar2_table(899) := 'S7JgnYDtoMM3qFQBVxCuBW063U5DaWARWkHgAWsqmhZEOzajKLbXn8i8TP8At01ezv3MBkTqUTIuCdHDEJoNe6FhDoA5v3Xwfb91';
+wwv_flow_imp.g_varchar2_table(900) := 'yH4pQj7w14w2Eaqg4AYLywSev5INPXYknEb6xqCpGlEgNbfVp2iKOROz0n+DFA3fy2uEv8eLqXZScGlZ9GraIqsGRlfXyRNyU43+';
+wwv_flow_imp.g_varchar2_table(901) := 'BsIEGzZ560D32AIiV1B/q6SUWwkr0COjG9p6ElJw6ofV4uPVMPj35fXxm4vt4qPVMWtanYpoUTQdQ7FniV0myOhNhgZcNH+TXtt3';
+wwv_flow_imp.g_varchar2_table(902) := 'B7vIEE6EP57E3YFUgmfX3NIb5o4PP48aJbQy7beIVgKc/JyPxSlLL+tQTL+qS4j5+ZPjfec3Qv3NxcR+uCWhGFQJ1ccSuSFO41Pb';
+wwv_flow_imp.g_varchar2_table(903) := '+z0I7kz3f1t57AYBYANLeT60RusQzCyyCVUPRdPBNjelwhJunv4e/OfF6bqldzXRUpSCdxBuwC05aOWKZCgsMuW3etvVe3rj+YUC';
+wwv_flow_imp.g_varchar2_table(904) := 'oRy5G0kh79QYlNv6KEwLKPx67mP/v0FVMhgUG3XaSO5kfSWJ/q4aGLdJWnwGnxourd/Izo5/kuoFvM+CO07FVWtbHiGWpbVJFHBB';
+wwv_flow_imp.g_varchar2_table(905) := 'nSf92xVAbC0CP6b0AZKBD0MytLNIL6Mb3ZdPEMS0OdS7g4+Ov5OMnf5C7G5fhiKViGjgSoSrYJSSNHFECa6hFHi8bfoJfvuAuLim';
+wwv_flow_imp.g_varchar2_table(906) := 'P07IOLdud0VYnSpwYLZqQool4qDHCe554LjdOXEDVCfCMXdJqiMEiokTqULdlIjU8p/xdrl/3ea4f+SJb/SeIbJGGLS0pT5D67N/';
+wwv_flow_imp.g_varchar2_table(907) := 'DDkBPu1TvPQAF4yHeIKmvCS7QC9Bkxq84DYwEPNTczafGv5+/PfE6HutcQNk0KZsmJCHBchHAiDIdeRQl4sfWP8J/2fQAmwt16pF';
+wwv_flow_imp.g_varchar2_table(908) := 'Hx5pV5RF0Z3zfWCpOwFPtCn99+HI+cewiWuow4ARYXZnuzfGKgNKwJRq2xDP8J/iPo5/idSNf4ZLSHqx61KMyZoGhQSZmfwQNpsD';
+wwv_flow_imp.g_varchar2_table(909) := '2vt18X0IAyEoYoKgGc/8xQqQORdPCN03ub1zGB4+9iX8ZfwXj0SBV06Bo2lg1S5rtz4UjSqTCdOSz2a9z/fpH+LGxR9haqNOIXNr';
+wwv_flow_imp.g_varchar2_table(910) := 'WmRGLLNI16oKJKDshh9oVPnH8Ij5+7CKe6lQYcDoz33GlMViMWFq2QM2WGXGmeO3Il3nr+n/gWeXv0rElWklCcT4hEPFSXramb+4';
+wwv_flow_imp.g_varchar2_table(911) := '/9EsAMhQGoOFZj1gK1cGXgKI7zYHWDv7o8H/lk+OvZDIaYNCZxpOobwUpjigda6hHHlsKdd6w/hFeM7qPCwo1VIWGdXtZHLZkyiZ';
+wwv_flow_imp.g_varchar2_table(912) := 'ERHmiXeXTJ57Jx45dxJPtChUnwF+iu79YurmCQB2mogGGnGleP/JFfm3TX7G9+DitcICOerhnWTUQMZDq0h99df+hbx5AhsIANK6';
+wwv_flow_imp.g_varchar2_table(913) := 'uSujO5FVngpPBev7i2H/gf594PQc6Wxh2pnAlItT+u4TxTG9pW5emdRl1m7x85CCvGX2Uy8onk0FuMiECQlyt/3BjHf96YhdfHd/';
+wwv_flow_imp.g_varchar2_table(914) := 'GibBEyYQUTJishPSf7rubiAbZ7j/Jfxr9JD+7/p9Y5x2jFg0DnJYfENPdtJUm/XP/oY8hAID4gxmIrwANsWqJ1GHQqROq4R9Ovpo';
+wwv_flow_imp.g_varchar2_table(915) := '/O/qfuLdxCcPONAXTScXwz6Tr8gdqaEQevkRcVJ7gj3Z9nQv8Gh1r0jyvEgN01PD2vS/lzukNRBjKToCX1D2kLfcQC0Hb+kxEA1x';
+wwv_flow_imp.g_varchar2_table(916) := 'Vfohf3PC/edO6z+KKZSqq4EiEycLsD3GeqjPVt8v1LyhXBdtJP74CInwEGHRPcnv9Cl6/78/52cd/n33t7Wz0juNKmAnjh24mXXB';
+wwv_flow_imp.g_varchar2_table(917) := 'Qhtw2ZSfgjukN/Pv4NopOSJprBKpCwQl5pDnCHbWNVJyAIbeNQxznZ8H4IQ7vXAnZ6B1nX3s7P/v47/P6fX/O7fUrGHRPxmcdkv6';
+wwv_flow_imp.g_varchar2_table(918) := '6f3zaS6evYXL/BEAEjfr75c5EiQdD1W3gGOFdT/4iP7z3r/ja1DWMuROUpE2obiobT85FVwgswqDT4euTWwhSnP0hro8oSMTNk1u';
+wwv_flow_imp.g_varchar2_table(919) := 'IbHxUeJYMfzaKEKpLSdqMuRN8beoafnjvX/GuJ38RxwhVt0GoTrr3rhrbSB9fan/T8hr1LbY5E5vEywPeOHfULuPVe/6C333ybTh';
+wwv_flow_imp.g_varchar2_table(920) := 'EDLnThOqkOpsuFKtCyYTcU9+gt01t0WG3rWnsLLRA2Qn1UHtAP3dyp5aTpb2sYxFCdRhyp3GI+N0n38ar9/wFd9QuY8Abj/MZK7C';
+wwv_flow_imp.g_varchar2_table(921) := '0u3gkto0lFqst]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[lb5/U43a/b5krPxOXKV3wxM/x6sf/gB31C9jvZe4fz1391e2G5AitE';
+wwv_flow_imp.g_varchar2_table(922) := 'KR39n/fDnYrIhvbF+9lngFQtRald957PnyaH1APGNX9Bv2epKINF5SXe+d5I76Zbz64Q9wwxM/hxFLyWkRav/zAWnYRv+Psemzyo';
+wwv_flow_imp.g_varchar2_table(923) := 'XqMuBO8Gh7Kz+65/389qGfx5GIAaeRuPu9RlATwMyAWt4VlTiaevEO58Tw+k3Hv8yLThQk3u2o9L5AQBFFhYppyT1yxeSx6iXHv2';
+wwv_flow_imp.g_varchar2_table(924) := '+nngRZgeAu/gRRN35mPRaBOCR0GXDias7fPvTz/Oie9/NoeysD7kR/RSAl77ivqwAxirhlcEs9zQfE7rxQccf5lxM/yP848H9xLB';
+wwv_flow_imp.g_varchar2_table(925) := 'hhxJ1KYr1+PGhFrE9z/Z2AUjr2PFRCkKW3SjOCNkLhfW/YctdPXbPuMcCbfPw7G098+9PP1k69EIk7IwQr+Q2TTn1iNELF6MjlL/';
+wwv_flow_imp.g_varchar2_table(926) := 'nuuqte/qiBzt9+88TOX/r4U88pu4pd8oNVUIOoS2v0XtSElI5djZr+nLUoKK5EjIeDrPfGeff2P+a1o5+nHo4AuuR9BQu7uEDYRM';
+wwv_flow_imp.g_varchar2_table(927) := 'MGa0AAAAQpDNGrL2vV4JkAXwJueOotvOvJ/0JBOhT7vrSnCIb6pq8TlY7i1i+gdOxqJCqgTgBLqYMXtBUZ2T7s1G//jUtucojAOE';
+wwv_flow_imp.g_varchar2_table(928) := 'GnMVU+fvtnLmkcfnQzYXvFpy5BicTV0uiW4+uuesXDlU27jlsb+arC82/Y85IDE1Gl6FhdkgCIRSIfdTq0Ru+hM7gft7GRyuFrUf';
+wwv_flow_imp.g_varchar2_table(929) := 'rbV9KViJb1aavPb2z5a96x+UN01COwXrIzsRco2p4kjRqZdBY+1UIUgFNgpb90pA4F06alHr/8+K/zV0dfzwb/JKj0f2lPDdZpo2';
+wwv_flow_imp.g_varchar2_table(930) := '4DiYqE5cPUt9xE6djzcFpjqNNetAhYRYqO1X0nqXzw5qMX/MJLN+zrBFHRLw+2trzkzXd16uOV+sEHx5pH9o8FjamSLvtYC8XxCk';
+wwv_flow_imp.g_varchar2_table(931) := 'Fxw/YT1a2XHC+OXjAJ0Amigu85rQ/cdGzXvhNRZcBfjvEXiQonaY3dRVQYx4Rl1G1gTRuJCvQhspkhrggN8U3Abx38BQ62N3PD9n';
+wwv_flow_imp.g_varchar2_table(932) := 'dTNB3atrDifQdAIOqk1jkrJQ+AnvQJCNVhwKlzMhrkxx/5U26dfjYbvJMEKSR0YvffIywfobHxNkRd0DgfIOpQPHEV3vRO1HQTPw';
+wwv_flow_imp.g_varchar2_table(933) := 't/+QIEKqwrSfuWX91909iA14msNYJijNPtxy6L+tBzfZmk7sda6xJfx9bakfuiP95z3ZOTUdk3qrqo6yXxvi0QVA/QGr0HdTpI5B';
+wwv_flow_imp.g_varchar2_table(934) := 'OnGULKR16I29jYl3zA2fAk5GiwjhcN3MM/X/QrrHOmmI4qZy0jXg792Pc/F+ntzrFRXPSwQi82Nv4a+9oXcP2e9/DN2pUpGj/J1z';
+wwv_flow_imp.g_varchar2_table(935) := 'JE/gRIckiK2FgIRGmuv5PW6L2JMCzu4JB4w43VJ6cpvPsrR3cCQaQGY5y4OM9GPjbyrLWutdEyf1jX2sjDRr611jXGaOJJBb//uc';
+wwv_flow_imp.g_varchar2_table(936) := 'PPfPSkLRcdu3jjV4NYl/bIAzQ33A4mQqwX50cUkCh+dpjUqnMDddngneSbtSu5fs972Ne+gAGntoKeZFL4Y9M7PyM9ARBBw7hx5n';
+wwv_flow_imp.g_varchar2_table(937) := 'KJM/2T3Nm4nFc8+Nfc1biUde5kesYPMwZv/UlAZg1iBRXEenSG9tDYeBuYMBn8C38WVkXKrurH7prccWgiqPpO3EEeAOMoxlFjjB';
+wwv_flow_imp.g_varchar2_table(938) := 'rjLPNH/Bndz7OA72CPTQeVj981uaPsqlpdhO8qNv6uJqK54XbaIw8g9gwRlPg/1p88JQgpEajLOneSuxqX8ooH/5o7G5cz4E6u0A';
+wwv_flow_imp.g_varchar2_table(939) := 'qBxjaQYjVXuvtzV8ALCNVhwJ3gztqVXL/nT5mMqkl9f9odXQSVEOvVEM52L4pE/kxeICqeXFS8q4BnLMfq6v/PTx26FAijyPZ8JI';
+wwv_flow_imp.g_varchar2_table(940) := 'VRHIH86VeO7jxaV99fzPr/TLw/QWPTLQTVA0hU5FSEMeuv4mC9WrxqknKBUZjsGZmMqly/50+5s3Zlsky4nDGW/uwPaQvAMr2AUB';
+wwv_flow_imp.g_varchar2_table(941) := '0qTj02/kf+lKmoQtlppm/8ABis28S6jbldfIlFwLr12CAG9scicBaDOBuRilQ8q19+qLbl3kPNYc8xYS+HUzL7Rw8+1Rz++zsmn1';
+wwv_flow_imp.g_varchar2_table(942) := 'H2Fjr7x99HoiJB9QCNTbcQFSZi4z9rZj0OEazbwLpN0h6mEI+1stNkKqpw/SOxCFSWNdGkP/tDFp7sEr2ASB0qToNjwShv3veHTE';
+wwv_flow_imp.g_varchar2_table(943) := 'YDVJxWH6r6FoIialCvlhQBzfPdRJeVF3BEqYdi/uSLhy8CrO2hF5B4GNEffP7w7vGmep4sZPY/tb5/1nh/zn8WJ0zVqyGLzJH0in';
+wwv_flow_imp.g_varchar2_table(944) := 'jMtZiMBnjzvj/kWDBKxWksYcxlY/aHLAjAErwAi8EzHcbDQd687w85HIxSdRoZmfk5lQD0pk4lAOdl6XmBSEWqntUvPFjf8vkHpj';
+wwv_flow_imp.g_varchar2_table(945) := 'd6jgmCHohABHiOCe891Bz+6sP1zVXPanSu2b8rbiaiuX6OeH8uuolAb4o0E4FnEqpD1WlwOJl4xsNBPNNZZIeobMz+kAUBgLgMMm';
+wwv_flow_imp.g_varchar2_table(946) := 'qzkLccl9ZYDJaf3HcDt01flY2YfzZzJgDP/Q+XkhcQIFSR937l8G7ozUtNPAv7J188fFE9FOOcK1cxO7zZeBvBwNzx/tn/ffyfLC';
+wwv_flow_imp.g_varchar2_table(947) := 'QCz6SbE7ht+ip+ct8NM+NxYWUQEo/1Pm/6mYtsCABdL+Dca6FWDSWnzjsO/go3TT2P9d54towfiItmuwnART7iJeQFrCJl1+odB9';
+wwv_flow_imp.g_varchar2_table(948) := 'ujn7x7fLOzwl5AEFnxHBN8/oHpjV94sL7l3LP/WYQsnCvenxvBnEoEZsUFSAjVYb03zk1Tz+MdB3+FklNf4C5Cm4z1bHyfjAgAgI';
+wwv_flow_imp.g_varchar2_table(949) := 'VzPJhQXareOP/n2Gv5wJEfZ9RLealvDsTGGWzr1cAu4UjwJeQFBBAR/uBzhy8HXM8xKzZnJoNE3vuVw7tDlXksf75QZrGFLgqznq';
+wwv_flow_imp.g_varchar2_table(950) := 'PYrIl8vEQ46k3ygSM/zv859lqq3vg5lgclGePZOQEqQwIg8XZIPfthiJEayk6d+2pX8I6Db2fQqWV0/3lSi7PsmWtxeYFuifAjJ2';
+wwv_flow_imp.g_varchar2_table(951) := '3lf9107AIg6ETLn2aCyIrjmOCz909uuONge7TszlHyu8xk]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[5tk55UnFQzVDcUCCVWHQq';
+wwv_flow_imp.g_varchar2_table(952) := 'fGOg2/nvtoVlJ36HK3iJW73tcBQt19kSAAgTo7Uz/K7giOWUB1++cCvMR1V8E2Yyc49Kx+7LiIvoOAZ5UO3HL8Q8Hxn+QWm3dn/P';
+wwv_flow_imp.g_varchar2_table(953) := 'V89snvOfQXLXM6ckyXnUvqHIvgmZDqq8MsHfo1QHRw5ez4gHtvZErGMCYDEm4Rs+7QMaRz3T/N7h36eb0xfNdPBJ5P0Inu9QAOzI';
+wwv_flow_imp.g_varchar2_table(954) := 'CXH6t4TtvKb//rERUAQLsML6ESI45jO/7rp2I7bDwTrzj77L6+gaV4WvZqSDt0OQ9+YvorfO/TzlJzp0/MBIvGYjtLZ0zAfGRMA4';
+wwv_flow_imp.g_varchar2_table(955) := 'mXBoDGzOSJSQ9mtcWft2fzF0esZdqeJMhj3z9Cr9esFuthWRYqu6t/fMbnz+HRQPq1EeJH4cYs878O3HL/Qc/SMr7IyJc3zs4h6i';
+wwv_flow_imp.g_varchar2_table(956) := 'pSJ1GXYneYvjl7PnbVnU3Zrp0IBtfGYzsCy35lkTwDg1ANLXP+WLfDrB3+JIDkrL6MTAQAyU8HWYuUf77mNTgHfWI7X8f7wS0d3A';
+wwv_flow_imp.g_varchar2_table(957) := 'eFSvIAkfxD8+deObnvkpK0UHVXbnb56Eu/PhcG6LazbSAQ1myjxMWWBdfn1g79EyxaSY8tOn9CyRjafaOIyhZGl5Nb45IlXcuv0c';
+wwv_flow_imp.g_varchar2_table(958) := 'xicraqZRGGmhr2XM9b8brdVkbJn9aPfHt9136HmsO+wqBLh7oaf49NB+c9uPHZxwVFUZxl/L+L9uVBBJUgSgUtYUekjkRoG3Rq3T';
+wwv_flow_imp.g_varchar2_table(959) := 'j+HT554JSW3RhjZp4W0WSKz1qQY/Ogkh1sbuOGp/8yAU89Ime88JO84KpzsffHKPIaoKK4Qlwh/6ciFLLJEuLvh591fObrzyWkKB';
+wwv_flow_imp.g_varchar2_table(960) := 'WO161/0LN6fiyQRGBVOxr/Oph3NECU9KW546j9zuLUBPzqJZtfMsntnkRoKpslHjvwQe9s7KJpONrP+s0kSgHHWug/lq/O44pGqV';
+wwv_flow_imp.g_varchar2_table(961) := 'FzVr8zaKLSQ4qDZ230/dtfkjpJ7yvUX69MZ3Edj4609iPfn+o4AJllVyW4isIsiFE2Hve0dfOTID1EwzUx7rZm8M0UomA5Pdrbwk';
+wwv_flow_imp.g_varchar2_table(962) := 'fE3MGimM/0QZ1CDdTpYt45ov9zVufMCxkQ0IzG/8clDV8DCXnYy+4d/9KWju47V1fecCLUOoobW2N20xu7uYbx/NhRRB+vWsU4nu';
+wwv_flow_imp.g_varchar2_table(963) := 'W62idQwaKb5yPgbeLKzhUKGJ69MPs149m/xiclX81hn2+qY/bsZa7eBddopDNSnu+caFqXshvrNx1tjn71/csO5SoQjwHcI7zvUH';
+wwv_flow_imp.g_varchar2_table(964) := 'P7ot8d3lf1INfJFnTb1zbfQGdyHWH/men1jdm/FjOwMnI+uF/BYZxufmHw1BdPK7ASWubtS4l5s09EA/zzxI5RNM6WTWhZJ11X1p';
+wwv_flow_imp.g_varchar2_table(965) := 'sCE6YzRs+QFTFQE4D1fPbIbkPmeZNTd8POlwxfWQ4xnfcLCcRpbvkZUPJ4YfwpfTAETxs82QzsD58OqoWya/PPEjzAdDeBJmEnZy';
+wwv_flow_imp.g_varchar2_table(966) := 'pxlWQwl0+Cm2gu5u3kFFWmsiiO7ukR+Ou2dZzgjL9AYvVcqjtHbD0Tr/tdNR3Y4jumcrUQ4iKz4jgnvO9QY/spD9S1V42prYJ80N';
+wwv_flow_imp.g_varchar2_table(967) := '9+COu043k91CGvybFcHFqEiDe5uXsFNtRdSMo1FbhnuD9m7IwAM/zjx2mTlZJUY/0wCcJr0Z6nT8wL1jbfhuR0+/PWpC8F6/txnY';
+wwv_flow_imp.g_varchar2_table(968) := 'Orvf/boxc3AMZ31d9EcuzsOZfqWz5iDmUTg9KpIBJ4iPjD1HydeS1ZNLVN3pQhFaXOgs5VvNK6mvJpm/5kEYK2PCcBzEYcEQemw2';
+wwv_flow_imp.g_varchar2_table(969) := 'G1f04drxyt//pXpbZyxUai73fez9zQ3fnnvxGbZdrO2Bh6VVOL9s9JNBNZWTSIQYi+gLA2+0biaA52tFKWduVxWpp5kpHGnn5vqL';
+wwv_flow_imp.g_varchar2_table(970) := '+RwsB7fBJl7YGenmwCsp5QAnIckLxC6dbFbv8677/r2xccnOL1EODlJ7E+/+Z2L6ltuTDfen4uZRGB9VSQCobtRKOBwsJ6b6i/EM';
+wwv_flow_imp.g_varchar2_table(971) := '53MJQMzdTcisev65elrZ36+KhAAh6gwDibI3tgUBeviu1b3F28vvOuur+0EgjCKJLCReMYJPrN374avB18dLfktVetJ5r6EAiaIn';
+wwv_flow_imp.g_varchar2_table(972) := 'zHOqokMUUFE+fL0tTM/zxKZEQBF8CRiIhzmO+1LKEp79bj/AGiyAzCr96xYa6RsjH503507npiervqOY534MBHnt77575eKaIbCl';
+wwv_flow_imp.g_varchar2_table(973) := '7MhyTPO6v09HZuEtd9pX8JEOIwnUaa82kwJQEFaPNx5Jgc7WyjIalj7T+guU/nZXqZSFF8MR1tt/1du+sKlQGQgfO9d3952z/jxo';
+wwv_flow_imp.g_varchar2_table(974) := 'bI4arPqds0kAlNcZl0C8bjucLCzhYc7z6QgrUyN68wIgFVBxHJ381nUbTnZSbVKWEWFKhEqVePoFw7s33Lv0aeGAPnAfbdfWJCeH';
+wwv_flow_imp.g_varchar2_table(975) := 'oC9AqRdaLV0HLHUbZm7m89CxGaqk1VmNtZLsnR1X/PSJE7KzkOan3jdPUoy1Nl2oWMcESbCwLzv3jt2vHDTBeOPTE1UhhxPo6zO/';
+wwv_flow_imp.g_varchar2_table(976) := 'l1mrbS4QTnecbkqxkkc+9/XvDTOA2RofGRHAJL3+GS4AQeLZucZzc9s11SiuAloxsdkpCpVx+Vf9j60498e3bOt7Dhk3vghCbWi+';
+wwv_flow_imp.g_varchar2_table(977) := 'Fk3N8XPeRWME1VwsDwZbgCytTM4E35UnAAMORGu42CwFX81xf/AqQTg6kGAwFrTCEPXWVXPmlWXCFQEXzocDLZyIlyXlAVn45lnQ';
+wwv_flow_imp.g_varchar2_table(978) := 'gAgDgEidajbcnLIwirBCmo62MJ4fAhoNt7rghCy3mLjDIT40NDCOGo60PuzUFeEpE80dVsmUidTIUAmBCDuoxNyJFpP3VZwMtQ3/';
+wwv_flow_imp.g_varchar2_table(979) := 'dx0W1Y1+7hFduVYdXer3UNXe9FyrXc4WOq2wpFoPQ7Z2RiUiRxA3PY75Ei4nlpUZtCZxq50Mm3WZKGK2sWfVHEW4gSgujWjJhBRl';
+wwv_flow_imp.g_varchar2_table(980) := '9VmUquObtNVt6bSGbArdWqQQY3M7nq+wq/RNR2mogGOhOt5VvEBVLORwMiEAMxm2lZRZOV3TqmCgLWo5yDlgiy/v5jER17b4l4gA';
+wwv_flow_imp.g_varchar2_table(981) := 'nVXVQiwKuluuirWRcJBB6e1IhWj9bYShKgxiYe+wpk6g6VmKyv6mStBJgSgG/8PO5O8cuBrlKS54gIg]'')'||wwv_flow.LF||
+'               ||';
+wwv_flow_imp.g_varchar2_table(982) := ' TO_CLOB(q''[jkdksSUfM95wG/fUd90tNlheTytVgVIQDh++TBxvhLh1Xi4BPUVVHE9C9/C4Wz/6XWh6y6uvVVHjBddUHn3OSDks';
+wwv_flow_imp.g_varchar2_table(983) := 'NztYx2A0ClbulokFoKklhp3JTOUBpP7hSjbuhDhOKph2Dz5ZsVJUU60KkU7d8u3jP33tn3BbAUrtpR/UNuPDVd7zO192KtXd2u5Y';
+wwv_flow_imp.g_varchar2_table(984) := 'ZN6eGznLRdVKwTdRvban/svvfEXyu0v2pwtg2tD8+q/ywhd/z9hHcGTQ1mpqtNWTo4jatkCUodxFJjyALiGGoAdukirqOqrasJN/';
+wwv_flow_imp.g_varchar2_table(985) := '93XvLW/9y9K3KiNmQ70uSz+j2fMMYdQqvPT5zzB+YYeGIeSzfz8QDUOMX9hReOXLd7e/dvtjuE6RIFiSkLeBSkUHrv0T+60P/jf3';
+wwv_flow_imp.g_varchar2_table(986) := 'Z37q2uBDos5gGFWROU5CWw6SsR0umRIAIX5AK42CLZXE+fd7p//orX/ZuWnrBrYeOkpnWR/qVYR2vcmu7TukUChoq53P/v1ARLBq';
+wwv_flow_imp.g_varchar2_table(987) := 'pVgosGv7Dr741QdxKwU69SUPnHoHu3UDY2/9y+ZNF435f/R9V/l/UK/ZSOJV0vOa837AqqK+hzM5GR35rY/p5wYGGDs2wfIDPB8B';
+wwv_flow_imp.g_varchar2_table(988) := 'rLdh7DkYA7qq1i5XN4rFGLwNY88BbPIulsWxCYKBAcZ+62P6ucnJ6Ijv4ahmJFDvIee9AADW84VGR/be+khw0rZwO50VeLH1wAKu';
+wwv_flow_imp.g_varchar2_table(989) := 'VMvPjltrrIJS2vMGFaxFquVnA27yLpZFp4PaFu6tjwQnGx3Z6/kCS88PrRrWggCgFlyjg0MFPFmJ9KvvC51O6O3cOqKev0vDMHZN';
+wwv_flow_imp.g_varchar2_table(990) := 'c/qDiGgYop6/y9u5dYROJ8T3l/38RdChAp5rdDCjR/mtOOe9AIjgNFuqQ1Vzya/8sH9xrUN9pLLc2M4XoCNXXblVfG+MKIqrPXP6';
+wwv_flow_imp.g_varchar2_table(991) := 'hSGKVHxvTK66civQSd7Jkhmp4NQ61H/lh/2Lh6rmkmZLVSTPAZwXqGI9T7y3vNT7JSAUwfr+Mr67pwJ0nGds3y0F38Oe/65i5rBY';
+wwv_flow_imp.g_varchar2_table(992) := 'Kfie84ztu4FO8k6WhO9jJM4+h295qfdLnieerpGczpoQABGcRkOjrRvkBx59T/m9J2tMA9GSPYE46aRm3dBlGANZqOlceyjGYNYN';
+wwv_flow_imp.g_varchar2_table(993) := 'XQboUhOByRiITtaYfvQ95fdu3SA/0GhotBZmf1gjAgCxCNTrGu68wFy//73l9wwLwXid2kgF11/s4EkSgKZYvowoIk8ApoEKUYQp';
+wwv_flow_imp.g_varchar2_table(994) := 'li9jCYlA30dGKrjjdWrDQrD/veX37LzAXF+va7hWjB/WkAAACLj1KY2esclcv+fPy5/6+1/wnzte50SnQ7ixgltdSFgwOwHoe8/M';
+wwv_flow_imp.g_varchar2_table(995) := 'E4Ap0U0E+t4zF5MIrPqYjRXcTodwvM6Jv/8F/7l7/rz8qWdsMtfXpzSSjNXG9Jo1JQCQeAI1jYZK5srXf4/3sQPvq9zwC9/vDh2p';
+wwv_flow_imp.g_varchar2_table(996) := 'c6LWoTlSwRmp4PhzVvXFCUBzxeVbxHfzBGB6JIlAd8xccfkW5kkE+iDd91rr0DxS58QvfL87dOB9lRte/z3ex4ZK5sp6be24/bNZ';
+wwv_flow_imp.g_varchar2_table(997) := 'kwNXDE6tpTaKcLZtlP/4x2/2v7DvPeVff+9PFi4crzMxXmeyA3ZjBbdaxfiz/3FFDdB2Ltn9XCkWPexaWTDKIFatFIuec8nu5wLt';
+wwv_flow_imp.g_varchar2_table(998) := '5N0A4APVajLbgx2vMzleZ+K9P1m4cN97yr/+x2/2v7Bto/zHKIrHgpi1Z/ywxtyd2RjBKFCra+S7Mrpri7z9v43Iz/2HFzifffhw';
+wwv_flow_imp.g_varchar2_table(999) := '9IWf+0j71gcPcpx4LJW7CcMaSACYoYHL4k/K2EkPa4r42XffhQdSTd7TeJ2oU6NWg86l2xj9wE8XfujiTc6rhiry6lJJ/E5LqdXj';
+wwv_flow_imp.g_varchar2_table(1000) := 'Wd/I2pwIYQ0LACR7DwQnCNHOtFrHwd80al63aZ153bfe6Tw6Xtev3rpXv/I//qZ131M1xgGhHpQLQ4USpdIlpxKAeQogHeJEIKXS';
+wwv_flow_imp.g_varchar2_table(1001) := 'JYWhQqk9HrTGoQHo5iqD7/6Z4ve+6EL5/pGKvHygYnYh0GwqtWmNRDBmDbr8Z7KmBaCLCCKCYxWt19UqSKUguwYGzK7NI/pff/jZ';
+wwv_flow_imp.g_varchar2_table(1002) := 'lb31lt7zyFG98XPfDO6+4ZaLpjzP2ZnsAFyzs0cGMBqG4Dk72+Gu0jte+cjgD31v6TkXbZCXVYry7KLHhV5BsB2l1lArcfMpY9ao';
+wwv_flow_imp.g_varchar2_table(1003) := 'u382MtUPIEsoWLWoCKbkI8aL9yqG9Vbti80L97xO//NVJRM5q6Z9+XmKCDStE31KPnzvK0t7d7uVYhUUGyjNDqqKFYNILtRnJfcA';
+wwv_flow_imp.g_varchar2_table(1004) := '5kDAdDf3NgOsdlRDkGHXVuuD654bTnkYDTLV3GEtYtQSStGpD657rquWibpaF9XEqzNrMbO/GPLRuwCEOF40IoZI9dbGRqvag24R';
+wwv_flow_imp.g_varchar2_table(1005) := 'OYtGiDuz3drYaIlUjYgxgpPP+Asj9wAWgYulgy932W1iiDLW22VtYhEMEXfZbaaDj7s2SvhXjFwlF4gieFgO6wD7dJSiZKe3+1pG';
+wwv_flow_imp.g_varchar2_table(1006) := 'gaKE7NNRDusAHjYzp+6sBnIBWCAW8CTgUTvKca3gkq1z3tcqiuAScVwrPGpH8STIfYBFkAvAAomN3fId3USgLk4+/2cGByVQl+/o';
+wwv_flow_imp.g_varchar2_table(1007) := 'Jsg9gEWRC8ACkeS/99rN5Lt/s4gm7yZPzi6GXAAWiIOlox7ftRsx2DwBmCHiRKDlu3YjHfVW2dmS6ZILwAKYnQDcr+vyBGDG6CYC';
+wwv_flow_imp.g_varchar2_table(1008) := '9+u6PBG4SHIBWAB5AjDb5InApZMLwALQ5OSp+3QLoTp5AjCDOCihOtynWwDNBXqB5AKwAAQFhdvsdhTywZVBNDlu8za7HZTMHL6Z';
+wwv_flow_imp.g_varchar2_table(1009) := 'dXIBOCeCi9KgyB67HleifGhlEAVcidhj19OgiEt+UPNCyAXgHFjAI+KQHeKADlMgTwBmEQUKhBzQYQ7ZITyiPA+wAHIBOAfxzBKy';
+wwv_flow_imp.g_varchar2_table(1010) := 'R8cY1xJunmHOJHEi0DKuJfboGG6+UrMgcgE4B90KwPvtZlQdTD6sMotBUXW4324mrwhcGLkAnIM4AWi4TzeheXY508SJQOU+3QRq';
+wwv_flow_imp.g_varchar2_table(1011) := '8kTgAsgFYF66CcACD+UJwMzTTQQ+ZNfToJAnAhdALgDzYAGfgL12lL12jBJ5gUmWsUCJgL12jL12FD9/X+ckF4B5UMCRiIfsBmoU';
+wwv_flow_imp.g_varchar2_table(1012) := 'kgKgfEbJLoKD]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[UqPAQ3YDTu6xnZNcAObhVAXgZjSPKVcFgqJquE/jXZt5zmZ+cgGYB4O';
+wwv_flow_imp.g_varchar2_table(1013) := 'COtxv833mq4VTqzabIF+1OSe5AMxBd115IllX9vN15VWBAn5StzGR122ck1wA5kABL6kse9IO4eeVZauCOHEb8WRSuenllZvzkgv';
+wwv_flow_imp.g_varchar2_table(1014) := 'AHMxOAE7nteWriHjpdppinghcALkAzEE3AXi/biY+AyAfRquFOBEo3J8nAs9JLgBzYFCsutxptyB5HLmqUATBcqfdglU3TwTOQy4';
+wwv_flow_imp.g_varchar2_table(1015) := 'AZyFuARZ3mPmu3Ugh7zCzqrBAQQK+azdyXCt4eQenOckF4Cx0M8n7dR1HdQA/9wBWFYrgYzma9HDMV3DmJheAs2ABwfKA3URTPUw';
+wwv_flow_imp.g_varchar2_table(1016) := '+/686DJamejxgNyHY/A3Owf8P7O5XUBEGFj4AAAAASUVORK5CYII=]'')),'||wwv_flow.LF||
+'       photo_mime_type = ''image/png'''||wwv_flow.LF||
+' WHE';
+wwv_flow_imp.g_varchar2_table(1017) := 'RE candidate_id = 4;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'COMMIT;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'UPDATE tms_candidates'||wwv_flow.LF||
+'   SET photo_blob = apex_web_service.clobbase64';
+wwv_flow_imp.g_varchar2_table(1018) := '2blob('||wwv_flow.LF||
+'                    TO_CLOB(q''[iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAABJWklEQVR4nO29eZ';
+wwv_flow_imp.g_varchar2_table(1019) := 'Bf13Xf+Tn3Lb+l98ZOrAQJkAQI7psoal9jKpLtSJasSsZxUqkZ16QmqWQ8FacqmfFMVZLx2NkqqsxMxpZjx9ptSrYl0TIlcREp7q';
+wwv_flow_imp.g_varchar2_table(1020) := 'S4igRAAsROLI1efttb7pk/3nu/boINoLff7/e6+32qmgS6G++937v3fO+55557rgz/1W8rBQUFqxLT6wcoKCjoHYUAFBSsYgoBKC';
+wwv_flow_imp.g_varchar2_table(1021) := 'hYxRQCUFCwiikEoKBgFVMIQEHBKqYQgIKCVUwhAAUFq5hCAAoKVjGFABQUrGLcXj9AQfeYa863dPQpCvJEIQArAJ3x34TEhM2MPw';
+wwv_flow_imp.g_varchar2_table(1022) := 'O4MjfTjnXmtRR7wZ2yexRCsfwpBGAZ8U5DTwzQiGAQHDHtPxsRFHAQpm1e5jzfszPvphCjCGBVsShWlVht+8+zPVfB8qAQgByjM4';
+wwv_flow_imp.g_varchar2_table(1023) := 'zKILiSGLqT/j8zdkl/Z+a/nP7vhd+9PDOvJ5IISfsvFzxdJgqxWmKd/r9F23csJCG/FAKQIzKzldSwHXHwxLSN3iBMG/q0PMxu7k';
+wwv_flow_imp.g_varchar2_table(1024) := 'v9XLPfw4jgIHjitH8nEYREDEK1ibegmj5xIQd5ohCAHpMZhUHwjMETgysGI2bGHF5njKf5K99w4XMJgieJKJTTGIJVS5QKQmRt20';
+wwv_flow_imp.g_varchar2_table(1025) := 'Mo5KC3FALQAzKjd0RwxcWfMcovB4OfCzOfXQBXDG4qCLFJvINALZHGadCxEINeUAhAl3i30Tu4RsjG+cxBXq4GfzlmfrZkeuPiAx';
+wwv_flow_imp.g_varchar2_table(1026) := 'ZLZJVA40IMekAhAB1G087sGwdfXDzjpHP5zOhXpsFfDmU6QOgbg4+DRQltTKARobXtd1fQOQoB6ACZSRsRKsbFFxdHZo70q9PoL4';
+wwv_flow_imp.g_varchar2_table(1027) := 'bOmCqUjEsJl9hYAo1o2hir0z8vWFoKAVhCMrP2xFAyM0f7wujnSvaeHBEq4lMyiVfQshGhJhkKhRAsHYUALAHZ/N4TQ8Xx8MQAUo';
+wwv_flow_imp.g_varchar2_table(1028) := 'z2i2B6STT1CoxDqJZGHKZCUEwPloJCABZBNkctGw/fOKnhL+/ofR7JRNQTg+eWCNUSpF5BESdYHIUALIBpV9+h6ni44kAx1necmV';
+wwv_flow_imp.g_varchar2_table(1029) := 'Msz3EoGYd62yMopgYLoRCAeTCzA067+oXpd5vMw3LFMJh6BI1CCBZEIQBzRNMOVzYeJeOk3yvoJe/wCNwSLRvTtCGR2mJaMEcKAb';
+wwv_flow_imp.g_varchar2_table(1030) := 'gM2Ryz6viUjYukwb2C/JC1Rsm4+MahaSMacVjEB+ZAIQCXQFFKxqViPBwxyyuqnz6moDNclXmWBJEsDs+y8KuztqkYD18cGjakZa';
+wwv_flow_imp.g_varchar2_table(1031) := 'NCBC5BIQCzoIBB6HN8SsYl1+v4mvxH2kU8BBVQJ5mmxK4DRkBBjYAxySb/2RABaxGrpAUAMFGc/CiOEW3fEM32LeTQthTFEaHfKe';
+wwv_flow_imp.g_varchar2_table(1032) := 'FJEii001JWMINCAC4gG/WrjofJo7uv2jZEFUEdgzou1nXAGCSKEWvxJmuAUDk9httsYV2X8tnzlM+Oo2b20iBiLc01QzTXDGOiiK';
+wwv_flow_imp.g_varchar2_table(1033) := 'hcorFuBFDCgT7UGNR1wFpMFCeiENtUfBLhYY5VhzpNFigsGQfPGOpx4Q3MRiEAKReO+nka80U1GbVFsK5L7DmoMZgwwptq4E/U6D';
+wwv_flow_imp.g_varchar2_table(1034) := 'txmsqpc1RPnsGfrFM+PZYIQa2BCSNUBLEWie3FjVQ1ERRjEFWs5xL2VVBjaK4bIRioUt+4lsaGUWqb1hEM9hH2V7Cei1iLCWNMFL';
+wwv_flow_imp.g_varchar2_table(1035) := 'WfVXMgBlkFgsIbmJ1CAEg6iScO/W5+Rv3M6NUYopKPOg5iLZW3x6iePMPAkZMMHjxK9eRZvHoTp9FErCZufioUCMm/r5QQJRmhL9';
+wwv_flow_imp.g_varchar2_table(1036) := 'v1tf27YhWv1gCF8rnxxPtI7xFXyoTVMvWNa5i4aguTWzcm4rB+JBGQOMYJQsTaXIiBzvAGpqKQUONCBAAZ/qvf7n1v7xHJ6ABVx6';
+wwv_flow_imp.g_varchar2_table(1037) := 'Ns3N6bvSZzeTWGuOShjoNba9J37G2GDxxh+LVD9B89hT9RQ2KLOgbruolr7kzXEgCm5+uL/VCpaKjM/IYisSajfhS1nyUY7GNqyw';
+wwv_flow_imp.g_varchar2_table(1038) := 'bOX7OD81dvpbZ5PVFfORGDViIGKtLzaYIATRtRj8N2H1itrFoBSAJFhn7HxxWnp6O+2GQPfOz7WN/DrTcYOHyC0ZcOMvrKG1RPnM';
+wwv_flow_imp.g_varchar2_table(1039) := 'EJwsTgPQ/rJnsNstH6okG9jj+4zPAqFBNZTBgisSX2Peqb1nJuz07OXX8Vk9s3EVUrmCDECQJAEm+lRwhCpDFTcUC8ivMGVqUAJC';
+wwv_flow_imp.g_varchar2_table(1040) := '6/od/1U5e/N2QjYlwuocbQf+Qka14+yLpnXqX/yClMGGE9F+t7qQudRvvz2mIyvTogqpggbH+Gqa0bOH3rdZzdexVTWzci1uI0W2';
+wwv_flow_imp.g_varchar2_table(1041) := '2Pp0ePi0WZigJCtatSAladAChQSaP8PTV8Y4grJSSKGfn5ITY8+RJrnn8dr9Z4h9G3A4DLkXTuP1MMwr4KZ2/azak7rmfs2h2o6+';
+wwv_flow_imp.g_varchar2_table(1042) := 'A0Wu130pPHBOpxSMNGq04EVp0A9KUZfbYH5p8F0KJKGbfRZP1Tr7Dx8RcYfONYsuxWKSdGoDPX9VcG2dxfrMVtNLGuy8TOzZy86w';
+wwv_flow_imp.g_varchar2_table(1043) := 'bevn1P+520A5ldxiA0bUQtDrp+716yKgQgW+IbcH1cMV03/cyYo0oJpxmw/ulX2Pzjpxl46yTqGOKS316mWw1ky4xOK0Biy+S2jR';
+wwv_flow_imp.g_varchar2_table(1044) := 'z70G28fdse4rKP22glv9flYKEAkVomo2DVLBWueAFQSLPCemD8CqI2MXAjrHnxAFd+5yEG3jqRrOeX/BU52s+VzCtwWgEmipjcto';
+wwv_flow_imp.g_varchar2_table(1045) := 'k3P/MBzu67GrGJQKiYrobpMxFIgoMrXwRWtAAotLeMTi+QdQexFus4xJUSA4dPcOV3HmLNSweSoN8qN/wLmSkEosrZ66/mzc98gM';
+wwv_flow_imp.g_varchar2_table(1046) := 'ntm3AaLUwcdzU+kPWViaiV7ixcuazYRKBeG39UreBN1dn+/UfZ8qOncJoBUaXU/nnBNFmgM/Y9ANa8sJ/h1w9z9MO3c/SjdxL2V3';
+wwv_flow_imp.g_varchar2_table(1047) := 'Hrja6JQJYbMOiWVrwIrEgPINm773Td+GcG+da8uJ+rv/kAfUdPEaXptIXhz43sXbm1BrUtGzjwuY9ydt+urgcJ3+kJxCsyV2DFCY';
+wwv_flow_imp.g_varchar2_table(1048) := 'ACJeNQdXwMXTT+2BKXfcRadt73IFt+9GSSMlvy]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[k/z7gnmjjkmmBVY5+uE7eOOXPogag';
+wwv_flow_imp.g_varchar2_table(1049) := '9MMUKc73kCSKwD1OKBlV1768IqaAiiKb1z6nVJXN/NIbAn7q/SdOM01f/xdhl87nIz66c8KFobEltjzEGDrD37KwOHjvPZ37qW2a';
+wwv_flow_imp.g_varchar2_table(1050) := 'R3eVL0rIpBNB5I+1SJYYTsKV4wHMHPO372bJq8u7K+y8YmX2PXV+/Gm6kTVcmH4S4w6BrfeJOyvsv9XP8nJO6/Hm6onP+zicuFKi';
+wwv_flow_imp.g_varchar2_table(1051) := 'wn0JvVqibkw4NcNRBWMwfo+O7/9IHv+y304rYCoUhh/J5DYElXKOK2APf/lPnZ++0Gs7yc1ELq0mpIFBnuRS9Iplr0A9CLaL1axj';
+wwv_flow_imp.g_varchar2_table(1052) := 'oN1DLu/8n12/tkPiSrTW3YLOoNYizoOUcVn55/9kN1f+T7WMVjHSTdUdZaZqwMrRQSWdQwgS/LptvHHvovbaHH9//0thl9/i2B4o';
+wwv_flow_imp.g_varchar2_table(1053) := 'Bj1u0VaESkYHuCKh5+levIML/0Pn02yLIOo4ysEM0VgPGou+2ShZe0BGJIMv+4bf8C+L32D4dcPE/ZXCuPvAUngtcLw64fZ96Vv4';
+wwv_flow_imp.g_varchar2_table(1054) := 'DYCYt/tqifQ7/jtk56XK8tWABS6mtvfNv5mwL4vfY2hg0cJ+6uF8feQbPVl6OBR9n3pa7jN7oqAK4YB11/WU4FlKQAKXc3tf8fI/';
+wwv_flow_imp.g_varchar2_table(1055) := '5++xtDBY8XInxMyT2Do4DH2/aevdd0TcNOiMstVBJadAChQNm73SnipYl0Ht9Fi35e+Xhh/DnmHCHzp67iNVlIluQurA13vj0vMs';
+wwv_flow_imp.g_varchar2_table(1056) := 'hKArJJPn+N1bT+/ANZz2f3V+xne/xZB4fbnEoktQX+V4f1vsfur9yeVirt0b4vSl54VudxEYNkIQHtbbxfnXFmnuupbD7D+yZcJB';
+wwv_flow_imp.g_varchar2_table(1057) := 'vswcdyluxfMFxPHBIN9rH/yZa761gNdFWsF+l0fR3pXYm4hLBsB6HbUVWJLONDHFQ8/y9YHniDsK9z+5YDElrCvwtYHnuCKh58lH';
+wwv_flow_imp.g_varchar2_table(1058) := 'OjrWrvNXJVaLiwLAVCS0t1dDfpVSgwdeItd3/hrbJqPXrA8SKZtHru+8dcMHXgrqb3YxaBgL+tNzpfcC0A27+9e0C/dhdZoce0f/';
+wwv_flow_imp.g_varchar2_table(1059) := 'gUmCJMy3EXxjuWDKtY1mCDk2j/8C5xGK9k41IUmzIKCyyUekHsBMHR53q+WqFLiyj9/iL7jp9MtvsuhKQtmIlaJyz59x09z5Z8/l';
+wwv_flow_imp.g_varchar2_table(1060) := 'J6O1N14wHJIEsq1AChKn+thuvSYYpWoWmbNC/vZ/NAzxbx/mZPFAzY/9AxrXtif7NLskpgbDH2ul4tj5i5FbgUgcaWSc9678hJT1';
+wwv_flow_imp.g_varchar2_table(1061) := '9+banD1Nx9Iz9jr/G0LOowkx6Jf/c0H8KYaXZwKKL44lE2+4wG5FQCDUHG6l1whaonKJbY88AT9R08llXwK13/ZI1aJSz79R0+x5';
+wwv_flow_imp.g_varchar2_table(1062) := 'YEniMrdnQpUHDfXU4FcCoBC6vp3ackv6yRHTrLlR08Vrv8KI5sKbPnRU/QfOdlVcTdIOhXIJ7kTgKymX+L6d4n0GO1t9z+G02z19';
+wwv_flow_imp.g_varchar2_table(1063) := 'NDKgs6gRnCaLbbd/1hSXbhLTayALw4l08X+PA9yJwACVDq8jio2Odo6Od46Ji75jL7yBhueejmp6FO4/isOsUpUKbPhqZcZfeUN4';
+wwv_flow_imp.g_varchar2_table(1064) := 'pKPieJ2P+hkmydTgXzmkuSqIIgCfY6H0+ETe6NqKakik67tqzFseeCJ5IfdPkSgoHukFrjlgSc4c+PuZMMQycEkJo5xmp07F9BBq';
+wwv_flow_imp.g_varchar2_table(1065) := 'DoetTjMlRDkRgCSXH9DqYMJPwJYx2HToz+jcnoM6zioMfgTUwzvP1IE/lY4WaxneP8Rrvnj7xIM9ideYBzTWDfCqTuuT04h6sC9k';
+wwv_flow_imp.g_varchar2_table(1066) := '6mtS9PGxDkqKpobAYBk9O/oAKyKdQwbf/I8a1/cT5hV7zWmfWpPwcpHjbDlR0+BtcnSb73JmX27OPGeGzBR1LEqw0LSxyeiVkeuv';
+wwv_flow_imp.g_varchar2_table(1067) := 'xByIQBZoKRb6ZNRtUQw0Jdkh6UjflHMc3UR9lWARAzUcYiqnR8AsrR2XxwCzcchI7kQAAGqrte9+80IAhYu/+pkWvCl6/2g6nqEY';
+wwv_flow_imp.g_varchar2_table(1068) := 'T62lfd8FUAB37gdD/wVFOQBJQkI+jmpINRzAUiW/fLxMgoKukGWIZiHKUBPBWDm6F9QsJrIixfQUwEoRv+C1UpevICeCUAx+hesd';
+wwv_flow_imp.g_varchar2_table(1069) := 'vLgBfRMAIrRv2C1kwcvoCcCkGVFFaN/wWrHQTqa/Xo5euYBlIzTq1sXFOSKXtpC1wUgyYZyVszxygUFiyGrJOx1c/v7DHriAZSdX';
+wwv_flow_imp.g_varchar2_table(1070) := 'CQgvgsRwYhgjCAdygcv6D6StqmR/LZrr2yi63d1kJ6XTL7w3iKCCERRTBhFqILrOniuiwjYIl14WWKMoAphFBFFMSLguS6u66AKO';
+wwv_flow_imp.g_varchar2_table(1071) := 'qPUe6/7oycGB+nakXcZXRUARSk5HoL0rFpqrLZ9vjuAMYYgCIjimNHhITasW4PjOJw5N8bpM2NYa6lUythis9CywhhDo9HEGMO6t';
+wwv_flow_imp.g_varchar2_table(1072) := 'SOsHR0hjmNOnT7LufPjuI6D7/vEaHsHaqy2Z5tjBKHkuNTjAOlicLyrn1cQfNOlKr+zoIDNioCQdJL6VJ1NG9fxsQ++hz27d9LfV';
+wwv_flow_imp.g_varchar2_table(1073) := '0WM0Gi2OHzkOA88+Divvv4GlXIpKR1WOAO5RlJrrtcbXLd7Jx/94F1s33oFlXIJtcpUrc4rr7/BXz/4U06cPE2lv9rujVZ7V8RbU';
+wwv_flow_imp.g_varchar2_table(1074) := 'Xzj0Ii7O0XpmgBkW357uenHqkXTxUfHGCZrdd57+4189tMfp6+vQqvVIghDAFzH4brdO7l215X86JEn+fZ3f4jndbheQcGiEBKBD';
+wwv_flow_imp.g_varchar2_table(1075) := 'sOQv/Xpj/Hh992BiBAEIa1WUu2nUilx9x03cePea/jWn/+AR5/+GcPGaberVYuR3kTlk+lxd7cKdzUI6DsOvSy2H6fDtzGGqVqdu';
+wwv_flow_imp.g_varchar2_table(1076) := '++4iV/7wqdxXcPUVB1rNY0HCKpKo9Gk2Qr4Gx+5h8995hM0m63cBpEKklhOs9nic5/5BH/jI/fQbAU0Gk1Up9vVWmVqqo7rGn7tC';
+wwv_flow_imp.g_varchar2_table(1077) := '5/m7jtuYqpWx5jEFOKeuniS2kj36JoAGARfTM/c/8y9M0Zotlrs2Lo5MepWQBRbHOfdr8IYgyCMT0zyoXtu57133kwtnVcW5AtjD';
+wwv_flow_imp.g_varchar2_table(1078) := 'LVGk/feeTMfuud2xicmEWTWtnIcQxRbmq2Az33mE+zYuplmq5UEDZmeJnab5DAR09VzBLrS]'')'||wwv_flow.LF||
+'               || TO_CLOB';
+wwv_flow_imp.g_varchar2_table(1079) := '(q''[kxXFMwbp4d6jOD0MwlrFMYYv/PInKZd84jjGXGJUFwERQ6PZ4pc/9RE2bVhLKwgKTyBHiAitIGDThrX88qc+QqPZQsRcsrKX';
+wwv_flow_imp.g_varchar2_table(1080) := 'ESGOY8olny/88idxjGmv9sRdOjhkNgSDZ7o3UHbJIpNND72aPWejvyNCsxVwz923snP7lnaU+HKIQBzHVKsV7v3Y+9+xfFSQD1SV';
+wwv_flow_imp.g_varchar2_table(1081) := 'ez/2fqrVCnEcz6msX7ZSsHP7Fu65+1aarQBHeusFgKa20p0BpisCYBBc6WHwL71zCIwifOra3TSsveTIfyFZZ7nlxuu4esdWWq1g';
+wwv_flow_imp.g_varchar2_table(1082) := 'Xv++oDMYEVqtgKt3bOWWG6+bs6jP/PcNa/nUtbsZRQjT73d7PT4jyQyUrk0DOi4AmfvfrRN+Z8Oq4gBTAh+IhW2tiNYCzv5UVYwx';
+wwv_flow_imp.g_varchar2_table(1083) := '3HrTXqI47lj12IJ5IEIUx9x6016MMfP2zgRoCWxrRXwgFqYEHHrpASQnC3drGtAFq+yt+59FdS1QVvh0JKgsLNVCxBAEIfv27GLd';
+wwv_flow_imp.g_varchar2_table(1084) := 'mmGiKCo0oIck2ZsR69YMs2/PLoIgRGT+XVpIDgf5dCSUNekr0MsVge5NAzouAL12/zXN9AqAzRZusEJ9gSd/Zx1udHiQHds2Jx2u';
+wwv_flow_imp.g_varchar2_table(1085) := '2NLcM4RkjX/Hts2MDg8uWJAFqEvSNzbbpK8keQErfxrQUQHIdjr16nhk1cSVM0BD4A5rGFGIWIS2SvK5rtu9M+kehQvQO9KBZbot';
+wwv_flow_imp.g_varchar2_table(1086) := 'FngZkj4xokkfaUhiGFa1Z5mfycDZ+T0zHfYAFM/0LvnnwkDOtRbMot+oEFvLxg3rKHlesUegh1hrKXkeGzesI7aWxfYzo0kfecc9';
+wwv_flow_imp.g_varchar2_table(1087) := 'eua7Smo7nb1/hwUgcf97Nf/PXDgFSgq77CJHfxK3M45i1o4MMTDQh7W2cAJ6QLJL0zIw0MfakSHiKF7UdCzzAnbZpK9kPbaXuwMS';
+wwv_flow_imp.g_varchar2_table(1088) := '2+ls5+qoADhIe12126gqVpP5fwiMKmy3QrDA+X9GlhPQ319l/doRwjDqShxAmdkp87UfoRfPJghhGLF+7Qj9/dU5r/1f/HoQSNJH';
+wwv_flow_imp.g_varchar2_table(1089) := 'RjXpM0I2Dej+287yVjpdNq9jm4EUxTUOQm/Sf2d6cgp46ddSPYkRwXM7v5cq27rsiabGlciNoFiEWHu3uyLppKQtLOmzJqIbqbSf';
+wwv_flow_imp.g_varchar2_table(1090) := 'vZN4rrtk+RgX6yeWZGmw2wgG1xhatnODTEd7sNfDWmeZ6GTKviNOlL3B4t0eVcVxHLZs3sjzL7+euAUdGCUyA7MKJ1su50NDywqO';
+wwv_flow_imp.g_varchar2_table(1091) := 'QJ9jWevHDLiWSHsjAZ4ok5HhTOBSiw2xQskow17ybI7QOYGSJBazZfNGHMdpb/hZ8OWY9hR3WOG4q/iaeTTdkLLZ8YxDy0Ydu34H';
+wwv_flow_imp.g_varchar2_table(1092) := 'BSBzX3qX/puhJB90qec7s20gWiqSFRSYioT9NY+JKHMGk891BodjTZct5Yht1YhuFy0yAofqHkebLpHKjE3ewskWDLoxu/pC+l0l';
+wwv_flow_imp.g_varchar2_table(1093) := '6qCXstRtYEj6yjs8AO2Vm5VtXu/czTvWg3s5/58ti6sTz9GpqWE28k/FwosTJSYjgyeKK4oriTB4ktz8jbrHwZqHI92R2uzZDtY8';
+wwv_flow_imp.g_varchar2_table(1094) := '3qgnJzp7M57LFW17Bi9OlJiKpaPP1ok2mO2SvcgM7EYcoCMCoCRz5F4lyeQpQLYQkuAT7J/yCDUxrCy4NvMLEpf7WNPh7cBp/16n';
+wwv_flow_imp.g_varchar2_table(1095) := 'yLyStwOHY02HkpleZbnwyxUI089gexinWCp6txiYFDPt1P075AH0dv1/tqCjYemfphN1ARLjUc4EDhPR3IzaCBxtOB0PCArJnP5o';
+wwv_flow_imp.g_varchar2_table(1096) := 'w8Fc5kaZCExEDmcCB1c6Ewpe6jYQZjeK3i0HdjYfoEMCkLj/PVv/v8BdMyQbgVosnYGoKrV6o2N1Ac6Hc8ufVJLP14gN9bizW64M';
+wwv_flow_imp.g_varchar2_table(1097) := 'UI8NjfQ+c2ldIfksnUBEqNUbS7ZMJyR9ZErebRi92wKuqS11pp91pGUEwVnApoylQC8o7KiAr3BElHF5d4BnIYgIVi0nT51OlqCW';
+wwv_flow_imp.g_varchar2_table(1098) := 'uHMoQsvOXUCzkTnUdEFiSZ8me6bk2qHON7KvtGy2OLiUD6QYEU6eOo1Vu2ghzgLF45L0lWwFYObPeyUCjpiOTac7JADZZoruM1ti';
+wwv_flow_imp.g_varchar2_table(1099) := 'bpblVWdpPrCIEEVxuvssHw1zMdd1qVnIVKpTz5UV/Exq/i++HQxJH7lYtmgvkr6zBchOTe2WfBkwi1waercDcCaZsp8TeMMoV0ay';
+wwv_flow_imp.g_varchar2_table(1100) := 'oFoA7etpsvQ0MVnnzLnz+L6HCEu24UkBxyiDvnIuMsyl26lAyQhVFxC5dNJK6rDoBcOZiMhlZ20CVRdKjhCqznEOYBj0YxwD1i7d';
+wwv_flow_imp.g_varchar2_table(1101) := 'OCYCvu9x5tx5JibrDPRXieOFp2VnnuIbjnJOoJ/eGPxsmDQQGOmS+1GdyQNwJRsnerF08u57ChAK7HfgE9HinkpRPM/l5NtnOH1m';
+wwv_flow_imp.g_varchar2_table(1102) := 'DN/3ltQ1VJLEpWocEgdlvJJ/yes7IjQiy4BpoEFI7TLuuVVVASmVPMky6KwqzWaIgppLDKVZYK8cx9RsmYprLrlnXkSIWy2qpSa1';
+wwv_flow_imp.g_varchar2_table(1103) := 'hi55kFJEmJqqc/LtM4yO7CSKWwt2lbOBYr+T9BWZ5WP1LiEo2RkYdaBWYQcEQHtaKms2AVCSVM4XjRIssBjIhRdstQKu3X0l5VIJ';
+wwv_flow_imp.g_varchar2_table(1104) := 'XeKGsQolVxg+F/PAK6cYqvgg7zyiTEg8kalGwOhAhU/t3YjR+BJdVLDWaqnkCcBbx94eEzFnAFTt2ut2rx8BpNUK1RgzayQhu/Yu';
+wwv_flow_imp.g_varchar2_table(1105) := 'cfjOy+c4N9mgv+ITx+/cM5f98/FGwEf3bOC6UYdWpJddOZgvIoZmq5XU/F+kBmcZoy+apHrUbJfr3UoAqU0tvQB1QAB6vQIwy/eA';
+wwv_flow_imp.g_varchar2_table(1106) := 'isJzRjktMKQL3xVo0gq0e6+9ipv2XbPIp70IaTsb4F9/5Uf8t79+lpLvUvLc9nl3cWwZr9fZvGaI3/uNT3HLNVtptMLE+GbBWqvV';
+wwv_flow_imp.g_varchar2_table(1107) := 'SknOnp2YePTJl18OQv9sFEUhgOu63vYtV6x57x17965ZMzhYb7RSEZjtOkql5PGh147wT//zX3Ls7Dj95RKOY9rnKDZaIa0g4m9/';
+wwv_flow_imp.g_varchar2_table(1108) := '7BZ+64sfTlzpDg6eYRjRChZeo1FJ8v9PS9JHKheZ3WivHIAOrgTI8F/99pJaqgKDbqknB4Ba1Yu6SQaYBH6vZfjlUDgvi9/g0cmo';
+wwv_flow_imp.g_varchar2_table(1109) := 'sGoy]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[klbLPt97/FW+fP/TvPX2eeqtENcIw/0V7tl3Jf/jL97NhpF+puqtSxi/arnkyZl';
+wwv_flow_imp.g_varchar2_table(1110) := 'z4+Nf//aDPz17bqLhua4ZGuqrAIyP1xphFNk1o4OVz//iB9+zdnRoqNkK1VzEoqxV+qslTo1N8aVvP8ZPXnyT81MNIqtUSx7b1g/';
+wwv_flow_imp.g_varchar2_table(1111) := 'z65+8jV+46zrqzSA9cKVjr2rRAcAYGFb4M0/5pyXLABef/7tiuu7hChCqZSJqLbkELLkACMKQV+pJFuBlBUDgA5HwX5pmyVYEOkm';
+wwv_flow_imp.g_varchar2_table(1112) := '29DRQLdFohrxx4hxnxmv4nsOOjSNsGh2kFUYEYXxR41cFx4haq/FX7/vRwydOnpkYHh6ovP+ufbu2bd14BcBbR04ef/jxF/efPz/';
+wwv_flow_imp.g_varchar2_table(1113) := 'Z2LRx7eCv/tKH32+MOLHVi9qWtYrvOZQ8lxPnJjh0cowgjFk71MfOTaNUyh6T9eQkpbxnAVqgCvyDsuUhVxnQfAkAJNOP8bC15NO';
+wwv_flow_imp.g_varchar2_table(1114) := 'QXh2G2hEu9Wos0KfwpKO8auC6OKkDl2cREJLRbaLWwjHCNVvXsXfHBlSVVhSnBsZFjR+SaH+55MtDP33htaPHT0+USp77qY/ddeu';
+wwv_flow_imp.g_varchar2_table(1115) := 'unZvXTtYaANx64+6dgwN9g1/79o8fP3r89MRTz//8tQ+854a9U/WWykUkwBghjGKCMGZkoMrGkYFkeTS2tMKo/cx5xwJVhVedpG/';
+wwv_flow_imp.g_varchar2_table(1116) := '0XcL4YfmnmV/Ikvb/Xu8BuBxZbcD/6NuubZ5ZCjJDagQhk/UWU42AKLIYI5d0f1WVku/KqdPnp55+/rVDgnD37Xuv3LFt49pz41M';
+wwv_flow_imp.g_varchar2_table(1117) := '2jpU4Vs6NT9kd2zauvfv2vVcKwtPPv3bo1OnzUyXflUtNc0QEY4Qoskw1AibrLRpB+I5nzjvJsnXSJxo5HhA6tSdgyT9vJ5MWFos';
+wwv_flow_imp.g_varchar2_table(1118) := 'FBhR+6Cp/4Wq7QOhywaQGlxj+5X9fVdX3XA4cOn5kfLIejI4OVm7Yc9WuVhBiJJnhi4ARY1pByA17rto1OjpYGZ+sBwcOHT/ie+6';
+wwv_flow_imp.g_varchar2_table(1119) := '78gVmI/NCjJFldVhKVgj0L1zlh5dx/XtNp+wqr4K3IOYyP1KS8wH+D99ywCSCsJxEYM4oGONIrdGybx46ftqIYcfWDWsG+it+FMY';
+wwv_flow_imp.g_varchar2_table(1120) := '6005FIApjHeiv+Du2blhjgDcPHT9da7SsMU4+MrqWmIik7Q+YpC+U55jX1MulwE6wxALQ212Ac0EBHxgz8E/LlnEzvSxomd7Oakm';
+wwv_flow_imp.g_varchar2_table(1121) := 'iw8sVi6rvOYxPTE0ePXF2vNFsRldu37jRceQiuRKK4xh2bt+4oRlE0bETZ8fHJ6Ymfc/B9qw49uKJeXe7RiRtPp72gTGT9Il8f8j';
+wwv_flow_imp.g_varchar2_table(1122) := 'O7Apc0lUARak6PhXj9UQpI7VzLtzgABMCe2Phf28Jt8XJuXCBTIuEq8nv5FfOLk2ySUjt5GRt4vips2e3b95wxeBAXyWM43d9JgU';
+wwv_flow_imp.g_varchar2_table(1123) := '812Fiol4/+fbZ02vXDA/191cGHZHFV1LvEQoMKkQyfdiHr8ma/9OO8i9LysuOMqhzF3sjkma6dhdBaNiQehwsaYxtRQlAYOc3Zjt';
+wwv_flow_imp.g_varchar2_table(1124) := 'AjcTYfzES/kYk7LCCC7wtyrdd2KLw9wNhPMcBokshIniug+s6NFvhJfPls30OZd8jimPCKF6WJyFbkhH+933lqMAvRrBehQg4ZJT';
+wwv_flow_imp.g_varchar2_table(1125) := 'vu8q3XSUA+pi/p+f3oNZlpwRgRS0DzpeYZP3XAn/iKd9wlTWaCMO4wHEDXwyEv9fDo80Wi6rSCkJttgJELpXpn5U8t0zVm5oECJd';
+wwv_flow_imp.g_varchar2_table(1126) := 'RRG8GSrJB6lmjfMVXvuElghADZyXJ9R/QpO2X8zRvKVhiAcjco+VjLlnUdzgNAk3MmAJssHDYKFP0piz0UiHtrX5z+d3la/gZDjB';
+wwv_flow_imp.g_varchar2_table(1127) := 'F0nYbbPL3c+lUrkqy0SeLDSwfdMYmu6VjOXq1HSHrEC7TdeFd4JBJ3MYSy63DrE4sUCJps0NmugCMR/Ln5R7cXWoKAbgAnfE1PZI';
+wwv_flow_imp.g_varchar2_table(1128) := 'kwaOC5YGvSZtlntvMNi14J4UAXAYV+Enq/xcdKP9kbfQTJ2m7gktTCMAlsCSjyQvGMrkEuwcLOo9DsunrBWPxc5zZlxcKAbgESjK';
+wwv_flow_imp.g_varchar2_table(1129) := 'ffMskLuXMU2ML8oeStNFhk7RZiaK9LkchAJchWxL8iaOUKUaUPGOBMklbjRce25xYUQLQidWrLIL8oKO53i1WML3b80FHl/Qk6Jk';
+wwv_flow_imp.g_varchar2_table(1130) := 's8xXSd7Gi+nMnmibbL/6Soxw0zHnTSEF3yTZ5HTRJW1U7NP9fWea/wgSgU2T7Bn7gFtOAvJK5/z9wlYnC/Z8zSy4AtmelkztHllz';
+wwv_flow_imp.g_varchar2_table(1131) := 'yfcdyzhSdK484wDmTtNHKTNoSbAd8zyXfDtyLY5QzOlWJSEmmAa8beNxR+ovlpVxhgX5N2uZ1k7RVp3phL6tdJba1tJ+smALMESX';
+wwv_flow_imp.g_varchar2_table(1132) := 'Jk/+6q0Qry8FZEURp23TqbMSVyooSgE7aZRYMfCItKtqpIFPB/GgX9TRJ23S6XVaa9i+xAAixZvVXVh4OUBP4E88ugwoyq4Ns5+a';
+wwv_flow_imp.g_varchar2_table(1133) := 'feJbaig7+aWpbOd8N2NMYQIfXaGOSfeTfdZWXnBx4AQpqtScFuzS9dy+ZXqJN2mRgHpV9Fkov8wA6YVsrbgrQ6ebJlgT/yLM9TzU';
+wwv_flow_imp.g_varchar2_table(1134) := '1jlCq+jjdrnGu4DhCueojIj2rGpSlav+RZ7uy9JfnitcLZUkFQEhUqhPLFXN+hi54AYO99gIUjDG0miGvPvsG42NTGNd0RwQUjGs';
+wwv_flow_imp.g_varchar2_table(1135) := 'YH5vilWcPEkUxnu92XQkvHP3nU9dvofR09E9X2Jb6CZbcA+j1vLgbyzSGJBbwb9MDRrqJquKVXH76wPN8+Xe/zZ/+/gP8/Lk3qVR';
+wwv_flow_imp.g_varchar2_table(1136) := 'LxHHnS13EcUylWuLnz7/Jn/7+A/zX3/s2zzzyCl55aY9JnwtO2ga1LqVo9/rAm0683Y4IQCeUKk9kB4z82FEenGdV2UWjyUi0YfM';
+wwv_flow_imp.g_varchar2_table(1137) := 'aahN1Bof7ePbRVzn0+nH6h6rY2HbEEFUVG1v6h6ocev04z/7kVQaH+zl/dpLB4b6kvbtk/5kX9qCj/NjJ94EeS0HmWS8TAejt0Qn';
+wwv_flow_imp.g_varchar2_table(1138) := 'dFB5X4P/0lXMzSk91GjFCqxlwzY1Xsve2q6lPNYijmPu+/EP2v/QW1YEKnudirSZBusU8VBros1bxPJfqQIX9L73FfV/+IXEUU59';
+wwv_flow_imp.g_varchar2_table(1139) := 'qcP3tu7j25p20mgHShePAslJt50zy7t0uNngv]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[B7UkBWhZBAGVuHcHqXftaKpsDvqKo3';
+wwv_flow_imp.g_varchar2_table(1140) := 'zZU4a76AUIQhiEfPgX72TLzg00G0EiAn/wQ777lYc5c+o8lb4SpYqPcZIgnbU2WTGwmngIM+tkaTLCZz+3NvEijCOUKj6VvhJnTp';
+wwv_flow_imp.g_varchar2_table(1141) := '3nu195mPv+IDH+ZiNgy84NfPgX7yRshV1zj7OjvL/sKa90Yd1/Jr079kxSm1p6AVjy48EVpeL4VHt0NgDM74CQpcACX2463BrB1C';
+wwv_flow_imp.g_varchar2_table(1142) := 'zRaFVd8gCSWsXzXZqNFt/96iMcfPkI5apPGET4JZdd+3aw6/rtbNy6lr6BMq7rYm1iKnG73n/2TMnzOW7y5MYYoiiiNtnk5JEz7H';
+wwv_flow_imp.g_varchar2_table(1143) := '/pMPtfPETQipJ71gOu2ruVe3/1fZQrJcIgWvLRf7Z3FpOk/D7jwq+X464uYfXqQBBIBL9uQxpLfCYAdEQAwBfDgFvq2VQg1ixpov';
+wwv_flow_imp.g_varchar2_table(1144) := 'Nke9C3x/CtpoOXegIzm8lxnI4E6NQqjmswjuGJH73I0w+/TKPWxPNdojBGROgbrLBu4wjrN69hw+ZR/LLP0Eg/ftlrr+OLEYJmyP';
+wwv_flow_imp.g_varchar2_table(1145) := 'jYFEEz4NSxc7x97CynT45Rm2igqrieQxhEVPrK3Pb+vdz54X3Y2BJHtiOu/4XvLCvSGgp8thxz2IFKF0d/RwxOjzwAASajFoHaJf';
+wwv_flow_imp.g_varchar2_table(1146) := 'ezllwAAAzCkFeiV9MAq0rUBQGQ1JV2gPMCvxoK/6ZlGMuOE0vf7PMv/Zyb913bmYIlqadT7Stz6vg5nnrwRQ6+fIR6rYkxBjGCWo';
+wwv_flow_imp.g_varchar2_table(1147) := 'u1ijHJCFaplnBcp+2hCUIcxTTqLQCsTY8eN6Y9Jaj2lblq71Zu/+A+NlwxSr3WTP5thz7Tcy/+nJuuv5b0AVGSk3z/Wcny1ZlTLg';
+wwv_flow_imp.g_varchar2_table(1148) := 'HtgmG6Yno4BVDGw1ZHltc7cjJQNlvp1esyXdoREvke6hgiTY6Y+qMK7GkZ/l4gTKBUfI8jx07xs5de585b9hGE4ZIbTHa92lSDkb';
+wwv_flow_imp.g_varchar2_table(1149) := 'WD/MIX3s/YmXFef+EwB189wpmT52k2Wu15PpAY+iyHA7ZXD9IQQanksXbjMFddt5XdN2xnZO0QURRTm2q0xWSpUVV8z+NnL73Ozu';
+wwv_flow_imp.g_varchar2_table(1150) := '1b2Lp5A40gZBDhD3zlj0qWYYUWSdVfiS1O2PnznXt57HlnZv8JHREAmwYCvR4eqWVEOhoHUCMMHT6BV2uijkFUGQL+ELiyZRiMwa';
+wwv_flow_imp.g_varchar2_table(1151) := 'v4vPDyfo6dOEkrCHAcB2v1omfzLQZjDFEYEQURA0N93PWRG7j1fXuYGKtx8ugZzp0e5+yp87QaARNjNVrNAJO67tYqpbLP4EgfpY';
+wwv_flow_imp.g_varchar2_table(1152) := 'rPmg3DjK4bYuOWtQyO9OH5LmEQ0UyFo3PGnyY4BQHHTpzksad+xg31XYSNgAkH/rBk2U5a618EiS1hX5nJLeuRDqYl99L4BYjS5L';
+wwv_flow_imp.g_varchar2_table(1153) := 'pOPEWHzgacFoBepQYlwZLO3FtUiV2P3d95mLUvHSCqlBCbNFBMIgImeYjkRFrP4+zYOJs2rCO2Ucc8I5HkhlFkCcMWIsLgSB8j6w';
+wwv_flow_imp.g_varchar2_table(1154) := 'cxxhDHFlRp1FpEUdwWIlVwXYdKXwlEcByDtZY4jN9xrU4v8ynJ3P/tM+eo15v86OHH+eHDj0M619/DjIM+jOA2Wpy5/mqe+kdfwG';
+wwv_flow_imp.g_varchar2_table(1155) := '0FHZsK9DYBaOYKwNI/R8cOB4007uTlL0s3msw6hqjsE5X89giUnT+XSY8xhqlanbeOnmTb5o0EQQAdjian5/sBEEUxURijTEfVPd';
+wwv_flow_imp.g_varchar2_table(1156) := '/FL80sm5ksFQatEEgj8Kl6iUj3UmDV4rkObx09Sb3Zor+v2l65EBIRCLNfNQKqWKfzkfleJ7UlttQZOvT2OrduOVeMSEdc7QwVIa';
+wwv_flow_imp.g_varchar2_table(1157) := 'qWkVgRnf5Ck5xtzb6sRUR4+dX9SYZkl93JbOQ2xrSNOcvqs7GmX7a97CYi7eBhL57VqvLyq/uT50zzETR9p+g737XESlQtdzQIKN';
+wwv_flow_imp.g_varchar2_table(1158) := 'LbKUCn82o6IgBCuhTX450BplP6poo6hqlNazH20nu0FaXkexw8dIQzZ8dwXbcn23ffhVzw1WOSaYjLmbNjHDx0hJJ/uTwSwVjL1K';
+wwv_flow_imp.g_varchar2_table(1159) := 'a1qGPo1EvtWB+aI3EqAJ1qoo59Ou3Q7qX50Ol7q8hlb6KazGvPT0zxs5deTzp2l3IUlhOqlpKfRP/PT0zhOM7lbboLS4C97r/JHo';
+wwv_flow_imp.g_varchar2_table(1160) := 'AOBjg7dmWytfjevcLOTQOS0Wdy8zqsufzoo5rk0j/13EvUG8n6fB6cgLygJLGSeqPJU8+9hOe5l9/QpIo1hsnN6y7rhS2U3rv/kt';
+wwv_flow_imp.g_varchar2_table(1161) := 'rQshQAIbQxvd4g3BkXLlmCag4PEJf8ZO5/CVSVku9z+Mhxnv3Zq1QqJdQWXkCGWkulUuLZn73K4SPHKfn+ZQVAVIlLPs3hASTujA';
+wwv_flow_imp.g_varchar2_table(1162) := 'D02v0HTW2ocyLUsU+YxQF6WRwEkqzEpUYNmDCivmGU+voRTBRd9k0m6bQuDz76JI1Gq2Nr6csRYwyNRosHH30Sdy6jvwETRdTXj1';
+wwv_flow_imp.g_varchar2_table(1163) := 'DfMIoJI7QDr7MTfWc+2A7P/6HDdRQsStTrOECH3DhRJSr71NeNYqL4smkabS/g6EkefPQp+vuqybr8KieOLf19VR589CkOHz05p9';
+wwv_flow_imp.g_varchar2_table(1164) := 'FfEUwUU183SlS+vAe2EDq9inQ5ZiYAdZIOD0OarmH2Vkk7ouRWAMOZvVvTb1z+HmotlXKJBx56nIOHjlIu+9geF9bsJdYq5bLPwU';
+wwv_flow_imp.g_varchar2_table(1165) := 'NHeeChx6mU5zo1St518u5N2hZLS69H/2T+3/kpdEcFQBCCOEZ7XK9lST0ATa/lhxhtMb5mN1GphMyh4yaZboZ6vcnX7/t+sufeSD';
+wwv_flow_imp.g_varchar2_table(1166) := '6WBbtMkvab5CR8/b7vU683cZy5BUfFWqJSifE1uzHaAj9ND9Kla+feBv9AsQRx3PEsxI5PRG3PzT/BWUz2nUq680TBb4EK9uRm5N';
+wwv_flow_imp.g_varchar2_table(1167) := 'HbmTzwecZGb8KNG+gc7mGtUqmUefPwMb75nR9QqZR7VlW3l6gm7+Gb3/kBbx4+RqVSnpM3pGJw4wZjozcxeeDzyKO3Y09uTtrHby';
+wwv_flow_imp.g_varchar2_table(1168) := 'VtlLXXAllUX1kiLHQlftbxXF1NI5nlHhYIAXBEiOd7+6wTOTE4EdT70TevQo9thfERRCPiapmTGz/C+rcfZq5THWst1UqZhx57hi';
+wwv_flow_imp.g_varchar2_table(1169) := 's2refD99zBxFQNZ5UEBmNrGezv40c/eZKHHnuGvkq5nfJ7eQSxISc3foTYlHFOrUffvgId]'')'||wwv_flow.LF||
+'               || TO_CLOB(';
+wwv_flow_imp.g_varchar2_table(1170) := 'q''[GkM2H0E2H4XqFMQuxGlpFplfw/dq33+GIIQ2StK3O+wBdCFZXwhsTNn0bl9ARiICc+wMKuBGIBYmh9DjW9C3dkC9LxEDL0BR3';
+wwv_flow_imp.g_varchar2_table(1171) := 'KjGmbV3UK9uwQ/GUJlbdUBVpVop8fX77scxhg/cfduqEIHM+B967Gm+ft/9VCuleXhAgrEB9eoWzqy9AzeqoX4MWJgcRF++EX3za';
+wwv_flow_imp.g_varchar2_table(1172) := 'mTbIeSKozAwnizZRO6cRaDXxp+gBB1e/svoeG9Lopm252nBMMd1XRUwFvwAJgbR52/DPvIh9Od7IPATN9OJUzfTpB1yKyc2fSzpk';
+wwv_flow_imp.g_varchar2_table(1173) := 'HN0H7OtQyXf5yvf+h4PPfY0g/19xCs4P2Cm8X/lW9+j5PvA3LeMqxjcqMaJTR+jXt2KsUFi4CpJm/gtCHz053uSNnv+NpgYTNrS2';
+wwv_flow_imp.g_varchar2_table(1174) := 'DlNC3q/9p+k/0YdqP4zG10ZlvMyDRBJoruz1gmYafhT/ejr16HHt0DogRcm359lbqlicOIGJzZ9nO2Hv4XMY+dWtgGnVEpEQBU+d';
+wwv_flow_imp.g_varchar2_table(1175) := 'M/tTE7V0ufNw2i0eLIRfmignx//5Cm++qffo1Sa/6lCojGRO8CJTR/HuTDmkrWLaLut9PCV6PEtyBVHkd2vQv9U0p7WzOoR9HrpD';
+wwv_flow_imp.g_varchar2_table(1176) := '7rr/kPXjgaT1KXpvRfwrgBPZtR+C2IXffV67E8+iB6+Mvm5H0z/3qwITtzg/PAejmz9NG40hcrcD6maKQJf+7Pv8/X77qdU8nFdd';
+wwv_flow_imp.g_varchar2_table(1177) := '0V4A7G1uK5LqeTz9fvu52t/9v0FGb+KgxtNcWTrpzk/vAcnbnBRF7m9UpO0nR6+MmnTV69PYgNpIPfCNs1D8K+b7j90qCbgxRj0S';
+wwv_flow_imp.g_varchar2_table(1178) := 'jh5cLHUJrGAbJ6voEe3owd3wfhwMuLP0WVMUFRcvHCSux/7O3jh5JxjARnJyCPU6w2u37OLL/6tX2DN6DC1WuMd+/uXC8k2Xujrq';
+wwv_flow_imp.g_varchar2_table(1179) := '3D23Hm+8qff46VX9lOtVoD5HmgqiEaE3gCP3f3HhN4AohFzNhLRZNQPPRg6j1y1H9lyOJ2fJvEBRyQXAhBjmQhbXbtf1z6xpsrW6';
+wwv_flow_imp.g_varchar2_table(1180) := '+OVAJyscLffgrFR9Il70Odug1o/lGYsJc2ZJDjVLK/njZ2/hhvV5xwLyNC0Jl9fX5WXXz3A737pv/LkMy9SrZbxfa9dqz/vZGcQ+';
+wwv_flow_imp.g_varchar2_table(1181) := 'L5HtVrmyWde5He/9F95+dUD9PVV28Iwr2uKwY3qvLHz12iW1ydz//n0o2wJt9SCWj/63G3oE/fA2GjSB5jRJ3qIpJ5yN6fJXfUAe';
+wwv_flow_imp.g_varchar2_table(1182) := 'l0tGGiP+nEM0f5d6IFrkuUib2mSSVQc7nziNxgaf5nIrSIL2PprjCEMI8Iw5I5b9vHxD72HLZs30moFRFHU3So9cyQr3JG5+0ePn';
+wwv_flow_imp.g_varchar2_table(1183) := 'eQHP/4pTz77Ip7npacVzf9dZMY/PrSXJ+78z/OKscxKNvcPPXBi5OrXcHftx3GY12pBZ+hc9d+L0VUBUGDALeFLD7bDpqOAeCH27';
+wwv_flow_imp.g_varchar2_table(1184) := 'BrCl67Hnl0LXrCAEX92RC2RW2Vo/BXuevy/xxoXFlibUNKAVL3epFwq8aH33cH733MLoyNDtIKQMAwBaRf27BVJ8o7ieR4l3+Pc2';
+wwv_flow_imp.g_varchar2_table(1185) := 'DgP//RZfvzIkzRbLarVctu7mT/JuzM24vG7/h/Gh/YsyLua/dJpm4c+Zs0ZvOtfwqw5i4betMfQRQQI1DIZtbo6PHZdAHxxGHD97';
+wwv_flow_imp.g_varchar2_table(1186) := 'gpAtkykQrR/F9H+Xcmc0I2WNH0Ukkh14A+z840/Zs8r/xet0ijGLrxstTFJgc56o8makSHee+fN3HnrPtauGUFVabUCbFp2rFteQ';
+wwv_flow_imp.g_varchar2_table(1187) := 'TbaG2PaAb0zZ8d44pkXefSJ5zg7Nk61Um4/+0KxxqXUOscre36TN3b+Hfzg/LwCrHNCNBn5jcXdtR931/7ke7HTVREQYDIKCDReu';
+wwv_flow_imp.g_varchar2_table(1188) := 'QKQMeSVu7fZQgXxA+zEIOHzNxGfXof4Szfqz4aoJfT6ufm5f87mY9+lVVqbBq0WTnZcV6sVMDjQz95rr+K2m/dy9ZXbqJRLRHFMG';
+wwv_flow_imp.g_varchar2_table(1189) := 'EbpDkMFSaItixUFzU6lTevSOY7B81xcx6HRbHHgzbd4+rmXefnnB5mYnGqvYCzG8AFUXEqtMxzbfC/P3fyv8MKppRn5ZyPtCxr4O';
+wwv_flow_imp.g_varchar2_table(1190) := 'OtO4930PGZwAg38romARRkPm12510y6LgCKUnV8Kt3ICVBBSi2iI1sJX7gBWqVkrt8hw59xY1RcnLjBbU//E4bGX0njAYubv2ajf';
+wwv_flow_imp.g_varchar2_table(1191) := 'BzHNJstXNflio3ruG73Tq6/7mo2bVxHX7WCk5YAj+JEELIRe8aFeEeV6ezPM34nu5fjGFzHxXEMsbXU6g1OnDzNS68e4NXX3+D4y';
+wwv_flow_imp.g_varchar2_table(1192) := 'dNEUUS5XErLeOmig5XJkl+d8aE9PH3bvyV2KvOL+i8U0SQ2UGrh3fAC7tYjaKvUcREQhIYNqXfg7L/L3rsXHoCkwcCOfdgsqcdYo';
+wwv_flow_imp.g_varchar2_table(1193) := 'teuIXrtmvbfO2/8CaKW2Kngh6e5+7G/S6k5QeSWFhQUnA1jTFLKOwgJo4iS5zE6OsSWTRvYuWMLV2xaz7o1Iwz29+G6iQGTVtq92';
+wwv_flow_imp.g_varchar2_table(1194) := 'IEpRpLjwFBNBCSKmJiqcfrsGMdPvM0bh45y9MQpzp0bpxWGeK6L73tJNd8lyllIgn4tWuVBHrv7Dwm8de9O+ukk2ZKhNbjXvIZ7z';
+wwv_flow_imp.g_varchar2_table(1195) := 'Wvtv3dKCDQN/vUiSa4nAqBAv+NTMs7Sf+Rsvh87hC/uIzq0Aym1pn/WRYxVgrJQdr/Ce+//Cm4Qoo5z2RqC82Fmqe8wiojCqF19q';
+wwv_flow_imp.g_varchar2_table(1196) := 'L9aYd3aUaqVMpuv2IAAoyNDrBkZSqYKM04GcRzD2bFxzo2No8Cx46eoN5qcPnOOqXqDKExWH1zPxXPd9j2XdGlSBIljIt/j0U9+k';
+wwv_flow_imp.g_varchar2_table(1197) := 'Wb0RfymYrsd6EwNXVsl3B2H8Pa92O5TSy0CArRszFQc9GRtrCcCAGDEMOSWlvaiWWJP6BE8fhfx2TXJfL/Lhp8+DGI94vIJzu94n';
+wwv_flow_imp.g_varchar2_table(1198) := 'g1HjvL+7369Qwc8JcwMBKoqcRwTRTE2XZtHFeOYpBzZha0uyS5FmwqDMclhmK7r4DjOO67byXwEQXn43s9zausWhg/dhNPchJpkx';
+wwv_flow_imp.g_varchar2_table(1199) := 'aPriCZxgTVn8e96PJk+dmCpcDxqYXtUKbpnW/RitQQaU5Il8gJS49daH+Ezt2LHRpKR3/You0sADFF5glJzklNbr+Stq/dw1cvP0';
+wwv_flow_imp.g_varchar2_table(1200) := 'apU]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[51RAZL5caJyOMTglp51lmP7WRR2QWX9vxiEnnUSNodSoc3DvzZzaeiWl5jmi8gRO';
+wwv_flow_imp.g_varchar2_table(1201) := 'c/NCV1KX4KGSGJI9N0rw0/fg3foM0ldbMhEQoKUxcZc2/sxGz3IfBWjE0dIZvxdizw/TeuR92PPDiVr3yvghDaxZrD+eBLWCgNdu';
+wwv_flow_imp.g_varchar2_table(1202) := 'vINmtQ+JO3fU04WPkGTmJR6ATY8JV539a9bf68qTgsQxzWofr914B24QoOJg/fFkO3Yvc3Osmb1vLYFXqSQ20MtMjp4mP2dewKJe';
+wwv_flow_imp.g_varchar2_table(1203) := 'QGb8YyMEP31PEsXtwPr+Qp5LJcJ6yeYgJwo5v24Dr914B36ria7wff/zQY3BbzV57cY7OL9uA04UJgLgTaGSj7ZsTy1/+h7s2Mii';
+wwv_flow_imp.g_varchar2_table(1204) := 'RSBJ/ElG/17S0164aC8gbZjMRSNyp/fq9xyDdRtYt46oQY3gNxu8fuPtnL5iG27Q6vipNssBFcENWpy+Yhuv33g7frOBGkHUYN06';
+wwv_flow_imp.g_varchar2_table(1205) := '1m3Q426akAWXIzcRgXOjixpo8jD6Qw7e7IK9gGzO3ywTPnV7zoxfE6P3ppIAVvpMoop1XJ6/56OocTpSznq5IaqocXj+no9iHXf6';
+wwv_flow_imp.g_varchar2_table(1206) := 'naigJkS9KUQNedhKPlMEwqduR5vlBYlAXkZ/yIEALMgLSNf5NfCnGyI3xk87ABh7EyBxu+9mo92ZTVt44a4PUGo2kqPFVinWGErN';
+wwv_flow_imp.g_varchar2_table(1207) := 'Bi/c9QHObNryTq9IAYmTd4jpdWX5aVIRyAYeDfx555fkZfSHHAgAJF5Ay87jhYiCKOGTd2DPrsnHnH8mMwKAIO/ovGpMOhW4g4N7';
+wwv_flow_imp.g_varchar2_table(1208) := 'b6bcqK1KEbDGUG7UOLj3Zl6/8Y7U9Z/xHtIViVwEAi8km3qeXUP45B3t/jgXknX/KBejP+READIvYE7bINOXH764D3tm7XSprlwx';
+wwv_flow_imp.g_varchar2_table(1209) := 'HQCUWV6xAk4U8ew9H+X0pm2rzhPIRv7Tm7bx7D0fxYlm9wAFMx0IzMV4OQMV8APsmbWEL+6b8yBk0dyM/pATAYA5vpj0pceHtxO/';
+wwv_flow_imp.g_varchar2_table(1210) := 'sTOnxg9ikwi29abAOrxr+BLB2BjruDxy7+c4u3HzqhGBzPjPbtzMI/d+Duu4GBtPZyW2UZjxHsX2vmDHu8j64xs7iQ9vv2x/nNdA';
+wwv_flow_imp.g_varchar2_table(1211) := '1yVy0+PartHFcuUyt2tshPCl6/Pn9rdRmMPIpSI4cUTk+zx876+sChGYafwP3/srRL6PE0eXWA2Z9qSSrpofw2mTeaQvXZ8sD16k';
+wwv_flow_imp.g_varchar2_table(1212) := 'XwpJtd95TXW7QK56mwK1KJz9h+kmjehnN7b3b+eSecxdVQQneqcIlBu1FZkjoOmc/x3GH13K+LlkLCVXGAuRm/TNS2waqkVh7iQs';
+wwv_flow_imp.g_varchar2_table(1213) := 'Vz1NgFAjWhfWDkyTfaJXr1v0+mvHmWf0eloESjzyC5/j+I5dSUAsqQTajSfuLCKoJDkQx3fs4pFf+ByRX7q88cNFV1Nyx4x8lOjV';
+wwv_flow_imp.g_varchar2_table(1214) := '696VJCQILRsTar5Gf8iZAEDysupxiM1OFJwRcY3evLJL+/kXwQLWrxMRCIk8n4c/9XkO7LuVUrOBWLusvQE1BrGWUrPBgX238vCn';
+wwv_flow_imp.g_varchar2_table(1215) := 'Pk/k+Wmm31zacPZ8ilySDVJvXvmulSmLpR6HuSiIeyG57F3veGFpeabopes7uid7qZjOYGsyn9eraWDQDQOe/sAnefIjn8I6Dl6W';
+wwv_flow_imp.g_varchar2_table(1216) := 'NrycvAER1Bi8VhPrODz5kU/x9Ac+iRsGGBvPMwPSYN1mO6My12TT1Jeub28dfteAljN6f2DfLGQuk4+lVIkI39zR4629c0WBLIc9';
+wwv_flow_imp.g_varchar2_table(1217) := 'RNRjPn5rZhh+q8nBPTdxZuMWbnr0Aa44dIDQ87Gu25FdhEuJGoOJIvww4PiOq3n+vR9lfHRtsv8hnQ7M74KCSoj1pnBaI0D3Ds2Y';
+wwv_flow_imp.g_varchar2_table(1218) := 'N1nF6bNriI9txrvyEK2G++4pbY7IraQKUKNBVCsTvXYNkud5f0b6eHHp3KKSV7I58+TQCI/c+ys88/5PEJbK+M1G8vMcTguyZ/Kb';
+wwv_flow_imp.g_varchar2_table(1219) := 'DcJSmWfe/wkeufdXmBwamY5pLOjCgNjknUJubb+NCuJGSSWqWpkajVw/ci49AABUsE6LxsGtuLX+6eOc8kwaAEyi1otLX1VjcNMV';
+wwv_flow_imp.g_varchar2_table(1220) := 'kddvvJ0jV1/Ldc/+lJ2v/Ayv2SDyfGxaXahXewqyQKWJ4/YzvX7j7bx6y3to9A3gt5rtz7Jg0kBgsqqS40DgTIyFWj+NN7didz+P';
+wwv_flow_imp.g_varchar2_table(1221) := 'xOXcTl3zKwDGYuoDmLeuQt2cB4Ay1GCdAOvWEJ0lAWi+l8umBM0GQanMs+/7OG9edyO7XniazW++TqlRxxqHyPPSQp+dF4P26oQq';
+wwv_flow_imp.g_varchar2_table(1222) := 'bhhibEyrUuWtXXvYf8NtjK1NtvO+K7V34XdE1MG6NawTILGXW2Nqo4K6IeatqzBbDqI5HrzyKQAqqBfgHt6NafTl+gVOk3XUOtZp';
+wwv_flow_imp.g_varchar2_table(1223) := 'LekONjUGE8c4ccT46Fqe/PC99I/fzY7XXmLLG68xOHYGJ4qIXZfYcRPD06S81qLrD4okqVkCYi1uFLbvNTG6lqM7r+HQNdczNTSC';
+wwv_flow_imp.g_varchar2_table(1224) := 'sTF+q4EiSztNUYN1Wqhbx0Qj+UwNvhBjMY0+nBPbCa96GQk6X114IeRTAESRoIR7fDvqLIO5P0y7qt4EmAhif2n7aGqIbhgCAY2+';
+wwv_flow_imp.g_varchar2_table(1225) := 'AV664338/KY7WXfiLbYefI2R0ycZHDuDmwbcMjFIsgsFEMxlXATbnqxbjLVIKjyiSuR5jI+uY2zdRo5cdQ2nN21rJ/T4reS03o5U';
+wwv_flow_imp.g_varchar2_table(1226) := '7002T2C9CZzmmt6VCJsPKqgT4R7fTrT1QC6NH/IoACrgBTgntyHjo8nRXctBAFJif5xO9s7EPgUTRzhxiIrh5LarOLFjF16zwfDZ';
+wwv_flow_imp.g_varchar2_table(1227) := '04y+fZw1J48xfPZtSs0GfrOF0EKJqEeuiJk9r95aS9UJMcZBtUxQLtEqVzi/Zj1nN27m3PorOL9mHWG5kngDYTA94ne8bLcS++N4';
+wwv_flow_imp.g_varchar2_table(1228) := 'Hb7LkuLEyPgoztmNxBvfgrB7B43MlfwJQIp7bAf5l/kZtAOAk3Rl/3rmmgNe0AIUFcOZjZt5e/M2jLX4zQalZo3+8Sajh/oZiKP4';
+wwv_flow_imp.g_varchar2_table(1229) := '0zvHj545/Ho/MiNGIajGVrZevXv8u28Obj4RVkvj25tMrI1plQYIyhVsOg1xoxC/WU/+kXTD8JkRCJxcPoHANop7bEciADkkfwLg';
+wwv_flow_imp.g_varchar2_table(1230) := 'WKTej5xbl68iH5ejHQCcWpIA4LxunXoFAF4Y]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[QJAcDRa7LrWBESZHhFNbRlRP3ml+/dN';
+wwv_flow_imp.g_varchar2_table(1231) := '7T//jW3kKKF3wkNEjh1n3z/+/N3YE6x9XWz4hJlbE2kRgVNtpvV07pGP6E6bxlanlEwiEdvEQObcOqfej5SbYfPXnfC0op/Mmc3Y';
+wwv_flow_imp.g_varchar2_table(1232) := 'jJqjkd8PPu0hTVt0a1mlBDzPWNM3CUxFEFSeO8Fohrh4T1vy5/Mu//v4NZ8YYhNCEYezGcew2w8ADvP/1Lx/bOzXyZ8ZzDuC1kmC';
+wwv_flow_imp.g_varchar2_table(1233) := 'fqL7jmr37YFkgsJafEmFzwVhMUMGc3ZjLeFa+BIBE2N3Tm3pyTNKCEQCHuDQGJsxV38yy76yW8D3RQ9Xn/H/93I+vBC9QkwxIZc8';
+wwv_flow_imp.g_varchar2_table(1234) := 'PvnPgwLqf2IdHK+VQYy3LgrL2OokCJkzeMU7uFwFmoiju6U25dFryJQBp9F8mhsEsI/cfAE13AOb1mRVrjVSN0T85+Oz2o5OT/b7';
+wwv_flow_imp.g_varchar2_table(1235) := 'jWMc4Cjj/2+M/uk5Euz59mR+SvuO8Pt8sqICJkYnhXC4F5kcAsvnS1BDS6Evm/8sFBUyE9XNWwPICFMUXw9vNlv9PHrr/OiA2EP3';
+wwv_flow_imp.g_varchar2_table(1236) := '7Z5/c+vzYmaGqOGrzqrrtQGC6zJovO7o0Tow0+pCpodzFtfIjAICaGDMxisT5i01ekhmJKnmfn8ao9BtH73/rzSt+9vaJIUD+8wt';
+wwv_flow_imp.g_varchar2_table(1237) := 'PXV0Sk+Onhuk4S73ncZaFILGLmRhFTb4GtnxZmgpmYiR3btKlUURd4ixCnWsXOsER4XwUmv/ws6e3371xy9j+ifN9Q46ncZ6Gptm';
+wwv_flow_imp.g_varchar2_table(1238) := 'YsdLihlVUenRo6EIQTfp2zl5xrgRAVJBGeRkGAFPXVOKkCGi+2vhdxKrS77h8+8DPt//lG69vrToOuTd+SKdacfKuGxuXR0ZgiqJ';
+wwv_flow_imp.g_varchar2_table(1239) := 'Io4zk7DXnRwCMRcIS0uyf90ELvScLAC4fBAitNYG1xkl2DSwblmcg0CLNfiQs5Wo5MF8TKZWOnL/eUaygJsCWxpBltjwlQP4nLDM';
+wwv_flow_imp.g_varchar2_table(1240) := 'QEBxsaQw1Qe6Sai6JaNK3c2L4GTkRgLT0V6sC8TITgHbJqkYamFpOz74Mn1azQ1fnV3Kt54gmfbtVSft3PoQgH1MAJXWRKkjkdX4';
+wwv_flow_imp.g_varchar2_table(1241) := 'DUBJksIufRCYBQHWnjJpQRN1FXq/gsmRFV90plWDALn5rcLsPmI7W7RJFQh9pVtDBsbRmYMfuNmfyIQAziVIj6pAAqFUV14iU/cU';
+wwv_flow_imp.g_varchar2_table(1242) := 'fNSOKxGVs+QAQg7q5aNQVTbbpqlwTiQYdnOaS9BVtBmhkVUyH0h+zKUDOyM8TpUVA7Prj0IEgiWscsGql7Bk7FdbtWN9z2NhbVMU';
+wwv_flow_imp.g_varchar2_table(1243) := 'MVYFKGA2f3COON4LV/Ph2KxZVcTyJ3JNjbu3tV6DhIYuZM4pgnNCM1G52+r2qNkOLERPZJV6vT6cAmrPt7fkQgLT0tw6O0brzh0t';
+wwv_flow_imp.g_varchar2_table(1244) := '+eQXKONrf129sHE/UHnn87779b+97DKjAgus1t33Hvn/323/tmP4RzbbhFXQQVTG+hN6J0+f/wy1fTL+5mLmcARrr//Uv3d13+11';
+wwv_flow_imp.g_varchar2_table(1245) := '/aBxncKo2pU3izjSkddolw/NAPgQgQwWipS/5IKra9BzVejSuf/XC3z/9O/c9wcjIemrhwmXe8wxR3Cx98PYdxi9t1yiCYvTvBqJ';
+wwv_flow_imp.g_varchar2_table(1246) := 'RhPFL20uf+Mju1oNPHcJ1yoThwreO9nkDb//WfU+s+18qvy6fuOH3W7iDEgpIBzQgJ4afkS8BgA69ILWm4jtTj7/2O/Xf+cpDrB/';
+wwv_flow_imp.g_varchar2_table(1247) := 'ezNtjwaIu6fUJrVqDndu2S6lU0mbLIl3fKL/6EJFkKlcqsXPbdv7qh6/i9pUIagsXgADL+uG1p3/nKw9VN1R+p3TXNf9Ko3qcrOu';
+wwv_flow_imp.g_varchar2_table(1248) := 'ubFZ+h1VVPNex56dOhX9w//cY8Ndyvn6RE0jngY8A1lu/9maSIpzLpXjB8kexGIO3fu3NgE3bYnGcr4cM+GvDP7j/e/b81Ck810F';
+wwv_flow_imp.g_varchar2_table(1249) := '7VG+9i6x8ARCslFwIogPhy8fOYdUlCBbfsLXQAq70V2/CWnIV2VnxqGAt0l+9CXDTtlgcQaBYdcOXj50jiA5IyQVZ+aK+8gUAwCo';
+wwv_flow_imp.g_varchar2_table(1250) := 'YBimVFhkxTvF9IQgi78rNI+r5OzWKOjNfLJgdEdEoQj1/p3fl5hGCIML3F//+RZRSycMwiF3xgz+wKgRAHG0EKv3Va/3Pv/capoI';
+wwv_flow_imp.g_varchar2_table(1251) := 'afX2LnNv5AgRy4w2bxffWEsfKqniXucEQxyq+t1ZuvGEzEKRtsnD6+hymgpr/+fdeI/3Va7URKEnl1BXNKum0aqXkeZXP3PmPgQg';
+wwv_flow_imp.g_varchar2_table(1252) := 'Ri+8v/LN7KkDg7Ni2W0q+l9ujX1cyFisl33N2bNsNBGmbLAzfN4hYIKp85s5/LCXPA10VbbpKBEAcrTVis3Hk44Nf+81/z9TUJBA';
+wwv_flow_imp.g_varchar2_table(1253) := 'v2BNIgk5qRof2kJyAszr8xXyhGIMZHdoD6IIDgUkfiJmamhz82m/+e7Nx5ONaa8SrYfSHVSMAAOLoZCNydqz/7OA3fvPfUZGQWm2';
+wwv_flow_imp.g_varchar2_table(1254) := 'KkT533vPHNABoytU9xDFFALAXqBDHmHJ1DwsJBPq+MNLnUqtNUZFw8Bu/+e+cHes/q5ONaLUYP6wqAQAEV8/XYueKtZ8d+tpv3Vf';
+wwv_flow_imp.g_varchar2_table(1255) := '5F1+4hbHaWYIgSoXg8u9jZgDQ964qAoA9IgsE+t5V8woE+r5hpM8lCCLGamcr/+ILtwx97bfuc65Y+1k9X4uRHObGdJDVJQAAIo5';
+wwv_flow_imp.g_varchar2_table(1256) := 'ONWJTLd1Q+tD13xz85j/7N+6nbx9KhaBBX5+TuoUX6UxJANBcv/cK8d0iANg70kCgu9Zcv/cKLh0IlHa7BkGDsdpZ99O3Dw1+85/';
+wwv_flow_imp.g_varchar2_table(1257) := '9m9KHrv+mqZZu0KlGjKyekT9jValdGxFHGy2LiONcMfLf9f/Dv3mv/eKH/lvrsVe/2/qPf/EKifH3MdLnEYaWqWDavexTQ0DLuXb';
+wwv_flow_imp.g_varchar2_table(1258) := '3LVIue1qrr8qOkwusWumreM61u2/hL37wM/q0n2BGQLbfN3ieYawWUqtNAlr6n/7mntLd191rRvv/tvSV1uhUEw0iu1rbcHUKAJC';
+wwv_flow_imp.g_varchar2_table(1259) := 'l7epkI8Z11jjb1v6jyto7fqP0oeu/a986e//U737nUY6cOgP4QLUdMPR8gRpmaGBPeqEiANgzknffbgvPF/rS9N1aLWYqmIIgYOu';
+wwv_flow_imp.g_varchar2_table(1260) := 'GNf3/82d+wWxb80kzUL1XqiVf662k7UWc1ZzCvXoFIEPEIYpVJ+oWI76zbviXnLVDvzT8]'')'||wwv_flow.LF||
+'               || TO_CLOB(q';
+wwv_flow_imp.g_varchar2_table(1261) := '''[//7GG3ay8cP45cMP1P7TX77A2akxQKjVqgwNVahUrp0OABYhgN6QBAKpVK5laKjC22NNoA4oa/oH+/7hp+5y9m7/qBmofET6yz';
+wwv_flow_imp.g_varchar2_table(1262) := 'sRQetNdKIeA2a1jvozKQQAsiCeg6I61bCASNnb6QxVdzprB/+Bd9d1B2yj9bw9cfbH0YMvPtf83qsTeO6VGsdQzP97idE4Bs+9ks';
+wwv_flow_imp.g_varchar2_table(1263) := 'hUyp+7e9D94L6bzaY1HzKV0k1Scq+m7EErRGtNCygiheHPQIb/6rcLF3Z2bLoZxEjJE3wXFGytMWXPxa/zdvVGXOMspp5IwRIgAp';
+wwv_flow_imp.g_varchar2_table(1264) := 'GNWV//mRl1dpu+Sj8CBBHaCpPSb4nAF0I9C4UHcHFMVttDg8jSChVFpGT6ncHqLfFpXVQxoYIlQhXEOM7gwC14TXSyYREUEUnn9s';
+wwv_flow_imp.g_varchar2_table(1265) := 'VofwkKVZwbph0siq3qudBSFP/KB2ktID0XWmI708Uv+vYcKDyA+SCAimjTCKJFAnAeUEAUbRojRTx23hQqOR8EiEDDoqPlCknbZL';
+wwv_flow_imp.g_varchar2_table(1266) := 'EVwlchhQDMBwENTdHR8kZbmPN7NHteKQRgrqSuJi0plv7zRjI1S9qmmJrNi0IA5kuzsPzcUrTNvCkEYK4IyUGgLVOMMnkjCwS2TH';
+wwv_flow_imp.g_varchar2_table(1267) := 'JgaKEDc6YQgLlSBADzTREIXBCFAMyVIgCYb4pA4IIoBGAutAOApggA5pV2ILCYos2HQgDmgiT/0XoRZc4tWRygLkAh0nOlEIC5IC';
+wwv_flow_imp.g_varchar2_table(1268) := 'Snf7eKjpVrJG2jmKKd5kghAHMlAqKiV+WeKA0EFsyJQgDmgoAGphhZ8k7mqQVFIHCuFAJwOYoA4PKhCATOm0IALkfaqbRZBABzT3';
+wwv_flow_imp.g_varchar2_table(1269) := 'tnYJGuPVcKAZgLNg0uFSwLtCUUh7XNjUIALodJM8xCKd7WcsAAoSRtVrTXZSle0VxomWJEWU5YkjYruCzFW7oUxRbg5UexNXheFA';
+wwv_flow_imp.g_varchar2_table(1270) := 'JwKYoA4PKjCATOi0IALkWxrrw8KfI25kwhAJdBi8yy5UmUtl3BJSkE4FII0wHAoi8tH4TpQGDRbpekEICLUQQAly9FIHDOFAJwMb';
+wwv_flow_imp.g_varchar2_table(1271) := 'IAYKPoRMuOLBDYKMT7chQCcDGyCjOFG7k8kbTtigpOl6QQgIuR1ZgrIsnLk2wFp6jheEkKAbgYRQBweVMEAufE/w97xCbcGeBAVQ';
+wwv_flow_imp.g_varchar2_table(1272) := 'AAAABJRU5ErkJggg==]'')),'||wwv_flow.LF||
+'       photo_mime_type = ''image/png'''||wwv_flow.LF||
+' WHERE candidate_id = 5;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'COMMIT;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'UPDA';
+wwv_flow_imp.g_varchar2_table(1273) := 'TE tms_candidates'||wwv_flow.LF||
+'   SET photo_blob = apex_web_service.clobbase642blob('||wwv_flow.LF||
+'                    TO_CLOB(';
+wwv_flow_imp.g_varchar2_table(1274) := 'q''[iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAABLAUlEQVR4nO29eZRfWXXf+9nnDr+xqlSq0txqtXqeaJoGggGHO';
+wwv_flow_imp.g_varchar2_table(1275) := 'YCN7QQHnh0c7GCCnSyv9eLEfl4ZVryS956J7WBsv/ecONgYm8HBMQYPDG6gDT0ATc/zKHVLakmtsQZV/cZ7z9nvj3t/pWp1lVSq+';
+wwv_flow_imp.g_varchar2_table(1276) := 'v1+95Z0P2up1arhd4dzzvfsvc8++8iJd/8PpaCg4KLEZH0DBQUF2VEIQEHBRUwhAAUFFzGFABQUXMQUAlBQcBFTCEBBwUVMIQAFB';
+wwv_flow_imp.g_varchar2_table(1277) := 'RcxhQAUFFzEFAJQUHARUwhAQcFFjJ/1DRQMkZUmfctA76IgRxQCcCGgi/9n0eg9077zVmjwOXfGv8+8WHqNQijWPYUArCfOnMEFM';
+wwv_flow_imp.g_varchar2_table(1278) := 'AIiiJH0/9OvKeAJLxmlZ/xz2WvoGV+wmvye0+R7TlGnoHr6a2feV8G6oBCAPNMbWL2B6xnESwY8vb97g37hB/Xlv7/UZ54NOeMfg';
+wwv_flow_imp.g_varchar2_table(1279) := 'ZzxTU1+JBUDNBUJVdRqYkEsFpJCEHJLIQB54iUDXsAXxDPJYDfm5TO4nvH3ip38Vd7XUtdILZBeT5LewHcOrKLWLYhDIQj5oxCAr';
+wwv_flow_imp.g_varchar2_table(1280) := 'Fk8KAKTDvh00J91sOeIpVwA34APgpd83ypYlwhC7AoxyAmFAGRBr/MbQQKTDBYvNecX/0weB/tKOfPefQHfSwTBpS5D7NDYJf+GQ';
+wwv_flow_imp.g_varchar2_table(1281) := 'gwyoBCAYbHUoPfN6U6fyYBXdOHCS0UIX/o9WcsIXfxsksYVApO4DLErxCAjCgEYNKpphzfpwPcyHfTJgHcIBkOA0QCDh+Jw2Jf8r';
+wwv_flow_imp.g_varchar2_table(1282) := 'MEgeCgWJzGWCMWSiMEac8gWP3dgFomBRaOem5C+u4KBUQjAIFg825c8CLwkiIdmZtr3ZnqPEr6GxNKhYY4xb15k1rxAR2Y55R1MZ';
+wwv_flow_imp.g_varchar2_table(1283) := '3nB4ai5Sao6Sd1uY8TtoO62UNJRHDGRtElWA/qQTPoSMfCQwE+CiJFFu4VVMEgKAegnvY7sCxKkA7+3MqdZOfSJme9rGYPPjLePI';
+wwv_flow_imp.g_varchar2_table(1284) := '/5DHPEfZNY7QFcaOM7uABjA1zJ1t4Ut8U1sjV/FZHwtgkckTYC1uQdnXpR05i/5SEgiBJGFuBCCfiNFVeA+sDDwTTLj++alX88Ix';
+wwv_flow_imp.g_varchar2_table(1285) := 'WHw8bXMjPc8z4Z/y8HgbrrSwgCehhg8XpY/8BKS7ykOS4QTh8GwOb6RqzrvYUt8U/I9aScBvkHQG/CxQzs2cQ8Wf71g1RQWwFpI4';
+wwv_flow_imp.g_varchar2_table(1286) := '2MSprO9L6e/njGKJdAqXWnyaOVPeT74FrF0CLRESav0BrXizvlZPXxCUAM4jvqPcNR/hG3RLbyi81OM2Uvpylx/XIKXP0x6AwbxT';
+wwv_flow_imp.g_varchar2_table(1287) := 'WIJ9KyCM7KfC86PQgBWw+IOWfbA81jw73OAYgl1hOP+E9xf+QSz5jChlgi1kg56e+4PWfJzFdLfDbQCwOHgAU74T3NT+6e4vPsOI';
+wwv_flow_imp.g_varchar2_table(1288) := 'mmkPz2AUbnIxcIPkNCg7cIiWAuFAJwPy5r6ORn5JIO/pGPsDW/lwcqnUBwlraLY85rtz32d5LNCreCIuK/yCWa853lV68PEaYBwY';
+wwv_flow_imp.g_varchar2_table(1289) := 'COyFyfwDFIzhWuwBgoBWCmadriSnyxbQW5m/B6LB//9lT/A1xAhWPWMv7JrJkuKoVZ4NvwGiuOW1keIpcXA7fMzXYPIoZ0YrCuWD';
+wwv_flow_imp.g_varchar2_table(1290) := '1dIIQDnIl2LlnIAoXf2eFmGJGb/KM+F3+S+yh8QaDm91f7N+me7uqKUtMqe8DYEwy2tj9CV+f6tDpz98gmBQfwQujYRgiKP4JwUF';
+wwv_flow_imp.g_varchar2_table(1291) := 'YHOhiYBPqmHUPIXvpY3HDG+Vpj29vBQ+U/Smb/nsw+PxAKpsCf8Bs+F3yTUOo5omDeQUPKRepgEZ3PYXnmiEICl6EX3qwFUgnR/f';
+wwv_flow_imp.g_varchar2_table(1292) := 'T57Ui/gB8oDlT8kljYGf+iD//T9KL6GPFL+LKfMQSo6mQYeh3g/qkmbVYKkDXNqteWBQgDOREFCg9RKia+f0005p4NwIxzzH+XO2';
+wwv_flow_imp.g_varchar2_table(1293) := 'keZ8Z4n0NJAff6V3JnBw9Llu9WPsTe8FY8S3oBjEUvcRvInSNpSQpPLdsyaIhGoR5ryJuXg9MDPKYrF1woqlkdL/5NnS18DlCBd5';
+wwv_flow_imp.g_varchar2_table(1294) := 'ssDgmCJiMWyPb6ZW1ofoeY2pbkCA0oYOvsNJUHCdsRC6mNBIQBAMth9g1T80+W0ckrP5J/2nuOByh9y0ttDqGVAcjP4eyQBQEMkT';
+wwv_flow_imp.g_varchar2_table(1295) := 'SpuIze1P8il0Q+mIrCS+mR9v6GknFkrTpYMCxG4yFcBer5+2YeSl1tzv4fiFhJ8vlf9LToyR5iu8efxxnuJQ4FW6cgpvl/9Xbqte';
+wwv_flow_imp.g_varchar2_table(1296) := 'a7svivdQzDkND4lWdGpBdDprRQM9xbyxsUrAL11/XKQJPTkNMjXI0ntrfNc+A0erHwKUSFYGPz5RrF4+Bj1eaDySU55B7i59SFi6';
+wwv_flow_imp.g_varchar2_table(1297) := 'WQz9pRkpcAziUtwEecNXJxBQCWpTlMLk7TSdTD4SzrGUf8h7q/8AUZNGunP/+Dv0VsFCLXK0+E3eLL8Rcq6IbtnUE12bdbCpEZDv';
+wwv_flow_imp.g_varchar2_table(1298) := 'rvAwLj4BEBBSl5iBqb/zjOKw9cqJ7ynuKf6e3gapkU68uXvr4xkA1JFKzxZ+iJ7wq8SaD27Z+ntLq4FSWp3zvvCILjoBEAqPpSDd';
+wwv_flow_imp.g_varchar2_table(1299) := 'dLYisEnkib3Vn+PjpxaqN6zfkmyBj31ebDyKab8Z5MVjSyfSYFykPSNi4yLQwAWlD6E0M+9yd8jSaqp8ET5f3HKvJgG/Nbz4O+hC';
+wwv_flow_imp.g_varchar2_table(1300) := '1bMQ+U/xkmUbiPOsF1UIfSTPkK2tzJMLnwBUJLSXLUwqby7bga/I9AqR/2H2Bt+g1DLL6vZt55JXJsyJ7w9PFP6MoHWshc3VfDSv';
+wwv_flow_imp.g_varchar2_table(1301) := 'pLz5eB+cWELgJI0aL03+LO+ofNBUJSnS3+TDowLL0qdiFzAc8HXaZrjGEIyb6R13WfOnwtXAHoNuQ5NumRgVDgaPMwx/zECLWc/O';
+wwv_flow_imp.g_varchar2_table(1302) := 'w4ExRDQMDM8H/4dfl6ec7HLeIGLwIUpAItNuXVIb8Y/6N+Nw3GhNhP04hyGQ/73iaSB5Cw1Zb25jufLhdezFCTw1t3g13SJTNUR2';
+wwv_flow_imp.g_varchar2_table(1303) := 'hqxbXDcexxf13vU/1w4PALmvMNMe3vxNczd80otTKo8X4AacGEJgGpy+EZ1/Qx+laQwp+cCSnENL/Y5JS/wePV/0fKmMARckD3vJ';
+wwv_flow_imp.g_varchar2_table(1304) := 'XjE]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[WI75j2PwyeXzVsOkb11glkC+7K21oCSHalaCddBIiooiagjiKqgyaw5wpPwQR4KH';
+wwv_flow_imp.g_varchar2_table(1305) := 'mPafI5ZO6hPn/Vn6gWKAGW9ffl0e1aRv9c41vEBisheGAJwZ8MspioI4jIaEcYkOpzjkf58DpTs5FjxOJ63X72spV1t7B49iMLTk';
+wwv_flow_imp.g_varchar2_table(1306) := 'JF2Zz68VQOIOaKN7wYjA+heAdTH4e6fzlPBsSEOO8nTpWxws3c0p7xAAvoarrte/3lFA1NCRWVRiUB/yaglwYYnA+haAxUk+uSQZ';
+wwv_flow_imp.g_varchar2_table(1307) := 'zB4hnisxbfZwoPxdDpa+y7w3ha9mob7+Wur1XxgIDsu8vsgmdyOxaWHpphmC+RtlUgvR+W7iEuTv9lbMui8Ikte1WsViCAi0yjyH';
+wwv_flow_imp.g_varchar2_table(1308) := 'ebL8RV4I76YrbQIN0uDekGvl5ZqkoInB45Lu3+O69j+mznYiaeKIsqkidDYEsJpYAuuYdS0AUu1t5836Tk7TW8MPtU5TjvN8cBvP';
+wwv_flow_imp.g_varchar2_table(1309) := 'l26jaWYItLRoJ1+ObjpnRNKh6jawu/N2dkdvp6qb6Mo8yR6CHLkFAsSKNtevCKxPAdB0V1/Oyj4v1OpDORDczhOlLzLvnViY8S9u';
+wwv_flow_imp.g_varchar2_table(1310) := 'E3/lCB6OiEgi6naS6zs/zqXRmxGEWFr5sgaE5ByCVrwuXYH1JwDpfv5kS28+bj05HUcItM6M9zyPlv6Uw8FDBOpjCIsZf1UIgsHR';
+wwv_flow_imp.g_varchar2_table(1311) := 'JZKY7dHNvKLzATbY3UQyj+bJGhCBdpQcT7bORGB9BQHT4p2U87OlV7F4WkYQHi//Gc+Ef00s3fQ8vos9sLcWFMUi+JQ05EjwECf8';
+wwv_flow_imp.g_varchar2_table(1312) := 'J7i6+2Nc1/7x5LuDPJL8vG5Vkz5pdd0VG10/AtCL+FfzU8yjdxzXKe8FHir/CS/6DxMurOEXA78/JELQy4t4rPQFTnrPcnP7Zxi1';
+wwv_flow_imp.g_varchar2_table(1313) := 'O+nKqZyIQHKQzHpbGciJDbUCBKQS5OLFKr2z8MY4ENzFt2v/iSP+w+k6/ulDOwr6R++dlrTKEf9hvl37TxwI7qKkYwvtkTk56qMr';
+wwv_flow_imp.g_varchar2_table(1314) := 'ZX1YAL2gXw4i/slSVYCnAQ+WP8Wzpa/gabCoPHfBIEmsrioxLb5f/V2mOnt4ZfuDWInS5cIM5zQlKTRa9tdNUDD/AtDz+3MQ8e/5';
+wwv_flow_imp.g_varchar2_table(1315) := '+70afQeCuylpeeF7BcMhybHwMOrxdOkrtMxJXtX6MIFWs48LKElfjdy6iAfk3wUwqVmVg8Hva5VImnyn9hscCO6mrNX8mJ8XGb33';
+wwv_flow_imp.g_varchar2_table(1316) := 'XtYqB4K7+U7tN4ikiZ8HS0zTPpv/0ZXzW1RNDu4w2cro6eO49vKt+q8y5e2hrNULqkbfesVhKWuVKW8P36r/KtPeXkIdyV4EjCR9';
+wwv_flow_imp.g_varchar2_table(1317) := 'NyerVcuRXwFQkNBPD+rM7iX2Bv9J7xnuqv0GDXOEoBj8ucKlx481zBHuqv0GJ71nshcB1eRk4tDP3Ho9G/kVAEO63p/dLfTM/t7g';
+wwv_flow_imp.g_varchar2_table(1318) := 'j2mmmX7F4M8bvSzMmOaCCGTuDihJH87vKMvprfVM/wwt/2QXX5muzHNP9f8jknk8SsXgzzHJGYQlorTNujKPR8aFRoVcuwL5EwAF';
+wwv_flow_imp.g_varchar2_table(1319) := 'CT3ItAZbUq02Ign4NczRYuZfJ/QsgYY5mgQGaWZbVk2BwEv6dA41IH8CIEAp24owCnga8mDlk5zw9hSZfeuMXubgCW8PD1Y+iadh';
+wwv_flow_imp.g_varchar2_table(1320) := 'xmNPkz6dwyXBfAmAgpT9TE9lSU7iHeHh8p8sLPUVAb/1R2914EBwNw+X/4RSlkHBXhp7xjGtpciPAKSlvbI0/XsR//3BnTxb+hol';
+wwv_flow_imp.g_varchar2_table(1321) := 'rRSDfx3jsJS0wrOlr7E/uDPblYHUFchb8Zr8CADp7J+ZmaQYQprmBI+UP4NRL0/tVLBKFDDq8Uj5MzTNiWyPH5O0j+eIfAiAkqz3';
+wwv_flow_imp.g_varchar2_table(1322) := '+ybD2T8p2vlo+bM0zRQeIRSbei4AkpqMTTPFo+XP4mspu8zNXlp7kF0/P5N8CICAlLJTxsT0r7M/vJP9wXcJi6DfBUXSvhX2B99l';
+wwv_flow_imp.g_varchar2_table(1323) := 'f3gnodYzbV/JUUAwewFIj/LCy0oVE9O/ZaZ4rPQ5fPWL3P4LkMTC83ms9DlaZio7VyA9wCYvR41lLwBCutMvm7fRO6d+b3gr81l2';
+wwv_flow_imp.g_varchar2_table(1324) := 'jIIBkwj9vJlib3hrticRqyZ9PgdWQLYCsHj2zwSHT4UZ7zmeDb9KqKWimMcFjOIItcSz4VeZ8Z7Dp0JmcZ6cWAHZCkDmsz8Y9Xk2';
+wwv_flow_imp.g_varchar2_table(1325) := '/BqRdNJ95MXsf+GiCB6RdHg2/BpG/QyTTfNhBWQnAJnP/opHiVnZz8HgbgINi8DfRUCSJRhyMLibWdmPR4nMRD8HVkB2ApD57K94';
+wwv_flow_imp.g_varchar2_table(1326) := 'LuCg/z0iaSProDhSQX8QfCJpc9D/Hp4LMlwWzN4KyEYAcjD7G3zaTLO/dAee+oXvfxGhODz12V+6gzbT2Z5GnLEVkJ0FEGbnbyuK';
+wwv_flow_imp.g_varchar2_table(1327) := '70JOek/S8E7gZblbrCADFI+AhneCk96T+C7McOk3tQIyYvgC0MuGyjgn2jnLvtJd2d1AQS7YV7oL5zIuGuJJZlmwmVgAkqHigWKc';
+wwv_flow_imp.g_varchar2_table(1328) := 'T1ummfb3pOZ/780LIib9k4NF2oK+IHK6XXsOt6J46jPt76Et0xiX7Rb0rMbE8AUgQ7WDtOFtwLS/l7aZxeAjAiIGdTFRt0XUaWHj';
+wwv_flow_imp.g_varchar2_table(1329) := 'aKHjFKxPekJu44io0yLqtlAXp18niQOZWab9vXg2y2Agp63iITPc0Hcv+CeSXYkk5zBqOB48hUUJjE8UNXHWURuZYGTjDozxaMwe';
+wwv_flow_imp.g_varchar2_table(1330) := 'ZW7mRVSVIKygWgQJ1xMihqjbQkQY2bCN2tgWnLPMTR2iMXcS4xmCoIrVNseDp7ik8wPgHJiMBF8ECTy0PdwDRYYrAEI6+2fp/Bsi';
+wwv_flow_imp.g_varchar2_table(1331) := 'aTPl78UXj25rntHJS7j21e9l22WvolQZQcTQ7TSZOvosT93/lxzZ/whBWE4/oAgW5ptk9HQ7LbbuuolrX/2P2LjlKsJSFVVHpzXH';
+wwv_flow_imp.g_varchar2_table(1332) := 'i/se5Kn7v8SpEwfxKx5T/l4iaYMz2YXFVZOxMWQjYHgC0Nvym2XwzzmMerTNDE3/OFHLcuUNb+NVb/lZSuURom6LOOoCivF8tu66';
+wwv_flow_imp.g_varchar2_table(1333) := 'ma2X3szTD/w1D9/1aTw/JGmhQgTySTJ6bNzlVW/6Z1xzy4+BQBx1iLotQAjCKlfc+A4uufJ1PPjtP2LP439Hs3yctpmh7DagzmZn';
+wwv_flow_imp.g_varchar2_table(1334) := 'BfTc42h4JwoN8Uk1Mf8zzHpQp3j4tIIp5trT]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[XHnD23jdu/8Vxvh0WqdQtaf9flWiTpO';
+wwv_flow_imp.g_varchar2_table(1335) := 'o2+T6172fW97yYaJuuwgO5hgRIeq2ueUtH+b6172fqNsk6jSTKtNpPEDV0mmdwhif1737X3HlDW9jrj1NK5jCw0ddluIu6RgZ3j0';
+wwv_flow_imp.g_varchar2_table(1336) := 'MTwCMZGv+qwIOIz4z9nnGt23n1W/5CHG3hXMxYl4uTr1O056f4uqbf5Qrbnw73XYLyWqGKFgWMYZuu8UVN76dq2/+UdrzU8sEcQU';
+wwv_flow_imp.g_varchar2_table(1337) := 'xHs7FxN0Wr37LRxjftp0Z+zxGfMBl20d9M9STsIbTk1URPw3+ZYXV9FaEtj/Dq972swRBFeeic0T6Jelc3SY3v+lDjE5sx0bdYnU';
+wwv_flow_imp.g_varchar2_table(1338) := 'gR4gYbNRldGI7N7/pQ3S7zVSkl+9vIgbnIoKgyqve9rO0/RlU05+3GVoBIslYGZIIDakXS+L/Z5lzDYjxiLoNLrvprWzadgPd7jw';
+wwv_flow_imp.g_varchar2_table(1339) := 'iK1l/FdRGhOU6N/7AT+JUKeIAeUJxqtz4Az9JWK6jNmIlrqaIR7c7z6ZtN3DZTW8l6jZSS5AMA9WajpXhTJbDEQBDEljJLPiX/m2';
+wwv_flow_imp.g_varchar2_table(1340) := 'BmlJ/3TaI9LwsEjEe3XaDS69+I5u2X0Pc7RRWQA4QMcTdDpu2X8OlV7+RbnvRIF7ZB0CU9omasrAhNKtVXyUZK0PqWoO/TM/8z/K';
+wwv_flow_imp.g_varchar2_table(1341) := 'EX9XkSTuKXOWh4w5WNkmc8TkOMR67rnkT1mrme7kLAAFrlV3XvCkZ+OebryFABDrukKs86KR9JculajM8N2AIOpOx+d+L6irgC/L';
+wwv_flow_imp.g_varchar2_table(1342) := 'KdOfVKgavGEMcddi++zXUN0zg4tWoSEH/EFwcUd8wwfbdryGOOqsL0KYru/JKD/xFy9SZrQgMzw0YvABkbf73rhsD44LskGT2XxV';
+wwv_flow_imp.g_varchar2_table(1343) := 'Jh6uObmJi6zXEcVwsC2aIiBDHMRNbr6E6umltghyR9I1xSfoKZNtnh+QGDPYSaQXU7DYd62nzP1LMLgNVk/h5qx63Cgpbd928aku';
+wwv_flow_imp.g_varchar2_table(1344) := 'ioE+kM/dCW6x2xApJn6iapI9Ei92ADDfqD6FS9oCHpiL+8CKaL+NMd3BrH1ItRXDOMrZxJ17gJ/njBdngHF7gM7ZxZ7Kld63WmJD';
+wwv_flow_imp.g_varchar2_table(1345) := '0kZdcY20fuXokHTuDVYABC4CkaZUZ7rLq/e0LbJbEr1tDPxERnIupjW6hXNuQ7iUvzIDhkwhxubaB2uiWJJlrLQIgJH1js7w0DpD';
+wwv_flow_imp.g_varchar2_table(1346) := 'hEfWcI5ehHwxWADzJMPc/Nf975l1NkI2L/LtVIzgbU6qOMjK2DWuHEwdwmvzR9E/v/7NGl7ivYcTORARrY0bGtlGqjuJszJoHS0z';
+wwv_flow_imp.g_varchar2_table(1347) := 'SR2py2k3Myg3oFQoZ8BbhwW0GUkW8DLf+nmm6eemfPiFi0s1Bg0XTdIVqkDyQVUEAzyiRFbpWMlthdQqhpwSeYp2kfTZp63ZsFu5';
+wwv_flow_imp.g_varchar2_table(1348) := '9kHh+2N98jKX6iSObOJYI4hnUxgN7kYPdDehnmCizWHNikIlU2fuxcqcO4/mMb9rNwT33pyK3xs9cAqdQ8pXYCvcerrN3qsxM2yM';
+wwv_flow_imp.g_varchar2_table(1349) := 'wyvaRLjduaXHpWIdmlLznYelA71FroePAbInHjlY4PBcSOWFD2XLFxjY3bW4S+EonHpBAieAsjG/ajfH8ZP1/RVmdy30epy3FCUF';
+wwv_flow_imp.g_varchar2_table(1350) := 'n9LQQZGlp+Qa6A/z4wX20pMk/2ab/LiD0fYSIGdzrcwpl33F4rsRfPLmRfdOlpIqNKIrw6LEqdxwY5S2XneIdu2eJ3PDMAAECo/z';
+wwv_flow_imp.g_varchar2_table(1351) := 'tng18e98orcjgGRAUp8L3D9b57niHf3zdFNtHOrRjMzArpe9tsFQ/0ayWezQdQ4O79uCmaI/k5rMY/0NzOQZzHadQ8pTDcyU+cf9';
+wwv_flow_imp.g_varchar2_table(1352) := 'mDsyWqIeOauAo+UrZd4yEFgG+/Mw4f/n0RkqeDuWxNb23v3x6I19+ZhwBRkJL2U/urRo46qll8In7N3N4rkTJ0wHGBYbU1lm4sUo';
+wwv_flow_imp.g_varchar2_table(1353) := 'yhgZYLnAwAqCADL+6yUuuv07ptXnshL94ciONyFD1HfaMYFsvFjBWsty5f4QHj9QoB26gATinUA4cDx6pcef+EcZKiQhZlZcEAa1';
+wwv_flow_imp.g_varchar2_table(1354) := 'C1Xc0IsNfPLmR2Elmc0HfyOrmhWQsDej6A7IAMl7/X+plDcIFGMBmIE1N/0eOVdk3XaLi67K7U3tfDjzl2/tG6drBmdqQCFPXGr6';
+wwv_flow_imp.g_varchar2_table(1355) := '9b5TA05fcw5lYhYqv7Jsu8cixKmXfDWQS7XsbLNdPMlOvweYDDEgAcuj/d+hPADD9QFWl254fWJR7z1R5RZ/tNPHHTzR9js0HBGY';
+wwv_flow_imp.g_varchar2_table(1356) := 'wZxw5kuscmw840fST66ygeUWSZxkEItBtz6P98tHTjUF0lvi4LLcHDzAOMBgBELLb/bdUQ3kkUd1WL8VzjdcQQZ1lduoFpM87x5J';
+wwv_flow_imp.g_varchar2_table(1357) := '8FGG27a1YXESgY4W5rsGIDkZ3NQlAznUNHSvndW+zbQ+Xuiz9ux9FDMxOvZDU8VurEitJ32jpS1cAzrhmJhgZmDE9OAEY0NLYOVn';
+wwv_flow_imp.g_varchar2_table(1358) := 'O/Lf0zwIQwdmIOO4MLAnIN+f38noV1wbNaipWne+zrJRkM1AHZ6P+rJP3LIDlkjuz6s8yOAHo/zrW4g1AeYj69JS9oegJTfIB1pQ';
+wwv_flow_imp.g_varchar2_table(1359) := 'NqBjj027O0pg9gucHQP8OEFHA9xyXjMU8ftxwrmT0nsVQD5XNdUusPmYF8VenuvhAJMw5lMwIxGrYXLfUQ6UdC2YFR2k4NVwyFuN';
+wwv_flow_imp.g_varchar2_table(1360) := '7QseaPrpMgucHNGaP0G7OUqqOoW6N2YAe6AmFhpLlqeEvo7ejNu5/teCBLGRLpsU/lvhaEqqGYw6u906nCK/m41XxvZBTUy8wNz1';
+wwv_flow_imp.g_varchar2_table(1361) := 'NEID2MVPDKTQtXDN2gr/TAKWC4Jbti54nNFrKDeMnqUmDVvvsM7RzqAhSLvnipWmm1intTowqaszyb6arUPPhipGT3Hd0gtGKEC8';
+wwv_flow_imp.g_varchar2_table(1362) := 'ToUwiQIZAG1wzdoJmyxLZ/nqGArSbXU5NvcDWkU1ENlq9RdZLvT3mkr6ylAWboSCIkYFcfgACsDhokdHa6VJfM4Iecki8ts1AvQ+';
+wwv_flow_imp.g_varchar2_table(1363) := 'MoxZbd11PEJb7fmqQU+XSknAs8PmT248xMRKiCG7RzkMR8D2PU402mzfU+NA/uIqq3yVextcWwDqn5VJJEOXA/hemTzWCEwCjlWh';
+wwv_flow_imp.g_varchar2_table(1364) := 'y19U7x1GRdqejnjGy3Gv0RfnQtpADfzPP8ZkGo7UysbUvcY+NMQjKybkOP/Pmrbzuhknm]'')'||wwv_flow.LF||
+'               || TO_CLOB(q';
+wwv_flow_imp.g_varchar2_table(1365) := '''[O4rps7uUnP7TJo5arLmvCRAresgtn7+S4UrA6aB6f9/hAAQg4xWA5a4bgB5UmFeoyKprAogY4qjNtstewyVXvmFN1sRy9AbT69';
+wwv_flow_imp.g_varchar2_table(1366) := '+jBGNf4JN/dTulMKAcBpi0c0bWMTM3x84tE/z+v/sQr77hShrtCG+ZKdZap/VaVY4eO37qttu+9/je6dGT7baNAMptLwi3XjXx9r';
+wwv_flow_imp.g_varchar2_table(1367) := 'e//oYtmzeNzjea6i3zQdYptXLAjpv28C/+y6d44ehJ6tUKQZIKiHNKs92h04345//wzfznn3/fQpZi38MlqX9s4y5x1F69G6YkQb';
+wwv_flow_imp.g_varchar2_table(1368) := '95TfpIcNYLru4aa2JwKwFy4t3/o78jVUFqQTYHgKouX9I5XQo0/zhAXuVDU9ccAk1m/gF1CFXEGKqVEn/1rfv5/S/exr7DJ2i2u3';
+wwv_flow_imp.g_varchar2_table(1369) := 'jGsHG0xltecx2/9E9/iK2TG5hvtPCMOeOVJx3WOaeVckmOHTsx+8lPfv57x0+cbIVhaDaOj1UApqZnW91u122anKh8+MM/+frNmy';
+wwv_flow_imp.g_varchar2_table(1370) := 'fHWu2Omp7aLHrG1JKgXqtw5MQMv/XZr/Ht+55k6lQD6xzVcshl2yf5Fz/+dv7hW19Ns9VBnRvgriBde/zFAVVBH4xxfxGd3f/3ZP';
+wwv_flow_imp.g_varchar2_table(1371) := 'A7nM5EgNihjaj/uSx9FwABqZUyEspzC4BcaTAfDJMNFhmGKlaCAuqU0XqFZrvDsweOcnzmFKHvc8UlW9ixeZxON6LdjfCWqYWnqn';
+wwv_flow_imp.g_varchar2_table(1372) := 'ieUeec/cM/+J93HHjh0KnJiY2Vf/DON111xRWXbQfYu3ff4W98/Y5nT5ycal26c8foP//IP3mTMcaz1slyPrV1jnIYUAoDDh2bZu';
+wwv_flow_imp.g_varchar2_table(1373) := '/Bo3TjmE0bRrnq0i1UyyVOzbcQ0+flv0GgQAjuM110j8ufAECyu73R6fukOtzDQQfN2V5O2si638ERB1tMHxODBkOSBSrMzjfxjO';
+wwv_flow_imp.g_varchar2_table(1374) := 'GGy3fgeztxCt0oYna+iRFZdvADqKqWy2X5+tfvePr5/QdPVcpl/33v/5FXX3f9lZNzpxoA/MDrb7l8bGx09I/+6M/ufn7/wVN33X';
+wwv_flow_imp.g_varchar2_table(1375) := 'Xf0+9855tumJ9v6HIK4BlDN4ppdyMmxmpsm7wmWSmwjnY3Wrjn3KMkJv8Rl/SNkHP3oxz3mfOlvy004DXLNZOu87q/izOsU3j+9A';
+wwv_flow_imp.g_varchar2_table(1376) := 'ZSs9NlttFivtkmii2eMWeNejtVyqVQXnzx2Px3vnPvPiPCW9/6ht1XXXnZ5NTJWWetxVrL1MlZd9WVl02+9a1v2G1E+M537t334o';
+wwv_flow_imp.g_varchar2_table(1377) := 'vH5sulUNxZkl8kFZ8otsw328w2WjQ73Zfc87rApH0izxPCgHJr+t9KeRYABUqgTzn0UXs6GLhO6M32xsiKlrtUVcMw5Kmn9rwwM3';
+wwv_flow_imp.g_varchar2_table(1378) := 'Oqu2lyY+U1r3nFVZ1OF2PEJGfnCcaI6XS6vOY1r7hq0+TGyszMqe5TT+15IQxDVM+d/pZ+RnJv66lKsgUqgj5q0afOYfpnTU8A+s';
+wwv_flow_imp.g_varchar2_table(1379) := 'w6kukVsNLGC8B9NYbjDsqsKxFYOYpvjMw3mu6Zp587LmK46qrdE2OjI2E3jnWxgIgI3TjWsdGR8Kqrdk+IwNNPP3d8vtF0vln3+/';
+wwv_flow_imp.g_varchar2_table(1380) := 'iWxpK0/XGX9IVlI/9ncIG9ij4LQMa7AFeCkkQ+mor7QgQtoEoSCVZON7CSYUXYteMcGoQB01Mzc/v3H5xtNlvxFVdettXzPJaa1J';
+wwv_flow_imp.g_varchar2_table(1381) := 'NgoceVV+3e0mp34wMHDs5OT83MBWGAWz4PKf/02hVOt68jafMWSR9oatIncv2Ug9kV2N9VAFWkHEDJz2bjhNWVX9cALZDtgvxogO';
+wwv_flow_imp.g_varchar2_table(1382) := 'zykt/vpQl7JBHfVv/X+YeFCFirbmb21KmDLxw+ecXlu7aPbRitRFH8MmtSFYLAZ2b2VPPQwSPHt2yZGBsdHR31PDF5KD66KpTUzd';
+wwv_flow_imp.g_varchar2_table(1383) := 'PTVp4PeILut+jfROhhhQorF3uRgRfqXPa6nRht92nfQ+9jLygBiM9zyjYkWz99kFd6yI1eUhXWA50DHoph3CBv7E/eQBaICGEQ4A';
+wwv_flow_imp.g_varchar2_table(1384) := 'cerVYHa+2y8YMkzdmjXC4RxzHdKF7SWsg9vXX978Qw7eBmHxkBLOiUoo9Z9GGbiH2J87f0sqh1OSABuLCWAc8Xx8Kyj95j0fst1E';
+wwv_flow_imp.g_varchar2_table(1385) := 'lecEvhlCKv8ZA3eOvWClBVWp2OalsxIsuu60O6u85a5uYbisg5NwjlFgFU0QMWvc/C/WnAVxXmOe3/h6xrN68f9L+iopdlGvAq6N';
+wwv_flow_imp.g_varchar2_table(1386) := '1qNf3/VvpFDxgRdEqTE2N7SzDrcEik4f4V/Wy6MrAOnzKl10YdTdpuRBLLrZk2dJh+f3FsYF2g6djqb9OsQ6N2QPQ6hOF0MQgDnA';
+wwv_flow_imp.g_varchar2_table(1387) := 'Q9ycVuK60v/LTNTnK6h3uc3qJ+kc/6iykEYCl60eJ0JmFKB1qZtaDPeCRt1tHTm1LX1Ww/PAoBOBeqsMdmV+Go4PzoZaPusdmV8F';
+wwv_flow_imp.g_varchar2_table(1388) := 'pHFAJwLnzBHXLQcvmpclSwND0XruWSNvPXbyhjWBQCcC58YFphmiIOsB7wSdpqWov2WgGFAJyN3ozSVHSPhaBwA3KNAoEkbdXL2y';
+wwv_flow_imp.g_varchar2_table(1389) := 'ja66xcWAIwiNWrpA4W+oxLiuIVVmV+EaCrSVv5AxLrdbxCuhQXlgAMgnS/uB52cCItF1XMKvmjt6//hCZtVbTTiigEYCUYoK3oE3';
+wwv_flow_imp.g_varchar2_table(1390) := 'ZwM0vB2uhZak9YaK/PtO0sGMDhdnDB2clp53KP23W7J+CCJ43VuMcvVJEezDP1fTvwQI+nPReDqzuZmJRHFX0+54UjLkZ6hV6ed3';
+wwv_flow_imp.g_varchar2_table(1391) := 'B0wG5alnOb639GUzGXnQ8Cel98gRYQWefYtG0uMONz0FxYAjDIxu8VFd3n4GgRZMoNC9aZS9rmXEU918oFJjD9P1w9Sxdg0KT1A9';
+wwv_flow_imp.g_varchar2_table(1392) := 'w9dh1UkLlISCs8uXtsUtvhwprSXorr/3bUvr8uHYCfsmIGvUbrgDJJQdHDOvjZ5hyognMuk6IdqpocVZalCKZWGYc1aZMyg9/pl1';
+wwv_flow_imp.g_varchar2_table(1393) := 'kegKZjq79cyHo5GAzQBnd3nLkV4HmGSq3CcnX+BkWvfmClVkE8ya5qUG/2vzuGNkVvXgX9fWVCYqZkud96WFbAY9laAcYztFsdHv';
+wwv_flow_imp.g_varchar2_table(1394) := '7uo0yfmMH3/eHch4Lv+8ycmOHh7zxC3I0JS8HwRWDx7P/YhT77kzyb638m6mBOB86SYRQkSo8Zc7dFmA+EA77YS1GnhJWQ2/78W9';
+wwv_flow_imp.g_varchar2_table(1395) := 'z7]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[rfuZOjbND33gnbz7A+9k9sQsXjDYwgU2ttQ31Ln9b+7kq5+9lS2XbOYNP/QDvPHdr';
+wwv_flow_imp.g_varchar2_table(1396) := '6fT6gz3aHhJ2oAuw1mazTwAuB5cAIVBnJibK3rrzk879Fk3nNlnESLCtt1bmZuZY2xilLu/fg97HtvLyHgdG9uBzMaqio0tI+N19';
+wwv_flow_imp.g_varchar2_table(1397) := 'jy2l7tvvYcNk2NMHZtibOPocNu7Z4U969CnL4K8jLTG4TpIBOK0AGTFMDuiAb01ggZDqxgkRug0O9z4927gVT/4ShqzDeI45nMf/';
+wwv_flow_imp.g_varchar2_table(1398) := 'zxP3P8U9Q11klr+bu1BujTI6JwjCAPqG+o8cf9TfO7jnyeOY+ZnG9zyppu56fU30mkOcfb3gEb67ofp92c5qQ1IAAbjAiwsV2QgB';
+wwv_flow_imp.g_varchar2_table(1399) := 'DKk6/byAo449Hsx8q4A5oeUJiwQdSJ++KffzdSxafY/cwAR4XMf/zw3/+BNvP5dr2P7ZdtRp0TdCGttEkEWkOQ/CIKm72nh/5WFv';
+wwv_flow_imp.g_varchar2_table(1400) := '8UInudRCkuIEQ7vO8z3bv0+D931CH7g02622X3tLn74g++m2+7/sdXL4oC6oHdE6BEHNRme9ZVZDEAWZQH29x76fzx41mcDwPkdE';
+wwv_flow_imp.g_varchar2_table(1401) := 'NIPFLyfDuFSM7S1aHVKUApoNVp84fe/xFMPPEOlVqbb6VIql7j+tddx/WuuY8fu7YxsqOMH/sKSoY1PC0Lv/sUInu+l5/wZ4ihmb';
+wwv_flow_imp.g_varchar2_table(1402) := 'maeQ88f5on7nuSJe5+k0+4QlkJajTbX3nI17/sX76VSqxB1ouHM/o7E3D/gsJ/uDndGzupAkN61B3AmAAxEAADfILUgO7/MDXFPQ';
+wwv_flow_imp.g_varchar2_table(1403) := 'nriMBsF7+dKiXnqGErnVKd4gYcxhju//B2+89Xv0ZhrEJZCoihCxDC6oc6WnVvYdtlWtu3aSqlSZnzTGKVKGXXJ1CnG0Gm1mT4+S';
+wwv_flow_imp.g_varchar2_table(1404) := '6fV5sX9R3hx3xGOvnCUUzPzqDqCIKDb6VIbqfHGH349f/9H3ohzDhvZ4Qz+XnEWC/YTnaTo5zCzMY0kf7JAQBtRcvBNn2+h/wIAY';
+wwv_flow_imp.g_varchar2_table(1405) := 'ASpDTc6/hJUEytgWBigCfJaD/PeAJoMzTftBfyqI1WO7D/CnV/5Dk898AyNuSaelxwf7pzDWYfxPESgUqvgB/7C74oIcRTTarSS5';
+wwv_flow_imp.g_varchar2_table(1406) := 'CJrMZ7BGJNYDNZRG6ly7S1X8/ff80a27tpKc6658LtDIT3Pz30pQu+1p89zHBaeZLoMqI3uQCa1wQiAgNRK2QZNzveYsLUiQAvMe';
+wwv_flow_imp.g_varchar2_table(1407) := 'wPkdV5yAs0QA1TOOsJyiOd7nDw6xRP3PMFTDz3DsYPHaTVaOOsQIwiy7IytTtE048ykSUabL9nEtTdfzfV/73omtmzExpZuu4vxh';
+wwv_flow_imp.g_varchar2_table(1408) := 'vlwQB30+xb3pSg5y2/Y1mUWx4H1UNBGZyDPPBgBUBIXwDfZuQHDjgP0TpsxYH46RC4ZXjygh6qiqgRBQFgO6Xa6zJyY5fDzhzn+4';
+wwv_flow_imp.g_varchar2_table(1409) := 'gmOHTpOu9lm5sTsS9bs1SmlSokNk2OUq2U279jEpm2TbN+9nQ2TY4SlkG67m7oVMrxZHxb8fj3ocJ/uLrzjofarTP1/IHaJCzCAW';
+wwv_flow_imp.g_varchar2_table(1410) := 'xhQ3dSMVwLI4NJK4v93wf1ZhPfzYRKh7jI0EegNzjiOieaSwbphcozJbRMYz2BjCwrN+SZxNz7t0zrFD32q9Wpyupvv4awjjmLiK';
+wwv_flow_imp.g_varchar2_table(1411) := 'CbqRgvBwaHSO7txXnF/FiWxlizO88s0p2VwKwAwyMLJw/TBlyKLRut12DnF/c8I81MBlCSpHzDMBLlFs3RvAKOn/fWglFgICwIpi';
+wwv_flow_imp.g_varchar2_table(1412) := 'fXQaXWANK4gpz8nk6MC0zx/Wsm7ZE5Xd5JvP8g6qW2AY2lAki6ozfj0Ren/QYoromeyHnC4z6dmW4blqXszt/FMEgMwgtpkKdDa9';
+wwv_flow_imp.g_varchar2_table(1413) := 'E9sUasL3+8FADM7I7QX8Rdwn4/QAy67wU+2wT/QdCwN5h4GIwC9TUFZV87JKm6TRqz1eYf7cnT6RNq8pKueMbuLSPazXI+epRuC+';
+wwv_flow_imp.g_varchar2_table(1414) := '3KUlPkadsR/MVnvMLQMZBNQj8E9ngLa/3XL8yLT+m0kInCPxf1VlMxgXrZZ0nlHe3GUEri/itB7MljuO5Os+68OtubCAPWttxaf4';
+wwv_flow_imp.g_varchar2_table(1415) := 'RvMyg3o4UBrYO+1dP8shi6ID644nvplOJe8G7rQ/bMYe69Fa2R8lHfW5r+kY2jdxQAABI0zjgNAJiacAlYEK4LnoF52TNzfQj/bg';
+wwv_flow_imp.g_varchar2_table(1416) := 'Q7UQkfs8mJzZ0/shFrooAP62Q4T97eolx2eO/0eM+lFWZv/aDqGBtdXBrcKICSy7jRbFR3qkrWgAoE6Rm2y5HbSD3ioVOObV45zp';
+wwv_flow_imp.g_varchar2_table(1417) := '4zh/R187A0HuWVjkxNtn8Bc3D5B5ITJcswDU1V++buXYA38/StnecfsNNd2WkzESSC1YQyRGETBDEsOstZop6lpNLhLDCYRqIeCV';
+wwv_flow_imp.g_varchar2_table(1418) := 'AMIMkwIgoEmBTlARfBUqTmLp3A0CLi3MsKt9Y18rzrKoSCkYTwqOLodYVMp4r+/fj/v2nGKmY6XBL2z7mxDphfX2lCy3HpolH/5v';
+wwv_flow_imp.g_varchar2_table(1419) := 'V0c7wSEJaWFoeYsO6Iur2+e4l3zU7y2NceWKMIKNIyHFUFUBzdJZ5n8A+keE4c2B7vTcsACoEgpgHKGOwPT++j3WmqvA1bVETrHn';
+wwv_flow_imp.g_varchar2_table(1420) := 'OfzveoIfz0yyXdro+wPyliBinOEqniqOARjlLYzRE745RuP8H/ccAQHNGIPXy4OayBWoeZbDPBfH9/Kxx7bSmCUsnE4JxgUK0JXh';
+wwv_flow_imp.g_varchar2_table(1421) := 'JYxeAq7ojZvaJzix+ZO8PrmHCM2pmsMTTELAtxXMs79RwTaMdrp/w7Al1xmoAIA2W8M6tGHvQE93z5Qpe4sXYRnylW+MrKRr4xs5';
+wwv_flow_imp.g_varchar2_table(1422) := 'JlSlbYYqs5SUocouCX8VyPJZ013PN614xQfveUQ121oMd3xFr5/IdLbyzJesjw5U+HfP7CDWw+NMl6yCyvHixHAqKICHTE0jUdZH';
+wwv_flow_imp.g_varchar2_table(1423) := 'Vd3mrxnbor3zE1xdbtJiDJvPKJUCPry+rLM/U8Z1AagxQxeACARgKx79Rq2CDuSgVx2jhFnOeH53FUb4zMbtvDd2hjzxiN0jqo6R';
+wwv_flow_imp.g_varchar2_table(1424) := 'HXJQb8UvigzXY/xkuXfvuJFPnzVCRSYjz086VNHzgEKWBXqfjLQP/nsJL/+6DamOx4bQkus537S02IgNMXQNYa6s7yhMcsHZ47yg';
+wwv_flow_imp.g_varchar2_table(1425) := '41ZJm3MnPFoG4NZi3uQ5dbfHk4TARgwgxeA]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[PBQI6XGeVkDPv686S8U59oVl/nJ0gi+O';
+wwv_flow_imp.g_varchar2_table(1426) := 'buLhSg2jpH5/0jFXY2N4okROOBV5/NCOWX715he5abxJ0xra1qxrIegN/LLnqHqOR6ar/J8PbeNrh8YYDSyBUewKBv+ZGEA0cRMa';
+wwv_flow_imp.g_varchar2_table(1427) := 'xsMJvLLV4MdPHecfnTrJZd02LZNYDKuKE2Q9+w+wAMjLLjV4ASD7AiE9VmgFKMmMX3OWwClPlKv8zegEn92whf1BiapzVJ1FJYn8';
+wwv_flow_imp.g_varchar2_table(1428) := 'rxUBjCinIo+K5/jgFSf5xeuPsqMW0YgMbbe+hGBh4BtHLXAcagT8zhNb+MzeCVrWMBpYnPZnac+giELTeDSNYVfU4Z/OHOVHT53k';
+wwv_flow_imp.g_varchar2_table(1429) := '+naTyCQiYVbqGuRh9h9gAZCXXWoYLgDkxA1AIV7+cXs+fjkd4I9U6vzB+Db+enSCGc+n5ixl53CrnO3PhSfJjHgq8rik2uWnrzzJ';
+wwv_flow_imp.g_varchar2_table(1430) := 'B684yc5al2acWASCZv8al8EpKOmM7zteaIR8Zu8En94zwcFmyGhgF56x3xgSF6FtDA3jscHG/Nipk3xk+kVuas3TTF2Dc8YI/IyT';
+wwv_flow_imp.g_varchar2_table(1431) := 'x2Bo5j8MSwDy5AYssyQYixCqMmZj9oZlPj55CX85Oskpz2fExgSpyTmMu/dE6TjDfGS4tJYIwU/unuKyehen0IjNgDaHro2a7zAC';
+wwv_flow_imp.g_varchar2_table(1432) := '++ZDPv/8Rj69Z4IDjZB64CgZN5CBfyYCeKpEIsx5PqM25h+dOsG/OXGQK7ptZj2frgj+Uv0w66W/3j0MyfyHoQkA+XED4CWxgJ4J';
+wwv_flow_imp.g_varchar2_table(1433) := 'v9FGHPVD/nDjVj67YQsHgxJjNsZLB/6wERIhaFtDIzZsKsf8yM4ZfmL3FK8cb+GZJHaQtQj0Nu454LHpCp9/fiNffmEDx9s+Nd9R';
+wwv_flow_imp.g_varchar2_table(1434) := '9pKBn0Wz99pu1vO5JHUN/vnUEbbEXaa8ADgjqShr3x+Gav7DEF0AyIsbQGJiuaRzjFiLA/58wyZ+b2I7j5ZqjDlLyTniTPPAE3rx';
+wwv_flow_imp.g_varchar2_table(1435) := 'gcgJ87FHaJQbNrT4xBv2cVm9S9uZ4WXGnUFv707bCT9z526+c6yOS9f4A6N98/PXiq9KxxhmjccrOg1+4eRh3j9zHAPMeV7iFuTB';
+wwv_flow_imp.g_varchar2_table(1436) := '94ehmv8wzGxnVYhcxpsrEqxJZs7JOOKBSp2fuPR6fmH7VTwfVNgcR/iquRj8cDqg5gmMhzEjgeU7x+p89dAYFd9lehq7SyP8T86U';
+wwv_flow_imp.g_varchar2_table(1437) := 'uetonZHAsSGM8YTMZv2liFOTf3Mc8XxQ4Re2X8VPXHo9D1TqTMYRQtInMkckGSNDdJOHJwAiaGwzjQEoSWcYUYcn8NFNl/Lju27g';
+wwv_flow_imp.g_varchar2_table(1438) := 'jtoYE3FEWZNZPy8ddzE9IXAKY6HltsOjdNOsuaxwCoGvfOPFMSxpBl+OBv5iem1fVsdEHHFHbYwf33UDH910KZ7ASB7aXjUZI0Oc';
+wwv_flow_imp.g_varchar2_table(1439) := 'fIbr9Fgdmm9zJo5Fs36pxnsvvYGPbr4ULw38xQOK7Pcbq0LNd3z/eE2/9eKIjpesriSRpt84oO5bPTgf6l/sG9eaP5wg31pxJELQ';
+wwv_flow_imp.g_varchar2_table(1440) := 'i+98dPOlvPfSG3igVFuwBvqxtHveCMnYGHIpvaFHPTQafpmgWISqWjyUj07s5L07rueB8ukGH3yQr8/lgFRpWyO/dM9O2T8fStm4';
+wwv_flow_imp.g_varchar2_table(1441) := 'oYpXugKhDpFfunenPHOqJCXj+viEg1/jsLJoQijXeO+O6/noxE48lKraTFzALMbGcAUgA5WLRZiwEfuCMu/ffh2/Npk08oizQzL5';
+wwv_flow_imp.g_varchar2_table(1442) := 'BDURaG/n9dquqAAi+qbLgpP1sQ0nvnjsipMlT3sSM/DHUVBVYdS3ctfM9tn9buuJd1zuTSnSB+cu+QRRP3lnAxaBBZfQJZPDr03u';
+wwv_flow_imp.g_varchar2_table(1443) := '5P3br2NfUGbCRsMVgYys46GuAgDJFuGyP/CcgN6MOGFj/nx0kn+76TJOegFjNh5igQlFXEhr0/2AUjn+GlRikNUXeTCCNmPhd9+/';
+wwv_flow_imp.g_varchar2_table(1444) := '/YEPvm7jPiDonDiwpbvvnpuN7ZbixAcfyOMJiCeKU9Fwxw1PBDtves6D7qfvPrn7F7/w4quqvuJWnbCooAZRn/bEw6iJqRx/NWq6';
+wwv_flow_imp.g_varchar2_table(1445) := 'DGNU9PIHZj2fCRvx68f38f5TJzjpJcI90JlyYe0/HroADK4gyHIIaDdGAm9gD+sQAk224f7axE4+NnEJoTpGXTx8087EuOAUtnIM';
+wwv_flow_imp.g_varchar2_table(1446) := '9TpUjr8asSXUi2CVPrMRkd/+5rFrP/DajUc9LKXJS4/4o5N3dJ6/91qZPbLNV+tD/1Sgd5exipraxInyzlc+7Y9tPeGcCy2m8ju3';
+wwv_flow_imp.g_varchar2_table(1447) := 'Hb/GiMiqFV0cYkPU69KauJ/u6PP4zS1g4j49wbnpWQOjLmbeePzc1qt4JqjwS1OH6IoQyQCXW52i3eEPfshCACAJH8cWQq/vc1Us';
+wwv_flow_imp.g_varchar2_table(1448) := 'QsU5uiL8yubd/PHYFjbZZBaxw37DanBeB/WbiC0TV4/Q2H47leOvwWtPol7nvEXAKVL2nO6dovb7dxy75BfesnlvN7LlMKy2q9e8';
+wwv_flow_imp.g_varchar2_table(1449) := '+QHXadSiqRcm49mjk9JtVnrBz1XdPiAo4geRGdl8sjy+44RXn5gF6Ea2FAZe+7/ffvzyvSdtbSR0uqrZXxxiy9jSFO3JB7ClaUxc';
+wwv_flow_imp.g_varchar2_table(1450) := 'Rf0mznQQW4Ih1kmwJBmhocb8X5OX8kJQ4qPH91FSR8uYpTMI14IAkc2sctbwXYAeA6gTECOMOsu05/FT26/le5URNscRUSZr+oq4';
+wwv_flow_imp.g_varchar2_table(1451) := 'gLh6lOaW7yLqgybxAFGP8slXEsztRk0n/fmV36MAkQobK9K565evvn1yJOha54wHYIzl9FEk/XrwXmVK45zzk8sYN9+x/hv/6zNv';
+wwv_flow_imp.g_varchar2_table(1452) := 'Ojxrq6HpHSdyPh8J4kpE9QO0Jx5CvS5iQxBFJaZ69A34zS1DiQcsRaDKMT/g9a05Pnf4Kcat5ZTx8Ps8aw1j3/9yZJf7aF2aGNSf';
+wwv_flow_imp.g_varchar2_table(1453) := 'j0vMN8vzYYl/sv1a7i3XMxz8pM9lsOEMiE2nU5cIgSitTffTnng4FYbzOzlEgZJxeniO0m9989huILJqwJgkM9e5EOcCnPP79CfA';
+wwv_flow_imp.g_varchar2_table(1454) := 'udA55xtjNFYDEP3fXz1yxXNTrlr23PkPfjWI8+mMP05r871gLOKCJD6igNjk3WEy2/QQibA5jri3XOefbL+W58MSo66PKwRp2S9s';
+wwv_flow_imp.g_varchar2_table(1455) := 'dgvQ2QmASOL39EH4IhHGbcyD5Ro/fMkNPFSuMe7i7AY/LAx4F86ShM8WfUMFcQHdsWdo]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''';
+wwv_flow_imp.g_varchar2_table(1456) := '[bvkumDjt/Ct/GU5Fqr7qnz8wu+vQTFQPvUXVxo3RQfwxxqgDQg93fC6qfeGB2V1VX9XpebxoccmzGktr8710xh9H3BkiKMl/XDh';
+wwv_flow_imp.g_varchar2_table(1457) := '7WhAyIhJh3MU8lPatB8s1xm2f+paS+v7Z9dNsdz/0wQqIESZszH3lOh/Yfg1zxmfUWuKst8mooBLjgnkEb6kfQGy4EBew5anz8nc';
+wwv_flow_imp.g_varchar2_table(1458) := 'VCIzjeEPDf/+lQ9cBsbWDrzUeJ4GU6OPfPLb7WEPD8HzW/xf8/RmaW+8iqh9AbJnTHsaiH8XDBfPJqknGCUYxwqi1zBmfD2y/hvv';
+wwv_flow_imp.g_varchar2_table(1459) := 'KdSZsvLY+loPZH7IWgDVaATHCiFruWTT4Kxklcbwcg/NbOL+5vIkviQg4v5EMiJHnExFYYkAshVWRWuD0G0/Nb3/4UGtD4Jl4kKk';
+wwv_flow_imp.g_varchar2_table(1460) := 'k6exvn3yxteFP75u9rBqsdPZPnkdsmah+gObWu7ClmWTwy1IDIHERnN/E+S2y7qaQBpf1tAjcU64zomuYaHIw+0Me3uwqrQCLUFf';
+wwv_flow_imp.g_varchar2_table(1461) := 'LMS/gQ9uuZtb4VNUOP9K/JIqoQYP5NAnoLPckuqa4gCdKIxbzsVuPXAU4N0ArILUw7Ee/duTq6ZYGgaxk9j+9vr+kv7/sryUBUw3';
+wwv_flow_imp.g_varchar2_table(1462) := 'mkfOMkQwKS5JROmt8PrTtao55AfXV9LmczP6QBwFYhRXggFAdM2c0ROZmf49eADA4dToAeFZWHxewKlIPnP7tk43tX3t8bkvgmSg';
+wwv_flow_imp.g_varchar2_table(1463) := 'agAhYIPBM/PCh1obbnm5sqwdO7blm/564GUtr0zL+/nL0AoHBKbIMBJ5JfMbEM2N8Qj3PVOyczP6QBwGAJA0ysitq5F4BCg/40La';
+wwv_flow_imp.g_varchar2_table(1464) := 'r+H55ZG2m2CBYNgB47l9cTVxAgFhFfuebR66GwTRqalm4j9165KpGLMY7V6xisXuz5btEI8v7+0v/fvKfPAQCz6Tnen6/PMKHtl2';
+wwv_flow_imp.g_varchar2_table(1465) := 'Fx3mcAN9b9x/ypp/lyIcACGgnXtFBkI4kd/s/bNrFXZUxJm2Ur8EPwOIA4Hm+4lXEBZwiVd/pfS90Jr744PQ2r89WQGSdBJ6Jvvb';
+wwv_flow_imp.g_varchar2_table(1466) := '43Ja/fbKx/dyz/xJCFi/n7y+PYE4HAnPWxjHCpI24qzLGf9i0ixFnV7aL0KV9PSePkw8BgGTwnyMdMkaYcBGfGdvMH45tZaPLcJ3';
+wwv_flow_imp.g_varchar2_table(1467) := '/LIhLItgumAfncd7T1yriAgKICB/96pEbAD/w+nfoYNpJ5He+eeTqWOUsb/xsrsz5+rsKi96juKVWUrIlEmGji/jDsa18ZmwzE+4';
+wwv_flow_imp.g_varchar2_table(1468) := 'ck5GQ9PHsXf8F8iMAAtpNTaMl3mEv6Hd/uc6vTp6H4g6dNBdnzTPX+cUFeinCz0652n+7/fglQNTtQ0Q0sk48z0RfeXR2830vdCa';
+wwv_flow_imp.g_varchar2_table(1469) := 'q/jIpv2sMZi7NaUvqPIzsodKzSH91chf3l+vLBwUFsJr08Rx12/wIACR9vv3yDSBJ7TklRviVTbuZMx4B/dx/3kf67rueR1xAITD';
+wwv_flow_imp.g_varchar2_table(1470) := 'KJ+86cSUQhB661smmN/v/9m1Hr9bl9hWscTlzWVYdSxkeCgQ45ozHr2zaTYzgoUs+tbb7k/jWT/IlAEKySaj70tqBFmHMxfza5E7';
+wwv_flow_imp.g_varchar2_table(1471) := 'uKY8w5uKcLPctwSCi1yscYA6k4jndc9LV/uNfHbwKiOI1vKiuRTzPdP/b7cd33Xsg2rj07L+2hKazct6rKdnQ65/3lEf4tcmdL++';
+wwv_flow_imp.g_varchar2_table(1472) := 'fIkmfjvM1+0PeBACSZcFOtLA5wpJs0fx+eYQ/GtuS78EPg1u/XqGJ7VSk7Kv+6X2zu0/MRdWXpAifJ2FycnnwR3eduDLwzqwy0J+';
+wwv_flow_imp.g_varchar2_table(1473) := 'U5rNzHvkUGdMTgT8a28L3yyOMLu6nTgd+yu9qyZ8AwEtemEdy2st/3LSLSMyy5lVekIUMtjb9f73nHnQKhMZxokHwG18/djkQr8Y';
+wwv_flow_imp.g_varchar2_table(1474) := 'KSOMH0e99+9jOZ6dcreypLqRrDcTfXw6D89s4v5kKaj7puamRJH21bZK+euaEljfy+UZTkymOHWPO8sX6JN8rjzJqcz77p90gCQA';
+wwv_flow_imp.g_varchar2_table(1475) := 'OcsY6u9ntVKQaOP3cPdOXP3KotSH0OK8U4d6GnxNzUfX//dbxa0qesnCi1qD8/eVQQSVKA4GrWFEZIhZh1MZ8rzzKF+uTjDlLHLu';
+wwv_flow_imp.g_varchar2_table(1476) := 'XubR5Ip8CQDJ2Ss0uB03AxzfuSKKrOX2JC6S3Z0tTg09eOctAVBRfSFKEv370Ss4zRbi34ee3vnls9+E5SiXjtGdfDMzfX440EGh';
+wwv_flow_imp.g_varchar2_table(1477) := 'LU8m/c94FrCSrVR/fuIODJqDU7ObZc8mvAFgR6nHMp2uT7A3LlF1Oo/6LSQOASdR6COmrZzHFrarUfNVvLtootJLkoMXbff/8gdl';
+wwv_flow_imp.g_varchar2_table(1478) := 'dFf+06S8upDu6l+aW7wzA31/uGQFMuqqS30BgDwXKzrE3LPPp2iT1OM71xJVLAei9xH3lMp+b2MqIWwezPyQ72Lwuzm8gOixzdfm';
+wwv_flow_imp.g_varchar2_table(1479) := '4gDGWlhXz77546EZYWWOns3/8m18/dvnxhoaBZ1HnIWpoTz5Ie/LBAfr7S6GIeji/gfO66XXzjU0rDX9uYiv7yvmevHL5Nnsv8K/';
+wwv_flow_imp.g_varchar2_table(1480) := 'GN7N/vcz+vYi138R5nQw66svNc43LUvVjvXt/e/Irj85uPleKsAVCj/iRQ60Nn7tn+vJqaFVtKOp1aGy7i+7oXsSFC9cbGotrK+Z';
+wwv_flow_imp.g_varchar2_table(1481) := 'kZ+DZ6E1g+8MyfzW+OdcTWO4EQElqsZ30A744vpmqcznN+DuDnqkanEqq2WbRR5eICxhbBuC3bzt6NSBna3Db2/Dz9SNXNmJM4EL';
+wwv_flow_imp.g_varchar2_table(1482) := 'i0gma27+NLZ9IB38GD6YsVFfO087As+EQqs7xxfHNnPQDAs3n6lXuBMCJUHeWO0bGebg2QlUtg69z0z9sOEumM9QZcYHmxMNS84z';
+wwv_flow_imp.g_varchar2_table(1483) := 'ee8Bu/G+3H93leaa7VIpwZJ2EnokfOdTc8M2nGtvrxtf2yF5pbbsL9TqJv59pF9b03a4PnEBVLQ/XRrhjZJy6s7gcWgG5EwDRJBD';
+wwv_flow_imp.g_varchar2_table(1484) := '1hY2bk7Nm8iibS7EQAJwj+1nqpXGBxpbvEvhd/ujOU1eCC9IEnyV/8f/+yrFrWpFnupseoDX5YOLKDC2esQwLgcC5dREIXEBBVPn';
+wwv_flow_imp.g_varchar2_table(1485) := 'Cxs04Bh8vXQ25EgAFSurYH1a4pz5GRV0uVXNJFgKA80MMAJ6LxCWIKkfE7fy2Pj1/ovZ735zbyRkbhXrbfb/yUGvLN/bMbJOdd2h';
+wwv_flow_imp.g_varchar2_table(1486) := '7]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[5DnJxN9fkl4gcH7dBAIhsWYr6rinPsb+sEJJ8xfLytWbtCJUnOWu0Q0cDULCdRH8g9';
+wwv_flow_imp.g_varchar2_table(1487) := 'MBwEZGAcCzkMYFYr8hbsed/NYD91xzYoaXpggnU5N8/O7Hrmps/1a2/v5yLAQCG+siEAhpVqZzHA1C7hrdQCWHwcAc9dTU/Bf41u';
+wwv_flow_imp.g_varchar2_table(1488) := 'h4X46aHBoC4GFL02Ci/PVNUXA+oe/0+fK9pf/ywLd3A1FsrUTOSmC86G/27Nl8Z3TbRCVsq7pAcvcQCpgoeccM7li5QSCqfGt0HC';
+wwv_flow_imp.g_varchar2_table(1489) := 'f5cwNyIwAL0X8v5PFKjZLq+jH/AdB0B2Be71lxzkjVGP3c3vt3HZybq4ee5zzjKeD96t1/d52I5sh9WQpJ33Fe7+/lOBFKqjxeqX';
+wwv_flow_imp.g_varchar2_table(1490) := 'HSC3O3GpAfARChpJY9lSqHwgoltbl6UWelt0wV5nuZSlFCMRxrd8J/c/vfXgdYA/HvPHDPzoemT4xVxVOX18TVhUBghsusqyCJa1';
+wwv_flow_imp.g_varchar2_table(1491) := 'kOhRX2VKpJv87RxJYbAXBASZWHqyM0jMFbJw0MrKtEFYtK3Xj6twee3/7wsRfHAPnvj9x7ZUkGdvZtn8g60Wr1eAoNY3i4OpJYtl';
+wwv_flow_imp.g_varchar2_table(1492) := 'nf0CKyOR14CUSTwxceq9TWl/9Psu5u0wh1vk3oBE+EmTgyv/vwfbvesPWS6WdPzdTGvEBtXmf/HotWWvyomuy4zKu5dQaiymOVGr';
+wwv_flow_imp.g_varchar2_table(1493) := 'FIruIA+REAklTUF4Mw55s+z2CxaSo2KQKa8z5pVaXu+fzlnqd2ffm5Z3ZWPY/cD35IXS2bvOvW1uQ9r4OOkmwST/p279jmvJALOy';
+wwv_flow_imp.g_varchar2_table(1494) := 'oJADqm/IBDpTKBulz5SeemFwBcPySH0zjTjGPfy1WXPDfrLRCoIgTqOFQqM+UHSf/O+qZSciEAkFoAYmgYL6f1X5fBCWq6uNJ0cg';
+wwv_flow_imp.g_varchar2_table(1495) := 'joOhpLQt5LbJyBkBwaWppGTZf1kiOe1ImGhvGwYnLVRXIhAJqW/jrmBzSMx/KZqnmkV7KqNcQtsv1j3d2t9g5dHUTJtcHhoTSMxz';
+wwv_flow_imp.g_varchar2_table(1496) := 'E/SMra5cTCzUUMQAFflWNhiYbnM2Ij7PmfqXN20tQWQVBVdYJbuxOZBADVnzdqIhH11/h5BeekV3TVn1fpjri1nxqU9AGjGBERJa';
+wwv_flow_imp.g_varchar2_table(1497) := '191sdmVCBUZc4LOBaWeEVrPje9JBcCsIDCvJeU/RzUFmCrTgMvkKoXrv2oGUmOvHblPYAF9deVC7Au6W26KjdE4lEPr92X2osN2y';
+wwv_flow_imp.g_varchar2_table(1498) := 'VysXriDaQFDUrD83I3P+RCABL/X9hgI94+O0XF2b6vlYrvETvnan5opmy3+UgQPijWBmtac1QVqETxhiPXixeMk5TOKyRgoKiKF0';
+wwv_flow_imp.g_varchar2_table(1499) := 'jsH5n2G8eegFaArGFhTUXU86LXRt1XbfTCaiPuOt8Yo+dVRvXcGKBlPDbYCCvLHLCSAbkQAKNKWwzXN+f54jMP9V0kRcGGRmv1mr';
+wwv_flow_imp.g_varchar2_table(1500) := 'HWnvq7527/Z+964FPfLUGls/qT2hb8h9pv/+dveKY+rnQ1t+VfLxhUxYQSBS8en/ndWz6QfnHVvlwJTAdav3zLh97wtsvf/Mee54';
+null;
+end;
+/
+begin
+wwv_flow_imp.g_varchar2_table(1501) := '025hvqdZ30e2FUgLYY2mIwOcl1yYUA9LAizEv/b0lRDaynM61o9k+O3v3hf/3Ap75fq23e3Iiaq5f5IDDEtl16y2svM2Fpl8YxFL';
+wwv_flow_imp.g_varchar2_table(1502) := 'P/MBCNY0xY2lV619uv7nz73n34XpkoWpWQd4BaUB151wOf+v5vB8GHfmbLD3wS6482PYsMQMyFlx2tlCm5EgAheUH9RlXdaFjybj';
+wwv_flow_imp.g_varchar2_table(1503) := '386G/+6/s+cfuO2uYdhxrHumv60KAmdBotLr90l5RKJW13HHLWilsF/UBEcOqkXCpx+aW7uPW2J/FrJbqNVXuNje6821HbPPmvv/';
+wwv_flow_imp.g_varchar2_table(1504) := '+J269+zYbffNe2V3x0utuwIuTvSOI+c8F3WEW15AXe8c7c0f+850tfHQlHJo83ZqI1f3CIAC7YPPkqjIF8pXhf2CgOYwg2T74KcG';
+wwv_flow_imp.g_varchar2_table(1505) := 'lbrInjjZloJByZ/M97vvTV4525oyUvSI5DucC54AUAxZWNT9t199wz8+yU07bfpbv2hm1EDvClXr05Ka2xDlJpLxhUcA6pV28G/L';
+wwv_flow_imp.g_varchar2_table(1506) := 'Qt1kSXrjpt+/fMPDvVdt09ZeNfFKJ+4QsAYFUxIqOlUimQtUSMe4Sh0O3Gwe4d4xqEl2scJ6ZpwXAQEY1jNAgvD3bvGKfbjQnDNb';
+wwv_flow_imp.g_varchar2_table(1507) := '9/EdFSqRQYkVF74U/+wEUgACLiNWxHN/j1a39p1w9dE3e7jfGgtkbfLhSgK6+8aYeEwSTW9rI9C4aDwVqVMJiUV960A+imbbJqxo';
+wwv_flow_imp.g_varchar2_table(1508) := 'OaF3e7jV/a9UPXbPDr1zZsR0WkiAFcCKiqq3hB8LM73/yLbYhFxIWEq3/2QAXoepdderWUwgB34ZuKucPhpBQG3mWXXg100zZZFS';
+wwv_flow_imp.g_varchar2_table(1509) := 'GhERHXhvhnd775FyteEKjqRdGmF4UAiIg3GzXtZdXJdz7x1t/8nanu/BxgV20JJEEnNRvHrscYyF1+10WBYgxm49j1gK42EJj2AT';
+wwv_flow_imp.g_varchar2_table(1510) := 'vVnZ974q2/+TuXVSffORs17cUw+8NFIgCQiMB01IyvG9nxvqfe+rHfrpQq0XTUmB8Pan54vuZjGgA05er1WEsRAMwCFazFlKvXs4';
+wwv_flow_imp.g_varchar2_table(1511) := 'pAYEgo40HNn44a85VSJXrqrR/77etGdrxvOmrGF8vgh4tIAAAE/OOdOXt5bfP7nn3zr3/pj1/587dMR42TXbrxlqDm18MVuAWLA4';
+wwv_flow_imp.g_varchar2_table(1512) := 'BhcEURAMyIXiAwDK44n0BgPQzNlqDmd+nG01Hj5B+/8udvefbNv/6ly2ub33e8M2clZ7kxg+aiEgAAI+LNRE07ElRueu/21/75M2';
+wwv_flow_imp.g_varchar2_table(1513) := '/7+K//3M53jB2NGifnu93WeFDzxoOaFy6b1ZcEAM2NN2yX0C8CgNmRBgL9SXPjDds5SyAwBOm163y32zoaNU7+3M53jD3zto//+n';
+wwv_flow_imp.g_varchar2_table(1514) := 'u3v/bPR4LKTTNR05qLaObvcVGpXQ8j4s3FbWdEvN21TT/96zf8b+/5N1e+67NffvH+r/zyU59/gmTw17YEtaAh4rrdebeQNlhTQ5';
+wwv_flow_imp.g_varchar2_table(1515) := 'eOd+3Vt0i5HGijabkIO04ucOqkVgm8a6++hb/5+sPUtE43CciGQBjWTU3VHI0aUTdqzAH6sWt/8vof2fbq92wujf3TkaAyMRs16c';
+wwv_flow_imp.g_varchar2_table(1516) := 'SxuxgHP1ykAgBgRIwC092GDY0/cWV927/6]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[8GVv/5fvu+T1X3m28eLf/u+PfO47TzZeO';
+wwv_flow_imp.g_varchar2_table(1517) := 'EHSl6q9gOE8oUQ0MGMj1yeflKcSjxcbybvvtUVAKPUgSd+djhq2252fn4fudbWdE//PTT/1w1fVtr17zK++ZySohPNxmyTdVzxzE';
+wwv_flow_imp.g_varchar2_table(1518) := 'adwX7QCAOneAxEv0linuvPOExPuKI+/d1t5/L23/+B/eG4qmr/t3pnnvvkrj336kRe789OAMN2olkpjFSqVa08HAIsQQDYkgUAql';
+wwv_flow_imp.g_varchar2_table(1519) := 'WtLpbFKZ3q6PQ1NQLeF9dHfvPGnf+C1Gy5/x8ag/vaxoHq5AU7Fbaa681YEc7HO+ou5qAWghyAigudQnYmaTkGqXnj5RLj18h3l8';
+wwv_flow_imp.g_varchar2_table(1520) := 'Y+8e9NNe+bi9kP7mse+9dXD9z/4Mf+uU4Hv71ZrofD/s8SoteD7uzuXxJVfjt81+sPbX/2qy6qb3zril28ue8GVVa9Ey3aZjZpOQ';
+wwv_flow_imp.g_varchar2_table(1521) := 'BEpBv4i5MS7/0dhwi6BKk5RFcFUTCglL8CixK3W/Ncnms/8xJtar6yo5+XroKeLD0FoibV/dkfl4XeerF7tVyp1D6FjI1quq6q4V';
+wwv_flow_imp.g_varchar2_table(1522) := 'OALoV6CwgJYBhFMr25Ly0auZbsaCbIVv94Yr98S+21MV7GF9Z8pRpU4EK8xXr+lelI4EjVdoCiIiIi5GLb0roVCFVeACKYXLHLO6';
+wwv_flow_imp.g_varchar2_table(1523) := 't21eVd4/vlASKIwd9fmnXNWjYgREa+Y8VdGYQGcBz4wH4g8uDEWz66+llhB/3CAZ+HBjbGZDwS/cMnOi0IlV4gCgYNjJcdzNUfJS';
+wwv_flow_imp.g_varchar2_table(1524) := 'ZEAnANUoOSE52qOYyVH4IqNGedDIQArxAmEVniuZjkZOvyio+UCBXwHJ0PHczVLaGW9HBiUCwoBWCE9C+CJMUvkUUSWcoQHRF7SN';
+wwv_flow_imp.g_varchar2_table(1525) := 'oUFcH4UArBCesGmRzfEWd9KwTI8uiEu0rLOk0IAVogHNHx4ctTiuSIAmCcc4LmkbRp+YZ2dD4UArIDFAcB91SIAmDd6gcB91SIQe';
+wwv_flow_imp.g_varchar2_table(1526) := 'L4UArACigBgvikCgaunEIAV0LMAHttQBADzSi8Q+NiGIhB4PhQCsAIEsAbunkjOEyk6V/7otcndExHWFIHAlVIIwArwFeYC5dm6J';
+wwv_flow_imp.g_varchar2_table(1527) := 'bCF/59HVCCwwrN1y1yg+IVKr4hCAM6BIzH/D5cdL1QdYWFe5hIFQgcvVB2Hy0kgsFipOTeFAJyDXoT52bpjJp1ZCgHIH0piqc0Ey';
+wwv_flow_imp.g_varchar2_table(1528) := 'rP1YqVmpRQCcA56EeYnxmLUK15YnjGAeklbFSs1K6Poz+dAgNikWWbF7J9rFFBN2iouAoErohCAc+ArzPnKM3VLUJiVuUYFAic8U';
+wwv_flow_imp.g_varchar2_table(1529) := '7fM+UUgcCUUAnAWnEDJCnvrjr11R6moAZBrHFCyLGqvIiHoXBQCcBZ6keVn6pb5YkZZF/gK86nFVqzYnJtCAM6CAkaT7DItfMp1Q';
+wwv_flow_imp.g_varchar2_table(1530) := 'XJqa9JmpojZnJNCAM6CIUkvfXwsQorZZF2ggLikzaJi1eacFO9nGc5cVw6LAOC6QAXCIm9jxRQCsAy9jvRCxXG4UmSWrRcWMjcrj';
+wwv_flow_imp.g_varchar2_table(1531) := 'hcqhXCfi0IAlkGB0MLTo0UAcL3RCwQ+PWoJbWEBnI1CAJZBAU/h8bEiALje6AUCHx+zeIULcFYKAVgGA7Q8eHA8whQBwHWFAsYlb';
+wwv_flow_imp.g_varchar2_table(1532) := 'dcqAoFnpXg3S9ArAHKy5HhypKgws97oVXB6csRysigRdlYKAViChRpzNcfxUrEFeL3RS+A6XnLsKw5xOSuFACxBL5L85Kil5Rcva';
+wwv_flow_imp.g_varchar2_table(1533) := 'T1igFZaxblYwVme/x+C803fieZghwAAAABJRU5ErkJggg==]'')),'||wwv_flow.LF||
+'       photo_mime_type = ''image/png'''||wwv_flow.LF||
+' WHERE can';
+wwv_flow_imp.g_varchar2_table(1534) := 'didate_id = 6;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'COMMIT;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'UPDATE tms_candidates'||wwv_flow.LF||
+'   SET photo_blob = apex_web_service.clobbase642blob(';
+wwv_flow_imp.g_varchar2_table(1535) := ''||wwv_flow.LF||
+'                    TO_CLOB(q''[iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAABMSklEQVR4nO29eZhd2Vmf';
+wwv_flow_imp.g_varchar2_table(1536) := '+35r7b3PVKOqNLbUGtytHtyD3dgYzwM2NtjGwQNwQ2LiEAyEQEhCxksucBkSCGCTGwiBkIQxJIANMdjGeGra3Xa3e2671ZK6JbWk';
+wwv_flow_imp.g_varchar2_table(1537) := 'bk01V51x77W++8c+p1SSqko1naGk/T6PuqUaztln77V+65vWt2TyrW9VMjIyrktMty8gIyOje2QCkJFxHZMJQEbGdUwmABkZ1zGZ';
+wwv_flow_imp.g_varchar2_table(1538) := 'AGRkXMdkApCRcR2TCUBGxnVMJgAZGdcxmQBkZFzHBN2+gIy1o80/rf8uRJDm/zMyliYTgE2EB1QVETAIgQhB8/96mQg0VPGqJHrx';
+wwv_flow_imp.g_varchar2_table(1539) := 'O4YVCoJksnG9kAlAj6OAV8WKUBBDzgpOoeodMy5hLEm4kMRYBJoyYEXYG+UoGstgEBKI4FFqQKypHCzr+3m//L9bZEKx6ckEoEfx';
+wwv_flow_imp.g_varchar2_table(1540) := 'KKpQMIactcw6x5F6lYfKszxZrXAubnAmblD2jjnvMVx0BIzAkA0YsAE35PLsLRR41cAwd/YPsjWKsCKUnSNWxQKycCKrpn8W4lw6';
+wwv_flow_imp.g_varchar2_table(1541) := '2b1Pv+c9uuDvV/x8JgybBsl2A/YWLTO/31qsCIdrVf5qZpLPzU7zQqPOtHMYgQAhFMGIzK/+LRRIULxC7D2JKqExbA0j7uzr59tH';
+wwv_flow_imp.g_varchar2_table(1542) := 'd/BNQ0MMByGzSZIKwXKTdqnvLRQA50AVde7i11rCkAlCz5IJQA/hvKdgLXljuW9umv8zNcEXZqeZcgk5I+TEzE9Ubfr2Sz281pQT';
+wwv_flow_imp.g_varchar2_table(1543) := 'ScOBqhCrp+Y9Cry01M+3jW7lb23dyfYoYiqO0WZsYdUsZkF4D86lgtAUh0wQeo9MALpNayKLMJzPc7he47+fe5FPTI5R937eElBV';
+wwv_flow_imp.g_varchar2_table(1544) := 'lvDEV4xwURCqzlF2jtv7+vnQzt18+9YdAJSdI9iICXq5KDSFQJ2DJMnEoEfIBKAbtAa/MXhriaKIXBDyBxde5NdOnWA8bjBoA4wI';
+wwv_flow_imp.g_varchar2_table(1545) := '7nL/eoMQ0mBhxTmq3vPm4RH+1b6buLlYYiKON0YELnnDBa/XtA5IEjRJLgYZMzHoOJkAdIoFk54gQIIAZw19QcRU0uBnjx/lExfO';
+wwv_flow_imp.g_varchar2_table(1546) := '0m8DImNI2jTxL8cARoSpJGYkjPiJ/TfzrtHtTCcJ0MY6gtZkV00tgkwMukImAO1GNR3MQYCEIVgLzQk+ZAOemJvmXx49xLFqheEw';
+wwv_flow_imp.g_varchar2_table(1547) := 'xOnlGf3OYEVo+DRG8Pd27eGf33iAajNe0PapeJkYaBxfdBMyIWgrWRqwHSxY7SWXgzBMV/7m9xLvGQrSyf+DzzzFdJIwHIYdW/UX';
+wwv_flow_imp.g_varchar2_table(1548) := 'w6kSiNAfBPyX089TcY6fPnCQsnPtF4GFnzsMU6H0HuIYbTQyq6CNZAKwkbQGcmu1D8N00C6IgDtVBoOAJ+Zm+MFnnmIuSeiztquT';
+wwv_flow_imp.g_varchar2_table(1549) := 'v4WSZhe2RRF/cPY0AD/VKRGYv4gFwcFcDomiVAhaVkHrexkbQiYAG8HCiZ/LQRBc/PqCie1UKVnLofIcP3DoKSrOUbC2bYG+tZKo';
+wwv_flow_imp.g_varchar2_table(1550) := 'MhqmImBF+Mn9NzOdJMvXCrSD1n2JolQIkgSt1zMh2EAyAVgPTR9Voihd7RdO/Mt/FAiNUPWOn3juGaaTmP4g6LnJ3yJRZSSM+P0z';
+wwv_flow_imp.g_varchar2_table(1551) := 'p7m91Md3bd91RXagZTG0/n45l9cirJmFAhsEqQC0rIIsTrAuMgFYCwsHZD6fBvYWfn3RX1GKNuAnnjvMU3OzbOmyz78SvCr9NuAX';
+wwv_flow_imp.g_varchar2_table(1552) := 'TjzH7aU+bin2MeccQpo5CESIjMVIGkRs1SO2/u80rUZsaFqN6FXnf3dNLLjvBAESRWitllkE6yATgNWwnKm/DKnfH/KJsbP8r3Mv';
+wwv_flow_imp.g_varchar2_table(1553) := 'dj3gt1IUCIwwmyT89LGj/O5LX8ZAEGARGuqZjGNO1qvMJAmHy3MkzZ2KqhCIcEupj4Eg4MZcgeEwnE9vVp3DqWLWahm07p21SKmU';
+wwv_flow_imp.g_varchar2_table(1554) := 'uQbrIBOAlaKaDrhWVL/1tav9GhAZw/lGnV85eYyitfhNMPlbOFUGgoBHZ6f5rRee580jW/nE+bM8U5njdK3GWNyg0dxvsHD1F2ha';
+wwv_flow_imp.g_varchar2_table(1555) := 'CIbRMGJ3Ps9LS/28cXiEO0r9bAlD5pyj4f36haDlGsRxKgStzUsZVyWrA7gaLT8/l4MouhjVXyFOlaEw5CMnj/GfTp1gZJOs/ovR';
+wwv_flow_imp.g_varchar2_table(1556) := '2prcKheOjCEUWdLHb8UIYtV5kcgZw62lPt4xspVvG9nOnnx+XgjWHWRsPZtGIxWCLD5wVTIBWA7VNMCXy6V5/AUBr9ZmnMVo1dyr';
+wwv_flow_imp.g_varchar2_table(1557) := 'Knlreb5a4bu/9iidy6W1Fyty1XuwkIV7ELwqtWbB0e5cnvdt28l3bt/JjijPdBKvP2AIF7cu1+tpHUEmAkuSuQCLoZoW8RQKEIbp';
+wwv_flow_imp.g_varchar2_table(1558) := 'RpxmMYqVdFdeYAWDYOViBFwAp+le/sQrVXXkxPDp8QvMNIt9ejXqvxpW+xkWZgsg7XFQspapJOZXTx3nYxfO8k9v3M+7R7dT8Z54';
+wwv_flow_imp.g_varchar2_table(1559) := 'vdZA8/lRKCBBkAYKvc+EYBEyAbicBau+F0G9J28MeRugKHPOcbJe5Vyjzpl6jdP12nxqLFFldy7PzlyebVGO3bk80y7m4xfObjrf';
+wwv_flow_imp.g_varchar2_table(1560) := 'v514UksgEGEkDJmIG/zTI0/z4PQU/2LfSyhZS9m59YsApJWF1mbWwBJkAtBiwarvm9H9PmMxIpysVXhwZor7pyZ4vlblTL3OjIvx';
+wwv_flow_imp.g_varchar2_table(1561) := 'mk761pBS0sCXEei3AXvzBSJjmIgbhE2zOeMiSnr/QhGGw5D/ee4FjlbK/Pubb+PGXIE5twHFR604QGYNLEoWA4Bm3iqAQgEVoc9a';
+wwv_flow_imp.g_varchar2_table(1562) := 'VOGB6Qn+Yuwc901NMB43AAjFEBmDRZZtlONQ6t6jKEVjs8m/AgJJU46DYchv3Hond/cNMp3EG1eB2IwNaLWapgwzEbjOBaAV4c/n';
+wwv_flow_imp.g_varchar2_table(1563) := 'cWFIXtKo9pemJ/i9M6d5YHqSWD0lawnFNH9l+U48LYRma24hM/1XgRWh6hx9QcB/vvVO7ij1r98duByR1CXIMgXXsQC08vr5PM5a';
+wwv_flow_imp.g_varchar2_table(1564) := 'BqzlbL3OL588xl+MnUOAviCYj1xfnzepO7QalYyEEf/rznsYDkLqqht7io1IWkBUq13XdQPX58lALZO/WEStZdgG3Dc1wd/++qP8';
+wwv_flow_imp.g_varchar2_table(1565) := 'nwtn6Q8C+oIAr9q1/fnXM06VorVcaNT5]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[8aOHULik6/GG0BwDUiqlY+E6tdKuPwFQTYt';
+wwv_flow_imp.g_varchar2_table(1566) := '6ikVEhKIx/PaZU/zgM08yEccMhyG+Wbee0T2cKn1BwFemJ/nIyWMMNAV5Q2m+npRK6Zi4Dp/5dScAUiig+TwClKzl/z1+lJ85doS';
+wwv_flow_imp.g_varchar2_table(1567) := 'SCYhENm2V3rWIU2U4CPm9s6f54uQ4/e0QAUgnfj6f1n1cZ1wfAtBS+mIxLedt5vZ/6tgRfv/sabZGEcr6u+5mtIFmq/JfPnmMqnN';
+wwv_flow_imp.g_varchar2_table(1568) := 'r30l4NVTTvgOl0sV/Xwdc+wLQyu83fb3Ee4bCiN944Xl+58xpRsPokvPzMnoL34wHPF2e5VPj5xloZw+FVmC4VLqk9Pta5toWgNY';
+wwv_flow_imp.g_varchar2_table(1569) := 'D7esDa3HesyUM+Yuxs/zaqRNsjaLM5N8EKEpODL9/9oX2dya6bMxc6yJw7QrAQjUHfPPUnWcrZX7m+FFyxlxSn57Ru3iForEcKs/';
+wwv_flow_imp.g_varchar2_table(1570) := 'y5ekJSu0uq14QHLzWReDaFIDLJj+kaV4B/t2JZxmPG0TGZGb/JkIlLaz6xIXzQLrhqhNc6yJw7QmAKhKGl0z+tKlFyJ9fOMsXJsc';
+wwv_flow_imp.g_varchar2_table(1571) := 'ZCq6NXXnXE6ppSfVXZ6Y4Xa8xHHbOfZNSKe3yfA2OmWtLAJqTn2Lxki9bEeaShN8/+wIFY7Jo/yZEAWOEskv4sSNf5/HZabY0t2p';
+wwv_flow_imp.g_varchar2_table(1572) := '3ZFoWi9ekCFw7AtA0+ykUrmjF3W8DPjl+nqfLsxSybbmbFlUlbyzPlOf44Ncf57+9eIpSEBCItP+ZqqZj6xpzB64NAVjE529hBOr';
+wwv_flow_imp.g_varchar2_table(1573) := 'e82cXzhKQbcnd7HjStGAgws8cP8JPPPcMSbPzUifcumstJrD5BWCZye+brbgfn5vmybkZirZNlWQZHaXVXnw0jPjf587w/YeeYCJ';
+wwv_flow_imp.g_varchar2_table(1574) := 'uUMpEYNVsbgFYWOSz2LeBSIR7pyaoOY+5Pjd8XZO0momMhCFPzc3yXU89ytfKsx1ruX6tFAttbgEQSct7lygMsSJMJwn3T02QN6Z';
+wwv_flow_imp.g_varchar2_table(1575) := 'jqaOMzpFoetzaeNzgHz7zFA9NT3VmQ9dVxt5mYVMLgBSLS5piCoTNfvxn6/W0oUc2/69JWtuHK87x9w89wR+efYGhMGzvuYst1/O';
+wwv_flow_imp.g_varchar2_table(1576) := 'yjNNmY3MKgGp6JNcy+7i12WvuRK3KtIvnW1lnXJs4VUJjCET42eNH+dDTj88fwQZtKhxq9RTI5zetK7D5BKC1nz+Klr3prtlB5mi';
+wwv_flow_imp.g_varchar2_table(1577) := 'lTOx1s1tqGSvAN5950Vrun5rk7z/9OL966vh8K/e2WAOtXYSbtJ/A5hKAViefJRRXudizvi8IsEHIVBJfC2dxZKyQ1ulFA0GAFeE';
+wwv_flow_imp.g_varchar2_table(1578) := 'jJ4/x4UNPMpHE7csSNPsJbMbOQptHAFoR/2LxipvcmviBCFvCEAEenpnmV48f5VNj59u/eSSj53ALUoUPz0zx3c0swWC7ysBV07G';
+wwv_flow_imp.g_varchar2_table(1579) := '5yTIDm6opqBSLV6isa/r6/UHAqVqNT46f49PjF3imPEfNe/qtzfz/65xWk9H+IOA3br2TO/oGmGvHtuJWo9FKZWNft41sDgFQTds';
+wwv_flow_imp.g_varchar2_table(1580) := '1LfD7W6beUBAyHjf4g7Mv8Kfnz3C6XktP8jEG0ywR7f0PmNFuFrYb/8M77mFPLk+lHR2GRNLDSavVTZEi7H0XoOX3L5j8nnRr75Y';
+wwv_flow_imp.g_varchar2_table(1581) := 'w5JPj5/g7X3+Mj546xlQSMxKGFJpbfbOOvhktnCoFa5mOY/7Vs4fSswZMGyzDZlBws8QDel8AWod0tiZ/0+QPRPi548/yT448zcl';
+wwv_flow_imp.g_varchar2_table(1582) := 'aldEwImg29cx2+2UshlOlPwj56vQU//HUcfrbVRresljNJphe3b6AZWnl+5s30jU3fVSc4x8ceoL/+uJJ+oOAgrVZX7+MFZGoZyS';
+wwv_flow_imp.g_varchar2_table(1583) := 'M+KNzL/KFdnYaNmZT1Af0rgBo85Te5h5s3zTh5pKEf3g4LfkcyXr4Z6yFZneoX2lnp2HV9GTiq9SrdJveFQBj5vP9rbLeuSThhw4';
+wwv_flow_imp.g_varchar2_table(1584) := '/xeOz0x3b9JFx7dHqNHyoPMsnx8/Tb9vUabhVH9DDrkBvXlnL9J9XZiVvDD9z4igPT08xHGTdfDPWh6JEYvifZ1+k4jf48NGFNA+';
+wwv_flow_imp.g_varchar2_table(1585) := 'f7VUroPcE4DLTP+3oE/I7Z07ziQvnGI0iYs3CfBnrwysUjOVwZY6vzkxRbFexWI+7Ar0nACKQywEXTbVnKrN89OQxBtt5KETGdYc';
+wwv_flow_imp.g_varchar2_table(1586) := 'IxN7z6fHzCG3eLJrL9WRdQG8JwMKov+r8sVAfPXmcuvdZRV/GhtIKLD8yM03VOcJ21AXAxTL2HnQFekcAWk09F0T9+2zAA9MT3Ds';
+wwv_flow_imp.g_varchar2_table(1587) := '5Tl+7AjUZ1y0KhGI4U6/xh+deIBJL25LJTVeg11qJ9Y4AwKWBP0n39P/umdPz/87I2GhEoKHKFybH2z/EWgHBHqI3BKCljs3yyVa';
+wwv_flow_imp.g_varchar2_table(1588) := 'A5unyHA/PTGW7+TLaSnpUfND+N2qVtffQ+QK9IQAiaUOFJtpM+316/Dxz7TwSOiOjSSfdS+mhgGD3BaB1ms8C36jVzPOB6cm0mWe';
+wwv_flow_imp.g_varchar2_table(1589) := 'PqGXGtUsg0hkvs9VLsEesgO4LgMgVO/1yxnCyVuVkrZod4pnRdqwIY40GFe8wnZCB1o7BHrACuisAC1f/BV8LRThWLVN2SWceSMZ';
+wwv_flow_imp.g_varchar2_table(1590) := '1i28eN3a4MtfZo+N6xArorgBctvpDmpqxIpys10i0J0Qy4xqndXzcvZPjhJ2qNekRK6B7ArDY6k96P5wqL9ZrWeFPRkdQIDKGR2d';
+wwv_flow_imp.g_varchar2_table(1591) := 'nqHbyBKkesAK6JwCLrP4tnMLpWq0HAhQZ1wOqSk4MJ6oVXqhXiYy9bqyA7syxJVb/hYSZ7Z/RIVpu55SLOVGrEomgnVqVu2wFdG+';
+wwv_flow_imp.g_varchar2_table(1592) := 'RjaJlv52Z/hmdJN0YpBytlAk67XpeZS60k84LQKsa6io10VnuP6OTKGktwKHyHIl28CSp1h6YLjUR7YoFIMsoniqERri5WEofRCe';
+wwv_flow_imp.g_varchar2_table(1593) := 'vS8AYwRhBMhfkmkFEFjzXpX/OAJNJ3JVmM8vNiXbSgQLoy1iB2gkwEkUdM8NE0oERJ45G7ECVILBEYYAIeJ9ZI5sRYwRVaMQJSeJ';
+wwv_flow_imp.g_varchar2_table(1594) := 'AhCi0hIFFlUv8fFUlMoZTtSoTcYOBIOzcArTQKvadbXbTWQFoBf9ElhQAIT3z/aZCKd2f3ea5Z42h2ohJEse2Lf3s2b6FwBrOjE3';
+wwv_flow_imp.g_varchar2_table(1595) := 'z4oUpnPeUCrlMBDYZxgjlah1rDLu2DrFzdJDEeU6dm+D8xCxBYClEIe6yCedVu2P9]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[iS';
+wwv_flow_imp.g_varchar2_table(1596) := 'BhiNZqHc0KdFYARK6++ovQUGVfvsCgDWn4NC/bjulnjTBTqbJv5yjf9bZX8Irb9zHYV8BIOnieef4sf/zZR3j40An6CulmpSw00d';
+wwv_flow_imp.g_varchar2_table(1597) := 'u05s5spcYrbtvHB976Ddy6d0cq4qpMz1V5+OkT/K+/fpgTZ8YYKOZxPu0CYEQoe8dYo8FQscNNZ1tWQIfFp3NHg7V6oy1yuOcVP4';
+wwv_flow_imp.g_varchar2_table(1598) := 'qSE8v3HXqCR2amKLWhd7s1hulylW99zR38w/e/iYFSnkq9gXPpSfLWGPJRiKryp59/lN/6s/vIh0GzT8GGXkrGBiHNvl61OOH7/9';
+wwv_flow_imp.g_varchar2_table(1599) := 'bred9b7kFEqDVinPcIYK2hmIuYKdf49T/5Ip964GsMlgo47wnFMOtifv2WO3n98AhzSdLZnagi6bmCcdwxIehoEFDCcEU/5xXy1v';
+wwv_flow_imp.g_varchar2_table(1600) := 'Cm4RHiNvhh1hqm5yp862vu4F9+7zsIAsP0XBXnU/PPNPPA5WqdSq3B93zrq/jhD7yJuVojCw72MCLCXK3BD3/gTXzPt76KSq1BuV';
+wwv_flow_imp.g_varchar2_table(1601) := 'pHVTGSBnadT62AIDD8y+99B9/6mjuYLlcRI8wkCWXvulqYs9I5slF0TgCMWXGqwzRPc33bllFGw4jEb5wIGCNUag1u3b+Tf/SBN1';
+wwv_flow_imp.g_varchar2_table(1602) := 'OtNUgSj7VXbjtqZQPGp+d475vv4Z2vvZPZcg3bw33er1esMcyWa7zztXfy3jffw/j03Hz0fyEtKyBJPNVag3/0gTdz897thInypu';
+wwv_flow_imp.g_varchar2_table(1603) := 'EtvH5gmEFr548X7ygtN6CD46sz76SKrMK/EdLNGTfmi7xlyyhzfoNMsWZE31rDj37XWyjkQ2Lnrhgkl/yKgBHDXLXOD7z3DezdOU';
+wwv_flow_imp.g_varchar2_table(1604) := 'K13sialPQQRoRqvcHenSP8wHvfwFy1jhGzfMrPCLFzlAoRH/7ON3F7Xx//5eaX8t9vuZODuQJ177sXDOxgTUDnpGaVpo0AsXr+zs';
+wwv_flow_imp.g_varchar2_table(1605) := '4bKBm7IR1brAiVWp13v+4uXnpgF3OV+opWcxFInKO/mOeD7/ymrEipB/GqfPCd30R/MU/i3IrWGmsMc5U6Lz2wi3e+/i4mKlUqra';
+wwv_flow_imp.g_varchar2_table(1606) := 'PmuvmMO+gGdEYAjLnY6nulv9J0A24v9vO+7buYSZJ1nd4iArHzDPWXeN9b7qHWSDCrMLWsMcxWa7zxnlu446YbqNQby1oOGZ3BGK';
+wwv_flow_imp.g_varchar2_table(1607) := 'FSb3DHTTfwxntuYba6OhdNjOBjxze+5nZMIcK0xmiH8/HzNFuId8oNaP+7tMz/NXwgI0LFO37ghhvZky9Qc37NF2zEUKk1+MaX7m';
+wwv_flow_imp.g_varchar2_table(1608) := 'P7yAD1OF51rEdVscbwlm+4hThxdKiJVMYyCEKcON7yDbdgjVnTJh5JPOVSSH33IKaRLFun0hGM6Zgb0BmZWaNJI0DDp8c5/9SBgz';
+wwv_flow_imp.g_varchar2_table(1609) := 'iUtfYH96pEYcBbXnFr88yR1b+OEUOtEfNNdx5g19YhGknS7X4O1zUi0EgSdm0d4pvuPECtEWNkDUNa0olQOTCC2gW/3y0rADrmBr';
+wwv_flow_imp.g_varchar2_table(1610) := 'RfANZg/i/EijCbJLx5eIQf2r2XC3GDYJWzLi3zTdgxMsAt+3ZQa8RrCvC0Bty2LQPcuo7XydgYWjn+W/ftYNuWgbULsggSe+KtJZ';
+wwv_flow_imp.g_varchar2_table(1611) := 'L+HDiXfr1bVkAH3YD2vkNrp9M6P4gVYSqJ+cEb9vLBnbsZW6UIGDHUGwl33nQDg6XCioNEiyEACq+4bS+s0ZLI2BgEuexZrAPvcf';
+wwv_flow_imp.g_varchar2_table(1612) := 'mAxvZ+TOLTPmFddgM6cYpQ2yVGgo2qNhZq3vPTBw7yPTt2c76RpuJW+tAV5SU3bN2AFVtInGffjhHyuRDfTTPxOsd7Tz4Xsm/HCI';
+wwv_flow_imp.g_varchar2_table(1613) := 'nzrPv4KBHiLcVL6867+Hw3bu4sTWdcgA2gdXpr2Tl+cv/N/MDuvcwmCYnqVa0BVSUKAvbuTAfKelZtkTR/vH10gOH+ErH3WRygC7';
+wwv_flow_imp.g_varchar2_table(1614) := 'RO9h3uL7F9dIDYufWJu4B4JRkqoIG5KALdtgLa/RZtfXVrN9SMaYlAxXv+zb6b+JWDt1O0lok4xjZLeK/4HYHYOQb7i+zaOkiSJO';
+wwv_flow_imp.g_varchar2_table(1615) := 'saKK2agMG+Iru2DZLE63u9jLUhIiRxwq5tgwz2Fdfl1jVfEEk8yUAOlw8vrvzdjAO05k8baZ8AqCLWbnhdtTT/TMQx7xzZzu+/9O';
+wwv_flow_imp.g_varchar2_table(1616) := 'V8+9btzCQJc0mCINhFXIPAGkK7cc0erRGiMOhczwL0ij+9QreuTYEoDLAbWY9hhCvaAnfLDRBJ51AbRai9FkAbfZigGRjcnS/wH2';
+wwv_flow_imp.g_varchar2_table(1617) := '6+nd+87S5eO7SFmndMJTGxKgYhMAaXOG7cPsxQf7FpKq7vvVWVwFpu2r113S7F1WhNptiEVG2BSlCkEhSp2xxeTFeFQFC8GOo2N3';
+wwv_flow_imp.g_varchar2_table(1618) := '9dVVsgNuEl196e905jMTft3kpg7cY08fSKy4ckgzkk8RcXr266AW2OA7T31dvsw1hJA4Oo8vqhLbx6cJjHZ2f4i7Fz3D81wYuNOs';
+wwv_flow_imp.g_varchar2_table(1619) := '4r1SShjm54/X5g2/v5BMWJpWbzOLnUFEwkoGEiIt8g5+p0euuKoNRtjoaJLn1vgZgQaxx5V8Oqa+u1bfgzEK60Wq/hOED7BKCV/u';
+wwv_flow_imp.g_varchar2_table(1620) := 'tEGqNZKyAi3DMwyDcODHK+WuHr5TJHahUem5hgR6HERg/Fdn601uSvBEUUWXI1rZscipB3tY6JgKDUbJ6GiZY0+VvXXkwqbRWBjs';
+wwv_flow_imp.g_varchar2_table(1621) := '1N7cIxVa16gDa2CmuPALRuVgdLKlurezlJUO8p2YA3DA3zFjOCH9nB3K4BzviNNdfb+ckUoWbzy05+SCdjw0RYdYQ+brsICEpswv';
+wwv_flow_imp.g_varchar2_table(1622) := 'nJv9zPtT5DMam07Xo6tjZ3QwDg0nnUhvdvmwXQiRzmYrSEwKkylySoCCZJaODXnSa+nA0NPi2gNcmc2BX50YLSsBGBT9pyPQtRhI';
+wwv_flow_imp.g_varchar2_table(1623) := 'ZdfvIvvC4nlsQEbROnDX8GrSjz5XTRDZAgQJP2PNv2ORjdbJrRbOZgJM0IGGMwsUeS9ZaLXcSrMluutS0FmJjVCajHsPatUu19n9';
+wwv_flow_imp.g_varchar2_table(1624) := 'V+lpUiIsyWaxu3PVtAEkVif93EAdrzymmD/ba89FW5/EGpolaws3VMPdkQM0pE8N7z/NkJrEmN3Y1mtaulIqgs7y6sF0FRkTVd20';
+wwv_flow_imp.g_varchar2_table(1625) := 'ajKNYIz5+dwG9U8w4RTD3BztZRu4j72i0RMKZt7kf7BKBbWyqXajfutZnaWf9biKRbUOuNrAiom4gI9UaSbs3eoI5RknhkqRbw]''';
+wwv_flow_imp.g_varchar2_table(1626) := ')'||wwv_flow.LF||
+'               || TO_CLOB(q''[3RrPrfnUBjZeADrc0GBFGMFUE4LpWrrdcx0PMj25yDAxXeb0+UmiYINy0Jdh1a3q5w0eo';
+wwv_flow_imp.g_varchar2_table(1627) := '341q61K8w8rjKUpgtHUCVgNq/0sK7oWVaLAcvr8JBPTZUJj1jc/VVFrCKZrmGpyZTFQN1nnjtplX3rDXxGQLvv/VyCCeE8wVUXXe';
+wwv_flow_imp.g_varchar2_table(1628) := 'ciAqhKEAWfHZ5iZqzaLUNb+eosjBD5ZsTmvCNa7lU5MBfCqkvj0j1eVhd9bDoPH+pWn9QRtBic3dkKpQmAtM3NVzo7PEITB+oRYQ';
+wwv_flow_imp.g_varchar2_table(1629) := 'Y0QTFURv0gMoPWmXaJdc6pNr9pjAtB8uNHYHOKWeLgrfXmUwAhHTp6jsVGm5xXvka6akW+sYKIJBr+iYiAB9ariVRksRJP7tw0e3';
+wwv_flow_imp.g_varchar2_table(1630) := 'b9t8OhgIZr0aS88uZo8KkLO1Ztic5VNWAiRbzTrADYeEaGROI6cPEew3liMCOI80djc0ovENRgIbE94tpfMf0jNu8AQXihjqzE+W';
+wwv_flow_imp.g_varchar2_table(1631) := 'nu7JRHBq/L4kVME1jS7BrfDXBTyvoGIoWGi5lcWnGWXXgyinkJSw8ry3ZIUNHFe+nLhzG17tn5995aB8Si0MUAjduHpiZmRQ6cuv';
+wwv_flow_imp.g_varchar2_table(1632) := 'HSuHg8E1qgsO7uVoqtRDQqomPmsy8Xvpv/K+QY53wC5suX6RiCSVgI+fuQU3/m2V6xPjI1gqzHhhXJzN2Dv7LUANpkAdCswttxDs';
+wwv_flow_imp.g_varchar2_table(1633) := 'wZbbhC9OEPl5q2YWrxqP897JZ8LOfL8OR49fBKU9OCJdV72UqRXF6PNwhsvF5PULdM6cnUazaKbxZYtIdU/RGRkoDD92oM3frkQ2';
+wwv_flow_imp.g_varchar2_table(1634) := 'ep0pWpqjaQEkI+C6p4t/WdH+4rT9x85+erxmeogqiqCLBFSRYgR6sQ2R2KCBdaHYlSJfAPvY6qLXtXG0GrO8ujhkxx5/hwHdm+lV';
+wwv_flow_imp.g_varchar2_table(1635) := 'o9X36zVKz4fkD8xgS030FyQnk6zGN0sCGoDGy8AbQxYrIvm5RSPjVN9yciabqiI4JxnoK/AT/6Dd82fMtt+0tXdi8E3dzoa9Yiux';
+wwv_flow_imp.g_varchar2_table(1636) := 'AxPi2UaSZJ87anjj8RxXHMqxW978z03qzG7AMT7F//mK4eOWkP1m+98ySN33Ln/DVEQWLeiA1kUFYMXk56vp4pRP3/N7SZt9+YY6';
+wwv_flow_imp.g_varchar2_table(1637) := 'Cvg3BrTgc0YUfHYePrvHhu6lwTWN3jAdadcr10sd3NU0cgSnZ0lHK8QbykiyeqOgRKBxHuG+4vsuOslzaBTOwf5pa9/hQuwYNVd6';
+wwv_flow_imp.g_varchar2_table(1638) := 'jq8ei0VcvLQ40cPz5UrM8aY4F1ve+U3HNizbbQWp9Vl+TA4UCrmBz7+qa98pd6IZ0qBPfyNL7vppeVqXY0stZwufM/FXYCrXdvGo';
+wwv_flow_imp.g_varchar2_table(1639) := 'PPpwGQtzVlU0cASjleIzs6i0VW233bLAmgTGysALaXq2RskSOLof/wFJt56ME2CrfJShVQE4kq9LVe4kShKFFg58cLY3L0PHjrhF';
+wwv_flow_imp.g_varchar2_table(1640) := 'L7pZQf337hrdHRqtuKRtIVurdbwN+4aHf3Glx3cf/8jzxy998FDJ7ZtHd47PFDsaySNtm533ijErPEqNd3/3//4C0ji0Sig90wAL';
+wwv_flow_imp.g_varchar2_table(1641) := 'tYCLJWhWCMbbwF0swjoajStgPzJKQrHxqm8ZHRNsQAhHXC9jvdoLgrl5AsXTlWr9cbo8EDxtoO7b67HMWIuesoqYupxzG0Hd9986';
+wwv_flow_imp.g_varchar2_table(1642) := 'Ojp02OTM5WTL1w4tWP0ptvixKu5Vs9B84rPhxSfGyN/curqq383aVMxUI+F69fJSh6eggaGwQdPEk5V04e+VMBnk2OMSKXW8M+fO';
+wwv_flow_imp.g_varchar2_table(1643) := 'n9BgD27Rkb6i/koSbwuHEoCJInX/mI+2rNrZESA50+dv1CpNfy1PPk1soRTVQYfPHlpH8Dl6FWBWCMbLgDd2gW4KozB1BKG/+YYp';
+wwv_flow_imp.g_varchar2_table(1644) := 'u4uRn0XPlxlUz9sr6phaJmeq8yeOT81Xa3HyZ4bRncYK4uXSigYK9x4w+j2euySs+enpqfnKrNhaPHtKHXsFKqXTmzVdPLnAkzdp';
+wwv_flow_imp.g_varchar2_table(1645) := 'WOglvRe6noR2jG3ZPKtb924h6uK5POQy3Vn8ji38vc1gtQT4pESU6/ZS2NbP+KbdeAKagU1gqm7TgSz24aq97Nz9ZlzY5Pju3eM7';
+wwv_flow_imp.g_varchar2_table(1646) := 'urvyxdi56/4SAqE1jBbrlbOj01f2DLUP1gq5QZMV8s614mCz9l0H4hLd4KqEdQYovOzDD3wPOF4efm03+WItL1R55LvW6+jtdqGu';
+wwv_flow_imp.g_varchar2_table(1647) := 'gLXlgCsds+0pEFBNUL1JaNU928hGcihRrCVmOJz4yR9EXN37NiwnYSdRgTCICCw6bFmy6X2WinDXBTinCdOks1pBKnicwF9XztLM';
+wwv_flow_imp.g_varchar2_table(1648) := 'Neg8pIRXDFEvBLM1Ckcn6Dw3Bji0wzAqj9kN6zcNgnAJrDX24heHADFZ85TPHIBXwjTwHDDYefqVG7dRhnYrGaAKtQbsdYURGTZN';
+wwv_flow_imp.g_varchar2_table(1649) := 'LkAzinlSl3TmNMmVDyAZt4id37u4nONLKJgqvG8/9+TFX8dZuMFoBvm0XpoDgDNpekfaSRp+Zs1uGKEnakhjc3tBlxt4l/6s5t54';
+wwv_flow_imp.g_varchar2_table(1650) := 'jcRkIbDztRwxSjd519LUhcgNOkPqG6+yd+GubV5/buNphUsSov7m1ExIZipE8zUoc0dgDM2EGsuPrcFz5LWVqfNNvHbSDaql0NA4';
+wwv_flow_imp.g_varchar2_table(1651) := 'nQlWbRDTEbv0eoANVND4s1tuXWCTACWQwRRJf/idJpJyuZ/79M05PIvTiPXWNluO8gEYDm84q0hHCtjGq63usRkLI4RTMMRjpXx1';
+wwv_flow_imp.g_varchar2_table(1652) := 'lyzRV4bRSYAV2OhP2kNmRnQy+gizytjObI7dDVM2ik29+I0PjCssh1eRifx4AND7sXptG4js9iuyrUlAO3w95pVgfnTU82gUjaoe';
+wwv_flow_imp.g_varchar2_table(1653) := 'hYRJHbkT081g7bteY9riWtLANpBa7/4WIVwugZB5gb0JgqBIZyuEY5V1lbhdx2SCcBKaLoB+ecnMzegV2ma//nnJzPzfxW051yAa';
+wwv_flow_imp.g_varchar2_table(1654) := '43m4CqcmMDW4k2xc+y6wxhsLaZwYuLaFelNcS5Am44xXhFt888UQkMwWSU6M4tGWQ15T6GKRobozCzBZBXCNrpp3YwBtGFuZUvZS';
+wwv_flow_imp.g_varchar2_table(1655) := 'mm20CgdudDMLWcmZu8g4DV9NjD/rDKuzrUlAO1U51ZT0TMzhOOVbCdZr9A682G8QnRmpv1tvbIswFXopgvQdgSJPaVnzrcvzZSxO';
+wwv_flow_imp.g_varchar2_table(1656) := 'ppp2tIz59Njva9ly2wzuAB6TcYAmjSt]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[gMLxCaKxChp2P9WkXrsjRNp8726iioaWaKxC';
+wwv_flow_imp.g_varchar2_table(1657) := '4fhEZ5p6dtECaMfcurZcgE5gBNNIKB0613UrQIyQK0RIp69DQWzzvUXacjrySq9DrVA6dA7TyFJ/a2FjBaDVt/xatgK84qOg61aA';
+wwv_flow_imp.g_varchar2_table(1658) := 'MUKjnnDkqZPMTlUwQee03ASG2akKR548iUscYRh0XggvW/19tIq+fmul2xmADT4TAK7FlmCdOJNABGkk9D92molvvplO+p2qShgF';
+wwv_flow_imp.g_varchar2_table(1659) := 'PPSFp3n60ePMTJZ5zdvu5NXfcidz01VsmzfAOOcp9OV49r7T3P+ZJ9iybYC7X3Uzd736ZuJ63JbTkhcnPdSl/7HTSOzSAz2uYfO/';
+wwv_flow_imp.g_varchar2_table(1660) := 'XbSnEOha34fdOmDk1DT509NorrNWgIiwdecQ5dkapYECTz30HKePnafUl8c73xaTXFXxzlPqy3P62HmeeuhZ+geLzEyU6Rssdjb0';
+wwv_flow_imp.g_varchar2_table(1661) := 'pormLPnT0+RPTff2gR4bQWtR2xSFQN3utdbhFWjg4VOYagLSGRNcRGjUY15y+25uuXsvtXId5zyf+qMvc/zwixT68gRhgPe6IUE6';
+wwv_flow_imp.g_varchar2_table(1662) := '9Yr3ShAGFPryHD/8Ip/6oy/jnKdarnPry/Zx0x27aXRy9ReDqSYMPHyqaXx16n27uKi1aV61xwW4lmMALZo+aDheofT1s8x84x5M';
+wwv_flow_imp.g_varchar2_table(1663) := 'ZfXHjK0NIY4TXveOu5iZmOPMqXFE4JN/9GVuuetG7nrVTWzdOYR6JUkczvnUKEt/FZD0Nun8yzXHls531Enb3xuCKECMcOHMFE8+';
+wwv_flow_imp.g_varchar2_table(1664) := '+CyHnzxJEBjqtZidN47y2nfcRdxI6Ngk9IovBgw89CLheAVfCDvX9KPbMYA2sLHnAkD3zwaA1R0QshGoMv4tt9DY3o/EnTk/QFUJ';
+wwv_flow_imp.g_varchar2_table(1665) := 'Qku9GvO5P/sqJw6fJVcIiRsJUS7gwG03sP/WG9i2a4hiXx4bWNSnQuCdx+vF8wEUMCIYa9KuwMbgEkdlrsb5F6c4/swLHDv0Ao16';
+wwv_flow_imp.g_varchar2_table(1666) := 'QhgF1Ksx+27ZwTf/rVeSK4QksevM6q+KhgHRuVlGPnO4sxOyWweCtN67DWcCQJsEgCBASqXuCUAnMxHNw0WSgTwX3nVbW85wXwpV';
+wwv_flow_imp.g_varchar2_table(1667) := 'xVqDGMNj9x/miS8fpVppEEY2nZRGKPXl2bJtkK07hxjdMUSUC+gfKhLlwnkXQUzqVsxOVWjUE8bOTnHhzBQT56cpz9VQn4pN3HAU';
+wwv_flow_imp.g_varchar2_table(1668) := 'ihF3v/pmXv7aW1Dvcc530PRPs0xb/+IQwUyts1t+jeneJjARtFxOD77peQEAMCYVgG6hmloBncIIUkuo3LqVqdftR2qdy0mnAT+h';
+wwv_flow_imp.g_varchar2_table(1669) := 'UIwYOzfFY/cf5cSRM9QqdYwRRATf9OONbR6YUYiwCyePCC5x1KsNFPBOMUYwJs3xe6/kizn2HdzJy197M6Pbh6hWGoB2bvJ7RfMB';
+wwv_flow_imp.g_varchar2_table(1670) := 'Q186TvGZC2i+A2m/hVjb3SKgcrkti1p7BEAkFYBu+kyrPSZsvUh61uDU6/dTvnVbegJNBwtTvFfCyGKtZXpijmOHXuDEkTNMXJil';
+wwv_flow_imp.g_varchar2_table(1671) := 'Xm3gvSKmeWaOXOmxXwwBKOrTOoNcIWLL1n72HdzJgdtuYHBLH8454obDdLLoxiu+EFJ65jxD9x1PD3HptHXZzUNvVVMBaMNnbo8A';
+wwv_flow_imp.g_varchar2_table(1672) := 'qKYCEHThQbXodBwA5g+gGP+WW2hsLaUnCnVwomjzcBMb2tQNaDhmpyucf3GSqfE5Ji/MUK/FzE1XLonaqypRLqRvsEguHzK8dYCh';
+wwv_flow_imp.g_varchar2_table(1673) := 'kT627Rqmf7BIEKXmv2v22e/owUHNY7yiC+XU7/ddSDF32/9PklQA2vC52ydr3d4U1ImCoMsxBnGO4S88y9i7bscVQiTpXB9BkXRp';
+wwv_flow_imp.g_varchar2_table(1674) := 'd4kniR1GhP7BIkMj/YgRvEufSa1SJ0n8/GWlYRtDvphLP4Y1qFdc4nCJJ24G+aTTpbbNTIutxAx/4VnEedR2Ieff7ZqWNs6l9glA';
+wwv_flow_imp.g_varchar2_table(1675) := 'J33wxejGQ1NF7cUBO/HWm9NAVRtKOJdDFqzSSVMMWqk9gCAMCKMrLp1GPZ7/uzRfKD0prTv3EmMwjYThLzyLrcTd23zVbQFo41xq';
+wwv_flow_imp.g_varchar2_table(1676) := 'W1hTr0cBgIt9A87NsuXzz156Jl0XSNN6Mh8QbG3e8U7ng4PeKao6/31j0tW+a+N+wRmNWz7/LNG52e5W+3VZANo5l9ojAK1NQd0W';
+wwv_flow_imp.g_varchar2_table(1677) := 'gW6lbbyi+ZDozCyDXz6RrlxCb5WryhJ/7zZN80NDy+CXT6Qt2PIdLPa5nG73f3SurRZk+z5dL+wJ6GrllqK5gNKh8wzdfzw9j96Y';
+wwv_flow_imp.g_varchar2_table(1678) := 'rInIciioMWhkGbr/OKVD59OIfzf7DnR7/La5tL7dW8fa+vJXpdu+myquEJI/PMbA549hEg9W8FnPuivwKmAFk3gGPn+M/OExXCHs';
+wwv_flow_imp.g_varchar2_table(1679) := 'vtXU7THU5jnUVgHQTufiF6MLJpwCTgxODNZ7SqFj15HnGfnrw0jsKdoEl4nAPE6Fok2Q2DPy14fZdeR5SqHDej9/H7siA902/2n/';
+wwv_flow_imp.g_varchar2_table(1680) := 'HGpfFmBhc5Bum1EdwmFAINSEAVdDFMaCPh7L38hndtzB/eEB3JECP3HgIe4sjTER5wnkWu6heHUSNWwJazxVHuVnj30jtv91vPbA';
+wwv_flow_imp.g_varchar2_table(1681) := 'Mb5l+mvcVjvDaDKHCpRNRCxp4xHbqab/3V79OzB/2lMI1EIVKRYh7LIp18aiII+gIlj1lHydQD1nw0EeLO7nrwbu4MulmzgVDlMx';
+wwv_flow_imp.g_varchar2_table(1682) := 'OfLEuBhGgho/v/9LvGnoNFNJhKpg5PoKDngVRJShoMEXp3bzb46/jvEkjw2hRkjR19kTT/Lq8rO8feZrvKpynB3xNIkYyiaHE4Oo';
+wwv_flow_imp.g_varchar2_table(1683) := '0jbboJvFP633j2O0UtnkApDLQT7fXQFow96A1gAsaoPIJ8zZPPeXbuLPB1/OA6WbOBGN4sRQ8A0iTbCqeAQx0PCGWA0/uPNJfmDX';
+wwv_flow_imp.g_varchar2_table(1684) := 'U3ig4sLrxhpI1FC0MQb4Ly/eyW+cuYtQPJHxaRkyihOhIQFVE2HVs68xxmvKz/Ke6cd4bflZ+lyNhgmoSDQvwBtKl2v/EYFaDa3X';
+wwv_flow_imp.g_varchar2_table(1685) := 'N7EAQPc3BrXYAF9KEZwIoXr6XY26WI7kd/KJwbv5y4G7OZzfQU0Cir5BTmNEwYugl+XZJE10M5VEvGnoNP9iz8McLE4ylURwDVsD';
+wwv_flow_imp.g_varchar2_table(1686) := 'XgWaq/6RyjC/eOoVfHFqN0NBurFosftkVFGBuoRUTEReE26pneWdM0/w7uknOFg7]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[Q04';
+wwv_flow_imp.g_varchar2_table(1687) := 'dszZPLAar2ry/66Sbtf9N2rUBaCHtFwBIBaDbAZV1bBH2CF6EvE8o+RqTto/7+m7md7a8lvtLNzFn80Q+oagNRHXRSb8YVjwzSY7';
+wwv_flow_imp.g_varchar2_table(1688) := 'BoM4P3/AE3731MApUXICRlbzC5kBJJ3/RJgjwRxdu4ddeuJvpJMdAUMfp1cfGRTEQKhLRMAF9rsZry8/yvRP38/q5owy7OcomT80';
+wwv_flow_imp.g_varchar2_table(1689) := 'EmPW4B93c+tvC+1QA2kz7BaAXGoS0WKUV0PLvi75B3jd4PhrlY4P38LHhV/BYYQ9WlZKvY9WjIvg1TFkrSuwNcy7kzUOn+LHdj3F';
+wwv_flow_imp.g_varchar2_table(1690) := 'rcYKat9R8gJW1vGpvoIBTQ94k5I3jmcoWPnr65Xxhag99NiY0fk3ZEIMiqrj5eIDw8uop3jv5MO+dfpS9jTFqJqJiorXFCbq9+re';
+wwv_flow_imp.g_varchar2_table(1691) := 'xAcgVb9UJAeh6g5AWK7QCtLnil3yd0Duezu/iz4dezu8Nv5rnoxGKvkHRN9KNNxuQSRXAiDLrQvLieN/Wo3zfjq+xM1em7EIa3mI';
+wwv_flow_imp.g_varchar2_table(1692) := '2kRCkK74hMo6SjTlTL/HbZ+/gTy/cTE0t/TbG64YY6mlGQKHSnPB7G+P83ckv856px7i99iKxsZRNDrNS16AXVv82NgC54q064QJ';
+wwv_flow_imp.g_varchar2_table(1693) := 'Aj7gBsKwVkObvLfnmBH+isIffHH0jfz74cqZskZKvk/cxXsyaVvurYUVxKsy6iJ1RmfdvPcp7R49wQ65MxQXUvZ0Xi16kNalzxlG';
+wwv_flow_imp.g_varchar2_table(1694) := '0CS/US3xs7CB/cuFmzjRK9NvG/GfcaAyKUU/NhJRNjiFX4T3Tj/HhsXu5u3qKiomomQirbvkn1+3VHzpm/kOnBKCX3IAlUoKJGCL';
+wwv_flow_imp.g_varchar2_table(1695) := 'v6PcVjue28Uvb3sHHB+9h2hYYcFVC9bgV+vbrxYrS8IayC9mVK/P+rUf49pHn2J2bQ1Wo+KAZRuwtCibBiHK63sf/GX8Jf3LhIC/';
+wwv_flow_imp.g_varchar2_table(1696) := 'WS5RsTLRGc3+1CIpVJRbDjC0w6Kp8x/Sj/Pj5T7O/fp5ZU6RhLMFiWYNup/5a19Ah8x86KAA94wbAJVaAJz1LftiVOR8M8lujb+B';
+wwv_flow_imp.g_varchar2_table(1697) := '3h1/DqWgLQ66C1bQardOkK72n7gOqPmAkqPLNw6d498hz3F6cwIonVtMTIiCk8ZLDlWH+fPwlfH5yD+NJgYJJyJkEr92p5Gs9uyl';
+wwv_flow_imp.g_varchar2_table(1698) := 'bZE9jgg9OPsD3j/0N25JpJm0JEMzCoqJeWP07aP5DB10A6CE3wPu0oaVYBlwVJ4b/PfRK/tPWb+bJ/G4GfZWcT0i6MPEvp2Xyx2q';
+wwv_flow_imp.g_varchar2_table(1699) := 'ouJBIHDcXJ/mFA/exO5qj4U33dj6T1pI31PJjz76RR2a340hz/KH4DfPz10ugnroJmDYF7qqd5h9d+BzfOfVVrHpmbCF1C3rB94e';
+wwv_flow_imp.g_varchar2_table(1700) := 'Omv/QycNBVSGOu19eCTgTIMBIMssjxX18YN8P8UN7PsixaCvbkhkCdT0x+aEVSRcsymBQp2hjHp7dzhcmbyRvk7bEIlZ8bSrkbML';
+wwv_flow_imp.g_varchar2_table(1701) := 'R6hAPz22nZGMGgzqW1M/vhckPqXsXqGNbMsOxaCs/tOeDfGDfD/FIcR8jySxCOia6TrP6r5NWcudGuUi6saGLLoACiVj6tYY18HP';
+wwv_flow_imp.g_varchar2_table(1702) := 'b38V7DvwI9/bfwkgyR15jErEd8fNXS0sIPMKAbXDf9C5ib7u74xkhJ477pm/ANS2RXpr4C1GERCx5jRlJ5ri3/xbec+BH+Lnt78I';
+wwv_flow_imp.g_varchar2_table(1703) := 'a6Nda89l38yI1nSMdfKidXeac65hvczk+7Yebrvr5G3nPvh/h53a8G6uewaRK0qbI/kbjVSiYhMfL2/TLM7t0KKhrN3YWeoSiTfT';
+wwv_flow_imp.g_varchar2_table(1704) := 'Fer9+cmK/FpupvV7HIyRiGEyqWPX83I538559P8Ij+RvnrYGujINm889Ob6HvuJ2rcdzptyQRS8HH6QPf+m28Z+8P80jhRkZb5l/';
+wwv_flow_imp.g_varchar2_table(1705) := 'bzX1hIzuBKEItEfnp46+UU9WSRMZ31GppZiDUe5WfPvFKOVbul9D4Df2E7c5xOEkDqKPJLI8UbuQ9e3+Yn9v6bVj1FHxqCXaabsy';
+wwv_flow_imp.g_varchar2_table(1706) := 'NzgpAF1QuEctIMseJaIT37f1Bfmbbu7Dq6fedMvkENTFoy8dc3zs22+Xp6/ba8aGtO8Y+y+vGc5KAepT2FwgooiiUTE0elzumL/T';
+wwv_flow_imp.g_varchar2_table(1707) := 'dNvaW/ToBsgHOXfOkIg3Se9ZmEZh3CX0Nq56f2fYu3rf3BzkRjTCSzHVWBLpkHXc0CwB0rCagZcYNuzn+ZPAV/Isd72Pc9jHkKh3';
+wwv_flow_imp.g_varchar2_table(1708) := '09RTxEdWtjwBK4cIrUElAPGsd3EbQSiL86gd2Pfp3X7XlBBBOP/+17WMP/fnLtFHOOQnmhWAjh1K6JqsYdagYHX7pG5/ecvdbj1l';
+wwv_flow_imp.g_varchar2_table(1709) := 'o/O5Xxvf/2J+ceXkxUPyaTREFNYgG1EaeQE1C4cI3oKaxwZ9kcQQI1DFli4y4OX7x7J/y/umHmbR9AO3bdgwdz/0vpPOhTxG00UD';
+wwv_flow_imp.g_varchar2_table(1710) := 'CsG0f1mMINSGnCT+/9Z38wta3k9OEAVcl7rRpZxJ8OIMrnEdtncKFb0BcDrUxrNFnNiLykc+ev/Vvv3LLOcExuPeOs4WtN/7N2Fc';
+wwv_flow_imp.g_varchar2_table(1711) := '/cWv57HM7SWrN57px91dQnASaG90zNnL3txwu7Tgw5r2LnErho5+7cIuRdRzEIB5xEWobVEceoTFwnKCyHUznOkopEDfTwnMmx/f';
+wwv_flow_imp.g_varchar2_table(1712) := 'd8EGORNv552OfoS4BsQSX1gxsJN6jjUZXYmPdyX14n5o7UbThVkAihoKPaUjAP9/5fn57+LVsS2aBTvj6l6EGb+toUEFcnqR4lvK';
+wwv_flow_imp.g_varchar2_table(1713) := 'ueylceAW2Nora+qpFwCuSt16fm6D0G39zfvcPv2nbc43Y5aPiQG3XG7/n0UZ5sjR36tBo9dxzo3FltrARImDDKC5s2zved8OtY/m';
+wwv_flow_imp.g_varchar2_table(1714) := 'R3dMAjdjlotDW/vO9Fw48N+5K/ZHXNa3+4hGXx+UmqI0+istNYpIiGlTwpo64HB3wbOZxYojUEanjp7a/m1PRFv7d2Y+T05iqCRe';
+wwv_flow_imp.g_varchar2_table(1715) := 'vIFwPrdRflzpndd4FaNGGPgGJGAZcjUlb5P/a8/08UDzAtmS286s+kJr/IUnxHJXtDyAagKbxAFFLfvxuwtn9qKk3f37lD1+AWIU';
+wwv_flow_imp.g_varchar2_table(1716) := 'tBal/6ccP3jvaHzac90ZQjLEOcM0f26gRpc0/xnsfkL6Pn6u74LX/4cgbXpx2xcjo/HkiK39JEJ8j7jtJbeRx1DYQF4EoKgnF]'')';
+wwv_flow_imp.g_varchar2_table(1717) := ''||wwv_flow.LF||
+'               || TO_CLOB(q''[c68hqGzvSDxgMUJ1nA/6eU3lGP/z1G8x7CrM2PyGi0An9v0vRfeqXZzb0MKg1uQ/Ho3yXT';
+wwv_flow_imp.g_varchar2_table(1718) := 'd+mAeL+7o4+WmOV4OLpkBc04n2qRCIUt36CLWRJ5rCkJYjr5R0w43XF2fJ/fJnz+8HYqcGY2xanOdd5L0LvfeB926df3zgvQvT1/';
+wwv_flow_imp.g_varchar2_table(1719) := 'SBMUYTtQDxz37y7EuOTfhi3vrVT341iA+oD3+d6ravgnGID9P4iALi0nvX7LPYDWKxbEtmebC4j++68cMcj0YZcLWNKxJrrf5d7J';
+wwv_flow_imp.g_varchar2_table(1720) := '7dPQFoxgI2wgWIxbIlqfBo4Ubevu8f81h+D1uSSvcmP8xPeB9NwyXH8SqoID6kMXiEyvYHwCTNwb/ye+FVpBio/vGj03tfmIr7Ir';
+wwv_flow_imp.g_varchar2_table(1721) := 'tgDTFWjbFqjGn+fz1/0teg+XcPRBZ/YTYu/cmj03uLgarXVai4+PSzGkd121epD38d8ZeJoKT/8dH0RUHoEq2x9Vh+D2/f9495tH';
+wwv_flow_imp.g_varchar2_table(1722) := 'Djxo0t1a75/i26W++6AVZAIoaRpMxDxX18957vZ8bkN1al14oKKgk+nENYbLAo4qL5uIDLT6zK31UgNJ4LZY3+zcdfuA1InPNtH0';
+wwv_flow_imp.g_varchar2_table(1723) := 'lJups2/pXPnt9/vqxRtJr8/7y/P0Vlx5eI+04iLs9FD2PBj2Lx4VyaNelygVHLupwxeb57z/fzUHEfI0l5fWOsB1Z/6LYArNMKSM';
+wwv_flow_imp.g_varchar2_table(1724) := 'TQ72rzk3/W5Clqo/uTHwCDD6r4oLK0iS+pCPignE6I/uOpCCwyIRbDqUgp9PrXz8zteuKF6lBoTdLO4dRc/d2hM9WhP3x4el8xXO';
+wwv_flow_imp.g_varchar2_table(1725) := 'nqn34ecXnivpNUdnwJl5tKJ/+ijVBTF8EHFXxQpdvDFNKxVtQGswtEoH89C00PrP7QC3d2jVaAw9Dn6pwPBvjg7g8xbQsUtbEhHX';
+wwv_flow_imp.g_varchar2_table(1726) := 'rWjyJq0HCuWQS0zGcTXVdcwIpSTsT80l+dvRnwvo1WQNPCcD//qbMHJ6sahrKS1f9ifn9Rf3/JX0sDphrOIauMkbQLRyoC07bAB3';
+wwv_flow_imp.g_varchar2_table(1727) := 'd/iPPBAH2uvvox1yOrP/SCAKzBCvAIkSZM2SLfu+BBJD3wcYCLAcBw5mIAcFnWHhdwKtIXev30ofKuT319dntoTRy3QQQcEFqTPP';
+wwv_flow_imp.g_varchar2_table(1728) := 'FCdehzh8s7+0Kv7mqrf0vcjKO6dQl/fylagcBwhm4GAi8nWbDwfO/uDzFli0S6yl2ZPbL6Qy8IAKzKClDSrbEWzwf3fIivFPfT76';
+wwv_flow_imp.g_varchar2_table(1729) := 'o9YvY3WTIAePVfXEtcQIBERT762bMHoT0PtWlZ+F/6q7M3lxMx9mqxioXuzfYHiPuX9vcX//30P70QCLyc1PWs8pXifj6450NYPH';
+wwv_flow_imp.g_varchar2_table(1730) := 'aRtuaL0kOrP/SKAIikByCsIBfqEfpcjX+9/b18qXgTo52u2V4RCwOAqzUPVx8X8IoUA68Pn6qPfOyxyZ12g62A2HkJrYk/9fXZ7Z';
+wwv_flow_imp.g_varchar2_table(1731) := '8+VN519dV/ESFLlvL3l0YwFwOBvWICNEnEMprM8aXiTfzr7e+lz9VWZgV43/bDPlZDbwgApJP/KmZRIpYtbo7fHX41v7nl9Wxx5e';
+wwv_flow_imp.g_varchar2_table(1732) := '6m+pZAfBrB9uEceMuql681xAUEEBF+/pNnXwoEoTUbtmY2B4l89LNnDyYqyzyh5VyZ1Ra6KCy4j+J77znHYtniyvzmltfzu8OvZo';
+wwv_flow_imp.g_varchar2_table(1733) := 'u7ymIkko7xLhX9LEbvCEArFuDcoiKQBv1qPFrYy09sfw8Drtqj+/ebtTjrXrlWFxdolQgfnfClX7/3wm4gblylAe5KiJ0Xa038l0';
+wwv_flow_imp.g_varchar2_table(1734) := '9Nb3v4VH2kGCxR8rvOYObiXLSkoDcCgZfjEQZclZ/Y/h4eLeylz9UWDwqKgHM94/u36B0BgDQ4Uqtd+eU0K0wihh/f+QFmTZ4I15';
+wwv_flow_imp.g_varchar2_table(1735) := 'Odezbed11FXEAhNMpvf2nsJiCMLOsuWm2t/h/53LmD2myqcgXrTGcuyZpjKZ1DESIcsybPj+/8AIkYLIv3Z9BarTea4i6gtwSg1S';
+wwv_flow_imp.g_varchar2_table(1736) := '/gMpV0CIOuys9ueycPFvYx6Cu9E/G/nHZEr1c4wTxIwXp9dtyX/u2fn74ZiJN1WAENh1hrGr9+74W9Xz0Zb1l89V9fQdOyrDqb0h';
+wwv_flow_imp.g_varchar2_table(1737) := '0SDIO+woOFffzstncy6Kpccttbpn+XumEtR+/NossCgg7DgK/xleJ+/uvw65o3t/cue5525a9XaGJ7FckHqn/48PT+sdm4eEmJ8C';
+wwv_flow_imp.g_varchar2_table(1738) := 'qJ0rYJ4X/70thNodXLPsrGlDQvzyrqKbqMwzDoqvzX4dfxleJ+BvwCV6DHAn8L6c2ZtOCGWTw1Cfm/t38HsdglzateQeYr2Gps/O';
+wwv_flow_imp.g_varchar2_table(1739) := '29+qRTIDKesTLhL3zm/AEgWYsV0IwfxL/2xfN7jk74Ut6q+pY90xZ/fykMPqjhg0pTUHuTlpsai+X/3v4d1CRMjy1bRYarG/TmHW';
+wwv_flow_imp.g_varchar2_table(1740) := '2aTEniGfQ1/nTg5TxQPMDAUgGWnkFhvoa9nSvW8ma3V5Fi6PUPHpo88OQL1aHIsqoS4daGn7HZuPj/feHCLTmrqC6Y/O3w95dCBZ';
+wwv_flow_imp.g_varchar2_table(1741) := 'W4GQhcQ0algzjSPQMPFA/wpwMvZ9DXSJKrZ7e6Sc/OJhUhV5nltB3kl7a+nX5fw/XoTZyneXkuN9H+4pVlJqKiBEJaIvyZczexyh';
+wwv_flow_imp.g_varchar2_table(1742) := 'Lh1oafX/7s+f0vzpLLGa8t+6Jt/v5SNAOBLjeR/rvHh4ATod/X+KWtb+e0HSRXmWU1myU7Tc8KgBNDX1Lhd/pewXO5beR90tOmPz';
+wwv_flow_imp.g_varchar2_table(1743) := 'AfAEyj1h0oX13GFHeqUgpUP7tgo9BKioMWbvf940en9xaCi6a/+IjGwHNUtt/fBn9/qc8IYJpZld4NBLZQhLxPeC63jd/pewV9Sa';
+wwv_flow_imp.g_varchar2_table(1744) := 'UrR8utlJ68stZNPJHfxu9tfR39rtL7qz80W4A18EEZ0U6Zq0vHBYxxVJ2Yf/2xF+6AlT3s5uqf/OJnzh+4UNYotA71FlFDbfQxaq';
+wwv_flow_imp.g_varchar2_table(1745) := 'OPtdHfXwxF1OKDMt42mu/b2zgR+l2F39v6Ok7ke3vx6sm76UToc1U+PvJKns9t7ekbeJFmxDqo4G29CwP1SvNck7wUg0S/8nxt9C';
+wwv_flow_imp.g_varchar2_table(1746) := '+fmt52tRJhB0SW5MkXqkN/8NDkgWLkVF0kauuUd36JxsBziI/m369jLOyt2CM7A5ejtYA9n9vKx0deSZ+r9uwC1nMCoAihOibCPj';
+wwv_flow_imp.g_varchar2_table(1747) := '428ioKvtGjFX+X0TJVw5m0m203xugi]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[cQHj8gB85HPnDgLLGqOuteHnM2dvKieY0Ecku';
+wwv_flow_imp.g_varchar2_table(1748) := 'TEqu76Iy481J38XPpgy3125l3YGLodHKPgGHxt5FRNhH6H2ZuFazwmAl3Szz70Dt/NYaR8lX8f3qHouhoum6eoKdVlcoDLyhJSs0';
+wwv_flow_imp.g_varchar2_table(1749) := 'a+edFt+/d5ze601jcVKhGPnJbImefKFytBnnynv6jOB1vqfk+rOL6G2nvr7XV15tXlvNwdehJKv81hpH/cO3J5uFurBcdxzAoAqH';
+wwv_flow_imp.g_varchar2_table(1750) := 'sMfj74a4fLikx5mPgA4S/dXqUvjAuXtDxAGDf7bfTM3gQ+jpc9F0Z/9y/O3VGNrGlsfpTr6WOrKdCyesQTzgcDZTREInEdBUP549';
+wwv_flow_imp.g_varchar2_table(1751) := 'NV4TM+VAUOPCYAi5DXh+fwoD/bfRHEzrf7zAcC5DgYAr0bqEsSFs+L3fFEPz42Vfu2zs3u4bKNQa7vvXz5e3f7Xz07tlD1/o7X+Y';
+wwv_flow_imp.g_varchar2_table(1752) := '9IVf39RWoHAuU0TCITUCij6Og/238Tz+VHy2nuxrJ66k06Egqtz38BtnAsHiXxv+k1X0goAlrsUAFyGZlwgCcrib7iPX370oVvGp';
+wwv_flow_imp.g_varchar2_table(1753) := 'ri0RLh5ktivfOVrN5d3faG7/v5SzAcCy5siEAjNjULecS4c5L6B2yi4es8FA3topIKo4sXw+cE7NsW0n0cALC43CSbuvbEpCj4gC';
+wwv_flow_imp.g_varchar2_table(1754) := 'rwez3819+8e/eJ+IE6ck9g7CY2NP/Hss9vuiz83Uohqqj6UnvsQCpg4vcfYTREIbCHA5wfvwIvZkCNUN5KeEYA0+u8ZD/v5emkPO';
+wwv_flow_imp.g_varchar2_table(1755) := 'd/YPOY/ANrcAdir16x4b6RojP7Bc4/sPT072xdZ6216mIj9f77y+dtEtIfcl8WQ5j3u1eu7Ei9Czjf4emkP42E/ofbWXpbeEQAR8';
+wwv_flow_imp.g_varchar2_table(1756) := 'hpzNL+DU9EWcj2aNlmUVpoq6u00laJEYjhfq0f/9N5P3wY4A8lHH31oz+OTY4NFsep7dcvdfCCwi2nWNaAIOXWcirZwNL+DvMY9V';
+wwv_flow_imp.g_varchar2_table(1757) := 'RrcMwLggcjHPN63j7LNYTf6EMZ2sokKVRwqfcbqp08e3/XE+TODgPznJ796U07aegD2BtDtQqu1Y9VTtjke79tH5ON2nTG8JrpzO';
+wwv_flow_imp.g_varchar2_table(1758) := 'vAiiCpOLF8r7ukdVVoRad7dNSPUvW1Cp1gRppLY/OoTD+99zY7dk0dnpkqDNlTXq6t/iwWZliAupjsue9XcugwDfK24Bye2p+IAv';
+wwv_flow_imp.g_varchar2_table(1759) := 'SMAgBfD2XAYo6s4bqrbLDRNxaVNQHt8TDpV6bMBf/bsM3v/4tiRPUVr6fnJD01Xy6X3urojvc+bYKAoYNRzNhxOA4HdvqAF9MRiO';
+wwv_flow_imp.g_varchar2_table(1760) := 'x8ADPo4lRsh0qSn/KSr0woAbh4EiL03lSQJbE8Nyauz2QKBKulBNqdyI4wHfT0VCOwJAYC0YioRQ9nmNpcF4AU1DXxuMj0EtDee6';
+wwv_flow_imp.g_varchar2_table(1761) := '4oQer3FxmUIad+d3CRqGtD+s1A3hJYFULY5EjFphWuP0BMCoAKBOs6HA8yZHEtXqvYirZZV1Q5ukd04Nt3VauvQ1Xa0XGsfFmXO5';
+wwv_flow_imp.g_varchar2_table(1762) := 'DgfDhD0ULSlJ2IAihCo41w0RNnmmq2/hA2NS8vFv6iqeln1SRWLkAYANZgzamIRDdhsU2rT0Wq6GsypNPr9Rp0aZFSNiFwsgNrAx';
+wwv_flow_imp.g_varchar2_table(1763) := '6hApAkzNs+5aIi7yiebLkD3x0pPCAC0HqEyawuomI3fAtxsaudUNbRGitau/6gZSY+89vlnAQcabCoXYFPS2nSVL4skAxZb25Dei';
+wwv_flow_imp.g_varchar2_table(1764) := '2XniL1XK9IsjN7YB2maFgA94/2n9IQAtPz/oaTC26aepODjDb9NElgSjy8Fxow7qTwZbXtMXBwi6+hppSpQiJOhs7eLDYdJW+f10';
+wwv_flow_imp.g_varchar2_table(1765) := 'vO9BlEVG0oSnJ0Myuefhuq6n6HaMH5l4/zLR6wWy4n3gcHoqtqoXh1BqZqQoaTSU3EAmXzrW3viSpS0YCKvbcjtquKjUPOlPvHez';
+wwv_flow_imp.g_varchar2_table(1766) := '3zh+NN/761PHHsgB4U6a67LmLfhSh/56b+2pb6DWm94pIcbwF0LqHrJRcaV546U/8lPvq351TXb0zkwdah+9u4Dr3nz/tv/hzFmo';
+wwv_flow_imp.g_varchar2_table(1767) := 'FaeU9OIZeM7+So1CXE9lArsCQsA0ifoxDAn+Q1/bQUNHRrX3PT/OD/2fT/6xLEHS6XhbeU4XrvMh6EhcbXcm165z0S5vZokkK3+n';
+wwv_flow_imp.g_varchar2_table(1768) := 'UA0STBRbm/u7d98sP7Fr54gsHnieE1CXgdKYdj/1ieOPfgfw60f+nvbRn9bnR2IrW3LYWSSuQBLI9AW00hVfX8U2b8+e+YXf/TRR';
+wwv_flow_imp.g_varchar2_table(1769) := '++9oVS64YXyZGNdLxqWhHq5yoEb90oul9NaPVv9O4GI4NVLPpfjwI17+avPHSIo5WiU1xzULTfwN5RKoz/68IP33nLPPb/4tu3bf';
+wwv_flow_imp.g_varchar2_table(1770) := '36q0XAiPXj09AZzzQ9YBc1Za8cbjXP/9tixT/ZH0eiFcjle9wtHafFiuG305RgD2lMl3tc2iscYwm2jLwd881msiwvlctwfRaP/9';
+wwv_flow_imp.g_varchar2_table(1771) := 'tixT443Gudy1l5xGNq1yDUvAKj6vDFUvX/2oampCa8aNDbiwZZjDwTSV3xZ2lqjVzK71wMqeI/0FV8GBM1nsS4aoF41eGhqaqLq/';
+wwv_flow_imp.g_varchar2_table(1772) := 'bN5Y0A30460tXHtCwDgVDEwkINQ1hMxbhFFQqORhPtvGNYwOqDpqa+ZAHQKEdEkQcPoQLj/hmEajYQoWvf9FxHNQWhgwPXQhp12c';
+wwv_flow_imp.g_varchar2_table(1773) := 's0LgIjYsnM6FIa3/rMDB25JGo3ycBiu07eLBGjI3XfdIFE4inPKdXAvewiDcypROCp333UD0Gg+kzUzHIY2aTTK/+zAgVuGwvDWs';
+wwv_flow_imp.g_varchar2_table(1774) := 'nOaxQCuETR1A8IP79nzYzVIJG13ufbPHqoADbvvxoOSi0J85v93HI+XXBTafTceBBrNZ7ImIjAi4muQfHjPnh/LGxPqdWD+w3UiA';
+wwv_flow_imp.g_varchar2_table(1775) := 'CJiZ+LY3Vgsfsvh17/+oxONxizg1mwJpEEnNVsGb8cYuA6CRT2IYgxmy+DtgK41ENgcA26i0Zg9/PrXf/TGYvFbZuL4usgAwHUiA';
+wwv_flow_imp.g_varchar2_table(1776) := 'JCKwFQcJwf7+99/9A1v+Eghl4sn43huOAyDaLX53mYA0OSLt+McWQCwG6jgHCZfvJ01BAIjkOEwDCbjeK6Qy8VH3/CGjxzs73//V';
+wwv_flow_imp.g_varchar2_table(1777) := 'Bwn18vkh+tIAAAEgsl63R0oFt//3Ote9/Hfu/vueybjeLwByfYwDPpWcj8WBgCj]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[8CVZ';
+wwv_flow_imp.g_varchar2_table(1778) := 'ALBLtAKBUfiS1QQC+8BsD8OgAclkHI//3t133/Pc61738QPF4vsn63UnPVYb026uKwGAeUvADQTBXd+xbdsfP/fGN/77D+/ZM3gu';
+wwv_flow_imp.g_varchar2_table(1779) := 'jsfnoDochnY4DO3SVkEaADR3vHSXREEWAOwezUBgMGrueOkulgkENld7OxyGdg6q5+J4/MN79gw+98Y3/vvv2LbtjweC4K6p68js';
+wwv_flow_imp.g_varchar2_table(1780) := 'X8h1pXYtjIidTRJvROyBQuGDv3jrre/8Z/v2/f4nLlz4yx9/5pmnSSd/aXsYhmUR32g0/HzZYEkNDer21oP3SD4farniuA4HTk/g';
+wwv_flow_imp.g_varchar2_table(1781) := '1UupENpbD97DJz7zBCXto5EGZCMgiiJTUjXn4jhuxPEsoL906623v3vr1nduz+f/zqC1I1NJQr05Frr7YbrDdSkAAEbEKDARxy4y';
+wwv_flow_imp.g_varchar2_table(1782) := 'ZuRgX98//nAu90PftWPHXz4zN/fpHz106P5D5fIY6VgqtgKGcyAxYAb7b09faQPqCjLWSHrvW88iBOlrPqfJOHaNRmNuDhq3lUoj';
+wwv_flow_imp.g_varchar2_table(1783) := '//G2277t1r6+dwwGwTv7wzCaSxImmqu+uY5LuK9bAYDm3gMRG6vqRKPhrUh0Qz7/HTvz+e+471WvOjaVJJ97aHr6s//s0KEnzzQa';
+wwv_flow_imp.g_varchar2_table(1784) := 'k4AwGRdzuVyBQuHWiwHALATQHdJAIIXCrblcrlCfLNcmoQLoziga+OXbbvumbxwcfOtQEHzzUBQdMMBMkjCR1vmb63XVX8h1LQAt';
+wwv_flow_imp.g_varchar2_table(1785) := 'BERErAedimOvIKUgODCSyx3Ymc9//9tHR5+dc+7x49XqF/7i7NnHfinwM2EQ7FfnIPP/u4lR5yAI9td3byv8eGIG3rVjx8v3Fwpv';
+wwv_flow_imp.g_varchar2_table(1786) := '7rP2ZXlrbypaS805puPYCyjZxL+EnukH0GuoqldQETEFYyRnDE6EpFqd+/To0JHvfMur7y54tdnN6y4CVI24//35Lz/xjrGpg0Gh';
+wwv_flow_imp.g_varchar2_table(1787) := '0GdVqXtP1fu0+1sq8JlQL0JmASyBiJiWYV91zled01hEtkFfZcvwPUkQYOqNnjvt9XrDqJIEoa1sGb4nPzbF+Tj2oaadmUTEXI+R';
+wwv_flow_imp.g_varchar2_table(1788) := '/dWQqeIKaA0kI2Lwql8uFXzW+6s3aLUC+nKp4PGqpvmsshV/ZWQWwCoIgLkgkMe2DIt12QaAXsAD1nke2zJs5oIgG9CrJFPJFaJA';
+wwv_flow_imp.g_varchar2_table(1789) := '6D3nChHH+ovkvN9kpxddm6gIOe851l/kXCEi9JvoUJkeIBOAFeJFiJzjWF+JsVxIkA20nkCBwHvGciHH+kpEzuEzYV4xmQCskHSg';
+wwv_flow_imp.g_varchar2_table(1790) := 'KV8f7Ce2liyy1DtYILaWrw/2E3jNhHkVZAKwQtJgk/DU0EC2+bcXUXhqaABFsuDsKsgEYIVYoBJYDg30YX0WAOwlPGC959BAH5Ug';
+wwv_flow_imp.g_varchar2_table(1791) := 's85WQyYAK2BhAPBEXxYA7DVagcATfVkgcLVkArACLgYAi1kAsAe5NBBYzAKBqyATgBWgQKDKU0MDWQCwR2kFAp8aGiDQLBC4UjIB';
+wwv_flow_imp.g_varchar2_table(1792) := 'WAECeISvjGxJTxrp9gVlXIE2//OVkS34LBC4YjIBWAGBKjNhwLP9JUKX+f+9iIoQOs+z/SVmwoDgOunrv14yAbgKnjQA+GIhz8lS';
+wwv_flow_imp.g_varchar2_table(1793) := 'gci7zALoQRSIvONkqcCLhTxhlqlZEZkAXAUVIfKeowMlJqMg8y97lFacZjIKODpQIsoyNSsiE4CrsLACUI3JblgPYwA1JqsIXAXZ';
+wwv_flow_imp.g_varchar2_table(1794) := 'eL4KAjgRnhocQLPVv6dRQFV5anAAJ1kgcCVkAnAVAlVmw4AjA32EXjOzsodREUKvHBnoYzYLBK6ITACWwYuQc45n+4s8218k51wW';
+wwv_flow_imp.g_varchar2_table(1795) := 'WOphPFz5vDLBXpZMAJYhjSynK8pctqJsCgJV5poWW5TFAa5KJgDLoIA0fUrNfMpNgZC6Ak8NDiBZzOaqZAKwDAZImlFlyVaTTYEC';
+wwv_flow_imp.g_varchar2_table(1796) := '0szaJFnW5qpk92cJsrzy5iSr21gdmQAsQTqQHKeyyrJNxcLKzVOtys1MuJckE4AlUCByyuEspbTpaKVuDw/0EbnMAliOTACWQEkP';
+wwv_flow_imp.g_varchar2_table(1797) := 'nfjaYH8WANxktAKBXxvsx2QuwLJkArAEBqhZw2PDQ5gsALipUMB45bHhIWo2CwQuR3ZvFqHVAmwsF3FosC/rMLPJaHVwOjTYx1gu';
+wwv_flow_imp.g_varchar2_table(1798) := 'axG2HJkALMLCHnPn81GaAej2RWWsmLSAy3M+n/VwvBqZACyCJ+0x9/RgP1Vrs5u0CTFA1VqeHuwnyDI4S/L/A/IFyJLuU5CMAAAA';
+wwv_flow_imp.g_varchar2_table(1799) := 'AElFTkSuQmCC]'')),'||wwv_flow.LF||
+'       photo_mime_type = ''image/png'''||wwv_flow.LF||
+' WHERE candidate_id = 7;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'COMMIT;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'UPDATE tms';
+wwv_flow_imp.g_varchar2_table(1800) := '_candidates'||wwv_flow.LF||
+'   SET photo_blob = apex_web_service.clobbase642blob('||wwv_flow.LF||
+'                    TO_CLOB(q''[iVB';
+wwv_flow_imp.g_varchar2_table(1801) := 'ORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAABZd0lEQVR4nO29eZRnV3Xf+9nnDr+p5qqe50ndUksCyRKSwGCBMWBjINg';
+wwv_flow_imp.g_varchar2_table(1802) := 'Q/LxsXhKchCx7vSSOl7OcvLz1kuXYDvGAXxwb+8UO8TPYBhxDMFgCARIgEJKQ3FJ3q1s9z9VV1TX+pjud8/64v1tV3V3Dr6p+U6v';
+wwv_flow_imp.g_varchar2_table(1803) := 'vd61St6qr7j2/e8/+nr2/e599ZOixTxtSpEhxW0K1ewApUqRoH1ICSJHiNkZKAClS3MZICSBFitsYKQGkSHEbIyWAFCluY6QEkCL';
+wwv_flow_imp.g_varchar2_table(1804) := 'FbYyUAFKkuI2REkCKFLcxUgJIkeI2ht3uAaRoHeqt+ZamjiJFJyElgNcAFjPsG907W+pz+CKjr/t/vcjPpURx6yMlgFsINxq6AEo';
+wwv_flow_imp.g_varchar2_table(1805) := 'EhWDJ3N+VxD9rIYjMmWm98d58gzfGEGEQQBvQGLQxRPP+vtC4UtwaSAmggzHfsBTxCm5JbOzWrLHLogZ3o2GuJgQQEazkOzfcyAD';
+wwv_flow_imp.g_varchar2_table(1806) := 'aGDSGqEYK8Z/6OhJJCaFzkRJAByEx0GRlt0Rwan9aom5awc0NfzZ7XAtB1QjCmWflmjiMiIwhMDE5zPcUUkLoHKQE0GYkRqEARyk';
+wwv_flow_imp.g_varchar2_table(1807) := 'cEWxRNXf++p/r1MYNC4UAjigcgSwxIWhjCI0mMIZQz3kIKRm0FykBtAGJwVgi2CK4s669XPcznWrw9WD+2AWwRbDFIgtEKvYKfKM';
+wwv_flow_imp.g_varchar2_table(1808) := 'Jax5C8nMpWouUAFqEhYzeVnNu/a1u8MvhOj2jRnYuCg2EWqdk0CakBNBkGOLJ7CqFKwrnNjL6pTBfD3CVmiWDoEYGgdazzy5F85A';
+wwv_flow_imp.g_varchar2_table(1809) := 'SQBMwG9eLkKsZfuLe385Gvxjmk0FGKTIoIhWHCFWt0alX0DSkBNBAJBPZESGjrJtW+xTLY36olBOLjLIItMbTEUFKBA1HSgANwJz';
+wwv_flow_imp.g_varchar2_table(1810) := 'hK3KWwqlV3KWr/epxk1egFIHRVCJNUKtUTIlg7UgJYA1IYtSsUrjKwpnn5qdoHOYTrGMrAmPwdYSX6gRrRkoAq8D8CZm3LOzU8Fu';
+wwv_flow_imp.g_varchar2_table(1811) := 'C+SGWY9lklKEcRalHsAakBLACLOXqp2gdkudti9Bj22losAakBFAnDPGEyyqLjEoNvxNwY2jgaU1VR4TGpCRQJ1ICWAZJjJm3LLI';
+wwv_flow_imp.g_varchar2_table(1812) := 'q3haTGn5nIXkfGaVwlaKqIypRlOoDdSAlgCVgiCdVTllYIrekqi9m3ohNnaOfX5Ist44JJZ8upyxcUVRqQuGt8wlaj5QAFoABFEL';
+wwv_flow_imp.g_varchar2_table(1813) := 'BujXcfTFmzrgTorIsACLLmjViIwLLNQUxepY0xBhUFMV/j6LYkObfp0PJwRDXEXRZNo5oylGEJg0LFkJKADcgWfXzloVCOs/wk/j';
+wwv_flow_imp.g_varchar2_table(1814) := 'WGBBBK4W2bbRlYUQhOkJpjVsqgUB+YgLH89C2TW5ykvzUJEYtTAKiNeXePip9fagwJMhkKPf3gwG/UEArhVEWYjQqipAovlcyFgP';
+wwv_flow_imp.g_varchar2_table(1815) := 'XeQ/txPywwFFCOUq9gYWQEkANN676neTuz67wIkS2jbZsjBJUGOJWKmRKRXpGRymMX6Pr2hiZUon85ASiDW6ljBWGGBFEa0TrxQN';
+wwv_flow_imp.g_varchar2_table(1816) := 'jA0YpjFKIMUS2jZ/LY5RQ7uvHKxQoDg5RGhhket06vEIXfi6Htm1EG1QUYoXhHCF0ABnEOkDqDSyGlACIJ4kjii67c1b9xOiNUoS';
+wwv_flow_imp.g_varchar2_table(1817) := 'ui7YsRGsKE+N0j43Re3WY/osX6Lo2hlOt4lSriNEYUbNEAbFBB5lMctXlVTEz+x/ExAQCkJ+air2P2j2CbJYgm6U4OMTE1m1Mbdj';
+wwv_flow_imp.g_varchar2_table(1818) := 'IzNAQpf4BjFKoKMIKghrhtJ8MEs/OUUIxjGsHUhIAGXrs050w39uCGxX+dj+I+UYfOQ7asnEqZXpGRxi4cIGhc2fouTpMtlRCtI5';
+wwv_flow_imp.g_varchar2_table(1819) := '/zrbjVVsUcymKJEyY/c9aRgUySwmz9xATexNWGM6OpVooML1hI2M7djG+bRvT69YT5PKxZ9BBZCBAVUeU00zB7UsA84UiW9q76ie';
+wwv_flow_imp.g_varchar2_table(1820) := 'GH7kuke3gVCv0DV9h/ckTrDtziu6xMawgmCMGFa/y1+kBbRn4vLjfGJTWs4YeOQ4zQ0OM7trDyN59TG7cRJDNYYUBlu+3nQgECI2';
+wwv_flow_imp.g_varchar2_table(1821) := 'hGIVEt3HdwG1JAHMuv42ifbG+aI0RIcxkMKLovXqF9adPsfmVo/RcHcYKwzjmd5zYWIy5Pq3XgYgzDRJnEIJg9jNMb9jI5TvvYmT';
+wwv_flow_imp.g_varchar2_table(1822) := '3HqY2bEKMxvY8pObxtANC3K6sGIa3bUhw2xGAIc4T5632ufyJyxxmMkgUse7sGbYceZmNrx7HrZTRtkN0Cxn9YphPBlYQoMIAP5d';
+wwv_flow_imp.g_varchar2_table(1823) := 'n+I79XDp4D6M7d2EsKyaC2jNpBwQoRxEVHd12JHDbEUDBsskqtehhF83EfAHNqVbZcvQwW19+if5LF7HCkCCbjY3gFjb6xTBLBlr';
+wwv_flow_imp.g_varchar2_table(1824) := 'jVKtEts3Elq1cvOdeLt119+wzmRUyWwwFVLWmFIUtv3c7cVsQQJzig27baUu8nxhzkMli+x6bXznCruefpW/4ClopQjczaxy3AxK';
+wwv_flow_imp.g_varchar2_table(1825) := 'Ss30PpTWTGzdx5oE3cPnOg4RuBserxj/XYo0g0QVmwgDN7SEOvuYJoN1in2hN6Logig2nTrD/qa/Td+UK2rbj778GV/t6kXgFtu+';
+wwv_flow_imp.g_varchar2_table(1826) := 'jwpDJTZs4/kNv4+qefWA0tu+3PCy43cTB1zQBJDv4emyn5Zt4RGu0ZRFmsvQNX2b/k19nw6kTIOq2N/wbMZ8IMJqre/Zx/NG3Mbl';
+wwv_flow_imp.g_varchar2_table(1827) := 'xM7ZXRUVRS4kgmSvTYfCa31n4miWAdht/kMvhlsvsefYZdj33PWzfI8hk439PDX9BJC6/41UJ3QxnHnyIU294GD+fx6lUUhJoAl6';
+wwv_flow_imp.g_varchar2_table(1828) := 'TBNAu4xdjMCIE2SwbTpzg4Ncep+fqVYJcLi6vvU1i/LUieVZOpcL0hg0c+eF3cnXfvppIaFqmDdwOJPCaI4C5zTytzfGL1kSui2j';
+wwv_flow_imp.g_varchar2_table(1829) := 'NgSe/zu7nnsGImv1eipXDKIXl+4jRnH7wYY49+rbZ77XKG0hqBcpR+JrcTPSa2gtgiA+Z6LLslm7mEa3x83m6R0d53Ze/yNC5MwS';
+wwv_flow_imp.g_varchar2_table(1830) := '5fFxmmhr/qpFUFAqw95mn6btymUM/9h5m1q3DLZdbQgJJqXA8p0L81xgJvGY8gPluf+tuWkvv5fNsOfwy9zz+ZTLlMkE2mxp+]'')';
+wwv_flow_imp.g_varchar2_table(1831) := ''||wwv_flow.LF||
+'               || TO_CLOB(q''[g2GUwqlW8fJ5Xn7nj3Hp7ntwyvFGpVZuQX6thQOvCQ+gHTG/GDO7F//Ak1/njm8/hbbs1P';
+wwv_flow_imp.g_varchar2_table(1832) := 'ibBNGaIJvF9n1+4POfo3tslFd/8C2oMETVSqqbPgagx3ZeUyTQntrLBqJtxm9ZGGVx72Nf4q6vP0HoZma37KZoDmZTq26Gu77+BP';
+wwv_flow_imp.g_varchar2_table(1833) := 'c+9iWMsuLn3oLMShIO9LSpoKwZuKU9gKTIp9XGH9kOjlflgb/6DIPnz1Lt7k4Nv0VIDL3a3c2OF56na2yM53/y7xNkslhh0HRPYD';
+wwv_flow_imp.g_varchar2_table(1834) := '4JTIXBLV8sdEt7AIpYnGmt8dvYvscbPvPnDJ07S5DLp8bfBsS1FnmGzp3lDZ/5c2zfI7LtlnoCXbVM062MW3b8htbW9s8Zv89Df/';
+wwv_flow_imp.g_varchar2_table(1835) := 'lp+i9dxM+nxt9OJNmX/ksXeegvP43t+y0lAVuEbtu5pUOBW5IADLS0tn8h4w9yudT4OwBJ1WU7SSBJO9+KuOUIwABZZZGtNe5s/g';
+wwv_flow_imp.g_varchar2_table(1836) := '1jwc/xvNT4OxQ3koDjeWjLakmnpHg+qo5oKbca3FIEkHTyKVhWy/bzCxDZNvc8/mUGL5xL3f4ORRIODF44xz2Pfzn2Alp0bw0ULA';
+wwv_flow_imp.g_varchar2_table(1837) := 'tHWrQoNRC3DAHMbuu1W+duidZ4+QIHn/gKW468TLXQNXtQRorOg4oiqoUuthx5mYNPfAUvX2gZWRugy7ZnT5C6VXDLEECrVVfRGr';
+wwv_flow_imp.g_varchar2_table(1838) := '9QYOeLz7P72Wfwc/n4EIwUHQ2lNX4uz+5nn2Hni8/jF1pHAvOzUrcKbgkCMMStu1sp+oWZDAPnz3Pwq4/HB1+04L4pGgMBtG1z8K';
+wwv_flow_imp.g_varchar2_table(1839) := 'uPM3D+fNx7sYWiYDv7Ta4UHU8ASdzfSpFFK4Xjedz3N5/HDvyWCUopGoSacGsHPvf9zedjUbBFuwcTkfpW0QM6ngAUtDzuDzMZ9n';
+wwv_flow_imp.g_varchar2_table(1840) := '/zG3SPjhK4rVk9UjQWYgyBm6F7dJT93/xG7AW0WA/oeOOiwwnAAIUWPkgxhiCbY8PJE+z8/vP4uVwa99/CiPWAHDu//zwbTp4gyO';
+wwv_flow_imp.g_varchar2_table(1841) := 'ZaRuaKeO52+tLRsQSQ5FfdFrpSWincSpmDTzze9uOrUjQORoSDTzwen7nQwlDAFdW6epVVomMJQAG5FlZYJa7/7mefoefq1biTT+';
+wwv_flow_imp.g_varchar2_table(1842) := 'r63/KQ2pFrPVevsvvZZ1oeCuQ6fL9AR46tHa5/6Lr0Dg+z+7ln0kq/1xiSSsHdzz1D7/AwYQvJvdNDgY4jgKSnXytdfwCUYu93v4';
+wwv_flow_imp.g_varchar2_table(1843) := '3t+an7/xqEEcH2fPZ+99vQwu7CSSiQ6dBQoOMIQIBcC/OoYgxBJsO606fYeuRw3NEndf1fc4gF3ixbjxxm3elTBC2qDYAkFLA6sp';
+wwv_flow_imp.g_varchar2_table(1844) := 'akowggKfhp9aNSWrP72Wdaes8U7cPuZ59peXbHojMLhDqGAJJa/0wLC36SXHH/pYsMnT3T0lUhReuReHtDZ8/EuzpbWOMRh7ZWx+';
+wwv_flow_imp.g_varchar2_table(1845) := '0V6BgCgHhHVUvXfgMoYevLh9JNPrcRVBSx9eVDoKSlR0YJ8RzvJHQEASRCSavLJ7VjUxgfZ+PxY2na7zZBkhbcePwYhfFxtNO6tp';
+wwv_flow_imp.g_varchar2_table(1846) := 'hJWXvLBe4l0BEEIEDebh0zijFYYUhk22x89RjZUimu909xW0BbFtlSiY2vHiOybawwbCn55+3OEQTbTgDJaT4WrYuNgkyGSncPGN';
+wwv_flow_imp.g_varchar2_table(1847) := 'hy5HC82y9d/W8biDFo22bLkcNgoNLdQ5DJtOTehlgQdDskLdj2tuCtTPsJMftvP/Qi+akpnGqV7mtjRLad7va7nVDr8dh9bYx7vv';
+wwv_flow_imp.g_varchar2_table(1848) := 'K3BNks5d5eLt19b3wUebNvTzzn/Q4oNmsrASRFPy1b/Wun+Ww/9HdsPPEqXi5H5LqtuHOKDoQRYefzz5KpVBjedwcX7n09Kgxbct';
+wwv_flow_imp.g_varchar2_table(1849) := 'RY4gW0+8DRthJAq4t+EgSZDF6hQJDJpOr/bY4glwOlWhYCJOgUL6BtGsD82L/VEGMQrdN6/xSz86AdGlAnaAFtI4B2rf4pUnQKOq';
+wwv_flow_imp.g_varchar2_table(1850) := 'FEuC0EMD/2T5HidoaFtHWjUNs8gIxK8+4pUkB7baHlBJBUQ71WjldOkWItSDoJt6uJaFs8gKzV9vqjBSECSgSlBEl7ArxmILV3qk';
+wwv_flow_imp.g_varchar2_table(1851) := 'RakeFbFdplEy1PA1q0j+0gZtwb7y21iRGGEUEYgTFYtoVj24iA1qmvcitCKcEYCMKQKIxABMe2sG0LY8DMU/4XmhetQuIVWwi6xa';
+wwv_flow_imp.g_varchar2_table(1852) := 'NoKQEYIGMphPY9bG3MdfdWSuH7AWEUMdDXzYahASxLMTY+xei1SbTW5HKZlARuMSglVCoeSinWDfYxNNBLFGmujo0zPjmDbVm4rk';
+wwv_flow_imp.g_varchar2_table(1853) := 'NUIwFDPDfaBSG2jXIUtVQabykBCLQ172lg9oVDbPzlUplNG4Z4+1se4K47dtKVzyFKqFQ9zl0Y5mvf+j6vnDhLLpsBSSuGOx1SW1';
+wwv_flow_imp.g_varchar2_table(1854) := '3K5Sp37tvJD7/5B9ixbSO5bAajDcVyhaOvnuWJbz7Platj5Ar52d+NblgcWomkLqbS4sK0lhFAsuW3lZt+bkSy+gux8U+Xq7zpgb';
+wwv_flow_imp.g_varchar2_table(1855) := 'v5yXc/SqGQxfN8/CAAwLYs7rxjJwf27eAbT7/A5//2WziO3VbvJcXSEGKCDoKQn/zxR3nrm+5HRPD9AM/zAchlXd744N287q69/N';
+wwv_flow_imp.g_varchar2_table(1856) := 'WXnuTp7x+lb55Xqo1BtUkoSMJj37SuPLilyoPbZvEvWf2VUpTKZR554CAf/uC7sG1FsVRBa1PTAwRjDJWKR9XzedejD/GB9zxK1f';
+wwv_flow_imp.g_varchar2_table(1857) := 'NTcbCDISJUPZ8PvOdR3vXoQ1Q9n0rFw5i596q1oViqYNuKD3/wXTzywEFK5TKq1ig0arOL12obadndFLS1EUKy+qvaJNmxdRMffM';
+wwv_flow_imp.g_varchar2_table(1858) := '9bqfo+YaSxFugUq5QgCFMzRd76xvt504P3UKpUZydLis6BUopSpcqbHryHt77xfqZmigix+n8jLKUII03V9/nge97Kjq2bqHo+qp';
+wwv_flow_imp.g_varchar2_table(1859) := 'aabpcWkHjJrZxdLbmXARzV5Lo/EcwShpkwuzYGSwkfet/byLoOURgt6fKJgIiiUvV4/4++hU0bBvH81BPoJIgInu+zacMg7//Rt1';
+wwv_flow_imp.g_varchar2_table(1860) := 'CpeoioJVN+SoQojMi6Dh9639uwlMwa/lJegFGqqbsFhdhWWkVBLSMbdwEmbhQix6Hn6jCbjx4hXKDRY7L6W7XV/00Pv57dOzZTrn';
+wwv_flow_imp.g_varchar2_table(1861) := 'p1reYiEEUR+XyWH3vbw9elj1J0Bowx]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[/NjbHiafzxJFUV02qpSiXPXYvWMzb3r49VQ9f';
+wwv_flow_imp.g_varchar2_table(1862) := '7Zp541eQHx4TIbNR4/Qc3WYyHGa80Forq3ciJYQgALsJrn/ojWRbdN35TJ7vvddxNy8wy/5TggMKXjvXbuoRhprBUyulKJSqXL/P';
+wwv_flow_imp.g_varchar2_table(1863) := 'fvZs2MLXs1lTNFeKBE8z2fPji3cf89+KisM0SwRqpHmvXftYkjFcwTm5sx8iNHs+d536btymci2m7KbNK4MbF0Y0PT7JO5/M28kW';
+wwv_flow_imp.g_varchar2_table(1864) := 'tM9MkL/lUv0X7p409FP2hgsYMYIb3MidmifKrLikMQYg7IUD7xuP2EUtaRxRIplIEIYRTzwuv0oS63YOxOgirBD+7zNiZgxgsX1H';
+wwv_flow_imp.g_varchar2_table(1865) := 'kBydFz/pYv0X7lE98hIU7eSK1oXBrSEaJrp0phag8fBixcwwNbDL8cNPm+I5wyQwfATToRZ5XBE4qKhuw/sZt1gH2EYrokDml191';
+wwv_flow_imp.g_varchar2_table(1866) := 'ohrN3OMa712XL0Zsm6wj7sP7Mb3A0RWN6WNwE84ERnmagFmtQBj0JbF1sMvY4DBixfIlkqYJjaSbVUY0HQCaKr7X+vtVhgfJzc1S';
+wwv_flow_imp.g_varchar2_table(1867) := 'ZDNseHkq+QnJ9F2XOKQ5P09YLsy3GdpKkZW9cGTCTfQ28OOrRvjCbcGadNWYEvcnr4ZX45afev75Lk5Cqwmjc+qjXG1tRVCnOPfs';
+wwv_flow_imp.g_varchar2_table(1868) := 'XUjA709qyZkBVSMcJ+l2a4MHtePSds2+clJNpx8lSCbIzc1SWF8PA4DmqAHtTIMaGohUFLjrGjSKlJj5oEL57F9H6+ri/zkJOvOn';
+wwv_flow_imp.g_varchar2_table(1869) := 'ObcfffjlMtowCJ+wQ85If1imDLx91YFiVeLO/ft4PsvHY9ZYaVuZ+1XRkqG8apBm9UbwVLIO7Aupyg4EK3g4rFgCkEEV0qGKa95f';
+wwv_flow_imp.g_varchar2_table(1870) := 'kpvRliXExwrHuOK7Lcm2N25b0fs1a3WswMCoF8MD9kRJ3yHrJjYAzCGMJtly5HD5Ccn8bq6yBSLDFw4z7Xt2+MX2YRQMFk4m10U1';
+wwv_flow_imp.g_varchar2_table(1871) := 'PRKQKeZrowIKooYOns6Ts8Yg1GKTceOcuGe180KOYlxHbQ0gsGs6ZEKkdZs2jBIxnXQK4wFRSDScHxcM+WZOM1IcwhyogrDpYhdv';
+wwv_flow_imp.g_varchar2_table(1872) := 'YoNeSGsw8Di1QdmfMOrE5pqk3tkTlQNwyW4o1/R7dY3xgRaazKuw6YNg0Ras2oGIPF4DActPev9QCwGqjBi07Gj182xobOnOfXwI';
+wwv_flow_imp.g_varchar2_table(1873) := '019OI4S/CZXBjfdy7BXGZPVA21ZZGdmZlt7K60JXZfB8+fovTpMYDtxmABkMexX8d/XZv5x/niwr4furgJa6xXNAWPmjN+ZFwJYT';
+wwv_flow_imp.g_varchar2_table(1874) := 'fhyrPiznprUjFUM9jLhQLLyV0I4Nq7xI3CteIzNGJ8t8fX9KL5fJYy/Xw8Zxrs0Nd1dBQb7eojCaE3hmAARsF8ZstTmiTEEtkPv1';
+wwv_flow_imp.g_varchar2_table(1875) := 'WEGz58jdF1ULevUfW2M7MxMUw+UaabtJGjqHSykaYchJvH/dS+ixs6O57H56GFC24pfIjCoDLuUJlhl/D97X4lrAroKedYN9hIEY';
+wwv_flow_imp.g_varchar2_table(1876) := 'V0TL1lZr1XMrPFrQJtYC7CW+rohbrbm/32Bn7drsX+k44ktwMWiqcvFFoHLxdj47do1DEuMcYFxLTW2+WM0xNe3JSaBy8X6yVQQg';
+wwv_flow_imp.g_varchar2_table(1877) := 'iBk3WAvXYV83bn/xaCAwAi7lGZQxXNGjCG0LTYfPYzjebMewI0LT7N0AEuk6W3zmhYCxJOmiVt/57liKknJ1br9Ro4TH/n10CNox';
+wwv_flow_imp.g_varchar2_table(1878) := 'wFtcAQcFs7vrgZKBMeu//Elz2G8Grv9yTd29iqGcrKwccpciGnXQilT80+VCJE2RFpfR0CG2upo4MSEpugbLAXV0FAKDD1LuNmKO';
+wwv_flow_imp.g_varchar2_table(1879) := 'O6fqv2OJjbUff2KvCOzWsXcvQyWUnNVdPPC4VCbufD4hgkQl2RDOTCcmNBEJiaFKd8QRPV7AQCObTesHkMTzxGnNkhjWWSLxfgIM';
+wwv_flow_imp.g_varchar2_table(1880) := 'ceZS/3NCz2v7tnbNB1AiG3I083bItxUDcBppn+hFLbvM3Dh/HVpP4grA7vHx9l4+iTn73kdQbnKbjtm9opZu9tjag1Dtm5ex6GjJ';
+wwv_flow_imp.g_varchar2_table(1881) := '+sWAuMKs+QasXEN5WR25bwOtUvaVmzolycrjM14VIIISwm9OYdNvVn6Cy5BqG+6T86Ggaww7cU1EMbM3Xvpz8asoUcGelyhLytEO';
+wwv_flow_imp.g_varchar2_table(1882) := 'jbM+XBsi4mSz5WpKlOVgEgbco7FUHeGzb1ZLEsItUEWUYH7skLBESY8g1UjrYTgloXEWszWzeuwbAvjmTWVZwvMeoq7leZyqJBsh';
+wwv_flow_imp.g_varchar2_table(1883) := 'u3HX6F7fBw/l5sjgBvEZ5q4N8RR4DWxe31TCaCZ5T+RZZGfnlo4HWMMRoTtR49w8eA9aIk/aKNHYzVg51ZkFk7VGR0b/2Ql4NCFK';
+wwv_flow_imp.g_varchar2_table(1884) := 'a6V/Nidr03ySxNVToyU2Le+izs2dF1XuJIQTSN6mCTXuvFSSoSjl2c4MVIkCPXsphtjDGeulRksuLxuWy+9OYcwMgsukAtdd6Vox';
+wwv_flow_imp.g_varchar2_table(1885) := 'DuYD0U8V7SA0prtR49gbiD469LPM9OUe3qbdsBMbEPNUwKbZqEWNC/+15rIdhg4f57MAgUZSeXW0IXz9A0PEzluUxp5NOKaC61Zy';
+wwv_flow_imp.g_varchar2_table(1886) := 'co/VQn5zslxJsoBGVvh2gpHCY4lZJw4vDpyeZqXL01hq9b0WYhDO+HlS1McuTwdd7JxFI4lOEpwbUXGVkyUA75zcpypSohtSdMaq';
+wwv_flow_imp.g_varchar2_table(1887) := 'TTrvUaOS9/wMEMXzt9UWQpxeJAplRg4f57IdppWFhzrAM1DUwggjvFU05saDFy8sGh7kUQM3H7sSNOEmmYhThUaDl2YxI80bs2Aa';
+wwv_flow_imp.g_varchar2_table(1888) := 'mH27N8Bso7i9GiJixNVnCYaGrX7OpZwcaLK6dES2VqMt9DYXEvwI82hC5NEemEPoFORrPDbjx2ZE/8W+jkMAxcvNHcsxLbUrNfaN';
+wwv_flow_imp.g_varchar2_table(1889) := 'A+gmfl/oxRutULvlctE1sKbMkRrAsdh86vHyRVnEEuhGmwdC+01XytiI1NcnqwyXvJxLVnWlVcinBiZIaxje4Kp42ux3xOBMIITI';
+wwv_flow_imp.g_varchar2_table(1890) := 'zPLCm+6RgLjJZ/Lk1UcSzWFnBr9DpQxiKXIFWfY/OpxAmfh1V20JrJseq9cxq1WltyKvlY005aaFwI0ifLFmHj778jI3NHei0DbN';
+wwv_flow_imp.g_varchar2_table(1891) := 'oWJCdZdvMCE4+Jp07APbIyhVK42pS+AAcaKcc+B5WzGGLCUUPIiil6AtUTZparl]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[3pf7';
+wwv_flow_imp.g_varchar2_table(1892) := 'WgyWgqIXUPJiIXI5g45JQxgr+s0JBUUolasN256tAE8bJhyXdRcvUJiYmC0pXwhJGrpnZCTOEjTJ/WqWLUGTCEBo4qCNQVs2vcOX';
+wwv_flow_imp.g_varchar2_table(1893) := 'sYJgeQXWGPYdeZnzWphEYbN24UlE0JFmeGQ8Xgkb+eIlJpfKCkrAhDhk8II4JbjQaAQo+oYJzzC5yFfybwt+HBPn3r1Axy79Cj5S';
+wwv_flow_imp.g_varchar2_table(1894) := 'xY9iI23klKj17hseGUdHes1EbIjFv0kU57Ww78jLy79XpbCCgN7hy2jLbo4gQWxLt1QaME5zN0mUquVgB8+fw6iljU+MIXBdNpw7';
+wwv_flow_imp.g_varchar2_table(1895) := 'w7nRMaa35RnQPmZNNWMxAYRRhB+ETesMtFLXVmQJLqylqc9PG+rpe6tkcVtdTUOcZoRKEL8HPwgJo6ghBKAwTNsu+StjbDh3hmAB';
+wwv_flow_imp.g_varchar2_table(1896) := '8e/6XzIYJQyeP8eZBx5qSi1AnBWVptXTNNwDSATAZsUWcRXWNH2XL8Xq6zKsqy2LQqVC9pVXOK5cMmts/WxMraNwscy18Slc15kt';
+wwv_flow_imp.g_varchar2_table(1897) := 'zFn2awFDkBt/BsFWioGCW/+YELKORXfWxUi8Yix0utH8E3K4IfRPxrfQGJPvG4HurEvWsVa0n2Kg4GIrhWIVz2ORLwRc1+Ha+BTT';
+wwv_flow_imp.g_varchar2_table(1898) := 'xbip51oWYANkjOG4csm+8gqFSmXZMt9YLHTou3yJ7Mx008qCFc0TApviAdhNjP/DpPy3WFwwPXPT72iNtm02HD/G2Tffh+QUa9kQ';
+wwv_flow_imp.g_varchar2_table(1899) := 'YDA4js3V0XFGr03gOk78YpabfRL7RFpfP0mqnk8oJt7NVlPS/UDoywg6ChHLXXLVtpRQ9kMGcy6iQ0plDSIEgSEIVbx21BylTbmI';
+wwv_flow_imp.g_varchar2_table(1900) := 'rERGI5LLupJ0ztFaU6n6xL2QlVysWLPCo9aGcsVD1y7iWIpuR7hcDci7NtESCqUg6CigLyMUK9XrQ4c6n8fSzxOKpTJXR8cZ6O8h';
+wwv_flow_imp.g_varchar2_table(1901) := 'jLzV+3YGxFKcLVXZcPwYus6OP7pWLdh9bYyRnt1x1qAJ89+WuIKz4ddt/CUXqGprFBYp/10OoeMwMDrC5dPnqbx+Fyr01uaumXii';
+wwv_flow_imp.g_varchar2_table(1902) := 'Hti7g2zGrbuLrG0Jw4dHmJyoYFmCUor9e7aQcazrC3kMZF2LfN8YX3zmGH1dOeD6I8pEwLIsiqUqQ30FPvDWu7HFzC7pWVsRnJvk';
+wwv_flow_imp.g_varchar2_table(1903) := 'wswEjm2hI82BHevN3k294oeGs+cuT+ggGANQjju06+6d/Qpkslg1wy8Nix9qtDYU8jnuPrCesLafWIDdu3fwqW8cZmyyRFch7sE3';
+wwv_flow_imp.g_varchar2_table(1904) := '/xEkK/tkscJ7Hj7A/buHqPo31+rX+zwWQ9Lhuer5a/aPlTFUnAyXj5xhYHSEMJupL6ZvUVlws2yqKQTQNAFQKewgWLD8dyloIIdh';
+wwv_flow_imp.g_varchar2_table(1905) := '9KWjjN67myGJyz5XM0olcQfag/t38fq799U98bQx5HMux37jLzk3egZb2WQch4/89Lvp7coThvM3wsSR3z8WWPeJL/DHX/g2Gdcm';
+wwv_flow_imp.g_varchar2_table(1906) := '6zqxcRkIoojJmQrbNvTziX/zs7zh4C7KXoBSQhRpCj15PvGZp/ju8afoyhYoelXzU+//EdmzoXf6C1988kjWyDUvNAFAxhanx80M';
+wwv_flow_imp.g_varchar2_table(1907) := 'vvMdbzqYLeR7Hv9XnzBe4EkYhmzdOMT/8XMfpFzxUSruq5/POPzQm36Aj/7a/8eFqxN05TM4Vrz1UGtDuerj+SEfed8P8h8++r6a';
+wwv_flow_imp.g_varchar2_table(1908) := 'N3F9je/KnscSkPggEM9ffY9GAzgCo1oYfekoBUz9e0bmlwXXI0qvEs2yqaaJgM1AZFnkpxYp/10KxqBcF336HIeGr/FjG3vx/Oim';
+wwv_flow_imp.g_varchar2_table(1909) := '2vaVwBgze9pMPYjbkd/cbdarnVoTRtdP+FhrEP7jz7+fB+7aySf+6inOXh6jWPawLEV/T573/dDr+Vc/8w42DvUyMV2aXXkjrcl7';
+wwv_flow_imp.g_varchar2_table(1910) := 'NmFtj4AxxrgZV06cOj/1xOePfPfYyYuVXDajBgb6CgDj45OVb377+8OnTp6bev8Hf/SRbMbpnSlXDSC69jnnG9iE53Pfge184bd/';
+wwv_flow_imp.g_varchar2_table(1911) := 'gd/6s6/w9eePMTFdJoo0+azLgZ2b+OhP/hDvf+t9lCpe7cCVtT2PpbBWAVAbyLg2h4avoU+fQ7lu3QeEXN+Vaopyb3PKgm+ZLIAC';
+wwv_flow_imp.g_varchar2_table(1912) := 'rCYIFmIM2rbpGblKplwiyGRXlHfVloVbKvO9l0/wtq2PoLwA1rjfeiUTb34d/43XmPua//2YBGZKVX7ibffxrjce5MT5EUYnZnAd';
+wwv_flow_imp.g_varchar2_table(1913) := 'mz1b17FlfR+eH1IsV6+rib/xenFlngqf/Op3vt9lmerWLRvy73rnm/bt3bttM8DJkxcuP/740ycmJqcrn//rJ74fBMFblFJW0iN3';
+wwv_flow_imp.g_varchar2_table(1914) := '/hgBLEsolqsM9XXx27/497k0Msmpi6P4Qci6/m72bV9PPusyXazOCo9rfR7NhDKaqp3ley+fwK2U0YU8rKC01yhFplyiZ+QqxcFB';
+wwv_flow_imp.g_varchar2_table(1915) := 'rDBsqA4QlwQ3p7NWy48HXzVq28TWnT4ZG/4K8+9Ga3KOzcUjr3LyB+/jTkdR1k3UK+od11JpTIkNYqpYwVKKg7s3Y1sKbQx+EDJV';
+wwv_flow_imp.g_varchar2_table(1916) := 'rKBEFjzVyMxd22iQ7QU5vr5gT0+WPPsffuhdP3Dgrj1DxekSAA+/8fW7+/q6e/7wjz73TFAqTvcbfbyo1EFj4lO1FhqjpRR+EFL1';
+wwv_flow_imp.g_varchar2_table(1917) := 'AwZ7C2wa6kWJ1E7cCWbHvNxnb3eFtjaQtxSvzFS5eORVeh271l1oBRBBjGHd6ZNcvvNg03SAZqChAUucAmxO0YJRCtur0nclLrpY';
+wwv_flow_imp.g_varchar2_table(1918) := 'zeYL4zg4o6N88sRldB0ZhGZDieA6NlobtFn8KznTrlTxmCyWmS5V8Wo1CAZu/p2ay51xLbRB8hbFfb3W2fGpMj/y9od37du7fWji';
+wwv_flow_imp.g_varchar2_table(1919) := '2pSOoogoipi4NqX37d0+9CNvf3jXVMlj/4B7NqdMURvEsRW2bRFpfdN9kko/LwiZLlWZLJbnufyy5GeKtMa2LRy7OSXC9UKMQbsu';
+wwv_flow_imp.g_varchar2_table(1920) := 'nzxxGWd0FLOKAz9Ea7QVn01he9WmlAXHewIaX1vTcA+gWUULkW3TMzpCYWJiyfLfJa8B9GB46ehJPn9wLz8lVa4hNO+Ml5sx60bX';
+wwv_flow_imp.g_varchar2_table(1921) := 'Tic+dXGMh+/ZhecFSCPckZrWFoaa42dHjG1bsj6nLlha+339PfkHH7x7nxeLhSoZi1Iozwt48MG7933vey9fJPDK67LqwkTV]'')'||wwv_flow.LF||
+'';
+wwv_flow_imp.g_varchar2_table(1922) := '               || TO_CLOB(q''[vvPiyKQZnSjK+r4uggYU3EC88juWxchEkYsjk7iONbvXoJVHrgXAoBj+IrA5fPQk92Kosrp';
+wwv_flow_imp.g_varchar2_table(1923) := '4O6qVnRcmxpletx4rDJf/pRUgKa5rtGXdEiFAkssfOncWp1rBzxdW5QEklYG7Tp/kN66UuG+jyx4TMNUCEkgm/f37t/LkCyfoKWT';
+wwv_flow_imp.g_varchar2_table(1924) := 'xqj7/9hNf4sDODXE1WwN8J0NcGzBd8jh6Zli6s45en7VGS5Uy9999x2BvT5dbrnpGzbM0EcEPQ9Pb0+Xu379j8IXnDpc35vOjF0p';
+wwv_flow_imp.g_varchar2_table(1925) := '6/7mrE+qj/+kv2bquLyaAhowxfhYXRyc5NxxnESZnKjx01w6G+gqUKs0/dSkAeokLf37jSok3nD65fOXfEjBK4ZZLDJ07y+Smzdi';
+wwv_flow_imp.g_varchar2_table(1926) := '+39QNQo1CwwmgKTuXajFW/6WLGFFrqrmOLIveYpHs8eN8dOgRPifj9FuGyVqvwGT0ST69UbVdShRlz+fdb7qLz3ztRcYmi3QXshQ';
+wwv_flow_imp.g_varchar2_table(1927) := 'rHt/6u1MNXflqG4RMLpeRnDIzduhNXZucCe/Yt2ujlZyec8P9jDFYlmL/HTs3fP1rz5zp6VFTGaVmJJvpvTgyZU5fuiaNHaPBdWy';
+wwv_flow_imp.g_varchar2_table(1928) := '68hmCMG559aEfuQ+M3JgxXBOSmq/571UTtwCfiOCjppvs8e/SWyxSzudXv6/fGIwo+i9dnNOoGgxHCUGDEwy3hAegLUW2WKR3+Ep';
+wwv_flow_imp.g_varchar2_table(1929) := 'cobUGAhBj8Gybu44d4X/d9wAfVDn+U87nQSsiAjwTx1kZAZs5YlgrRCAIIoZ6u/jYL7yXf/nxv+bq+Axd+Qz5rNuEA0dFyhWPa1W';
+wwv_flow_imp.g_varchar2_table(1930) := '/+31vfvjNP3Pn5mvrNw0Nen6AWiDWUKLE8wM2bFo3+M//+c++4dzYTO/X/9tXukNtyGcdyWVcGut+xg3aJ2cqiMD/+Y/eycMHd1I';
+wwv_flow_imp.g_varchar2_table(1931) := 'sew3bO5AYeojg1fYiZSRukfZcZPGvKy4v64D3HjuC14B5pW2b3uErZItFgoyLNKIlU5PR8QQQl/+6DJ07R35ysq7y3yVR207cPTz';
+wwv_flow_imp.g_varchar2_table(1932) := 'MnovnOLRrDz85I3wgE/EeJ2S3MtgYrmrF5wKLbcrwT9yAabP2zixKCeWqz927N/H//spP8WePPc9zr5yfFfQaZV9SK8jZv30d733';
+wwv_flow_imp.g_varchar2_table(1933) := 'zPerdP3iwL+M6feWKRxAs3D03Iai+3u78xvWDO+4S6Ovr4S+feJFj567O9eprxBhr1xGBh+7awYfefh8P372TYqUxxh8BPWL4I9/';
+wwv_flow_imp.g_varchar2_table(1934) := 'hghY+4ERsEE2IcDpSfDGw+ZxnUcpk2Hv+FN3Dw2ufV8Q6QH5ykt7hK1zds7dpZcGNRMcTQFz+a9F35TIqCkHqLNFcCiIordl89Ah';
+wwv_flow_imp.g_varchar2_table(1935) := 'X9uzFwvBJ3+FTvs06Fa8QU0a4qBUfdgP+qds4QUcpoVTx2ba+j//7597F2GQJP1xbS+uFYAz0d+fIZRymS1VTrfooJUu68SJxy/N';
+wwv_flow_imp.g_varchar2_table(1936) := 'iqWwAHj64Qx46uIOxyVITtvPG2sNQXIvU0JUfYsHsudDiT32HT/uaXol7/Y9qIUDoJaKghM1Hj6C0XnFaeeGbCioK6btymeF9+2+';
+wwv_flow_imp.g_varchar2_table(1937) := 'JdGDDCaDhG4FEYQU+g+fONGzPtWhN4LpsPH2S3Pg41Z4e+qMIQ2z4BsgAG5XmrBZmDA3pI5BAqTh1VvEDclmHvLiNT5sIBKHGCyp';
+wwv_flow_imp.g_varchar2_table(1938) := 'YSolVZ9ljrQhHAIqVuNKxp5Bt3Oo/b3wYKNXu0Ujjt4EZA2e1sFFpLOCaieXLgsTBR2g75GqdowPXbUxPv1qvisFzZ7CCN6250Ox';
+wwv_flow_imp.g_varchar2_table(1939) := 'GNGOTXcd7AJEdl//2jIw0tLefsSxyxSJbXj3OsUfeiAqCuNag9u/JmYJntOKMVtxlacqmcYUTIvGhKdFsL+zGQySuIFstEqMMoyY';
+wwv_flow_imp.g_varchar2_table(1940) := 'ehd1g0VgDeYGjUfzeLOb6/Sf/LloTZLPsefU4uWIRby3i3zwkZcE9IyPkm1gW3Eh0dJ5itvz36jBupbF915KXte3YEdzqXPHG/E3';
+wwv_flow_imp.g_varchar2_table(1941) := 'yyUpyRivsulpprGIcJPnvxn81bIxNGl8zvOP4vRnOaHWd55Z8QS1lV62yrQkNY41SuJUKPVeH1yxYtwIdTQDXpVZ0HR0vV3jt0HH';
+wwv_flow_imp.g_varchar2_table(1942) := 'ovXq11jr85uYiAmiEb4bN73CconEQ4JuhQi9QtZD0lOwbHqb36lVCx2lwSzdBdNSQlHUr0NEEYJTCqVYYOncW3Yze6yJYUcT2V44';
+wwv_flow_imp.g_varchar2_table(1943) := 'suL1YE6eNXowU00Y6P15KgQ1MG+HFSJGRBbb11rbvbn/lCFbU4EWFpGjNmS1a6/RioI4e3fzyytWW/y4F0ZrQcdh08gT5qcmbOsB';
+wwv_flow_imp.g_varchar2_table(1944) := 'qwAXOacVZrcisZJ94ipZDAxkMZ7XinFa43HwWpLZt8lOTbDp5gnCRlt9rRTxvx9dUtt4qdCwBtGKDBSw/IRxg0ghPhRauNO5w0RS';
+wwv_flow_imp.g_varchar2_table(1945) := 'NhwZcgadCi0lzc3n3coTfKDRi41qr0LEEEJf/atadPglJU7tmIHEJjx6JN3DcWCJLTAJfCxUVmntMU4q1wQIqCF8LFQ4LZC1FsMK';
+wwv_flow_imp.g_varchar2_table(1946) := 'Q7UcXDvkahuu2ruuOrgXoWAKYVVNHrjZVTU3OERy4fImBy5duqgiLgJwYXoosTkaKbBoGdCQ0kMVwMlK8FFnkaoU/CZZ7z43E/OY';
+wwv_flow_imp.g_varchar2_table(1947) := '1jc5eNRodObIb86mR3eR1d5mVIQkD/ja0yKRhQEciFmzhbxdx/5fz9BqNZtWvNBoNJ4CGGMd1FVV+wyuqbkQ9YmBW4IuBxYRRLe0';
+wwv_flow_imp.g_varchar2_table(1948) := 'fkKI+OMCEUXwxsMguQNKtEP+uQxMqWJsx4sYTQCOYbl5NtVFNjNXmYakJooE8hlcixdOhonCDe5mivYiAghieDhWvRIr8DWFaq8S';
+wwv_flow_imp.g_varchar2_table(1949) := '/63DTHpa1exwNsa0b0JEhwPxdVfWc/tMQ1OEiCsKfBTZBQ9pipGgUBAhq72bBN9Mq8W/+LU18alDv8BXyk5Mdmw7sOAK4cV+1tlo';
+wwv_flow_imp.g_varchar2_table(1950) := 'zxOtEoksXFxQDC2L4TmhxdIFVJkV7kHhnRyPFd0LrJu9s9r1euth08e+msTWwj0Wz0HDrqref+qJoQWeVRSGCHQRsPnWSaIGVwga';
+wwv_flow_imp.g_varchar2_table(1951) := 'KRvikb+M0bvt+ijUgOdTjk75NcaFqTWOILIvNp07GB3e0eD41qpMVNMC2FkATNIC1/f715b+tLaJIYsUtrx4jVyxibjjsMQS6xfC';
+wwv_flow_imp.g_varchar2_table(1952) := 'FwOblyGq7F2BMfK5f47sJ1XNvg9a6]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[rSyYrP4vRxZfCGy6xXBj54a5XZ/HWiP+zcONvS';
+wwv_flow_imp.g_varchar2_table(1953) := 'zXmg5sRoOhjgsBml3+u+z9HYeuJfaJO8S15n/s222vDLQsRa6Qw7Kslu45MSY+lzBfyCGWtIWAYK7y7499m+lFKv+Svg9d4+NEq2';
+wwv_flow_imp.g_varchar2_table(1954) := 'j5vVZ0ellwQwlAqPWoX+3v18p/e4ebW/67JIzBiLB9fqeYeQiJ200lXkDXQhtOWgBlKaoVj0NPH2FibArbUa1ZjQ3YjmJibIoXnz';
+wwv_flow_imp.g_varchar2_table(1955) := '5M6Ie4Gaflm9400CVzq3/PAqt/0vlp+9EjcWuudnhKtbLg3uG1lQVrYttqdADTcAtb6655wTBw8ULbVPZENBq6cJ6+4eEFt4taxF';
+wwv_flow_imp.g_varchar2_table(1956) := 'rAb3hOy/MBRhucjMM3/vpp/p9//d/409/8DC9/5yi5Qo4obH5yMgojcoUcL3/3KH/6nz/Lf/mVP+Y7jz1HJutgWtwEU4jfQXGhfo';
+wwv_flow_imp.g_varchar2_table(1957) := '217d59w8MMXTjfUvHvRgjU5vTa7t+MjhRNIIDVM5WxLDKlEgPnz8fpvzZtojBK4Xjeog0jkqaTTwQWXw8tehdafZoIJcLmnRuZmZ';
+wwv_flow_imp.g_varchar2_table(1958) := 'yhd6CH737leU4ePkt3fxdR2BxNwBhDFGq6+7s4efgs3338efqGehgfmaR3sLelB3qEQK8Yvh5aPBFY9CxQlzG/4YvjeW0rxxWtiW';
+wwv_flow_imp.g_varchar2_table(1959) := 'yHgfPnyZRKN+lKdV0DZk9iajSaQgCrGep1p6zOTMcqfJsgWhM4DltqLaMWe2kWwn+oOoyZeOtpK9YXUUK17HH3Qwe47833UJwuEY';
+wwv_flow_imp.g_varchar2_table(1960) := 'YRf/Zbn+Po91+lqy+P4zpordHarG1QJu4urLXGcR26+vIc/f6r/NlvfY4wjChOlbj/Lfdw7yN3Ui17jTnZaPkh4QJjRvEfqg7WIk';
+wwv_flow_imp.g_varchar2_table(1961) := 'vN/JZvQYvFvxsRWRa5memVn2o9D6ZJHamaQourSleYeees+37TzlmvF3oZMVAT1wUcjiz+yLfpaqUXIELgBbz7Z3+EXQe2Uy1XCY';
+wwv_flow_imp.g_varchar2_table(1962) := 'OQP/utz/HZ3/8iIxdHyXflyeUzqNpBIDqKCcHo+MRPaq0ITa1XljHxv2kd/6wxBmUpcvkM+a48IxdH+ezvfzE2/iCkWq6y68B23v';
+wwv_flow_imp.g_varchar2_table(1963) := '2zP4JfbV16LSSO/f/ItzkcxXn/G037RvFPt0H8uw5KYfs+AxfOr7oQqRkpQGhSU9BVca0IKooYOnc6dtfaXTQxTww8f/CeBSd4SH';
+wwv_flow_imp.g_varchar2_table(1964) := 'zwxB96Do9aEQ/ZETMNOD9gOYgksXiWn/2lD/LZP/hfHHvhJLlClu8/eYjD3zvGwQf3c9eDd7Bl1ya6+7qwHavmERjCMIrj9XnH5Y';
+wwv_flow_imp.g_varchar2_table(1965) := 'gSbNuK34MSwiBiZrLIpTNXOPrcqxx57jhexcPNupSLFQ7cv5cP/rP3kitkCRp1ruEyiIhd/6dDiz/0nNqhHws/oHaLf9fBGIxSDJ';
+wwv_flow_imp.g_varchar2_table(1966) := '07zamHH1kVWTbLf2kKAUR65e1ztWWRm56me3S0I3ZP3SgGTm7YgLVAIYkFVI3wSxWXL3V5uJjZ46iaOj4VewGZnMuHf+nv882/+S';
+wwv_flow_imp.g_varchar2_table(1967) := '5Pf+lZvNpq/8K3XuLFbx+mp7+LDdvWsXnHBjbt3Egm59K/rpdsLhMTAnFn3mrFY2J0Cq/ic+XsMJfPXeXqhVGmJ4oYo3EcB2MMtm';
+wwv_flow_imp.g_varchar2_table(1968) := '3xrp9+K2/58UfQWrfM+JO+DNNG8UsVF9/IwnsyOkj8S5CEt92jo+Smp/EKKz/bMmqSwNqE04Fjd2Ulw5VatVZ2ZppMuUxk2WtWTB';
+wwv_flow_imp.g_varchar2_table(1969) := 'uB+MDHMluPHeXali3xgY83EEBE7JIe1xb/oerwOzmPyRZ4ARCTQBRGRET88E++hYMP7Oebf/MMx144ie8HKAXFqRLTE0WOv3gKZS';
+wwv_flow_imp.g_varchar2_table(1970) := 'lEIFfIYTvWrFgoEq/4lVIlLi6KNMpSKCW1U4bAyTjc88idvOXHH2bjjg2UZ8qzY2gFNLHw+n9WXI5ri4FFVv/E2LYeO4rjeQ1r+b';
+wwv_flow_imp.g_varchar2_table(1971) := '1WaGWRKZfJzkxT6enBjqK6Tw0yxDbVjCfdFA8gESzqHbARwfZ9JjdtYWzHTtafPkWQybSfubUmtG02njnFscoPxmLgAmNKQoE/9R';
+wwv_flow_imp.g_varchar2_table(1972) := '3utzQfdgPGW9RENFHfS1MlBjcO8MGPvoexq+McefY4x148ycjFMSqlCjAX+1eKlZtfTqIDJP+DIZPLsn7rEAfu28vBN+xnaMMAYR';
+wwv_flow_imp.g_varchar2_table(1973) := 'hRmiqhWrRHA+LnO1B7vn/qL+H6U8skVSpsPHOKsMWVpIvBiOB4HiO79zC5aeGFZMnfpzkpQGiiBhAZjSOq/mEbQ+TYXDp4D+tPna';
+wwv_flow_imp.g_varchar2_table(1974) := 'AhRzU1AJHj0DsywvqzZ7i0/8Ci570lhSn/vuqy39Lcb8V6QKtqv5SlCPwA3/PpHejh0fe9kTe+60Emx6a4dGaYscvXGLk0RqXsMT';
+wwv_flow_imp.g_varchar2_table(1975) := 'k2hVfxUDWhVWtNJpehb6iXXD7D+i1DDG0eZMuujfQN9eJmHHwvoFyqICItN/5uMXwvsvj3VXfJwqvk+Pctx4/ROzLSEYtIPDABo7';
+wwv_flow_imp.g_varchar2_table(1976) := 'l08B4ix671uKjzpCYgNDo+0KQJQ2va/IyMwVnBiOM9AFWG79jP9PoNdF271pp923Vi+9HDXNp/YNF/T2LUMvBz5QyPFaqsE0OJxh';
+wwv_flow_imp.g_varchar2_table(1977) := '0xvhxqx3oRBiGBHyAi9A31MrRpEGUJUajBGMrFCoEfzrrvRhsc1ybflYu3ztoKHRnCILzuWqrFmZkI6AJGtOLnyhnKQL72/aWw/e';
+wwv_flow_imp.g_varchar2_table(1978) := 'jhpo9tJbB8n+n1Gxi+Yz9OdeUVrs3KAEAT9wKEqxizaI2fy3HlzoNYUdgRvdSkJiqtP3uGntHRJevJI6BAPGE/Us4wiSzYmrrZSI';
+wwv_flow_imp.g_varchar2_table(1979) := 'w1IYNKqUppqoxX9vAqPk7GodCTJ1/IkS/kKPTkcTIOXsXHK3uUpspUSnFqcf61WomkJfskwkfKGUa0osDSxh85Dj2jo6w/eybe+N';
+wwv_flow_imp.g_varchar2_table(1980) := 'MBq79RCisKuXLnQfxcblUhyWpsqV40zcIis/IPapTCCgIu3n0vXr7QMeeqJXHl1uOvLBtXzndZ/1E5gyXMnk/XDkgtracshShBlG';
+wwv_flow_imp.g_varchar2_table(1981) := 'AiE4uHkY6/wggTmdl/nxMA21OQnZzLaAn8o3KG70XWgjv95iPRa7Yef4VMpbKqirtmQEURXr7AxbvvxaqdP7lSrMaW6kVTCCDJBK';
+wwv_flow_imp.g_varchar2_table(1982) := 'zGfK0goNTXz5X9B7BWKJY0CyudXCEwWGse8isVl7wkx4x1CCQJF5Iz+qT5ecs6]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[kcS6e';
+wwv_flow_imp.g_varchar2_table(1983) := 'YFfqbh8J7QYrKPIaiUk3SoYESzf58r+A5T6+uM08goR0bwMADTRA4j3BOiVD7wm/l2853Vx1VSHYKXuZZIZ+O++wy9VXHrE4LB8/';
+wwv_flow_imp.g_varchar2_table(1984) := 'Ho7IyLWUXrE8EsVl/++jOKfYCVhWquhLYuL97wuFrRXuJjFewB0UxPiTQ2yw9XUPIvg+B4TW7YytnPXoqp7u7ASgSki9gT+h+fwk';
+wwv_flow_imp.g_varchar2_table(1985) := 'VKOMvEZA6HpnM/TKQiNkBNDGfhIKcf/8BwGV9h8tZPEvyT1N7ZzFxNbtuL4q5vHq7GhlaCpBBCstnrJGCIrTgnSISerzF9lekdGl';
+wwv_flow_imp.g_varchar2_table(1986) := 'l9ljIARIoFBJ+KvBH6mnGXGKHqciCAlgVkERuhxImaM4mfKWf6q9swiYfY5LoX5qdpOEf+uS/2toS34qm2oTjSNAGIdQK8q7o234';
+wwv_flow_imp.g_varchar2_table(1987) := '86lBC3fb/TwVoVli0wM8WQVwInACSES/PECg69s4Jlv7eH9XzvA4Yk8g5mAQKckEGhhMBNweCLP+792gGe+tYfBVzbgjxcgkvgZO';
+wwv_flow_imp.g_varchar2_table(1988) := 'lH8TM3NjRjnF2t1kvh3Xepvlc1tknqaZs6SpibaNXERg7uSgqAaRGv8fJ4rdx7kwFNfJ1pgR16rMb/M9OT9D8y9VCMgBhwd/1l10';
+wwv_flow_imp.g_varchar2_table(1989) := 'CNd6JFuzLUCpuLgR4peS/OyVvzE1w/wiTee4h1bJpjybAyCkg5YtVoIbQTBMJgN+Mqlfj76nT1c8xx6laYymUdODyG5ABksodbPo';
+wwv_flow_imp.g_varchar2_table(1990) := 'AbKkA3iZx2q2Wee9G7YeuxoR+whgZtTf265vGICECBoYgFQgqYn2lcbw3RkSnChjSaiwQ1BQI90Eb64leDp3YTPb0efG8BUHFAGc';
+wwv_flow_imp.g_varchar2_table(1991) := 'UNCy9DjhJRCiw89uZ9fO7SNvK3J2dFtpQuERsjZEXlb82uHtvGhJ/dTCi16nPgZiRuCMpiKgz43QPj89viZvrgVPdIVW4QbIqKX7';
+wwv_flow_imp.g_varchar2_table(1992) := 'd7UDjQi9QfNj/+hyR6AAH6kyanVuWXzU4I7XnyBIJttP8PPbjU9zPDePZiiSzTchx7uwRSzsdtq6dgbwMzFr7U/IwRHGWxl+NVD2';
+wwv_flow_imp.g_varchar2_table(1993) := '3h+rIv/+APnuLOvzKRnw2vYG9BGAMNAJuCVyTz/9vs7eOxSP/2ZsBYyJiRY+1MZsEJAMBUHc34Afakf6aqiNk5jbZzEDMbi32z/x';
+wwv_flow_imp.g_varchar2_table(1994) := 'jbPDyOC7XlcPHg3pb7+VXcDNsS20+xloem1thqDxqBW81HmpQS3vXSo8YNbBWabTZw5SfbJHKXiNpSv48lqa7DMvFh14c+c6DpDm';
+wwv_flow_imp.g_varchar2_table(1995) := 'YAnLvfx/Wtd/Mq9F/nIvqsYoBhaWNK83G+rEe9mE7rsCAE+cWwTv/7SViY8m6FMQGiW2PtpFiCDmQzR1HqCMxspdF1g45mFm7a0C';
+wwv_flow_imp.g_varchar2_table(1996) := '2tJ/c1eo2Y3zUbTQwADBHp1TNapKUGjbHLVGbaePkqoMogTgG3mRMA6ERqh1w3xIsUvPruLn3pqP8emcvS7IY4ySxvGLQBD/BkdZ';
+wwv_flow_imp.g_varchar2_table(1997) := 'eh3Q45N5fipp/bzi8/uwosUvW64stAnIVbbIE5AqDJsPX2UXHUGo9q/b6RRqT8htplWvPuWFNv7a0lldGBKMDm9qJLrRUxNplnlR';
+wwv_flow_imp.g_varchar2_table(1998) := '4yMYIlhMBPwxOVe3vH43fzy8zuZ8GwGMgGO3HpEMGv4Erv7E57NLz+/k3c8fjdPXO5lMBNgiZnn8q/iBghiNJVcb0NO3WkIGpT6g';
+wwv_flow_imp.g_varchar2_table(1999) := 'zXazArQdNpMtjNGqwwDbkwJtn+XoCAmxLO6GMvsxTIBa3XWExe5x4mIjPAHxzbyxfMDfHjvCB/eO8LWgkcltKhG8RPsVI1A14gqa';
+wwv_flow_imp.g_varchar2_table(2000) := '2lydsjFUoaPH93Mn55cz8WyS48T0ePo1Rv+PBgEywSMZfbiWV0o7YNYtPOookak/gAiDGGT038JWuIBrCUMgM7bJaiIKDuDVJ1eV';
+wwv_flow_imp.g_varchar2_table(2001) := 'AMbgCWG0e+GjPs2v3poG29/7G5+/dA2hisOfW5ItxNnQzqRArqdiD43ZLji8Ou1sf/qoW2M+zb9blzQ2wjjjyEoIqpOL2VnsPYe2';
+wwv_flow_imp.g_varchar2_table(2002) := 'odG7PqD1rr/0AIPIIGvDdlV2u38lOCu576HFYZt0wKMKKwo4FpuN75VIBMWYxe0gYhq7vNQJmDcs/nVQ1v5o1c38u6t4/zU7lFe1';
+wwv_flow_imp.g_varchar2_table(2003) := '1/GVoZAt/+YckO8imjgu6Nd/MXpdXzp4gAjFZuCrRnKBERGGmj4cxAd4dldXMvtpr9yhsjOIqY9RNCo1B+0zv2HFnkASRgQroHXO';
+wwv_flow_imp.g_varchar2_table(2004) := 'meXYPwZxvJ31IyvOS9rvoA2kAmphMInT67nvU/cxY999S7OFzNklKE1juLiY7QATwv/25P7efdXD/I/Tq6nEgoDmVYImXHwNZa/Y';
+wwv_flow_imp.g_varchar2_table(2005) := '96IWo9G7PpLELbQ/YcWHg5qAH8NYUDH7BI0mki5TLlbUCZquiiZ6AOWxKFBtxPx9EgPX77YT9aOmnJibL3QRshaEa9M5vn21Z7ZE';
+wwv_flow_imp.g_varchar2_table(2006) := 'MCSeMxNH5oIykRMuVuIlBuLxG1CI1J/QmwjrXylLSOApChotR+uM1KCgmVCSu56pt1NDREA60VCBNpArxvyxOU+Aq1YeZF146AN2';
+wwv_flow_imp.g_varchar2_table(2007) := 'LbhK5f7iBAUpjWGX0MiBE67myi567FMXCfQSjQq9QetK/6Zj5aqaRGGYC3uTZtTggZBmZBpdyO+3V2LN1s7hsgIBVvzvdFu840rv';
+wwv_flow_imp.g_varchar2_table(2008) := 'aYvE5p2lBFroMuOzKVixvzV2UFTsKOmxPlLQxAT4dvdTLsbUSZsGSHPDaExqb+k9j9qMaG3XE73otW7aW3fJSiCMprx3G60qBW4n';
+wwv_flow_imp.g_varchar2_table(2009) := 'HEJbMNgDNVI5Be/t0vOFbOSVavbdbnq2xNXPmiQX3x2p7w6nZOMaqTruoKm8kajRTGe241qw6LQqNQfrM02VouWEkAjWK6tKcFks';
+wwv_flow_imp.g_varchar2_table(2010) := 'mVXMtkEowIwScJlbWYS18CIectO51pXb//Y/7x6x7WMpROKafryER8fIPQ4oTw9tW3qnN469vbdatw0ZJdG7aASY8fPrB4SSEg5u';
+wwv_flow_imp.g_varchar2_table(2011) := '1JSXjsalfqDBnjHq0TLK2oSMTCnrFXN1valBFfjbhpEO1QHDwGG3OgDGAlBVr/J0xJMORR++uHBsz/70MBZ2Ol4Y+s2WOe+83qlv';
+wwv_flow_imp.g_varchar2_table(2012) := 'UyoVdOIQEAcMRKJMd76+46+9f77Tz/zdvw/febarn/xuSv9edsYvWof3IBRiLGpDh7CqJDc6A9glM9Sz+rGsExFXssKghqV]'')'||wwv_flow.LF||
+' ';
+wwv_flow_imp.g_varchar2_table(2013) := '              || TO_CLOB(q''[+psv/rWaAFoeAghQjaI1uaztSAkmgtOUu3llgpMK0c40Qc8pyhufBhUi2on7BqwSSkR+54mR';
+wwv_flow_imp.g_varchar2_table(2014) := 'A5Emh47szNDO4fzdf++bqnf7BVFW6IgRR4zYDfpyxIijdNySozA0mtv/zqezW+8/IVpbkda5j39tdL9aSwth0fEzURGV9d/D638F';
+wwv_flow_imp.g_varchar2_table(2015) := '7UyDque85Tlhdsrd3DJhtpGpP01sE+1I6LalplYDgY7IrNILaMsuQREsEzGe20OoMlhhstIsAaPQloexy0iUJcwPU9r8FLnRB7Cq';
+wwv_flow_imp.g_varchar2_table(2016) := 'QxjLW9HmIQBtkKylzalxCp/45sjWn390/Sk/iLJuJl/N3vHDL7jeTCEavzAUTl8eMn4lt9Z1UABsJ7C611/L9G0fs7qGpgD8IMq4';
+wwv_flow_imp.g_varchar2_table(2017) := 'jlX9g6dGd5+6FhW6Xb261V80EmWJMuNUh14gykygwjzGLqOVh0SZ5cnSRIRWgfHcHjaUXiGU1e/NWAkal/qLmt74YzG0hQAEqGiN';
+wwv_flow_imp.g_varchar2_table(2018) := 'u8o+ATemBFtzlmB87cnM1joPLjWIsYncGbTlIcZGIhdtlyhv/DbZa6/DmdmFUV7t5+t//cYgGcvwX74xuv9DP9A/PNTt+JHWlgWW';
+wwv_flow_imp.g_varchar2_table(2019) := 'ynRX1Ka7zjqb7jq3oosu92FqRX9aaxvAdayo6EW5T3xrbJ9rmVWI37V4P8oSdJ2nOvh3GMufNXhteWh3Brucx8jyeoBgmMxsve7a';
+wwv_flow_imp.g_varchar2_table(2020) := 'zcL8s/4akfqrrKU+Zo1oW1F9ZAz+LZQSFB3hWwWu5fZg6QCWK/8VAEXkToJENWFbI8YGMVTWfZ/q4KH4/41iJZPWABmlzeUZMr/1';
+wwv_flow_imp.g_varchar2_table(2021) := 'xMguIIiMAqXiylytXbR20Npu0JeD1q7W2lZKmdAogOBXvzy85/S4zmctbcyKyKYW72sbr/8IlfXPgYpqoZGuPasofnao5a8sCksH';
+wwv_flow_imp.g_varchar2_table(2022) := 'XMvtwbcKiG5yOXADU3++0U09+ms5tI0ABKhEq88HXJcSXFdLCTaNA+KNJxWnb3bjybLjrhm8dqeI5bN5/2AE0Q5+76uUN3xnVbqA';
+wwv_flow_imp.g_varchar2_table(2023) := 'NiJ525jPvjC149Jk0OVazGnQSplmfCmljAZcCz06ExQ+98LUjlj4WwH7XhfvP4fXfwTRN5CgxP/R7tQcISzzqJMNWhWnr6EbtG4e';
+wwv_flow_imp.g_varchar2_table(2024) := 'fy31t27tqT9DbAPt3M/R1m11a/UCRGv8bJ4rd98VpwQbvCknQSIATmR34lldSD0CoBGMhGiniCx4PKhBIndWF4iy4/XFu7O/DY7S';
+wwv_flow_imp.g_varchar2_table(2025) := 'jJaM+2/++tKdQBhFzW8zHMbzNfjtJ0Z2jZSM664k/z8b709S3vhtgq7zSJRlLsKY96NYaKcYZ02W1UnmtmhPZHc2VQiMN4OFXLn7';
+wwv_flow_imp.g_varchar2_table(2026) := 'Lvxsfk27/tq9+kObCWDNXoAobF3l3I4Hqbo9KF2ParwKSNx8YiK7HSNWnS6fQtsVtF1e3MUXc50uEHSfiUlgAYNYCJERKTjafPVY';
+wwv_flow_imp.g_varchar2_table(2027) := 'cfOhS5U+x1JhM53f2uofvXKl0vfp56d25p16V//48yTxfnnjt4kyk7Hxy0IGFIcI2i6j7Qp1TVNjMGIxkd0eN2lpUkiodEjV7eHc';
+wwv_flow_imp.g_varchar2_table(2028) := 'jgexdXXVi04nrP7QZgKANXgBBrA1UjaMHX09F3tqL6QZh3EbjRabieyuOjcAGcQojFOsFQEt8fNi1qQLWGIohaJ+8/HhfYDWTfQC';
+wwv_flow_imp.g_varchar2_table(2029) := 'ah5G9Gt/O3zHRMU4jtSz+s/l9xeM9xf9tbiAyjhFpJ5nUdsYNJHdhRa7KQVBBgtbV7nY8yBjR1+PlE3cB3KFK1inrP7QAQSwKi/A';
+wwv_flow_imp.g_varchar2_table(2030) := 'EDeJ9C0qz23DVCxOD74ZjU3jj+CMC03KzgATme31uZeJAOhMzwmAS2L1ukBkRLocbR57pbT5b4/MbHAsFQRNIIEIcCwVHrpU6fva';
+wwv_flow_imp.g_varchar2_table(2031) := '8dKmLkebaLnVPyE3FVFZt0i8vxgSIdCZph4hcDZMy2yn7AygmrIxSKOxOT34Zkwlnnv4VjwXVzCBO2X1hw4gAIi9AE+v4IFI/FV5';
+wwv_flow_imp.g_varchar2_table(2032) := 'bhvheBeuKjGW3cdw1z04uoJp4MdKJtaMu4mq01ffxFpUAKzjbqvQBeJ+CyIff2L4DmjOS615Fvo3Hx/eVwpFWctpFfPDmw3fIehe';
+wwv_flow_imp.g_varchar2_table(2033) := 'PN5f+Pfj/9QrBCZEXXX6mGnCTk2DwtEVhrvuYSy7D1eVCMe7YhIQ6n7HAng66ojVHzqEABIvoK6124DYEd7hjYRjhfgQCW3QyuFs';
+wwv_flow_imp.g_varchar2_table(2034) := '75tq8V8jBxfH/5PZ7UR1u5bzBcAVPuJV6ALaIHlbm+cveIP/88WJTVaDvYAg0uJYKvjbIzMbHnultHn51X8BIgsXi/cXh6DmhMB6';
+wwv_flow_imp.g_varchar2_table(2035) := 'XqrRRGIz2QwdQECM5mzvm9DKiR+6GxKOFfAOb0Tsejy92D/tlNUfOoQAoM4HYwRxI/xz/finBxA3qqntFk5U4ULPg0xmt2Npj4ax';
+wwv_flow_imp.g_varchar2_table(2036) := 'gIkrtEfz++JCozomlehYwdZOEfQq6tJXoQsIICL82peHDwK2Y6mGLTG1SSIff2L4jtAsVfO7VCiz0tDMwLznKLoObUcEMYbR/D5A';
+wwv_flow_imp.g_varchar2_table(2037) := 'Vp2fX+DCWNpjMrudCz0P4kSVmhhcm4+nB/DP9c/Ox8WvsoKFrkXoGAKYdY0Wc9xqK380kcM7cjPjignxrS7O9z6CpYOGpQTFRARW';
+wwv_flow_imp.g_varchar2_table(2038) := 'jhl3UywA1rEBiJWuXItdZwW6QFIifGJcF37/qdGtQOA3YKEJIi2WpYIvvTy1/vkL3mDeXqTkd41i5sKY86TiqbrcdWIhcMbdRGDl';
+wwv_flow_imp.g_varchar2_table(2039) := 'GtYf0NQKjc73PoI/mwZO/rHmkR7ZSDSRW9QTEOIdfysKdVuAjiEAiJ9babFEloDRQvWlTZhQ3TRyIwpHe5zufTOe3YvoOreTLgnB';
+wwv_flow_imp.g_varchar2_table(2040) := 'ImDG3ciMuxGLegXAlcSuy2EFuoABRxn++NtjewHHtdauhSer/+987eodhkWakK4xnbkoVqilmAXeVyPmgOgAz+7ldO+bcbR38+Ki';
+wwv_flow_imp.g_varchar2_table(2041) := 'wIQqnpt68XGWwla3+1geHUUAQtwvwLuxNtqAOBHeK+uJxvPIgqkXQRmforshdtO0t2YRyCQrSmYFK8oK1eu6UKeBaZCcpc3Ja7rw';
+wwv_flow_imp.g_varchar2_table(2042) := '775wcR8QhGtYcPwIsSzl//5TozueOx8MLLz6r62gaUmsOJsyz2PLxB5bI+aAoz0u9DxI0d2AMgtsTzYgtiYaz+O9sh5xbvBOAU/r';
+wwv_flow_imp.g_varchar2_table(2043) := 'tuz3Xw4dRQAQP6xyFM7FScnDvZYn]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[ODtw08O9+fc1p/vegm7EnvCaADiW2xtPpHpiypX';
+wwv_flow_imp.g_varchar2_table(2044) := 'mr+seS30utjYiWduYTz8/tWtsJshfVyK8QrjxZk3nT749ttexbkx1NaakeWmsoJ5i9lcMBmEst7dBQqBBi8XpvrcgS0XvtUUqODt';
+wwv_flow_imp.g_varchar2_table(2045) := 'AdO36RUoTz+lOM37oQAKAGx6YgImE6pGNS7pXkKRqqozlGpQSNBGhyjKW24tVZwdgma1gq9L4x7u80RnAVZqxEs5/+srIbiBcjRd';
+wwv_flow_imp.g_varchar2_table(2046) := 'Q0w+C//rkyLYT47qQtcxcfqUp8f5iUGi7irbLNUJdBrVt22O5vYQqC2vQAa5L/eX24ejq0vMpCVOPbMREMhu1XLegdRg6kgASl8n';
+wwv_flow_imp.g_varchar2_table(2047) := 'XBuVqgku9NVatww00ukEpwdj9rzq9Ndevvg5AzNaw17lirQpLu93aiOQdbT717MTuly5V+lyLFZUIJxt+xmaC/H/5xuj+TLzdd87';
+wwv_flow_imp.g_varchar2_table(2048) := '4mxHvLwYjGAlqQuDyXl3SIajobohPblpL49YbU3/LKSqJUH0tT3CpF+XGc/imkLaD0JEEAPErK5mAoGTjv7qu5lIt/xgblRKc6wC';
+wwv_flow_imp.g_varchar2_table(2049) := '0Fc/uqa8AqPbPUWa8QQLgUvda3BANBluIS4S/cnUvKywRTjb8/NYTI7suz5DJKG0S/6Jp8f5iqAmBUWY8/v9lP0VMAJ7dw5S7dQ0';
+wwv_flow_imp.g_varchar2_table(2050) := 'FQYuk/pYdryC2xn91HUHJpmSCjjV+6GACwAjGiiif6cGUXFD1O1ENSQnWasvHc7uIpA72h1kBMFatGyQALjnGxV3xyBgp2MY8MW+';
+wwv_flow_imp.g_varchar2_table(2051) := 'jUD3FQfO3+372hakdOXvO9Rft4vecoryhMa3N6vuMAKqWValPCIwLghzGc/Xu3VjgEkul/paD0piSG89da+nagHajcwlAaSi7yIX';
+wwv_flow_imp.g_varchar2_table(2052) := 'B2oaL+h9iQ1KCq9ldZhTa8tF2CTGtOql2cV1AqYhKJOpX/uelu6G+l11b/cOPfWVk92jJuI4VYbSFGEV16EWqQy82Md5fCAYxFto';
+wwv_flow_imp.g_varchar2_table(2053) := 'uoS2/dt9lsKrdm9ddYPnU35JDlnij2oVBKK9s8Wo1OpMAag/QutIPldU8wLWmBOftL8/Uu7+8pljbZbTl1TdRG4qb3XMTZiVvh+a';
+wwv_flow_imp.g_varchar2_table(2054) := 'Zc9WhL708tX65EuEIcC3Cly5V+j717MTuvBsZE7liLI/Spm/j95xCtDt7v5Zhfm/FOohnbmPQCvo33PD7y6b+loPSUHHjObzCBay';
+wwv_flow_imp.g_varchar2_table(2055) := 'V6EwCkHinn7rSD9bqY+m1pARX3GEmcVWTbrbtqPhYQBdQURaA3/na1Ttg6UZmUbLh5yvDe0shytEuYWaM8uYnibJjNeNvwwczzHZ';
+wwv_flow_imp.g_varchar2_table(2056) := 'Xri+0urmD00pvWFfqb+lLgKXjOexbzQ+VVonOI4DEfbrWDVN5sOJa/BVfZg0pQbOGHnORO0V7rL+GG3SB8uAhKVjKPHc+Gvj9p67';
+wwv_flow_imp.g_varchar2_table(2057) := 'usCzlL1QiHERaXEuFL10q9z1xrLS5S9mm2n1KKpu+jbG8ON5vax2bqT3b+nBjD8d6XfgVp/4WH0E8d6fy8VzuUC+g8wigNsmsywO';
+wwv_flow_imp.g_varchar2_table(2058) := 'svZR09SlBwTCZXUGX2VkBcIaWCIDLDWaeLlDa8B0c2+dPvjW9F7TjLt6N3fzql0b2VwJL+eteoDL0YhzKtEzPWASzQuBM/UJg7Yc';
+wwv_flow_imp.g_varchar2_table(2059) := 'ms/V2cZ6714pSf8uOwdTm8tyYOgmdRwCWicW/iUL89zWw5qpTgiYiVBnGs3vqLgCaEwCLLRQAl0McEgS5YdHbnjTHi2OF//rEzDZ';
+wwv_flow_imp.g_varchar2_table(2060) := 'u2CiUbPf90t9VNnz15OQm2fZNU+0+LW2J9xdEIgQWVyQEWiZiPBuf41BfQdAqU3+LDjv2AmSiEIuBVruf483oLAIwEsdN17rBcxq';
+wwv_flow_imp.g_varchar2_table(2061) := 'inq48Jbiak2YSAbDUJgFwCdR0gdAuid7yLX7rhWf3j01yfYlwHJ/Kbz9zeF9p8zfaG+8vhlkhsLQiIXAlJzmtKfW3GJQGz4nntNV';
+wwv_flow_imp.g_varchar2_table(2062) := '5YUAHzVRIXFc11kOjJt9KU4KrOgJcACyizASooKPsBogNXNu4tjZnss9lfv2FJ3cBQRhFEuhIHGUFXzx5cv23gq8N5tyqMdqRjvs';
+wwv_flow_imp.g_varchar2_table(2063) := 'QBlBB/Iyx6hICV3aW4xpTf8sMXo311Iy/s55rZxGAGPBtZDpb67PWkK10K0sJrvoIcFPbAdhZDD8Hg9ZK8kqZT536/o6LMzNdrmV';
+wwv_flow_imp.g_varchar2_table(2064) := 'pS1kGsP6vZ75+p4jpoPBlIUjtGdc5vhUcHd6Q1N+CFxZQJp7Tvt1x2YDOIYAkXipm4tx/g+OlulOCqzkCPElTuQ3cAtwEGAyuKEa';
+wwv_flow_imp.g_varchar2_table(2065) := 'qnvuLTz12JxApCD/+wrPb/m5irDcvltGd5qMmmBUCV5BmXdHR4Q1I/S0Gy0DFjef2GnWtRqNzCABqTJmPp2UDV6H6U4KrOQKcFRe';
+wwv_flow_imp.g_varchar2_table(2066) := 'qtBMRRrqUZR47f2bzoZErvYD8wUvP7c2I6uBRw2oKreoN5xqX+lt8JEQqntuN69TWEHQQAdTi/+lcc9ykOlKCiXA07W5awRHgq1C';
+wwv_flow_imp.g_varchar2_table(2067) := 'o2wxLhJkwUL976Pkd/+3lF7eemJ4s5ER17uqfYMWZljlBd3qpTsENTf0tNhQTz+0O0wE6a7YaYvW/GZeuJyVY2wA0ldlCpNz6JsJ';
+wwv_flow_imp.g_varchar2_table(2068) := '817TuHHV7ERkjXZbN508e2/FvvvP1e/OWRdTpxg/zai1WEGoZTaRcpjJbFtkY1ODU31LwnI6bH51DAMpAYCNlt4EC4PVYPiUYrw9';
+wwv_flow_imp.g_varchar2_table(2069) := 'j+Ttm/78+JALgrQMBAq1VOQxtq1NFi0WwIiGw9nNj+Ttqn/L632tK6u+mIdSEwLILgd1RYUDnEADEDypqnoi2XEpwtnw0u7u+I8A';
+wwv_flow_imp.g_varchar2_table(2070) := 'BtGCUj85MIHWlpzoHQj0tNjoIAoKFzkxglA/1tDhIyrqzuxco625m6u/msROpjhIAoWMIoNY+ybObSgBLpwRXcQQ4MNeyqkLrtsg';
+wwv_flow_imp.g_varchar2_table(2071) := '2DrfcaE1y6Gp9LdcMi2/salrqbyHUCEA8O+mu0Jz7rBCdQQCG2C2q2hBacfWUmAZ/MfslROZ075sjPa9tTyIAjme2a8/qikSHUS2';
+wwv_flow_imp.g_varchar2_table(2072) := 'oX+JLR2JUZOyiqbtpZYq1IWm6aheNGBWBXuYdSSQ6jDyrKxrPbNfXC4EGjejTvW+OhMjMnyMNn39Kx3O7aq/4LMFmwm73AG5CWOO';
+wwv_flow_imp.g_varchar2_table(2073) := 'kBj+g5HLGYGwrkmv991tXpx5m4/h3CawCSROJqZ47FZle4jM9lhGDJD7yWmdP]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[AhGYhN';
+wwv_flow_imp.g_varchar2_table(2074) := '1TNA2JEJgtiYQ9FlZ1WeIVE4Hdy1TPncjUd0AEYxROVGJ44BF1rf9+7PI0OlIGUc1Zn4W5ud1B6BwCMAJOhFk/XSuWaOzlbaVAay';
+wwv_flow_imp.g_varchar2_table(2075) := '2ZjDKl6bI3Yz1/wdq5brP63p3x/TWRcs1kmD1CcXhahzO2kWXUGmMEckHYN3yXWE4/2qxu73KKFcAYsRwJ7eEJuzRyFCoOsnTeWI';
+wwv_flow_imp.g_varchar2_table(2076) := 'wW7Eo4GWZ7IuUeTNpLK6W4YO18JaiWRvO9Ew9IIZ83nqdRSoWrbqa+2CCAKJ7jneQpdgYBiIFIMD1VwjecbPjlDWAhpqtQUCaKpk';
+wwv_flow_imp.g_varchar2_table(2077) := 'vf/MY/HP/Y733ruMvAve985KuuxVatjQTYpelP/ZP/fazMFSDD0meNzyZ0C7/z779qqa5+g2/qKx1MsXoYI8qVwLkyOvm79/907Z';
+wwv_flow_imp.g_varchar2_table(2078) := 'vLJdcV4PXm2RS8/ZGnLEyXUmIqoXvx+Kd++f3j/i+P5/7jL7w5/+Bb/7tYVk+xVDIBy519vkpoFRNBh5QEdwYBJDA0xU0Sg6k6lj';
+wwv_flow_imp.g_varchar2_table(2079) := 'HlYEp/5dsfGf7Y7z2THxraem1sbHimXPnC+v6eXwAI/ODciNU94xTsgSAIln5DjqMIo2rm0Qd3Kjezw4QhpKt/KyAmDFFuZkfmnT';
+wwv_flow_imp.g_varchar2_table(2080) := '98h/fkc2exrSxBsOSS7ThOYUSFMzrS5xzXOWhZSmami1+45jOdHxraeunf/t4zG3/Z+ofqHT/4xx52jwQRLHIS2tpG3/ArrgmdF5';
+wwv_flow_imp.g_varchar2_table(2081) := 'RIM760tnJZNX3oyMeGP/a7T7F+/VB5bKwK5J87cekv/CAourZFNQifn5mZmXH9ouAX9ZJf+AZvusLu7Tskk8mgjWapg3NTNAYigj';
+wwv_flow_imp.g_varchar2_table(2082) := 'ZaMpkMu7fvwJuugG+We1+uX5SZmZmZahA+79oWfhAUnztx6S+AfHlsrMr69UPDH/vdp6YPHfmYlcsqpNbMv9FfHYbOI4BGwxiD41';
+wwv_flow_imp.g_varchar2_table(2083) := 'rR5NRV708+9WW6u4eYnAwA4zhO9tXzo2dL1eAx21JMzlSfBZRfjwLhIoB21g/dh1KxoJyiNTBolMJZP3QfoGvvYknU3qmanKk+a1';
+wwv_flow_imp.g_varchar2_table(2084) := 'uKUjV47NXzo2cdx8kChsnJgO7uIe9PPvXlaHLqany0asPOF+9YvPYJQNCSccH3TwZHToyjtY3vz3+x6vzY5GeqfmCGJ4tnADdYRl';
+wwv_flow_imp.g_varchar2_table(2085) := 'QCoBRowJau/Ovj1hodpOy85mEErZGu/OsBu/YulkTtnbrDk8UzVT8w58cmP8P8+e/7Bq3t4MiJcXz/pGRcGr8tsPPw2icAAK1BSQ';
+wwv_flow_imp.g_varchar2_table(2086) := '+ZzHWKcRAEkQuFZ18+f3iiWPnUldHJEcDB95d+8a4r+H7o7NrSbxx3twlDUve/hRARE4YYx93t7NrSj++HuO7Szz9+p86V0cmRiW';
+wwv_flow_imp.g_varchar2_table(2087) := 'LlU8++fP6wC4UgCOZKA0UMmYyDkp7VH6l6a+E2IACxTKVqpKvrQP5Df28/xWKJQmE2we8DRd+PvvD0sf98fmyqTFwduwxcAXx53b';
+wwv_flow_imp.g_varchar2_table(2088) := '1bxHWGiKK44CxFq6CIIiOuMySvu3cL4NfeyXKwzo9Nlb/w9LH/XPT9yJ//L4WCRbFYyn/o7+2Xrq4DplI1yxeC3Pq4TSat0ZJxnd';
+wwv_flow_imp.g_varchar2_table(2089) := 'x73/4vgBARjevO/+zWZKnkUW/1gWME8K2d2++QjOugX/uuYsdBoyXjOtbO7XcAfu2d1ANTe9dzxu26ChENhLn3vv1fSMZt0p7gzs';
+wwv_flow_imp.g_varchar2_table(2090) := 'NtQgBimVI5UhvXv6P/z3//4xSLM0A0zxNY2Qoei05GDfTehVLJ76doLQxKoQZ67wJMPULgPMxt2ojnQESxONP/57//cbVx/TtMqR';
+wwv_flow_imp.g_varchar2_table(2091) := 'zdDqs/3DYEACCWmSmGzs5tH+j/i0/8DrlcQKlUpL9g1+LH+o24JgCqbP4uoohUAGwHjBBFqGz+LuoUAuf/Mq4r9BdsSqUiuVzQ/x';
+wwv_flow_imp.g_varchar2_table(2092) := 'ef+B1n57YPmJlieLsYP9xWBACI2HpyOrK3bPzA4Kd/76+7/t2/vJ+J0jV8P6S/374hLFgY8wVA19mTCoBtQiIEus6euoVAiN39/n';
+wwv_flow_imp.g_varchar2_table(2093) := '4b3w+ZKF3r+nf/8v7BT//eX9tbNn5AT05HiHRWcVyTcXsRAICIZYrFSBXy92YffeSzg5/9w9/IvfdHe5mYuIbvVygUrJpbuMhkig';
+wwv_flow_imp.g_varchar2_table(2094) := 'VAdffBzeLaqQDYPtSEQHtI3X1wM0sLgTL7Xn2/wsTEtdx7f7R38LN/+BvZRx/5rCrk7zXFYoTcPit/gtuK7WYhyjKVqkbEUps2fr';
+wwv_flow_imp.g_varchar2_table(2095) := 'jw8x9+d/an3/Nn/ree/VLpv37yKLHxF+gvOASiKRbn3MuCUfh41oE77pds1jGl8m05cToC2mgp5BzrwB3388WvHKJguvDnCbJdXQ';
+wwv_flow_imp.g_varchar2_table(2096) := 'rHKCZKAaXSDGAKP/8P7nLf/IZ3W/39PyOF/KApljB+oBF1W77D25MAACRu/WJmZiJsZ9DetuWfW+975z/L/vAPfim8MPzY1G/+4d';
+wwv_flow_imp.g_varchar2_table(2097) := 'NcuDAGuEB+VjB0XIESqrf7rtqFUgGwbYif/ey7cFyhUFP3S6WIYrEI+GzbNtj7S//0x+xtG98lXYV3SyHvmnI1fveirGQu3I64fQ';
+wwv_flow_imp.g_varchar2_table(2098) := 'kggSiLMDRmekajLFetG3q/OzT4/sE//I3TZnrma+ErJ56Y/r1PvsS1axOAUCrl6e3NkcsdmBMAUwmgPYiFQHK5A/T25hiZqAJlwD';
+wwv_flow_imp.g_varchar2_table(2099) := 'A42NPzC//gYfvOfW+Xnu4fVl353YhgyhXM9EwEom7XVX8+UgKAmognFsYYUyxpQFTW3U3v5t3WusF/PPjQ/ScpV/4uujr8jeqTz7';
+wwv_flow_imp.g_varchar2_table(2100) := 'xY/fI3pnHsXSaKII3/2wlloggcexdhmMt+8Md7so8+fJ+1YeNbyederzLuXrIZ8DxMqawBg6SGPx8y9NinUxd2YWiMNiBKMhnBtc';
+wwv_flow_imp.g_varchar2_table(2101) := 'GALpWLemLq1XBk4nXYlsVrf79IZ0MEwiiy1/cfUv29d6hCvgsB/BDjeQaMrnX5SYl6AaQewOJQSVdg4/sazzMYIyrjdpnurvvN6C';
+wwv_flow_imp.g_varchar2_table(2102) := 'SSGn/7YQxGxJLurvuVY2NmihoRg4jEsX0q0C6FlBXrg0IkFouiyOjxKY1Jm/90BETAGPT4lCaKai6+WKRzuy6kHsBKIIIxRrTnx6';
+wwv_flow_imp.g_varchar2_table(2103) := 'U/qQfQfhiDCGjPVyYl5RUjZcmVII43MUGYTrROgkj8TsKFjv5KsRRSAlgJRNDpROs81IhZp8S8YqQEUC9qrqbxfFJXs8MQ]'')'||wwv_flow.LF||
+'  ';
+wwv_flow_imp.g_varchar2_table(2104) := '             || TO_CLOB(q''[h2YYzycNzVaGlABWCFP1l/+hFG1B+m5WjpQA6oUIRmu0H6SrTKchEQL9AKN16p2tACkB1ItUA';
+wwv_flow_imp.g_varchar2_table(2105) := 'OxspELgqpASQL1IBcDORioErgopAdSDRACspgJgxyIRAqupELgSpARQD0QwGEzFSydXpyIh6YqHISXpepESQD0Qgcig/SDd+dvJq';
+wwv_flow_imp.g_varchar2_table(2106) := 'AmBRCkB1IuUAOpFGBIfAJpOrM6FxO8oPqg1RR1ICaAeiNRWljTF1NEQgUjXPLX0PdWDlACWw2wFYJAKgJ2O2YrAtFajXqQEsBzSM';
+wwv_flow_imp.g_varchar2_table(2107) := 'tNbB2m59oqREkA90AbtBe0eRYo6ob0AdErU9SAlgOWgFCYIMEFA7RiwFJ2M9H2tCOkTqgMmXVFuLehYB0ixPFICWAppTHnrIdVsV';
+wwv_flow_imp.g_varchar2_table(2108) := 'oSUAJZCbTLpVFW+dTDbIizN2tSDlACWQppXvjWR1m3UjZQAlkRaWXbLIq3crAspASwFmScApivJrQOROSEwfW1LIiWAxZAKgLcuU';
+wwv_flow_imp.g_varchar2_table(2109) := 'iGwbqQEsBgSATDdX37rIREC0/4NyyIlgMWQdJjx/HQC3YoQid9d2sFpSaQEsBiSHnOpknxropbBSXs4Lo2UABZDfNwUpF1mb02Ig';
+wwv_flow_imp.g_varchar2_table(2110) := 'NY1D67dg+lc/P/+VNvs1iAV8AAAAABJRU5ErkJggg==]'')),'||wwv_flow.LF||
+'       photo_mime_type = ''image/png'''||wwv_flow.LF||
+' WHERE candida';
+wwv_flow_imp.g_varchar2_table(2111) := 'te_id = 8;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'COMMIT;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'UPDATE tms_candidates'||wwv_flow.LF||
+'   SET photo_blob = apex_web_service.clobbase642blob('||wwv_flow.LF||
+'   ';
+wwv_flow_imp.g_varchar2_table(2112) := '                 TO_CLOB(q''[iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAABHpklEQVR4nO29d5Bl93Xf+Tm/';
+wwv_flow_imp.g_varchar2_table(2113) := 'G17qPHkGkzEIgwyKAkiCEDPFIFqkZMqigiVixbV3vXKg7K3dkqrkki2r6KVkl2tt15ao9VK0tZRWFkURzABIgcgAScQBMIM0OXTu';
+wwv_flow_imp.g_varchar2_table(2114) := 'fumG39k/7rvdPYOe6fjeu919P1VDzgx63r3vF76/c87v/M5P7vnMhJKTk7MhMd1+gZycnO6RC0BOzgYmF4CcnA1MLgA5ORuYXABy';
+wwv_flow_imp.g_varchar2_table(2115) := 'cjYwuQDk5GxgcgHIydnA5AKQk7OByQUgJ2cDkwtATs4Gxu32C+R0Dl1k0rdIe98jJzvkArAOuHRiz53Ac3/vOIv7PGvn/+wrPSdn';
+wwv_flow_imp.g_varchar2_table(2116) := 'bZILwBpi7gRMJ59IMrFFBGOSP6f/zVzi4C12wl460VNBUE1+WQuq2vr/y79bTvbJBSDDpJMqndSOA8YIIsnkTid8+jOX+/dL5dLP';
+wwv_flow_imp.g_varchar2_table(2117) := 'cucZJaoy8wxrmREDa2eFYe7752STXAAyxHwT3nHkosk+dzJdyTxvx3vNh8jFAqEqF4lCHOeCkGVyAegycyeF6yYTPlnp55/s7Zzo';
+wwv_flow_imp.g_varchar2_table(2118) := 'y2W+2MCsKMwKQhwnghDHuRhkhVwAukA6+I0B1xVcd9akn/szWZzsi+XSd0+sGQCZsQ6iaNZCgFwMukEuAB1ivkmfBO9m//tanvAL';
+wwv_flow_imp.g_varchar2_table(2119) := 'cWmQ0HWTX6pCHOdi0C1yAWgzqnMHfDLxN8qkvxJzv/dcMYgiiKJZNyEXgvaSC0AbmLvae57gebPm/Uae9Jdjbnt4XtJm1kIYJmKQ';
+wwv_flow_imp.g_varchar2_table(2120) := 'WwXtIxeAVSRdsRwnGcTpap9P+sUzNzhYKIDvJ1ZBGM7uJuRCsHrkArAKzDXzPU9mfPt84q+MtO08L3Gf4jgRgtw9WD1yAVgB6SCc';
+wwv_flow_imp.g_varchar2_table(2121) := 'a+bnE3/1Sdsy3Sad6x7kQrAycgFYBnMHpO/LTI59PvHbS9q26ZZiHAtBoERR8ve5ECydXACWwNyJn/r4c/8+pzPMFYJSaTZGkAvB';
+wwv_flow_imp.g_varchar2_table(2122) := '0skFYJGozgb3PG/273K6x1xBdl0hDGdjBLkILI5cABYg9TELhWTipz5+Tna4NFgYhhAEeXxgMeQCcAVUkxXf95MA39ry8ZMXVdXW';
+wwv_flow_imp.g_varchar2_table(2123) := '7wXQ1p8vNysUEZn5WZDWn7nCv8kOad/4fiIEQZBYBLkIXJ5cAOZBNZnw6aqf7YmvM5NcVRExgGBM0rWu67f+DkTMgpMh+a629XtL';
+wwv_flow_imp.g_varchar2_table(2124) := 'HAcAWBu1nmFnRGJWLLJFuvIXi8muQRAkOQS5ELyZXAAuYb5VP0skk92m6zPGeDiOi+P4iIC1Fmsj6o0RBJicOk4QTOE4BaamTjA1';
+wwv_flow_imp.g_varchar2_table(2125) := 'fXJGHC7F2ojenqvo7d1NHDfx/V76evegQKm4CWNcjDGoQhwHWBthbYiiLRkwcyyG7pP0ZSoCuTUwH7kAtMjyqp+syMmUd5wCjlPA';
+wwv_flow_imp.g_varchar2_table(2126) := 'GCGKQprNUWr1YcbGXmZi8jXGxo9Rr48wOfUGqpZGc4w4aiIiWI1RG3FFF8C4GHFQVRy3QLEwiIihr3cvpdImBgeupr9vP4OD11Au';
+wwv_flow_imp.g_varchar2_table(2127) := 'baZQGMJ1PaxV4rhJHDeZdR+6X3M2twauTC4AJIPEdZPJn5VVX9WiKEZcPK+CMS6qMROTbzA+fozhkec5e+4pxideIQgmaAaTqI0R';
+wwv_flow_imp.g_varchar2_table(2128) := '4yBicIwPkFgIfmvbYsZsv9wXlDkxg8TaaDRGAZiunk7eqfWMgt+H7/cz0H+Q7dvewuZNNzAwcDX9fXsRcbA2IooaWI2QDIjBXGug';
+wwv_flow_imp.g_varchar2_table(2129) := '2Uy2DHMRALnnMxMZGO7dxfcTk7/bE1/VoqoY4+C6ZRzHodmcZGT0Rc6ee5LTZx5meOQF6vULWI0x4rSsAQcRd84ORRoXSH6/MpJZ';
+wwv_flow_imp.g_varchar2_table(2130) := 'Muv3p9ZRhLUxcdyceZdSaQubNx1m5463s33bT7Bp6DoKhT7iOCaKalgbI9J9MRCBIEh2CjY6G1YA0n39QiHJ5Ovm5E9NfNct47o+';
+wwv_flow_imp.g_varchar2_table(2131) := 'zeY0F4af4cTJBzhx6m8ZGztGHNcRcXDdEsa4CILOCQB2h8SiSN8lWfXrqMY4TonBwavZvetudl/1brZsvplCoYcoCoiiGt12EUSS';
+wwv_flow_imp.g_varchar2_table(2132) := 'CkXN5sbOG9iQApAVk181Bgy+34OIYWTkBU6c/B6vvH4vIyMvEMUNXKeI4xRbk6XbE34hZncGkh2Exsx32LTpMAf3fYTdV72LTZsO';
+wwv_flow_imp.g_varchar2_table(2133) := 'o2oJgmnAIrLIeuWr/baSVCbayC7BhhMA1VmTv1skJrOL7/cQxyGnTj/IsVe/yutvfJtGYwzHLeC5JQTTWuXtwh+aQURMyzqwhFGd';
+wwv_flow_imp.g_varchar2_table(2134) := 'OGpSLA6yb+8HuPrAx9i18504jkcQTGM1wnRJCGDWJdhoIrDhBGBulL/TqMaIOPh+L0EwxSuv/g0vHftLzp//4cy2mzFeKxawNif9';
+wwv_flow_imp.g_varchar2_table(2135) := '5UhyEAzWhjPbklu33s61V/8cBw/8zEybpG3U+fdLThg2mxtqOmwMAUi3+IrF7vj76WT2/V7CsMorr32N5174LwwPP4sxLp7XQ2I2';
+wwv_flow_imp.g_varchar2_table(2136) := 'x519sS6RTHAlDKexNmLz5pu48fCvcXD/R/G8CkEw1fq5zsYI0rhAo7FxtgrXvQB0d/Ir1lp8r4KI4Y0T9/HEDz/P8PCzOE4B1y3D';
+wwv_flow_imp.g_varchar2_table(2137) := 'GjbxV0qatRhFNeK4yebNN/HW2z/L3t3vTWIEYRVjkp/p3DttLBFY1wKQRvpLJZmzRdapZ8cY4+H7FS4MP88TT/1b3jhxPyIG362s';
+wwv_flow_imp.g_varchar2_table(2138) := 'ad9+tUljBUFURdWyd/d7eOtb/jlbNt9AEFSxNuyoW5COlXp9/e8QrFsBmDv5O/xkrFqKfj/15ijPPvfHPPv8nxCGNXy/t/Vu+cSf';
+wwv_flow_imp.g_varchar2_table(2139) := 'j9TkD4IpPK/MTTd8mptu/B8oFYZoBBMY6aw1AOtfBNalAHRr8icHZQy+38vxE/fzyGP/iuHRFygWBhBxNoyPv1LStmo0x9k8dJi3';
+wwv_flow_imp.g_varchar2_table(2140) := '3fHb7Nn9nlaQ0HY8NrCeRWBdCoDrCoVCZ59pbYTnVVCNePzJf8uzz38BEQfPq7RO0uUsFWNcwrCKasxNN9zDT/7EP0ck+bvLHWhq';
+wwv_flow_imp.g_varchar2_table(2141) := 'F81mUoNwvdH90xqrSJLgIxSLnX2utRHF4iCTU29w7zd/hR8/85/xvAquW8on/wqwNsJ1S3hehR8/85+595u/wuTUGxSLgx1v12Ix';
+wwv_flow_imp.g_varchar2_table(2142) := 'GVvdThdfbdaNAMym9nYu2Jem4pZL]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[gxx79at89Wt/lzNnH6dU2oRqHuRbDdLzEaXSJs6';
+wwv_flow_imp.g_varchar2_table(2143) := 'cfZyvfu3vcuzVr1IuDSZt3KGsSNVkbHU7bXy1WRcC0A2fX9VixMHzSjz+1B9y3wP/iCCcxvf78lW/DVgb4ft9BOE09z3wj3j8qT/';
+wwv_flow_imp.g_varchar2_table(2144) := 'E80qto8udE9pSqftnR1aTNS8AXZv8xsMYhwcf+m0effzf4Hk9OI6fB/raSHLIyMfzenj08X/Dgw/9NsY4M9mTnWI9icCaFoC5ST6';
+wwv_flow_imp.g_varchar2_table(2145) := 'de2aM6xaJoipf+8Yv8cKLX6JS2bYu03ezSNrOlco2XnjxS3ztG79EFFVx3WJHxbdYzE7tiJWwpgUgnfymQ98imfwlgmCKb3znHk6';
+wwv_flow_imp.g_varchar2_table(2146) := 'feaQrAamc2cDr6TOP8I3v3EMQTOG6pY6JQKfHXrtY06/fyfTeiyb/tz/NuXNPUSwO5ZO/iyQiMMS5c0/xjW9/uqMikLqenbQ+28G';
+wwv_flow_imp.g_varchar2_table(2147) := 'aFYBOFvJQtRdP/vNP5St/RkgtgXPnLxWB9rtjc4vKrFXWnACkVXs7daRXVVtn1qf4xnfyyZ9FLhKB73y6ddzYm1MWrX2ktQY9b23';
+wwv_flow_imp.g_varchar2_table(2148) := 'mCKwpAUgr+XS2fp/iOAV+8MjvcObMY7nZn1FSd+DMmcf4wSO/g+MU6FTlpKTITDI215oIrBkB6Ia5ZW1EqdTPI4/9a44e+wrl8ha';
+wwv_flow_imp.g_varchar2_table(2149) := 'sDTv2/JylYW1IubyFo8e+wiOP/WtKpf6OinUW6ksulTUjAOn9fJ2KuiaTf5AXjnyZZ57749zsXyOk7sAzz/0xLxz5MqVS5/otvVd';
+wwv_flow_imp.g_varchar2_table(2150) := 'iLR0aWhMCkNbx62TQz/d7OHv2KR5+7Hdx3c6ZkzmrgeK6BR5+7Hc5e/YpfL+no0FB31878YDMC0Dq93eujp9ijEsQTPPAg58lDOs';
+wwv_flow_imp.g_varchar2_table(2151) := 'Y43ckoJSzOiR3K/iEYZ0HHvwsQTDdOj3YuaDgWokHZF4AUrOqU1hr8f0KT/7wDxkdfam1euTpvWsN1Rjf72F09CWe/OEf4vsVrO1';
+wwv_flow_imp.g_varchar2_table(2152) := 'cpmYn3dWVkOlXTE3/Tmb6FYt9vHH8fp4/8sXc71/jpPGA5498kTeO30+x2NfRTMG14ApkVgA6vd+fmP4e9foYjzz2e12/vipn9RA';
+wwv_flow_imp.g_varchar2_table(2153) := 'xPPLY71Gvj2GMRyddgaznB2R2lCcK2jk/KjX9n33+CwyPHmlV98kP96x1VC2eV2F49AjPPv+FjroCaX5All2BTL5a501/i++XGR5';
+wwv_flow_imp.g_varchar2_table(2154) := '+gWef/wLFwkBu+q8jrI0oFgYScR9+Ad8vd0zcs+4KZE4AOm/6J4gYfvTMfyQIql27qy6nfYg4BEGVHz3zHzvq3mXdFcicABiTNFg';
+wwv_flow_imp.g_varchar2_table(2155) := '7UY2xNsJqTBwHeF6ZEycf5Ngrf02h0LlAUU7nUI0pFPo49spfc+Lkg3hemTgOsK2x0O4+97xsugKdLa26AJ1J+FF8v6914wygIAa';
+wwv_flow_imp.g_varchar2_table(2156) := 'eff6P6XTN+ZxuIDz7/B+zb++7ccymmS631hKG07RjDKQJQp4nNJvZuoA0MwIw20jtnfzG+Lz08p8zMfk6juMj4lCrX+DM2SfywN8';
+wwv_flow_imp.g_varchar2_table(2157) := '6Jw0Injn7BN//wW9TLm1BW1Zgf98+rj74s1gb0C4R8DyIIjJ1x0BmBEAkWf3beYVXkiHm8eLLX+aN49/F9/suurE3T/fdCCgihue';
+wwv_flow_imp.g_varchar2_table(2158) := 'e/79n+j4IJtm7531cc+jvEsdNpE2zMx3jjUZ2xlkmBCBN9+1Mrn/iApRKm/G9npnS3rnfv7EoFAYQEQTBcXx8v492LwCples4iSW';
+wwv_flow_imp.g_varchar2_table(2159) := 'QBSsgEwLQidV/LnODgLnJvzFRjVFNdn86EQRMScd6HGfDCuh6XDK9zWetnaPOyVkOqRWQlVuGui4AIu3f9svJyRqelw0XoKsCkK/';
+wwv_flow_imp.g_varchar2_table(2160) := '+ORuRLFkBXRWAfPXP2chkwQromgDkq3/ORiYrVkDXBCBf/XNyum8FdEUA0gM/+eqfs5GZmyLcrXnQFQEQSRJ/cnJykrnQLSug4wK';
+wwv_flow_imp.g_varchar2_table(2161) := 'Qqt56uFk1J2elpDdcd8sa7vg6nPj+ncv6WwoiIK2DIEmKcJdfKGdVyHq/pnOiG9mBHRWArKz+lz7btOyvMLYEUYwCniP4rkEQbNZ';
+wwv_flow_imp.g_varchar2_table(2162) := 'GTM6iMCIoShBZwlgRwHcNnpMYvnP7tdvj0ZjkV6dPCnbcAnBd6aoAWMtFZz4cI9SDmDBWtvcX2Lu5jGcMp8brnBitE1ult+gS21w';
+wwv_flow_imp.g_varchar2_table(2163) := 'E1hKOEaYaEY4Rdg+V2DVQIrSWN4ZrnJ1o4jlCyXeY6VZtjY0uYUwyNzptBXRUAFJfp5tYy8xxb8cI47WAg1t6+NV37OFtB4foL3s';
+wwv_flow_imp.g_varchar2_table(2164) := 'YEaabES+cmuRLjxznkVdG6S0kTZXLQLZJF8+JesjbDg7xy2/bw+FdffQUXKwqE7WQR14Z5YsPHeeVC9MMlAsz/7CbAgDdsY47JgD';
+wwv_flow_imp.g_varchar2_table(2165) := 'pkd9ur/6pADlGmKiFfOzWnXz2p6+mv+RRbcY0Q4uieI5w58Eh7jg4xH979AT/4TuvUPAMQi4CWSXtm2Zo+WcfPMSn7tyNAPUwphZ';
+wwv_flow_imp.g_varchar2_table(2166) := 'ECEKl4PJ3btvBu67bzOe/eYy/+fFZSu6szT13jHSSucHAMOycG9DRXQDH6e7FianCz0z+23byLz9+Pa4jjNVCYk3KNRlJ9mWnGhH';
+wwv_flow_imp.g_varchar2_table(2167) := 'VZsSn37mP3/rQIarNqG3FInJWjohQbUb81ocO8el37qPajJhqRMnkkmTsxaqM1UJcR/iXH7+ej922k4laiGOSfu2mFSCSzJFO0jE';
+wwv_flow_imp.g_varchar2_table(2168) := 'B6OZWB8w+14hQa8bcsKuP3/rQIWrNiChWXCNvKgTlGEFEGJ5q8gt3XMXHb9/JZH12sORkB8cIk/WQj9++k1+44yqGp5LKPpf2lQC';
+wwv_flow_imp.g_varchar2_table(2169) := 'uEaJYqbXE4oZdfdSa8UwwuJtjNHUDOkVHHpV8se7elZZGV60qjoF/8eFrKPsOYawzHT8fAhgjVBsRv/n+qzmwpUI9iK/4b3I6i5E';
+wwv_flow_imp.g_varchar2_table(2170) := 'kkHtgS4XffP/VVBsRZh5Bv/TfhLFS9h3+xYevwTHJ2BBJxkq3SBbKzmUGdmRKdjvzL23MxESM+bm37uaWPf0zUeKFECCMlf6Sx2+';
+wwv_flow_imp.g_varchar2_table(2171) := '8az/5hkD2sAq/8a799Je8mS2/hUh3Cm7Z08/PvXU31WY84+J1c1uwk5mBHROAbgf/QLFqKLtVPno4JogcluJuOUaYbIS87/BWbt3';
+wwv_flow_imp.g_varchar2_table(2172) := 'dTzWIcisgAxgRqkHErbv7ed/hrUw2luaiOQJB5PDRwzFlt4pVA2jXYgFpMHDd]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[CEAWzH';
+wwv_flow_imp.g_varchar2_table(2173) := '9VMCihLbGn9AxlOUWEz1Lj+aqJ//iBm7YRxdmq775REYEoVj5w0zZcsxzTWYnwKcsp9pSeIbQlTJezBTvpBrR9Wnbb/E+VXBEcCT';
+wwv_flow_imp.g_varchar2_table(2174) := 'nU8yiIWVbld2OEehhz16FNXDVYIohsfpVIFxEgiCxXDZa469Am6mGMWUaAVgDEcKjnURwJSR2Ibu4IdMoN6IgAdNP8T56rROrS6w';
+wwv_flow_imp.g_varchar2_table(2175) := '6z1X+VyBaQZezmpwNuR3+RG3b1UQ9tvi3YRUSEemi5YVcfO/qLyxZkQYlsga3+q/S6w0TqQhetgE66AW0VgHRbo5tzJNkDVmItsK';
+wwv_flow_imp.g_varchar2_table(2176) := 'P4EkUzTYzDctN5ktVCufPgEGjuBnQTEUBbfSGLC/zNjxLjUDTT7Ci+RKwFjHTXDUhyAtq/cLbdAuhm8s9cE06BTf4JRFZo17V8zg';
+wwv_flow_imp.g_varchar2_table(2177) := 'NbKkkueX6tQNewFkq+w4EtFaJYV3yjl4hlk3/ioqWhW/3bqaSgtgpAav53i1Q9VQVXQob8U1jcFY0TESGIlR0DRYYqPqHN4wDdQI';
+wwv_flow_imp.g_varchar2_table(2178) := 'DQWoYqPjsGigSxrsgdE8DiMuSfwpUQ1e5vB3bCDWjr9Ey/QLf9/xiHojNFn3uO2HrL8v9TBIhiy0DZY/dQiTDK4wDdQEQII8vuoR';
+wwv_flow_imp.g_varchar2_table(2179) := 'IDZY8oXpkQC0psPfrccxSdqRk3sZtjtxMLaNs+vtvbf5eaboYYh9VL8XIkqRfQqfGh2vp1ye+7zaXvk/6+U8/2XYOzigLsEGMuGS';
+wwv_flow_imp.g_varchar2_table(2180) := 'fdcgM6sR3YdgugW8xk/6HE1mfAO3uRsq/0sz1XuHZ7b9vzAdI3LXqWnqKlvxjTV4opFyyu6W6gKsmLUMoFS18ppr8Y01O0FD170b';
+wwv_flow_imp.g_varchar2_table(2181) := 'u3g3T//9rtvXirUlp71lIc8M4SW3/GUuy2G9BO2rZDnxX/P0WwKzL958Nt86EgVXAdpadgcZ2L391HKXlQDwy1cHl5DSt6N6DsW0';
+wwv_flow_imp.g_varchar2_table(2182) := 'q+vUgAPRQ8KMbKdNMQxe0NAq92HwiKcPGS320BaGf7tW2KinTP/++kCdq2z25N/r5SjOvorJmtF5vZlYKlp2A76g4o0FOwVAp25l';
+wwv_flow_imp.g_varchar2_table(2183) := '0v/XXpu7fzXTpBt8ZxOo/aRVsEoNP5zPM9vyPPaeNniySTzCwgolYT96DgdsYdUIWCqxQ9e8VDUUn+RfIdOuEitZtuWQHtTqRrmw';
+wwv_flow_imp.g_varchar2_table(2184) := 'XQzf3/+RqrHS5Au+oCpJNssaunAiUv7kh7iyTPWkxLppZAO8VptftgPhcAuisA7cwHaIsAtNtsWYg3+f9iCbREpCvbApyLVZish2';
+wwv_flow_imp.g_varchar2_table(2185) := '37nq6zhNCzgmOSX+1m5jlLaMYlfZclIJL0wWodzxaUSD0CLb0pYazbWYHtGmdtE4Bu5f9f+kxFMBIxFW2hacsY5lQFXSZJ0QjltQ';
+wwv_flow_imp.g_varchar2_table(2186) := 'tVnGWdQFvoAYn5vMR/0vb01TSteqmtZ4QVZ+nN9y6OEV67UCVelZ0YwWBp2jJT0RaMRFz6Tbs1ntvpTrc1CNgN5jf/FasOkRYQWX';
+wwv_flow_imp.g_varchar2_table(2187) := 'kviiR3CDTCeMkTNWf1MAKNMCaMVyfOIKJEWsCqM6+l2E03oF2s+jZgFg4AXUyi7HXby1i4k37v3IpcAQU8YxitBpwca1D0nNbqu3';
+wwv_flow_imp.g_varchar2_table(2188) := 'pfOEmqMRixxIsYdcmjBatm0W7ApbbCoiI2AlYFJImnLGZCJJdzGMzinrBoBCh6DifHGoxWg1Za9vIPBCWWYshYuJO67cWXxpssgG';
+wwv_flow_imp.g_varchar2_table(2189) := '6RWtRRtPrzqi15AMZ07+qvy1sALmPhTg7wJMryLVJVxXcdXhuucXKsRslzV//mIIVGpAyWY8r+lT/fiBCrZbxqmW4uPEBUVQHxPU';
+wwv_flow_imp.g_varchar2_table(2190) := 'dmW0EJwghAZYG8ZlWwNmagIjhiFny3ajNirOYQx3bV3QAjwlitxmvDNbb3FwlWULVZSbJFx8KdWHUR0Uy4AJAKgNCOPY+2CECWAo';
+wwv_flow_imp.g_varchar2_table(2191) := 'Aw27nnm/uJVykQWGvG3LF/iErRxa5ykUClNbFtwCvnxyj5yQGmuZNNSHzgahDTX/I4uH+QILyyL2xV1XeTkPLp0erYQEGGAcabun';
+wwv_flow_imp.g_varchar2_table(2192) := 'nnUGUQkCCK1VxhFqmC7wmnx8aYqIdUfIfY6kUtmqz6UAsiDm4dxDF+UnBzBW0yH2mx1lpz5SneghKrx/nmfgzz73J0OxDYDlZdAL';
+wwv_flow_imp.g_varchar2_table(2193) := 'q9AzAfiuCYgPPNg9TjPgqmhl1mSrARoRbEvOPQJt5z/ZY27kMnK9B/uv9F/vqHb+C7Dr5rZu67i60yVYvY1l/kf//oLdy0e5AgjC';
+wwv_flow_imp.g_varchar2_table(2194) := '+7AqqqFn1Xxqcbk8+9fv750yP+iFgNAdSIt3NTz6Yb9229YaCn2NcIostaAqqK7zk8e2KM3//a05ybaFAuOEkJ9dY9io0wJohi/s';
+wwv_flow_imp.g_varchar2_table(2195) := '7te/mH77muJbjtGRQCNCNLbUWVmgWHmHrcx/nmQRwTZMb8T2nXvJJ7PjOx6mO4WBRct/OKqXr5ks6CEmiJ92z+v7i25wc0bE9rR2';
+wwv_flow_imp.g_varchar2_table(2196) := 'D5tPvSUCPJ/XUPHDnLXz75OqfHazTCGEeEvpLHT+zfzC+//SCbe4pzLi259J0Eba38E9XGxH0/eu2RqVpYd4yYSskrAVTrYT22an';
+wwv_flow_imp.g_varchar2_table(2197) := 'vLXum9t+1/W3+l2B9EcUsE5v08KgWX4ekGX3r4FZ58bZjJenKxStFz2DlQ5ud+Yh/vvn479SDuSDutBIuhaKZ5afou7h/+DL7ULy';
+wwv_flow_imp.g_varchar2_table(2198) := 'sA3YhviST+f6OxBlyAbpcAuzzJcbWj02/jUOXRVXED2l0VWIFqM+I91+/g7Vdv5fjoNGPVAM8xXDVYZmtfiSBKrr2aTYiRN32GI4';
+wwv_flow_imp.g_varchar2_table(2199) := 'K1Nnr0xdNPNYK4MdRXLN+yf9uh7UOVnQBnR6unn37t3NGpWlB/9MXTT73/tn13u0acZMN0nu8oQi2IGCj5/LMP3sj5yTonx2qEsW';
+wwv_flow_imp.g_varchar2_table(2200) := 'Ww4rNnqIei5zDdDBGRzFdPTmNER6ffljSYtM9iWQ5ztwJXe151sVzn6nOlxlEMnmlwpnktI8FuNvknCbUwb9ZXVhCSc+/TzRAjwo';
+wwv_flow_imp.g_varchar2_table(2201) := 'EtvTjbDKpKGNtkgnHlCaaqWih48vSxcy8Nj1Unfddx33b9VW/ZvbVvc60RAnDtnk0HykWv74Efvf7o8Fh18sXjIy/dcvW2G2rN8L';
+wwv_flow_imp.g_varchar2_table(2202) := 'KuQHqxRhCH9Jd9NvcWERFiawkiO/POWUcxeNJkJNjNmea1eKaBXmF3PM3PXy+sah5AJw4vrATBElmfJ8Y/jqxibYB2k06k]'')'||wwv_flow.LF||
+'  ';
+wwv_flow_imp.g_varchar2_table(2203) := '             || TO_CLOB(q''[ZhhTbYbUgojI6sx9d5dDAd9xZHSqPv3iieHXxcAN+7fs37GpZ/NkrWFjVWJVJmsNu2NTz+Yb9';
+wwv_flow_imp.g_varchar2_table(2204) := 'm/ZLwZePDH8+uhUfdp3nCtmTYgk7xZZpRZEVJshzTC+6J3XAkLME+MfJ7J+ZheEdh2uW/VEoCz3u2LwTZ03ardyrHYnRTPdCgauD';
+wwv_flow_imp.g_varchar2_table(2205) := 'VJz2siVr71KUVX1XMPpC9Mnphth0FculA7sHDwUhjEiZiZBT8SYMIw5sHPwUF+5UJpuhMHpC9MnPNek24ZXfi+Yfa8sD4BLsK1Co';
+wwv_flow_imp.g_varchar2_table(2206) := 'Mdqd/JG7VZ8U7/i6t9t2tG02f22y2Cx6uhKwEMjn2Is3IkvtTUlAoultZUo9TCyp0anLhiEbYM9myoFz4+s1bljSYDIWq0UPH/bY';
+wwv_flow_imp.g_varchar2_table(2207) := 'M8mg3BqdOpCPYyskdXIncweFgdfaoyFO3lo5FO4Eizq32UvtrUyVl0Aun0F+EKkZwMatpf7LnyGpq1QMFUsTkv9k3VRkUyvBguiq';
+wwv_flow_imp.g_varchar2_table(2208) := 'p5jqNaCqeGJ2kQjiqIdQz3b0z36N/04ySq+c6iyLbBxNDxRm6jWginPMcne3xpFMa2IftqvBotDwVRp2gr3XfgMDds7b+5/lmjXq';
+wwv_flow_imp.g_varchar2_table(2209) := 'cBV3QZUhUJB8P3uKGUcL/656cGPzYU3uHvTF9leeBmLS6wuqsktQkaSn1ntY8SdRFVttRlOjkzUR7YNVnZWin4pvkyRO8cYqo2gN';
+wwv_flow_imp.g_varchar2_table(2210) := 'jpVv9BfKfSXC16fiKxZFVQkyflQkySAieJIhCHibPMa/nbkVxlu7m3lhSzua6b1+juNCAQBNJurW4JuXQlAFC3t5wVLqEUcibim8';
+wwv_flow_imp.g_varchar2_table(2211) := 'jAHKk8w4J3DSEw1GuDl6Tvp9Ua4pe9bNG0lswGiKyGA6zq4RmiGC+/JGxF8zyG2lijqbKWh1UIxFEyVpyc/yFS4iWt6HqXijmPVY';
+wwv_flow_imp.g_varchar2_table(2212) := 'TzcxqvVt/Jy9e3E6uLJlaP+89GNq+7aJQDrahtwqSRbQMkAeH7q3RyZvpuSMzljHUxHvVzf+zC39H6bN2eGrw0UCMJIm4AslOgPx';
+wwv_flow_imp.g_varchar2_table(2213) := 'KrUmqG2tiDX4ldGUVDhbOMQR6bezovTPzWzytfjPqw6+Ka+rMm/3lhVAeh2IdDlkA6AgqkCQmDLMy5A2akxGW4l0CKdKwC++ixm4';
+wwv_flow_imp.g_varchar2_table(2214) := 's/8LGt34qcYlECLTIZbKTs1BEs97kVE8aQJoq3YwNoarO2oC7C2WqCNpMEiIZ4JCBmJmYi2MRFtw5WQvLnWAgZXwpl+MxLPBH6Fe';
+wwv_flow_imp.g_varchar2_table(2215) := 'O0Hd1eZvCXexGzEWFBCLTIRbmuJQk7WSXYzIibCbYRanHMQqQ1lidYBuQBcgaToheFk/QagcxVoc5ZP2kcn6zegatb0Dk4nyAXgC';
+wwv_flow_imp.g_varchar2_table(2216) := 'ljASMj55n4CW1rx6cGc9mOwBLaUnOuXMO+xBcgF4Iok/uRktJXJaGseB8g8eX8tlbx1FiDdEjxRvxFHgnxFyTAWcCTgRP3GORWgc';
+wwv_flow_imp.g_varchar2_table(2217) := '67EuhKAdmxeJUGlmOO1m4lsIfcpM4ygRLbA8drNreh/G56xzuKI60oA2kF6XvxCsI+xaEfr0EjebNnD4ErAWLSDC8E+PGnm232LI';
+wwv_flow_imp.g_varchar2_table(2218) := 'G+hRZAElsq8VnsLbu4GZBJLcsrztdpbCHLzf9GsugCs3XNjl8eSZAa+Wn0rjbgXQ0y+p5wlBENMI+7l1epbcSTErsP+acfcWvWKQ';
+wwv_flow_imp.g_varchar2_table(2219) := 'OuxdDIIrjQZDXdxqnkdvsnOpRE5yak/3zQ41byO0XAXrjRpWxXiLpe8z3xFoPWNcmTqXVhdXknxnHaRXP12ZOpd5P2yNNaVALT3H';
+wwv_flow_imp.g_varchar2_table(2220) := 'vokGHi6cR0jwW48CfIgUwZI+iVgJNjN6cZ1bQ/+5bsAC2Dt+owDQBIMDG2B56bei5EwX2syQLJNG/Lc1HsJbWHdBv+SK9lW/3PbE';
+wwv_flow_imp.g_varchar2_table(2221) := 'ATs3rRotzpbBN/UeaX6kwzPbDV1d0noZnt3u1KYInjSZDjYxyvVn8Q39bYH/7obA1j99s5t2CUhM1uCz06+D0fCrgqAiOD7blcq8';
+wwv_flow_imp.g_varchar2_table(2222) := 'c4+u3sWn7Z2Z56dfN+crb91ZqO3mVUVAJHuuwCdsQJqM1aA36WEEzFCGMa88eoI1elm226PfTOaXMo53eT1V0aIY8V1O//9FYN/0';
+wwv_flow_imp.g_varchar2_table(2223) := 'epfW+erfzK38oIgC9D+TpKklqAt8vjYJ6DDPqcquK7hhR+f5htfeY7vf/cox18bxS+42Lj9AmBjxS+4HH9tlL/97st88yvP8fIL5';
+wwv_flow_imp.g_varchar2_table(2224) := '3A9pwsugeXxsU8Q2mKrXuP6FYB20RYBWG/XJ13KzAUj9Vs4Xr+Zgql20ApIGndgU4V6LaRc8Xn5yDnOnp6kWPaxVttigSUrkFIs+';
+wwv_flow_imp.g_varchar2_table(2225) := '5w9PcnLR85R7ikwPdWkXPFX/4FXepdW0c/j9Zt5o35L5i/0WCntdLPakgm4nl2AuRgsj459knoHswNFhDCI2bN/kP1Xb6JZD7Gx8';
+wwv_flow_imp.g_varchar2_table(2226) := 'uB9Rzl1fIxiycNNbvRZlRU5/RzXNRRLHqeOj/HgfUexsdKsh+w/tJk9B4YIg8tfTb66JFl/9biXR8c+2dGof7ddgMxnAsLGEYAkA';
+wwv_flow_imp.g_varchar2_table(2227) := 't1gONjLM5MfbF0u0plVSASi0HL7HXvYsq2XMIiwseXB+47y6N++ysR4nULBnQkQqoJanZnM8/VP0m+t/96yItJAX6HgMjFe59G/f';
+wwv_flow_imp.g_varchar2_table(2228) := 'bU1+S1hELFlWy+337GHKLQda3fbWv2fmfwgw8HeVmXfzjx8PQrAqt4LAN2/GwCWdkHIaqAIH9n2eXYUjhJo6U33B7TDJVJVHNchb';
+wwv_flow_imp.g_varchar2_table(2229) := 'EY8+uCrnDoxju+7RJHFdQ279w1y1d5BhjZXKBY9HNckExuwsU3aJ32n1vsZxySV84wQR5ZGI2R0uMrJN8Y48frYzGcHQcSu3QPc+';
+wwv_flow_imp.g_varchar2_table(2230) := 'c4DeAWXOFr91X++NksCf3XONA9x77nPdvRodrcuBEmf3Y47AaBNAuC6UCx2Ty6tbU/SxHwIlkgL9Lnn+cTO38MQoVycKuw6QtSGA';
+wwv_flow_imp.g_varchar2_table(2231) := 'J2qYozBGOHIs2d46fmzNBoRrusQx8mqXCp59A+WGdxUZnCojOc7VHp8PM+ZEUkRCMOY6nRAGMSMjdYYG6kxMVajXg9RBccxRFFMs';
+wwv_flow_imp.g_varchar2_table(2232) := 'ehy7Q3buf6mHVirWGvbYvq/uc2Sis0Wl/9++ndaFX86twNjTHdL3jcaShSt/kKy6gIASUOVSt0TANXECmj/cxKVMcQ0bA+He7/Hu';
+wwv_flow_imp.g_varchar2_table(2233) := 'zZ/gYbtnbECVOGBFy/wnuu3tOXK]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[bNVkIfeLLuOjNY48e5bTJ8ZpNEKMSW7rVatY1dZW';
+wwv_flow_imp.g_varchar2_table(2234) := 'IfgFF8cxMzECESGOLUEzuVrJplePG0FVk+Bf0WPn7gGuv2k7A0NlgkZSJbkdZrFV5f4jF3j3dVtmPl8xFM0U3xu+hxem3nXRzc6d';
+wwv_flow_imp.g_varchar2_table(2235) := 'uL3McbrrAtTr2pZFrS03A6X+SrcarFPP9dwyYlxQpVcsx5of4KrGBW7u/xbNuETJM7x0dorvvzTMh2/eTrMNvnL6ec16SE9fgTvv';
+wwv_flow_imp.g_varchar2_table(2236) := '3s/URIOTb4xx6sQ4k+MNmq2Jna746US/lLlukwK+59A3UGTX7gGu2jtIb3+ROLY06yFiFndF+VJRhaLn8P2Xhrn5qn6u3d5LPbQU';
+wwv_flow_imp.g_varchar2_table(2237) := 'nDrPTHyMY80P0FuMUB0AEdRGRHGjDW9yMevR/4c2CoC1iSvQrThAezPUFBGHCyNP02yOI+IiWCwOf3l2C+c3KZ6cp1zw+duXhjl6';
+wwv_flow_imp.g_varchar2_table(2238) := 'dop6EOM6gtX27BUkfrsSRxHlis/hm3dwzeFtVKsBo8NVpiYaTI7XCYKYWjW4KGqvqni+Q7ni4/sOfQMlevuLDG2uUKn4uK4hilIL';
+wwv_flow_imp.g_varchar2_table(2239) := 'IbEM2oGSWI/1IObo2Sm++uMz3H1tSK0ZEGoPD45sIdLvY4iTi1w0olAYYGjwelTbtwvTzckv0t6YVlstgG7STgFItsUKPPnDz3Hi';
+wwv_flow_imp.g_varchar2_table(2240) := '5H34fl/LHUiunPqqFmZcAEEo+oYzEw0ObKnQjNoXnEgGqmCt0mxGiAiVik9fXxExyd+jyX+LY50bA8RxhELBBRGMSdyGOLYXfVYn';
+wwv_flow_imp.g_varchar2_table(2241) := 'tvk8x3BitMpkI+K/PXKC//rI8dY7Glx5cCbhR8QQBJPsvuq9fOgD/40wrLbt/bqd09JOi7ptl4PGMXheuz59YTrRacZ4eF4PnleZ';
+wwv_flow_imp.g_varchar2_table(2242) := 'iQeAUkBJm9YYYbwacOT0FNfv6KUexDhtWkHnkk6GOFbiOGLmghwE1zW4nszGKQVQJQwTEZv7syJ0ZOJDEnsouIYjp6eYqkcMVJLE';
+wwv_flow_imp.g_varchar2_table(2243) := 'pgRFKaUvhohB1WJM+wdZtwWgnfGstkVP2pWRtlja3WkiQsHvQzVG1c75pVhNAlm2FUATER46OkJsV38bZ+H3TN5VWgHB1DK6KC9g';
+wwv_flow_imp.g_varchar2_table(2244) := 'Zt//zT/b6XeNrfLQ0RFEEotlph1n8hTmtnVMwe9ru0B12/+fFcHVpy0CkA6yTm3FXY52bdsoihGHwcFrsBpzpXCYqlLyDU+fGOfk';
+wwv_flow_imp.g_varchar2_table(2245) := 'WB3fXcv3DLcPBXzXcHKsztMnxin5s7sU8yEIVmMGB6/BiJNcCd4Gun3bdXq4rl0i1Lav1+2dAOjEsw0LBZ6UxK89PxnwvReHKftO';
+wwv_flow_imp.g_varchar2_table(2246) := 'WxV9rWKtUvYdvvfiMOcnAzxnMUIptPs8W7fHb7vjaW0VgG5bAO3qvGT1UYYGr8OIu+DqY1UpeoZvPXuWyXrUkRjAWsMxwmQ94lvP';
+wwv_flow_imp.g_varchar2_table(2247) := 'nqXoGewCoz6xwlyGBq/Dql7RClsJ3fb/2328vq3yGcfdjQNAe0w4EVAbUi7vwPPKcwKA86MKJd/h+dNTfPf58/QWXeLcCpghtkpv';
+wwv_flow_imp.g_varchar2_table(2248) := '0eW7z5/n+dNTlHxnwXGjavG8MuXyDtSGbZmo3Tb/k4S29o6Ttn3FLBQHSd9j9TFEcZP+vv309e0jipuwQDaaahLh/vLjJ5lq5FbA';
+wwv_flow_imp.g_varchar2_table(2249) := 'XBwjTDUivvz4SQrulX1/ACRp/76+ffT37U/avw1Dudurf7uKgMylrRrXiS+wEElke/U/VzXG8yr09e7D2mBBA9S2rIAjZ6b48uMn';
+wwv_flow_imp.g_varchar2_table(2250) := 'GSh7RLkVQGSVgbLHlx8/yZEzyeq/ULMIYG1AX+++1hbs6u+TtWvcLOX5nVhA2y4AncjJX4h2mHKWZMtsz467ARblg1qrVAouX3r4';
+wwv_flow_imp.g_varchar2_table(2251) := 'OE+fmKDiOwv6uusZq0rFd3j6xARfevg4lYK7qABp2tZ7dtydbBe24d26bf5DZ061tvVrJmmM3Y8DrKaSpwG/Ii7EEf6Ww3heD3YR';
+wwv_flow_imp.g_varchar2_table(2252) := 'q5ACnhEmGxGf+/rLWMDIxrxvOCnnnUzez339ZSYbEZ5ZXFtYjfG8HvwthyGOkr6AVd0KzIL5H8ftzxtpu86lR3O73aArUXQlGVyC';
+wwv_flow_imp.g_varchar2_table(2253) := 'UFAXBU64Ve53XuOx7SWcHTdDWF8wDgAQaxLwevbkBJ//xlF6i4tb9dYbthX4+/w3jvLsyYkkMLqYlUIMhHWcHTfz2PYS9zuvccKt';
+wwv_flow_imp.g_varchar2_table(2254) := 'okBBXQRBVygF3V79U/O/E7tobUsFTkndgG4VU0gxZukNmg4iF8FRh2kT8rI7wRvuFKOmiViL6w7gHLib+PWHk4y0RYy8JOrt8RdP';
+wwv_flow_imp.g_varchar2_table(2255) := 'nOTqbRV+8c7djE4HGyYwGFtlqMfnzx49wV88cZK+krf4XZHWCUDnwN2o63MmGue0W2fIFtgb9bI37qHHesRiiVqdsdRW7bYAwKz5';
+wwv_flow_imp.g_varchar2_table(2256) := '3+6Fs+0CAKkb0P3BvRQRUBQXg1Fh3AQc96Z5xZmkakIcNfhqksEY1jFXvQXTtxOtj4NxWYwKaMsS+NzXX8YxwiffehWj1fUvArFV';
+wwv_flow_imp.g_varchar2_table(2257) := 'hio+f/74ST739ZfpLbpLqF0oEAWYvp2Yq94CYR1PHFBhXAJG/Au8ZMc5GPexJ+phwPpYUSLsovMEsjD5O7H9l9L2r5seZ1wrbkBy';
+wwv_flow_imp.g_varchar2_table(2258) := 'nk8oqMOEBDxaOM+3iyd5xhulKTFFdXFbxah0ZkDuwjn4bjSsLXoEKYAkOwO//7WX+PMnTjJU8Ylsu5Jau4uSRPyHKj5//sRJfv9r';
+wwv_flow_imp.g_varchar2_table(2259) := 'L1HyHVic0ZRgDBrWcA6+G9O3C6IAbfWFi1BUl6bEPOON8u3iSR4tnGdCAgrqYFquwSIe0VVS8z+OOzNfOmIBZMUNgMsfE56d+C6T';
+wwv_flow_imp.g_varchar2_table(2260) := 'JuB5f4w3nGkCsfhqKGiSb24vHURi0KiBc+g9RM9/Bezitz1SE6/cEgFV+Ht3JJaAIqwXYyCx7pXNPT7/72Mn+Tf3vkTZd5Z+ZNvG';
+wwv_flow_imp.g_varchar2_table(2261) := 'iF/BOfQeNGpcFHNJ4zRJHxoU5Zg7yXFnmr1xDzeEg/RZn0BiLPNnDnZ7gUrplPkPHbwYJAu7AfBmEdLWr4K6RCg/9kf4TuEUR91J';
+wwv_flow_imp.g_varchar2_table(2262) := 'AArqtH7uMi8vAlEd2XINzvUfhqAKZvFKN1cE/uDel/jc11+m7Lv4rqyLbMHYKr4rlP3E3fmD5U5+40BQxbn+w8iWayCqX3aGpH2V';
+wwv_flow_imp.g_varchar2_table(2263) := '9t1Rd5LvFE7xY3+ECJ0J5F76+CwsUJ00/6FDApAlNwBmzTxF8RBchGPuBPcV]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[T/G0N0I';
+wwv_flow_imp.g_varchar2_table(2264) := 'gduGJPxcxEDVwb/sUUtkMUcBSQk9pXb9yweGLDx/nn/7Z04xVQwbKHnHrOOxaw6oSa5LkM1YN+ad/9jRffPg45YKTlh9YAomrJZX';
+wwv_flow_imp.g_varchar2_table(2265) := 'NuLd9Ci5Z/S/HXCEIxPK0N8J9xVMccydwEbw5bkG3TX/ovPkPHbQAVCGavxRdx0nHTkFdhk2TBwpneMQ/z5SElNRNBuiSPPFLBug';
+wwv_flow_imp.g_varchar2_table(2266) := 'SYgEpStJGA2WPh46Ocs+fPMW9z5ylr+hS8hziLtdXWCyqyapf8hz6ii73PnOWe/7kKR46OspA2UtOty31Q42BsLZ8gW3dHFBSlyk';
+wwv_flow_imp.g_varchar2_table(2267) := 'JecQ/zwOFMwybJgVNvOAO1BVdFFHU2fT5tlQFvhzGJOXCu1pgAcXDIbSW58w4R7xxYrF46rAqqSTGIfjqZ7Hnj4BXhgUOCs2HY4R';
+wwv_flow_imp.g_varchar2_table(2268) := 'maGlGMR+6aTt//649XLu9l1oQE0Q2qdibAUtqLtoqguK7hrLv8NLZKf6fHxznG8+epeA6FDyzPJdGkslvtl6P/7HPLynGMu/Htf4';
+wwv_flow_imp.g_varchar2_table(2269) := '3lBhHDdeHA9xoB/CMIeTKtR3ajWpS/ruTp2g7KgCQCEA3ioWmVa4KGM5JgyecYc5LAx/TWvFX4yEWvDL2/IsEX/2nrS3B5X26SJL';
+wwv_flow_imp.g_varchar2_table(2270) := 'yOtWIKBccfvGOq/j5n9jF9oEi9SCeqTDcjlLjS8G2bhoqeIaS73B2vMH/9+Qp/uyxk9SacbLNx3Ktl1bb2Qj/Y3+E2XpdYl2twnK';
+wwv_flow_imp.g_varchar2_table(2271) := 'd9kqAZasWeWu8mW1apNkK83a6VUWS1b/R6OzE6KgAqCZ1AguFzjZvuqdvUZ53xnnOjBNj8WhDJRkbQ6mf+MdfJvzBf4DSINjl+z6';
+wwv_flow_imp.g_varchar2_table(2272) := 'OSYKBU42IHf1Ffvb2nXzklu3sGiyiCrUgnik1JtL+9StxVZIJ7RiZCeidGmtw79Nn+coPT3NmokFv0Z1592VjXKiP4d31v+Dc+gt';
+wwv_flow_imp.g_varchar2_table(2273) := 'Qn1hSgHUxCEJIjIPhRjvADfEABllS7sBq0WwqYdjZOFnHLQCRxApwnM5YARaliMO4BDziXOCM1CjgrN6qPx9qwa8Qfuf3iF7+NlI';
+wwv_flow_imp.g_varchar2_table(2274) := 'eWrHp6hghiCy1IGZzj8/br97EB2/axq17+ukpuESx0oziJI9AZy2IlQ6mxGef/UzXCAXXwXWE6WbEj49P8K1nz/HwsRGGpwPKvoP';
+wwv_flow_imp.g_varchar2_table(2275) := 'vLtPcn4tx0Noo7jUfwHv/7yS7K21y1NOx0CRmh5Z5W7yFAfVpELfsw/aSBskbjc7HeTouAJ26OzD96CIOr5opHncuUCemgPPmvfx';
+wwv_flow_imp.g_varchar2_table(2276) := 'Vf7gmq1dUJ/jGb2PPvwh+acXJ3anJH8aWWjPGcwwHt1W488AQ7zi0iYNbK/SXPBwjRFYJI0s4U/zz4s+53GvP/RkRwTOC5xrc1mo';
+wwv_flow_imp.g_varchar2_table(2277) := '+UQ955XyVh46O8Oiro7xyrkoYW8oFB88xMy7BijAGgjpm63X4H/pX4JYSK6rNS6NBaBJTwuEn4y0csL00SIS7nU9u591/Cz670wI';
+wwv_flow_imp.g_varchar2_table(2278) := 'AtO6sa18gS0k60wGeccZ42oy2/tzBk3dqwS2hjWGa//1/guo0eP6ygoKXIiTlxq0qjdDSDC0l32FHf5FD23u4ZXc/V2+tcNVgiU0';
+wwv_flow_imp.g_varchar2_table(2279) := '9Pr5rcFqVftNKu/Nh0jsBVImtEkSWkemAk2N1jp2v8vSJCY6enebMRIN6EFPwDEXPJKf6ViuDUQyEAVR6KHziPyLFza09/w7dvAz';
+wwv_flow_imp.g_varchar2_table(2280) := 'ErYSvW+wQN8eDxNBKHmoPqsnVX93Y5emKAKgmboDnrb4VoChO6+6YJ5xhXjITlEj39DtMrGgZ6vbPMV/879CIwF1d3ye1CqwmEza';
+wwv_flow_imp.g_varchar2_table(2281) := 'ILFah4Br6yx67B0v0lTwObe8BhR0DRXYMFInmHDVVTS7jPDPe4Mx4AwSOnp1msh5yYqzORC2kGVmMJJV7fdfMPHNV+08EohiKLvZ';
+wwv_flow_imp.g_varchar2_table(2282) := 'XP0HJfBKpAU5nl8X0aXVirrX9vDXejNO6mnS14wIiEIaJ+d+NeG7XBMBxVv8CUQU8DE1i7nfPcE7qlHDbb/Jf5m3EekTFM9QO/Ah';
+wwv_flow_imp.g_varchar2_table(2283) := 'z9CzOn3y1rWbs3F0Bq0oUK2Fsk+SS1h0AjpHLHjiKrbYCioIjgjFJRWPXkYs+t60rlSrxpz+GPbSd8qu34TZ2oCak83H5xIqsE7F';
+wwv_flow_imp.g_varchar2_table(2284) := 'NS7wn2kEBhxC76m9Sr2tHk3/m0pGzAJeSBj2iiFWzAtL9/SkJ+IFzngvS6OLkpzVeDXFpEqrT6KE96C2HkMeeh8rK4wHzocpFZ+p';
+wwv_flow_imp.g_varchar2_table(2285) := 'dI3hOK9ElXe1n/mf+d07HYPoxafxgUWf1V4IxUK2jd9yAHtoD1VHi0iRuY9dyd1JXjEUp4XJBGtzvnuGueCu96q9avkC6+ndr8kM';
+wwv_flow_imp.g_varchar2_table(2286) := 'HMwHnIwxXZzWxKD4Ow9LgG+4phlv7+12b/NBKPLBYr7V11QyI774Vessdq5OmzN5QlK7uF9+2c8kvO+fnWn/XsRaMY+gtJ23UDMA';
+wwv_flow_imp.g_varchar2_table(2287) := '4SduJ7crkT0nGlrlkbK1OIFk1mQPdpGsCMNcKWIn6KVDAmVHpYGZ/v8uooBJhvWlEHAhC2LkFe9etUG9mI/k8KxgD9WbSNju3QBA';
+wwv_flow_imp.g_varchar2_table(2288) := 'i4mC9aVQi6HIticS1dAiw3O+e4YI0KKxwjKWJP91c/aHLFgCszApIOkYumvzuIs99tx+DdetYtwZqkkBWrYF95y3o/p3QCFg3531';
+wwv_flow_imp.g_varchar2_table(2289) := 'XghFoBOj+ndh33gK1RtJWarBuDevWycAwbSWTyUUi4K1gVykLqz90uWVXYgUoSRGIOjHfd8/OmfxZQBE1qDedBLDSFcwqeA72Y+8';
+wwv_flow_imp.g_varchar2_table(2290) := 'ExyR/3sgaICRt4JikTTyHmZrgKqgJUW8aUUNX/YAW6ZgLsHzfPUudeFljLiurP2RBWlm6FZDu8wdYvueepbbMjmgbaQDQmwSJZ8d';
+wwv_flow_imp.g_varchar2_table(2291) := 'uutrt24H90NugurhjresWMVBtYD/0NnTfjoutIgUkTtoQkxmhTEWgRsz3WguPWeLYy8rqDxkQgNQKWEoOtLR+fc89y/kVmmJtIQ0';
+wwv_flow_imp.g_varchar2_table(2292) := 'A+hNcFFqHxN+tNbB33YLeeSNM1xNrYKPhGJiuo3feiL2rZfrPjYtI8j/W734g8FJS1/O8NPiee3ZmPC6GLET+55KJkZc0yuKOQaZ';
+wwv_flow_imp.g_varchar2_table(2293) := '7/U84w5yVOsUsBPzexJwA4OWaOIqIP3ZXEg+oNjaWCDjJyq/7dxJ/7K7LFooQzGwgMCsmQAslSTM/K3WecIbxWNy179Ym]'')'||wwv_flow.LF||
+'   ';
+wwv_flow_imp.g_varchar2_table(2294) := '            || TO_CLOB(q''[Yz0Lkx8yIgCQNsyVVTGJ+BuOmkleNBMUur3VdxnEJhFs602DTeoMXPwDArEF1yH+9Y+ge7dvHB';
+wwv_flow_imp.g_varchar2_table(2295) := 'FIJ//e7cS//pEkMzKer1SUwpx2FJuBel2XYFEKGF40Exw1kxQWEIF09e/2rdlzycyIS62Ay5lGqe81LE2eXILidp4kQrHgyiUCYQ';
+wwv_flow_imp.g_varchar2_table(2296) := 'xFn/jXP7oxROCiyf9RKPpJG1xW9WctqWSoZq/HU4v0SWeYYWleNhY16+pmZ/WHDAkAJMGRIJg/IJgmgz3mXCDEZuvF57IU39UIBN';
+wwv_flow_imp.g_varchar2_table(2297) := 'HFIjC19HJiawJjYKp28eQPoitvhV4plpIhDBBiecy5cNliIlca290kUyMt3R65dFtQAR/Dj5yRmSo+GWvHWZYavZ4rAr/2EfTw/i';
+wwv_flow_imp.g_varchar2_table(2298) := 'Qg1u3raVeL9HvUGujh/cS/9pHFTX64/G5KxkjH53lp8CNn5E3j83LjOgtkSgAgPRs9GxBMTazz0uBFM9FK8c0wy9m/NgJhBAWP+J';
+wwv_flow_imp.g_varchar2_table(2299) := '6fwb79pkQErF3b1kB6FVOtgX37TcT3/AwUvOS7LioJ6jL5FBnEkojAi2aitTM1KwLWJmM6a5MfMigAcHGDJeezLU86w209k71ayE';
+wwv_flow_imp.g_varchar2_table(2300) := 'wGW4MlNW8aGGwG2E+8C/vJ9yZHJtO04SyOnsshMpPei+NgP/le7CfeleT4zxvwuxIG6zawbq0lqNlFSAKDTzrDraPDb17QskZXTg';
+wwv_flow_imp.g_varchar2_table(2301) := 'MuRGoyBZHS4zi8KJOckwbFTlTzWREKpDnsIaIeS7Jb04lRa2LvuBHdtwPzNz9AjryerJyum60Q8nwYk3ReM0Sv34f9mbvQbZta+/';
+wwv_flow_imp.g_varchar2_table(2302) := 'zL8ONVUAmx3jROcxCIyWowIHEFHM5Jg1dlmuu0j+kozqTpn5JZSVUgagpTGvGcO4aHZHzyMzMu48LoypJXjECtjm7qJ/71j2I//l';
+wwv_flow_imp.g_varchar2_table(2303) := 'NQKiSTCLLpFqTvVGtAqYD9+E8lgc1N/VCrL//cQysQGBdGkz9ndCKlWJLLZp5zx5jSiKiZsSS1S8ikBZCguNbwvE4yKeHM3XyZph';
+wwv_flow_imp.g_varchar2_table(2304) := 'UATKLWK0xfNSbxlQF71y3Ym67GPPAU5okXkklW8JiprNqt0HIa4IvjmXeyd92CffdboL+SuADpd1n2MwBMa1clu4HAuRgMkxLygk';
+wwv_flow_imp.g_varchar2_table(2305) := '5ygx0kFktWlSuzAmAwTJuI1/1JPM3KCb8FUIN1AqxbRXSeBKClMuMStFbVn70bfeth5KGnMS+8BtO1JJHG85i5bK/dYpBO+iShPS';
+wwv_flow_imp.g_varchar2_table(2306) := 'nh1VPG3nIIfcct6K7NSYT/0tTeZaOIOli3inUCJPZAsj0WFMVT4XV/kr2N3kwvXpkUAEXx1fBqYZqqiTLdgLOkA7WGdZqre4LNmN';
+wwv_flow_imp.g_varchar2_table(2307) := 'YqG6Pbh9BPvhc7MoF56iXkuVeQ82OJteC5yYk6aT1bWbkgpJFYJCloGkYzz9KtQ+iNB7FvuRY29ScBvlozrVq64q89gxqs00TdGi';
+wwv_flow_imp.g_varchar2_table(2308) := 'YazGRq8KUYDFUTccqf5trGAE3p/D0DiyGTAiAITYk5UZjGXSurf2qqepNgIoj91R2j6UQMwmRi91WwH7gDfuo25NVTyLOvIKcuJG';
+wwv_flow_imp.g_varchar2_table(2309) := 'IQNJOf95xkIs7sIghmAUVQRFSVJBW3dVNl2Lqv2vfQbUPori3oTQfRA7ug4CeWwMzEb8MgV8CJsN4kTmNT10qELQVFcVU4UZhmX7';
+wwv_flow_imp.g_varchar2_table(2310) := 'M3k5MfMigACvhqOOVXGXOa+JrhpJ95iP0J2jo6UyGI4tZ+ukGv3TuTQCRnR5AT55E3ziKnhxNTvN4EDbBEVCNXjDOfeyLEcUzJiX';
+wwv_flow_imp.g_varchar2_table(2311) := 'CMAxSSwGO5iO7cjO7dju7eim7fBOVistoHYRLgS6qRtu87A6DE/gRem5+ymjgIY06TC16DXUGFQFa/oOhKyZwAQKKex/2pzDXWFZ';
+wwv_flow_imp.g_varchar2_table(2312) := 'kJAE7RkfPrczMFm0HrCIIkE/XArpkEHKZrmNEA92gflSCOf3bvxMnXXnmlR2T2cI2AxrGVw4evnnjgeM+u4bhc0KurRNsiKPdApT';
+wwv_flow_imp.g_varchar2_table(2313) := 'DrhgRRq44Bs/v97WYmEDi1ZgKBKQIc96fYGZS7/SrzkjkBMAhVEzHiNnA021soFzETAJxenQDgUpjx04FmCNq6Ptt1YWgAu02IDw';
+wwv_flow_imp.g_varchar2_table(2314) := '3o9Nk7zIf+zo0XfuFWngAKl7xk9OhJtvzVF17Zp5sf1ah4RghJhKQeJD+aik7HS5ml8ZXpNRMIhJbnosKI26BqIorqZs6dzdSGcu';
+wwv_flow_imp.g_varchar2_table(2315) := 'o3XfDqNEyMydbrXYFWyqpbxTrNpAZgt0hXZdOK1EcR1CJsdFqaA38j/+s3v3nzhTH6IDRhGLthHLv1MPAA73/760dvGO35K2PlFa';
+wwv_flow_imp.g_varchar2_table(2316) := 'hFs5fVG+l+NuJMILCamRJhi8FgaJiYC149k/GsjM2wpIHOefXWn7PVWJdFABziwhiYMFuvLQIGlAIFX/SN8g/9P/jRA/vBC9QAAi';
+wwv_flow_imp.g_varchar2_table(2317) := 'XPD/762LEtD9nvDZVLoVotSpK1lyEnTAETJm2Mk/VNgDkkg+GcV29N/my9eKYEIIn+Wyac5toy/wHQ1gnAbHXwLIq1RsrG6H995Y';
+wwv_flow_imp.g_varchar2_table(2318) := 'd7T05N9fiOYx3jKOD87qP3Xy+inXdfloS02jir7/dmUjdgwmlmciswMwKQNtS0E1J34tYF3msEBUyE9bNVwPJSFMUXw/lG0/9n3/';
+wwv_flow_imp.g_varchar2_table(2319) := '/m9UBsIPp3P3x894/HhvvL4qjN6pG7mUBga5t17WgADkLdiZl2wswtbJkRAFAcYMxtEpLd1Ml5mZOoknX/NEalxzj6zeOv7Xz6/J';
+wwv_flow_imp.g_varchar2_table(2320) := 'l+QP7TM09cXZCsb7emcZZa9+MsS0YIsYy5zW5dU3tZMrULYFEmnGAtTX2SgekSpxHqTJvQCY4I41Fo/v3TT+59+/arxo5Ojlf6HU';
+wwv_flow_imp.g_varchar2_table(2321) := '/jrK7+KXN2WtywjEp3Lg1dDgJMOEHmDrRlSAAS06huolaXZquhLstc01TipAhoxsdkrCo9jstXjr2492uvvry77DhkfvJDy9WKk7';
+wwv_flow_imp.g_varchar2_table(2322) := 'aub18TGYEJSR2Luolar5udps6MABiEwFjqJsJkzE9amDQAuHYQILTWBNYaJ2v3KizAWgwEGhXqJiIwFldNZrYDM+VIKUqUwXTJK2';
+wwv_flow_imp.g_varchar2_table(2323) := 'IFNQG2MIasqe2p5FWz77DMQUBwsIUx1ARg105jCxCJzczET8mMAAjQkJhIsl/262LSklX1VmAqWx28EGvubTW9dHWJJde6TCIASk';
+wwv_flow_imp.g_varchar2_table(2324) := 'PiTI3vTLgAqYnUMDGR2Nb5/3Yh]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[oFZVsCt3IpMAoLrTRk0oou4KPy9nQdKiq+60StBrV';
+wwv_flow_imp.g_varchar2_table(2325) := '340OBkDohjESLv6TxBCsTRMzEAsxBlZ6DIhAHOJWtVTVrsbVJNOsBqp43jiuuWVXzUjisRFbPEYEIO6a8oFWJOkh66KVZGoz8Fpr';
+wwv_flow_imp.g_varchar2_table(2326) := 'Eq14CiqEcehGnFEWf0KvqkFkDUyIwBpEZDtYbktyRKOI6iNreuVTSOcro0EIz+SOPaQFVTMUBUohdHA2cPieINYzV6u57pDVRxPI';
+wwv_flow_imp.g_varchar2_table(2327) := 'vfsmFs9/wLUPWQFM0tF1HHCzdJzW9HrL0dhzYpxTByt7ggUIBZtHW/PjhBkQgDSxumPfe6a3NGWJ7hurD09FWPDcPKNF7//a39x7';
+wwv_flow_imp.g_varchar2_table(2328) := '688DJRg2dcMzPgPlT/6l99xTM+gEmi2EujXI6pifAm9MxfG//3tn2r95Up8OQPU7/7In75973U/91+M8fqmp6saRU5b3AErmhnzH';
+wwv_flow_imp.g_varchar2_table(2329) := 'zIiAClKu8ykWGPrq603J44d/dI93/3WP3jMq2zdGoa1eNkf6XmGKG4U3vXWfcYv7NXkhtus9Ot6RjSKMH5hb+GD772m+b0nXsd1i';
+wwv_flow_imp.g_varchar2_table(2330) := 'oThsuule1659y/u/ZXH3hdVf/3qQ7/8hdB6fSoB7Tj3nLUBkikBgHY1kFjfLzvHX//u5777rX/w/Upl165q9VSwoo/0KkKzWufAn';
+wwv_flow_imp.g_varchar2_table(2331) := 'r1SKBS00bSIrJ2w9FpFRLBqpVgocGDPXr513xHcSoGgumwBCINpW6ns2vzdb/2D7xf8g5/bs+99vx80wxjI3pXEq8wGGLCqjlNwG';
+wwv_flow_imp.g_varchar2_table(2332) := 'vWRc4//8He/7vu9m6vVC+GKP9ZPLoLxtm6+DWNAs31j2bpCsRiDt3XzbYBt9cWKqFYvhL7fu/nxH/7u1xv1kXOOU3C6V2+9c2wAA';
+wwv_flow_imp.g_varchar2_table(2333) := 'cAap0gU1Y9dOPXQqKp1IVh5x1ZDC7jSU741ua1nDaTSrhtUsBbpKd8KuK2+WCGBqlr3wqmHRqOofsw4RVh+fGjNsBEEANUYEdNXK';
+wwv_flow_imp.g_varchar2_table(2334) := 'PR7spKIcYrvC0EQeft3DarnH9Dk7qdcADqFiGgUoZ5/wNu/a5AgiPD9Fbe/iGgyRkyf6vLDQ2uJDSAA4kRhVf3CwHXX3/Sb1wbBd';
+wwv_flow_imp.g_varchar2_table(2335) := 'NXzBlfo2/kCBHLLzbvE9zYTx8qGaMvMYIhjFd/bLLfcvAsIWn2ybDxv0AmC6er1N/3mtX5h4LoorCpIHgNYH6h13aJ30w2/8U+Aq';
+wwv_flow_imp.g_varchar2_table(2336) := 'FAQC/7yv7unAgTOvj3XSMH3sOvfVMwcFisF33P27bkGCFp9skx8k4wJoptu+I1/4rpFL7kFZf2zQQRAnDCYinv6dn/gF3/56L+bn';
+wwv_flow_imp.g_varchar2_table(2337) := 'h6d8n3iZVsCSdBJzVD/4VZZ7HUfLMogijGYof7DgC43EOh5g47vE09Pj0794i8f/Xc9fbs/EAZT8UZY/WHDCACAOEFzIhoauvrnP';
+wwv_flow_imp.g_varchar2_table(2338) := '/Urx/5IZCAMw7Fpzxt0l2w+tgKAplg+TByTBwC7gQpxjCmWD7OsQKAvnjfohuHYtMhA+KlfOfZHQ0NX/3zQnIg2yuSHDSUAAOI2G';
+wwv_flow_imp.g_varchar2_table(2339) := 'hNxf//Bn//Urx75q/e//09vD8OxEQgir7LN9f2ehdtjbgDQ9w7mAcAukQYCfe/gUgKBvt9jvMo2F4IoDMdG3v/+P739U7965K/6+';
+wwv_flow_imp.g_varchar2_table(2340) := 'w/+fKMxEYNkLjemnWwwAYDEEhiPfb/v5n1Xf+Ivfunvv/YHN974mf6wem4kCKbrnjfoJK7B5QZTEgA0N96wU3w3DwB2j1Yg0N1sb';
+wwv_flow_imp.g_varchar2_table(2341) := 'rxhJ1cMBPqS9msQTNfD6rmRG2/8TP8v/f3X/mDf1Z/4C9/vuzlojm8Ys38uG0rtZhDjhMG0FTFOX9++X73jHZ//yM23ffZLb7z6N';
+wwv_flow_imp.g_varchar2_table(2342) := '/c+9NBvvUCSkFjxKts8Cas2CAILrcTBihoCms5119wuxaKn1VqMbLyBkwmsWqmUPOe6a27nb779NBXtIUgDsj6+7xv1KiasngvDM';
+wwv_flow_imp.g_varchar2_table(2343) := 'JgC9B3v+D8O7z3wMx8plXf+su/3bAqak8RRYEXMhuzDjSkAgEiSvhc0xmPj+JsGBq75x+Ub/8d/eODQ37t3fPzlb/7g+//zQ2NjR';
+wwv_flow_imp.g_varchar2_table(2344) := '4YBHyjPCRhKSBXT33u49cc8ANg1krZP+8LDFzzfAQjDsTgIgmmC6WBw8PpNd/3U//nhgYFrfrpQ6P+I7/f4YVgjaIzHiDjJWNiYb';
+wwv_flow_imp.g_varchar2_table(2345) := 'FgBSBAQcWwcaiMetyKO39Oz6+M9PTs//vGff+jVZnPsvnPnHvvuow999pnp6TNjgDBGudDfX6JUum42AJiHALpDEgikVLqu0N9fa';
+wwv_flow_imp.g_varchar2_table(2346) := 'o6NNYAaoD09O/rufMfn79y27Y73FQqD7y0UBg6AEARTNBrjsSCGDbrqz2WDC0ALERHEAatBMGFVVVy3cqBYHDxQqez8jT17fvpYG';
+wwv_flow_imp.g_varchar2_table(2347) := 'E7/eHLi9QdeOfqXP3pu4t9Pep67X6MYcv+/mxiNYvDc/c2+idKNu/9x38FDP3dbX/++d3tez62uW7radYtEUUCzOWFbWaBmo5r78';
+wwv_flow_imp.g_varchar2_table(2348) := 'yH3fGYiN2HnQVVtq46Qcd2SOK6PArZWnT5Zeunl71339Vtc8R1d/+dFMo2IEGkQv+vFDz99Vf3aa0y50iNAHAVEUV2ThB4RyU9qz';
+wwv_flow_imp.g_varchar2_table(2349) := 'ktuAVyGZMAkpn0U1W0c19USS8n098SDxduto7DScnQ5K8eCddWJB4u3u80i9eaoNTiqSmvS5wHaK5Gr4iJIB5KIMWojPe+8ZnWtX';
+wwv_flow_imp.g_varchar2_table(2350) := 'V+2bhEUy3nnNas20iSgJ06+4i+O3AJYCmqITCgjlXNi1sAVYBsDxajDSOWciUy4xu4M7D55ay0Bo4aaV2W6MIGjDprvAHYdFcVRh';
+wwv_flow_imp.g_varchar2_table(2351) := '+nCBDWviskFYEnkrbVIVBRXXaYL4zTcGokFkJMFjDo03BrThXFcdXNhXgK5ACya5Hrq8dIIsUT5+Z8soUIsEeOlkcxfz541cgFYE';
+wwv_flow_imp.g_varchar2_table(2352) := 'spo6QJ58C+LSKtv8sm/FHIBWCxJAJCJ4nDLz8wHWnZQjBomisPkgcClkbfUIpkNAE7mAcCMMRsInMwDgUskb6lFkAcAs08eCFweu';
+wwv_flow_imp.g_varchar2_table(2353) := 'QAsCkVUGCsNE0ucBwCziAqxxIyVhhFd6a3PG4dcABZD67LS85XTrXGVD67soaBJHyVdlIv0YsgFYBGICqHTZKo4hqNOXgIgi7TiA';
+wwv_flow_imp.g_varchar2_table(2354) := 'FPFMUKn2bICchYiF4BFYHCoeVNU/UkcnHz9zyAKODhU/Ulq3hRm/V/rtyrk]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[ArAAaYR5';
+wwv_flow_imp.g_varchar2_table(2355) := 'sjhG02m0Ek1ysoiooek0mGxZankgcGHy0bwgSQbgWGkEmwcAs40KVmLG8ozARZMLwEKooGIZK11oTf58UGUXBRXGShdQsblYL4Jc';
+wwv_flow_imp.g_varchar2_table(2356) := 'ABZAEEITMFkcxSEPAGYaURwcJoujhCZA8pTtBckFYAEc6zJZGGOyMIZj3Xz9zzDKm/sr58rkAnAFdGZFGctXlDXCrMU2luzY5Bbb';
+wwv_flow_imp.g_varchar2_table(2357) := 'FckF4IrkPuWaI4/ZLIlcAK7ETFR5OI8qrxnSXZvhfNdmEeQCcAXyfeW1R563sTTy1rkCDg41fyrPLFtjpJmbNX8q2bnJuSy5AFyG';
+wwv_flow_imp.g_varchar2_table(2358) := 'dCWZKI4SOkGeW76GSM5uBEwUR3PLbQFyAbgsaQBwGCUPAK4pNLkrYKw0nAcCFyAXgMvRKjQ5Uj6XBwDXHEkgcKR8Li/gugC5AFyG';
+wwv_flow_imp.g_varchar2_table(2359) := 'tMLMRHE4rzCzxkgrOE0Uh/MKTguQC8A8zL1sou7V8hpzaxCjhrpXyy9xWYB8ZM9LUmV2vDRCnFeZXZuoITYh46WRvIrzFfj/AaMQ';
+wwv_flow_imp.g_varchar2_table(2360) := 'zaPItTkUAAAAAElFTkSuQmCC]'')),'||wwv_flow.LF||
+'       photo_mime_type = ''image/png'''||wwv_flow.LF||
+' WHERE candidate_id = 9;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'COMMIT;';
+wwv_flow_imp.g_varchar2_table(2361) := ''||wwv_flow.LF||
+''||wwv_flow.LF||
+'UPDATE tms_candidates'||wwv_flow.LF||
+'   SET photo_blob = apex_web_service.clobbase642blob('||wwv_flow.LF||
+'                    TO';
+wwv_flow_imp.g_varchar2_table(2362) := '_CLOB(q''[iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAABKYUlEQVR4nO29eZhdx13n/amqc87dulstqbVasixZluT';
+wwv_flow_imp.g_varchar2_table(2363) := 'dseMsTjBxAg4hCRBCZoDAQGYCz8Dw8ALPsM4beIbJC7xhmCwDzPK8ATIhISSQhcSJ7dhx7Dje91WyrH1rdavV693OUvX+Ued2t2R';
+wwv_flow_imp.g_varchar2_table(2364) := '1q5d7zzndfT5+2mpJrXvPrarft371q1/9Snz0ifWGnJycFYlM+wFycnLSIxeAnJwVTC4AOTkrmFwAcnJWMLkA5OSsYHIByMlZweQ';
+wwv_flow_imp.g_varchar2_table(2365) := 'CkJOzgskFICdnBZMLQE7OCiYXgJycFYyT9gPkJMlcs75FR58iJzvkArAsMOeY9pT5ynNMWYi5dbcx0bRXBtDTvp/+HrlQLHVyAVh';
+wwv_flow_imp.g_varchar2_table(2366) := 'STBl6ywAFEiEkUkj7ffx7IP51uqnOdcWnpxm7wZhYAIzGYL+00ZO/v9Bz5SwNcgHIMC2zEhAbtoMUCoG0v8ZGb4Vg+r977XcX/v1';
+wwv_flow_imp.g_varchar2_table(2367) := 'MTH89gRDKfjftTczkE1oh0CaKhSHCxN+bC7xaTrbIBSBTWJMX8cyuhEK2jD42fDH5k1P/P38J0Innmv5u07HCpFDCnfwZKwoR2kR';
+wwv_flow_imp.g_varchar2_table(2368) := 'oE06Kg8HkHkLGyAUgZVpGYWd1NzZ4a/StuXPK/Dpt6Avl/BiEQAgXJdzJZ58SA/vV8hBy7yBdcgFIgelG70hv0vBbM3z2DX4unPv';
+wwv_flow_imp.g_varchar2_table(2369) := 'sUjgo4Ux6CFYIAiId5GKQIrkAJMT5Rq+Ea9f0cWDOLHmDvxjTA4UCR3ggPLTUGBMS5WKQCrkAdBhr+AIlPBzhoqQbB+7s3y1nk5+';
+wwv_flow_imp.g_varchar2_table(2370) := 'NqQCnQAoPJTyM1EQ6IDQB2gSTbZfTOXIB6AitwS1xZBFHePGafmUb/UxM9w0cWcChgDYRofGJdDPearR/n9NecgFoK3YgS+HgiML';
+wwv_flow_imp.g_varchar2_table(2371) := 'kbL/cnft2MukZCIUnShhZiL2CJtqE8U/lQtAucgFoA631vRQuriwihRsH8/LZfuFMLRIcWUBRQJuAQDfi5UEeJ2gHuQAsgtYa1ZU';
+wwv_flow_imp.g_varchar2_table(2372) := 'FlCggJ1Ntc7NvJ2bSs3IpKBdtQiLTJNR+HidYJLkALAg7IJVwcWVpcntr7pl2OQtjaomlhIMSBQJdR5sg/vtcCOZLLgDzYmomarn';
+wwv_flow_imp.g_varchar2_table(2373) := '69k9zw08W2+JSOBRU9zlLA0suBHMlF4A5YjBIoeIZ35v805w0OXdpEBk/9giifFkwR3IBuAitNaYnSziyiEDkM37msP3hCA+lXEL';
+wwv_flow_imp.g_varchar2_table(2374) := 'dINCNPD4wB3IBmAWDwREeriwhhVpaUX0z7Zdpj2wu8vjTT/whpjnTS8COWn3T8tICXSc0fi4Cs5ALwAUxCCSequAIL/P7+MY+IMZ';
+wwv_flow_imp.g_varchar2_table(2375) := 'MGbB07PdCgbQ5SJO/n/GjCDDRlEjoaOr3Opx6L2Fzms8ViwxhMAihKKgulPEJolqcTJTRB06RXADOY3LWV+U4iSdjhh8bessQhQT';
+wwv_flow_imp.g_varchar2_table(2376) := 'HswYvndhgNdRH7a+1YagOgXKhMQ5nD9t/c8GX1rDmMih2QxRAZS2UV9ufL62yvwplxUCH9meMnvYssTBkA9tzSnhIxyGIark3cAF';
+wwv_flow_imp.g_varchar2_table(2377) := 'yAZjk/Fk/nlYzgDHQmsCkA45rDdpo8GswdgpGTsDZozB6AiYGYXwAgjoEDfCr1niNjmfymWzAxJ5D/LNeBdwiuCXoXg9d62DVJbD';
+wwv_flow_imp.g_varchar2_table(2378) := 'mUui9BCp9UOiyPx8F9kuH9nWQWfEQbBwg9wYuTC4AABi7p68qmZn1pxu98sAp2D+vD8PgqzCwD07vtYY/PgDNCWt8La9AuvZ7Ka0';
+wwv_flow_imp.g_varchar2_table(2379) := 'hx6lzFzXK1nKitRxojEN9DEaOT8320rGG373eCsGGPbB+N6zeAqXV9nXCJkQ+mREDg5nmDVSJTEAuAiA++sT69Ed7atiR7sYR/iz';
+wwv_flow_imp.g_varchar2_table(2380) := 'M+HH5PZQHbgG0tjP8iefg1Iv2a2LQzu5CgnKssUtljWwyyGdeGwBcEK1AYGwrrffQEegAotA+s1uyHsKmq+3XJddBzyYrQEFLDJh';
+wwv_flow_imp.g_varchar2_table(2381) := '5+ZEsIt4pqDOpdiuUFSsArX19T1biTL4Um8FYQ5fKGpIQMHrSGv2RR+HUS1A7a3/UKcQGL88N/qXB9GCg1lYQwqb9u/Ia2HQVbHu';
+wwv_flow_imp.g_varchar2_table(2382) := 'jFYNVm+1zBnUrHnKqXmk6z44gMiG+rq7ovIEVKgAGKVy82OVPbeaPDd/x7Frbr8HJF2D/fXD0ydjohf076dIqEpSawV+MySCgsGI';
+wwv_flow_imp.g_varchar2_table(2383) := 'QNABjxeDSm+CK22DzNeCV7d+FftpCIDBo/KgaZxGuPBFYgQJgcGQRV5bJhOGXYOy0nelfuhPOHLBrebdk19owbV2+lJgWb9Chnfm';
+wwv_flow_imp.g_varchar2_table(2384) := 'lA32Xw1U/Yj2Dng32z7MgBIGuEepGmg+RCitMAAyerODIQmouv46mDH/8tDX6l++0ItBa9xNH4Zec0c9EHJhET8UDejbAlT9ixaB';
+wwv_flow_imp.g_varchar2_table(2385) := '7uhCotB5REOomvq6ykkRghQhAa4uvKz6ym/xHNtoaQaFryvBfutN+75asKLSi7MuZ1i5F6Fuj795gRaAlBM2JqbZK4enQJsSPJlb';
+wwv_flow_imp.g_varchar2_table(2386) := 'MVuEKEACbFebJSirG33LfvYod8M99FV74ht26axm+Xk6z/VyJtygnhWA9XPMeuO4nbLv48USc/PZhLAK6Gl+RtrxFYJkLgImPjHZ';
+wwv_flow_imp.g_varchar2_table(2387) := 'BCsE+HdmovXLtGv/Rz8DA/hVu+OdznhCsvwLe+As2RhDFuwrJLwsEoGlGE3EZsuUrAstYAMzkeXGmVdtP5J3jWb/QZWf6h//GRvZ';
+wwv_flow_imp.g_varchar2_table(2388) := 'b23wrwdWfL62lQWub8Irb4M3/1noGzQlS8AbsmGlG48taBJZlJqDN+krJ+LWNdnsleOEOO+vXhq0YgB3cOa/FGJt56BTt71/5Dhx';
+wwv_flow_imp.g_varchar2_table(2389) := '/2noD17wb/Hqc6ZhYbMAmCBVUN81onMiEyzJXYBl6ADbl01Nlknb7dWQNvT4CD/5P2P/dOI3Xyw1/vkhllwWRD1e8Dd7676HUa72';
+wwv_flow_imp.g_varchar2_table(2390) := 'BZJcEdjngRzUi47PcPIFl5QG0TvIVVFeyh3nitNvSKjjxLNz3CTh7BIo99u9y458/OrJpzsqFfffa8w+3/QZccr09nzA9PbmztDy';
+wwv_flow_imp.g_varchar2_table(2391) := 'BLprRxLI7UbiMPIDpa/4E3zVO4VUFG+F/5G/j3PhibvjtQiqbOSgkvOlDdqcgatr2TXq7cLnFBDJxNGPxnB/wS+hddXwYx4H7PwU';
+wwv_flow_imp.g_varchar2_table(2392) := 'P/Pf4uG4h]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[N/520tpNkY5t4/s/Zb9XztThqWSwMYG0ckk6wTIQgHSi/a1B6Tfga78HL9';
+wwv_flow_imp.g_varchar2_table(2393) := '5hc94h6UG5Mmi1aXmNbeuv/Z5t+2TFdiowuFxEYIkLgEGgUjF+r2KTVb75R/bUXrEnHohLf0xklzieUuyxbf7NP7J94FXSEQHBbP';
+wwv_flow_imp.g_varchar2_table(2394) := 'XVlgZLWgBaFXySNv5iNwy+Av/8W7YwR6knd/mTREe2zQf22T4YfMX2SdIiMHWadOmyhJ/eJJ7b35r5+1+Gb3zEFupIdvbJadHqi7';
+wwv_flow_imp.g_varchar2_table(2395) := 'FTti/6X07eE5DCwVNdLGUvYIkKgEk8t19H9hz76Em444/s2X2vnBt/mrT6xK/ZPhk9mXSfxCIgWzXXlh5LUADseX5HFkiq0Vvbes';
+wwv_flow_imp.g_varchar2_table(2396) := '1xuOdj0BzLt/mygo7ivhmL+2bc/j65QKzBkYXMlJSbL0tMAEx8L185sfP8xthkFL9qZ5nTe3O3P2u0lgOn98beWTWumpxYHpjBle';
+wwv_flow_imp.g_varchar2_table(2397) := 'X4rsilJQJLSABsxN8G/RJsZGPLcT3wV3Dy+WnR/pxM0dodOPm87SuZuC2aOCi4tHYGlpAAJB911ZFN733ic7DvO3YPunVDTk720K';
+wwv_flow_imp.g_varchar2_table(2398) := 'Hto33fsX1WWpWsWJ+7K7U0WCICYOL7+ZIN+pV6zhtMufFnHh2eK9rJbtHaoKArSywVL2AJCIBd9ycZZGkF/YaOwPf+Og13MmdRxM';
+wwv_flow_imp.g_varchar2_table(2399) := 'u27/217cPkg4LFJRMPyLwATLlVyTamkPD9/2XP8jteXsBjKWGM7bPasO3D5OsLmiWTJJTpJzQYXFVGJrzuL/bYun2HH006wyynXb';
+wwv_flow_imp.g_varchar2_table(2400) := 'QyNg8/avsy6eCtROKq5HarFkqGBcDgigJq8qLOBN6x5fofhMc+G2/35Qd7liw6vuD0sc/aPk1yKdC6i9AVyeWrLITMCoBA4qjkgy';
+wwv_flow_imp.g_varchar2_table(2401) := 'nSgYc+DY2x+GKO7PZdzsWILzJtjNk+lYmXvzE4qpTppUBGn8y6/kk2nInLee2/D448Zr83ueu/5Gn165HHbN8m3a8iXgpkdSbJoA';
+wwv_flow_imp.g_varchar2_table(2402) := 'BY10kJjyQbTSibU/7UF+33OcsLoWzf+rWk+zed8TxXMigAAjdh179VzPO5r8LgAVvRNy/qsXww2vbp4AHbx4WupAO7Jh7T2UsQyp';
+wwv_flow_imp.g_varchar2_table(2403) := 'gA2IQfm06Z2FviePaKrhfuiA/55Ma/7NBxgPeFO2xfOwlPyAKVyQShDAmAQaISPeUH8cAoTd3Tl/TAyEmIaUL/0p22z5MVentqUG';
+wwv_flow_imp.g_varchar2_table(2404) := 'bsrECGBIA4WJKsmyQde4T0wINxfbl89l+2aG37+MCDts+T3xUQ8RjPDhkRAIMSbuLpkyYuKLH/ARg6ZF3EDIlzTrsxcZ7HIdvnXj';
+wwv_flow_imp.g_varchar2_table(2405) := 'npnR6b1q4ylCacEQFIVhmNtkEgY+zlk/vusemiebrv8scY29f77rF9b+JCo0kGfdPwdGciAwJgb/NJ7Bx1fFV3qQd6NtkbZ07vzS';
+wwv_flow_imp.g_varchar2_table(2406) := 'P/K4XWjsDpvbbvezbZseAldtzE1rVwMrItmIGrwQSOSsj3jk+J7b0bRo5Dodte5WVskdcs9EdOEgjb5098Dk69YOMBvVvsjcQ6II';
+wwv_flow_imp.g_varchar2_table(2407) := 'HJ2eCoImHod/qNLkrKAmBwRCGx2d/EqaEv3wWHHwG3Ym+XSfa4aE7aGA1uAY49BYcfg6AKl70Jdv+wvYw0iWvIW15AaJqkuRxIWQ';
+wwv_flow_imp.g_varchar2_table(2408) := 'ASnP1btJYAvVO1/XLjX3kYY7cCCwp8N8klwOQTZMILSDEGMH3tn/A7x0HA3PhXNmmPgyzEAlIUgBRm/5ycTGFiG0hvCZCSAKQ3++';
+wwv_flow_imp.g_varchar2_table(2409) := 'fkZIm0vYDUPAAlC2m9dU5OpkjTFlIQgFbWX15tIyenVUk4rezAVHYBnIzO/kKIyS0gY8DkqYHLgqXQr44sEEVB8u+b9BsKVMolk0';
+wwv_flow_imp.g_varchar2_table(2410) := '2c8jsVeJFCgIAgiGgGIRiD6zp4roMQoHX2BkzOxZFSYAz4QUgQhCAEBdfBdRUY0NOEYEoU0gjI2TMCAoUh2e2IRAXA3qHmIRDpVE';
+wwv_flow_imp.g_varchar2_table(2411) := 'sVYIy238QdraSk3vQJwohNfb1ctrkPx1EcHzjLsVNnibSmu1wkyo8JLimUlIzXGigp2bppDVvWryEMIw6fPMOpMyO4jqJU8NCTBm';
+wwv_flow_imp.g_varchar2_table(2412) := 'esCKRUDkogcKSHr+uIBEUoUQEQCJRMrsrvazDEHW4/tpKSkbE6l29dz4d+/Ae45forWN1dRkrBeK3BC6+e4P98/UEeevZVussFEC';
+wwv_flow_imp.g_varchar2_table(2413) := 'KT7mPOFELYPN/RiTq3XL+Tf/Pet3LNzkvoLhfR2jA8XuOhZ/fzt1/7HgeODdDbUwLspKCJwKhUnACDQUkPoRuJvm+CAmBro6V5ea';
+wwv_flow_imp.g_varchar2_table(2414) := 'IxevKtlZKMjNf4idtu4rd/8Ufp7S5Trfs0/MBmiTkOt1y/kzdfv5O//8b3+cTn7qLoucTjKyeDCAEYQ8MP+O1feBc/9563IIB6M6';
+wwv_flow_imp.g_varchar2_table(2415) := 'Ba9xECuspF3vf2m7jt5iv587/7Jl/97pOUVRmIwNgxklYVX4FCCZfI+CSlQol+UiXdVA9Bauzhb6UkI2M13vf2m/jor70f13EYHq';
+wwv_flow_imp.g_varchar2_table(2416) := 'sRRRohRLx2NIzXGlRrTX7p/W/jdz70HiZqTTvD5GQSIQQTtSa/86H38EvvfxvVWpPxWgNjDFIKhBBEkWZ4rIbrOHz0197P+95+Ey';
+wwv_flow_imp.g_varchar2_table(2417) := 'NjNZSyptAaI6k8P9ZGkiQxARBIZIKXfJyPMcaeBpSCWr3JNTu38Lsfeje1hk8YRjhKvuYQiJL2zwbPjvPBd72Jn/yh1zM2UZ8cLD';
+wwv_flow_imp.g_varchar2_table(2418) := 'nZQSnJ2ESdn/yh1/PBd72JwbPjCGH7cDpCgKMkYRhRa/j87ofezTU7t1CrN5FSxF5ASmMUgxReoh5IIu9k4iinTHH+1yaajOgrJf';
+wwv_flow_imp.g_varchar2_table(2419) := 'mDD/8Y5VKBIIhsx89AyyOYqDf5rZ//EXZs2UC97s/6b3KSRUpBve6zY8sGfuvnf4SJ2Jhn89akFARBRLlU4A8+/GMoJdHa2DGS4o';
+wwv_flow_imp.g_varchar2_table(2420) := 'UQEoEUbmITZSICIABHuult/BkDGISQVBsN/tXtN3PDrksZrzbmNJsLYQfLqq4y//4Dt9ntozwOkB3iLb1//4HbWNVVJgiiOS3VlJ';
+wwv_flow_imp.g_varchar2_table(2421) := 'KMVxvcsOtS/tXtN1NtNBBCMrkjkAIGaytJTS8JCYBEpJj519pb1USU6eK9N74VX/uoeaznlZKMVevc/uZruGHPNqqN3AvIAlIKqg';
+wwv_flow_imp.g_varchar2_table(2422) := '2fG/Zs4/Y3X8NYdX5LNCUEvvZ5741vpUzXZAwg6f34]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[KQxCOIktAzr+LlPuf3rrZmM0E';
+wwv_flow_imp.g_varchar2_table(2423) := 'kkgmmyL9lBurCYU8y/9YrTBUZJ3veVawjBKdL8258IIBGEY8a63XIujJGbeSVuCUASUG6vZFu0hEE0kMs4XSQeJTGwZ0HGrTN/9t';
+wwv_flow_imp.g_varchar2_table(2424) := 'x1pMCjjcEV4AwgWZLxSCurNgFtv2s2WDWvwgzDfFUgRIQR+ELJlwxpuvWk39WawIK9M2AHBFeENKONMGl5aIpDkMiABAciG+x8S0';
+wwv_flow_imp.g_varchar2_table(2425) := 'q1Xs15vJRT+ghq3NeA29fVyzc4t1JtBIuWjci6MEHaP/5qdW9jU17tgQRZAKHzW661069WEhMDKWAZ0+B3sSafUrkeOt3QkkkgEb';
+wwv_flow_imp.g_varchar2_table(2426) := 'NbbKZoKERELTbQQxv67W67fia3wmitAWoi4kqvti6m+WcgrRUQUTYXNejuRCOJlQHrBXrtt3vmJs6OWaQAlnNRMZLqCGwxr9aZFD';
+wwv_flow_imp.g_varchar2_table(2427) := 'JIYAWGouXzrOptLnp8RSA2tNaWCx+Vb1xGGetHJc8II1upN56y90/ICBNZ2Oq0/HRUAAYgEPsRMtDrPYHCMwxq9AY1e1KwtBPhRx';
+wwv_flow_imp.g_varchar2_table(2428) := 'OZ1q1nT20UQZw/mJIsQgiDSrOntYvO61fhRtKjlmECg0azRG3CmxwFSEgAD8TKgs3RYABRCpJP7P/3ct3XvuujRfUQiWFSjCmGjz';
+wwv_flow_imp.g_varchar2_table(2429) := 'r09FS7dsJYgCPM4QAoIAUEQcumGtfT2VOyuzCI6QgCRCOjRfRRNV7xMtGMonZQAgxCq42XzOiYABoOUTorZfy3ltu8vUag2NqaSg';
+wwv_flow_imp.g_varchar2_table(2430) := 'oKXnHczdYA5/n2GRGf6s5z/nJ3EAAXPQbUxH0Oh4ht8YeqTpOMFSARSOnRyO7CjHoAS6V070Go0gSASAb3nKPviBozRBtdx2H3Zp';
+wwv_flow_imp.g_varchar2_table(2431) := 'kXPPHMl1IZmqGkEmmag8QODNukKgU2bBT8wNIP42UJNmEABlZYntvuyTbiOs4D9/9e84qSn2DvpKdrGTe34Op23oY69up0JVOr7/';
+wwv_flow_imp.g_varchar2_table(2432) := 'y0Esu0Re8fp7O6GACJj8ENDFJlzdcsYRASuI3FVOirgh4Yg1FNXqwEREIQGpQSeI1BCdHQMtLsPBOI1u1bG6FQKhdhmVR31qDo2g';
+wwv_flow_imp.g_varchar2_table(2433) := 'tNd/09/z869fyfXhtb4oeFroviQSsu9tsFV+3N+oPHD5F1UP9T4gX3fCz1bpI19dtPZJUFn1+cXKhmWJJ2PA3RIAOzBm/T2yJPpr';
+wwv_flow_imp.g_varchar2_table(2434) := 'E6+i8Ea97TJ9YIIYWfcUJtEWltglyNBaGZdfrTuWm19hk6RnFmm48sKxOQBpU7QEQHI0v5/CxH/107OP2veLoSwRhbN1agFhGEyK';
+wwv_flow_imp.g_varchar2_table(2435) := '1WDfa+5PJjAegKhnl0sFkO7+2CmcbJc8wE6MoKtG5jm+v/cdxYIfNEkJGiPCAh7/HRsotaxAOB8KhEL7PMkUbxYx0dv5/OpO1VVW';
+wwv_flow_imp.g_varchar2_table(2436) := 'QjB2ETNHs9uS7cKQgJ80XzNOEnzeLBdBnSGDgmAQKZUXfX8jjKANA7j4ixNUY9PJS6uM21pqYiDxwdRSrZ9cNgcBuY9qM08DXO+C';
+wwv_flow_imp.g_varchar2_table(2437) := 'BZgCGLa52kjxtjCLgePDxJF7diJsSnjTVFnXJxFmtfOummJgBSqY8vpDsUAWuGgdAIn52OzvCJCXqvsC6FVIKTRDOydAjmpIIWg0';
+wwv_flow_imp.g_varchar2_table(2438) := 'QzmXADkYlgPoIlmpqPeaY3nzmVXdGAbsBW57FzgYn5YZa+LCYblIKvCdYQiXHBzGmNwHcXQ6ATHBs7GlYIF7VyKCgGOkehAz2nWE';
+wwv_flow_imp.g_varchar2_table(2439) := 'UIghd0Sm+tQMfrcFxZzVDJHCsLILjfm8mxSCBxHopRoqxcghKDouRwbOMvQ6ARrV3URLCIno+UpDqtB6mICj2Kq+//TsSdqJcaEt';
+wwv_flow_imp.g_varchar2_table(2440) := 'FsIOpIHIOM1Szp6eeEAoBaaYXWaHeE1mEWc4jMGPNfh0IlBjvcPUSq46OZin/q1RHGkvVzyZl1DSykIQk0YBujo4nEXrbURQohiw';
+wwv_flow_imp.g_varchar2_table(2441) := 'TvnvqxGvYkxxsiLHKgXQCOIcBwX15EXfbZa3ScMBc0OVE+SAobHqxw6MRgfB174eQATTxTD6jRaaIR57eU1hnRKhgusTWkTtv212';
+wwv_flow_imp.g_varchar2_table(2442) := 'y4A1mFJsfrPBUyg1bkD8jiRaE8ln2rd503X7qRSLsQnAts5wO36dmi0xuMvHokvJTk3mCYEKKWYqDVY01PhpiuvIIpmynK0ghdpb';
+wwv_flow_imp.g_varchar2_table(2443) := 'YpFT2Dg0JGTw0VhzgA0jOjbvm3nagSi0fCNklKYGTcgDUopnnz5KGfHqnSVi0RRdM7s3qquO15tcvPV21i7qkwUtb+NpJRUa02qd';
+wwv_flow_imp.g_varchar2_table(2444) := 'X/Rr2YzRiMG5HF7FHiGcZQWAnnRLeGF0HYBSHsH4EJvbABlXE7LI9TFOAVTimu/zb85pRTUGj4/cOMufuiNV3dmUBjr4hoM/+V/f';
+wwv_flow_imp.g_varchar2_table(2445) := '52/+/r3KXgORc+dNK4w0oyMT7Blw2o+9Ts/yxuu3kGj6SMuMNO2jL9SLorBgbNjD3z3sRdfoT4U+WEAoDzH3bVr49pb3/aGq9etX';
+wwv_flow_imp.g_varchar2_table(2446) := '9NTrTWmicB5j6YNxYLHYy8e5Nc/9nmOnx6mu1zEUXJSpGoNn6Yf8ovvfQsf+eX3IohvVOrAMlYgaAYBtUXVaDQoFHUxzml5BGVmq';
+wwv_flow_imp.g_varchar2_table(2447) := 'GDVCQucA53cCRAffWJ9u+OzFFR3KheAGmNmdJMEAp8G72j+NLuDm2iI2qLrFOpORoWNneEqRY9/eeBZ/r+vPMCRU0PUGj5KSVZ3l';
+wwv_flow_imp.g_varchar2_table(2448) := '/nBm3bz6z/zQ2xcu4rxWmNGA9Bam1KhIAYGz47+/We+8vCZM8N1z3XlqtU9JYDR4bG6HwS6r2916ed+4X1vXr9uzap6sznjckBrQ';
+wwv_flow_imp.g_varchar2_table(2449) := '3e5SP/QKJ/6h3u4/8l9DI/bi1XKRY9tm9by4ffdyo/dej3Vhm89pA4GSxcbiNVoiqbMPvdJ7i18Ydb1vxROCse/BdoENKNx2q1Ab';
+wwv_flow_imp.g_varchar2_table(2450) := 'RcAgaDg9KSSBXhRARANtoa7eXfjQwT4KWYqzg2DnXF7KkVqTZ8DxwYYHJ7AcxU7LlnHpnW9NIMQ3w+QM0QhjTEoKY02JvrM3375g';
+wwv_flow_imp.g_varchar2_table(2451) := 'ePH+sfWrF1Vesfb33zF9su3bgY4dODYyXu/8/D+s0Oj9S1bN/b8wod+8lYphIq0FjMNdq01nudScB1ODY5w8MQgfhCxbnUXl29dT';
+wwv_flow_imp.g_varchar2_table(2452) := '7ngMVZtIGTWW9m69i4edxT/lmPOPjyTNQGwz9gMx9rucaZ3XK8jzNw4BoNrCpxSBxmSp1gbbSIQ]'')'||wwv_flow.LF||
+'               || TO_';
+wwv_flow_imp.g_varchar2_table(2453) := 'CLOB(q''[2RYBAQgpGK3WUVKyZ/tmrtlp8w78IGS8Wo93IGb2ZIwxplgsiHu/88i+Y0dOjhWKBed9P3n7TXv2bO8bG68B8IY3Xbej';
+wwv_flow_imp.g_varchar2_table(2454) := 'p7e757Of+eojx46cHHv44Wf2vePtb7p6olozMymAlJIgFp81qyps7FtlT+hFmqYfTD5z1rHjwmNIneKUOohrChcxspTWAR2izT2U';
+wwv_flow_imp.g_varchar2_table(2455) := '9hmA2RHYEtCPe9+O86uXBi1Dqjd9xqt1JmpNgjBCSjnrbKSNoVDwRH//mYlHH3r6sBCSW3/w5u2XX761b+jsmI6iiCiKGDo7pi+/';
+wwv_flow_imp.g_varchar2_table(2456) := 'fGvfrT9483YhJI8+9PTh/v4zE4WCJ2Zb5rTEJwgjJmpNxqt16k3/nGdeCgghedz7NqFoU6ZoB+jUmYAO9FKSJSHOZ/bGMRg8U+Sw';
+wwv_flow_imp.g_varchar2_table(2457) := '8xKvOs9QNOVUL4OcLzI2uItde9XCGGM812X/vsPHRkbG/DV9vaUbbrzqiqYtny2FEK2rz2SzGXDDjVddsaavtzQyMubv33f4mOe6';
+wwv_flow_imp.g_varchar2_table(2458) := 'mDls9reuT5NSLqnEKE1E0ZR51XmGw85Ls7r+U6QV3u6MXS0dmZ4Dc10fOcblQe9fGJan8SZ3BJYbBkdKUa3V9f79hwaVkOy8fOva';
+wwv_flow_imp.g_varchar2_table(2459) := 'np4uzw9DM11AhBD4YWh6erq8nZdvXSuEZP/+Q4PVWl07rW2HZYYmwjMlhuVpHvT+BcfM7VberCQHtYu2CkDapwDngs0JcGjIKvcU';
+wwv_flow_imp.g_varchar2_table(2460) := 'v0BT1ijEnoDtXDP5c+nVhV88WmNc12V4eGz82NFTo9VaPdy+89KNSl747EIcLGTHzm0bmo1GeOzoqdHh4bFx13XRnT3R21EMeprR';
+wwv_flow_imp.g_varchar2_table(2461) := 'tno1omDKNGWNe4pfoCGrSDpbemuxdOpUYFt3AQwGT5ZwZSmVxtQmnPOBjdbBj77oEn6w+T42RpehiYhEaIUMB2nsz2R1XXgx4uO4';
+wwv_flow_imp.g_varchar2_table(2462) := 'emxsbOzEsdNDl+3YunnVqq5ScIGMOWPAdRWjo+O1kycGBtdvWLuqu7urR0khs2sWs2MwNudD2JMgAlDGQaLoV4e5v/AVzqgTcV7I';
+wwv_flow_imp.g_varchar2_table(2463) := '3MTepl0nHzsXCAJdx9ftHY/LSgAiHczr5wWSgCYKh13h67g8vI5e3YdEURVjvOI8RbdZzfX+rTRFLdUMx4UihMBzHRzHod5oEkV6';
+wwv_flow_imp.g_varchar2_table(2464) := 'xi15Y+wlqMWiRxRG+MHcBTVLGDQFU+ZZ7wHGxTC7whupmB40ESPyDAec53jFeZqIEJfCvD09Jee2XGgnnRKAZbYNOD8MGhcPg+FF';
+wwv_flow_imp.g_varchar2_table(2465) := '9xFedh6nZLpi76DGhBzhKv9NXC9aybRLD2MMjaZvdKOJFGLGfX2IS3lFERMTNRMHCJfiR8Zga5T1yyO85D3Cy+5j8TJPUxcTaBHh';
+wwv_flow_imp.g_varchar2_table(2466) := 'mWLc90t3mdcO2ioA9tBCeheBLISWp1IwZcDgi3q8BFCUdQ+jcgifRlzefGnuAQshxFyvQl/Khm8xyDjrc1QOUdY9CCR1UUUALh4Y';
+wwv_flow_imp.g_varchar2_table(2467) := 'cV5sIPsY4iSkNr/u0vNpO0RrQIi4LrzB3iUwKs8wKs/gkLzbl7MwHNzJfpvel7ZK9dIO7rabXABeg5n8EggCmozKIaRJ8YBTzpyx';
+wwv_flow_imp.g_varchar2_table(2468) := '5/oVo3KIYLIAjJn2lTOdXABmQQBGGI6p/cDy2wNejrT66JjajxHJVEpeyuQCMAsaO5sMyGP4otGWeoI5ncTWffBFgwF5DGlU7uxf';
+wwv_flow_imp.g_varchar2_table(2469) := 'hFwALoKDy5gcYkwOzTlbLCc9HDOtv/K4zUXJBWBWpirFHlOvoHBYwklxyx6NQeFwTL3StgrQy51lJQCd2L2yqcOKI2pfpk+L5Uyd';
+wwv_flow_imp.g_varchar2_table(2470) := '9jyi9sXR//Yb/5LeIb0Ay0oAOkHrvPigOs6wHIiXAfmskj0MjnEZlgMMquO4xsuDtnMgF4A5YANLdQ45L+Dg5suADKIxOLgccl7A';
+wwv_flow_imp.g_varchar2_table(2471) := 'n3T/cy5G21vJlk5Oiw5d04VB4XJAPR+fHEvn1qOcmZEoGrLKAfU8qqMinc7ottkM7d/TaPtxYGPS23jp3PrcupdnZT8n1AG8i5aN';
+wwv_flow_imp.g_varchar2_table(2472) := 'ykkSW+ilwAl1gLOyv6PLtDRjQMa0X9ZyP2k+CMFLzmNosRwLiCxttIh4yXmso9WHlyPLTAA61/mtYOBJdYAheSoPMmWEyaKe8hQn';
+wwv_flow_imp.g_varchar2_table(2473) := '1YEE+mV5CUxbBcBeU718Q2QSSSB8XnAf7tg2U878aG3TvuA+TCD8ZRv8M1jbyvxpwDRPWnV6j1aj8UyRV51nOaNOpO8FGHtJRxpF';
+wwv_flow_imp.g_varchar2_table(2474) := 'O4wxs94LmMgzxLP/GXWCV51n8UxxzpV9FkqaeQCZDwKuBFpbgs+7D6FwUxUAqSSlShGlVFtv3r0YtnKQolQp2ivMUqoaZOLdmefd';
+wwv_flow_imp.g_varchar2_table(2475) := 'h/KtvwXS5hYTcaRyuXsBpdgLOJ7OjoCxxt+sN3nh4ZcYOTOK48hk8pOMvYZ85Mwozz/0ImEQ4hbcRAXIPoaN/J9Rx+PZf+51/RZK';
+wwv_flow_imp.g_varchar2_table(2476) := '2rO/3WFr7zN0QDLTdQuT2KYRSALR5FHvrsSjzsYY3KLL9/7lIf7X//03fOET/8RLj75MqasU3w7cWaIootRV4qVH9/KFT/wz//sP';
+wwv_flow_imp.g_varchar2_table(2477) := '/47H7n6SQtFN3hMQgke9uwhEM5F6jemngbe/fTsiAJ1QqrnT+fc1cSzgiNrLUbWXgikl5/XENwdv2raR8ZEJetb08Ng9T3HwxcN0';
+wwv_flow_imp.g_varchar2_table(2478) := '9XahI90RQzTGoCNNV28XB188zGP3PMmqtT0MD4ywam2PFcKE7N8W/SxxVO3liNobX+iRRPunN6atTS0BAZheWz8dkuskKSQPe9+k';
+wwv_flow_imp.g_varchar2_table(2479) := 'LicSyw4UUtCsN7ny5t1c95ZrqI7WiMKIL37yy+x7aj+VnjKu56K1tkG6xXRFHGTUWuN6LpWeMvue2s8XP/llojCiOlrj+rdew9Vv';
+wwv_flow_imp.g_varchar2_table(2480) := '3EOz3rzg1eSdQKKoywke9r6JTPSKtzQ9ANORpWbbqwLbbMAIIWa4Y73DiIRmoqkI9Emec7/Hm5vvoSbGEwlECQRBM+CdH3wHwwMj';
+wwv_flow_imp.g_varchar2_table(2481) := 'HNt/HCFKfPGTX+baW67mDT98E5su24DRhsAPiaIo9gpiJ1bY78zk68XCPakXBiEESikKnoOQglOHT/PYt5/k+YdexHEdGrUGl+7e';
+wwv_flow_imp.g_varchar2_table(2482) := 'wjs/+A78RnKnJDWasunmKe8bnFEnKZuujq/9W6QVAxBYm+pESdq2Xw9u7wYo4spyahHy+VwQ0g4Mhvc0/h2bwsvwRSOR9ajRBrfg';
+wwv_flow_imp.g_varchar2_table(2483) := 'Uq82+Nr/]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[voP9z7xKsVLEbwZ4RY8rX7+L3TdewebtG+laVcFxHbTWGANRGGG0mRpNxno';
+wwv_flow_imp.g_varchar2_table(2484) := 'WylEIYW/+DYOQidEqJw/1s++p/bz8xCv4DR+v4NKoNrjihp38+C+/m1KlSNAMEpn9W0uvU85hvlH8dKJr8rQuBIHWnQA1fN1o+2d';
+wwv_flow_imp.g_varchar2_table(2485) := 'uuwCAQQqPguoiraWAMRE6oTMJ9gy6T0/Ux/sb/yEuHppMDMRog3IU0pE8dMejPHLn49Qm6ngFl8APEULQ3dvF+i19bNy2gY2XbqB';
+wwv_flow_imp.g_varchar2_table(2486) := 'Q8ljVt4pCyZvcx5dS0Kz7jJ4ZpVn36T96mv4jpxk4fobxkQkbePQc/GZAuavEm37kZm559xvRoSYKo4Rcf4NAokXEPxf/ijF1Bif';
+wwv_flow_imp.g_varchar2_table(2487) := 'BPAwpJEKkdQhM0Iwm0Man3eOqAwJgo+QFpye9O4KNQZswsfeTSBqixlXBG7mt8YFEbxFqeTrl7jKnj57moW8+xv5nDlAbryGVvT6';
+wwv_flow_imp.g_varchar2_table(2488) := '8tY5XUoKAUqWEchWTe3dCEAUR9WodDERaT95C3Ar+lbvLXHHD5dzyo29gw6UbqI3X4n+aTC+3bvu5r/glXnIfjW92Tm67WQontSW';
+wwv_flow_imp.g_varchar2_table(2489) := 'AAZrhWEcCnR0SABELQHpBk/leE7ZYBIKmqHNb4wNcE7yZmphINDFFRxqv6KIch7Onh9n7xD72P3uAwRNnqFcb6Mggpb0xZ6aBbIy';
+wwv_flow_imp.g_varchar2_table(2490) := 'ZDPxJJShViqy7pI8rrr+cPa/fzZoNq4nCEL8RIFWCnw1N2XTxgvsw9xW/FO+6JOtdpnEdWAuDiQWgAxWOOiEAYCiobqRIr3pO0nE';
+wwv_flow_imp.g_varchar2_table(2491) := 'AsLfNSCTvqf871keXTqsknAzGmPiSTwe36BI0A0aHxjh1qJ+h/rMMnjhDo95k9MwYfqOJiCPoxmi8YoFVfT0USwXWXdLH2o1r2LR';
+wwv_flow_imp.g_varchar2_table(2492) := '9I6vW9uAWXIJGQBCEiFkEpBO00q8H1FG+Ufo0Gh17V8n1bZrrfxBoE9CMxunEsrIjnyrtnQCwyxBDksd27aGUEJ+7in/P++u/Rtl';
+wwv_flow_imp.g_varchar2_table(2493) := '0x5dTJCMC9lovCMOQYDxACMGqtT2s3bgaKSVRnCNQn6gTBuGkIRtjcFyHUlcpjv5LtNaEQUQYhAS+fS2Z0DZfC4PGo0BNjnFX8e8';
+wwv_flow_imp.g_varchar2_table(2494) := 'JCXBSuM8vzUthO7kDAB28HDQiSvnm0eSXHwaNg0dNjnNX8bP8aOMXcUwBTZR4xLpl3NaAQzB2aw8BrufiFb2pSVTYgKLf8O1WoDE';
+wwv_flow_imp.g_varchar2_table(2495) := 'Qi8n010oSe8rPoSlq3FX8LDU5jmvmf5Nve0g3AzDq4ETWEWmbrlpp0RrsSWO3qgqcUoe5s/hZZPxfWluirZlbKomQYvLwThRqdGS';
+wwv_flow_imp.g_varchar2_table(2496) := '/otB6BkIIRPyzUqZj+NAyfvvfncXPckodjs9cpGD8CS95zmfSm+7Q63fItxGxAKRbOSet2n0aTclUOKkO8r3CV3Hw4sSb7NQPEAI';
+wwv_flow_imp.g_varchar2_table(2497) := 'rkCJbRXTsBa0CB4/vFb7KSXWQkqkkGvGfTtr1Hw0RxkR0ajbr2OLGpH4mgFTfW8fbVi+4D3F/4Z/xTDEvInIRWsU9PFPk/sI/84L';
+wwv_flow_imp.g_varchar2_table(2498) := '7EIWEt/teS7rj156u7dyY6dgy3VYwCVFpBgJbU1tKD2DQFE0XLziPUS/4vM3/MTwK+CZCZWjWzQKRAU84+DS5p/BPHHCeoWi6Uj1';
+wwv_flow_imp.g_varchar2_table(2499) := 'anrb7bytshR0LAEIHPQABRPHDp0k6LpxAG4k2EkRIjwMnur/DN0t/g49Pt2MITa4ALUIj6HYMPj7fLP0NJ7q/Q48DiHCqHVOYidN';
+wwv_flow_imp.g_varchar2_table(2500) := '3/60NdfKTdzBQ34oD6FQTguwWTjKxCGMkBoGSASW3DgJq9V5OntnDwWM/wN7+PXzGbOTPbzzGDWvGGGq4ODJtiUyXUAvWFgOeOdv';
+wwv_flow_imp.g_varchar2_table(2501) := 'Dbz+1lQHx2+zZuJcdW7/H+t5DlEsjYMAPS0TaRWAQIqk073QrDNkiIJ1b/0PHEoFaGAqqCyk80jwi3MmkIGOEjVmLCM+tI0XEeG0';
+wwv_flow_imp.g_varchar2_table(2502) := 'txweu5ZVjb+Fo//WMVjfiB0UKTkDNhPQVfD71hv3cvvksw76DMQIpVpYQaCMQwrDaC7n75Bp+/bErONP0KAuHZujiuQ1WVfq5dOO';
+wwv_flow_imp.g_varchar2_table(2503) := 'z7Nr6fbasf57u8hDaKPyghDYKgUZ0qN3STf4B60X6NKMJlqwAGAyuLOKleDIQOnM2oDUAXaeJo3yaQYWj/dfz0qG3c6T/BobHL0E';
+wwv_flow_imp.g_varchar2_table(2504) := 'bies0cGSAEDo+ziLwtcTXgt+86ji/eeUxNFANFc4KEYHQCCpOhAQ+/vJWPv7SFjxp8KTGtpLBGEmoXYKwiBSa1d0n2LbxGa7a/h0';
+wwv_flow_imp.g_varchar2_table(2505) := 'u3fgsBbdKGHkEYWFSgNtJmrn/YFPLfV0j6MAJwHPep7MeAAgUBac79WJK7TgbYBAYLZEyouBWibTLmZHL2HvkB9l75FYGRy4jjAq';
+wwv_flow_imp.g_varchar2_table(2506) := '4Th1H+fHGn8Sct96Xwp7DGfYdfnjzWf7z9Ye5qrfKWd+BZewNaCNAGNZ4IS+NVPijZy/j2yfXsNqzKcbnFxkWwiBiSbDGXsJRTdb';
+wwv_flow_imp.g_varchar2_table(2507) := '1HmbPtgfYs+1++noPo2RAM6igtUJIPa3SwcJJM/cfWgeAxju+ld5xAQAoOj3pr6eMRpuFNaYxAmMkjvIpeFVqjV4OnbqRp1/5MY6';
+wwv_flow_imp.g_varchar2_table(2508) := 'cuoFmUMFRPq7TtAM2jgVcDEcYRgKH1V7If7z6KL94eT8G6w1IMZdXWBrYHSE76wvg7w5s5L++eCnDvkOvG84pINpa+xskQVggjDw';
+wwv_flow_imp.g_varchar2_table(2509) := 'KbpVtm57hdbv+he2bnqJcHKHpVwgjDyEWvjyQQk2ek0gLg6YRjnX8fTouALZASBlXFlPfA5+vF9AyZM+p4zoNhscu4cVD7+CFgz/';
+wwv_flow_imp.g_varchar2_table(2510) := 'MqTO7EVLjOXbdf6GZfi4oYQi0ZDxQ3L75LH9w3RGu7Z2gFikakUQtYSGwUWxBUWnKKuL5kS7+5Llt3H1yDd1uhCs10QLarOUZaKP';
+wwv_flow_imp.g_varchar2_table(2511) := 'wwxJGSzb17eOaHd/m6u33srrnBEFYxA9LCwoapj372wIgDXxd63gAPQEPwCCFQ0H1kHbFYG2iOV1e2grseU4dpQIGzl7OS4dv45l';
+wwv_flow_imp.g_varchar2_table(2512) := 'X3sPw+GZcp4HnNOI0zcXPFAKQwjAWOBSV5oM7+vm1PSe4pNykGigaemkJwaThS03FjThRK/CXey/hcwc30ogkPW6INu1w1LEzPeC';
+wwv_flow_imp.g_varchar2_table(2513) := 'HRYKwyOruk9yw6xtcddl9rF9zgChyYyGYm0cghESm]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[Vvhj8iloRmNx3GrJC4AlC8sADE';
+wwv_flow_imp.g_varchar2_table(2514) := 'RmNi9AoLXEdZq4ToNTZ3bz2Ms/xUuHb6PR7MFzajiObz2DDuzjK2GIjGAscLik3OSDO07zs9v72VpuTnoELbHIIi2jbs34x2oFPn';
+wwv_flow_imp.g_varchar2_table(2515) := '9oI587uIETtQI9bjj5GduNEHamD0MPPyxTLIxx1WX38YYr/4lNffsIwiJBWEDK2avrKuGmffYnMfcfEhKALC0DZvICtFYoFVL0xj';
+wwv_flow_imp.g_varchar2_table(2516) := 'k7tpXvPfOLvHjo7TT8LorehHXz57i2XyxKGJpaMhEoLq00+eCOfj6wbZBLK43JGEEns8MWSjmO7B+tFvnSkXV87uBGjlYLdLkRhQ';
+wwv_flow_imp.g_varchar2_table(2517) := 'W6+/Ol5fJroyb77urt3+EHbvg71vQco+F3E0UOUr42HpSF2T9J9x8S8wCyswyAc2MB1oU3lItjjNfW8vjL7+fpfe9ltLqRojeOFB';
+wwv_flow_imp.g_varchar2_table(2518) := 'HaJD8oBFYIGlpSCxV9hYB3XTLEBy4b4NreKkoaAp2NqyokoIGXRip88fB6vnViLWeaLmUnohgbfhq93uq7ht/Nqko/r9v9dW6+8p';
+wwv_flow_imp.g_varchar2_table(2519) := '/pLg9Ra/QA4pz4QNprf0ty7j8kuAQA4ipBaa+vprwArRUFr4oxkucPvJOHnv8Z+s/uouiN46gArdN/1pbLH2hBNVR4ynDlqip//c';
+wwv_flow_imp.g_varchar2_table(2520) := 'ZX2Fpp4mvZlm2vhWAABTS14N8+dCWPDPZgjPUEXGnats5fLFJGhJFLw+9m45pXuOXaf+Day+9CCE3TryBllInZH+zYtNV/kiGxRb';
+wwv_flow_imp.g_varchar2_table(2521) := 'nBEBk/1bTgKazSV0rDnBi8is/f/Rd89YGPMDy2ha7SEEpEmTB+mAqoKQG9XkiXE/Hw4Cq+dWItZSciSvNyYiMoqIi9oxUeGeyh24';
+wwv_flow_imp.g_varchar2_table(2522) := '1Y5YUoQWqz/oXQWqFERFdpiOGxLXz1gY/w+bv/ghODV1EpDcc/lf7sLxBExk90mZxYrqNAEOkALdONZmutKHpVglDxnSd/mYee/z';
+wwv_flow_imp.g_varchar2_table(2523) := 'mCsEC5OIIxEq3TrWM0Ey0hMBhWuSH39ffyK7tPIFM0s8hAURnu7V9NaGwRtqwecrJJXA6O4+O6DQ6efD3HBq7llmv/nh+47gu4To';
+wwv_flow_imp.g_varchar2_table(2524) := '1G7A2khcYQ6eQuWYGErwe3xQ0CUinXFW/XVUojHB/cw2e+9Unue/KXkSKi5I2jtepIZL/daCMoO5onhnrMA6d7zepCaJIIrr3mOY';
+wwv_flow_imp.g_varchar2_table(2525) := 'AuJzJHq0XzlaN9psuJEgnyLRZjBForSnF8574nf5nPfOuTHB/cQ6U0Ev9MGrtVAmOCxIvoJBoDAIMSHl7Cl4ZorfDcOpF2+P5zP8';
+wwv_flow_imp.g_varchar2_table(2526) := '2Dz/0MUeRS8KoJufoC2nhZiMAw4jts62rw1dteoK8Q4JvkNlnjnjOe1OKXHt7D1472sbHkt1EAWqHFzo8RKSOafgWlAt563T/wlu';
+wwv_flow_imp.g_varchar2_table(2527) := 'u+gJIhflBK2BsQ+NEEUQcu/5iNhKVOECWsclo7lIujDI9v5rN3fox7H/8wUkQU3Fpixm9kAKa1tFjcoDaAEMLcepk71LNqzZl/Gd';
+wwv_flow_imp.g_varchar2_table(2528) := 'o9VFA2GWaRV4HO9f2NMYJuJxSPjF06esJsOfOOHfKsQbThvKV9BWEc22YJGILWioJbQ4qIex//MJ+982MMj2+mXBxNdDloiOIclW';
+wwv_flow_imp.g_varchar2_table(2529) := 'S9qIQ9gFZOQAlXdvZyB+vOC8rFEZ579Yf55kO/TrXRS7EwnmDHGoT2qK97EjCUBl+PESGIhXsDUmBqoeCTH9j81M+/cc1hwK0PHt';
+wwv_flow_imp.g_varchar2_table(2530) := 'xQPfDQDTJqFEIjOyYEAoQSBm0w5a03vFTcdtNBBf7/eWRo+2/806nXlR2DXnCIx4CRCOPQWPssRoaUBm/CyORmRClDGs1uKsURfv';
+wwv_flow_imp.g_varchar2_table(2531) := 'SWT3Hdzm9Ta/RiL0vt3Fi1e/91fF1PPEieeMRLIAh1EyULHfuwxkiUClHS594nPsz9T/8blAwoehPJB/lkiHbHiEoDGNWkNHgTIi';
+wwv_flow_imp.g_varchar2_table(2532) := 'pgVAALdJmlEOLj9wzs+dmb15xWRJTW7ej3ejY8MHHw4T3R8IlNygSO9Qja174CQ2ikUV3rznRvu3mf17vpjNbai6D0iXsHd0t7Lf';
+wwv_flow_imp.g_varchar2_table(2533) := 'PCrERoRORhlE997ZP4PYdwahtAJne9G1hvsehN0AzK/NN9H2FwZBs/+Lr/Q6Q9osjpWCESjSbUzVR2yFIJeRs0WgcoWaDdk5XWCt';
+wwv_flow_imp.g_varchar2_table(2534) := 'dpEmqXb3z/t3ni5R+nUjqLLbCQ8NaekWjVxDg1RFQkLPdT3Xw/pcHXoxp9GNWctwhogygqbQ6cpfI/HxjY8h/etv6AH0RFr1BprL';
+wwv_flow_imp.g_varchar2_table(2535) := 'ryh56K6uMVf/hInz9ysi9q1kqLFQEBSOUGbs+Goa412854PX2jAH4QFTxXNf7H/YM7DgxFlW5PmwXN/kIjoiJR4SyNvqeICsPIsI';
+wwv_flow_imp.g_varchar2_table(2536) := 'xxamjZREQFSDD1WRubEapUwD2P/zIjExt415v/Ekf5cSpxu5evAq19krpQ9jXvnvQSoIWMLxBtJ63Ennqzm8/f/acc6b+WrtIwUS';
+wwv_flow_imp.g_varchar2_table(2537) := 'pbewahXcLyaWobHkIYe9bfyABhFMWh63HHt2NkM/75uXe+AAIjWFMSzQf/4677+7pdP9JaKiAeoa06Uu2MyhlA6tiFklLqiWbkvO';
+wwv_flow_imp.g_varchar2_table(2538) := 'XPX7n15GhU9qS9TmR+LwlCFwi6jtJY+wxG+YjIA2EwIqR8+hac2obE4gHno2TIRH012zY+z8/e/vuUCuOTiUPtpBmOpVj2PCU0UV';
+wwv_flow_imp.g_varchar2_table(2539) := 'sjnq39/bNjm/ncXX/GsdNXp2j8xB9LEnkjIKI4eqetEAhDfd2TNNY+GwvD/CLeBihIbU6OU/iLewa2A0FkJEhpw+dae2jtaq0dtH';
+wwv_flow_imp.g_varchar2_table(2540) := 'b0Ar+Y+tVFa09r7UgpTWi3yYKPfrP/8oNndbmo9PyN30iEdmiufpH6+sdBRgjt2viIAURk2w6Z2qGHSDt0lYY5dvpqPnfXn3F2bD';
+wwv_flow_imp.g_varchar2_table(2541) := 'PFtu4c2cQfneL9GSkezxOEUYN2LAG0digVxzg+uIdPf/0vOXlmN6XiWHrGD5MGr71RbPhs2l8YgdAu/qpXqG14CGQYD/65t4U2Qp';
+wwv_flow_imp.g_varchar2_table(2542) := 'QdY7701Oi2EyNBl6fQk3OIlAYpjZz260K+pr9G63sNeAo9OB5U/ump0W1lxxht5lE7S2j7WWVEff3jNFe/iNDniaCw/9Pe6JQgpE';
+wwv_flow_imp.g_varchar2_table(2543) := 'QUj62TZ3bz6a//JccH91AqjrUplmRiG0gvfyLV87nt8AK0VpSKoxw7fTWfv/tPafiVBPf3Z8EI]'')'||wwv_flow.LF||
+'               || TO_C';
+wwv_flow_imp.g_varchar2_table(2544) := 'LOB(q''[jAjR7gTiguWlDSLyJuMCUfHsvNa7BnClZrBqvD/4yokrgTCKdMdHUmiL+gT/7Z6B7QNV43lSz90+J9f7I9Q2PkjQdRQRF';
+wwv_flow_imp.g_varchar2_table(2545) := 'ZlaYUz7URTanbC7JiknGLWWlg2/wufv/lOOnb6aUnF0kWMs/dkfUhaAxXoBtmNqk8bf9Mt4TiN94wdAop062qnN7OILKwLaqVqD6';
+wwv_flow_imp.g_varchar2_table(2546) := 'D5kReACBnEhIiNExdXm23snNj97ot7rKhl2cjjFs3/08ql67+efGL2s7M519refR0RFgq6j1DY+SFQYscZ/wci6XSJop4Z26qQ+T';
+wwv_flow_imp.g_varchar2_table(2547) := 'ImTyZwGTb88KQIFbzG5JOnP/pCBll2oF6CNxPPqTNRW84/3/jENv4LrNFI5uvtaDMJIjDsRJwHN8tmEWVRcQAlDNRTyv97VfwWgd';
+wwv_flow_imp.g_varchar2_table(2548) := 'Qe9gNjDiP7kW/27huvGdcVcZv+p/f0Lrvdn/Gc2YGrcCcQ8YySdQhuF6zRo+BX+8d4/ZqK2Gs+rxxeXzIdszP6QAQFYiBdgC3QG1';
+wwv_flow_imp.g_varchar2_table(2549) := 'JtdUx3h1jNi/EwFAN2xqQDgrCw8LhAZIbpcbe58ubr5Wy+Ob3CVDIIOiEAEuEqGz56o9967r7qpy9Umutjs3xI3GVFfN8N6fyZag';
+wwv_flow_imp.g_varchar2_table(2550) := 'UB3jDQDgeejjU0rb0089WYXjgrmeX4gG7M/ZEIArBcQ6iZzaRATF3EQaL54zx9ztP+aRbpiHWDGAODF/+FC4gICCI0Qn7infxd0p';
+wwv_flow_imp.g_varchar2_table(2551) := 'lNjz0L/17v6r6iGQqqLxSqmL282PETQPfN6/8L/3v4vC4HA82ktPY/2X8MX7/njuN6gnmPilU2Ey8LsDxkRANsoDeZyEaQxkoJX5';
+wwv_flow_imp.g_varchar2_table(2552) := 'c5Hfo1Dp26gXBrJlvEDMD0AOM8mXkBcQBtE2dHmiWPNtV9+eniTarMXEERauEoG33pxfMOdL1c3X3z2v4CQhTOt92dGIKcCgRmYL';
+wwv_flow_imp.g_varchar2_table(2553) := 'aejtaJcGuHQqRu485FfmywsczEMmlBnY/aHzAjA3BpGa0WlOMKTe9/Doy++j1KhXdsx7UVoG8HW7gRoxbynrwXEBQQghOBPvtl/N';
+wwv_flow_imp.g_varchar2_table(2554) := 'eC4qn2XDsaDRHzinv5doZntvpzZljLzTXQxMK0dReZEPt5+Lozx6Ivv48m976FSvNhkNPeJLikyIwAt18hw4csQ7cxf4/jAldz16';
+wwv_flow_imp.g_varchar2_table(2555) := 'K9S8Kqpbw9dmDgXZ9Ez1/ziAq0U4f1ndeWv7x/cAgR+tPhpJoi0UEoGdzw/uv6JY821ZWeGlN9FBjMvzJQnldTx4HljBAWvyl2P/';
+wwv_flow_imp.g_varchar2_table(2556) := 'irHB66k4NVm8AQEZh5L3aTIkAAAGIKodoE/t+v+SCvueOg3afpllAwTqdA7b9q+dp1HXMCAKw2ffvDMTsD1FHO4BWF2WrP/x+89v';
+wwv_flow_imp.g_varchar2_table(2557) := 'cvMdFxlkduZM7LgWEpy2NugQ5p+mTse+k0ireJDQ699WDu2syViGRMAQWgCInPuySitJUVvgnuf+DBH+6+mWJjITsT/fDoRvZ6jg';
+wwv_flow_imp.g_varchar2_table(2558) := 'WkQJaXNq0O68pGvHb8CCMJFeAF+hFBK+n99/+C2x48Gay48+y8uoWlW5r2bkg7aKIqFCY72X829T3w4PnU6ZVq21l+TMKVqWLORM';
+wwv_flow_imp.g_varchar2_table(2559) := 'QGIz0ZH9cnDEdpIioUqR09fy+Mv/YQ1/gyuByfp1P71HF1sbYQoOsZ8/onR7WfGg/I5KcLzxLPXD7h/8+CZna46v8pAe1KaZ2ce+';
+wwv_flow_imp.g_varchar2_table(2560) := 'RQpo7UVgcdf+gmOnr6WYqE6mR+g0QRR8mf950LmBABaDVYDBFJogtDjrkd+lUg7yA6dyW4XYjKDrUH7m/fiRmcAT2rOVHH/37sHd';
+wwv_flow_imp.g_varchar2_table(2561) := 'gDhQryAOH4Q/NV3B7buP6srRWWMbk1fHVnvz4REOw20U4sFNbtIoYm0w12P/CpB6MVjVRBEtdRO+12MTLZoqzxyGGlKhSrPH3gHh';
+wwv_flow_imp.g_varchar2_table(2562) := '/uvszn+mR4EtlK+DQB2csaa3e3WRoiyq83nHhve8dyJeq+nmFeKcOvAz5nxoPzf7xvcXVAGY6YZfyfW+zNhBEYEcSBwATsqCaLjL';
+wwv_flow_imp.g_varchar2_table(2563) := 'erD/dfx/IF3UCpUCSOdoXL4ryWz1mQQaDHC8HgfDzzz8xTcGkZn9nEtcR9HhbOdT16ZxRANBkdgU4TvPr2TeaYItw78/MU9A9tPj';
+wwv_flow_imp.g_varchar2_table(2564) := 'lMoSG1a/kXH1vszEQcCo8JZ+/ts2tEkRksKbo0Hnvl5hsf70GIkm8HqmMxalDEK1x3nsZdvZ2h0K47yM92QwGQA0EatE0hfncUVj';
+wwv_flow_imp.g_varchar2_table(2565) := '4wRFceYe6YdFJpLctD0475femp0W8mZcv2F9vB7DlDb8P0OrPdn+owAMt5VyW4gsIVB4CifodGtPPby7bjuOCarAWsyKwACR/qMj';
+wwv_flow_imp.g_varchar2_table(2566) := 'G3h2f0/QcGbyLjrH2MkWvlop4owSbmrM8cFpIyoR0L+/pdPXANz6+x49g8/dvfAjsGq8VwVYbRCGEmj72kafU93cL1/IQzCKLRTR';
+wwv_flow_imp.g_varchar2_table(2567) := 'Ss/ft9sY5cCEzy7/ycYGduCk2Bh0/mSydZsNeDew+9kdDzbDThFHLF2amjVTGGgvtY9N2FRlJ3QPHKk0XfH86PrL5YiHAGeInzuR';
+wwv_flow_imp.g_varchar2_table(2568) := 'L33c48N7yh7kTGRJ4xqUt30IH7PAYT2Jt8vMabXVszIycDZsRPY6PgW9h5+Z6YnsEw+lRQRtcZqXjr0LhynntJNLfOk5aq6Y7aab';
+wwv_flow_imp.g_varchar2_table(2569) := 'Rpj9AJxARkVAfj4vad3AWK2loxaB37u7t9ZDZGu9ggLZ6ht/i5R8Uxs/Cl8MMNkdeUsnQycDWMkjlPnpUPvotZYjRTZOPxzPpmzL';
+wwv_flow_imp.g_varchar2_table(2570) := 'GMkBbfKkVNvpH/oSjynnv21/zQib5RUZ6jz4gK1tc+KipLm8aPRmr++//Q2paR/oRThINLCUzJ87kSt95691c1d0jGN7gOivulBj';
+wwv_flow_imp.g_varchar2_table(2571) := 'Gra9X6qM6+J23ZpYBB4Tp3+oSs5cuqNFNy5HRZKmuw9EWCM4MWD76bdte07ymQAcJz0Z6lz4wLVDQ/hOj5/872xnaDdOMHngv/wo';
+wwv_flow_imp.g_varchar2_table(2572) := '3cM7K4HSvrrnqLe97RdyiQWz5iByUDg+JIIBLZopU6/ePDdmb13MmMCYCOoIxOXcHzgBlynntmGew2TAcCJBAOAF8MuCYJSv9Bbv';
+wwv_flow_imp.g_varchar2_table(2573) := '2v2TZyp/NU941s576BQ67jvHc/UN3z71ZFNYusDptF9UKSy3r8grUDgxJIJBIKdyFynzvGBGxiZuARHZS+WlamW1EbiOA2OnnoD1';
+wwv_flow_imp.g_varchar2_table(2574) := 'XofKqV6]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[8POnFQCsphQAnIU4LhA6VaEv+R5/8dRju8+McG6KsN3KE//tkReuqG6+L931';
+wwv_flow_imp.g_varchar2_table(2575) := '/kxMBgKrSyQQCCBQMqBa7+PoqTfgOI3MBQMz9TQCgzGSgyffgk1oWQrGT6xRiqgwDDLI3tgUBrSD52hzqPh44U+f+u52IAijSAQ6';
+wwv_flow_imp.g_varchar2_table(2576) := 'Eq5UwddffXX994J715a8hjHaFZn7EAaQgW1j1NKYF2gtYQ0HT74FYyQiY+2aIQEQSBFSb/QyOLzLJv4sFfcfABOfAMzqMxu0lqIs';
+wwv_flow_imp.g_varchar2_table(2577) := 'pfncgSe3HR8f7/KU0koqA6g/fOQ7VwphMrR8uRAibuOsPt9rMcYuaweHd1Fv9CIzVt0oMwJgjMBxfIZGL2N0YiMqg+ulGWltU3nZ';
+wwv_flow_imp.g_varchar2_table(2578) := '3qYyGDwhGWg0vd+6/84rgUhC+ImnHtv6zPCZVWWhjM7qkbvJQGCK26wLQqCUz+jERoZGL8NxsjWxZUcAECjpc3roKoKwhMzo6akL';
+wwv_flow_imp.g_varchar2_table(2579) := 'soQSVSKM6JLK3Hn00OZnB06tAsT/eO7xnQUhM/zUkH6i1cKRaIKwxOmhq1AyWyntGSqoZ9BGcfrs7vgu9uw00uzYffcojlBn24W2';
+wwv_flow_imp.g_varchar2_table(2580) := 'KCEYCQP5yWef2HbLxi3D+8dGKquUa6Kszv4tpu20OEHZnrhcEuNEIITh9NndcSGb7IyPzAiAwB4AGq+tRzCP66bSZrprKiJbBDTj';
+wwv_flow_imp.g_varchar2_table(2581) := 'YzIyRnQph6++unfbNw6+srWsFJk3foiXWpFt6/rGeNCk/VAXx05nmvHaeoxRmRoeGfGjBFKG1BurGKtuQqkgU+uki9MKAC4dBBBo';
+wwv_flow_imp.g_varchar2_table(2582) := 'LWth6GRrSF6cpRgIVCpgrLqJemMVUmYnEJgRAbBbgNoogrAcF1VcImiBkT66MIxYQttTYB81Ww7pRRAgUOjCMEb60Pm7UNuGEJog';
+wwv_flow_imp.g_varchar2_table(2583) := 'LKONytRWYGYEQMqIar0PP1hiAjBZsqqe4BHZ9rHknta0Ll3tRMm1ziGExg/KVOt9SJmdg0GZiAEYY5cAVgBKFLyJuIhCh4anrXDV';
+wwv_flow_imp.g_varchar2_table(2584) := 'BpWxAUDjTEgjAyGMw1IzqSVHq+iqM2GE363bdWuQwMhO1u2Swqfpd1Gt97Fh7V5MWIyD3emSCQGYjh9UANGBk1NxvTyNUa4QXlEs';
+wwv_flow_imp.g_varchar2_table(2585) := 'vkyLsFde6+KrQATGWVJLgCVJ69BVsSpE2KNQjbbUXvQbhigwRspWD7a3I1seQNbIiACYuLb6GJdveRDHabRVAAQgpYOOhPZKyOq4';
+wwv_flow_imp.g_varchar2_table(2586) := 'qp0avOxpoYPF1bQyRkApCHv7rxLKXY0tnZdLQEcxRihXhE7/sFMdeAnq7uKmUiOMdIMt6w6/rtIdlf06WiojtQ7b6ssJoQnDIsXC';
+wwv_flow_imp.g_varchar2_table(2587) := 'WKa2AsVHn1ifjSfBNpKjOnF1kkFSMF2VLqFDPbbvu0d/8VO/wkNACRaccTS5CVX5+H/+tqp07TJNXyNmrbmRs1iM0aLgyag68Ur1';
+wwv_flow_imp.g_varchar2_table(2588) := 'N//oh+M/XcyGoATqv/4/uGX32y79O+nInonqhNE0O3AVkSGMCpmqC5ARD8BijIyXAO1+XYxyjRmtRaNPf03+u3/8Qx51V1fWB9VF';
+wwv_flow_imp.g_varchar2_table(2589) := 'lGlxXUkYNQpvu/ky6RW2mTCEfPZPAmHCEOkVthXe+Y5dze8+fhhHFQmCBcd03Irp/tSvVB/9138sPvS6H48+HRnVEwUVRAdiAlkL';
+wwv_flow_imp.g_varchar2_table(2590) := 'cGdKAKBjDaSLZan2PjD6sX/8w7H7e9dzychA1V/UK7oVQbNaZ8el20ShUDCNZj77J4EQAm20KBYK7Lh0G3fd+zJOpYBfXfDACXx0';
+wwv_flow_imp.g_varchar2_table(2591) := '73r6/vEPj9zfs6nnY3tuLf9JbUxHQpDdcr5tYtkPWGMwjocaH45Of/uv6t/0uumrjRAs+oU9BKDd9X2vQ0rI0p3Pyx2DRkrc9X2v';
+wwv_flow_imp.g_varchar2_table(2592) := 'A3TcF4uiNkLgddP37b+qf3N8ODrteChjMrJQ7yDLXgAQaKcgCBvm1cPPBGeNxvH9NnRsNdCAI7rKN9jSGksqdXGJYwRaI7rKNwBO';
+wwv_flow_imp.g_varchar2_table(2593) := '3BeLwvcxRuMcfiY4GzbMq05B2PzdZc7yFwDARCAUPYUCrmhHGpbnCXw/dLdfstq43g4ThtY1zUkGIYQJQ4zr7XC3X7Ia3w/xvEW3';
+wwv_flow_imp.g_varchar2_table(2594) := 'vxCYQgFXKHpMdnJ1OsqyFwAByq8bU+qRe279UHm3P0G1Ulns2s4TgC+uv+4S4bl9RJFhBbRlhpBEkRGe2yeuv+4SwI/7ZMFUKih/';
+wwv_flow_imp.g_varchar2_table(2595) := 'guqtHyrvLvXIPX7dGEEeA1gWGNCeJ9yb/3X5N4BQFNCet4jP7hoB+OqyS3eJgudm9urX5YxGi4Lnqssu3QX4cZ8sCM9DigIaCG/+';
+wwv_flow_imp.g_varchar2_table(2596) := '1+Xf8DzhmoVvDy8pVoQACFD1CROt3axu/907135i4izjQLRgT8AGnYxcs+oqpISsZHWsLAxSItesugowCw0ExmMgmjjL+O/eufYT';
+wwv_flow_imp.g_varchar2_table(2597) := 'azer2+sTJloJsz+sEAEAEAJVHzfhhp3uT/3e3X0fFyWCapWJymocb76DJw4AymL5KqKIPACYBkYQRchi+SoWEAj0PERlNU61yoQo';
+wwv_flow_imp.g_varchar2_table(2598) := 'Efze3X0f37DT/an6uAlXwvZfixUjADFOdVhHfZc6P/Wf7l73lQ9+bNWN1WGGfJ8wFoKLt8f0AKDnXp4HAFOiFQj03MvnEwj0PGRl';
+wwv_flow_imp.g_varchar2_table(2599) := 'NY7vE1aHGfrgx1bd+J/uXveVvkudn6oO64gM5sZ0kpUmALEnoKNil7zumncWv/T79/T92S0/XVoVC0G9UkFVVqNmdiltAFBec/Vm';
+wwv_flow_imp.g_varchar2_table(2600) := '4Tl5ADA94kCg0yevuXozswUC7WyvKhWU71OvDjN0y0+XVv3+PX1/ds07i18qdsnr6uMrI/HnfFaU2rUQAtWsGS0Eau1W59/86O90';
+wwv_flow_imp.g_varchar2_table(2601) := 'v/vWD5X//sV7G3d8/WPVl6gigEplNW4QoP2JaQGhipH4NNWeXTeKYtE11VqEaMPJwpz5o40WlZKr9uy6ka/f/SwV04U/1VdeF9J1';
+wwv_flow_imp.g_varchar2_table(2602) := 'kdVhgqrPOGDe+zuVq65+R/HdXevUzxUrcm1jXBP66JVo/LBCBQBACDtr18d0pFzWrtvu/l9v/mn1K9e/u3TH0KHozi//l+Hvnz7A';
+wwv_flow_imp.g_varchar2_table(2603) := 'GcADypXVdoD4LiIA5Kruq+JXygOAqWHbvtUXrovw4n6qDhP5E0z44G+4nLU/+ZHVP7p2u/qRcrd8d6FLes2aph6n+7bGwkpkxQpA';
+wwv_flow_imp.g_varchar2_table(2604) := 'CyFQUYCpjWotJF7vRvW+VevV+/7D59cdrI3pe489]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[H9zztf9n7LmJIYYBAdVyYVWhRKm';
+wwv_flow_imp.g_varchar2_table(2605) := '0ZyoAmIcA0sEGAimV9hRWFUrNgWojgBpgutbS8+P/qedNW691f6jcI99R6pE7hITGhKE2qiNArtRZfzorXgCA1qkvhcHUx4zGILy';
+wwv_flow_imp.g_varchar2_table(2606) := 'y3FFZrXb0bnB+ac9bi682avqZs8fMfS/eXX36gS9sH3NdtT0+AbhiZ48MIE0Ygqu2N2s7Srf+/KGeq2+vvG7NVnFbsSxvcItip1s';
+wwv_flow_imp.g_varchar2_table(2607) := 'UBE1DY9xoBEaI3PCnk6l6AJnCoE1ciNotCuF4tv5HNNGYeOX0Za/8w6sfvN51ImXy1ksVISAIVfQzOz/37K4Nh3eprmKXEIbQh6B';
+wwv_flow_imp.g_varchar2_table(2608) := 'hDLZ0qGAFu/mzkXsAMyGQLcc+bBgdNDBGI7pKpivoWnNjhItHgMnHVaoINBFFFXStudHzDjExarSQxgi7OStZIQk9CyUfvXOh5TZ';
+wwv_flow_imp.g_varchar2_table(2609) := 'KIXWkzbGBdVrnuT+ZQRvBsYF1WkfaIIXtq3zGnxO5BzAPJBpfF8SJic3CkWGm7nhbqRgEjgw5MbFZ+rqwtO6UzAC5Ss4RA0ipmfA';
+wwv_flow_imp.g_varchar2_table(2610) := 'rnG2sQYkozwDOAkagRMTZxhom/ApSLqFr5TJALgBzxdiZZqixhlpQQskoH2gZwABKRtSCEkONNTgyzIV5HuQCMEcMAik0g9V1hNr';
+wwv_flow_imp.g_varchar2_table(2611) := 'J1PVOKx2BIdQOg9V1SKHzpdk8yAVgnvRXN6T9CDkzkPfN/MkFYI5INH7kMVBbF7v/+SyTFQwCJSMGauvwIy8PBM6DXADmwPQA4Ei';
+wwv_flow_imp.g_varchar2_table(2612) := 'jNw8AZo04EDjS6M0DgfMkF4C5EAcAzzZWUw3KeQAwY7QCgdWgzNnG6jwQOA9yAZgDrQDg6eqGPACYUVqBwNPVDXkgcB7kAjAHBAa';
+wwv_flow_imp.g_varchar2_table(2613) := 'D4NjYVoQw+eDKIAaBEIZjY1vt97lIz4lcAC6CAYQwNMICZ+pr7fo/F4AMYuMAZ+praYSFWKhzLkYuAHNAyYjxZjcjzR6UjPIawFn';
+wwv_flow_imp.g_varchar2_table(2614) := 'E2H4aafYw3uy2/ZRzUXIBuBhxhPlMYy2NoBivL3OyhgGk0DSCImcaa/OdmjmSC8BFMLFrOTCxntDkAcAsIzCExmFgYj1K5LkacyE';
+wwv_flow_imp.g_varchar2_table(2615) := 'XgIsg7FW09OfR5czT2q3pr25AI3OxngO5AMxCKwDYDAucqfflAcDM0woE9tHMA4FzIheAi+DIkKH6aobqrQSTtJ8oZ0bMBforZ1Z';
+wwv_flow_imp.g_varchar2_table(2616) := 'yAZgNk88oS4kLemx5IHBWcgGYhekZgPmacmnQitnkGYFzIxeAWWhFlU/nUeUlQ2vX5nS+azMncgGYgXxfeYmS523Mi1wAZiHPLFu';
+wwv_flow_imp.g_varchar2_table(2617) := 'avCZzM2dGcgGYiWkBwDy3fOlw7tmNPBB4MXIBmIFWAHCguj4PAC4xWoHAger6PBB4EXIBmAGBITAuJ8c35QHAJUYrEHhyfBOBcXP';
+wwv_flow_imp.g_varchar2_table(2618) := 'xnoVcAC7AZKlpv8xAfV1eYWapEVdwGqivo+bnFZxmIxeACzF52UReY24pcu4lLnkNx9nIBeCC2Cqzg7V1+JGbV5ldgtgqzi6DcRX';
+wwv_flow_imp.g_varchar2_table(2619) := 'n/AzHhfn/AeEKA5au5uDjAAAAAElFTkSuQmCC]'')),'||wwv_flow.LF||
+'       photo_mime_type = ''image/png'''||wwv_flow.LF||
+' WHERE candidate_id ';
+wwv_flow_imp.g_varchar2_table(2620) := '= 10;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'COMMIT;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'UPDATE tms_candidates'||wwv_flow.LF||
+'   SET photo_blob = apex_web_service.clobbase642blob('||wwv_flow.LF||
+'        ';
+wwv_flow_imp.g_varchar2_table(2621) := '            TO_CLOB(q''[iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAABHBUlEQVR4nO29eZxl11Xf+137DHeqo';
+wwv_flow_imp.g_varchar2_table(2622) := 'WvoWd1St6TWaEkeJWzjkUcCTkhsnJgYTJKHk/d4IZ9nCJ8HvEDeJx94JDjBdj4YCAk4hocwBGPjBNnYlrAky7JmuTWrNXRraPVUc';
+wwv_flow_imp.g_varchar2_table(2623) := '9Wdzjl77/fHOae6ulVz3XvPqarz5VOiXcO9556z12+vtfbaa4v/1ScsBQUF2xKV9QUUFBRkRyEABQXbmEIACgq2MYUAFBRsYwoBK';
+wwv_flow_imp.g_varchar2_table(2624) := 'CjYxhQCUFCwjSkEoKBgG1MIQEHBNqYQgIKCbUwhAAUF2xg36wso6B2rrfmWrl5FQZ4oBGCTs5xRX+zeuSIrGrcFtL3wVc0yv1+Ix';
+wwv_flow_imp.g_varchar2_table(2625) := 'eamEIBNxMXGLoAj4CAoASWCSr5nib8vCyx0tfHeQoO3FjQWAbSNf2asxSTfN3bx6yrYHBQCkGMWGpYinsHdxNAXGv5SBnexYa4nB';
+wwv_flow_imp.g_varchar2_table(2626) := 'JDkfQA8ufA3LMwLgbaxMEQ29iDMEq9XkC8KAcgRqYEKoCQ1+NjonWR2X+xvur2fe7nXT4UotvLY1A2xCEQWImuJ7IWeQiEI+aEQg';
+wwv_flow_imp.g_varchar2_table(2627) := 'IxJjUIBvjpv8BfH670w9PWw2DUJ4IkkHoNgSYUg/v+hOe8hFGKQLYUAZEBqNI6khhIbviMX/k4eDX61XHztCwVBq0QIki+d/HIhB';
+wwv_flow_imp.g_varchar2_table(2628) := 'r2nEIAesZjRe+q8W7/ZDX4lLshnCJREKCEYIDSFGGRFIQBdxhIP5pIS/G1m9MuxMB9QUheKQWAtgbHz966gexQC0AUWzvYlpSgtc';
+wwv_flow_imp.g_varchar2_table(2629) := 'O+3s9EvxWJioBW0raVtTOEVdJFCADpIOpA9kXjGv2i2L1iZheJZFaGsHAJjaSdhAhRC0EkKAegA6aD1RSg7sauffr8w/PWx0CsoK';
+wwv_flow_imp.g_varchar2_table(2630) := '6GshMBaWjoOEdKfFWyMQgA2QBqjllU843sLDL+gcywUWN8VQht7BO0iT7BhCgFYBwsHZMUpDL9XLAyxPEcoKUuz8Ag2RCEAa2A5V';
+wwv_flow_imp.g_varchar2_table(2631) := '7+gd1wgBG4RGmyEQgBWiSWuzqsk7n76vYLsuDg0aBtL08Slx4UIrI5CAFbAEpfpVhxFRcXluYXh54v0eaQrL01jaWmDofAGVqIQg';
+wwv_flow_imp.g_varchar2_table(2632) := 'GWwxIOqqtT8FtvNZPwCYC8yAruCScj5T2iTF9ksnzm9zqoSSuLQMIa2KbyB5SgEYBHSWb/PUZvC3ZfUyK2AxJlxreIfaAVaxVvxr';
+wwv_flow_imp.g_varchar2_table(2633) := 'IBZoSmAMokGCDhGcEz8uo55/XuspCVZYYnrCPodhS+WeuENLEkhABeRzvo1R6HIp+GLBUkM0QiEriVyYmNXBpQV+psKZRSDDYehO';
+wwv_flow_imp.g_varchar2_table(2634) := 'ZfQtdRaiv1j/pKGKxZOjgbUywYvEib7IqarGqMssxWDEYtR4BhwteBqQSVKYMXmShAWhgWecqjrwhtYjEIAEi6e9fPk7scGD0g8s';
+wwv_flow_imp.g_varchar2_table(2635) := 'weeJVIGsVAJFDunPfZMeuyb8Nk96TE86zIy61IOFKVQUQ0URizKCo5e/r20w/zvNnxD2zO0fMN4f8REf8SZoZDXhgNOD4VM9kXUS';
+wwv_flow_imp.g_varchar2_table(2636) := 'wYr4BrBi1KPIfYO8iAIaZ1A4Q0sjvhffSIv4zwzLHEmuc/Nz6y/cJYPHUvbi2evgYbDngmfw6dLXH66zO5Jj5FZl1pL4WrBJIYXO';
+wwv_flow_imp.g_varchar2_table(2637) := 'bF3YJVFJ/064sl66VnQEr9n+ruOBTHxLO9qQSwoG792vRyLwpmhkBf2tHhxT5vTwwEzVR17UaHgacmVdyDEzUrmIkNQrBQA21wA0';
+wwv_flow_imp.g_varchar2_table(2638) := 'tmhmmT483AjVHIRqdErA7umPa56tcKR18ocOVlheNalFEps6Oq8+4/Y+Wl30QTgOnhdIjB5j/kwwMTC0PYsE/0Rx/Y3ObavxbOXN';
+wwv_flow_imp.g_varchar2_table(2639) := 'Dk7GGLUAjEATA6sToCmsTS02faVhNtWANJEUZ+j8CRb4xfimdYoS8uPB+XuaY+rX6lw44s1rnytzGA97swXuLFHYFVsiMIFifueY';
+wwv_flow_imp.g_varchar2_table(2640) := 'lNhEIuY2Mj9KL6X0zXNc/taHD1c55kDTc4MhnHZdKBQRrDKZn7PQ2uZ0/Fuw+0qAttSAPLi8scutRC6hpZnqQSKIyfL3PJMPzecq';
+wwv_flow_imp.g_varchar2_table(2641) := 'DJQd7ACgWeInPN/k5XBr8TCuN/V4IcKsTBT0zx2WYP7rp7l2P4WTd9QDgUvinMTWYUHRUiwDQXAAhWlqDnZzfoLDb/pW3ZOu9x4v';
+wwv_flow_imp.g_varchar2_table(2642) := 'Ma7Hx/g4DkfVwtN36Cd+IJlE85Q88uEAo6Ok5WRY3l5Z8Bdb5jh6KE65wYjKkE+hKCuLU1jNt193ijbSgAssctfUbLsYRfdRBkhc';
+wwv_flow_imp.g_varchar2_table(2643) := 'g1N3zA64/Huxwd41xMDjM64hI4l8GJDUFldYJcwKhYyP8kHjA1E3H39DHe9YYaxgZBKoHAjhVHZDEdFnBeY09tLBLaFAKRLfP1ud';
+wwv_flow_imp.g_varchar2_table(2644) := 'vG+snECrFE2jMy4vPvxAd79+ACjMx4t3xC6Js7Ab/GnEYcJFi9SlAPF2EDIXW+IhWB8IKLaUvP3qtekeYHZaPssFW55AVhYFeZmY';
+wwv_flow_imp.g_varchar2_table(2645) := 'Pyp+94oGUqh4m89Msh7jw4yOuPRTAxfbQPDvxgrcb2BFykqiRB868Zpvv6madqeodpWmVQbCnHH4tltkhzc0gKQ7uAbyCjZpwyEX';
+wwv_flow_imp.g_varchar2_table(2646) := 'py1v+nFGh/6zjCXnS3R9izBNjX8i0mFwI8UpVA4savNl94xwfcO1/G04IWyYvlyp0mTgzOR2fI7C7esAGRp/OmsX0/c/X/47RFue';
+wwv_flow_imp.g_varchar2_table(2647) := 'aYfnSzzFYb/elIhKAcKxwj3XT3Lf//+ccYHImqt3nsD20UEtqQAZGn8ykDkQKtkeO/RAX70OyMMNhzqJZPpmv1mIa0tqLUV01XNX';
+wwv_flow_imp.g_varchar2_table(2648) := '7xjnG/dOEO5rXD1ypuZOsl2EIEtJwBZbuZxjFAvawYaDh+9c5RbnukndG0c5+ehBG4TYVScH/Ci2Bv4k/eMMVPV1FpOvLuxR6Qis';
+wwv_flow_imp.g_varchar2_table(2649) := 'FU3E20pAUiNv99RPXf5AeYqhmteqfBPv7mT/WM+c5Vi1t8IqTfQ11ScHA34b//LOZ4+0KSvqeZ/3isEmN2CIrBlBGCh29/LB6Rss';
+wwv_flow_imp.g_varchar2_table(2650) := 'kPPNfzgozv48D0jKAMt3+AUs35H0CrODRgFX3znON944xR+pHBMb5cLLVsvHOhxfrU7XBzz94p0Z5xWln98+y5+8o6daBVv4imMv';
+wwv_flow_imp.g_varchar2_table(2651) := '3M4Rmh78X3+yTt28o9v34VO]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[NkH1sm5IAQNuNsvJ3WLTewBZJfwcI7SS9ep/+T/3cPWr';
+wwv_flow_imp.g_varchar2_table(2652) := 'FWYrJu6o06Nr2G5Y4iRgf1PxzCVNfuvvnqZRMpRD1bO8wFZLDG5qDyAt8um98UOjpKkGik98ZW9i/Pp826yCriDE9362orn61Qqf';
+wwv_flow_imp.g_varchar2_table(2653) := '+MpeqoGiUYrvPZxfgk2/Ok1aVTrgnu8TuZnZ1B6AAAOug9vDB+GYONl3+aky//xru9g95ScDsDD9XqKVpdp2OLMj4L/80Fle2Nui';
+wwv_flow_imp.g_varchar2_table(2654) := '2oo3HKUNTYS4A1LaG6GTXYriikGYifSmFoFNKwAWGOxxbX888xsOny7zs3+5l1rLoVEy87NPQW/RCqptRb2s+dTfP8Uru9oM1l20';
+wwv_flow_imp.g_varchar2_table(2655) := 'skiyn2C2qolUvMHK04IfxkVYnagnSPcOTEebdwPRphSAdFdfuYddfFLj3z3l86//dD+VQNH2ikx/1hhlKQWKmapmsi9iZNabFwCt';
+wwv_flow_imp.g_varchar2_table(2656) := 'LOcGQ8YGIp7b3+LErjYnRwNCx1Jtd2bTkQCtTbyLcNMJQLqfv8/p3ZZeZeNOPOVA8XNf3suhM+Vi5s8RVs53Ko4ci1iZb/Xlapnf';
+wwv_flow_imp.g_varchar2_table(2657) := 'Wt3yDcf2t7jv6lkevqJO0zfUOrDpSAFzm7SfwKYSgLSTz4Dbu0IfSZb6yqHiE3+5lyteKzNXKYw/b6S9Cy8YGLLg+8Rl2qUwrh94';
+wwv_flow_imp.g_varchar2_table(2658) := 'aVeb2946xXevmaUUKNwN1hQI8crAZusstGlWAeZ7+PXQ+FMiBz52x06uerXCXFUXxp9D0orLhSsAaRdjZc43WGn6hrmKZt+4z09/';
+wwv_flow_imp.g_varchar2_table(2659) := 'dTc/fdtuSmHcgWkjTVgs8djcbCsDm0YABOhznJ5esGOE2arh7903xNuf7mO6FuHozaTvBRcTC4IQeJa5suGdTw7ws1/Zy64pn5Zv';
+wwv_flow_imp.g_varchar2_table(2660) := 'NyQC8bkSTuEBdBpL3Lrb6+lynzBb0bz9qT7+3n1DzFaLhN9WQmycN5iuRRw6XeaX/3Q/l4z5NMrr37hlAU/isbpZvIDcC0Aa9/ey';
+wwv_flow_imp.g_varchar2_table(2661) := 'b7+yccJo/7jPT3xr53xH3oKth2OERknT13L4qW/sYqDhJO3Z1vd6cZJa8DdJuXDuBUDR+7g/zQp/9M5RBusOgWuLHX1bmFgEDIdO';
+wwv_flow_imp.g_varchar2_table(2662) := 'l/j413dvuEYgzQfk3rjIuQBYoNbjG5lW+r3vewPc+GK1yPhvExwTFw298YUq73iqn7nKxno4KOKxm/d5I7cCYIGyEko9dKXSI64O';
+wwv_flow_imp.g_varchar2_table(2663) := 'nPP54HeHaZU2lhQq2FwoI7R8y4/cP8TOaZfIXf+6vgVKIj0tVlsPuRUARTbJlMixfOTbI/Q1HSK1udZ0CzaGAKFr2DPhccsz/TT9';
+wwv_flow_imp.g_varchar2_table(2664) := '+Miz9ZImr3NrZORUALJw/ZUVGmXDLc/0c+OLNepl09O95gU5wca9B976XB/V1sYPKsl7KJA7AUjbevXU9SfpSNtW/J0Hd/S051xB';
+wwv_flow_imp.g_varchar2_table(2665) := 'vlAWQteyb8Jjz6QX93PcwOuloUApp6FA7gQgPa67mzdL2Tjzq5IvNxKaJcMPPjrIwTMl2n4x+29njLJUWoqrT1YIXDa8YygNBfIY';
+wwv_flow_imp.g_varchar2_table(2666) := 'TrpZX8BCLFBzFMmZmF2jUTLJLC9Jrb9hZMbj/UcHaW0w7ivYIgiMzLgdW/51iEWgnrNdg7kRgLS1VzezpkJc1/+uJwbYNeURunGW';
+wwv_flow_imp.g_varchar2_table(2667) := 'P/Ash0+VGGg4tL1izX/bYwUjsG/cxzWC7cCASFe12kZy1UosNwIAUHXkdRu6OkqyR/z7nxjgphdrNEoaZePOMaETn9pTGH9BSqcP';
+wwv_flow_imp.g_varchar2_table(2668) := 'IYnDW2Emys8gy4UApOW+vSqfbJQMM9WIZimO9S0gVoq4v+ACOl0AtnCc52XbcC6SgAJU3d5dysVJQMcUxl9wIenZjt04fKTa47Mr';
+wwv_flow_imp.g_varchar2_table(2669) := 'liNzAUiX/Vw21z7qgi2MxLmh14aDuBisgypgid3uvCwLZi4AApQ30fbJgq2P2DgndHIkiMOADieGLPGYz4MXkKkALJz9CwrygAUc';
+wwv_flow_imp.g_varchar2_table(2670) := 'LczUNM/ta+FH0pUwIC9eQKYCUMz+BXnDKkspFJ460GSqT+Po7hhpXryAzASgmP0LcomN1/2/e80s0N1MfR68gMwEoJj9C/KGVpZa';
+wwv_flow_imp.g_varchar2_table(2671) := 'S3Hf1XM8fmmTSlt19fThPHgBmQhAMfsX5A0r4EfxKUNfuWUSp0czU9ZeQGYeQEllHf0UFJxHLDgavvCecV4bCSgF3Un+LUaWttBz';
+wwv_flow_imp.g_varchar2_table(2672) := 'AUiroXp5pl9BwXIYgUpb8T9umeRvbpymr+l0vAx4KeJOwtk1Ec3EAyg5+Z39RSwituNrvwUZkjxTWeSZGoFyoDi2v8VfvW2SgbqT';
+wwv_flow_imp.g_varchar2_table(2673) := 'ST+IrGyi52G4C5mpnQDW2guOiwLmB4bRDlrHt0SURrlR8jf5FayCpRGJn7WJXKyJe7srJ0I5Gjj/XJWFekmjlcWn92Mz9YpdQPf4';
+wwv_flow_imp.g_varchar2_table(2674) := 'vXsqABbwk6xnVvOrBuyCdxcx6MjHakWpf4bqjgmU0jRndtCcHsJaheu3sDbzosmCNSBiiIIyIobK4CSVgSmMcWhMDdOeHUAcg+MG';
+wwv_flow_imp.g_varchar2_table(2675) := 'gAIBMWAydPqE2DYaPe4X0FMBEMDPMONpSR9yfItFGcJmhb7hMQ7edD/DB47jlRuIWKKgxMzZvbx89G1MvHII129ndNUF6yFsVxg+';
+wwv_flow_imp.g_varchar2_table(2676) := 'cJyDNz7AwK5TuH4ba4WwVWXilUO8/L2bmZsYxak0iUVA0Da7ickS20azxy5AzwQg7Y2W5aYfbeMQQIhniLBV4ZKrH+OKd9yBV26i';
+wwv_flow_imp.g_varchar2_table(2677) := 'gxIm8uLtwY5m+MBxhg+c4JWjb+GF+96DcqOMrrxgLZjI5cq338GBGx8CLDryiEI/Pi7cb7P3mqOMHjrG8995P68+ewNVac+Hh9pC';
+wwv_flow_imp.g_varchar2_table(2678) := 'Vkn5NDxu93CrcE/9Wi/j5J+xsfTExl9m79WPcc37bks8gWocE6bJIitEQYko8Lnszd/lynfeQRSUFk0kFeSD1HO78p13cNmbv0sU';
+wwv_flow_imp.g_varchar2_table(2679) := '+ERBCazMJ3atFcJmFVGGa953G3uvfoywFYcKcH6MZEWvbaRnAuCQXfIPYtffAqIsUegzsOs0R955O1HoY41CFjkBJM0ct+t9XPKG';
+wwv_flow_imp.g_varchar2_table(2680) := 'h9h37VHCdnnR3y3IFlGGsF1m37VHueQND9Gu9y2Z+RdlsEYRhT5H3nk7A7tOxx6CsgvCxN6TJgN7eRRlTwTAAp7K9oAEnSi7NQql';
+wwv_flow_imp.g_varchar2_table(2681) := 'DEfe9U0cL8QaZ8VZXZQhCkpcccvfUBsaR4d+4QnkCBGLDn1qQ+Ncccvf]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[xJ7aCiItYrH';
+wwv_flow_imp.g_varchar2_table(2682) := 'GwfFCjrzrm6hEFOD8WMkCRWwrPTsIt0fvg5eh9c/P/hLP/nuue5Qdu18lapfmXb+VsNrBK7c49JZ76FmJWMHqscKht9yDV25h9er';
+wwv_flow_imp.g_varchar2_table(2683) := 'mUBFD1C6xY/er7Lnu0dgLkGy9AOitrfTkrRzItPIvNfEIYURavOXgUVrWQ63S+OG8i7nr8mcY3PPq/GApyJZU1Af3vMquy59Zc4i';
+wwv_flow_imp.g_varchar2_table(2684) := 'mxNCyHm85eJQRaREl6besgry0MrBXYUDXBSAP7r+xFgfLHB7vM2e4PGrSYh27sKwgyrD7yqfjWaYQgOwRi9UOu698Ojb8NXpnArR';
+wwv_flow_imp.g_varchar2_table(2685) := 'QXB41eZ85wxweDjbTZGAvw4Ce2GWW7r9O7qIFSmg+ZF5Z9xZPUQYdeYxc+nxcWBIV+xmzxkQulYEpRi59Hh15607QGoEPmVcooec';
+wwv_flow_imp.g_varchar2_table(2686) := 'NT2+DMKDrb6PI1v23SVOHNg4HaXCTmaSJy3r11UQu5b4ZBnafwkReEQZkiIjFRB4Du09R7ptZtyArLE1cbjKTHKRBGyepVs3m2aZ';
+wwv_flow_imp.g_varchar2_table(2687) := 'hQC80oKvv0csPsuj72ziZEz9gh5v1GMO0CZENFVpYYPiS48megkIAMiNJ2M0/i/W+DBAiDNPmZj1GEweFjZPHGT3eXk2cXbdNN8O';
+wwv_flow_imp.g_varchar2_table(2688) := '9zqkzmO49uI5p1EZ1XSzWKGrD53C8sPPHxxSsHqNwvJDa8Ll4CW8DYmyJJ4rrmI5XjNK36MR1rpNe2E73BSDDFbPU1DVQRnPEzhK';
+wwv_flow_imp.g_varchar2_table(2689) := 'uJ/m3gHT9uNw/g1+pYwoByAxjFH6lTrl/ZlX1HMsRewGKI3aWMnp+V15WYQD0xna6Onpd4gM/s7iFqfsvQIRihIBDZo4wce82gtE';
+wwv_flow_imp.g_varchar2_table(2690) := 'OXrkRJwK124M8gMVYjbEai8FiMDbCZjo/zV/Z/LXE/46vs9s7PkQsRscJQK/cwKxy7X8pFJYQh0NmjhEComSiyCoMsMS20+00c9d';
+wwv_flow_imp.g_varchar2_table(2691) := 'e3wKuym7rr7no3x4GD9MxkxGxPdkcZK1BRFFzaxcUqLgKQgNtXUdJL4tHz2OspuTU8BREyY1VEotuU7fmr72bKDfqmAAvNU4M9LQ';
+wwv_flow_imp.g_varchar2_table(2692) := '8N0WIbSgy3dsi3FWB6eFxf68jdd0UlgCXw4myNzvgAWAFcTT9I2cZO35lHHt2oTowNbDINLnv3H/n2My9TAWn8FSJ/dXruXH4A1z';
+wwv_flow_imp.g_varchar2_table(2693) := 'adx2NqAmwwdTm6knvbc2r8dLckxyduI2TjScITZsd/l6ODLydm4b/Lp5T7Z5AJbmY/pGziKMhkA3lANIQYISAw2aOV1WVMiEaST5';
+wwv_flow_imp.g_varchar2_table(2694) := 'vRh17FF1NRHRVALKZl2IuLuV0sRs3/Ivo5qYgYzUVt8ar9Sf4s+O/wAuz96PEIV1TOTrxVb51+vf4gb3/gh/c/wkiE0BPBqpFEFz';
+wwv_flow_imp.g_varchar2_table(2695) := 'lc9srn+L2U79NM5rGES/5qeHes3/M5f1/yEcO/QaX1K6nGXXPS+n0M1BY3IvGicnO/rtuQ10TAIfs4v/F6rg302JdPPNXeLX+JJ9';
+wwv_flow_imp.g_varchar2_table(2696) := '9+h8yF03Q7+1M4uzYAAVBW81fvvxvmQvH+QeH/l9autF1L8BiKTsV/vz4v+b2U5+l39tFvzeKTf4vvjLF8bmH+ezT/5CfuebP2Ve';
+wwv_flow_imp.g_varchar2_table(2697) := '9hrZuZhaqrJXFxorJoE9Amgdw6J4T0BUn3QKO9MohXfz9NysWixKH0LT4s+O/QD2aoOYOoW0YJwFtnGjTNq5aH/T38q3Tv8dDY1+';
+wwv_flow_imp.g_varchar2_table(2698) := 'h4lSTBFx3MFZTcao8NPYVvnX69xj09yKAttFF1xZSc4eoRxP82fFfIDQtlDiZZtQ3SlZXLsS21K3371qUnuX6/2IDTXXhmKduZP+';
+wwv_flow_imp.g_varchar2_table(2699) := 't1VTcMkcnvsYLs/dRTYx/0d/FAhZPlbnj1GdpJ4bWLZQ4tE2LO059Fk+VkytY/B5oG1J1h3hh9j6OTnyNilvGdkGcOv0MBBYNFTN';
+wwv_flow_imp.g_varchar2_table(2700) := 'dDuyiLXVNALJs/rNw2SYt8JgVjzaqc3kAK4TtchcqAQVr4djMt1c1axqr8VSZc63jnG4+j6dKHVzrWPA+GDxV4nTzec61juOp8or';
+wwv_flow_imp.g_varchar2_table(2701) := 'eRurNHJv5dvJMOjwoxMbPoEMJWIWljWJWvNcVjGXZKKibttQVAYjdlm688srYixo7WgQPw8tSZQoftxNanmSg65Mj8+3DOoWIYCx';
+wwv_flow_imp.g_varchar2_table(2702) := 'MBa8RR38rX62gaJs6s8E5lEh3Rqu1KBFmg3O0TZ3VFXhbBIep4LW4JkM6OCiSNl/1yZENVwFCEm9jmcLnZaniYS7wGS3ZiYAj3ct';
+wwv_flow_imp.g_varchar2_table(2703) := 'Bdk0AVAb91WHxZElaDNToxBIggFiMcdCR17W9AKmLvVoccXCV35VrWYirfJw1hRk2+SxdQOKGn8Z0Zmu2wtLAmS8Cupgsyq5iD7Z';
+wwv_flow_imp.g_varchar2_table(2704) := '7+bSOC0CaAMxLgawlLu4Yp8Rzqj8p8tjY7VTKEDSrtGYGcZw4Pk/7z230CzSeYzlQuw5Nm5UekSAYQvq8YXZXDxPZEKVkxfexGGu';
+wwv_flow_imp.g_varchar2_table(2705) := 'tjr8wdqXfV0qIbMju6mH6vGHMqrZUKTRtDtSuw3Piz9a5+wSOE9KaGSRoVlEbXA40iaf4nOpnnFLiAeQDRfcSgV1ZBnQ66eqtkcU';
+wwv_flow_imp.g_varchar2_table(2706) := 'TgBCgOCYD/B1ObuhGWis4TkRjcoTGzCCuq7FR5z6vsR4NLVxb+xDftJ/DEiDLbGFylEO9Pc2N/R9hgL00WiFKlp5xjY17H5dLjii';
+wwv_flow_imp.g_varchar2_table(2707) := 'Vfg9abY0Fq5bx00OrGXD3cqTyw9w38TkGSsNEZvFqSEGwBJTsTq6tfYhGS4h0BdXBykARS2OmTGNyhHLfDJFef9fmdKI4JgMExA1';
+wwv_flow_imp.g_varchar2_table(2708) := 'sLpaULAuCHBHCLsQgXRGALA/+XewWxfGd4agM0cbpiHeiwxLD+19ODpzorL9jrOZNfh8fKv8of/jAf2GkbxSLxiwocBABVznMNpv';
+wwv_flow_imp.g_varchar2_table(2709) := 'sGtjNx97xo/Q5J6jYcMn43BhjyyVPQHj15MzkbPDsGEC/f9XoJZcPDIGVVju0Si3+BC0GVzw+tudHefHO2xibmaG/UiYy+oL4WCl';
+wwv_flow_imp.g_varchar2_table(2710) := 'BcBifm+Qfv+2f86bLa8wFxzq+QhGf/lNCh6UNv5Yi7hlxVIZwl5j9s/QIumVT4n/1iY5+Lgv0u4pSRkVAwSJVQOl+7yECvhbcyQ4';
+wwv_flow_imp.g_varchar2_table(2711) := 'Cog3GVSIW5XRnL4BN/uupCv/u1m/xx994mJLvUvJclIpXCbQ2zDXb7N85yKf+j7/HjUd20my34iTgImhjba1aknPj]'')'||wwv_flow.LF||
+'       ';
+wwv_flow_imp.g_varchar2_table(2712) := '        || TO_CLOB(q''[UzPf+e5jTz53/OXxZlAPASp+zbvy0MGRd3zfDdftHNkxUG+0rbPECxlrqZTKHD12jp/7na9w8tw0fZ';
+wwv_flow_imp.g_varchar2_table(2713) := 'USjqMQAWMs7TCiHUT8xA++mV/68fcSmibdLFQ22t3Q+Y0LE4A/5L+HSXy8JXwuP4PZTYC2tcxGnd8T0BUBGHBVJmcAGAvREm6Sg2';
+wwv_flow_imp.g_varchar2_table(2714) := 'Uaj89GD/ER8xITyYrARujWoaHpBioRS7Xsc9t9T/PfvvogL5+dpNEOcZWwo6/CO284zM/8/beze7ifuWaAI69PccY72qwt+Z6MTU';
+wwv_flow_imp.g_varchar2_table(2715) := 'xP/9mXvvXd8YmZpue5amiwvwIwOT3bDMPIjAwPVD7yofd+3+jw4GA7CK2S1zvUceGPoa/ic2Zils/+5b3c89iLTM01iYylWvI4uG';
+wwv_flow_imp.g_varchar2_table(2716) := 'uIf/rDb+UDt1xDoxVgrXR1U9hGawEihGEC/kxdys+4b2Ew2QOwGK5Izz1cAQJrmdkMAiDADs/JJFJajQC8z5zh/4vupbGBtmC9Il';
+wwv_flow_imp.g_varchar2_table(2717) := '56svRXSzRbIS+eGmdsuo7vuly2d4i9wwO0Q00QRizhtWMtOEqsMVb/yV/cfvep02MzO3YMVN719jdceemBvfsAXnrl1Gt33/v4c1';
+wwv_flow_imp.g_varchar2_table(2718) := 'NTM829e0YHPvqjP/AupcTRxi6ZETDG4nsuJc/h1MQMJ05NEkQRo4M1Du8doVL2mG20kQwrQleLQagS8TH37fyN2p07AYB4LEyFuu';
+wwv_flow_imp.g_varchar2_table(2719) := 'MjdksJgLYrH+pgEP4yvIvr7PSmEAEAbSyOEkqei+sorLUEkSYINSLLr68bY21ftSR33Xv0yW/d873nSiXP/Ucfev8tVx7ePzpbj3';
+wwv_flow_imp.g_varchar2_table(2720) := 'cR9tcqPPfiybEvfOmO+9rtMHrvO2+68t1vv/G6uUbbqqViCpKj1i34noPvOogIkTa0w2j+mvNOavxPyiB/33v3iuPBEcmkxqVbAt';
+wwv_flow_imp.g_varchar2_table(2721) := 'DR7FXWewBWwiHuDfibzjVspsr01JCaQchso81cMyCMTLLct/TdttZS8l05c25q7sFHnz0hCO+4+Q2HLju4Z3Ries5obdHaMjE9Zy';
+wwv_flow_imp.g_varchar2_table(2722) := '47uGf0HTe/4ZAgPPjosyfOnJuaK/mu2GUEVURQSggjw1wzYLbRphmEF1xz3rHE4+I3nWto4uDkdFR0a09Ax5frhcx2Tq6IRugn5O';
+wwv_flow_imp.g_varchar2_table(2723) := 'tqL19WBxgmIMxNxcLKqMTgYsNf+fettdb3XZ4//uor07P1YHh4oHLDtZdf2Q5ClMRzuwgoUaodhNxw7eVXDg8PVKZn68Hzx199xf';
+wwv_flow_imp.g_varchar2_table(2724) := 'dd7HIKkCDC/HUt4zDkjhDFMAFfVgf4utpL/zKuf9Z0y642z+hfBauZ0y1CBc2/cW/gmPQzQLipRGDVWFDKkXqjbV48ceqcEjh86Z';
+wwv_flow_imp.g_varchar2_table(2725) := '6R/r6KH0XaLrRTEYgibfv7yv7hS/eMKODFE6fO1Rtto5STXU/3LhKiGCDkmPTzb9wbqKBXtV1s8/iNq6PjIz/LXYCrwQI+hnF8fs';
+wwv_flow_imp.g_varchar2_table(2726) := 'Z9K9N4DBEQIpikfNkSx4Z5nQ1Wg8Fa33OYnp6bffW1selmK4guO7hnj+MIi03q1locx+HQwb27W0EUnXxtbHp6em7W9xxMplthNo';
+wwv_flow_imp.g_varchar2_table(2727) := 'Ze5LmmS8LTePyM+1bG8fFzVPm3FN2wrY4mAS1QdRRVlc2kEVm76kMd43VfjxvsFP8++h5vs+NECO0kCixhcDBM42+KROFixEt21s';
+wwv_flow_imp.g_varchar2_table(2728) := 'zONmZeO31u/OCBPfsG+2uVMHq9tFnAcx1mZuqNU2fGz+0c3THY11cdcETU5vz0sbEPEqBRtJP6/hIaF8sDMsIvujfxmOxgB+H8mY';
+wwv_flow_imp.g_varchar2_table(2729) := 'AroSReCeg1AjSMpaE7uxS4pQRgsSKg5XCw1HHxMHzYvMyPmJMcMnO4GM5Kmb9Ql3KJrfO/m+eYxM9tgmg5RATPc/Ach2Y7RGuzZP';
+wwv_flow_imp.g_varchar2_table(2730) := '7AWnAcRdn3iLQmjPSi3kLe0ckM/5/VlbwqNX7UvMQu2yJCcVz18T/Ufr6oDhKiqBGt2dPLqhioEIAVWKsAQLwDzCDM4OFh2Jn4AN';
+wwv_flow_imp.g_varchar2_table(2731) := 'N4TFDlw+Y4vx/dz1RyaORmxMYgslylf/q7YG1cACAd3b/bOzTCDkI+7t7MF9UhhmnMr+2fozQf/6fPfq1sJQHo+F6ALA8CWQ8mKV';
+wwv_flow_imp.g_varchar2_table(2732) := 'EdIsAC03jzIUA/TU5IjRnczvQRyAiJWeXvgkjOEzkr4GKZweWE1OiniYNlHB8Baomzb5LcwGaiG7a1BdPfayfZqIpBcLF4yczgYj';
+wwv_flow_imp.g_varchar2_table(2733) := 'kufRyXPkod2EZc0H0MQgkz/9zc5Fl62Pl/64x6VeSRQgAuwi74crHMJjOJR+ersAo6T7ytV3NCaswu8NzSr4ILKQRgGVJX8W7ZXc';
+wwv_flow_imp.g_varchar2_table(2734) := 'z9mwgB7pbd8+FdwdIUArAMsTupeVQNMY234d2DBd3HTRK4j6ohSugibFuBQgCWwRAXDb0kNU5IXzKgCvKKIV7nPyF9vCQ1/K70R9';
+wwv_flow_imp.g_varchar2_table(2735) := '5aFAKwAl7SKOJutauYUXJO6rHdrXYxlTT1KFieLSUA3Vi1TnvF3SF7aOJmet5hwfI4QBOXO2RP15p6bs7KiKXZWgLQhdfUCBUiHl';
+wwv_flow_imp.g_varchar2_table(2736) := 'M7eE76KRdhQC4xQBnNc9LPY2oHlXVU+K2GLWb/W0sAuoWX7Bv4mtpHmagIA3KIQSgT8TW1jym8wv1fJR0XgK04O8aDS/NXan/SM7';
+wwv_flow_imp.g_varchar2_table(2737) := '4YXHnDwzJOib9S+xMvbeuJdDdsq/MCkKFtdGvV1wBVNE/LAPeqnfTluHHEdkQj9BFyr9rJ0zJAtYthWpaVBd2wrSIEWAMC3KouI1';
+wwv_flow_imp.g_varchar2_table(2738) := 'zi6KiCbIjbvituVZcVz2WNbCkB6ObD1wg1Iu5VO3lSBqkSbclwZ7MRe2dxU8971c51be9dC1tNYLoQAmzd+NjFMofLHzqHkyKTrT';
+wwv_flow_imp.g_varchar2_table(2739) := 'YcNh8Gwcfwh85h5pLa/61KN2xra+UAumyPUdJU9CvqEh6THfRl7QVYsMZm0rDLJu+dJQboI+Ix2cFX1CX0r6Gzz3rJsg6gyAGsQC';
+wwv_flow_imp.g_varchar2_table(2740) := '86EntYZvD4nHN55l6AcoRy1cdxpLdb3Sw4jlCulhBZvMdgL0hn/885lycNXbp7HXnueL1eOioASQ+6TGfFXngBA6/zAno8LCwopW';
+wwv_flow_imp.g_varchar2_table(2741) := 'i3Qp56+AWmJ+ZQruqNCFhQrmJ6Yo4nH36eKNJ4vtvzvbYGuWD2H9jqsz+xbXX6EjruAWQdgfVimcZJcgG/4VzbcxfKWotXcrn3m4';
+wwv_flow_imp.g_varchar2_table(2742) := '/yuU9+iS/+/jd4+tEXqVRL]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[aK27/v5aayrVEs88+iJ/8fvf4PP/4cs8fPeTeGW3556AA';
+wwv_flow_imp.g_varchar2_table(2743) := 'n7DuZY53J60a8t6c3E3PmFXBMDYrecqLUQnXsDtai93qN0MJqcN9wQbN/rcc8koczMNBnb08cg9T3Hi2En6BqsYbbpiiNZajDb0D';
+wwv_flow_imp.g_varchar2_table(2744) := 'VY5cewkD9/zFAM7+pgan2FgqC82jh7Zf5R0+71D7eZ2tZeBLV6XER/wupkEIEM/oJfDwMHwq871jFHC71HPQFFCuxVw1Y2HuP6tV';
+wwv_flow_imp.g_varchar2_table(2745) := '9CYa6IjzZf+4Haee/wlqv0VPM/FGBsn6TZyUUmizxiL57lU+ys89/hLfOkPbkdHmsZck+vfdoSr33iYdiugF60E43MdLGOU+FXne';
+wwv_flow_imp.g_varchar2_table(2746) := 'pweBpxZSozp0vjqigerM4wDetXO0iDU0DwhO/ivzhXsICDqUUAgQBiEvP+D38clh/fQagaJCHyT2269k7Ezk1RqJUoVH5UcBGKMi';
+wwv_flow_imp.g_varchar2_table(2747) := 'VcMjI09hIV9smxy0Gfyc2NiL0I5QqniU6mVGDszyW233smX/uCb6EjTagZccngP7//gLYTtsGfGEaHYQcB/da7gCdlBrYdlv1m2S';
+wwv_flow_imp.g_varchar2_table(2748) := 'u2WTXX8dGALVBxFLaPW4LC2A0I6gUX4k/A7vM2OM9ujeNQai+e7tJptbrv1Lp5/8mXK1RJhO8Qvexy54TKufMNl7DkwSq2/ius5G';
+wwv_flow_imp.g_varchar2_table(2749) := 'GPAgp7v95+OaIuI4LgOSJxgjEJNfbbB6VfGeO7xExx77ARBK8QrebQaba647iAf+PF3U66UCIOoJ7N/fLZjxAMywke9d/S0tWdWB';
+wwv_flow_imp.g_varchar2_table(2750) := '4JA/JTqxtLscEtw6JIAlETod7M7T2c1x4R3ivRwkUN2jtvCO/Ew6B6li6yxOK6DcoT773iMB+96gma9hee7RGGEiNA3UGV07zC79';
+wwv_flow_imp.g_varchar2_table(2751) := '4+we/8IftljcLgfv+zNr+OLEoJWyPTELEEr5MzJcc6cHGfs1ARzMw2stbieSxhEVGpl3vru67n5/TdgtEVHumeuv4MlRPEB7z0cl';
+wwv_flow_imp.g_varchar2_table(2752) := '76uV/0tJKtjwSEWgNnI0O7CKkDHBQDixgyDXnatM4yNvYBe4WKZwOcnzXE+HT3c01OE0oRftVbmzGsTPPA3j/HCky/TqLdQSiFKs';
+wwv_flow_imp.g_varchar2_table(2753) := 'MZgtEU5cYhSqZZwPGf+b0UEHWqajTYARhuUI4hS8yFBtVbm8usO8rb33cDufcM06q35v+0F6Wk/P+u+mT9ShxjuZeKVePbPMgSYD';
+wwv_flow_imp.g_varchar2_table(2754) := 'jXdWOPpigAIsMNzMk2arOeUoI3gYJnE5zPRw/wT8yLnKPW0LNUYg+d7uK7D5Llpnn3sBC889QpjpydpNdtYbednahF5fUbLnhcTa';
+wwv_flow_imp.g_varchar2_table(2755) := 'yziCOVKidE9Q1x+7QGuuuEyhnYOEkWaMAhRqncLoBHCTtp8Xh3mE+6bGSLoedY/i9OAUiwwFXanLX1XBMACA67Cl+2TBxDiWcrD8';
+wwv_flow_imp.g_varchar2_table(2756) := 'Cfhd3ijnZzvS98r0uSe6zl4vkcYhMxMznH61TEmzk4zdnqKditgZnKOditAJbO3sZZS2WdgqI9S2Wd0zw6Gdw2y55JRBob65l8rC';
+wwv_flow_imp.g_varchar2_table(2757) := 'jVI72Z9SMuvIx6VIT7qvYMQhdPjU5qyjv8Da5mJupPq7JoA1BxFJcNEYC/zACkOlgYOo7T5WnAnO2lR71FScCHWxpl+EYXrKhzPQ';
+wwv_flow_imp.g_varchar2_table(2758) := 'Sk1XyPQrLeJIj1f2WYtuK5DpRaX9ipHYYxBh5ooMlhrSM4K7OnnSHdgnqPMD/nvYYwSVXTPZ/+s4/+msdS7kACELpwNmJLlUiBks';
+wwv_flow_imp.g_varchar2_table(2759) := '2ark6XBs5T5uHczfxh+lxoRIaqnR4wvNNYo0kShxiaZfgDPd/FL3gV/Y60laIfz/xZkfrYX6f2WkbTOfwqfj3s3c5Yy/UQ9jftTs';
+wwv_flow_imp.g_varchar2_table(2760) := 'i4x6qYtde3J9nr2vRgl2dRupy7r/TLCT3k342BxyG5/hIggSuKEYCIMaVXfwq/YY4h/niYPszoc2MD8ffsp72bul5HsjF+yXf+H7';
+wwv_flow_imp.g_varchar2_table(2761) := 'tpSVwRAiGPw7lemL09WfXsihBHa3Cs7+SX3pgtOpM0NctFXTkiP86oR8UvuTdwrOxmhnYnxQ3ZjKEUT21K3rqJrHoClO7uX1kKW7';
+wwv_flow_imp.g_varchar2_table(2762) := 'x2hGCLg8+owP+++kQHC+RqBgsVJk6gDhPy8+0Y+rw4z1MMKy8XIevxq292EZ1fvbJRxHiCrMCBFJ57AH6nDfNy5hQYOFTSRLUTgY';
+wwv_flow_imp.g_varchar2_table(2763) := 'iIrVNA0cPi4cwt/pA4zQjtTwcyD+99tG+quAGTcMQYydOGSGnstwpAT8MXyAT7mvZ05XAbcqBCBBURWGHAj5nD5mPd2vlg+wJATo';
+wwv_flow_imp.g_varchar2_table(2764) := 'EUyPdc7a/cfum9DXROA/OQBekg6WAXwki8NegL2P93g8QcG+fFHvo+nZgcY9gIiu6UaMq2LyCqGvYCnZgf48Ue+j8cfGGT/0w30B';
+wwv_flow_imp.g_varchar2_table(2765) := 'HEAnN5HoedikPXT6Xb8D12qA0ixQL+rKGVYEARdLgpKX1eIF1UFaIGatKizFjVhkCagwXUsM9Zl2A/41LWP8v6dZ5gKPawVlGTvL';
+wwv_flow_imp.g_varchar2_table(2766) := 'fUSYwURyw4v5I5zu/m5p97IROAzIBGRFnDAVsAMK8wuwQwJlInvd8SF970LZFn8A/HHalvLbJcKgObfp9sCkPXOQOjS3oD05RywC';
+wwv_flow_imp.g_varchar2_table(2767) := 'kSDGreo04nR15Ofq+RL0l+3BEYRWsW/PHSMf3nZMSxCXTu420QEIivUHI1g+a0TR/it40fwxOCrBUnSuLHE/HE4tpaIwR7BjAjWA';
+wwv_flow_imp.g_varchar2_table(2768) := 'TEw72J22Eqyrv3v5g7AC96nmwIA2W8MSunY3oDUxXcBAzJncc7Ehi9zNh6QLuf9x0XeVpHWd3u8f+cZfuXIk1xdm2Ey8mALewPGC';
+wwv_flow_imp.g_varchar2_table(2769) := 'ohlyA15pj7Arx67jjvO7WaHFybLpIuQjn5DPPM7YPsEs0fQuwXbJ/ENTb2CDllLlrX/Kd3aALSQrgsAxAKQtQRsuDTYAgqsCxLEs';
+wwv_flow_imp.g_varchar2_table(2770) := '73zikGNW0THXsD8h1zl27himYo8htyAn738WX5i/wkA6tpFSbZLqJ0kbhMn1JwIgD8+eRmffuEqJiOfHW64+oRo+ms6nv2tA2ZE0';
+wwv_flow_imp.g_varchar2_table(2771) := 'AdU7BX4IBGxWGzg5mVZ+puiiQWg23RdAPKwLyBlzV7AAjcfB6QB6pTBec2ipi1Wkp/JRb+/BhyxhEYxq11+YPQ0v3DF01zXP0NTO';
+wwv_flow_imp.g_varchar2_table(2772) := '7SMwtnEQhDXgghlZag4midnB/iN56/h9rE99DsRnjLo9ayGLLzfGsSC]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[GRT0PsHsVdhq';
+wwv_flow_imp.g_varchar2_table(2773) := '/P31hgdZz/7drv+/4L16IQCeCIMZNghJWZMXEHegwCpQsxbnlEW9YlDNeOZZ62y/HAIoscxGLmVl+LH9L/HTlz3PvlKTunY3nRAs';
+wwv_flow_imp.g_varchar2_table(2774) := 'NPyaE/Fau8LvnriCPz15KS2j6HcjjO3QhLDQK9BgKmAOKPRewfTL+TzBKm9eHmZ/AaYjQ9iDQrqehACQjzDAWghXEoAFrr6atrgn';
+wwv_flow_imp.g_varchar2_table(2775) := 'LOqUQcL4e8vF9hvFEYu2wkzksb/c4Mf2v8yP7XuZS8oNGtqhZZx5scgjqVGXlabqaF5tVfnT1w7ypycPcrJVZcAN5z9jx1mQK5AI';
+wwv_flow_imp.g_varchar2_table(2776) := 'rAdmryK6TDCDsurQwBPJtHgMeuf+Q48EIE9hQGSXOGMtMXw8oA7ucwYnNfyF69A9wBFL2yjq2uWScoN/tP9lPrTnFQ5WGhiEhnY6';
+wwv_flow_imp.g_varchar2_table(2777) := 'me/qGFVHo7C83KzypdMH+MLJg7zaqlJzIkrrdffXQ/Ks0men9yqiKxXUgJAlhUCJ4OZg9u+V+w89FIC8hAEWCBfmApJ/Wh+kDe4J';
+wwv_flow_imp.g_varchar2_table(2778) := 'g3olWbvvseEvRIiFoGUUDe0y6rf5WztP8aG9r3J9/3ScO7BZH1URk2bwn54d5IunLuEb5/YyFpSoOhHlxPAzee7pswuTmoIDiugy';
+wwv_flow_imp.g_varchar2_table(2779) := 'hS3Fidz530nwVPb3s5fuP/QwBIB8hAGwIBdgiZfsLDgnDc7xJLnncX6tLmNSlz9MPAJfaa7um+U/Xf8wB8oNAptdwWrqNAVG8b89';
+wwv_flow_imp.g_varchar2_table(2780) := '/hYemBzBWEU1SfB1LM7fKIlCSZgkCw8Jer9KylXjn+ch9ofeuv/Qw2pHC7RNPhJZ8/k7H9SUxXtQ4x41SN1iS2Q26y9GmlBzxLLD';
+wwv_flow_imp.g_varchar2_table(2781) := 'C6i5EfdPDvONc3upuDpeW8/q2qxQdjTPzg1w/+QIfW7EoBfMx/k5uYXz9QG2BFK3uEcN3oMaNWWxfvwreZiYhNhGetrurFdvJECo';
+wwv_flow_imp.g_varchar2_table(2782) := 'szwzKMGCuOAowT1m8O7XqDELPvEoyPwCFycVAmOFAS/irvGdBCbb7SoGoaQM35rYhU48kVwZ/sUkKzv4oMYs3v0a95jBUYIknmDW';
+wwv_flow_imp.g_varchar2_table(2783) := 'lxf2KPZP6el+h4i4wWEmgzZ9uD7YKYt7X4T7rDm/cSfDXWdrwVih6kQ8PDVsvz2+yw75ge1Zcm3hdQBVJ7KvNKv2f5zeb2tOlKk3';
+wwv_flow_imp.g_varchar2_table(2784) := 'smrS55zkd9xnDe59EXYqmQTS3+kxQmwbUY/ft+cbnoIsmgWmyi8gzxrkuxH09IF3NqawFppayb9++np5qV4RXxl6KauxRy3WWuSX';
+wwv_flow_imp.g_varchar2_table(2785) := 'n75enp+riac66d31YI1jwYTAlEW+GyHphJCRJ5iFbfRUADJROUv8kBsWuT+Cp/X5Wv6e3G/BqrSIIL2g9WMBEbHff6kzPjiyc+yr';
+wwv_flow_imp.g_varchar2_table(2786) := 'rTeNl5UGa7F0v0DAIhYL/U4gDwRXTr9Wunzs/YeYAOnAdqv4FcS68T3rhailiWABntbxGGkkk0MP7TEr77hrXYGXwhKX5FZ7URNg';
+wwv_flow_imp.g_varchar2_table(2787) := 'gRLIqwae0NCO/3fv3H2LGI/WyFHAUjn3FqxEyTa29T1qR7CNSPjxW0ZPfOzm4RNwqTd3ctdu94lv3iRhoxShsKh0cbNDn0OS/1px';
+wwv_flow_imp.g_varchar2_table(2788) := '0WJErBz+/qd++Kp3vPh3Ifij+8YPfeKLp4aqrrXrz/NasAqxLq2Ro1gVUTn3ZqwK6Jk3UALGLXJvBNc72EtUPGa6/PZCbBNZ1Hb0';
+wwv_flow_imp.g_varchar2_table(2789) := 'XAAEaGlDWXXx5KB0fcoBecbAMX2+yKfXXpaKMN4MunIW67SpnHszoktYJ4R1xsxKRD59+9mrP/rW4TMOmr79V50uDe+7e+bJ2682';
+wwv_flow_imp.g_varchar2_table(2790) := 'Z1/aKyZwAZLm3hvi/KC0aBzr7tg71n/19z9bHr10zBjja6h85o5zVykRiYOTdSAG0T7WCWiOPEwwcBy3sRtUjyPiNDcQAY9oZA7s';
+wwv_flow_imp.g_varchar2_table(2791) := 'ler8tuQuDVhDbBNZZFB6LgAQf+DAWMrd8ALSeF+DPK7hJRMre/qzXmIVxmlj3Qaiy0TV09T33UXl3FtwWqNYp71mETAWKTvGvjBB';
+wwv_flow_imp.g_varchar2_table(2792) := '7T/fffaSf/GeXS8EoS77lf7WyFs++EjYmK61Tj832h5/adQ0G5VOfGTH9UJ/ZP94efeVY/6OPdMAQahLvue0fveuc4dfGNe1ft+s';
+wwv_flow_imp.g_varchar2_table(2793) := 'b/YXg+gyujRBa/QRdGkSFVWxbgOj2ogu0YPI5jzp5KGIQ4KGxV7nzI+pTltpuvTXRX1Z/v17WQi0ECepDOwoaTwXgjwQwUTvY7mF';
+wwv_flow_imp.g_varchar2_table(2794) := 'FyPGI6qeobH7XsS6YON8gFiH8viNeLOHsKqd/P7qH78AoRWGK9K+5+eP3DXa7wXaGOVgQTnpPjhZ04uu9GES0zDGuABKKTPX1u47';
+wwv_flow_imp.g_varchar2_table(2795) := '/sOxd702rau+stau6f2SeN+UCPtepjXyPawTINoHsViJqJ55O25jd+/yARcjQAAMC/Zt7nnvoMOXMh2ZzM7RyKztWWRtZ487To2/';
+wwv_flow_imp.g_varchar2_table(2796) := 'YWPjn7Tn4/0sEACF9qfibWqWeLazLoilufNhWiNHE2FYW9mhBUrK2NdmKf3m7WcPAaG2CpQTz19G+xjtGWPcTnxhjIfRvjHGVUrZ';
+wwv_flow_imp.g_varchar2_table(2797) := 'pJdh+GtfPX35ixOmWnbM2o3fKsS4tIeepLnrQVAaMV6y0R8QHd87VHabHpIcEpPJmGrYjiaP07ZfvTzJ+mIyE4A4F9Chqqc0dpuy';
+wwv_flow_imp.g_varchar2_table(2798) := 'yD3JEp/HEi1mekRi8MafJl5/XPADK4jxCAaP0dh9L6goGfyrvxvGilRda//8kelLT06Ffb6Dmf+4yrEoxyqlOvKFUvOvZwDfwZyb';
+wwv_flow_imp.g_varchar2_table(2799) := 'DWtffGT60jjxt4b9c2Liz6o0zV0P0h56EjEXiaDE/zH+9HlByArD4mOrA9dkiW0gy+qJTBufdsQLSI0/VemIHi7xLYMVrEQYbw5Z';
+wwv_flow_imp.g_varchar2_table(2800) := 'tNDUItqfzwvo8sSa4l0LeMpwrm79//vLJ68BIq1N18dSFDftCz91+9lDZ+vW99ey/j8f70/R2HMPYd/LiE47fV74KoKD8ebiVZOs';
+wwv_flow_imp.g_varchar2_table(2801) := 'C4xS7zLivHe5QRHIw+wPGQvAhr2A9MEsNP7clPMqjNvEuI2lXXyJRcC49dgg+o/HIrDKdUptRWqesd98Zm7f0ZPNHZ6jom5uI0lm';
+wwv_flow_imp.g_varchar2_table(2802) := 'f/30qeaOP3lo+rKqt9rZP/48osuEfS/T2HMPujQVG78s5qbFIYJxGxi3SfYNujmfXF4oAhuYaPIw+0MO7uy6vYD0]'')'||wwv_flow.LF||
+'        ';
+wwv_flow_imp.g_varchar2_table(2803) := '       || TO_CLOB(q''[gbRBHsqb8VvEKqw3lxQBLfPpxG4oL+CIpR6J+o9fP30lYEwXvYDEw9C//rXTRyab1vNkNbP/+fX9ReP';
+wwv_flow_imp.g_varchar2_table(2804) := '9Jf8sTphabw5ZY46kaywUgYeiuEZgHWMuL7M/5EAA1uUFpEs1G3wQXSNNAHoz5xOAy7L+vIC2In2esX/9dH3f156c3e05Kgy7IAI';
+wwv_flow_imp.g_varchar2_table(2805) := 'a8BwVHT3Z3HHHs/W9fZ6xeqXZPxU3pWnuXCLeX4o0EejNkGki8GIWm3jWqE95mf0hBwIAsRfQWssicrLAJQ8lS315iPkXsmQCcOU';
+wwv_flow_imp.g_varchar2_table(2806) := '/XE9eQIDIinzm9tNHoDsPNfEszH/8+ukr65EoZ6VcxcLwZve9hP1Lx/uL/338n1wkAi8mDT0nbDwG17DgKkDL5GP2h5wIgABNbVa';
+wwv_flow_imp.g_varchar2_table(2807) := 'XtE9uvjypId3Gm497uYCFCcA13uJ15AWMRaqusQ+90h750qOTe50OewGhNuI5Kvzak7O7//rp+r6VZ/9FhCxaKt5fGkGdTwTmYr5';
+wwv_flow_imp.g_varchar2_table(2808) := 'cQLrHZMzGY3GVk5CBrh/2sRZyIQCwyhuT3HR52cBxk1PjBzFxBtt4c2DWEySuPS8ggIjw6189fR3geo7q2J1JBol85vbTRyIry1j';
+wwv_flow_imp.g_varchar2_table(2809) := '+cqHMWtdkLSy4j2Ly0LLjIlIROG7iMbnCeFzTRNcjciMA864RS2h96nZNWXhq9Yrbe5JanA3PXGvLC6Qlws9NmNrv3HXuEiAMOnC';
+wwv_flow_imp.g_varchar2_table(2810) := '2dqiNOI4Kb3t8etdDr7RHqu4SJb8bTGYuznlPKjc92i4mHZdP6XhsLjEu0+5jawp1e0BuBADi+9aIltDHZEu9PK7PJ17ySMdj1zX';
+wwv_flow_imp.g_varchar2_table(2811) := 'kBSx4yvIH94xdAXi+g93obJPO/p++48yRJTcXbXA5c0nWnUvpMWlC+vG04nPxX2tEOeiIdRG5MqO0X8DrVDIp9pFndD6TfgvpRvZ';
+wwv_flow_imp.g_varchar2_table(2812) := '6lQZmQCqOsc+Pm9qvfOXVK4Ew2oAXEGjEcVTwO3edu/TBl8PhxWf/jRU0LcuaV1MyYmFS8Bn9uiKh1LvNrBvWMuRKACC+WY2FcdK';
+wwv_flow_imp.g_varchar2_table(2813) := 'Cm8txk82W3rXQrfXrVbrYxoqUXWv/5KHpQ2OzYfWCEuE14sfHD3ifu2fsCs+xF32UzpQ0L88a6imyJq1IPW5eN0kZ4jGdx6vPnQB';
+wwv_flow_imp.g_varchar2_table(2814) := 'AfMPmD0aQ+Bvy5PLuVV6Q+Qq2Fp2/vSsbnQV8ZRir4/3GN84eBqL1eAFJ/iD87TvPHnhuwtTKjrUmvftdifeXQmHcFsZtJIKaY9I';
+wwv_flow_imp.g_varchar2_table(2815) := 'w9Uk93z9AiMdynhJ/C8nlHU33SAfGIp7Ayderaj6Jq0TiBGA3Z6zl3W5jRaqesbc+MHn4sZPNHb7DmkqE0w0/Y7Nh9be+de6qkmO';
+wwv_flow_imp.g_varchar2_table(2816) := 'Z9167Fe8vhRWshEkiME/VXouw0Fs9aRBPCIzNTTv8xcilAEAsAnPGoBsGeS7PWf8FJE9Zlya6X7yyjCFaLK4Qlwh/48wVrLFEON3';
+wwv_flow_imp.g_varchar2_table(2817) := 'w85u3nz302iylkkoPU+tivL8USSJQlybi/51XS0pJ61Se0+iGYc7k0/VPya0AYEG7EJ7QSJ08X+l5kgRgnLXuQfnqMq64tlZqrrW';
+wwv_flow_imp.g_varchar2_table(2818) := '3L9gotJrioIXbff/8kelLK+5511+MTzDwAo3d3+lCvL/UZwRQyapKjhOBC1Eg9Xjs6pxPXPk1KwVOA0qv2rihbo5v4jxWYZwA49Y';
+wwv_flow_imp.g_varchar2_table(2819) := 'R2yt3dem8gFKaphb1S186eT2s7mEns3/0yW+cPXyubn3P0VjjIFbRGn2U1uijXYz3F8Mi1sG4dYwTJO+bcyxYNx67ToM8W1lOLy2';
+wwv_flow_imp.g_varchar2_table(2820) := '5geXTFpWT3aArk2Ss3QbGaWcwUF/vntuoLFU3sve91Bq97fHpXSuVCGvAd4geO9nccesDk4ervrZW+2KdNvW99xAMvICYDE7PWNh';
+wwv_flow_imp.g_varchar2_table(2821) := 'bMS87A1dCgWrGYzjPE1g+TUtAQiidgp5NpBsldVW9mbibbRbXvEheQOkyAJ++48wRQJZ74Drd8PON01fUI5RnfKLSGI19d6LLY4n';
+wwv_flow_imp.g_varchar2_table(2822) := 'xZ/DBLPPdlXO1M3A5bDx2S6fisZzXa86fACSzvz9ucWdsPk5tXAPanyZTxbooL9AYOSo1R9kHX9bDv3PXmUsdRwWLlQiH2ojvqOi';
+wwv_flow_imp.g_varchar2_table(2823) := 'xk40dtz9T39enXNvqf0Gae+/BOu043s9UiW1ybzcRDrgzFn88v15A/gQgofQauVXNRZlPAM6S/Sx1YV6gvvtePDfgc9+euQKMlxT';
+wwv_flow_imp.g_varchar2_table(2824) := '4LPqHv3bb2auaoaOCnY/QHH00DmWydsPmE4GzmycRmCLJWM4p+ROAJPnnTdrMx92amE8AzvUwAbgScUgQVk6LOXCnfXZurPbbt88';
+wwv_flow_imp.g_varchar2_table(2825) := 'e4KKNQul239u+19z9zeen9sqBu22r/0XJJN5flDQROLd5EoEwHwZ4k/lNBubrkpIb5k9YenEiVOdIE4D1jBKAy5DkBSK3Lmb/t/n';
+wwv_flow_imp.g_varchar2_table(2826) := 'NRx64amyKC0uE46U8+dR9T1xZ3/etbOP9pZhPBNY3TyIQQEAF8ZjOzbywgByN1PN4Y1lfwRoRAAddmgQV5u4hIxaMi+8ae7z8YOn';
+wwv_flow_imp.g_varchar2_table(2827) := 'fPXLnISCMtJbQaPGUE/7P55/f9e3wjpGK37LWeJK7D2EBFcb3GGcTTQ4xeR3T+RIAAQnAnc2nWi6PTXYA5nVkWoxRUlXK3vrCw5e';
+wwv_flow_imp.g_varchar2_table(2828) := '+Ojvb5zuOceLDRJx/c9/fXCNicxS+LIYk9ziv17cIiVfrzlokh15tfgTAxp6zW7c4m2btPyFdpvLzvUxlsfiiONtq+z93119fA2g';
+wwv_flow_imp.g_varchar2_table(2829) := 'F0WceeeDA9ybHBqviWJPXLXfzicAMl1nXiwKnGY/tvEUv+TIzB7wZ4oqUzcQmKlTRWOlTjv3rl4/vO3r21CAgv/vYg1eUROX4qiH';
+wwv_flow_imp.g_varchar2_table(2830) := '7QqsNopOxnbNl7UxOB14SC06evehFidfddZKhzrcLHeOIMBWF6j8dfejSt++5ZPK5manaoONZndfZP2XBSosbVuMdl5tlsEgytnM';
+wwv_flow_imp.g_varchar2_table(2831) := '2NHInAKrNpnmmwIWuqei4CWjOr19bK32Oy18+/8ylf/XisQNVxyH3xg9JqKXje93cM7//flMgydjO2fXmRwBUnEB3mjYeijm7Ucu';
+wwv_flow_imp.g_varchar2_table(2832) := 'TJgA3DwKExqjAGOUgm+p2b8pEoMRjW4WSqwR3vgIpG0+ieZ9BL8AIVgWY0mR8COgmunYh9y02LkSIDw0tTWJVAN0/C7VzSDK2c3a';
+wwv_flow_imp.g_varchar2_table(2833) := 'z8yMAiYu06QRgvmVVs4db]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[ZDvHprtamx662o2Wa10kEYC8hbj5CAESF0m1LRKB7fa+E2';
+wwv_flow_imp.g_varchar2_table(2834) := 'stcafBDb5RnAC07pyyKhTJ646PrUTadNWdsxL0m42fGjQ/BhTLnXmyUZIdrqptifolLr7MgRDkQwAWMO8BdNiObHrDjbE4rki5sv';
+wwv_flow_imp.g_varchar2_table(2835) := 'EFGYmPvDbl5wEdb2PMwUPd0qSbrsp1kWjAwWnRifylbTVBRxalBAsdl4I0BMgZ+REAG8/8wWg3kiQWTykw2lCuKlNvNGRy/FGM9h';
+wwv_flow_imp.g_varchar2_table(2836) := 'JpWOfLWoFKGO04fa043hDG5kTXtzLWiuNJ5J6edOtnn4Kmh2ykL5kIygntkP9GVatWaTUNylGBSdr6dopEALru3a6RfAiAxD00o3';
+wwv_flow_imp.g_varchar2_table(2837) := '5h6q3deYMy1vbX+pXReqb17Tv+yfSn/tW9QAXW3bF53k+pffrfftNRfUOWoBtzR8EFWCvKl9A7dW7qP73po8k3N+IzKqA5+Gu/+f';
+wwv_flow_imp.g_varchar2_table(2838) := 'bKm3/k88rpH5it120L1ZXnKCb+yss0kQ8BSLEgUTde19qW51nbCKed27/8U9Of/MX7Gdq1i3pj/U6Z5yki3Sq9562XKb90qY0iyM';
+wwv_flow_imp.g_varchar2_table(2839) := '1j3dKIjSKUX7q09Lfef6R954MncJ0yYbj+1vu1av/0L/+r+/m/wn+qf+CDf9DGG5AwpCs5gZyNkHwJAHTrBhmpVJ3G/Xd+0nzyF+';
+wwv_flow_imp.g_varchar2_table(2840) := '9i1/79nD0ZbOgVvZrQrjc5fPBSKZVKttU2yLIdtwo6gYhgrJFyqcThg5fy9Tuexq2VCOrrF4BgzrBr/+j0J3/xLrVz3yfdm9/z60';
+wwv_flow_imp.g_varchar2_table(2841) := 'TTOl7X3dps/QFrrcXzHTs1fsZ8/lNfpb9/lKlz4YZf149Tit6u0TeiFNjcHv6y9bAYlMLbNfpGwCTPYmNMnQvp7x81n//UV+3U+J';
+wwv_flow_imp.g_varchar2_table(2842) := 'n4aNUN5Ic2CVtfAARDqQTt9vM8+b0JjHEJgo0/2HpoAFf6qjfFrTU2QSntlsEKxiB91ZsAN3kWGyMILMa4PPm9Cdrt5ymV4rGzxd';
+wwv_flow_imp.g_varchar2_table(2843) := 'n6AgBgDKLUAKXSBjPGCb4vBEHkHdo/ZD3/sI2i7sSLBYsjIjaKsJ5/2Du0f4ggiPD9jd9/EUup5IlSA+s/UnVzsQ0EQByaDUv/4N';
+wwv_flow_imp.g_varchar2_table(2844) := 'XOR/7ZVczN1akNbTC28wUI5MYb9ovvjaK1ZVvcy9yg0NqK743KjTfsB4Lkmayf2pDD3Fzd+cg/u4r+watpNixIkQPYGlhDqeSpD3';
+wwv_flow_imp.g_varchar2_table(2845) := 'z0E0CEiMH31//ZPStA4Fx28IiUfI/8Hv66dTEYKfmec9nBI0CQPJP14fsKEQNE6gMf/QSlkgd2WzzTbSIA4lCf1bL3kh/0br3zM8';
+wwv_flow_imp.g_varchar2_table(2846) := 'xNzAJ63Z5AnHSyanjwWpSCXJV2bBssSqGGB68F7LoTgfEY0MxNzHq33vkZ2XvJD1Kf1dth9odtIwAA4jA7E8llV37Y+8Jdn6ZSCa';
+wwv_flow_imp.g_varchar2_table(2847) := 'lPzjE05K45fkwSgKpcvRatKRKAWWAFrVHl6rWsJxHo+8LQkEt9co5KJfS+cNen5bIrP8zsTLRdjB+2lQAAgsvUhJZ9l33Yv/XuLz';
+wwv_flow_imp.g_varchar2_table(2848) := 'u/8pk3MTk5ThBEsRD0rXw/FiYAfe/yIgGYEWki0PcuX1Mi0O9TDA25BEHE5OS48yufeZN/691fln2XfZipCY3ksDami2wvAQAQcZ';
+wwv_flow_imp.g_varchar2_table(2849) := 'ib0VT7bnDe9UN/7n7hnn/v/sjHBmMhmGtSG3Jit3CpwRQnANX11+0T3y0SgNmRJALdUXX9dftYNhHoy/xzDeaaTE6Ouz/ysUH3C/';
+wwv_flow_imp.g_varchar2_table(2850) := 'f8e+ddP/TnVPtuYG5GI9tn5k/ZVmo3j4hDs24Q5aj9B3/S/vQvfsD7sY//sfnO7bfp3/7Vp4jrEWsMDXmEoWFu7rx7WbOKgLZz9Z';
+wwv_flow_imp.g_varchar2_table(2851) := 'E3Sbns2XpjWw6cXGCskVrFc64+8ib+5zeOUrN9BAsSsn19Cs9TTE6G1INZwDr/4leuVe/4gQ8wNPoTUusfYW4GgrZB1LZ8httTAA';
+wwv_flow_imp.g_varchar2_table(2852) := 'Akzt4xO63F9UY4cPj/dH7koz+t3vuB2zh5/K/D//jL3+GVF8YAH6jOJww9BOqowf5rkxcqEoCZEd/7+Wfh+ULNj59TfVIzNzcHBB';
+wwv_flow_imp.g_varchar2_table(2853) := 'y4fMT7+V/7YfYf+tvSP/gBqn0+jTrMTsfinY6Fbcj2FYAUEYcotMxMGZTyZefeDzK654Pe7375RTs7fYd55ujt5rP/z2OMj08CQp';
+wwv_flow_imp.g_varchar2_table(2854) := '0qg4MVKpWrzycAixRANsSJQCqVqxkcrHB2sgU0AMvIyID6mX97i7r6xh+Q/sH3S9/AYUSgMQczU5q4Aci2nPUXUggApEm8uPZ7bs';
+wwv_flow_imp.g_varchar2_table(2855) := 'aAFSlXDsvg0GE1uvuf2be963ka9e/ZU698K/r2Xz/qffVzM3juIas1FPF/liirNXjuIS+aroT/4H8dcL//b79R9h54L9XaTeKXr6';
+wwv_flow_imp.g_varchar2_table(2856) := 'BcgXYL6jMm7uAiheEvQPyvPlG4sItiDTZuRE2pLPiluDak3piTyVeO+WMP3YjrOhvpJ1LQAUQginQw+pajdujAEWrVPkRB0IZ2K2';
+wwv_flow_imp.g_varchar2_table(2857) := '79JggUOzUXo/AAlkTUvGcftAztlsUaoVTrU/2VN8m4LWw/D1gQsY7qr7xJez7MThtEWQRJtmcXs/0yFKq4KhK3UZSyWluZOmmwpg';
+wwv_flow_imp.g_varchar2_table(2858) := 'j984AA1iBTJ43V2iIqcfGLGX81FB7AWhAQG4lqT4kVpygAzgMWrDio9pQSGxWivEYKlVwLoiBqI0E9mWAKBcgeGztoQR2idjHxr5';
+wwv_flow_imp.g_varchar2_table(2859) := 'Hibq2aeHeoCuugg2Kg5QlRoIP42cimOusoc4pRvFosWFFIexqxunA184SAWI20p7GiCvtfA4UArAmLBFNZX0TBEsTPprD+tVAIwG';
+wwv_flow_imp.g_varchar2_table(2860) := 'oREBOhgplilskbiXemghnEFInAtVAIwGpJE4Bho0gA5o4kERg2ikTgGinu1KpYkACMigRgLhEFUZEIXCvFSF4NqYvZnioSgHklSQ';
+wwv_flow_imp.g_varchar2_table(2861) := 'Sq9lQRoq2BQgBWg8Qt4qU1Hjf/KgZX/kiOmJfWeNzOvxDpVVEIwGoQAR0iwdx2ahe3+RAnfkY6LM5oXSWFAKwKBVELiRrxvwsXII';
+wwv_flow_imp.g_varchar2_table(2862) := 'fEGzclakDUohjaq6O4SysSZ5hVMbPkn8RTU8FcsVKzSgoBWIn5NeaiAjD3pInAoKgIXC2FAKyEgFiDtKewIsWgyjMWrAjSnkKK7d';
+wwv_flow_imp.g_varchar2_table(2863) := 'qrohCAFREwUZxcKm7XJkDFz8pEFAqwMsWIXgnlIOEcEs6BKgpM8o1d]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[5HkVLEchAMsSZ';
+wwv_flow_imp.g_varchar2_table(2864) := '5ZVMaNsImKPTc17bIVgL0chAMtRxJSbjyJnsyYKAViOdJ95kVXePKR9G4pVm1VRCMByFOvKm5CibmMtFAKwLAqJmhA1KW7VZkJB1';
+wwv_flow_imp.g_varchar2_table(2865) := 'IyfXfHclqW4O0uSbAEOZuIEYDGTbB4kTQTOFFuDV6AQgKWYTwBOFwnAzcZ8InC6SASuQCEASzHfaHKySABuNuYbuE4WicAVKARgK';
+wwv_flow_imp.g_varchar2_table(2866) := 'ZIWYCqYLdzITUcavs0WLcJWoLgzi5L2mCsOm9i0zPdwLA5xWY5iZC9F0mWWosvs5kRYkAgshvlS/P/3dO+hk3L+EgAAAABJRU5Er';
+wwv_flow_imp.g_varchar2_table(2867) := 'kJggg==]'')),'||wwv_flow.LF||
+'       photo_mime_type = ''image/png'''||wwv_flow.LF||
+' WHERE candidate_id = 11;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'COMMIT;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'UPDATE tms_can';
+wwv_flow_imp.g_varchar2_table(2868) := 'didates'||wwv_flow.LF||
+'   SET photo_blob = apex_web_service.clobbase642blob('||wwv_flow.LF||
+'                    TO_CLOB(q''[iVBORw0';
+wwv_flow_imp.g_varchar2_table(2869) := 'KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAABZYklEQVR4nO29d5Sd13ne+9t7f+W06TPoJEGwF0kUJaoXi7IsyXKREjlxXOO';
+wwv_flow_imp.g_varchar2_table(2870) := 'b2FeWvRI7sh1f33XvXXHiktiKHefacq6LHDt0txWHEkVKlESKIMUCgr2gECQaAcwMpp76lf3eP77vDAbAlDMzpw1wnrWGHAAz5+z';
+wwv_flow_imp.g_varchar2_table(2871) := 'z7b2f/b7PW7aqfWaL0EMPPVyW0J0eQA899NA59Aighx4uY/QIoIceLmP0CKCHHi5j9Aighx4uY/QIoIceLmP0CKCHHi5j9Aighx4';
+wwv_flow_imp.g_varchar2_table(2872) := 'uY/QIoIceLmP0CKCHHi5jOJ0eQA9thDSY9a1Ua8fRQ9egRwCXAi7c2Av7Vy/6HtDO+X9e8rUAic//M3bR94vfp0cUmx09AthMWLz';
+wwv_flow_imp.g_varchar2_table(2873) := 'RVfofpUGnX0qf+7OQ/p06t3FVgx6f2HPvIQLWJt9bm/yb2PO/R84nhx4xbBr0CKCbUd/winRjO6BNurHNuU2PWvpkX/z7yV809r6';
+wwv_flow_imp.g_varchar2_table(2874) := 'LN7BS4Jjke7P4tdP/LJBBnPzfxsn3YhcRT48QuhU9AugmLGzY9GQ3Bky66ZVJT/glfv7CE7hV41oKSqcE4S4MJdn8cUIGcZSSgj3';
+wwv_flow_imp.g_varchar2_table(2875) := '/8/XQFegRQKexsCk0OG664eubXl3wcy3e6OvFRRqEAu2CcRNeEElIwEYJIcTRIjejRwadRI8AOoH6htEaHC/ZKNpJ/gyLzOtu3O0';
+wwv_flow_imp.g_varchar2_table(2876) := 'N4sKxaychN5fUVYggDpMv2yODTqFHAO3CUpveOOeEOdnkG35VyPmagOMlX2JTq6BHBp1AjwBaDZFzC964iZl/2Wz6FbDwuS8ggyg';
+wwv_flow_imp.g_varchar2_table(2877) := '8Rwb1Z9dDy9AjgJZAzoXh3EyyuHUqoV/Om345LCYD10++bAxRAFHtXBhy1SSGHtaKHgE0EyLJGtUOOP65017obfpGsSCKGvCyCRl';
+wwv_flow_imp.g_varchar2_table(2878) := 'EYUoEUfIse1ZB09AjgGagvvEdF5xMYurXk2h6G3+dqGsGqVXg+IlbEFVT94AeETQBPQLYCOo+an2B1lNtpUvDdZsVdRJ10tCijRK';
+wwv_flow_imp.g_varchar2_table(2879) := 'LIAp6OsEG0SOA9WDxie9mEzV/IXTX4bFdyliIpDjgp25WWOlZBBtAjwDWhHSDL2Xq99BGpPNgHNB951yDKOyJhWtEjwAahUii5Pt';
+wwv_flow_imp.g_varchar2_table(2880) := 'ZMF7P1O8GXOgaOAEElSSC0LMGGkKPAFZD3cf0sklIT6nexu82LBBBmmsRVpOvnj6wKnoEsBJEkkXlZZPTfxOp+gtlQnUlHUEaNI1';
+wwv_flow_imp.g_varchar2_table(2881) := 'V4lADsrB/NsU2qs+Nl03mLagkQmGPBJZFjwCWgkiSxOPn0ww1unbjS/1LkkWuAKUERyXjNWZxDwGp7+uLd/S5PQ9y7h9jm3wfiUJ';
+wwv_flow_imp.g_varchar2_table(2882) := 'ELcrmTeikK7eWSJJHkCkkBBCU02SirhxtR9EjgAuxcOrn0sYa3bXx65tdAJ1udKMEdLq5bdIAZDpwEKU4UfYoxgZHW05VPE5UPVx';
+wwv_flow_imp.g_varchar2_table(2883) := '1sTWgEEJR7MoEbM8GRFZTMDG7cgFKhCEvSpOcUvfHKmJRRKKwohaIp3u2WF2w9ZKoQVDuWQNLoEcAdVx06nePuW8FBIVC8LWgTLy';
+wwv_flow_imp.g_varchar2_table(2884) := 'w2adDh7OByysln9fKPkdKGaZCh2MVDyuKmdChZhVaQWQV8eKTfjHSvzMKHC1YAV8Lg26EVsKV2YBhN2JPvsruXI1r8jVGvJAhN1o';
+wwv_flow_imp.g_varchar2_table(2885) := 'gBbGamlULY9XdsNfqOkDPGlgSPQKA9NR3wct3zalf3/SOEjKOTcx3Ubxe8ThSyvDifJanZvMcKWeYDw1zkSFON7BWgqeT09gooeA';
+wwv_flow_imp.g_varchar2_table(2886) := 'kn0eZxj5X/Ry3AjOhgwCnqgmh1N+j34npc2P25Kq8eaDEzX0V9uSr7MgGC2MNY00kXUIGdctOOxCU0pBhpwfVeajaZ7Z0frV3DOl';
+wwv_flow_imp.g_varchar2_table(2887) := 'xWFf4O7zxBbCiMErwTLLpq5HhYDHLUzN5Hp0u8HIxy9nAIZKEHDyduAB1nz95HbXwUTb6iepbRKm6OJggksQFCKxaGMuIF3FjocI';
+wwv_flow_imp.g_varchar2_table(2888) := '7hoq8ebDE9YUKGScGUQSxJhaF7gY3QakkShBUWFoQuXxw+RLAQlw/n2byde4x2NSnzxoLxhKEhufncjw41ccjZ/s5UvKpWo1RQkY';
+wwv_flow_imp.g_varchar2_table(2889) := 'Ljrbn9DpRG97k68Viv1+AyGqqqTaQ0ZY9+RrvGpnj/cPz3NpfxnNjiDWVWCdygurg0lMq6UNQK13WeQOXJwF0gclfP+21Evz0tH9';
+wwv_flow_imp.g_varchar2_table(2890) := 'lPstDZ/u5b3yAl4tZalbja0tGC1pJxzf8alhMCFYUVasWPsONhQof3jLLe0fmuKavAqKoxXrhGXRk+ymV6AGXsUtw+RGASGLuezk';
+wwv_flow_imp.g_varchar2_table(2891) := '6lc0Tpyaz68RgFY9M93HP6SG+PjnATGDwjZDRNtn0oupd+TcdNAkhJGSgqcWKQS/mztFZvnPbNO8amgcthJEhSl2fzkAl4mBYvex';
+wwv_flow_imp.g_varchar2_table(2892) := 'I4DIjAElOfdfvyKlfP+08J6YaGb58Zoh/OD3Es7N5alZRcGKcNERnL7FZ0amGEImiGBl8LbxxoMT3bpvmo1unyTgxQWQWnlHboRS';
+wwv_flow_imp.g_varchar2_table(2893) := 'EtcQauIw0gcuDABZCfIWO+Pv1zZxxLNVYc+/4IHcdH+XF+RyOEvLGopQQy+Wx8Exq2ZTSKMHNfWV+8IpJPrJlhoyxVKOkZVrbIwc';
+wwv_flow_imp.g_varchar2_table(2894) := 'LukDxsgkVXgYEkGaFdUDsq/v52TRu/9BkP79zZDsvzmfxtJAz8SV52jeKulVQjg2BVdzcV+Ff7TnFe0fnQKASm/brA4vFQYm51K2';
+wwv_flow_imp.g_varchar2_table(2895) := 'BS5sARJJN7xfaLvbFonC14JiYQ/M5fufINr452Y9WXPYb/0IsJgIr8L7ROf7VntNc11cmig2hbbM+UBcHa8WEDC5hS+DSJYCFzd+';
+wwv_flow_imp.g_varchar2_table(2896) := 'XTmB7PubCqe/EzIeG/358jP9xfIxSrOlzEjmvt/GXRt3kn480eWP5oSsm+NErJuhzYypRu62BtOqzNn9Jk8ClSQAd2vxWkkXsOTG';
+wwv_flow_imp.g_varchar2_table(2897) := 'PTPbznw7v5MB8hgE3xlxGPv5GUX9Ws6Hhhr4qv3DtSd41OpeKhO3UBi59ErgECUCShh1+jiQQ1Z6PF6e+fiiK//LKdv7s+BhGCTl';
+wwv_flow_imp.g_varchar2_table(2898) := 'jiXobf11wlFBOMwh/+IoJ/vU1p3CVUIlNG10CBViolSEOuNQ0gQbvi94kkHTzZwosXfHSGkSiyLoRRys+P/HUNfzR0S3k]'')'||wwv_flow.LF||
+'   ';
+wwv_flow_imp.g_varchar2_table(2899) := '            || TO_CLOB(q''[HEvGSG/zbwCRKDJGyDmWPzq6hZ946hqOVnyybtTG55qmCmcKydrqgjqRZuLSIYC62e/l2zZJ9V';
+wwv_flow_imp.g_varchar2_table(2900) := 'r8nBfy1TND/OiT1/LkbJ4RL0ruw7y01kpHYNOizBEv4snZPD/65LV89cwQOS9ceP5tgaQ5JB1OG282Lg0CuMjnbz2sJA/P15b/9s';
+wwv_flow_imp.g_varchar2_table(2901) := 'p2fu75qyjGhj4n7p36LUAkij4nphgbfu75q/hvr2zH1xZNG4lWqWSNXUIksPkJoAOCn5WkZl5p4d8f2MVnD+8g78R4PaGvpYhF4S';
+wwv_flow_imp.g_varchar2_table(2902) := 'kh78R89vAO/v2BXSgtC/0LWg+55EhgcxPAQkVfOze/wjNCMTb8+P5r+MuTo2zxQ+wmztnfTLAkc7DFD/nLk6P8+P5rKMYGzyQ1B6';
+wwv_flow_imp.g_varchar2_table(2903) := '3HIhKo94ncxNjcBFDv4KPbufkt85Hhp5+5msdnCgy1VZDqoY5IFENuxOMzBX76mauZjwyese0jAa3StbfJt1CnB7B+SFtz+xdv/p';
+wwv_flow_imp.g_varchar2_table(2904) := '965mqens33Nn+HUSeBp2fz/FS7SWBxlmnXFmivjk1KAO1VZJfa/IO9zd8ViEQx2GkS8PJsVhLYfARQr+dvU0mvAEb3Nn83YykSMN';
+wwv_flow_imp.g_varchar2_table(2905) := 'q2Z0uKJGuxC1rKrQebiwDqnXzcXPti/QKOEX7lwE72zRQY8nqbvxsRiWLIi9g3U+BXDuzEMdK+/SiSrEnH3XQksHkIQASMaau5FY';
+wwv_flow_imp.g_varchar2_table(2906) := 'ki40X81sEd3H16iFE/JLS9zd+tCK1i1A+5+/QQv3VwB5m2knXdLd1ckYHNQwBKnevh1wbEosh5EXefHOVPjo8x5MVEvc3f9YisYs';
+wwv_flow_imp.g_varchar2_table(2907) := 'iL+ZPjY9x9cpScF7UvN0PrZI1uoqKhzUEAIknr7jaKfhkT88JMnl89uJOMbqM52cOGIQIZLfzqwZ28MJMnY+I2i4LZTWMFdD8B1P';
+wwv_flow_imp.g_varchar2_table(2908) := '1+pz0ii5C0qy7Fhl968UoqVuO2S1DqoSkQwNWWitX80otXUko7C7VNFHQym0YP6H4CqJtVbavpV3huzO8e2cahUoaCiXvpvZsQsS';
+wwv_flow_imp.g_varchar2_table(2909) := 'gKJuZQKcPvHtmG57bJCgAW9IBNkCTU3SOsq6ttepA2Let9dLKfvzgxyqDbK+zZzEjCgzF/cWKURyf7ybpR+0hA67ZGq9aL7iWAhf';
+wwv_flow_imp.g_varchar2_table(2910) := 'hqe2qwBTDKMhc6/PrBnWlr6u6evB4aQXKpyq8f3Mlc6GBUO/MDvI61oG8U3UsAWoPbPjHFisJ1LH92bAsvFzPk2pZX3kMrYUWRM5';
+wwv_flow_imp.g_varchar2_table(2911) := 'aXixn+7NgWXKeN8yqSrOEudgW6c2QdMP19E3OkmOVPj/dM/0sNdVfgT4+PcqSYxW9XVAC63hXoPgJYMJ3a2X5JUAr+4LWtlKJ29p';
+wwv_flow_imp.g_varchar2_table(2912) := 'vroV0wSihFhj94bWsapm/THHdkPTeO7iMArcDJ0k7VP+NYHpvq44unB+l3e6r/pYhYFP1uzBdPD/LYVB+ZdroCSLKm237V0eroLg';
+wwv_flow_imp.g_varchar2_table(2913) := 'Ko+0zGtI2gFUkXnz89Ntbek6GHDiCx9P702BixKNp2z7KQrOk2alqNonsIoJ7r77RPNbWi8BzL83M5vjXVR6Gtp0IP7YYVRcGxfG';
+wwv_flow_imp.g_varchar2_table(2914) := 'uqj+fncnjtFgQdv+tqBbqHABSJWNLmPGql4H+eGiYU2nci9NAxKIRQkjlve8q+Uukab/P7roDuIAARMG7y1caW3q62nCp7fG1igJ';
+wwv_flow_imp.g_varchar2_table(2915) := 'zTrp5yPXQSVhQ5R/jaxACnyl5707w7sM5XQ3cQQJuZ0YoisBpthPsnBpmsObjtShDpoaMQwFWWyZrD/RODaCMEVreP/Dtk6S6Hzh';
+wwv_flow_imp.g_varchar2_table(2916) := 'OACDheW32jjBPT5wco4J4zg/jtbB7RQ8chAr4R7jkziAL6/ICME7fvzY1J1nwXLDqn0wNAqaR6qg3nr5D08/+H14d5veYxFxpeKf';
+wwv_flow_imp.g_varchar2_table(2917) := 'n42mK7yTHroaWwKHxteaXk8x8P7KTfjdnhB3zX9mkiq9qwEtKKwSho+Tuths4SQD3fv02nv0iSEPL3p4b5xuQAg25EzvS6+V+u0A';
+wwv_flow_imp.g_varchar2_table(2918) := 'ruOjHKTOjwgdFZvnfHFKGo1lvn9bCg40FY66g70FkCaOPpvxh9TsyoF5J3YkLbeS+oh85hwI1wlNDXLhdgAd1hBXRu9Z/n+7f3ra';
+wwv_flow_imp.g_varchar2_table(2919) := '0oIlG9jL8eiNO10PYI0GIroINaQOcIoEOnfw89dA9SK6CDLkBnCKCDp38PPXQNusAK6AwBKMD4HXnrHnroOhi/Y9mB7SeAhWyoS+';
+wwv_flow_imp.g_varchar2_table(2920) := 'N65R562BDqnYQ7lB3Y/iiAIimKaM+FvmuCUqBSf0wEpEdQlwSUOhfaE+nCpK/6nojDtr91ewmg7vPoDuVCK5WSjrDY5tJKgYIwiq';
+wwv_flow_imp.g_varchar2_table(2921) := 'mFFkRwHYPnGpQCa7ttxfTQCLRWiEAQxoRRDErhuxrXSbQnu7AG09NISAW5Ns+3SLIntIHYttUdaLMFIGC8JAOjUzQs8XnvbbSiEk';
+wwv_flow_imp.g_varchar2_table(2922) := 'SEkWXbcJ7dWwdwjObk5DzHJ+aJraUv6xH3SGBTwWjFfCXAaM0VY33sHO0jii2vnZnl9FQJ19FkPeeclSeSrA1MZwasVbI34grtZI';
+wwv_flow_imp.g_varchar2_table(2923) := 'D2EkD9Q3bK9hcB7ELYxWjNdCngmu2D/Oh33Mo7b97BYCGDVopiJeCFo5P82Vdf4Fsvvk5fzj33Ej10Leqm/mwp4J037+CHP3QLt1';
+wwv_flow_imp.g_varchar2_table(2924) := 'w1SiHrYUWYKVb51ouv89+/8jyvnJphKO+d+0VJrL/OCHL1w7Ha1u3RPgKQ+gfsYEMEOZf2a7Ripljje991HT/3fW9jIO9TqoXUgi';
+wwv_flow_imp.g_varchar2_table(2925) := 'ipGHM077xpJ++4cQd3ff1FfucLT5JJXYIeCXQn6tZ7NYz5zPfdwQ/eeTNKKSpBSLkWooBC1uPj77qOD7zpSn7zbx7nfz1yCCeTS1';
+wwv_flow_imp.g_varchar2_table(2926) := '5ASNaI6kBwTEj2hnaT7MA25Qa095Mat7PNEFICMFoxXazy8Xdfyy//8/fiOJrpYpXYCkoptEp8x/lKQKka8mMffSM//0/eRrEaLo';
+wwv_flow_imp.g_varchar2_table(2927) := 'iEPXQflFIUqyE//0/exo999I2UqiHzlSBxsZVCKUVsheliFcfR/PI/fy8ff/e1TBermHq/PulgbYgi2SNtRPsIQOvEAmjh8bniKy';
+wwv_flow_imp.g_varchar2_table(2928) := 'eyPmhFqRpy69Vj/Pw/eTvlakgUWRyjL+Imo5NFMzVb5vs/cBOfeM/1zJWCc4ulh66B0Yq5UsAn3nM93/+Bm5iaLaOUumiuFOAYTR';
+wwv_flow_imp.g_varchar2_table(2929) := 'RZytWQn/8nb+fWq8coVcNz2tQK]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[a7Slxt+CldzGbdmWd6nH/lu4cRTgrNTO28bJBreCo';
+wwv_flow_imp.g_varchar2_table(2930) := 'zW/+P3vIOe7hLFFrzAupUArTakS8jP/6K3s2T5ApRYlkYMeugJaKSq1iD3bB/iZf/RWSpUQrfSKVrTWijC25HyXX/z+d+BoDVbSN';
+wwv_flow_imp.g_varchar2_table(2931) := 'bJ8YZCjpLVGrFZtzQloDwG00LQRwDWWA8UsXx4fxDMxFwn2klzzpbSmVg34vvddz5v2jFGsNHaaKwVhbBnIefzEx25bFD7qoVtgR';
+wwv_flow_imp.g_varchar2_table(2932) := 'fiJj93GQM4jjG1DLrTRidj7pj1jfN/7rqdWDVBak4QEz59jK+CZmC+PD3KgmMU1Lewg1UZXuU0EoEG3JvPPikJp4bm5LJ8/ugXLE';
+wwv_flow_imp.g_varchar2_table(2933) := 'g0d6n6dxJDp473vvp04DFFrsEiMVsxVAj70lt3cds1WSrVwRcuhh/ZAa0WpFnLbNVv50Ft2M9cgqdehtCIOQ9777tsh05eGArlIC';
+wwv_flow_imp.g_varchar2_table(2934) := '1AkjUQ+f3QLz81lUbpFPSRFkr3SJiGy9e+yYP638K0EDpayPDeX48XZfNruefG/J8quCqvYHTdTyYyibMhaaVYEHK35yB1XE0W9H';
+wwv_flow_imp.g_varchar2_table(2935) := 'kLdAAVEkeUjd1yNo/U6zhiFsiGVzCh2x82osJpsvkUEYAU8x/LibJ7n5nIcLGVbKwZo3TY3oPUE0GrzX1nmA5f9M3kA7j49hNLCg';
+wwv_flow_imp.g_varchar2_table(2936) := 'qe2MJGCaJfoqjvQ65w9nYaU3vuGXewa6yOIGjM1e2gNlIIgsuwa6+O9b9hFJQjXrc1ohOiqOxDtsrC707UjJFbm3aeHANg/k2c+c';
+wwv_flow_imp.g_varchar2_table(2937) := 'FvbSLZNbkAbCKB15r+IwhjhtbLP61WPQTfiG5P9TFQWtXsWCyiIIyQ/jAxfte44a33BbRvOc8vuUSpBLyzYSdRj/LfsHmXbcH79h';
+wwv_flow_imp.g_varchar2_table(2938) := 'KwURAEyfBWSH4Y4ApLEoHr7+ImKxzcm+xl0I16verxW9jFGkE3uBrT2HVr8QQRQWtg/m6cUa7JGOF7x+NZUH46xWJuOQSlUHGC3X';
+wwv_flow_imp.g_varchar2_table(2939) := 'Iv186mft76JS24PU7zzph0g7Wgg2cNyaN5cKJAY6+exW65FxekBIYK14JjkNqHjFY+sEUqxZv9sPrU0W4QWHpyL0XqKMU7LTBmFI';
+wwv_flow_imp.g_varchar2_table(2940) := 'Fbx6FQBRwlWwNXCfeMDWFFoFgk5AnZwZ1MyrKLYcs2OQbK+SUimh47AWsj6hmt2DBLFTZgIpZI1smjPaZLrw+4bH8DVyRpzlPDoV';
+wwv_flow_imp.g_varchar2_table(2941) := 'AGxLbxfUJHsnRajtQSgSFisBUhMM+FszeWVUgZfC5EocsbyxHSBQ/M5XF0PCQpiHOzADtQKMd5GoJQiiGO2jxQY7ssR2p4O0AkoB';
+wwv_flow_imp.g_varchar2_table(2942) := 'aG1DPfl2D5SIIjjDbtjysbYgR2IcYD6gRJzaD7HE9MFcsYSicLXwiulDGdrLm4rrQDdusNz4S1a++oGVGty/0UUJp2IM4smwiihG';
+wwv_flow_imp.g_varchar2_table(2943) := 'BvuOTOAVnEiBtoY8fuQwmji321goSiVWACDhQxXbOkjDKM26QDCeUdTN+UinDeWC8bZIiilCMOIK7b0MVjIEDUY+1/hBROdqDCK+';
+wwv_flow_imp.g_varchar2_table(2944) := 'H3JmkGhVcw9ZwYoxgajZOHgOZMePEa3UAdQJtlDLUTrCKDu/7coVi4AWnh0qo9wkSlmUyvg/okB5oKUGBYKLZr3MI1W+K5pW+GW0';
+wwv_flow_imp.g_varchar2_table(2945) := 'k7ypTRKabRJvu9sVxU5byxK6YVxtufdwXdNc1Oz03UiqTs5F7jcPzFAzpy7SVghhFbx6FQftNQCUC3XAVo7Uy1cCBohijT7Z3N4i';
+wwv_flow_imp.g_varchar2_table(2946) := 'yZBAF9bjpYz7J0a4Du3nyUMIlTfWMLsTai0EgHXaG7YNcw3nj7WQitNUMogYqnOTxJUi9goQCmN42fxc4O4fh67QbdmvdDaIayVq';
+wwv_flow_imp.g_varchar2_table(2947) := 'JVniGoVRCza8fAyBfz8EEppZAOC60pQQBQLN+waxjVp/H9Db7PIUuwbQ0rT+L7D3okhjpYzDLjRQht5ATwt7J/NEUV63WHlhqAdo';
+wwv_flow_imp.g_varchar2_table(2948) := 'Nayl2/dDlW0zHypm2Gnakk4xrsgHCMk5PnF8RE+snUKg2CVaXqJpWNaafoLShuiWpn5s8cJqkXq5w9AtTRNeXac3MBW8oPb2t6+T';
+wwv_flow_imp.g_varchar2_table(2949) := 'ClFcfp1yrNnsHGUWiPJuCvzk3jzk/SNXIHj5xDbGhKAFsyBUqBMsmas4ovjI0mN0KIfEVF4afj5TM1jux8kNwo1dyQJtGmpDtA6F';
+wwv_flow_imp.g_varchar2_table(2950) := '6CF/r8VhTaWJ2fyTC6RkJG4ATH7ZgocKuZxjaUVYn3r9lxy8ke1MtOnDxNWi4mZrR2UNiht0E6SXFWcOsn82RNpDnt7oLRm/uwJi';
+wwv_flow_imp.g_varchar2_table(2951) := 'lMnAdCOuzAupR20cQirRaZPHyaqlVHK0CpXpRVzYEnqSw4V8+ybKZAz8Xlpv/UEtMnA5cmZPHqRe9BUtEEHaFGAXpI4ZivFMQVPp';
+wwv_flow_imp.g_varchar2_table(2952) := 'dl/SyERAx3uGR9GaXtxgVAT0LozVyFimT97HIlD1EIH5UVf6crXjkt5bpxqcQqlW7fREiRWSbU4RXlufIGElhqbMg4Sh8lnqCdjt';
+wwv_flow_imp.g_varchar2_table(2953) := 'WREzYcVUNpyz/gwxdjBrFBl+tRMvrVKvVJpanJr5rWFFkDrQhhGWaqh4YX5bHKz7xLsW7cC7j87xFzNwzOKZhdytqQvgAhaG2ql6';
+wwv_flow_imp.g_varchar2_table(2954) := 'cTsX619uoBCUZ4901JTO4FCbEx59kxScrXSmkxJIKgWqZWm0S3qBNXsORAUnlHM1TzuPzt00elfh5XkhuEX5rNUQ4NRLUoIaWEoH';
+wwv_flow_imp.g_varchar2_table(2955) := 'VpFAIrEdGkBrCg8LRwsZpP4v1laha0LNcfKPvvn+vDiEjbaWAjw/HEIc6Vaa4wcIfX5G3nxpMw5DmvEYbW1RVdaE4dV4rB2rmx2F';
+wwv_flow_imp.g_varchar2_table(2956) := 'SgUQbXYkqNaKZgr1ZpXnq0UNorw4hL75/o4VvbPE5gXQwDfJGHog8UsXquqAyHZSy166RYRgEp7/zX/pQXACM/P5ajEqymwgiDcP';
+wwv_flow_imp.g_varchar2_table(2957) := 'bkVSmdRQTlNS97YwJSC2ApHTs9idJNzwZRCEGyc3hrb4IuLWGwcck6nbjYS+8nGYWrSN/QrANg4QJCmuoRCcvofOT2btnJrwisqn';
+wwv_flow_imp.g_varchar2_table(2958) := 'ayR0lnuntyajHmFZ6kRKrHm+bkcLHMQbRj1EHaL3OkWHReqZf3V6+m/+2bySRLGCj9rRZE3lkdnBnht3iMrFWwT6hKUgjCyVIMWd';
+wwv_flow_imp.g_varchar2_table(2959) := 'gZa1zjbIQSu4z1aVAuilaKatnRvxjRYpclKhdfmPR6dGSC/iriXkJCwbybf]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[wrTgOnFu';
+wwv_flow_imp.g_varchar2_table(2960) := 'FgIQSczQFkz64vTfZ+dyZBrIwnKUZSryue+kS6b0OlZtrM46SRDRTM1VODFZJOM5icGjVXO+FBij8f1cw/OuAMdx8fxsOha9ynvU';
+wwv_flow_imp.g_varchar2_table(2961) := 'PfikAZ4C0Wq1sSUttjw/i+O4jS3H9Bzw/RzG6CSvpUnPSSnIeA4nJotMzVVw19UL4PyJtSpZI/eddJmKfJxV/HoRRUYLz87lWpsW';
+wwv_flow_imp.g_varchar2_table(2962) := 'rHSyp1qgobRGXaj7LE0eb1L+a3mllGGy5pK7sPHHErACWSN85cwAPzA5ibNNQbSRMQie6/Lq6VlOTMyRdR2aXRWuVEyoclRDS843';
+wwv_flow_imp.g_varchar2_table(2963) := 'K4YwtdYEQYAyBSoh2FptBdJQWGtFKVTG95VKw0tiLdVqDRFE6wuj3osgoLUhIItEM3ieh12hGkoD5dDiqRzz5VrjrkOD0CTdnV89';
+wwv_flow_imp.g_varchar2_table(2964) := 'Pcu24QJBFGwoLdsxivnJSb5yZoCskVXXVv1AmkzTgt8+PE8YadRKvSnXgwVNbQMLdxm0iABaV/5bT/8NrCLP6ulfgiKrYw6V8zx+';
+wwv_flow_imp.g_varchar2_table(2965) := 'ZJr3v6HGvKgNZigL5WrI22/cQT7jNr9HoAiO63L6pM/D+56iv5CEOxdvNqXAGEOxVGF4sI/3vONtxCwfBlRAbK1kfF+h4NUjJ6dd';
+wwv_flow_imp.g_varchar2_table(2966) := 'W5wECHV29Oqbrx5CUNVaTYzWKyxhhblpC3sffZipmXkK+SxxHJ93OOlUiJwrlnj3W9/Mtp27icKw6X6sVkmH53I1ZKOnjRVFn6rx';
+wwv_flow_imp.g_varchar2_table(2967) := '4JFpDpXz9GXjhcy/laAQgjQt+O2jc60tD24Bmk8ALYwAaIQ4vjj9dzUIghiXL704x/u/Yx7RfSRsuvYFqbWiXIt49627uPPNV7Uq';
+wwv_flow_imp.g_varchar2_table(2968) := 'vYX0QfJ//34/f/w/H8D3XDKeS/2ADmPLzPw8V2wd4XP/54/x9luvoVqtLZkQVN/82XxWTZyZnPv61x5+YWx88mwYBiGA65bcG0aH';
+wwv_flow_imp.g_varchar2_table(2969) := 'R+784LtvGds62l8pVZYlAbGWTMbnsedv5Cd/5fMcP3OWQi6La3SSTWuFcrVGLQj53z7+bfzyp/4x53IEWpMSXAtjyrVoAz0aBdEO';
+wwv_flow_imp.g_varchar2_table(2970) := 'VOb50otziPFpdHUtTguOVxWlN4AWRQJU7TNbmn18gd8HTnN7miXZV8LrVY8ffPJaqtagG54mEKVxwjKf/8m3ccXNb6JWqWw4e66l';
+wwv_flow_imp.g_varchar2_table(2971) := '3YElIZtc1ucfvrGP3//br/Pa6xOUq8l9d8MDeb7trTfxmR/+TraNDjJfqi67AawVyWY8NX5mcvaP/vCvvjU5ebbiuK4eGh7MAkxP';
+wwv_flow_imp.g_varchar2_table(2972) := 'zVSiMLSjoyPZf/Ev/+k7t2wdHahUA9HLKJzWCn35DKcnZ/jsn93DA/teYmq2RGwtuYzH7h1jfOqTd/K9H3gr5UotuVy1lemsG63t';
+wwv_flow_imp.g_varchar2_table(2973) := 'sBY/m+X4i8/wY597nMjNoRp0VxRJs9CMjrnrLYfZkWlBWrBSEIVQm6fZD7IFFoBuyfVfIgrtWA6UskwFDn3u2rL7HCVMhw5f23eY';
+wwv_flow_imp.g_varchar2_table(2974) := 'T918ExX0hq+BbOndAElDGoqlKp+48w4+/K43cujYGSam5/Bch2t2bWHnlmFqQUixXMUxS5NZolkYwjCM/u5vvvTk3Oxsdcf2LbkP';
+wwv_flow_imp.g_varchar2_table(2975) := 'ffj9111z7e4dAK8cfu31r9734KHJyanK3/3Nl578l//7D7zPc42JY7ukT62NoliuMjrYx3/+zA9xcnyKV06ME4QRY0P9XHflVnIZ';
+wwv_flow_imp.g_varchar2_table(2976) := 'n7liJblpqcu7J1s0GQK+tu8w06HDkCfEjYZfSbJOpwKHA6Usu/I1JGyyDiCShgKbLwS2+Xbg9UPS/z58ti9t/b02k9JaIZNx+eqL';
+wwv_flow_imp.g_varchar2_table(2977) := 'U/yziXGcoR1IG+9gWw+USopuZotljNbcsmcnjrkCKxCEIbPFMlopzAqWjIhIJpNRX7nvmwdePXpiLpvJOJ/8p9/9lptuvm50fq4I';
+wwv_flow_imp.g_varchar2_table(2978) := 'wDve9ZY9A4P9/X/8h3/56KtHT8ztfWjfge/48PtuKRZLopZR1YzWBGFENQgZGSiwfXQInfZKqAbhwpi7HiI4rsfsxOt89cUpMpns';
+wwv_flow_imp.g_varchar2_table(2979) := 'mq+DVwgWxcNn+/jglumOFmivFc2doRbWABhlqUWG5+eWT/9dcWhAVsPhWYf9Dz9Ezl1d5e0W1DdSuRYwW6pQLFcIoxij9YqqtxUh';
+wwv_flow_imp.g_varchar2_table(2980) := '43vq1Knx4sN7H39NK8UH7nz31dddt3t06uyMjeOYOI6ZOjtjr7tu9+gH7nz31VopHt77+GunTo0XM76nVnJzVEo+YRRTLFeYLVUo';
+wwv_flow_imp.g_varchar2_table(2981) := '14LzxtztsAI5V9j/8EMcnnXI6rXLifW04OfnstSiFqUFt6gmoPmz1IKkBUsSbjlW8TlWWT49czUIFutmeOCZ45ijTyYNQjtUS78e';
+wwv_flow_imp.g_varchar2_table(2982) := '1E97vcrGr0NExPM8Xn7p0PGZmdlgbHQ4+9Y73nBdrRqgtdIqvTBTa6Vr1YC33vGG68ZGh7MzM7PByy8dOu55HtJAnXHyGjoZWxdb';
+wwv_flow_imp.g_varchar2_table(2983) := 'VBfBJo1AzdEneeCZ41g3g6yjbnQh7Txdn65ez6usBtWSg3VT0LSIQhnhsekCs6FZsTprtdfJmZgHZ8c4/cjd5IqvY93spiKBxiE4';
+wwv_flow_imp.g_varchar2_table(2984) := 'WqtiqWwPHjwyoZTiuuv2jAwM9HlBFMliAlFKEUSRDAz0edddt2dEKcWBg0cmiqWydVbKC9jMsDHWzZIrvs7pR+7mwdkxciZed3sv';
+wwv_flow_imp.g_varchar2_table(2985) := 'o4TZ0PDYdAHVqnbhLUDzCaAlVYACAs/O5hb6sq3zVXCVZSLKcv8Jl+wTn0eCCnipJSCW88ptO3lV9AZhLeJ6LtNTM/NHXz0xWy5X';
+wwv_flow_imp.g_varchar2_table(2986) := 'omuu273NaLNk8xARwWjDtddfvbVSrUXHXj0xOz01M+96LraF91+0HGLPL1cWm8y1l0eCCtknPs/9J1wmouyGLvqoi4HPzuZSvmxB';
+wwv_flow_imp.g_varchar2_table(2987) := 'MlALqgKbGwYUAS+bfDXJV6k/2GJk+MEnr0sagG6ABDRCxRpu6qvyJzfvR4auoPaW78eOXZN0DLZh+qYOokxaQLQ52PxCKAVxLHZm';
+wwv_flow_imp.g_varchar2_table(2988) := 'ZnbuxIlTZ6/Zc+WOgcGBbNLI9PyfFQHXdZiZmSufPHFqYuvW0YH+gf5+Y5Tupv6ja4II4uVQEqfNYAHtItqgJ17Bf/IvUdPH+ecv';
+wwv_flow_imp.g_varchar2_table(2989) := '3s5L8xmyOma9F74pIBTFVj/krrccouAkiURNWzlKQVBJvpq4Hrs+CiCicIzlpWKWExWPfAPpvyvBosgay4tzGfZXtvAO]'')'||wwv_flow.LF||
+'    ';
+wwv_flow_imp.g_varchar2_table(2990) := '           || TO_CLOB(q''[5zjy9d9Brr6D6Irbk35wyqCqs7ivPY7kRwhv+CAqKLUsG6tVEAFjtN6+fcvgFVdsH6xUaoTh0rc';
+wwv_flow_imp.g_varchar2_table(2991) := 'ZKQVhGDLQX8htvf3Wq6IoJgjDtrcaawrEIl4e98DXUKWzRLvfhmQGUBKj5idwju9HvfoEvq7xaGULL85l0rTy9W+sug5wouLxUjH';
+wwv_flow_imp.g_varchar2_table(2992) := 'LO4fniVqRFtxkdD8BAGjhudk8gVUUmpBRphBC0Xzx9BDvGJqBUOEcfghz5BHI9CNpWagqTxFf8x6iG+7c8Ht2CiJCpVoTEUErtVx';
+wwv_flow_imp.g_varchar2_table(2993) := 'UD0i0gCiOmS+WBKXQm/besyRMbCaPYF7Zi3PkW6klYKE6h7IxsZMFx+OLp4cIRaPYeDOVelrwc7N53tnKtOAmorlHWgv8lHr67+P';
+wwv_flow_imp.g_varchar2_table(2994) := 'T+XWr/xfCiiLvxDw0NcCpcqraenlwfAjKqFoRlEayg6j5ifTG2E26FwCtlDJar7j560gVfbV5Nz+gFCqsouYnkOxgUudfK0JQBsf';
+wwv_flow_imp.g_varchar2_table(2995) := 'HevmkqWzZ56GpAfLO0l1/1oq6FfD4dL41acEt0Ne62qatV1udrngcKGXJNEldXRADg6TtkzFxkvxRb8JYb2aqNBQnki/jQEtai/b';
+wwv_flow_imp.g_varchar2_table(2996) := 'QXNhkrurzVo+dL5pXawWTtoubCLym3fIrosgY4UApy+mK19pbg5qE7iYAUWgjvFTMMhOYDUUALn7t5P6AL48PU40WN35cpBinJ4m';
+wwv_flow_imp.g_varchar2_table(2997) := 'en0gvaGjSm/fQOgigHfR5ltuiOSURlauRw5fHh/G1bVpuTV2wngkMLxWz6E0QDuxuAgBIQyuJotq8HVgXA18q5nh5Poe7ZPPH1Jc';
+wwv_flow_imp.g_varchar2_table(2998) := '8/RLNbijaQ+sgKMzpl5ZMF7eicE3My/M5XirmyBq7buV/KSiEWFQSDmzigdUqdDUBGCVU0+QKvwVsmog2mnsmRpLboJf4GTEueuo';
+wwv_flow_imp.g_varchar2_table(2999) := 'oOqxsuijAZQml0WEFPXUUMe5F/ywkRsE9EyMEVje9jZeIwk+T1qobSFprF7p2Rdf9/xMVn6MVH78F6ZX11uHfODvIZNXD1Rf4gmJ';
+wwv_flow_imp.g_varchar2_table(3000) := 'BO6jiZOJP6p4O0N1I5oviRDJn2jkvmStZU5bJqsc3zg4u2/J7gyPA18LRis+JNC24mymgawnAikJpy/NzOeZbVGCRqLaWk1WPB88';
+null;
+end;
+/
+begin
+wwv_flow_imp.g_varchar2_table(3001) := 'O4iy1INKQoDn9MuJ4PR2gmyEgjoc5/fKiDtDnYEXhmJgHzw5ysurhXUj4TYJRlvnI8PxcLr2Upnvdx64lgHoHmYfP9iWdgFv4Lq6';
+wwv_flow_imp.g_varchar2_table(3002) := 'CL02MEKdNRi76GeNgXn8BFQds1nyAywMKFQeY119AzMXhaI0QW8OXJkZwW1jhkKzcpHS9Jc0xm4iuJIB6959iYDhQv/yjRSxqRZF';
+wwv_flow_imp.g_varchar2_table(3003) := 'zYp6ezfP8bB7vwpiwWDAeevoYau40GJeeG9CNsGBc1Nxp9PQxMN555r8VhefEPD+b5+nZPLkmxf6XQl0HOFDKUAzMhlLXW43uJAB';
+wwv_flow_imp.g_varchar2_table(3004) := 'RGCMcLGU5WfGalgC0HDRCzRq+uJwYqDQqqOCceKbnBnQrUvPfOfEMKrhYsK2Lf1+cGKG2jKXXxKHgaeFkxeNgKYvp4nBgC5r3b/x';
+wwv_flow_imp.g_varchar2_table(3005) := '0FEBp4fHpAuVWNlpMURcDH1hWDBTEcTHHnkqzBFt9CWcPa0OS6KNqRcyxp5AL+lEuFv8eaJH4dyE0QjnWPD5dQDXrAGtBdWqTOwL';
+wwv_flow_imp.g_varchar2_table(3006) := 'RlEEqBKziudlcW1TU1cVASczL2dcx44fA9ZvemaWHDUAEXB8zfgg1+3rqpp2bn3aJf+cNiSSK9dxsDpp1a5DYpp87XecC1B/cqbS';
+wwv_flow_imp.g_varchar2_table(3007) := 'qqpHbf5r2viuKgUlHFueVh9MGIt1p0l2eUGDjZG6W6EjVLvFvMeq3Br1UzHKqi9OCu48AUv//hfkc4628bukCLBYDn1tODHR89Pg';
+wwv_flow_imp.g_varchar2_table(3008) := 'h9MxJcDx6YmA3wILjoWdOoscPJQVdS4h/z7VB/FuM+kE2XnN5YT7XtTpAazSADezYxem/thWdVVaARqhawwNTg6illFulIariHH4';
+wwv_flow_imp.g_varchar2_table(3009) := 'oKTjpRkq/3JA2b3EOPwRRdRnxT3hganDhLol2Ds6mnaw2nBbcJPf6QnSdCNjq9N+VUBcDvzo5xNxSVWIi4GYxx55ETx0H49NJFhB';
+wwv_flow_imp.g_varchar2_table(3010) := 'JrgvrRNMOEUmuKusoCQoYHz11HHPsSXDP70RVr/qcCzy+OjnUFvHvvNE1Oy14UxDABtCO9N/V3t/XlqPlDHunBnAuMhfTEuGwgnP';
+wwv_flow_imp.g_varchar2_table(3011) := 'oAXCcjoqBxmiy+SzGLN3nr1UQEYwxZPNZlFGd6xokAo6TzMVCrcYF4p8Ts3dqgKPlTFL518bhbYa04CY3BFFg7bqZqp7++8J8tmX';
+wwv_flow_imp.g_varchar2_table(3012) := 'pv6tBAK3gi+MjWLtECHLBCtifWAEX+JztgjaaaqXKMw8/y/TkDI7TJpdEwHEcZiZneGbvs0RBhOe77SeBuiYzdRxzbP9Fpz8kLp2';
+wwv_flow_imp.g_varchar2_table(3013) := '1mi+Oj9Cp3sb1tOAX5rMbSwsWm+ytZl+w2tRXA5rxmJ+ayTdhHOtD3Q3YN1PgUDGHe1G5aGoFRDXc5+5uyT0IK0Gs4PouD3zhQf7';
+wwv_flow_imp.g_varchar2_table(3014) := 'rL/wef/Ybf85zjzxPtpAljlrf3jyOYrKFLM9+63n+9Dfu4v/9xc/xyL2P4Wd8pK03rSRRGfe5uyGqXXz6o3CN5VAxx76ZQtvN/wv';
+wwv_flow_imp.g_varchar2_table(3015) := 'RnDXd/OfbGgKQtTNV3V+bD1yenMmTMZ0rojBKKMYO90wMo5dqGCEW3Az69Rcwp15MuyC3zwpQSrF993bmp+cZGO7n0a88xuHnX6F';
+wwv_flow_imp.g_varchar2_table(3016) := 'vqEAcxS05jUWEOIrpGypw+PlXePS+xxgcHWDqzBQDI/3tjYqKBS+LOfUi+vUXwM1c9PxFQGvLPRPDFGOnY2W5VhQZY3lyJs984K6';
+wwv_flow_imp.g_varchar2_table(3017) := 'v+5BSnGtZ31y0QASUdfnF9fDfa2WfU7XWp/+uhLoVcP9yYmAdWuM+/QVoY3ag0opaucatb7+FN7/vNkpzJaIw4q7P/gUv7nuZwmC';
+wwv_flow_imp.g_varchar2_table(3018) := 'BpJe/3bhIl4qM1lpcz6UwWODFfS9z12f/giiMKM6WuP39b+aN77yVWrmGassloEnWH7Vi8uyXuIJssfh3fwfEvwvH4mnhVM3jtbK';
+wwv_flow_imp.g_varchar2_table(3019) := '//nDgOvfVamgBAQCydlO0nv67fzZPOWp9+u9qY1lZDCSZDOOjZ07gHvg64ucSH60dUBDWQr7zRz7K7huvolquEgUJCfzt7/494yf';
+wwv_flow_imp.g_varchar2_table(3020) := 'GyRVyZPNZtNGJYh8nG1msJBaC]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[JKf6ed/bRNm3cRJZ0KnImCvkGD8xzt/+7t8nmz+IqJ';
+wwv_flow_imp.g_varchar2_table(3021) := 'arXH3jVXznj3yUoBq2zwKwFvFzuAe+jp45kURiLtgYnRb/LoRGKEea/bP59acFS9yS86U1bcHXYQ7X038fnSrgdIFaulgM/MiWs0';
+wwv_flow_imp.g_varchar2_table(3022) := 'sTksSIl8c58A3i7TdjR/dAeHEsutlQSiW+eD7DD/38D/C3v/f3vLz/ANl8licf2M/zj73AzW+7iZvfehM79+ygb7APx3UWQoZxFC';
+wwv_flow_imp.g_varchar2_table(3023) := 'f+en3TSmJZGMcs3PMXhRHzM/OcfPZ1Xtz3Ei8+/hK1Sg0v41Eulrnx9hv45Kf/Edl8hrAWtuf0r5v+Zw7gHPgG4uWXPGy6QfxbDA';
+wwv_flow_imp.g_varchar2_table(3024) := 'EcLTw6VeBHrxxfX1pwi1zM5t4MBGloxgO/QKOPXgBHCWcDlx988lpmQgenS0oorcCf3vYy1xfKBEslkqSCoBTGqH7o55J73MXSji';
+wwv_flow_imp.g_varchar2_table(3025) := 'NRrGBcg9aah+7ey8Nf+hal+RKe7xEGIUpr+ocKbL1iK9t3b2f77m34WZ+h0UH8XAZJLRalNbVylenJGWqVGqdeO82p105x5vgZ5q';
+wwv_flow_imp.g_varchar2_table(3026) := 'aLSOoCBLWAfF+ed3/snbz3u9+DtZY4jNto+muwMZmv/iaqOLFkBMai8HTMwWKOH3n6RtoytFWggEgUg27EXW85zIgXEq3p1iCVuJ';
+wwv_flow_imp.g_varchar2_table(3027) := 'ktuM6+BZeNqZSVG9++IgqtLWdqLmcDJ00AavrI1gyjhNnI5d6JYW7sLyKxuXhfiwUng5o7hff0Fwje9kMQlNpyj4DSiSUQE3PnJz';
+wwv_flow_imp.g_varchar2_table(3028) := '/AzXfcxENffJiXnzxAEIRoBcXZEnPThznw1EG0SW4VzuazOK6zIBYqpYjCiEqpsuAuaFO/hTi9ndl3ecO7buW93/Vutl21jfJ8eW';
+wwv_flow_imp.g_varchar2_table(3029) := 'EMbYEIuBm8x/8Hau4UeIUlT/+6+HfvxDDzscOwGxJ3OAW3bgGcDRzO1FzG/ACxa7k1SJLP2oI11SIXIBUsGhywVkIQa27qL/OOoS';
+wwv_flow_imp.g_varchar2_table(3030) := 'J7p/ootClneyVYUWS1Ze/UAD9xZV3BXWJMklw2aV7ZizOym/Da96Fqc6kw2FrU7+8ozZYY2TbCP/7UJzh7eooXH3+Rl586yPiJcS';
+wwv_flow_imp.g_varchar2_table(3031) := 'qlSjLM1N+vFCtLEFmqAywibj/rs2XXFm588/Xc/LabGdk2TBzFlGZLaNPGHDKJEb8f9/A3Ma/sTS5zXUZncpSlHLrsnRog2yXtuH';
+wwv_flow_imp.g_varchar2_table(3032) := 'R6t+V7hue5qb9MEGv0WqISLRIAoZUagI3hgrrslWBR+DrmY9tmePBsf1fU2gmQMZaXSzkem+njA6PTVCNn6ckTASeD+/QXsAPbsc';
+wwv_flow_imp.g_varchar2_table(3033) := 'O7l8xNbxW00YRBSFALGBjp5/0ffx/v/Og7mJmc5fUjrzNxapLxE+NUyzVmUlO/fnqLFfysz+DoIJlcsunHto+yY88OBkcH8HyPoB';
+wwv_flow_imp.g_varchar2_table(3034) := 'ZQKVUSjaCtm9+Ck8VMHEpUfyez7Jqyosg4MXsnB3i5lKPfiTd0j2SzoIBYFB/bNoOjLWHsYBq1kJVKLjZtkVvZIgIgZeiL2zIvB6';
+wwv_flow_imp.g_varchar2_table(3035) := 'OEIDLcOTbDDYUxXiv7qXrbaSpIRvDF8VE+MDrN8q6NJP5/HOA9/IfUPvQLSKZvUZJK66GUWjDn68Lc4OgAo9tH0EYniUIC5WKZKI';
+wwv_flow_imp.g_varchar2_table(3036) := 'jOWWgiOJ5DrpADBcYx2NgShdF5r6WXCLm1FGm2n6rO4T38hxAHF7X6uuAXgGSu1MKfO7t+FEIl1txQqHDn2AxBtI6agHoEoAUfpX';
+wwv_flow_imp.g_varchar2_table(3037) := 'UzatceCoxFkXVjPrJllprVXSHgJDkBlken+3itlMUzK5BS2j8wWbB/kHSm1e2vF6if0ot9+9JsiVq5Rq1Sw/Vdcv05cn3Z5Ks/h+';
+wwv_flow_imp.g_varchar2_table(3038) := 'u71Co1auUapdkSlVKFKIzOe622QiRpyR6Uk2dZnVtx8wsKz1heK2V5dLqPXAcTyRZDK6hZzUe2zJJ14/XpEevYS42itQSwxnWvlR';
+wwv_flow_imp.g_varchar2_table(3039) := 'BHmu/dPsWIF6W3tnYejrJMhy73TSaZgSualanJqieP4D38B0miygVpqu1EPaynjUZphdIKiZNQ4OIviWXh388JgJ16+qnirzXew3';
+wwv_flow_imp.g_varchar2_table(3040) := '+AnjwCzsrZljYV/+6bHGY6dHE6UEdyIRQQimbEi/je7VPE0Rp9f0iWzaYjgHokYI0DV0BoNVuzAd8+Nks5Umt/YC2AFchoy1cmhi';
+wwv_flow_imp.g_varchar2_table(3041) := 'k3srgkBr+AHj+Et++vwPXSv+/8ZwHSNHp13ldXMC2ce0auh7fvr5ImH/7Siv9i1MW/r0wMk1mNpNsErYRypPj2sVm2ZgNCu44Dzc';
+wwv_flow_imp.g_varchar2_table(3042) := 'YtiwBAKy0AWV9NQP1Xv3f7FK6mCzSAZAxZYzlYyvLYTF9SILSaKWeTyIBz+CG8J/4C3ByiTfeQQDdCJHlGbg7vib9Imnx4+VUPku';
+wwv_flow_imp.g_varchar2_table(3043) := 'S+P8tjM30cLGXJruSmtRGCwtXJWl7XtNdrAFq4ZlpIAICN1vxrWglBpLm1v8w7h+YprsdsagFkkcBU/5vVf8li/T7U4YcxD38eHd';
+wwv_flow_imp.g_varchar2_table(3044) := 'XAONgeCVwEKwLGQUc1zMOfRx1+GOv3NZgBd/7cdEMKWRL607xzaJ5b+8sE613HNmqp99haWXedg7cojLZ8bNtMeitw57FYDDxSyq';
+wwv_flow_imp.g_varchar2_table(3045) := 'Vi4NIQFDGaGI2RkIyvKBy9D/+hz0FUI+9C1HkXtWsQWci7QFTDf+hzFI7eR8ZXGAkXnuNyJ7oAnrEcKeW6SvxbHPozep03EK/zEF';
+wwv_flow_imp.g_varchar2_table(3046) := '0LWhMGhLQ5SLwuN6BbQ4KOskyFLg9NDbCnUMLG54d0YjSg8AgxJMk38wzyQnwjX/beyzfP3Ii6fwe/+c4z3D5SYrLq4OrOn1adRG';
+wwv_flow_imp.g_varchar2_table(3047) := 'gVo5mI/Wfz/Ny3tiLTn+F9mZf5aPwQt6hX6WMGgJgsAUm7b7OoT5RNs0gfmhpgKnS7IvOvKaE/OJdP00IxtnUEAMkHiKNEBFuj2R';
+wwv_flow_imp.g_varchar2_table(3048) := 'uLIutFfGTLLP/lyDayxhJ3eK9IKgbeNzHMP9sxjlGCRSFoDDFZSkDMNCM8Im/jXnk3e+2bOM42ymTIuCHhdMgnv5bjc+8+xod3zj';
+wwv_flow_imp.g_varchar2_table(3049) := 'FTMwuFR5cT6rVIo5mI+07285MPX8lEzcV1R3ksegu/yz/mCk7zHv0MH1EP8y71HEOcBQwBWWIMCpseFg73peJfN3hXF4b+KsE6+h';
+wwv_flow_imp.g_varchar2_table(3050) := 'EoBVHY8rqS5hcDLYYIeBnwcmsmgHqB0GTg8n1PXE/VakwXeHdaQTnW/P6t]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[B3n78Bwqi';
+wwv_flow_imp.g_varchar2_table(3051) := 'kHVqJFnr7yJL8idPGRv41V2EqPJUsUnxJCYgVopqlYTWsXPveEMP3/raSxQCg3OZWINRFaRdxN76Tee38ZvPrcVV0uq3kvSxx9ND';
+wwv_flow_imp.g_varchar2_table(3052) := 'ZcKGQyWqznJe/XTfEJ9nfeoZ/ApgfiIY3hsqp9PPX99av539rMpIEaR0Za/ueMgo2su/Km/kIKgDEF1E1sAC2mMa5+VC0OCf31ym';
+wwv_flow_imp.g_varchar2_table(3053) := 'AHXdoV5F1rNlyZGeMfIWV7kav6XfT//S97Hy7KbKj55KgxQBASb+q8RSV2AlaRBhKuFX3l6G/smcvzqW09y02CV6VryM5eqNVDfn';
+wwv_flow_imp.g_varchar2_table(3054) := 'COZiJdmMvzSvp3cd7KfIT9eqJgDtWDg+4RkqQGK1xnjj+338Od8mBvVa3yP+ibfox7kZvUqX5oYSUJspvMXtmglzIea79qZhP6qo';
+wwv_flow_imp.g_varchar2_table(3055) := 'Vmf+CeS7J0W52K01gKoI9MPRq9ZELSi8J2YZ2fz/PP915LtAoavj6tgQobe9N087L6Heevjq5AcNTR2RdFqMRwtzNQMQ37ML77pN';
+wwv_flow_imp.g_varchar2_table(3056) := 'P/iukkEKKY+46XCA0Li0hWcZKP/0aFRfv2ZbUzXDIN+TGRX/6Qq9f0tmjI+NXHp0zXeHe5l+pm7KcZuV0SLtIJKrPmT2w/zxoESt';
+wwv_flow_imp.g_varchar2_table(3057) := 'WgdBKCA2EJ1riVjXIzWJ3eLQByyHmbu1pCg1opyEPH4pIcYjxFmyFHDpid9o1s3sooBL6YWKz7z2C7+2QN7eHk2y7AX4WohkqbcK';
+wwv_flow_imp.g_varchar2_table(3058) := 'NcxCMmp7mph2It4eTbLP3tgD595bBe1OPnsjWz+5LWSZ2tR5KgxwgxiPB6f9CgHEboLzKamhf5QyZ5pg6DRnuoOG6w7ltmNIUFE0';
+wwv_flow_imp.g_varchar2_table(3059) := 'ApynosSu7Aw14NYFEbBiB9x/+t9fPjea/mFJ3YxUzOM+BGu2nxEsLDxlTDiR8zUDL/wxC4+fO+13P96HyN+hFGs252rE60SS85zE';
+wwv_flow_imp.g_varchar2_table(3060) := '5epC9S/poT+IA3/Bc0c2rJorQYAqQ6QpgWvww3ovpCgQokldvKU+3ajJNywn1Y3kfvTYpHPvTzG3ccG+JHrpvjha85yRSGgHGmqs';
+wwv_flow_imp.g_varchar2_table(3061) := 'U5iDl3BghfDSnJSZ4wl58QcL3r8lxdH+NNDw5woe/S78cJn3DCUQklIuW83g04ebSOkkzUXzQr9KZL9Erc2/FdHeyyADbgB0G1Vg';
+wwv_flow_imp.g_varchar2_table(3062) := 'golMZE/SOz2NfWm4PrGGPIipgKH//D0Nj5073X86jPbOF1xGfRi+txEIuv8eXcx+lzLoBdzuuLyq88kY/8PT29jKnAY8pKEluaJu';
+wwv_flow_imp.g_varchar2_table(3063) := 'EmeSez2EfmDKOmsANiUqj+gneY/tMMCqMMGIJl1/eriKsH/cWK0oyFBUYANCQpXYk0WE5XSk6d5iFPzedSPmKo5/MrT2/n/DozxX';
+wwv_flow_imp.g_varchar2_table(3064) := 'VfM8k+vnuJNwxUcLYS28y6RkJwiFnh0PM9fvjrMF48PMFFxyDuWUT8iFtWS6I1OLbGgcCV+8QRiPDohETWl6q+ONpr/0C4LYMENi';
+wwv_flow_imp.g_varchar2_table(3065) := 'NZF0l1XJaig2re7pQfOeQKaH1GNFH9yaITvvf9aPvaVazlW9NK7EztHAQIYoGYVP/CNq/nYV6/lvx8aoRophv02CZltmIvV0JSqP';
+wwv_flow_imp.g_varchar2_table(3066) := '0g+g43aZv5DOy8HFUk6umxgprqhSlCJxWqPMLsFbNxyK6SuDxiVuAZ9bszD43nuOTFA1ulsWLR+681LM1n2nimkLsA5ga8dzwYbE';
+wwv_flow_imp.g_varchar2_table(3067) := '2a3YLWH6sAdjck4Nlj1twCV7JE2CprtIwCV+jbrXLHdERJUKBsT+cOEuS1NEQAbRZ0IrMCAZ/nayX4Cqzp6gYoVcB3hqyf7iUnG0';
+wwv_flow_imp.g_varchar2_table(3068) := 'o6Nv4BUCAxzW4j8YVQT9ZhG0bzQH8kDjdu3pqDd14PbGOz6P2DHQ4JKoSQizI5hTT49cdo7ilgUecfy2EROvnGqT4b8WKIOZEdao';
+wwv_flow_imp.g_varchar2_table(3069) := 'ODEcqLoyd+9Nih5pxNZmklExpo8YXYMJa3PnLt4BE0K/SmV7I0Wdv9ZCu0lACG53GCdBHl+SLBCJQ2LtQsCIJagcAWiNaphU03RV';
+wwv_flow_imp.g_varchar2_table(3070) := 'N1ehGqs1Wce3aWOFj2V0ZZ2Gr9pf0qxKPWZx3apg3O+au71W413wFQiiNYEhStA2nsFWNNCf7DhvbFetJcAFrPcOomykyHBhcWWX';
+wwv_flow_imp.g_varchar2_table(3071) := '8tiU4gOQeoBl43NsAAoJe/b7Z4tDAxO/v2ZPWd9R+oU0/LlIyCS5CyovbPbZ4/abZPfvsdMyRrocMVXB5Q4yTNrYJEskHJ+raS8c';
+wwv_flow_imp.g_varchar2_table(3072) := 'TQt9KfYsHW8XrQvDFiHTcVAk2U967VzIcHF5uZog+amoKxLdeQZQMhOvBVREaj1uw5GIeVI8QPvGHnth98+/Bpc7dYmx7aaY0/cp';
+wwv_flow_imp.g_varchar2_table(3073) := 'm3gR1a1jAgUKEeJsgoJxt744gff/IYj3/FBgj999OzVP/O3p4ZyjohdtzorIBolDtWRZxAdkZ14C6JXEY4X3LJRrMmjbdiWhKCmh';
+wwv_flow_imp.g_varchar2_table(3074) := 'v7q4p+VthNAmxu9k9Y519Z9k27HQoLrFZx0hHXnCPtfobztYdARyrpsJGCtlVK/df/4jbEli40df/TK07lbPvpN1b/ruNI6cpUoV';
+wwv_flow_imp.g_varchar2_table(3075) := '4lymvTlKlGuFgWIzo9M5K7/wMOZXW84pKw1sSX721+buEFvpIWwsskz0TGVLY9RG3oJ686BbqQbTmeE2aaF/iDZC1Gt7ZsfOmEBQ';
+wwv_flow_imp.g_varchar2_table(3076) := 'PKB4xDci692bhT1kOAXTg23JSSYhJwiaoUrscbHhMXVE4BEY00NccqoOEOUO01px4NkJ96KqY4ippZmFjUOK6iMsfLKFPnf/+b4r';
+wwv_flow_imp.g_varchar2_table(3077) := 'p/6ti2vBGGc8fxcNXf9e/fbWikfTh8fjebGR1VQzm5Epqx74spxQ10YO5sZ3DlpCiOzAEEY+55rqp97cGLPK2fjfJ9n13f6K4uKM';
+wwv_flow_imp.g_varchar2_table(3078) := '8T+FNXR/cT+NDrKIU4Zq2uo2F+VLJPU7By1wpVkZg8jS1zh2Gw0LfSnVOL72/U10N0oOkMAqOTaLMdb129fGBJs212CShHmttGYe';
+wwv_flow_imp.g_varchar2_table(3079) := 'SkocYi9eaypocRBxR7WKVHetpfM2Tfhzl+N6Fr9xRsehgjKN8J//cbEDf/0LUOnR/vcILbWGDDaz1f8bTe+5m+78eiaXnS1D5Mm/';
+wwv_flow_imp.g_varchar2_table(3080) := 'VlrHQDPNXGxFmd//6HJ67x1Xeaa+vtxhrBwjOrI04gJFja8NTWsN49TziGqET1Akrlp0+lfv+tvw6E/kWQvdCivpf0u]'')'||wwv_flow.LF||
+'     ';
+wwv_flow_imp.g_varchar2_table(3081) := '          || TO_CLOB(q''[AJwreNjAdcftDglqsViTpVa4Emy4+sGtADSxNwOqfrWTRYkDSqiMPUl15Jnkz7I2n1UAX1t5fR7/';
+wwv_flow_imp.g_varchar2_table(3082) := 's/ePXw2EsWjQOsnMtdbDWhdrnSZ9uVjrWWsdrbVEogHC/3DP6WuOTNlcxliRNa3g1N+3DrWhF6hseQJ0nLpGNn1WcfLs0Ku+cj09';
+wwv_flow_imp.g_varchar2_table(3083) := 'u5amZ+sWJwQ1NfQXBWnmX1OH2DA6QwDAghWwTvtpcUjw+kKNcmxamBSTFp54/Y0XnqQb3nqzyc+qRf8gCmVdgoGDlLc+si5dwIpS';
+wwv_flow_imp.g_varchar2_table(3084) := 'OUfkb/bPXnVyJix4ZpGqorW04kvrZGt5BjsxH+b/dv/sVYnwtwYWP8/ff4La0AsoewEJquQ/1ps9Rwgrv+i5Ai2vv6kFWhdCI5Rj';
+wwv_flow_imp.g_varchar2_table(3085) := 'w/WFWhNCf509/aGTBNAEKyAWRdYRPr71DFErFdRUAKwVdmGdXGMJQKIQFWHdIoqlrgkXVOwt6AJxZqohf/fcb4OrLRMl8X7pCydv';
+wwv_flow_imp.g_varchar2_table(3086) := 'AqI4brC7xgYQJU19wv98//jV4yXxvLXE/xf8/RnK2/YSFo6h4gznPIxFP4rBusUkatKAuaXEYp0ctcKu1gqBShHZZM1lHdlA6K/z';
+wwv_flow_imp.g_varchar2_table(3087) := 'pz901AKAjVoBojTEAddsHcRx/XVHFlZ9H0hizbkdiDINxpo11qlgnfLyJr6S83SBsO/VhASW2BBLIRal8q6Vr75c3PHMycqga3TU';
+wwv_flow_imp.g_varchar2_table(3088) := 'yjyy9PSPXzpVGfzzfbO7c26jp3/yeer+fnnbXmJ/Jtn8S16zlrgI1iljnQqNLFMlgihDkNvR2oQga3Fcn2u2DkIcrL8StAtOf+g0';
+wwv_flow_imp.g_varchar2_table(3089) := 'AWzACojR5Cgzbgf5cf1rlEfegLK1ppfmQj0ByCHI7wRppABIUKIRt5gmAa0Ux5YN6QJGCaVI6d+87/R1gLUttAJSCyP+1S+fvn66';
+wwv_flow_imp.g_varchar2_table(3090) := 'Iq6rGtlo5+L7S/r7y/5akkAlbhHVwLNISDomyO9EtNOShCBRGmVrlEfewI/rX2PcDpKjnN4HsQZ0yekPnSYAYD1WgEXjEDJFHz8Y';
+wwv_flow_imp.g_varchar2_table(3091) := '/jtOygjRljdhVSsmPvEvY2+AIL8D1Ui2Vl0AdOfOCYArYv26QCxKFVwr975U2vHlF+a3ukaHYQtIIAZco6NnTlYGv3agtL3gWolX';
+wwv_flow_imp.g_varchar2_table(3092) := 'O/3r5KZjKmPL+PvLoS4EunM0IgSiFMqGBPkdxN5ASxqEKBGscoi2vImTMsIPhv+OKfpwCLFr2UpdcvpDNxDAghXQWCKEoNBYFJYf';
+wwv_flow_imp.g_varchar2_table(3093) := 'Cn6Zh+WNDNopyn17qAxej46r0EwrIF1YYXaM2O3boAC4GtanCyggEqV++/7T10NrJjW1LOxv3nf6ulKk9KrC12L3ZusjhH3L+/tL';
+wwv_flow_imp.g_varchar2_table(3094) := '/37yn7UKgbHblxQGNTutVml0XKUyeD3lvj0M2ikeljfyQ8Evo7BoGmxTV0+E64LTH7qBACB5KGG1IR/eovEo8YvRT/OA3MYYM0Si';
+wwv_flow_imp.g_varchar2_table(3095) := 'Ee1QGn0L0Fz/7zz/v2HTcrEAuFbzcO26gBVUzrGy73ht5O+fmt5ummwFhLFVrtHhl1+Y33rvS6Udq5/+SxBZtJy/vzwU+pwQ2MBu';
+wwv_flow_imp.g_varchar2_table(3096) := 'WXDVWqADJK9lKY2+BdEOkWjGmOEBuY1fjH4aj1JjVoC1yVrvQNLPUugOAoCGHkyEIcsMd9nv4veiTzDCHCFOckrHFcrDtxLkdmDi';
+wwv_flow_imp.g_varchar2_table(3097) := '9UcWLkQiLilqfbtBGqs5UDZRsK1bBGtYc176OnQBBSil+NV7Tt8COK5p3jVD6SJRv33/6esjWSnndyVXZq0CrcCi56jsUpGUi34D';
+wwv_flow_imp.g_varchar2_table(3098) := 'RKj17UaUap47qBQmDghyOygP34qKK0lSGA4jzPF70Se4y34XWWYWLoBZ7nUaPejahe4hgPNMo4uXWIwmQ5nn5Cb+bfhp+lVpUQKG';
+wwv_flow_imp.g_varchar2_table(3099) := 'QltL7OYojd6WJOo0MQlOTIYwOwbSiNmW5uKs4eRa9nXWoAvUU4QPTdn87z04sQsIg3jjDyGMrTJGh196bnbLvuO1kZyzTMrvBsXM';
+wwv_flow_imp.g_varchar2_table(3100) := 'pXHOkkqW6mpuByAxYXYMMZnVf75BCApsSGn0NmI3h7bnwsAWRb8q8W/DT/Oc3ERmOVGw3havQzn/y6F7CAAScSQsXzRvdb8/wvCz';
+wwv_flow_imp.g_varchar2_table(3101) := '4c8yTw6P6LxNLkqh4oDi2B3Ebh+6KckgGm1DwswoYWYUbUNWfWRr9l1Xwxp0AQFXC3+0d/JawPUMG86Jq5/+v/W1M9cLy2RcbjCc';
+wwv_flow_imp.g_varchar2_table(3102) := 'uSzWrKWsY75WhUKn3YeLY3eg4oDF3o+g8IiYJ8fPhj9LhFlaDxDStd3mgv9V0F0EUL8R9QKWtGh8ivz76F/yiNzCAMUlTK1UrMuM';
+wwv_flow_imp.g_varchar2_table(3103) := 'LIQEN8y09RMlt4YTZa3qdUPjaGyDWVBZY+XwWZv/v/7hxHVAGG3ACghilDE6+L0HJ6564lg4vPTpv7GEphWx5mhKMh4xGcJcoxbb';
+wwv_flow_imp.g_varchar2_table(3104) := 'amNQC6G/MDOSiIsXvGiEYYAij8gt/PvoX+JTPF8PqFu3Ufvr/VdDdxEApH5SZcFPSm7YLfGUvIHfjz/OIEXilfwsLMUtdyDKbJht';
+wwv_flow_imp.g_varchar2_table(3105) := '6wJgrbAGn3KN8euG0aCJbUWpjCPy5/tmr56cD3PnpQivEV5yc7n7x3snr3XNhV0GmpPSvDLWkE+RYkGzKexujhCYJhgVt9wBK/Rd';
+wwv_flow_imp.g_varchar2_table(3106) := 'ijEMUuT344/zlLyBLKVzroC1yZruss0P3UgAkD6wMqIUBksFj18IP02Ig1lJ5VcaHdeo9u1uSkgwaQCSSQuAGusArBYy2Ko0//Gu';
+wwv_flow_imp.g_varchar2_table(3107) := 'vukE8LRlsoT7H78yvgeI1mMFpPpB+LsPjF9xaMrmM0bE1o++lvj7y0FjnSrWKaeEujKSsu04LQzKbKxT8KLQX7VvNzquLbueBDBY';
+wwv_flow_imp.g_varchar2_table(3108) := 'Qhx+Ifw0FbxkrSqVmP5dJPwtRncSQJopFUcWT5X4QvxB9to30r+YVZf71TQUtPGQYJpf7haI1tABiIUc9sZOrPVhZbPbilI518pd';
+wwv_flow_imp.g_varchar2_table(3109) := 'j0/vefZkZdAzrClFuF7wMzkf5v7rNyZu8JNy33ObvxX+/nIQhagwFQIbiKikHYKi7CjWLWyoceuFob/VLMAYTT8l9to38oX4g3iq';
+wwv_flow_imp.g_varchar2_table(3110) := 'RBzZDdW7tBrdSQCk4koww7gd5dfiH6ZPNZZyKc0KCdYzy3LbiJ18YwlA6T/H/lSTBMCV3mv5jSgIjiJJEf7KmWtZY4pwveDns/eP';
+wwv_flow_imp.g_varchar2_table(3111) := 'X/36PL6vrdTti5b5+8shFQJj]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[fyr586qfIk0IcvIEuW3rTwhaIvTXSNlDjKZPlfm1+Ic';
+wwv_flow_imp.g_varchar2_table(3112) := 'Zt6N4wUxbGtasF11LADEGR+b5k9p3cEiuIEPQ4INsTkhwIbe8sAvRboP+P6DiVLVukgC4ElYwxWMRlXdE7l9UKNRIctDict+/2T9';
+wwv_flow_imp.g_varchar2_table(3113) := '7VdY5Z/or6xH0v0J5a3NamzX2GQF0GlVpTAhMrECXoLCrwdqNi7FS6G+138sQcEiu4E9q34Ej86toVp1FVxJAEloJOM0uPq8+Tj/';
+wwv_flow_imp.g_varchar2_table(3114) := 'FNRVcNCMkuK7qMtFYE2CdEkrWkQC0LiyvC2gdU4mV/j/+/uSt0Nhkp6d/9J++Mr5noiSea2LEGpRoqqNPUR19qoX+/lIQlBisU8K';
+wwv_flow_imp.g_varchar2_table(3115) := 'aIH3f1X4D1l69uRgrh/5WQ+IKFPm8+jin2YXX8OHVfnQlAcRoHIr8nf4wr7JrDad/HRsNCS6qL8/vbLC+PFWsnTLW1BpaqM3Fxea';
+wwv_flow_imp.g_varchar2_table(3116) := '5RBmVcyJ59Gh19EvPzW5ZLUU4BjxD9OzJyuBdj0/vyXmxSOwpMTVK2/cS9L+Cst7C+7UNi3srNkI89f4N+Z2N92+48PdXCf2tONz';
+wwv_flow_imp.g_varchar2_table(3117) := 'UCniVXfyd/jDOGg+wdqLrRiWAS0yJIf5KfZQclbVVWp2H9YYE19Fhpm6q1rvZdiLfYwldQMfJjcy/9bUz17NKTCSuF/x85fS1pQj';
+wwv_flow_imp.g_varchar2_table(3118) := 'tWo/In6S84wHizGS6+TvwwYSF7sqNuVZq7R2cznu/xkJ/K8GiyVHhr9RHKTGES+vvkVwPuo4ALBqXEt9Ub2c/N5Gnsr6eaxsICS7';
+wwv_flow_imp.g_varchar2_table(3119) := '0mOtbe4+52JulM7s/xQW6QHnkGZU3Wp44Fg//3oNnrjJGB0ulCIexVZ7R0bMny4P3v1zaUdCOVPteUZXtexFTS/z9ji5hSZ9tY1j';
+wwv_flow_imp.g_varchar2_table(3120) := 'o4djXYA/HOtYQ+lsJFkWeCvu5iW+qt+M2WizUZnTdiNJYE3+uPrbw/bpfa0MhQSHMbm/cdVgQAOdpiwC42mAW6QKlrY/gOgF//ND';
+wwv_flow_imp.g_varchar2_table(3121) := 'ctWDdNMFnyV/8D18av6ESGh2M7acy+lTiyrRNz1gGC0Lg/BoyAkkKdrLbWcvY1xr6W2UAKODP1ccWvu82dBUB1MW/k+zkW+q21Px';
+wwv_flow_imp.g_varchar2_table(3122) := 'f/2Nbb0gwSQDyqRWuAButUQAstlEAXA2JSxBmTyt7xQNyoDiZ/93756/ggkKhernvl56ubP3q4Znt6opvSrXviOqIv78k6kJgcW1';
+wwv_flow_imp.g_varchar2_table(3123) := 'CoI2oFa7AGr+xhKB1hv6Wg0WRo8K31G2cZGdXioFdRQAxGk2VB/TbOMUoHhut6ltPSHA9N83UBcBShwTAFZDqApFTUnbnQ3x2/+M';
+wwv_flow_imp.g_varchar2_table(3124) := '3TM5wfopwEspT//nR568r7fhGZ/395bAgBJbWJASu5San9Yb+Vno9j5BTjPKAfhuaateJgV01GpWW0n6Fd6ffb5wt1xwSXM8V4Ar';
+wwv_flow_imp.g_varchar2_table(3125) := 'AEPvToMOu2jdAssGtg+dYeTXzhP9r+x+4GgijOFahjZWrTXj34cNbHgq/NpL1qiLWVV33IQTQYfKMaeTqn7VeHb6x0N+K40D4Cu8';
+wwv_flow_imp.g_varchar2_table(3126) := 'G2nubdSPoGgIQFC4RcwzyvLqeDMGGzP9zWFtIcCGGvOYrwCWtAOwuE+8cBGu1ymktd73y5FUn5ucLnjHWaCOA+b8f/fpNSkkXuS9';
+wwv_flow_imp.g_varchar2_table(3127) := 'LQaXPuLHxrenq8A2G/paDTUOCz6vrmWMQ94Iy9k6jqwjAIeCg2s0xtuE33V9qLCS4rivA62Eqr4klwC2AIHhKM16tef/mwXtvAmI';
+wwv_flow_imp.g_varchar2_table(3128) := 'N0W/vf/yKp6cnB3LKiG1dAcPGsCAENh5mXSDzRq4Ob0Lob+kxKHwCjrGNg2o3TpfpAF1DAMlpH7Bf3UyJLKaJk9B4SHA9V4Cz9kS';
+wwv_flow_imp.g_varchar2_table(3129) := 'VDiJGVEEbuffYqzueGT81AKjPPfvEtb5q3b1KzcE6Eq0uuDp8WXeuSaG/5WCwlMiyX90MTbNsm4OuIQCVVtI9yw1N8//Pe/1GQoI';
+wwv_flow_imp.g_varchar2_table(3130) := 'LwtHYGq4AX7tC3WkYpZiPQv1fntl31R8+99SuQ3Mz+azS3Xv617HmSMtiQXdsWUG3uaG/ZcaB8Cw3AKardICuWa3JtBhOsmXlmv9';
+wwv_flow_imp.g_varchar2_table(3131) := '1opGQYL2WPMxuxWqvwdARLJima4lRdxCxiCoYh/95+OWrfumRr78xZwxxt29+WJRr0birpcRitUeY3bp0T4cmh/6WG7bBcpItJAT';
+wwv_flow_imp.g_varchar2_table(3132) := 'QPegKAkj8/4gZBjiutjch/LcUGgwJKqj2Xb1GA6QuAG4eKCC0VpejyOmuJbk61iIEAivOabNDf0uhHg48rrYzwwBOFwmBXUEAkNy';
+wwv_flow_imp.g_varchar2_table(3133) := '6GmMokUubKjYfq4UE6+mjQeGKxtNHrUJ0gPWnUQ2Fp7oHioZabHQPFCgM1p9GdAANtDiop3UHhSuWSOtuVejvgjEAGkuJHDGtvMV';
+wwv_flow_imp.g_varchar2_table(3134) := '67egKAkg8/pgzapQiueYKgOdhpZDgegtI6i2rKm0skW0eNt1opX7paqMt11Yo7GpR6G8pGCxFcpxRo6guKgxyOj0ASEwkRcQZRim';
+wwv_flow_imp.g_varchar2_table(3135) := 'SpZ8itmVnkwWJZH7sDls486hCUtWuXkKa22FjkxMdV1IleKUxJIU34hS16FApcVo05h4WUG+66hRFBX129bsXEiEwNjlquR3KrYx';
+wwv_flow_imp.g_varchar2_table(3136) := 'rUW4SChZBUHZ+7A7REmnTiEmxTjgEzFHgDKPczMsIzbu3YGPj6jLMk0dQLaicqmu9iCsoNXqLqW55M9nx/VgntxAzDoeu0yo7gA7';
+wwv_flow_imp.g_varchar2_table(3137) := '06jcNq+TKa5s5DMQgzqZyATYl6kJgpqRU1G8wVVbz1ZRYxOsjHLoOJvcnL6E0OipT2XK7DkdvoVKrEeLKOWmxuROpUwug29AVBKA';
+wwv_flow_imp.g_varchar2_table(3138) := 'QLIYh5viI7CVLtekEoIxDbJXN+OiZmirvD960r+xvG8sqfZMgKAExntSsecHOn5kjmHfQq1yvJaIgG0aDp29Wxh0iaZ3Xo4CWQkQ';
+wwv_flow_imp.g_varchar2_table(3139) := 'ZV0XO6WmnNP4iVFzUKn3JrFXWK0c1a/rFeLcoESUKUJqyv+2lKChNvMM+89ZBX3LVAGu0aImjpo5aY6mQYYg5bBeFAlXtM1u6YyQ';
+wwv_flow_imp.g_varchar2_table(3140) := 'kfpKhRvP3kIDxhUJBYe3cg88d+7Fv+zseGvEYvuZdH/+qMWaXtVYJFI/s/cL7J0NOAT4rp4QpUrMi/1v/7qsmX7heaoFFNfNq4h4';
+wwv_flow_imp.g_varchar2_table(3141) := 'ugohVvqfjUvFg6Wf/nw+lf7swF8tAA7VRl+173vOJBxUUtNYSx/GJVx75]'')'||wwv_flow.LF||
+'               || TO_CLOB(q''[nx86GzD1wD';
+wwv_flow_imp.g_varchar2_table(3142) := '/mve9/w5WfR+t+ikUhrqlWrMMYv6sKgrrCAqgjQhOSb/rriiDGithKPPvfn9f/4lN38+jAwMCus7Ozp3dWSv9Q6B/6aQXEYXh0Lt';
+wwv_flow_imp.g_varchar2_table(3143) := 'M373rOcBiGKxOj62qiuOp/2x27tedfJVEEvdO/HVASRWjPv8r/8Aevrz3wxGs4JkMYrqgcu66bn9PRvI3jo47r3qK0UdXi3D+cDZ';
+wwv_flow_imp.g_varchar2_table(3144) := 'gbGBjY9W1/N/vo7wfqx3701viPtDX9seRRLSjhV12VB9glUYA6FImp1IIv6/lKP/7q7H/61N1HH9w5yOjs7GwVyJ06duAvoygoGu';
+wwv_flow_imp.g_varchar2_table(3145) := 'MQh7V9wfz8PEFRERTtil8EQm2uwp4rr1K+72PFstLFuT00B0oprFjl+z57rryK2lwFAll1voKiCubn5+Owts8YhygKiqeOHfhLID';
+wwv_flow_imp.g_varchar2_table(3146) := 'c7O1vdOcjop+4++uDjr87+J89XWmNtK9Zity2QriKAVkAEcR1MuRyf+fmHKvf0eYxOlAkBcV03M3Hq2GthULvXGIdKpfQ4DV1DC3';
+wwv_flow_imp.g_varchar2_table(3147) := 'gowLpbRt+M1iAti132cCEEi9a4W0bfDNh0Llb/LdCVSulxYxzCoHbvxKljr7mumwFkokzY5zH68w9V7imX4zOug2nwNvhNjUueAF';
+wwv_flow_imp.g_varchar2_table(3148) := 'BYbRSlSA4/fjKcsoITBOdNrJ6fHv/rKKzJ/NzZVwFPrSYqAZRCCziqkLstaa2xCVJpLxmIwlpUIXcb4KRzsSLSOfXm586+GoU1mZ';
+wwv_flow_imp.g_varchar2_table(3149) := '8e/2sWrf8gQKzgPH4ynCpFclgbldjrlzgufQIAEHAU/QM+rlokv4ZhGAP5Y4cPPF8uzd9VPDsxDrhBEKw88Z6nCILIvXrnkLjeHo';
+wwv_flow_imp.g_varchar2_table(3150) := 'kieuZ/G6GUkihCXG+Pe/XOIYIgwvNWfP7pnLrFsxPj5dL8XccOH3geyKdrIH1ZZMDHdRT9l/7Zn+CSJwAFJgxFChl94795a+6GKK';
+wwv_flow_imp.g_varchar2_table(3151) := 'A05J5/VUsQFONDz+79jdnZyTI0co2Lp4BAvemNO5XnjhLHSbZnD+2CJo5Fee6oetMbdwJBOierwczOTpYPPbv3N4KgeN51iUMuJg';
+wwv_flow_imp.g_varchar2_table(3152) := 'oo/Zu35m4oZPSNYSiiGloLmxuXxaK1gnUd5f7EbbmfqUKkfKznnffZTalUqtFoapYrCgjM7iuvV77nYi99U7HrYLHK91yz+8rrgS';
+wwv_flow_imp.g_varchar2_table(3153) := 'Cdk0Yg6VwvbG7PQysfW4XoJ27L/YzrKNdeJprOZUEASmFqVYm3DZrvOPqpkd+eKjIPxIssgbWd4InoJHp44Ga0rv9+D+2FoDV6eO';
+wwv_flow_imp.g_varchar2_table(3154) := 'BmQBoUAutYEHrTNRBPFZk/+qmR3942aL6jVpVYqUv/9IfLhAAgIYGgItGVo+4nj/7k6G8NKsLpkOJQHsfzVk0kOR+pAKgzuZuJY3';
+wwv_flow_imp.g_varchar2_table(3155) := 'oCYCcgijhGZ3I306AQuPiXPQ81lMeZDikOKsKjPzn6W1eOup8MKhJdLpsfLiMCAEDh1Mo2vnLI+eShT4994a+/Z+D26RJng4Boax';
+wwv_flow_imp.g_varchar2_table(3156) := '6n4DXwPBYLgJ57TU8A7BDqQqDnXtOoEAhQ8NBb8zhBQDRd4uxff8/A7Yc+PfaFK4ecT9bKNkZ1V3Jcq3F5EQB1d8DG/b5+48dvzP';
+wwv_flow_imp.g_varchar2_table(3157) := 'zNiU+P/vpPvTk7cKbE2WJAZcjFDLkYb9msvkQA1LfeskN5Tk8A7BxSIdAZ1bfesoMVhEAPVH1eiwGVMyXO/tSbswMnPj366x+/Mf';
+wwv_flow_imp.g_varchar2_table(3158) := 'M3/b5+Y61qLxuzfzEuy4WrFKYaiJVYzM4h50c+e2ffva9+auTf/vad+WunQ2amQ2YDsHWrwFv8y3nRQM3ceP3tKpNxsWu4OLCH5s';
+wwv_flow_imp.g_varchar2_table(3159) := 'KKVZmMa268/nagls4NAB6LTnuw0yGz0yEzv31n/tpXPzXybz97Z9+9O4ecH5FYTDUQezlufuiyWoB2Qiu0ALWKjV3DyO4R91//5O';
+wwv_flow_imp.g_varchar2_table(3160) := '3mJ3/g5uyXXpyK7/3JL08//NI0kyRrKTfkYvCgCCoE9EDfzckrNZA01EOLkDz7+ly4oAp5DAFMh8RBQLEYENw0xMjnPjr0nTcPm4';
+wwv_flow_imp.g_varchar2_table(3161) := '8MZPTHPF97NrDUKjZGYbS6PA9CuIwJAFIbX2HCGJGKtUbhjfWbT7y/z3xi34+NHTlbsV/71qnw/k/fP/fs2SLThChKpZw/4GfJZm';
+wwv_flow_imp.g_varchar2_table(3162) := '88JwD2JIDOIBECyWZv9Af8bG26VJ2GMiAjBfp/79v73/HO7e63j2T1B3O+3oOCsCZUKzZWoC/XU38xLmsCqEMplAJjQWpVsQIq5+';
+wwv_flow_imp.g_varchar2_table(3163) := 'o9uazZs6vP+fGPXZM5XKzZp1+ZlW/c/XLpqV8/dvWc65qr0wrAy/b06AJoiSJwzdW1zJ7sL17/av9335h/8zUD6gMFX9+WM+pa5S';
+wwv_flow_imp.g_varchar2_table(3164) := 'qIhGpNrEqaT2nd2/gL6Kp+AN0EEWxyyTbad+tnhSIuV4v3O7sPftdVP/imnI5N01vI97AmKAVla+IvHr3rmW+PXrve5DIFEIihFo';
+wwv_flow_imp.g_varchar2_table(3165) := 'pI0jpUqcvYzF8JPQtgGSiFrhv2tVCshEgEqqClUBwavj02LjoOiXv9PzoKbS2xyZji0PDt5uyrFKtinaRVk0rnsHfar4De6m0AKj';
+wwv_flow_imp.g_varchar2_table(3166) := 'UbtVYasbJXjdmkkWkPnUaSwaXYq8YsYkVrpbXC9E78xtCzANYARyyh9tW+zA6libC9/J+OwyqFJmJfZocOtY/Ti8quCT2WbBBCQg';
+wwv_flow_imp.g_varchar2_table(3167) := 'CTJs8rzjAZibvmdpfLGYIiIzGvOMNMmjxOozc69wD0CKBhWBRaIg47w0yYLI50z+UOlzMSYo6ZMFkOO8Noibqw8Vb3okcADSK5Ms';
+wwv_flow_imp.g_varchar2_table(3168) := 'rynD9GpJJ+UT10B4wIkXJ4zh8DbEuu97pU0SOABlFfUk/7Wzs6jh6WR31uetu/cfQIoEEYsYTa4wVvDE3cEwC7CIkQGPOCN0aoPU';
+wwv_flow_imp.g_varchar2_table(3169) := 'xPCGwYPQJoAIsFwFedwZ4A2GWoC4GvOoM9IXCN6BFAAzgnAA4xYXI9AbDLcE4IzHHYGeoJgWtAjwAaQF0AfCaztScAdinqQuAzma';
+wwv_flow_imp.g_varchar2_table(3170) := '30hMDG0SOABqBEQCkezlwBSG9xdSGSOZFkjpRK5qyHVdEjgAbgiFBVPgfcERx6/n83QlA4xBxwR6gqH6dHAA2hRwCrwAIOMaecPo';
+wwv_flow_imp.g_varchar2_table(3171) := '45/fg9/78rIYAvMcecfk45fTjEl0df7w2iRwCrQFAoSU6WKZ3pKcxdinqkZkpnOOCOoHqRmobQI4BVkPiWMc/6W0A5]'')'||wwv_flow.LF||
+'      ';
+wwv_flow_imp.g_varchar2_table(3172) := '         || TO_CLOB(q''[6J5p2bXQIqCcZK6Ie1pNA+gRwCpIBEDNM/5WpKcudzVEKQTLM/5WULonBDaAHgGsAodEAHzZHe0Jg';
+wwv_flow_imp.g_varchar2_table(3173) := 'F2OuhD4sjuaCIE9Z21V9AhgBVjAsRFH3CEOukNkbdQTlroYFsjaiIPuEEfcIZzefK2KHgGsgKTrT8xL3ihF5WN6J0rXwyAUlc9L3';
+wwv_flow_imp.g_varchar2_table(3174) := 'iiqZ7Gtih4BrICFDMCeT7lpsFiz6WUEro4eAayABVXZ66nKmwULURuvF7VpBD0CWAb1uPK8znDQHcHrxZU3BQSFJzEH3RHme3kbq';
+wwv_flow_imp.g_varchar2_table(3175) := '6JHAMtAACMxx51+Tjh9eL3Msk0BC3jEnHD6OO70Y3qZmyuiRwDLYLEAON/LLd9UcESY7wmBDaFHAMugLgAmGYA9AXAzoS4EJhmBP';
+wwv_flow_imp.g_varchar2_table(3176) := 'SFwJfQIYBloEaxy2edvT06R3iLaNBCVWG/7/O1Y5faEwBXQI4AlIIAnMTMmxwveGH6vw8ymgkXhS8QL3hgzJpcKuD0shR4BLAFBo';
+wwv_flow_imp.g_varchar2_table(3177) := 'SXmiDPIGZ3H6ynJmwoJgVvO6DxHnEF0L4KzLHoEsASS0z7mBX+MqnbRvS6zmw5aLFXt8oI/BsQ9C24Z/P+x5sPixmzvqwAAAABJR';
+wwv_flow_imp.g_varchar2_table(3178) := 'U5ErkJggg==]'')),'||wwv_flow.LF||
+'       photo_mime_type = ''image/png'''||wwv_flow.LF||
+' WHERE candidate_id = 12;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'COMMIT;'||wwv_flow.LF||
+'';
+wwv_flow_imp_shared.create_install_script(
+ p_id=>wwv_flow_imp.id(4693934643176850226)
+,p_install_id=>wwv_flow_imp.id(4592381611947774032)
+,p_name=>'tms-candidate-images.sql'
+,p_sequence=>40
+,p_script_type=>'INSTALL'
+,p_script_clob=>wwv_flow_imp.varchar2_to_clob(wwv_flow_imp.g_varchar2_table)
+,p_created_on=>wwv_flow_imp.dz('20261013162552Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013162552Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/deployment/install/install_tms_ess_images_sql
+begin
+wwv_flow_imp.g_varchar2_table := wwv_flow_imp.empty_varchar2_table;
+wwv_flow_imp.g_varchar2_table(1) := '-- Module 13, Lab 4 - Post-alter sample data updates'||wwv_flow.LF||
+'-- Uses the existing sample employees and leave';
+wwv_flow_imp.g_varchar2_table(2) := ' requests from tms_sample_data (1).sql.'||wwv_flow.LF||
+'-- Employee photos are fictional PNG avatars encoded as Base';
+wwv_flow_imp.g_varchar2_table(3) := '64 CLOB values.'||wwv_flow.LF||
+'-- Leave attachments are fictional PDF documents encoded as Base64 CLOB values.'||wwv_flow.LF||
+'-- R';
+wwv_flow_imp.g_varchar2_table(4) := 'ecommended: SQL Workshop > SQL Scripts > Upload and Run.'||wwv_flow.LF||
+'-- Each update is committed before the next';
+wwv_flow_imp.g_varchar2_table(5) := ' one to release row locks promptly.'||wwv_flow.LF||
+'-- If a run is interrupted, rerun the script to finish applying ';
+wwv_flow_imp.g_varchar2_table(6) := 'these fixed sample values.'||wwv_flow.LF||
+''||wwv_flow.LF||
+'SET DEFINE OFF;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'ALTER TABLE tms_employees ADD ('||wwv_flow.LF||
+'    phone              ';
+wwv_flow_imp.g_varchar2_table(7) := '      VARCHAR2(40),'||wwv_flow.LF||
+'    emergency_contact_name   VARCHAR2(160),'||wwv_flow.LF||
+'    emergency_contact_phone  VARCHAR';
+wwv_flow_imp.g_varchar2_table(8) := '2(40),'||wwv_flow.LF||
+'    photo_mime_type          VARCHAR2(255),'||wwv_flow.LF||
+'    photo_filename           VARCHAR2(255)'||wwv_flow.LF||
+');'||wwv_flow.LF||
+'/'||wwv_flow.LF||
+''||wwv_flow.LF||
+'';
+wwv_flow_imp.g_varchar2_table(9) := 'ALTER TABLE tms_leave_requests ADD ('||wwv_flow.LF||
+'    attachment_blob          BLOB,'||wwv_flow.LF||
+'    attachment_mime_type    ';
+wwv_flow_imp.g_varchar2_table(10) := ' VARCHAR2(255),'||wwv_flow.LF||
+'    attachment_filename      VARCHAR2(255)'||wwv_flow.LF||
+');'||wwv_flow.LF||
+'/'||wwv_flow.LF||
+''||wwv_flow.LF||
+'UPDATE tms_employees'||wwv_flow.LF||
+'   SET phone  ';
+wwv_flow_imp.g_varchar2_table(11) := '                 = ''+1-555-0101'','||wwv_flow.LF||
+'       emergency_contact_name  = ''Arun Patel'','||wwv_flow.LF||
+'       emergency_co';
+wwv_flow_imp.g_varchar2_table(12) := 'ntact_phone = ''+1-555-1101'','||wwv_flow.LF||
+'       photo_blob              = apex_web_service.clobbase642blob('||wwv_flow.LF||
+'    ';
+wwv_flow_imp.g_varchar2_table(13) := '    TO_CLOB(''iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAIAAADTED8xAAAIKUlEQVR42u3dO67cRhCFYYpQ4AV4Bd6VQ6cOBSh';
+wwv_flow_imp.g_varchar2_table(14) := 'SrEiAQqcOvSp5A3Iuhw4MCAYs3RmSze56fCf1A8Pq81edmiF5X336/GUj6qpdCQgARAAgAgARAIgAQAQAotp6rQR366cff7jyn//';
+wwv_flow_imp.g_varchar2_table(15) := '5199qCID6Rj/6vwUGAAra/coHgAQAipv++Y8HBgC0MD0YAMD3z14LEgDQyPdIAADfIwEAq31/0WS3fkgkvOr5QMwdrprsoQKXAID';
+wwv_flow_imp.g_varchar2_table(16) := 'cvg9ll8KXBoBA/kjhjFYXC4Db3ZDaB80vvzUA7kJTjaYAXDns8nNfcYoDcO6AG34BolDVAHCiitYUgBOn6EdQNawAAOurZ18Ajp4';
+wwv_flow_imp.g_varchar2_table(17) := 'W6ytsEQBYX5H7AnDoYFhftUsB8Px5sL6ylwKA9R3BcO1KT3cknCzPGOWYAE9Wk/WdSDUANH5H0xcAjd8o6LsDcH+lrSDsShB0Ajx';
+wwv_flow_imp.g_varchar2_table(18) := 'TL9Z3ZDUBqOr+d2/fPP8vv//wEQPtACgWew45vgYP6U4wEABlGv9A3yclIdFRRgGggPtv9X06ErIcaAgAsrt/svWzYJDiWNcDkNr';
+wwv_flow_imp.g_varchar2_table(19) := '9C62fAoP4h7sYgIcFYv0OGCw85ZUAJHV/QOvHxyDsWe8qUsn9YT/hw9Nc9VPxmgmQ0f3xrR9/FAQ89z1jt+D+pJ854Mnu0doA93d';
+wwv_flow_imp.g_varchar2_table(20) := 'mYH4Qmh2Bcrk/r/WDx6E4Nti5v7z7A15LnDmwc39592NgPQDc77piMrBv1MP9Ha4uKACJ2n8Hf4S6xuVDYOd+6szAzv0N44FlYP0';
+wwv_flow_imp.g_varchar2_table(21) := 'OwP2uN4IfbgQgy8vx2q6Gia76Pi/tSz6x6E9BgtDO/Z2/GbQM7KGukANUYLJDxgOQKPpTOg131z7z82n/hkC0ILQHuSqiJW4ZCUC';
+wwv_flow_imp.g_varchar2_table(22) := 'u8KP9563GQKftxYAmQ2ANAC9A6SlHQ2A4A6OGgNuhqbXGAKD9GwJJh8Dezf1UaRm4zoAIRCJQp/Yv/2Ssz31DwAQgE0D6p66bQK8';
+wwv_flow_imp.g_varchar2_table(23) := 'JIP+o0jAAtH8qMATsAGQH0P6p6xAwAcgEmAKo3c4eHNBjZwDw0CPF1Aln7mHRJJrgtH0CZERhh4AlmCzB8g91TUHHAJB/qFgK2kP';
+wwv_flow_imp.g_varchar2_table(24) := 'hSDTZdXYAsgPIP9Q1BQ2YAPIP5U1BIhCJQPIPdU1BVyeA/EOpU5AIRCJQj/zz/sNH592qVs/49tIEkH8oewoSgUgEIgJA7QWAeuq';
+wwv_flow_imp.g_varchar2_table(25) := 'he89PgIwLgD24apVOu1EEIhGICABNFgApqFt9XvbwyQngFwCqsQaIQCQCmfLUtTImAJkAWh11rcl+Yn22AVOuPfiFL4L6RiBDQDX';
+wwv_flow_imp.g_varchar2_table(26) := 'sAGQH0Pa0/8Z1MAHIBND8VAAAHODaAUAEgG3bmv0I0LMRlrzqoz8FmABNGRB+ANDXE9wPACIAtGyN2j8A+vqD+wHQ1yXcD4C+XuF';
+wwv_flow_imp.g_varchar2_table(27) := '+APR1DPd/T68+ff7yzX/gaZivevf2Desn0iHrmgCVPaTxi0B9ncT9IlDTONTc+iJQa29p/CZA98W3ORuHrAuAyo7vyQMA+L41CQD';
+wwv_flow_imp.g_varchar2_table(28) := 'g+9YkAIDvW5MAANZvjQEAWL81BmN+BzjxnlHuL6lcNTzauL87AbIPAdbvOQqOmrbmL8Hcr6pPqtoEYP3mo6D1BOB+dT6q3alQ52r';
+wwv_flow_imp.g_varchar2_table(29) := 'vzoM61zz9DsD6VoK7doD4PwVwv1O42LJ3dafOZ+GJMGqtrABo/06kLwDc71wWA7BwD+Z+DAz05AMAot31wP0YOKqXPWwJJkuw1kJ';
+wwv_flow_imp.g_varchar2_table(30) := 'dT+o8AJPXAO7HwB1ufAxA83chUmo9dG+OCKT9GwJ9dwDux0BQAHI9IE9VdcWHTwGwcA3Q/g2B+xaAze8A1FxXAbg1BWn/hsDdDnw';
+wwv_flow_imp.g_varchar2_table(31) := 'WAF+GUi496VgR'') ||'||wwv_flow.LF||
+'        TO_CLOB(''iESgkClI/pGCJnjvAABSEBXLPyIQiUAxJpH8IwUtcd0xAKQgqpR/RkYgt0XQTI3y';
+wwv_flow_imp.g_varchar2_table(32) := 'W8QdQP6RguLuAFIQlck/gyeAFES58s9JAAwBqtH+x+8AhgAlav8Rl2AbsD049BL8cNYYArSk/Z9L5m6FoNY6D4AhQNnbvwlAJsAF';
+wwv_flow_imp.g_varchar2_table(33) := 'GQKUuv2bAGQCXJMhQHnbvwlAJsBlGQKUtP0PmwAYoIzuF4FIBBokQ4DStf95EwADFNMzIwHwnADN0UCn7cWAJu1/JQAvo4kBuu7+';
+wwv_flow_imp.g_varchar2_table(34) := 'sUFj/AQQhChF+JkdgQwBCuiQfT6mGKAI4efeCYABiu/+eyOQZYDie2mPiTtp/4l3gCtB6P2Hj9xQWN883yXhZ9IEsAxQwOg/NQJh';
+wwv_flow_imp.g_varchar2_table(35) := 'gGK6f3M7NDXXJAAMAQrY/qdOgOcZsAd32IAjuH92BDIHKJT7F+wAGKA47l+zBD/DgBRUNf+Ecv8W81sgc6Bn71+iNQA8BB0DDd2/';
+wwv_flow_imp.g_varchar2_table(36) := '5OaxZRPg4dX+8ftvTFNGD09z1a2TKyMQBrh/rfu3bXv16fOX+Lnw519+ZaOS1t9W3za/fgl+5vqNAu4vCwAGuL87ABjg/r47wNF9';
+wwv_flow_imp.g_varchar2_table(37) := 'wEqQ3fpbpMdlYwFgLdb4m0YgcYj7TQBxSOwxAQ7Wyyjg/poT4NAcMArCWn+L/Yao6ACIQxo/AIwCjb/fDnC6mrYC7i84AYwC1gfA';
+wwv_flow_imp.g_varchar2_table(38) := 'YQZgMNP6W8I3IqcEYDv+yBgM7rb+lvN94FkBgAHrA+AMAzAY/hVC6j8EkR4AGLA+ALZt2969fXPuC9DmJJwuWo13N9UB4F8Grpwo';
+wwv_flow_imp.g_varchar2_table(39) := '6z9fqDJvLisFwEUGmpBwvTiV3ttXDYBRGNQjYUg16r2ysiYAXxnYRtwZkZqEgZdf8oWtZQEYjkEiGIZfbOF3FRcH4L8MbKPvkwsF';
+wwv_flow_imp.g_varchar2_table(40) := 'w32XVvtN3fUB+D8G2z13jE7mYcIldHhJfRcApmEwHIwlH7LP32foBcBaEgKqre+7A9CcBL4HQEcS+B4Ah3koQEKHbzMBMEOJ/nBT';
+wwv_flow_imp.g_varchar2_table(41) := 'gfs05+i1EpxzVUAYmB4AK902GQl2B0COBnwRDEYHQE0wKIJ2JSAAEAGACABEACACAFED/QPXHoM8yOZ8QQAAAABJRU5ErkJggg==';
+wwv_flow_imp.g_varchar2_table(42) := ''')'||wwv_flow.LF||
+'       ),'||wwv_flow.LF||
+'       photo_mime_type         = ''image/png'','||wwv_flow.LF||
+'       photo_filename          = ''maya_pa';
+wwv_flow_imp.g_varchar2_table(43) := 'tel.png'''||wwv_flow.LF||
+' WHERE email = ''maya.patel@acme.example'';'||wwv_flow.LF||
+'COMMIT;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'UPDATE tms_employees'||wwv_flow.LF||
+'   SET phone       ';
+wwv_flow_imp.g_varchar2_table(44) := '            = ''+1-555-0102'','||wwv_flow.LF||
+'       emergency_contact_name  = ''Emily Chen'','||wwv_flow.LF||
+'       emergency_contact';
+wwv_flow_imp.g_varchar2_table(45) := '_phone = ''+1-555-1102'','||wwv_flow.LF||
+'       photo_blob              = apex_web_service.clobbase642blob('||wwv_flow.LF||
+'        T';
+wwv_flow_imp.g_varchar2_table(46) := 'O_CLOB(''iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAIAAADTED8xAAAIGElEQVR42u3dPc4cVRCF4XZrcnIS1kVISmTJgdfgwJIj';
+wwv_flow_imp.g_varchar2_table(47) := 'UkK2ZQITmx0QICEk8Ez/3O5bP8+Jweque96qUzM9/b358vXzQtRVqxIQAIgAQAQAIgAQAYAIAES19VCCq/X9dz+c+d//+PN3NQRA';
+wwv_flow_imp.g_varchar2_table(48) := 'faPv/WeBAYCCdj9zAZAAQHHTb788MACghenBAAC+33ovSABAI98jAQB8jwQAzPb9SZNdepFIeNPzBzFXuOpmDxW4BQDk9n0ouxS+';
+wwv_flow_imp.g_varchar2_table(49) := 'NQAE8kcKZ7S6WQBc7obUPmh++60B8BSaajQF4Mxhl5/7ilMcgGMH3PADEIWqBoATVbSmABw4RV+CqmEFAFhfPfsCsPe0WF9hiwDA';
+wwv_flow_imp.g_varchar2_table(50) := '+orcF4BdB8P6ql0KgO3nwfrKXgoA1ncEw7UqPV2RcLL8xijHBNhYTdZ3ItUA0PgdTV8ANH6joO8OwP2VtoKwK0HQCbClXqzvyGoC';
+wwv_flow_imp.g_varchar2_table(51) := 'UNX9795+2P4ff/z0HgPtACgWe3Y5vgYP6U4wEABlGv9A3yclIdFRRgGggPsv9X06ErIcaAgAsrv/ZutnwSDFsc4HILX7J1o/BQbx';
+wwv_flow_imp.g_varchar2_table(52) := 'D3cyAC8LxPodMJh4yjMBSOr+gNaPj0HYs15VpJL7w17hy9Oc9VXxnAmQ0f3xrR9/FAQ89zVjt+D+pNcc8GTXaG2A+zszcH8QujsC';
+wwv_flow_imp.g_varchar2_table(53) := '5XJ/XusHj0NxbLByf3n3B7yXOHNg5f7y7sfAfAC4333FZGBdqIf7O9xdUAAStf8O/gh1j9OHwMr91JmBlfsbxgPLwPwdgPvdbwQ/';
+wwv_flow_imp.g_varchar2_table(54) := 'XAhAlpfjtV0NE931dV5ap1yx6E9BgtDK/Z0/GbQMrKHukANU4GaHjAcgUfSndBrurvXO69P+DYFoQWgNcldEU9wyEoBc4Uf7z1uN';
+wwv_flow_imp.g_varchar2_table(55) := 'gU5biwFNhsAcAJ5A6VeOhsBwBkYNAY9DU2uNAUD7NwSSDoG1m/up0jJwngERiESgTu1f/slYn+uGgAlAJoD0T103gV4TQP5RpWEA';
+wwv_flow_imp.g_varchar2_table(56) := 'aP9UYAjYAcgOoP1T1yFgApAJcAugdjt7cECPHQHAjx4ppg44cw2LJtENTltvgIwo7BCwBJMlWP6hriloHwDyDxVLQWsoHIludp0d';
+wwv_flow_imp.g_varchar2_table(57) := 'gOwA8g91TUEDJoD8Q3lTkAhEIpD8Q11T0NkJIP9Q6hQkApEI1CP/fPz03nm3qtUW356aAPIPZU9BIhCJQEQAqL0AUE+9dO/xCZBx';
+wwv_flow_imp.g_varchar2_table(58) := 'AbAHV63SYTeKQCQCEQGgyQIgBXWrz3MPH5wAvgGgGmuACEQikClPXStjApAJoNVR15qsB9ZnGzDl2oOffBDUNwIZAqphByA7gLan';
+wwv_flow_imp.g_varchar2_table(59) := '/TeugwlAJoDmpwIA4AD3DgAiACzL0uxLgJ6NsORd7/0qwARoyoDwA4C+nuB+ABABoGVr1P4B0Ncf3A+Avi7hfgD09Qr3A6CvY7j/';
+wwv_flow_imp.g_varchar2_table(60) := 'W3oowUvfvHv7gfVNAKPAlQMAA65ZBBKHWN8EMApcoQlQV3kX3ydXjg0AFHT84XvEAwBa+P7lvXcm4cH31JmEB99TZxIerE/fKlcH';
+wwv_flow_imp.g_varchar2_table(61) := 'DB6sT50x+Ob3AAfeM8r9Osh07X2Zw8OxUedRsHI/da7qwyFR51Gwcj91rvPqVKhztVfnQZ1r/nAM1HkleDYB4n8VwP1OYYszn7zR';
+wwv_flow_imp.g_varchar2_table(62) := 'eVV36nwWfhFGrZUVAO3fifQFgPudy2QAJu7B3I+BgZ58AUC0P4jE/RjYq+cetgSTJVhroa4ndRyAm9cA7sfAFW58DUDJv4tKTfTS';
+wwv_flow_imp.g_varchar2_table(63) := 'vTkikPZvCPTdAbgfA0EByPUDeaqqMz7cBMDENUD7NwSuWwAW3wNQc50F4NIUpP0bAlc7cCsAPgylXNroWBGIRKCQKUj+kYJu8N4O';
+wwv_flow_imp.g_varchar2_table(64) := 'AKQgKpZ/'') ||'||wwv_flow.LF||
+'        TO_CLOB(''RCASgWJMIvlHCpriun0ASEFUKf+MjEAei6A7NcpvEXcA+UcKirsDSEFUJv8MngBSEOXKP';
+wwv_flow_imp.g_varchar2_table(65) := 'wcBMASoRvsfvwMYApSo/Udcgm3A9uDQS/DLWWMI0JT2fyyZexSCWus4AIYAZW//JgCZACdkCFDq9m8CkAlwToYA5W3/JgCZAKdlC';
+wwv_flow_imp.g_varchar2_table(66) := 'FDS9j9sAmCAMrpfBCIRaJAMAUrX/u+bABigmJ4ZCYDfCdA9Gui0tRjQpP3PBOA5mhig8+4fGzTGTwBBiFKEn7sjkCFAAR2y3o8pB';
+wwv_flow_imp.g_varchar2_table(67) := 'ihC+Ll2AmCA4rv/2ghkGaD4Xlpj4k7af+Id4EwQ+vjpPTcU1v+e75Twc9MEsAxQwOh/awTCAMV0/+JxaGqumwAwBChg+791Amxnw';
+wwv_flow_imp.g_varchar2_table(68) := 'B7cYQOO4P67I5A5QKHcP2EHwADFcf+cJXgLA1JQ1fwTyv1LzE+BzIGevX+K5gDwEnQMNHT/lIfHpk2Al3f726+/ME0ZvTzNWY9Oz';
+wwv_flow_imp.g_varchar2_table(69) := 'oxAGOD+ue5fluXNl6+f4+fCH3/6mY1KWn+Z/dj8/CV4y/0bBdxfFgAMcH93ADDA/X13gL37gJUgu/WXSD+XjQWAtVjjbxqBxCHuN';
+wwv_flow_imp.g_varchar2_table(70) := 'wHEIbHHBNhZL6OA+2tOgF1zwCgIa/0l9huiogMgDmn8ADAKNP5+O8DhatoKuL/gBDAKWB8AuxmAwZ3WXxK+ETklAMv+n4zB4GrrL';
+wwv_flow_imp.g_varchar2_table(71) := 'znfB54VABiwPgCOMACD4R8hpP5DEOkBgAHrA2BZluXd2w/HPgBtTsLhotV4d1MdAP5m4MyJsv72QpV5c1kpAE4y0ISE88Wp9N6+a';
+wwv_flow_imp.g_varchar2_table(72) := 'gCMwqAeCUOqUe+VlTUB+IeBZcSTEalJGHj7JV/YWhaA4RgkgmH4zRZ+V3FxAP7NwDL6OblQMFx3a7Xf1F0fgP9isFzzxOjNPNxwC';
+wwv_flow_imp.g_varchar2_table(73) := 'x1eUt8FgNswGA7GlIvs8/cZegEwl4SAauv77gA0J4HvAdCRBL4HwG4eCpDQ4dNMANyhRH+4qcBzmvfooQTHXBUQBqYHwEy33YwEu';
+wwv_flow_imp.g_varchar2_table(74) := 'wMgRwM+CQajA6AmGBRBqxIQAIgAQAQAIgAQAYCogf4C6e4qgstXrkYAAAAASUVORK5CYII='')'||wwv_flow.LF||
+'       ),'||wwv_flow.LF||
+'       photo_mim';
+wwv_flow_imp.g_varchar2_table(75) := 'e_type         = ''image/png'','||wwv_flow.LF||
+'       photo_filename          = ''liam_chen.png'''||wwv_flow.LF||
+' WHERE email = ''liam.';
+wwv_flow_imp.g_varchar2_table(76) := 'chen@acme.example'';'||wwv_flow.LF||
+'COMMIT;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'UPDATE tms_employees'||wwv_flow.LF||
+'   SET phone                   = ''+1-555-0103'','||wwv_flow.LF||
+'  ';
+wwv_flow_imp.g_varchar2_table(77) := '     emergency_contact_name  = ''Rahul Nair'','||wwv_flow.LF||
+'       emergency_contact_phone = ''+1-555-1103'','||wwv_flow.LF||
+'       ';
+wwv_flow_imp.g_varchar2_table(78) := 'photo_blob              = apex_web_service.clobbase642blob('||wwv_flow.LF||
+'        TO_CLOB(''iVBORw0KGgoAAAANSUhEUgA';
+wwv_flow_imp.g_varchar2_table(79) := 'AAQAAAAEACAIAAADTED8xAAAIF0lEQVR42u3dPdLcVBCFYVk1CStgAayKEIekTrwEJ04JTcimTG42YFICqiiqwDP6udLtn+fE4JL';
+wwv_flow_imp.g_varchar2_table(80) := '6nrf79IxG35uvXz4vRF21KgEBgAgARAAgAgARAIgAQFRbDyW4Wt99/8OZ//3PP35XQwDUN/refxYYACho9zMXAAkAFDf99ssDAwB';
+wwv_flow_imp.g_varchar2_table(81) := 'amB4MAOD7rfeCBAA08j0SAMD3SADAbN+fNNmlF4mENz1/EHOFq272UIFbAEBu34eyS+FbA0Agf6RwRqubBcDlbkjtg+a33xoAT6G';
+wwv_flow_imp.g_varchar2_table(82) := 'pRlMAzhx2+bmvOMUBOHbADT8AUahqADhRRWsKwIFT9CWoGlYAgPXVsy8Ae0+L9RW2CACsr8h9Adh1MKyv2qUA2H4erK/spQBgfUc';
+wwv_flow_imp.g_varchar2_table(83) := 'wXKvS0xUJJ8tvjHJMgI3VZH0nUg0Ajd/R9AVA4zcK+u4A3F9pKwi7EgSdAFvqxfqOrCYAVd3/9v3H7f/xpw/vMNAOgGKxZ5fja/C';
+wwv_flow_imp.g_varchar2_table(84) := 'Q7gQDAVCm8Q/0fVISEh1lFAAKuP9S36cjIcuBhgAgu/tvtn4WDFIc63wAUrt/ovVTYBD/cCcD8LJArN8Bg4mnPBOApO4PaP34GIQ';
+wwv_flow_imp.g_varchar2_table(85) := '961VFKrk/7BW+PM1ZXxXPmQAZ3R/f+vFHQcBzXzN2C+5Pes0BT3aN1ga4vzMD9wehuyNQLvfntX7wOBTHBiv3l3d/wHuJMwdW7i/';
+wwv_flow_imp.g_varchar2_table(86) := 'vfgzMB4D73VdMBtaFeri/w90FBSBR++/gj1D3OH0IrNxPnRlYub9hPLAMzN8BuN/9RvDDhQBkeTle29Uw0V1f56V1yhWL/hQkCK3';
+wwv_flow_imp.g_varchar2_table(87) := 'c3/mTQcvAGuoOOUAFbnbIeAASRX9Kp+HuWu+8Pu3fEIgWhNYgd0U0xS0jAcgVfrT/vNUY6LS1GNBkCMwB4AmUfuVoCAxnYNQQ8Dg';
+wwv_flow_imp.g_varchar2_table(88) := '0tdYYALR/QyDpEFi7uZ8qLQPnGRCBSATq1P7ln4z1uW4ImABkAkj/1HUT6DUB5B9VGgaA9k8FhoAdgOwA2j91HQImAJkAtwBqt7M';
+wwv_flow_imp.g_varchar2_table(89) := 'HB/TYEQD86JFi6oAz17BoEt3gtPUGyIjCDgFLMFmC5R/qmoL2ASD/ULEUtIbCkehm19kByA4g/1DXFDRgAsg/lDcFiUAkAsk/1DU';
+wwv_flow_imp.g_varchar2_table(90) := 'FnZ0A8g+lTkEiEIlAPfLPpw/vnHerWm3x7akJIP9Q9hQkApEIRASA2gsA9dRL9x6fABkXAHtw1SoddqMIRCIQEQCaLABSULf6PPf';
+wwv_flow_imp.g_varchar2_table(91) := 'wwQngGwCqsQaIQCQCmfLUtTImAJkAWh11rcl6YH22AVOuPfjJB0F9I5AhoBp2ALIDaHvaf+M6mABkAmh+KgAADnDvACACwLIszb4';
+wwv_flow_imp.g_varchar2_table(92) := 'E6NkIS9713q8CTICmDAg/AOjrCe4HABEAWrZG7R8Aff3B/QDo6xLuB0Bfr3A/APo6hvu/pYcSvPTN2/cfWd8EMApcOQAw4JpFIHG';
+wwv_flow_imp.g_varchar2_table(93) := 'I9U0Ao8AVmgB1lXfxfXLl2ABAQccfvkc8AKCF71/ee2cSHnxPnUl48D11JuHB+vStcnXA4MH61BmDb34PcOA9o9yvg0zX3pc5PBw';
+wwv_flow_imp.g_varchar2_table(94) := 'bdR4FK/dT56o+HBJ1HgUr91PnOq9OhTpXe3Ue1LnmD8dAnVeCZxMg/lcB3O8UtjjzyRudV3WnzmfhF2HUWlkB0P6dSF8AuN+5TAZ';
+wwv_flow_imp.g_varchar2_table(95) := 'g4h7M/RgY6MkXAET7g0jcj4G9eu5hSzBZgrUW6npSxwG4eQ3gfgxc4cbXAJT8u6jURC/dmyMCaf+GQN8dgPsxEBSAXD+Qp6o648N';
+wwv_flow_imp.g_varchar2_table(96) := 'NAExcA7R/Q+C6BWDxPQA111kALk1B2r8hcLUDtwLgw1DKpY2OFYFIBAqZguQfKegG7+0AQAqiYvlH'') ||'||wwv_flow.LF||
+'        TO_CLOB(''';
+wwv_flow_imp.g_varchar2_table(97) := 'BCIRKMYkkn+koCmu2weAFESV8s/ICOSxCLpTo/wWcQeQf6SguDuAFERl8s/gCSAFUa78cxAAQ4BqtP/xO4AhQInaf8Ql2AZsDw69';
+wwv_flow_imp.g_varchar2_table(98) := 'BL+cNYYATWn/x5K5RyGotY4DYAhQ9vZvApAJcEKGAKVu/yYAmQDnZAhQ3vZvApAJcFqGACVt/8MmAAYoo/tFIBKBBskQoHTt/74J';
+wwv_flow_imp.g_varchar2_table(99) := 'gAGK6ZmRAPidAN2jgU5biwFN2v9MAJ6jiQE67/6xQWP8BBCEKEX4uTsCGQIU0CHr/ZhigCKEn2snAAYovvuvjUCWAYrvpTUm7qT9';
+wwv_flow_imp.g_varchar2_table(100) := 'J94BzgShTx/ecUNh/e/5Tgk/N00AywAFjP63RiAMUEz3Lx6Hpua6CQBDgAK2/1snwHYG7MEdNuAI7r87ApkDFMr9E3YADFAc989Z';
+wwv_flow_imp.g_varchar2_table(101) := 'grcwIAVVzT+h3L/E/BTIHOjZ+6doDgAvQcdAQ/dPeXhs2gR4ebe//foL05TRy9Oc9ejkzAiEAe6f6/5lWd58/fI5fi788aef2aik';
+wwv_flow_imp.g_varchar2_table(102) := '9ZfZj83PX4K33L9RwP1lAcAA93cHAAPc33cH2LsPWAmyW3+J9HPZWABYizX+phFIHOJ+E0AcEntMgJ31Mgq4v+YE2DUHjIKw1l9i';
+wwv_flow_imp.g_varchar2_table(103) := 'vyEqOgDikMYPAKNA4++3Axyupq2A+wtOAKOA9QGwmwEY3Gn9JeEbkVMCsOz/yRgMrrb+kvN94FkBgAHrA+AIAzAY/hFC6j8EkR4A';
+wwv_flow_imp.g_varchar2_table(104) := 'GLA+AJZlWd6+/3jsA9DmJBwuWo13N9UB4G8Gzpwo628vVJk3l5UC4CQDTUg4X5xK7+2rBsAoDOqRMKQa9V5ZWROAfxhYRjwZkZqE';
+wwv_flow_imp.g_varchar2_table(105) := 'gbdf8oWtZQEYjkEiGIbfbOF3FRcH4N8MLKOfkwsFw3W3VvtN3fUB+C8GyzVPjN7Mww230OEl9V0AuA2D4WBMucg+f5+hFwBzSQio';
+wwv_flow_imp.g_varchar2_table(106) := 'tr7vDkBzEvgeAB1J4HsA7OahAAkdPs0EwB1K9IebCjyneY8eSnDMVQFhYHoAzHTbzUiwOwByNOCTYDA6AGqCQRG0KgEBgAgARAAg';
+wwv_flow_imp.g_varchar2_table(107) := 'AgARAIga6C9WKSr/CE0tHAAAAABJRU5ErkJggg=='')'||wwv_flow.LF||
+'       ),'||wwv_flow.LF||
+'       photo_mime_type         = ''image/png'','||wwv_flow.LF||
+' ';
+wwv_flow_imp.g_varchar2_table(108) := '      photo_filename          = ''priya_nair.png'''||wwv_flow.LF||
+' WHERE email = ''priya.nair@acme.example'';'||wwv_flow.LF||
+'COMMIT;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'';
+wwv_flow_imp.g_varchar2_table(109) := 'UPDATE tms_employees'||wwv_flow.LF||
+'   SET phone                   = ''+1-555-0104'','||wwv_flow.LF||
+'       emergency_contact_name  ';
+wwv_flow_imp.g_varchar2_table(110) := '= ''Mateo Garcia'','||wwv_flow.LF||
+'       emergency_contact_phone = ''+1-555-1104'','||wwv_flow.LF||
+'       photo_blob              = a';
+wwv_flow_imp.g_varchar2_table(111) := 'pex_web_service.clobbase642blob('||wwv_flow.LF||
+'        TO_CLOB(''iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAIAAADTED8xAAAIJk';
+wwv_flow_imp.g_varchar2_table(112) := 'lEQVR42u3dPc/cVBDFccdKQ03JJ6OkRenSpkybLqKl5IuFLrShpUCKkEieXdvX987L77S8aD33/GfO7Np+Xn3+9GUj6qpdCQgARA';
+wwv_flow_imp.g_varchar2_table(113) := 'AgAgARAIgAQAQAotp6rQR368effrjyn//1599qCID6Rj/6vwUGAAra/coHgAQAipv++Y8HBgC0MD0YAMD3z14LEgDQyPdIAADfIw';
+wwv_flow_imp.g_varchar2_table(114) := 'EAq31/0WS3fkgkvOr5QMwdrprsoQKXAIDcvg9ll8KXBoBA/kjhjFYXC4Db3ZDaB80vvzUA7kJTjaYAXDns8nNfcYoDcO6AG34Bol';
+wwv_flow_imp.g_varchar2_table(115) := 'DVAHCiitYUgBOn6EdQNawAAOurZ18Ajp4W6ytsEQBYX5H7AnDoYFhftUsB8Px5sL6ylwKA9R3BcO1KT3cknCzPGOWYAE9Wk/WdSD';
+wwv_flow_imp.g_varchar2_table(116) := 'UANH5H0xcAjd8o6LsDcH+lrSDsShB0AjxTL9Z3ZDUBqOr+N+/ePv8vf3z/AQPtACgWew45vgYP6U4wEABlGv9A3yclIdFRRgGggP';
+wwv_flow_imp.g_varchar2_table(117) := 'tv9X06ErIcaAgAsrt/svWzYJDiWNcDkNr9C62fAoP4h7sYgIcFYv0OGCw85ZUAJHV/QOvHxyDsWe8qUsn9YT/hw9Nc9VPxmgmQ0f';
+wwv_flow_imp.g_varchar2_table(118) := '3xrR9/FAQ89z1jt+D+pJ854Mnu0doA93dmYH4Qmh2Bcrk/r/WDx6E4Nti5v7z7A15LnDmwc39592NgPQDc77piMrBv1MP9Ha4uKA';
+wwv_flow_imp.g_varchar2_table(119) := 'CJ2n8Hf4S6xuVDYOd+6szAzv0N44FlYP0OwP2uN4IfbgQgy8vx2q6Gia76Pi/tSz6x6E9BgtDO/Z2/GbQM7KGukANUYLJDxgOQKP';
+wwv_flow_imp.g_varchar2_table(120) := 'pTOg131z7z82n/hkC0ILQHuSqiJW4ZCUCu8KP9563GQKftxYAmQ2ANAC9A6SlHQ2A4A6OGgNuhqbXGAKD9GwJJh8Dezf1UaRm4zo';
+wwv_flow_imp.g_varchar2_table(121) := 'AIRCJQp/Yv/2Ssz31DwAQgE0D6p66bQK8JIP+o0jAAtH8qMATsAGQH0P6p6xAwAcgEmAKo3c4eHNBjZwDw0CPF1Aln7mHRJJrgtH';
+wwv_flow_imp.g_varchar2_table(122) := '0CZERhh4AlmCzB8g91TUHHAJB/qFgK2kPhSDTZdXYAsgPIP9Q1BQ2YAPIP5U1BIhCJQPIPdU1BVyeA/EOpU5AIRCJQj/zz8f0H59';
+wwv_flow_imp.g_varchar2_table(123) := '2qVs/49tIEkH8oewoSgUgEIgJA7QWAeuqhe89PgIwLgD24apVOu1EEIhGICABNFgApqFt9XvbwyQngFwCqsQaIQCQCmfLUtTImAJ';
+wwv_flow_imp.g_varchar2_table(124) := 'kAWh11rcl+Yn22AVOuPfiFL4L6RiBDQDXsAGQH0Pa0/8Z1MAHIBND8VAAAHODaAUAEgG3bmv0I0LMRlrzqoz8FmABNGRB+ANDXE9';
+wwv_flow_imp.g_varchar2_table(125) := 'wPACIAtGyN2j8A+vqD+wHQ1yXcD4C+XuF+APR1DPd/T68+f/ryzX/gaZivevPuLesn0iHrmgCVPaTxi0B9ncT9IlDTONTc+iJQa2';
+wwv_flow_imp.g_varchar2_table(126) := '9p/CZA98W3ORuHrAuAyo7vyQMA+L41CQDg+9YkAIDvW5MAANZvjQEAWL81BmN+BzjxnlHuL6lcNTzauL87AbIPAdbvOQqOmrbmL8';
+wwv_flow_imp.g_varchar2_table(127) := 'Hcr6pPqtoEYP3mo6D1BOB+dT6q3alQ52rvzoM61zz9DsD6VoK7doD4PwVwv1O42LJ3dafOZ+GJMGqtrABo/06kLwDc71wWA7BwD+';
+wwv_flow_imp.g_varchar2_table(128) := 'Z+DAz05AMAot31wP0YOKqXPWwJJkuw1kJdT+o8AJPXAO7HwB1ufAxA83chUmo9dG+OCKT9GwJ9dwDux0BQAHI9IE9VdcWHTwGwcA';
+wwv_flow_imp.g_varchar2_table(129) := '3Q/g2B+xaAze8A1FxXAbg1BWn/hsDdDnwWAF+GUi496VgRiESg'') ||'||wwv_flow.LF||
+'        TO_CLOB(''kClI/pGCJnjvAABSEBXLPyIQiUA';
+wwv_flow_imp.g_varchar2_table(130) := 'xJpH8IwUtcd0xAKQgqpR/RkYgt0XQTI3yW8QdQP6RguLuAFIQlck/gyeAFES58s9JAAwBqtH+x+8AhgAlav8Rl2AbsD049BL8cNY';
+wwv_flow_imp.g_varchar2_table(131) := 'YArSk/Z9L5m6FoNY6D4AhQNnbvwlAJsAFGQKUuv2bAGQCXJMhQHnbvwlAJsBlGQKUtP0PmwAYoIzuF4FIBBokQ4DStf95EwADFNM';
+wwv_flow_imp.g_varchar2_table(132) := 'zIwHwnADN0UCn7cWAJu1/JQAvo4kBuu7+sUFj/AQQhChF+JkdgQwBCuiQfT6mGKAI4efeCYABiu/+eyOQZYDie2mPiTtp/4l3gCt';
+wwv_flow_imp.g_varchar2_table(133) := 'B6OP7D9xQWN883yXhZ9IEsAxQwOg/NQJhgGK6f3M7NDXXJAAMAQrY/qdOgOcZsAd32IAjuH92BDIHKJT7F+wAGKA47l+zBD/DgBR';
+wwv_flow_imp.g_varchar2_table(134) := 'UNf+Ecv8W81sgc6Bn71+iNQA8BB0DDd2/5OaxZRPg4dX+8ftvTFNGD09z1a2TKyMQBrh/rfu3bXv1+dOX+Lnw519+ZaOS1t9W3za';
+wwv_flow_imp.g_varchar2_table(135) := '/fgl+5vqNAu4vCwAGuL87ABjg/r47wNF9wEqQ3fpbpMdlYwFgLdb4m0YgcYj7TQBxSOwxAQ7Wyyjg/poT4NAcMArCWn+L/Yao6AC';
+wwv_flow_imp.g_varchar2_table(136) := 'IQxo/AIwCjb/fDnC6mrYC7i84AYwC1gfAYQZgMNP6W8I3IqcEYDv+yBgM7rb+lvN94FkBgAHrA+AMAzAY/hVC6j8EkR4AGLA+ALZ';
+wwv_flow_imp.g_varchar2_table(137) := 't2968e3vuC9DmJJwuWo13N9UB4F8Grpwo6z9fqDJvLisFwEUGmpBwvTiV3ttXDYBRGNQjYUg16r2ysiYAXxnYRtwZkZqEgZdf8oW';
+wwv_flow_imp.g_varchar2_table(138) := 'tZQEYjkEiGIZfbOF3FRcH4L8MbKPvkwsFw32XVvtN3fUB+D8G2z13jE7mYcIldHhJfRcApmEwHIwlH7LP32foBcBaEgKqre+7A9C';
+wwv_flow_imp.g_varchar2_table(139) := 'cBL4HQEcS+B4Ah3koQEKHbzMBMEOJ/nBTgfs05+i1EpxzVUAYmB4AK902GQl2B0COBnwRDEYHQE0wKIJ2JSAAEAGACABEACACAFE';
+wwv_flow_imp.g_varchar2_table(140) := 'D/QMbW4R3+jw05gAAAABJRU5ErkJggg=='')'||wwv_flow.LF||
+'       ),'||wwv_flow.LF||
+'       photo_mime_type         = ''image/png'','||wwv_flow.LF||
+'       p';
+wwv_flow_imp.g_varchar2_table(141) := 'hoto_filename          = ''sofia_garcia.png'''||wwv_flow.LF||
+' WHERE email = ''sofia.garcia@acme.example'';'||wwv_flow.LF||
+'COMMIT;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'UPD';
+wwv_flow_imp.g_varchar2_table(142) := 'ATE tms_employees'||wwv_flow.LF||
+'   SET phone                   = ''+1-555-0105'','||wwv_flow.LF||
+'       emergency_contact_name  = ''';
+wwv_flow_imp.g_varchar2_table(143) := 'Olivia Reed'','||wwv_flow.LF||
+'       emergency_contact_phone = ''+1-555-1105'','||wwv_flow.LF||
+'       photo_blob              = apex_';
+wwv_flow_imp.g_varchar2_table(144) := 'web_service.clobbase642blob('||wwv_flow.LF||
+'        TO_CLOB(''iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAIAAADTED8xAAAIJklEQV';
+wwv_flow_imp.g_varchar2_table(145) := 'R42u3dO67cRhCFYYrQArQDr8uhU2fKBC1AUKbMqUNvS17B1RIcGBAMWLozJJvd9fhO6geG1eevOjVD8r75+vKyEXXVrgQEACIAEA';
+wwv_flow_imp.g_varchar2_table(146) := 'GACABEACACAFFtvVWCu/XLu3dX/vO/v31TQwDUN/rR/y0wAFDQ7lc+ACQAUNz0z388MACghenBAAC+f/ZakACARr5HAgD4HgkAWO';
+wwv_flow_imp.g_varchar2_table(147) := '37iya79UMi4U3PB2LucNVkDxW4BADk9n0ouxS+NAAE8kcKZ7S6WADc7obUPmh++a0BcBeaajQF4Mphl5/7ilMcgHMH3PALEIWqBo';
+wwv_flow_imp.g_varchar2_table(148) := 'ATVbSmAJw4RT+CqmEFAFhfPfsCcPS0WF9hiwDA+orcF4BDB8P6ql0KgOfPg/WVvRQArO8IhmtXeroj4WR5xijHBHiymqzvRKoBoP';
+wwv_flow_imp.g_varchar2_table(149) := 'E7mr4AaPxGQd8dgPsrbQVhV4KgE+CZerG+I6sJQFX3f3j/8fl/+fOXTxhoB0Cx2HPI8TV4SHeCgQAo0/gH+j4pCYmOMgoABdx/q+';
+wwv_flow_imp.g_varchar2_table(150) := '/TkZDlQEMAkN39k62fBYMUx7oegNTuX2j9FBjEP9zFADwsEOt3wGDhKa8EIKn7A1o/PgZhz3pXkUruD/sJH57mqp+K10yAjO6Pb/';
+wwv_flow_imp.g_varchar2_table(151) := '34oyDguUe8F4j7q37mgCe7R2sD3N+ZgflBaHYEyuX+vNYPHofi2GDn/vLuD3gtcebAzv3l3Y+B9QBwv+uKycC+UQ/3d7i6oAAkav';
+wwv_flow_imp.g_varchar2_table(152) := '8d/BHqGpcPgZ37qTMDO/c3jAeWgfU7APe73gh+uBGALC/Ha7saJrrq+7y0L/nEoj8FCUI793f+ZtAysIe6Qg5QgckOGQ9AouhP6T';
+wwv_flow_imp.g_varchar2_table(153) := 'TcXfvMz6f9GwLRgtAe5KqIlrhlJAC5wo/2n7caA522FwOaDIE1ALwCpaccDYHhDIwaAm6HptYaA4D2bwgkHQJ7N/dTpWXgOgMiEI';
+wwv_flow_imp.g_varchar2_table(154) := 'lAndq//JOxPvcNAROATADpn7puAr0mgPyjSsMA0P6pwBCwA5AdQPunrkPABCATYAqgdjt7cECPnQHAQ48UUyecuYdFk2iC0/YJkB';
+wwv_flow_imp.g_varchar2_table(155) := 'GFHQKWYLIEyz/UNQUdA0D+oWIpaA+FI9Fk19kByA4g/1DXFDRgAsg/lDcFiUAkAsk/1DUFXZ0A8g+lTkEiEIlAPfLP5y+fnHerWj';
+wwv_flow_imp.g_varchar2_table(156) := '3j20sTQP6h7ClIBCIRiAgAtRcA6qmH7j0/ATIuAPbgqlU67UYRiEQgIgA0WQCkoG71ed3DJyeAXwCoxhogApEIZMpT18qYAGQCaH';
+wwv_flow_imp.g_varchar2_table(157) := 'XUtSb7ifXZBky59uBXvgjqG4EMAdWwA5AdQNvT/hvXwQQgE0DzUwEAcIBrBwARALZta/YjQM9GWPKqj/4UYAI0ZUD4AUBfT3A/AI';
+wwv_flow_imp.g_varchar2_table(158) := 'gA0LI1av8A6OsP7gdAX5dwPwD6eoX7AdDXMdz/M735+vLyw3/gaZjv+vD+I+sn0iHrmgCVPaTxi0B9ncT9IlDTONTc+iJQa29p/C';
+wwv_flow_imp.g_varchar2_table(159) := 'ZA98W3ORuHrAuAyo7vyQMA+L41CQDg+9YkAIDvW5MAANZvjQEAWL81BmN+BzjxnlHuL6lcNTzauH86AbIPAdbvOQqOmrbmL8Hcr6';
+wwv_flow_imp.g_varchar2_table(160) := 'pPqtoEYP3mo6D1BOB+dT6q3alQ52rvzoM61zz9DsD6VoK7doD4PwVwv1O42LJ3dafOZ+GJMGqtrABo/06kLwDc71wWA7BwD+Z+DA';
+wwv_flow_imp.g_varchar2_table(161) := 'z05AMAot31wP0YOKrXPWwJJkuw1kJdT+o8AJPXAO7HwB1ufAxA83chUmo9dG+OCKT9GwJ9dwDux0BQAHI9IE9VdcWHTwGwcA3Q/g';
+wwv_flow_imp.g_varchar2_table(162) := '2B+xaAze8A1FxXAbg1BWn/hsDdDnwWAF+GUi496VgRiESg'') ||'||wwv_flow.LF||
+'        TO_CLOB(''kClI/pGCJnjvAABSEBXLPyIQiUAxJpH';
+wwv_flow_imp.g_varchar2_table(163) := '8IwUtcd0xAKQgqpR/RkYgt0XQTI3yW8QdQP6RguLuAFIQlck/gyeAFES58s9JAAwBqtH+x+8AhgAlav8Rl2AbsD049BL8cNYYArS';
+wwv_flow_imp.g_varchar2_table(164) := 'k/Z9L5m6FoNY6D4AhQNnbvwlAJsAFGQKUuv2bAGQCXJMhQHnbvwlAJsBlGQKUtP0PmwAYoIzuF4FIBBokQ4DStf95EwADFNMzIwH';
+wwv_flow_imp.g_varchar2_table(165) := 'wnADN0UCn7cWAJu1/JQCvo4kBuu7+sUFj/AQQhChF+JkdgQwBCuiQfT6mGKAI4efeCYABiu/+eyOQZYDie2mPiTtp/4l3gCtB6PO';
+wwv_flow_imp.g_varchar2_table(166) := 'XT9xQWD883yXhZ9IEsAxQwOg/NQJhgGK6f3M7NDXXJAAMAQrY/qdOgOcZsAd32IAjuH92BDIHKJT7F+wAGKA47l+zBD/DgBRUNf+';
+wwv_flow_imp.g_varchar2_table(167) := 'Ecv8W81sgc6Bn71+iNQA8BB0DDd2/5OaxZRPg4dX+9ecfTFNGD09z1a2TKyMQBrh/rfu3bXvz9eUlfi789bff2aik9bfVt82vX4K';
+wwv_flow_imp.g_varchar2_table(168) := 'fuX6jgPvLAoAB7u8OAAa4v+8OcHQfsBJkt/4W6XHZWABYizX+phFIHOJ+E0AcEntMgIP1Mgq4v+YEODQHjIKw1t9ivyEqOgDikMY';
+wwv_flow_imp.g_varchar2_table(169) := 'PAKNA4++3A5yupq2A+wtOAKOA9QFwmAEYzLT+lvCNyCkB2I4/MgaDu62/5XwfeFYAYMD6ADjDAAyGf4WQ+g9BpAcABqwPgG3btg/';
+wwv_flow_imp.g_varchar2_table(170) := 'vP577ArQ5CaeLVuPdTXUA+JeBKyfK+s8Xqsyby0oBcJGBJiRcL06l9/ZVA2AUBvVIGFKNeq+srAnAdwa2EXdGpCZh4OWXfGFrWQC';
+wwv_flow_imp.g_varchar2_table(171) := 'GY5AIhuEXW/hdxcUB+C8D2+j75ELBcN+l1X5Td30A/o/Bds8do5N5mHAJHV5S3wWAaRgMB2PJh+zz9xl6AbCWhIBq6/vuADQnge8';
+wwv_flow_imp.g_varchar2_table(172) := 'B0JEEvgfAYR4KkNDh20wAzFCiP9xU4D7NOXqrBOdcFRAGpgfASrdNRoLdAZCjAV8Eg9EBUBMMiqBdCQgARAAgAgARAIgAQNRA/wB';
+wwv_flow_imp.g_varchar2_table(173) := 'iBoMPbMvBvQAAAABJRU5ErkJggg=='')'||wwv_flow.LF||
+'       ),'||wwv_flow.LF||
+'       photo_mime_type         = ''image/png'','||wwv_flow.LF||
+'       photo';
+wwv_flow_imp.g_varchar2_table(174) := '_filename          = ''noah_reed.png'''||wwv_flow.LF||
+' WHERE email = ''noah.reed@acme.example'';'||wwv_flow.LF||
+'COMMIT;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'UPDATE tms_em';
+wwv_flow_imp.g_varchar2_table(175) := 'ployees'||wwv_flow.LF||
+'   SET phone                   = ''+1-555-0106'','||wwv_flow.LF||
+'       emergency_contact_name  = ''Grace Broo';
+wwv_flow_imp.g_varchar2_table(176) := 'ks'','||wwv_flow.LF||
+'       emergency_contact_phone = ''+1-555-1106'','||wwv_flow.LF||
+'       photo_blob              = apex_web_servi';
+wwv_flow_imp.g_varchar2_table(177) := 'ce.clobbase642blob('||wwv_flow.LF||
+'        TO_CLOB(''iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAIAAADTED8xAAAIGElEQVR42u3dPc4';
+wwv_flow_imp.g_varchar2_table(178) := 'cVRCF4XZrMjJWwZYIkRwROPE6nDggskTIkswmTGRyAiSEBJ7pn9t96+c5MVjddc9bdWqmp783X798Xoi6alUCAgARAIgAQAQAIgA';
+wwv_flow_imp.g_varchar2_table(179) := 'QAYCoth5KcLW++/6HM//7n3/8roYAqG/0vf8sMABQ0O5nLgASAChu+u2XBwYAtDA9GADA91vvBQkAaOR7JACA75EAgNm+P2mySy8';
+wwv_flow_imp.g_varchar2_table(180) := 'SCW96/iDmClfd7KECtwCA3L4PZZfCtwaAQP5I4YxWNwuAy92Q2gfNb781AJ5CU42mAJw57PJzX3GKA3DsgBt+AKJQ1QBwoorWFIA';
+wwv_flow_imp.g_varchar2_table(181) := 'Dp+hLUDWsAADrq2dfAPaeFusrbBEAWF+R+wKw62BYX7VLAbD9PFhf2UsBwPqOYLhWpacrEk6W3xjlmAAbq8n6TqQaABq/o+kLgMZ';
+wwv_flow_imp.g_varchar2_table(182) := 'vFPTdAbi/0lYQdiUIOgG21Iv1HVlNAKq6/+37j9v/408f3mGgHQDFYs8ux9fgId0JBgKgTOMf6PukJCQ6yigAFHD/pb5PR0KWAw0';
+wwv_flow_imp.g_varchar2_table(183) := 'BQHb332z9LBikONb5AKR2/0Trp8Ag/uFOBuBlgVi/AwYTT3kmAEndH9D68TEIe9arilRyf9grfHmas74qnjMBMro/vvXjj4KA575';
+wwv_flow_imp.g_varchar2_table(184) := 'm7Bbcn/SaA57sGq0NcH9nBu4PQndHoFzuz2v94HEojg1W7i/v/oD3EmcOrNxf3v0YmA8A97uvmAysC/Vwf4e7CwpAovbfwR+h7nH';
+wwv_flow_imp.g_varchar2_table(185) := '6EFi5nzozsHJ/w3hgGZi/A3C/+43ghwsByPJyvLarYaK7vs5L65QrFv0pSBBaub/zJ4OWgTXUHXKACtzskPEAJIr+lE7D3bXeeX3';
+wwv_flow_imp.g_varchar2_table(186) := 'avyEQLQitQe6KaIpbRgKQK/xo/3mrMdBpazGgyRCYA8ATKP3K0RAYzsCoIeBxaGqtMQBo/4ZA0iGwdnM/VVoGzjMgApEI1Kn9yz8';
+wwv_flow_imp.g_varchar2_table(187) := 'Z63PdEDAByASQ/qnrJtBrAsg/qjQMAO2fCgwBOwDZAbR/6joETAAyAW4B1G5nDw7osSMA+NEjxdQBZ65h0SS6wWnrDZARhR0ClmC';
+wwv_flow_imp.g_varchar2_table(188) := 'yBMs/1DUF7QNA/qFiKWgNhSPRza6zA5AdQP6hrilowASQfyhvChKBSASSf6hrCjo7AeQfSp2CRCASgXrkn08f3jnvVrXa4ttTE0D';
+wwv_flow_imp.g_varchar2_table(189) := '+oewpSAQiEYgIALUXAOqpl+49PgEyLgD24KpVOuxGEYhEICIANFkApKBu9Xnu4YMTwDcAVGMNEIFIBDLlqWtlTAAyAbQ66lqT9cD';
+wwv_flow_imp.g_varchar2_table(190) := '6bAOmXHvwkw+C+kYgQ0A17ABkB9D2tP/GdTAByATQ/FQAABzg3gFABIBlWZp9CdCzEZa8671fBZgATRkQfgDQ1xPcDwAiALRsjdo';
+wwv_flow_imp.g_varchar2_table(191) := '/APr6g/sB0Ncl3A+Avl7hfgD0dQz3f0sPJXjpm7fvP7K+CWAUuHIAYMA1i0DiEOubAEaBKzQB6irv4vvkyrEBgIKOP3yPeABAC9+';
+wwv_flow_imp.g_varchar2_table(192) := '/vPfOJDz4njqT8OB76kzCg/XpW+XqgMGD9akzBt/8HuDAe0a5XweZrr0vc3g4Nuo8Clbup85VfTgk6jwKVu6nznVenQp1rvbqPKh';
+wwv_flow_imp.g_varchar2_table(193) := 'zzR+OgTqvBM8mQPyvArjfKWxx5pM3Oq/qTp3Pwi/CqLWyAqD9O5G+AHC/c5kMwMQ9mPsxMNCTLwCI9geRuB8De/Xcw5ZgsgRrLdT';
+wwv_flow_imp.g_varchar2_table(194) := '1pI4DcPMawP0YuMKNrwEo+XdRqYleujdHBNL+DYG+OwD3YyAoALl+IE9VdcaHmwCYuAZo/4bAdQvA4nsAaq6zAFyagrR/Q+BqB24';
+wwv_flow_imp.g_varchar2_table(195) := 'FwIehlEsbHSsCkQgUMgXJP1LQDd7bAYAURMXy'') ||'||wwv_flow.LF||
+'        TO_CLOB(''jwhEIlCMSST/SEFTXLcPACmIKuWfkRHIYxF0p0b5';
+wwv_flow_imp.g_varchar2_table(196) := 'LeIOIP9IQXF3ACmIyuSfwRNACqJc+ecgAIYA1Wj/43cAQ4AStf+IS7AN2B4cegl+OWsMAZrS/o8lc49CUGsdB8AQoOzt3wQgE+CE';
+wwv_flow_imp.g_varchar2_table(197) := 'DAFK3f5NADIBzskQoLzt3wQgE+C0DAFK2v6HTQAMUEb3i0AkAg2SIUDp2v99EwADFNMzIwHwOwG6RwOdthYDmrT/mQA8RxMDdN79';
+wwv_flow_imp.g_varchar2_table(198) := 'Y4PG+AkgCFGK8HN3BDIEKKBD1vsxxQBFCD/XTgAMUHz3XxuBLAMU30trTNxJ+0+8A5wJQp8+vOOGwvrf850Sfm6aAJYBChj9b41A';
+wwv_flow_imp.g_varchar2_table(199) := 'GKCY7l88Dk3NdRMAhgAFbP+3ToDtDNiDO2zAEdx/dwQyByiU+yfsABigOO6fswRvYUAKqpp/Qrl/ifkpkDnQs/dP0RwAXoKOgYbu';
+wwv_flow_imp.g_varchar2_table(200) := 'n/Lw2LQJ8PJuf/v1F6Ypo5enOevRyZkRCAPcP9f9y7K8+frlc/xc+ONPP7NRSesvsx+bn78Eb7l/o4D7ywKAAe7vDgAGuL/vDrB3';
+wwv_flow_imp.g_varchar2_table(201) := 'H7ASZLf+EunnsrEAsBZr/E0jkDjE/SaAOCT2mAA762UUcH/NCbBrDhgFYa2/xH5DVHQAxCGNHwBGgcbfbwc4XE1bAfcXnABGAesD';
+wwv_flow_imp.g_varchar2_table(202) := 'YDcDMLjT+kvCNyKnBGDZ/5MxGFxt/SXn+8CzAgAD1gfAEQZgMPwjhNR/CCI9ADBgfQAsy7K8ff/x2AegzUk4XLQa726qA8DfDJw5';
+wwv_flow_imp.g_varchar2_table(203) := 'UdbfXqgyby4rBcBJBpqQcL44ld7bVw2AURjUI2FINeq9srImAP8wsIx4MiI1CQNvv+QLW8sCMByDRDAMv9nC7youDsC/GVhGPycX';
+wwv_flow_imp.g_varchar2_table(204) := 'Cobrbq32m7rrA/BfDJZrnhi9mYcbbqHDS+q7AHAbBsPBmHKRff4+Qy8A5pIQUG193x2A5iTwPQA6ksD3ANjNQwESOnyaCYA7lOgP';
+wwv_flow_imp.g_varchar2_table(205) := 'NxV4TvMePZTgmKsCwsD0AJjptpuRYHcA5GjAJ8FgdADUBIMiaFUCAgARAIgAQAQAIgAQNdBf+MIqzeMFVGMAAAAASUVORK5CYII=';
+wwv_flow_imp.g_varchar2_table(206) := ''')'||wwv_flow.LF||
+'       ),'||wwv_flow.LF||
+'       photo_mime_type         = ''image/png'','||wwv_flow.LF||
+'       photo_filename          = ''ethan_b';
+wwv_flow_imp.g_varchar2_table(207) := 'rooks.png'''||wwv_flow.LF||
+' WHERE email = ''ethan.brooks@acme.example'';'||wwv_flow.LF||
+'COMMIT;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'UPDATE tms_employees'||wwv_flow.LF||
+'   SET phone   ';
+wwv_flow_imp.g_varchar2_table(208) := '                = ''+1-555-0107'','||wwv_flow.LF||
+'       emergency_contact_name  = ''Anjali Menon'','||wwv_flow.LF||
+'       emergency_c';
+wwv_flow_imp.g_varchar2_table(209) := 'ontact_phone = ''+1-555-1107'','||wwv_flow.LF||
+'       photo_blob              = apex_web_service.clobbase642blob('||wwv_flow.LF||
+'   ';
+wwv_flow_imp.g_varchar2_table(210) := '     TO_CLOB(''iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAIAAADTED8xAAAIJUlEQVR42u3dO67cRhCFYYpQ6gVoaQ6dOlQiQA';
+wwv_flow_imp.g_varchar2_table(211) := 'sQoEShU4fe2VUub8CBAcGApTtDstldj++kfmBYff6qUzMk75uXl28bUVftSkAAIAIAEQCIAEAEACIAENXWWyW4W+/e/XLlP//69W';
+wwv_flow_imp.g_varchar2_table(212) := '81BEB9ox/93wIDAAXtfuUDQAIAxU3//McDAwBamB4MAOD7Z68FCQBo5HskAIDvkQCA1b6/aLJbPyQS3vR8IOYOV032UIFLAEBu34';
+wwv_flow_imp.g_varchar2_table(213) := 'eyS+FLA0Agf6RwRquLBcDtbkjtg+aX3xoAd6GpRlMArhx2+bmvOMUBOHfADb8AUahqADhRRWsKwIlT9COoGlYAgPXVsy8AR0+L9R';
+wwv_flow_imp.g_varchar2_table(214) := 'W2CACsr8h9ATh0MKyv2qUAeP48WF/ZSwHA+o5guHalpzsSTpZnjHJMgCeryfpOpBoAGr+j6QuAxm8U9N0BuL/SVhB2JQg6AZ6pF+';
+wwv_flow_imp.g_varchar2_table(215) := 's7spoAVHX/+48fnv+Xv3z6jIF2ABSLPYccX4OHdCcYCIAyjX+g75OSkOgoowBQwP23+j4dCVkONAQA2d0/2fpZMEhxrOsBSO3+hd';
+wwv_flow_imp.g_varchar2_table(216) := 'ZPgUH8w10MwMMCsX4HDBae8koAkro/oPXjYxD2rHcVqeT+sJ/w4Wmu+ql4zQTI6P741o8/CgKe+56xW3B/0s8c8GT3aG2A+zszMD';
+wwv_flow_imp.g_varchar2_table(217) := '8IzY5Audyf1/rB41AcG+zcX979Aa8lzhzYub+8+zGwHgDud10xGdg36uH+DlcXFIBE7b+DP0Jd4/IhsHM/dWZg5/6G8cAysH4H4H';
+wwv_flow_imp.g_varchar2_table(218) := '7XG8EPNwKQ5eV4bVfDRFd9n5f2JZ9Y9KcgQWjn/s7fDFoG9lBXyAEqMNkh4wFIFP0pnYa7a5/5+bR/QyBaENqDXBXREreMBCBX+N';
+wwv_flow_imp.g_varchar2_table(219) := 'H+81ZjoNP2YkCTIbAGgFeg9JSjITCcgVFDwO3Q1FpjAND+DYGkQ2Dv5n6qtAxcZ0AEIhGoU/uXfzLW574hYAKQCSD9U9dNoNcEkH';
+wwv_flow_imp.g_varchar2_table(220) := '9UaRgA2j8VGAJ2ALIDaP/UdQiYAGQCTAHUbmcPDuixMwB46JFi6oQz97BoEk1w2j4BMqKwQ8ASTJZg+Ye6pqBjAMg/VCwF7aFwJJ';
+wwv_flow_imp.g_varchar2_table(221) := 'rsOjsA2QHkH+qaggZMAPmH8qYgEYhEIPmHuqagqxNA/qHUKUgEIhGoR/758umz825Vq2d8e2kCyD+UPQWJQCQCEQGg9gJAPfXQve';
+wwv_flow_imp.g_varchar2_table(222) := 'cnQMYFwB5ctUqn3SgCkQhEBIAmC4AU1K0+r3v45ATwCwDVWANEIBKBTHnqWhkTgEwArY661mQ/sT7bgCnXHvzKF0F9I5AhoBp2AL';
+wwv_flow_imp.g_varchar2_table(223) := 'IDaHvaf+M6mABkAmh+KgAADnDtACACwLZtzX4E6NkIS1710Z8CTICmDAg/AOjrCe4HABEAWrZG7R8Aff3B/QDo6xLuB0Bfr3A/AP';
+wwv_flow_imp.g_varchar2_table(224) := 'o6hvt/pjcvL99++A88DfNd7z9+YP1EOmRdE6CyhzR+Eaivk7hfBGoah5pbXwRq7S2N3wTovvg2Z+OQdQFQ2fE9eQAA37cmAQB835';
+wwv_flow_imp.g_varchar2_table(225) := 'oEAPB9axIAwPqtMQAA67fGYMzvACfeM8r9JZWrhkcb908nQPYhwPo9R8FR09b8JZj7VfVJVZsArN98FLSeANyvzke1OxXqXO3deV';
+wwv_flow_imp.g_varchar2_table(226) := 'DnmqffAVjfSnDXDhD/pwDudwoXW/au7tT5LDwRRq2VFQDt34n0BYD7nctiABbuwdyPgYGefABAtLseuB8DR/W6hy3BZAnWWqjrSZ';
+wwv_flow_imp.g_varchar2_table(227) := '0HYPIawP0YuMONjwFo/i5ESq2H7s0RgbR/Q6DvDsD9GAgKQK4H5KmqrvjwKQAWrgHavyFw3wKw+R2AmusqALemIO3fELjbgc8C4M';
+wwv_flow_imp.g_varchar2_table(228) := 'tQyqUnHSsCkQgU'') ||'||wwv_flow.LF||
+'        TO_CLOB(''MgXJP1LQBO8dAEAKomL5RwQiESjGJJJ/pKAlrjsGgBRElfLPyAjktgiaqVF+i7g';
+wwv_flow_imp.g_varchar2_table(229) := 'DyD9SUNwdQAqiMvln8ASQgihX/jkJgCFANdr/+B3AEKBE7T/iEmwDtgeHXoIfzhpDgJa0/3PJ3K0Q1FrnATAEKHv7NwHIBLggQ4B';
+wwv_flow_imp.g_varchar2_table(230) := 'St38TgEyAazIEKG/7NwHIBLgsQ4CStv9hEwADlNH9IhCJQINkCFC69j9vAmCAYnpmJACeE6A5Gui0vRjQpP2vBOB1NDFA190/Nmi';
+wwv_flow_imp.g_varchar2_table(231) := 'MnwCCEKUIP7MjkCFAAR2yz8cUAxQh/Nw7ATBA8d1/bwSyDFB8L+0xcSftP/EOcCUIffn0mRsK64fnuyT8TJoAlgEKGP2nRiAMUEz';
+wwv_flow_imp.g_varchar2_table(232) := '3b26HpuaaBIAhQAHb/9QJ8DwD9uAOG3AE98+OQOYAhXL/gh0AAxTH/WuW4GcYkIKq5p9Q7t9ifgtkDvTs/Uu0BoCHoGOgofuX3Dy';
+wwv_flow_imp.g_varchar2_table(233) := '2bAI8vNq//vyDacro4WmuunVyZQTCAPevdf+2bW9eXr7Fz4W//vY7G5W0/rb6tvn1S/Az128UcH9ZADDA/d0BwAD3990Bju4DVoL';
+wwv_flow_imp.g_varchar2_table(234) := 's1t8iPS4bCwBrscbfNAKJQ9xvAohDYo8JcLBeRgH315wAh+aAURDW+lvsN0RFB0Ac0vgBYBRo/P12gNPVtBVwf8EJYBSwPgAOMwC';
+wwv_flow_imp.g_varchar2_table(235) := 'DmdbfEr4ROSUA2/FHxmBwt/W3nO8DzwoADFgfAGcYgMHwrxBS/yGI9ADAgPUBsG3b9v7jh3NfgDYn4XTRary7qQ4A/zJw5URZ//l';
+wwv_flow_imp.g_varchar2_table(236) := 'ClXlzWSkALjLQhITrxan03r5qAIzCoB4JQ6pR75WVNQH4zsA24s6I1CQMvPySL2wtC8BwDBLBMPxiC7+ruDgA/2VgG32fXCgY7ru';
+wwv_flow_imp.g_varchar2_table(237) := '02m/qrg/A/zHY7rljdDIPEy6hw0vquwAwDYPhYCz5kH3+PkMvANaSEFBtfd8dgOYk8D0AOpLA9wA4zEMBEjp8mwmAGUr0h5sK3Kc';
+wwv_flow_imp.g_varchar2_table(238) := '5R2+V4JyrAsLA9ABY6bbJSLA7AHI04ItgMDoAaoJBEbQrAQGACABEACACABEAiBroH2KNgw8BoJsIAAAAAElFTkSuQmCC'')'||wwv_flow.LF||
+'    ';
+wwv_flow_imp.g_varchar2_table(239) := '   ),'||wwv_flow.LF||
+'       photo_mime_type         = ''image/png'','||wwv_flow.LF||
+'       photo_filename          = ''ravi_menon.png';
+wwv_flow_imp.g_varchar2_table(240) := ''''||wwv_flow.LF||
+' WHERE email = ''ravi.menon@acme.example'';'||wwv_flow.LF||
+'COMMIT;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'UPDATE tms_leave_requests lr'||wwv_flow.LF||
+'   SET lr.attachme';
+wwv_flow_imp.g_varchar2_table(241) := 'nt_blob = apex_web_service.clobbase642blob('||wwv_flow.LF||
+'        TO_CLOB(''JVBERi0xLjMKJZOMi54gUmVwb3J0TGFiIEdlbmV';
+wwv_flow_imp.g_varchar2_table(242) := 'yYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUgo+PgplbmRvYmoKMiA';
+wwv_flow_imp.g_varchar2_table(243) := 'wIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjEgL1N1YnR5cGU';
+wwv_flow_imp.g_varchar2_table(244) := 'gL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iagozIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhLUJvbGQgL0VuY29kaW5';
+wwv_flow_imp.g_varchar2_table(245) := 'nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YyIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKNCAwIG9iago';
+wwv_flow_imp.g_varchar2_table(246) := '8PAovQ29udGVudHMgOCAwIFIgL01lZGlhQm94IFsgMCAwIDYxMiA3OTIgXSAvUGFyZW50IDcgMCBSIC9SZXNvdXJjZXMgPDwKL0Z';
+wwv_flow_imp.g_varchar2_table(247) := 'vbnQgMSAwIFIgL1Byb2NTZXQgWyAvUERGIC9UZXh0IC9JbWFnZUIgL0ltYWdlQyAvSW1hZ2VJIF0KPj4gL1JvdGF0ZSAwIC9UcmF';
+wwv_flow_imp.g_varchar2_table(248) := 'ucyA8PAoKPj4gCiAgL1R5cGUgL1BhZ2UKPj4KZW5kb2JqCjUgMCBvYmoKPDwKL1BhZ2VNb2RlIC9Vc2VOb25lIC9QYWdlcyA3IDA';
+wwv_flow_imp.g_varchar2_table(249) := 'gUiAvVHlwZSAvQ2F0YWxvZwo+PgplbmRvYmoKNiAwIG9iago8PAovQXV0aG9yIChhbm9ueW1vdXMpIC9DcmVhdGlvbkRhdGUgKEQ';
+wwv_flow_imp.g_varchar2_table(250) := '6MjAyNjA4MDMwMjI4MzgrMDAnMDAnKSAvQ3JlYXRvciAoYW5vbnltb3VzKSAvS2V5d29yZHMgKCkgL01vZERhdGUgKEQ6MjAyNjA';
+wwv_flow_imp.g_varchar2_table(251) := '4MDMwMjI4MzgrMDAnMDAnKSAvUHJvZHVjZXIgKFJlcG9ydExhYiBQREYgTGlicmFyeSAtIFwob3BlbnNvdXJjZVwpKSAKICAvU3V';
+wwv_flow_imp.g_varchar2_table(252) := 'iamVjdCAodW5zcGVjaWZpZWQpIC9UaXRsZSAodW50aXRsZWQpIC9UcmFwcGVkIC9GYWxzZQo+PgplbmRvYmoKNyAwIG9iago8PAo';
+wwv_flow_imp.g_varchar2_table(253) := 'vQ291bnQgMSAvS2lkcyBbIDQgMCBSIF0gL1R5cGUgL1BhZ2VzCj4+CmVuZG9iago4IDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk';
+wwv_flow_imp.g_varchar2_table(254) := '4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDM0Nwo+PgpzdHJlYW0KR2FycCc7K25lXCYtcV8hST5cJyIkRVsjQlMoaix';
+wwv_flow_imp.g_varchar2_table(255) := 'HOihSVUNiXyorLmslNWk0O1VUWnVEZj0zZTM/TF9OXmc1bEJRUDFkcSZjSCE9QCZcLEYrczgvXCVVdHJoVSIzPkY7LiNZJFBKMDY';
+wwv_flow_imp.g_varchar2_table(256) := 'oal4yO2BMb0YnRjVadWtuU0VtLG5SVkMpbW4hXzdPQlxYdSxJRyViSG5KOkJ0bEwjKFlMOCdHRlkvJDdTITNeMztxWkhGMFE0Qi0';
+wwv_flow_imp.g_varchar2_table(257) := '8J1kvW2VkVzNWdFBodTJNSG1xX29AQDQlUUAoYCd1KDM1UVFlI1tkXm9dSm9obGNhVF08K1Q3L2ZVNEs1bidZaydeLT1HQ19UaUQ';
+wwv_flow_imp.g_varchar2_table(258) := 'pTVFtSWVWVjokSG9tciFqRERVYFhkbCt1L1QvUUhfTypWSztoSXRMMFkhKmdRZTgyZzZAbj9YPkVrUFZNOURdaWtBNC02NGYtYWU';
+wwv_flow_imp.g_varchar2_table(259) := 'qQlEmOi5tIjNWPFlYPSxIfj5lbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCA5CjAw'')'||wwv_flow.LF||
+'        || TO_CLOB(''MDAwMDAwMDAgNjU1';
+wwv_flow_imp.g_varchar2_table(260) := 'MzUgZiAKMDAwMDAwMDA2MSAwMDAwMCBuIAowMDAwMDAwMTAyIDAwMDAwIG4gCjAwMDAwMDAyMDkgMDAwMDAgbiAKMDAwMDAwMDMy';
+wwv_flow_imp.g_varchar2_table(261) := 'MSAwMDAwMCBuIAowMDAwMDAwNTE0IDAwMDAwIG4gCjAwMDAwMDA1ODIgMDAwMDAgbiAKMDAwMDAwMDg0MyAwMDAwMCBuIAowMDAw';
+wwv_flow_imp.g_varchar2_table(262) := 'MDAwOTAyIDAwMDAwIG4gCnRyYWlsZXIKPDwKL0lEIApbPGQxNzUyMzlhNGU2ZDlhNDg4NTY5ZmI1NzhlNDU2MjhkPjxkMTc1MjM5';
+wwv_flow_imp.g_varchar2_table(263) := 'YTRlNmQ5YTQ4ODU2OWZiNTc4ZTQ1NjI4ZD5dCiUgUmVwb3J0TGFiIGdlbmVyYXRlZCBQREYgZG9jdW1lbnQgLS0gZGlnZXN0IChv';
+wwv_flow_imp.g_varchar2_table(264) := 'cGVuc291cmNlKQoKL0luZm8gNiAwIFIKL1Jvb3QgNSAwIFIKL1NpemUgOQo+PgpzdGFydHhyZWYKMTMzOQolJUVPRgo='')'||wwv_flow.LF||
+'     ';
+wwv_flow_imp.g_varchar2_table(265) := '  ),'||wwv_flow.LF||
+'       lr.attachment_mime_type = ''application/pdf'','||wwv_flow.LF||
+'       lr.attachment_filename  = ''maya_pate';
+wwv_flow_imp.g_varchar2_table(266) := 'l_leave_attachment.pdf'''||wwv_flow.LF||
+' WHERE lr.employee_id = ('||wwv_flow.LF||
+'         SELECT e.employee_id'||wwv_flow.LF||
+'           FROM tms_';
+wwv_flow_imp.g_varchar2_table(267) := 'employees e'||wwv_flow.LF||
+'          WHERE e.email = ''maya.patel@acme.example'''||wwv_flow.LF||
+'       )'||wwv_flow.LF||
+'   AND lr.start_date = DATE';
+wwv_flow_imp.g_varchar2_table(268) := ' ''2026-07-08'''||wwv_flow.LF||
+'   AND lr.end_date   = DATE ''2026-07-12'';'||wwv_flow.LF||
+'COMMIT;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'UPDATE tms_leave_requests lr'||wwv_flow.LF||
+'   SET';
+wwv_flow_imp.g_varchar2_table(269) := ' lr.attachment_blob = apex_web_service.clobbase642blob('||wwv_flow.LF||
+'        TO_CLOB(''JVBERi0xLjMKJZOMi54gUmVwb3J';
+wwv_flow_imp.g_varchar2_table(270) := '0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUgo+Pgp';
+wwv_flow_imp.g_varchar2_table(271) := 'lbmRvYmoKMiAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjE';
+wwv_flow_imp.g_varchar2_table(272) := 'gL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iagozIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhLUJvbGQ';
+wwv_flow_imp.g_varchar2_table(273) := 'gL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YyIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmo';
+wwv_flow_imp.g_varchar2_table(274) := 'KNCAwIG9iago8PAovQ29udGVudHMgOCAwIFIgL01lZGlhQm94IFsgMCAwIDYxMiA3OTIgXSAvUGFyZW50IDcgMCBSIC9SZXNvdXJ';
+wwv_flow_imp.g_varchar2_table(275) := 'jZXMgPDwKL0ZvbnQgMSAwIFIgL1Byb2NTZXQgWyAvUERGIC9UZXh0IC9JbWFnZUIgL0ltYWdlQyAvSW1hZ2VJIF0KPj4gL1JvdGF';
+wwv_flow_imp.g_varchar2_table(276) := '0ZSAwIC9UcmFucyA8PAoKPj4gCiAgL1R5cGUgL1BhZ2UKPj4KZW5kb2JqCjUgMCBvYmoKPDwKL1BhZ2VNb2RlIC9Vc2VOb25lIC9';
+wwv_flow_imp.g_varchar2_table(277) := 'QYWdlcyA3IDAgUiAvVHlwZSAvQ2F0YWxvZwo+PgplbmRvYmoKNiAwIG9iago8PAovQXV0aG9yIChhbm9ueW1vdXMpIC9DcmVhdGl';
+wwv_flow_imp.g_varchar2_table(278) := 'vbkRhdGUgKEQ6MjAyNjA4MDMwMjI4MzgrMDAnMDAnKSAvQ3JlYXRvciAoYW5vbnltb3VzKSAvS2V5d29yZHMgKCkgL01vZERhdGU';
+wwv_flow_imp.g_varchar2_table(279) := 'gKEQ6MjAyNjA4MDMwMjI4MzgrMDAnMDAnKSAvUHJvZHVjZXIgKFJlcG9ydExhYiBQREYgTGlicmFyeSAtIFwob3BlbnNvdXJjZVw';
+wwv_flow_imp.g_varchar2_table(280) := 'pKSAKICAvU3ViamVjdCAodW5zcGVjaWZpZWQpIC9UaXRsZSAodW50aXRsZWQpIC9UcmFwcGVkIC9GYWxzZQo+PgplbmRvYmoKNyA';
+wwv_flow_imp.g_varchar2_table(281) := 'wIG9iago8PAovQ291bnQgMSAvS2lkcyBbIDQgMCBSIF0gL1R5cGUgL1BhZ2VzCj4+CmVuZG9iago4IDAgb2JqCjw8Ci9GaWx0ZXI';
+wwv_flow_imp.g_varchar2_table(282) := 'gWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDMzOQo+PgpzdHJlYW0KR2FycCc7K25lXCYtcV8hST5cJyI';
+wwv_flow_imp.g_varchar2_table(283) := 'kRUhsQSpTWmJmLTQmJyxrLyNZUkVqYTwnMnBzXEFbbDgpWCloWDp1RSM4PCpqVjYtZjwtT2ZNPUQ2SlIuXTxjZUo9N19za1M5RDB';
+wwv_flow_imp.g_varchar2_table(284) := 'lQz9AUl1XOUFBbHI3JVZAW2I4LFRrZG9IM1YucT5kdU50QmVldExXLChacWs1RzwjcF4iPmh0aFZFXktjWydNNERfJ0tzY2Q+QUQ';
+wwv_flow_imp.g_varchar2_table(285) := 'uLz4hKCo4UWdYM1Q0PiZZOD9vQzEkc3NMUzFUKDhHKWUsdW5vOitaajFtclVSMlRaYTRla1slLCJDTmJFNzJbc1s5XDhhJEE6YC4';
+wwv_flow_imp.g_varchar2_table(286) := '2SE4+VjE5cFFCXHBSIj5OR1pfYVRWPi45bGxUPScnRnN1amJLYTghT0peX1ItRkAjTmRmclUhWXVuK0VwbDY6Ok1lTCNOOlheVS8';
+wwv_flow_imp.g_varchar2_table(287) := 'vbnNMZVQ2Si04JixWZkk8V34+ZW5kc3RyZWFtCmVuZG9iagp4cmVmCjAgOQowMDAwMDAwMDAw'')'||wwv_flow.LF||
+'        || TO_CLOB(''IDY1';
+wwv_flow_imp.g_varchar2_table(288) := 'NTM1IGYgCjAwMDAwMDAwNjEgMDAwMDAgbiAKMDAwMDAwMDEwMiAwMDAwMCBuIAowMDAwMDAwMjA5IDAwMDAwIG4gCjAwMDAwMDAz';
+wwv_flow_imp.g_varchar2_table(289) := 'MjEgMDAwMDAgbiAKMDAwMDAwMDUxNCAwMDAwMCBuIAowMDAwMDAwNTgyIDAwMDAwIG4gCjAwMDAwMDA4NDMgMDAwMDAgbiAKMDAw';
+wwv_flow_imp.g_varchar2_table(290) := 'MDAwMDkwMiAwMDAwMCBuIAp0cmFpbGVyCjw8Ci9JRCAKWzxkM2RhMzcwN2FiNGE0ZGZiOWIwZjFmNmJmNTM0NWJiOT48ZDNkYTM3';
+wwv_flow_imp.g_varchar2_table(291) := 'MDdhYjRhNGRmYjliMGYxZjZiZjUzNDViYjk+XQolIFJlcG9ydExhYiBnZW5lcmF0ZWQgUERGIGRvY3VtZW50IC0tIGRpZ2VzdCAo';
+wwv_flow_imp.g_varchar2_table(292) := 'b3BlbnNvdXJjZSkKCi9JbmZvIDYgMCBSCi9Sb290IDUgMCBSCi9TaXplIDkKPj4Kc3RhcnR4cmVmCjEzMzEKJSVFT0YK'')'||wwv_flow.LF||
+'     ';
+wwv_flow_imp.g_varchar2_table(293) := '  ),'||wwv_flow.LF||
+'       lr.attachment_mime_type = ''application/pdf'','||wwv_flow.LF||
+'       lr.attachment_filename  = ''sofia_gar';
+wwv_flow_imp.g_varchar2_table(294) := 'cia_medical_note.pdf'''||wwv_flow.LF||
+' WHERE lr.employee_id = ('||wwv_flow.LF||
+'         SELECT e.employee_id'||wwv_flow.LF||
+'           FROM tms_em';
+wwv_flow_imp.g_varchar2_table(295) := 'ployees e'||wwv_flow.LF||
+'          WHERE e.email = ''sofia.garcia@acme.example'''||wwv_flow.LF||
+'       )'||wwv_flow.LF||
+'   AND lr.start_date = DATE';
+wwv_flow_imp.g_varchar2_table(296) := ' ''2026-06-20'''||wwv_flow.LF||
+'   AND lr.end_date   = DATE ''2026-06-21'';'||wwv_flow.LF||
+'COMMIT;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'UPDATE tms_leave_requests lr'||wwv_flow.LF||
+'   SET';
+wwv_flow_imp.g_varchar2_table(297) := ' lr.attachment_blob = apex_web_service.clobbase642blob('||wwv_flow.LF||
+'        TO_CLOB(''JVBERi0xLjMKJZOMi54gUmVwb3J';
+wwv_flow_imp.g_varchar2_table(298) := '0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUgo+Pgp';
+wwv_flow_imp.g_varchar2_table(299) := 'lbmRvYmoKMiAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjE';
+wwv_flow_imp.g_varchar2_table(300) := 'gL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iagozIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhLUJvbGQ';
+wwv_flow_imp.g_varchar2_table(301) := 'gL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YyIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmo';
+wwv_flow_imp.g_varchar2_table(302) := 'KNCAwIG9iago8PAovQ29udGVudHMgOCAwIFIgL01lZGlhQm94IFsgMCAwIDYxMiA3OTIgXSAvUGFyZW50IDcgMCBSIC9SZXNvdXJ';
+wwv_flow_imp.g_varchar2_table(303) := 'jZXMgPDwKL0ZvbnQgMSAwIFIgL1Byb2NTZXQgWyAvUERGIC9UZXh0IC9JbWFnZUIgL0ltYWdlQyAvSW1hZ2VJIF0KPj4gL1JvdGF';
+wwv_flow_imp.g_varchar2_table(304) := '0ZSAwIC9UcmFucyA8PAoKPj4gCiAgL1R5cGUgL1BhZ2UKPj4KZW5kb2JqCjUgMCBvYmoKPDwKL1BhZ2VNb2RlIC9Vc2VOb25lIC9';
+wwv_flow_imp.g_varchar2_table(305) := 'QYWdlcyA3IDAgUiAvVHlwZSAvQ2F0YWxvZwo+PgplbmRvYmoKNiAwIG9iago8PAovQXV0aG9yIChhbm9ueW1vdXMpIC9DcmVhdGl';
+wwv_flow_imp.g_varchar2_table(306) := 'vbkRhdGUgKEQ6MjAyNjA4MDMwMjI4MzgrMDAnMDAnKSAvQ3JlYXRvciAoYW5vbnltb3VzKSAvS2V5d29yZHMgKCkgL01vZERhdGU';
+wwv_flow_imp.g_varchar2_table(307) := 'gKEQ6MjAyNjA4MDMwMjI4MzgrMDAnMDAnKSAvUHJvZHVjZXIgKFJlcG9ydExhYiBQREYgTGlicmFyeSAtIFwob3BlbnNvdXJjZVw';
+wwv_flow_imp.g_varchar2_table(308) := 'pKSAKICAvU3ViamVjdCAodW5zcGVjaWZpZWQpIC9UaXRsZSAodW50aXRsZWQpIC9UcmFwcGVkIC9GYWxzZQo+PgplbmRvYmoKNyA';
+wwv_flow_imp.g_varchar2_table(309) := 'wIG9iago8PAovQ291bnQgMSAvS2lkcyBbIDQgMCBSIF0gL1R5cGUgL1BhZ2VzCj4+CmVuZG9iago4IDAgb2JqCjw8Ci9GaWx0ZXI';
+wwv_flow_imp.g_varchar2_table(310) := 'gWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDM0Mgo+PgpzdHJlYW0KR2Fybzw2Iy1OViY7QlRQTUtga0V';
+wwv_flow_imp.g_varchar2_table(311) := 'ERSQ8PVgvQl47Ol87dDpMTDAiUVE7LSVDLFRDViFwRG5JU2c0Tm9RUWwjTzBoR19NV1dQMkZUPURCdDQuQiE8WkwrOU1CSEIiMTJ';
+wwv_flow_imp.g_varchar2_table(312) := 'vbS1XcmwxSjFbPl1iKlg5RklnPmc+ZCZfX1ZWWSVQO3MxclBodERiNmdeVSxhYDRoR3Jkb1VvIjNYJF1LOmQlMy1hTmlkbyIxM0s';
+wwv_flow_imp.g_varchar2_table(313) := '2dXJYYEFZJnNZKEs1ViVrZjphZHI/a3FjVj86ODpCaC1SVVNZTzhhYVorYmtNcjJJPldQIjM+I0UzUCojSD9FVy1VVkBPbGhBO2N';
+wwv_flow_imp.g_varchar2_table(314) := 'BNUk+OEMnXjtCLmFdIlJYJXRRIWZQXG42WGtAPHFxPCVuPGR0dGVzSHVQQiYzNC1gVEtwRmlWL2soczBiT29KKF4jV1RRS0ZRLF5';
+wwv_flow_imp.g_varchar2_table(315) := 'UY15fbTgycVRtW3BcaDlOMG88Zn4+ZW5kc3RyZWFtCmVuZG9iagp4cmVmCjAgOQowMDAwMDAw'')'||wwv_flow.LF||
+'        || TO_CLOB(''MDAw';
+wwv_flow_imp.g_varchar2_table(316) := 'IDY1NTM1IGYgCjAwMDAwMDAwNjEgMDAwMDAgbiAKMDAwMDAwMDEwMiAwMDAwMCBuIAowMDAwMDAwMjA5IDAwMDAwIG4gCjAwMDAw';
+wwv_flow_imp.g_varchar2_table(317) := 'MDAzMjEgMDAwMDAgbiAKMDAwMDAwMDUxNCAwMDAwMCBuIAowMDAwMDAwNTgyIDAwMDAwIG4gCjAwMDAwMDA4NDMgMDAwMDAgbiAK';
+wwv_flow_imp.g_varchar2_table(318) := 'MDAwMDAwMDkwMiAwMDAwMCBuIAp0cmFpbGVyCjw8Ci9JRCAKWzxlOThkNGRjMmFkNWIyZDYxMjY3MWE2YTI1NWNiZmRlMD48ZTk4';
+wwv_flow_imp.g_varchar2_table(319) := 'ZDRkYzJhZDViMmQ2MTI2NzFhNmEyNTVjYmZkZTA+XQolIFJlcG9ydExhYiBnZW5lcmF0ZWQgUERGIGRvY3VtZW50IC0tIGRpZ2Vz';
+wwv_flow_imp.g_varchar2_table(320) := 'dCAob3BlbnNvdXJjZSkKCi9JbmZvIDYgMCBSCi9Sb290IDUgMCBSCi9TaXplIDkKPj4Kc3RhcnR4cmVmCjEzMzQKJSVFT0YK'')'||wwv_flow.LF||
+' ';
+wwv_flow_imp.g_varchar2_table(321) := '      ),'||wwv_flow.LF||
+'       lr.attachment_mime_type = ''application/pdf'','||wwv_flow.LF||
+'       lr.attachment_filename  = ''ravi_';
+wwv_flow_imp.g_varchar2_table(322) := 'menon_leave_attachment.pdf'''||wwv_flow.LF||
+' WHERE lr.employee_id = ('||wwv_flow.LF||
+'         SELECT e.employee_id'||wwv_flow.LF||
+'           FROM ';
+wwv_flow_imp.g_varchar2_table(323) := 'tms_employees e'||wwv_flow.LF||
+'          WHERE e.email = ''ravi.menon@acme.example'''||wwv_flow.LF||
+'       )'||wwv_flow.LF||
+'   AND lr.start_date = ';
+wwv_flow_imp.g_varchar2_table(324) := 'DATE ''2026-08-12'''||wwv_flow.LF||
+'   AND lr.end_date   = DATE ''2026-08-14'';'||wwv_flow.LF||
+'COMMIT;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'UPDATE tms_leave_requests lr'||wwv_flow.LF||
+'  ';
+wwv_flow_imp.g_varchar2_table(325) := ' SET lr.attachment_blob = apex_web_service.clobbase642blob('||wwv_flow.LF||
+'        TO_CLOB(''JVBERi0xLjMKJZOMi54gUmV';
+wwv_flow_imp.g_varchar2_table(326) := 'wb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUgo';
+wwv_flow_imp.g_varchar2_table(327) := '+PgplbmRvYmoKMiAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSA';
+wwv_flow_imp.g_varchar2_table(328) := 'vRjEgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iagozIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhLUJ';
+wwv_flow_imp.g_varchar2_table(329) := 'vbGQgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YyIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmR';
+wwv_flow_imp.g_varchar2_table(330) := 'vYmoKNCAwIG9iago8PAovQ29udGVudHMgOCAwIFIgL01lZGlhQm94IFsgMCAwIDYxMiA3OTIgXSAvUGFyZW50IDcgMCBSIC9SZXN';
+wwv_flow_imp.g_varchar2_table(331) := 'vdXJjZXMgPDwKL0ZvbnQgMSAwIFIgL1Byb2NTZXQgWyAvUERGIC9UZXh0IC9JbWFnZUIgL0ltYWdlQyAvSW1hZ2VJIF0KPj4gL1J';
+wwv_flow_imp.g_varchar2_table(332) := 'vdGF0ZSAwIC9UcmFucyA8PAoKPj4gCiAgL1R5cGUgL1BhZ2UKPj4KZW5kb2JqCjUgMCBvYmoKPDwKL1BhZ2VNb2RlIC9Vc2VOb25';
+wwv_flow_imp.g_varchar2_table(333) := 'lIC9QYWdlcyA3IDAgUiAvVHlwZSAvQ2F0YWxvZwo+PgplbmRvYmoKNiAwIG9iago8PAovQXV0aG9yIChhbm9ueW1vdXMpIC9DcmV';
+wwv_flow_imp.g_varchar2_table(334) := 'hdGlvbkRhdGUgKEQ6MjAyNjA4MDMwMjI4MzgrMDAnMDAnKSAvQ3JlYXRvciAoYW5vbnltb3VzKSAvS2V5d29yZHMgKCkgL01vZER';
+wwv_flow_imp.g_varchar2_table(335) := 'hdGUgKEQ6MjAyNjA4MDMwMjI4MzgrMDAnMDAnKSAvUHJvZHVjZXIgKFJlcG9ydExhYiBQREYgTGlicmFyeSAtIFwob3BlbnNvdXJ';
+wwv_flow_imp.g_varchar2_table(336) := 'jZVwpKSAKICAvU3ViamVjdCAodW5zcGVjaWZpZWQpIC9UaXRsZSAodW50aXRsZWQpIC9UcmFwcGVkIC9GYWxzZQo+PgplbmRvYmo';
+wwv_flow_imp.g_varchar2_table(337) := 'KNyAwIG9iago8PAovQ291bnQgMSAvS2lkcyBbIDQgMCBSIF0gL1R5cGUgL1BhZ2VzCj4+CmVuZG9iago4IDAgb2JqCjw8Ci9GaWx';
+wwv_flow_imp.g_varchar2_table(338) := '0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDMzOQo+PgpzdHJlYW0KR2FycCc7Lz0kJiYtcV1LNUs';
+wwv_flow_imp.g_varchar2_table(339) := 'zWUIpZCZSWk1FWW0vSzdRXilILl9IOVM4MVRgLnFzK3NnRm9HMGFac2tMbUsxLzhTM2U5WDhwQXFnOTklPypKaCFHZjptNVxzXXV';
+wwv_flow_imp.g_varchar2_table(340) := 'FWVQ7U0BVTFZZV0QqcnAmYzhiX2Q1dEZHJTFXcWJBLV09PkxzOERoa2I5KzA+QFRXcyQubHJlLGFxQVJkZmVmXlREbzNxKGElZSg';
+wwv_flow_imp.g_varchar2_table(341) := 'vUEs/R0hrSVI6ZUY9PCZVOToyb1ZcRW4yMm9jSlVYLFRdYlJrPU9WY0pUNHJgV28iTSlabTFSIkVYUTBmLG1EcClQOzVKLERlTCZ';
+wwv_flow_imp.g_varchar2_table(342) := '0ZDoqaGQlWjRJKjJGWnNDQT8sJW5LXDM3UD1ZRFlvZG5dbkVgS0g5IzBIIzMrcHNHc11FLlwxVyI1TjksQWxgJCk6OSUmKzFVP1M';
+wwv_flow_imp.g_varchar2_table(343) := 'zV2RZMzlRPD9bJz9FI0clckxDXX4+ZW5kc3RyZWFtCmVuZG9iagp4cmVmCjAgOQowMDAwMDAwMDAw'')'||wwv_flow.LF||
+'        || TO_CLOB(''';
+wwv_flow_imp.g_varchar2_table(344) := 'IDY1NTM1IGYgCjAwMDAwMDAwNjEgMDAwMDAgbiAKMDAwMDAwMDEwMiAwMDAwMCBuIAowMDAwMDAwMjA5IDAwMDAwIG4gCjAwMDAw';
+wwv_flow_imp.g_varchar2_table(345) := 'MDAzMjEgMDAwMDAgbiAKMDAwMDAwMDUxNCAwMDAwMCBuIAowMDAwMDAwNTgyIDAwMDAwIG4gCjAwMDAwMDA4NDMgMDAwMDAgbiAK';
+wwv_flow_imp.g_varchar2_table(346) := 'MDAwMDAwMDkwMiAwMDAwMCBuIAp0cmFpbGVyCjw8Ci9JRCAKWzxlOWI4ODE1ZmM2Y2MzYzA2YjAxYzljNDc3ZmJkMjEyOT48ZTli';
+wwv_flow_imp.g_varchar2_table(347) := 'ODgxNWZjNmNjM2MwNmIwMWM5YzQ3N2ZiZDIxMjk+XQolIFJlcG9ydExhYiBnZW5lcmF0ZWQgUERGIGRvY3VtZW50IC0tIGRpZ2Vz';
+wwv_flow_imp.g_varchar2_table(348) := 'dCAob3BlbnNvdXJjZSkKCi9JbmZvIDYgMCBSCi9Sb290IDUgMCBSCi9TaXplIDkKPj4Kc3RhcnR4cmVmCjEzMzEKJSVFT0YK'')'||wwv_flow.LF||
+' ';
+wwv_flow_imp.g_varchar2_table(349) := '      ),'||wwv_flow.LF||
+'       lr.attachment_mime_type = ''application/pdf'','||wwv_flow.LF||
+'       lr.attachment_filename  = ''noah_';
+wwv_flow_imp.g_varchar2_table(350) := 'reed_personal_leave_note.pdf'''||wwv_flow.LF||
+' WHERE lr.employee_id = ('||wwv_flow.LF||
+'         SELECT e.employee_id'||wwv_flow.LF||
+'           FRO';
+wwv_flow_imp.g_varchar2_table(351) := 'M tms_employees e'||wwv_flow.LF||
+'          WHERE e.email = ''noah.reed@acme.example'''||wwv_flow.LF||
+'       )'||wwv_flow.LF||
+'   AND lr.start_date =';
+wwv_flow_imp.g_varchar2_table(352) := ' DATE ''2026-07-03'''||wwv_flow.LF||
+'   AND lr.end_date   = DATE ''2026-07-03'';'||wwv_flow.LF||
+'COMMIT;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'UPDATE tms_leave_requests lr'||wwv_flow.LF||
+' ';
+wwv_flow_imp.g_varchar2_table(353) := '  SET lr.attachment_blob = apex_web_service.clobbase642blob('||wwv_flow.LF||
+'        TO_CLOB(''JVBERi0xLjMKJZOMi54gUm';
+wwv_flow_imp.g_varchar2_table(354) := 'Vwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUg';
+wwv_flow_imp.g_varchar2_table(355) := 'o+PgplbmRvYmoKMiAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZS';
+wwv_flow_imp.g_varchar2_table(356) := 'AvRjEgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iagozIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhLU';
+wwv_flow_imp.g_varchar2_table(357) := 'JvbGQgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YyIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+Pgplbm';
+wwv_flow_imp.g_varchar2_table(358) := 'RvYmoKNCAwIG9iago8PAovQ29udGVudHMgOCAwIFIgL01lZGlhQm94IFsgMCAwIDYxMiA3OTIgXSAvUGFyZW50IDcgMCBSIC9SZX';
+wwv_flow_imp.g_varchar2_table(359) := 'NvdXJjZXMgPDwKL0ZvbnQgMSAwIFIgL1Byb2NTZXQgWyAvUERGIC9UZXh0IC9JbWFnZUIgL0ltYWdlQyAvSW1hZ2VJIF0KPj4gL1';
+wwv_flow_imp.g_varchar2_table(360) := 'JvdGF0ZSAwIC9UcmFucyA8PAoKPj4gCiAgL1R5cGUgL1BhZ2UKPj4KZW5kb2JqCjUgMCBvYmoKPDwKL1BhZ2VNb2RlIC9Vc2VOb2';
+wwv_flow_imp.g_varchar2_table(361) := '5lIC9QYWdlcyA3IDAgUiAvVHlwZSAvQ2F0YWxvZwo+PgplbmRvYmoKNiAwIG9iago8PAovQXV0aG9yIChhbm9ueW1vdXMpIC9Dcm';
+wwv_flow_imp.g_varchar2_table(362) := 'VhdGlvbkRhdGUgKEQ6MjAyNjA4MDMwMjI4MzgrMDAnMDAnKSAvQ3JlYXRvciAoYW5vbnltb3VzKSAvS2V5d29yZHMgKCkgL01vZE';
+wwv_flow_imp.g_varchar2_table(363) := 'RhdGUgKEQ6MjAyNjA4MDMwMjI4MzgrMDAnMDAnKSAvUHJvZHVjZXIgKFJlcG9ydExhYiBQREYgTGlicmFyeSAtIFwob3BlbnNvdX';
+wwv_flow_imp.g_varchar2_table(364) := 'JjZVwpKSAKICAvU3ViamVjdCAodW5zcGVjaWZpZWQpIC9UaXRsZSAodW50aXRsZWQpIC9UcmFwcGVkIC9GYWxzZQo+PgplbmRvYm';
+wwv_flow_imp.g_varchar2_table(365) := 'oKNyAwIG9iago8PAovQ291bnQgMSAvS2lkcyBbIDQgMCBSIF0gL1R5cGUgL1BhZ2VzCj4+CmVuZG9iago4IDAgb2JqCjw8Ci9GaW';
+wwv_flow_imp.g_varchar2_table(366) := 'x0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDMzOQo+PgpzdHJlYW0KR2Fybzw2IzIqPCY7QlRLKC';
+wwv_flow_imp.g_varchar2_table(367) := 'U5Y2pAVSxCQGJjKTEqJ1NQUE9QWzVhKkxnK3QmRkhcV19eOGx1ODRpZSpAbyoyb2ZEWmlFLGA6dCxYT0BsVjIiQE5BcTZFR2VzQT';
+wwv_flow_imp.g_varchar2_table(368) := 'wnPjk3UWw/WjdtLjBRUmtDayI6I21nWEQiK1liayFWKElWREk3YiQ/Rmk9Kiw3NmlPQyspRkluNEsoN2NhLkwxLzkwLGYhTWl1MF';
+wwv_flow_imp.g_varchar2_table(369) := 'EwZyhDNGAwaG8xREhoIVdTNiduVUwkaz9vJWhcQVFuTi88RWhrIidKSUA3KSUmP01sWCZeLmxObmRkaDg8PG5NXW48XGZvUSwvaj';
+wwv_flow_imp.g_varchar2_table(370) := 'lWVUxpJHVhXFVWXmZZNmhaQG9OOVpgbkluZHNrU3Byb1pdLFRzTkI/c2JkSmkzNDRmTUhRdDolKCxgTiY5RmkzO0lXV0puSUkoRF';
+wwv_flow_imp.g_varchar2_table(371) := '9qOkFZMztzKEdPTC4mMDIlbWdGVH4+ZW5kc3RyZWFtCmVuZG9iagp4cmVmCjAgOQowMDAwMDAwMDAw'')'||wwv_flow.LF||
+'        || TO_CLOB(';
+wwv_flow_imp.g_varchar2_table(372) := '''IDY1NTM1IGYgCjAwMDAwMDAwNjEgMDAwMDAgbiAKMDAwMDAwMDEwMiAwMDAwMCBuIAowMDAwMDAwMjA5IDAwMDAwIG4gCjAwMDA';
+wwv_flow_imp.g_varchar2_table(373) := 'wMDAzMjEgMDAwMDAgbiAKMDAwMDAwMDUxNCAwMDAwMCBuIAowMDAwMDAwNTgyIDAwMDAwIG4gCjAwMDAwMDA4NDMgMDAwMDAgbiA';
+wwv_flow_imp.g_varchar2_table(374) := 'KMDAwMDAwMDkwMiAwMDAwMCBuIAp0cmFpbGVyCjw8Ci9JRCAKWzxjMWU3YTdiYmVhZjNiNGUzZjI4NjYyZDg0NGIyNWMwYT48YzF';
+wwv_flow_imp.g_varchar2_table(375) := 'lN2E3YmJlYWYzYjRlM2YyODY2MmQ4NDRiMjVjMGE+XQolIFJlcG9ydExhYiBnZW5lcmF0ZWQgUERGIGRvY3VtZW50IC0tIGRpZ2V';
+wwv_flow_imp.g_varchar2_table(376) := 'zdCAob3BlbnNvdXJjZSkKCi9JbmZvIDYgMCBSCi9Sb290IDUgMCBSCi9TaXplIDkKPj4Kc3RhcnR4cmVmCjEzMzEKJSVFT0YK'')'||wwv_flow.LF||
+'';
+wwv_flow_imp.g_varchar2_table(377) := '       ),'||wwv_flow.LF||
+'       lr.attachment_mime_type = ''application/pdf'','||wwv_flow.LF||
+'       lr.attachment_filename  = ''liam';
+wwv_flow_imp.g_varchar2_table(378) := '_chen_vacation_plan.pdf'''||wwv_flow.LF||
+' WHERE lr.employee_id = ('||wwv_flow.LF||
+'         SELECT e.employee_id'||wwv_flow.LF||
+'           FROM tms';
+wwv_flow_imp.g_varchar2_table(379) := '_employees e'||wwv_flow.LF||
+'          WHERE e.email = ''liam.chen@acme.example'''||wwv_flow.LF||
+'       )'||wwv_flow.LF||
+'   AND lr.start_date = DATE';
+wwv_flow_imp.g_varchar2_table(380) := ' ''2026-09-01'''||wwv_flow.LF||
+'   AND lr.end_date   = DATE ''2026-09-05'';'||wwv_flow.LF||
+''||wwv_flow.LF||
+'COMMIT;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'-- Verify employee profile sample ';
+wwv_flow_imp.g_varchar2_table(381) := 'data'||wwv_flow.LF||
+'SELECT employee_id,'||wwv_flow.LF||
+'       first_name || '' '' || last_name AS employee_name,'||wwv_flow.LF||
+'       phone,'||wwv_flow.LF||
+'     ';
+wwv_flow_imp.g_varchar2_table(382) := '  emergency_contact_name,'||wwv_flow.LF||
+'       emergency_contact_phone,'||wwv_flow.LF||
+'       photo_mime_type,'||wwv_flow.LF||
+'       photo_filen';
+wwv_flow_imp.g_varchar2_table(383) := 'ame,'||wwv_flow.LF||
+'       DBMS_LOB.GETLENGTH(photo_blob) AS photo_bytes'||wwv_flow.LF||
+'  FROM tms_employees'||wwv_flow.LF||
+' ORDER BY employee_id';
+wwv_flow_imp.g_varchar2_table(384) := ';'||wwv_flow.LF||
+''||wwv_flow.LF||
+'-- Verify leave-request attachment sample data'||wwv_flow.LF||
+'SELECT lr.request_id,'||wwv_flow.LF||
+'       e.first_name || '' '' |';
+wwv_flow_imp.g_varchar2_table(385) := '| e.last_name AS employee_name,'||wwv_flow.LF||
+'       lr.start_date,'||wwv_flow.LF||
+'       lr.end_date,'||wwv_flow.LF||
+'       lr.status,'||wwv_flow.LF||
+'       l';
+wwv_flow_imp.g_varchar2_table(386) := 'r.attachment_filename,'||wwv_flow.LF||
+'       lr.attachment_mime_type,'||wwv_flow.LF||
+'       DBMS_LOB.GETLENGTH(lr.attachment_blob)';
+wwv_flow_imp.g_varchar2_table(387) := ' AS attachment_bytes'||wwv_flow.LF||
+'  FROM tms_leave_requests lr'||wwv_flow.LF||
+'  JOIN tms_employees e ON e.employee_id = lr.emplo';
+wwv_flow_imp.g_varchar2_table(388) := 'yee_id'||wwv_flow.LF||
+' ORDER BY lr.request_id;'||wwv_flow.LF||
+'';
+wwv_flow_imp_shared.create_install_script(
+ p_id=>wwv_flow_imp.id(4693953299710853967)
+,p_install_id=>wwv_flow_imp.id(4592381611947774032)
+,p_name=>'tms_ess_images.sql'
+,p_sequence=>50
+,p_script_type=>'INSTALL'
+,p_script_clob=>wwv_flow_imp.varchar2_to_clob(wwv_flow_imp.g_varchar2_table)
+,p_created_on=>wwv_flow_imp.dz('20261013162629Z')
+,p_updated_on=>wwv_flow_imp.dz('20261013162629Z')
+,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+);
+end;
+/
+prompt --application/deployment/checks
+begin
+null;
+end;
+/
+prompt --application/deployment/buildoptions
+begin
+null;
+end;
+/
+prompt --application/end_environment
+begin
+wwv_flow_imp.import_end(p_auto_install_sup_obj => nvl(wwv_flow_application_install.get_auto_install_sup_obj, false)
+);
+commit;
+end;
+/
+set verify on feedback on define on
+prompt  ...done

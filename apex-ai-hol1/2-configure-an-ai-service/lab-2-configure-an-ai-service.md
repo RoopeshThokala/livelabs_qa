@@ -139,11 +139,11 @@ In this task, you will configure OpenAI as a Generative AI Service in your APEX 
 
 ## Summary
 
-You configured a Generative AI Service in your APEX Workspace, tested the connection.
+You configured a Generative AI Service in your APEX Workspace and tested the connection.
 
 You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
-* **Author** - Roopesh Thokala, Principal product manager
+* **Author** - Roopesh Thokala, Principal Product Manager
 * **Last Updated By/Date** - Roopesh Thokala, July 29, 2026

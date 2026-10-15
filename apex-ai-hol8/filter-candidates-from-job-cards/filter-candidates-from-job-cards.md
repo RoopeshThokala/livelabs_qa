@@ -30,45 +30,39 @@ In this lab, you will:
 
     ![Candidate Pipeline Page Designer with the P4_REQ_ID page item added.](images/create-p4-req-id.png ' ')
 
-4. Select **Candidates** region in the left pane. Expand the SQL Query code editor. Replace the SQL query with the following: 
+4. Select the **Candidates** region in the left pane. Expand the SQL Query code editor. Replace the SQL query with the following:
     ```sql
     <copy>
-    select c.candidate_id,
-       c.req_id,
-       c.first_name || ' ' || c.last_name as candidate_name,
-       d.name as department_name,
-       c.email,
-       c.phone,
-       c.resume_blob,
-       c.source,
-       c.current_stage as stage,
-       c.applied_date,
-       trunc(sysdate - c.applied_date) as days_since_applied,
-       c.diversity_flag,
-       c.ai_score,
-       c.created_by,
-       c.created_at,
-       c.updated_by,
-       c.updated_at
-  from tms_candidates c
-  left join tms_job_requisitions r
-    on c.req_id = r.req_id
-  left join tms_departments d
-    on r.dept_id = d.dept_id
- where :P4_REQ_ID is null
-    or c.req_id = :P4_REQ_ID;
-
+    SELECT c.candidate_id,
+        c.req_id,
+        c.first_name
+        || ' '
+        || c.last_name                  AS candidate_name,
+        d.NAME                          AS department_name,
+        c.email,
+        c.phone,
+        c.resume_blob,
+        c.source,
+        c.current_stage                 AS stage,
+        c.applied_date,
+        Trunc(sysdate - c.applied_date) AS days_since_applied,
+        c.diversity_flag,
+        c.ai_score,
+        c.created_by,
+        c.created,
+        c.updated_by,
+        c.updated
+    FROM   tms_candidates c
+        LEFT JOIN tms_job_requisitions r
+                ON c.req_id = r.req_id
+        LEFT JOIN tms_departments d
+                ON r.dept_id = d.dept_id
+    WHERE  :P4_REQ_ID IS NULL
+            OR c.req_id = :P4_REQ_ID;
     </copy>
     ```
     ![SQL source editor showing the P4_REQ_ID bind-variable filter.](images/open-code-editor.png ' ')
     ![SQL source editor showing the P4_REQ_ID bind-variable filter.](images/add-requisition-filter-query.png ' ')
-
-3. Save and run the page. Navigate to **Job Openings** page. Click **View Applicants** for any job opening.
-    ![Job Opening page](images/view-applicants.png ' ')
-
-4. Confirm that the report returns candidates filtered by the Job Opening.
-
-    ![Candidate Pipeline Page Designer showing the P4_REQ_ID item and filtered report SQL.](images/candidate-pipeline-req-filter.png ' ')
 
 ## Task 2: Link the Job Openings card
 
@@ -89,10 +83,14 @@ In this lab, you will:
         - Set Items:
             - Name: **P4\_REQ\_ID**
             - Value: **&REQ_ID.**
-        
+        - Appearance: **Hot** -> **Yes**
+
         Click **OK**.
-    
+
     ![Cards region link settings with View Applicants entered as the link label.](images/add-view-applicants-link.png ' ')
+
+    ![Linking Cards to Page 4](images/link-job-openings-page-4.png ' ')
+
 
 4. Save and Run the page. Select **View Applicants**, and confirm that Candidate Pipeline lists candidates for that requisition only.
     ![Job Openings card with View Applicants action](images/view-applications.png ' ')

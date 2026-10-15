@@ -87,5 +87,5 @@ You may now proceed to the next lab.
 
 ## Acknowledgements
 
-- **Author** - Sahaana Manavalan, Senior Product Manager
+- **Author** - Sahaana Manavalan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
 - **Last Updated By/Date** - Sahaana Manavalan, Senior Product Manager, July 2026

@@ -15,6 +15,18 @@ In this lab, you will:
 - Add validations for date order and leave balance.
 - Confirm the Leave Request form uses Automatic Row Processing.
 
+### Downloads
+
+Stuck or Missed out on completing the previous labs? Don't worry! You can download the following application:
+
+- **<a href="../00-introduction/files/ess-export4.sql" download="ess-export4.sql">Employee Self-Service Portal</a>**
+
+Import it into your workspace. In **App Builder**, select **Import**, upload `ess-export4.sql`, and follow the steps in the **Import Application** wizard.
+
+> **Note:** Supporting objects are already loaded in the workspace.
+>
+> **AI Configuration:** Configure a Generative AI Service in the workspace and select it under **Shared Components > AI Attributes** for the application. See **Module 1, Lab 2: Configure Generative AI Service**.
+
 ## Task 1: Create the ESS_UTIL Package
 
 1. From the left navigation menu, select **SQL Workshop**.
@@ -220,7 +232,7 @@ In this lab, you will:
 
 13. Navigate to the **Rendering** tab.
 
-14. Select **SUBMIT_LEAVE** button and set **Database Action** to **SQL Insert Action**.
+14. Select the **SUBMIT_LEAVE** button and set **Database Action** to **SQL Insert Action**.
 
     !["Set submit database action"](images/get-image.png "")
 

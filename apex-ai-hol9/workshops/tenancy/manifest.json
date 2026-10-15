@@ -4,32 +4,32 @@
   "tutorials": [
     {
       "title": "Introduction",
-      "filename": "../../introduction.md",
+      "filename": "../../introduction/introduction.md",
       "description": "Review the purpose, architecture, and flow of the HR Analytics Data Reporter workshop."
     },
     {
       "title": "Lab 1: Data Reporter Authentication",
-      "filename": "../../1-data-reporter-authentication.md",
+      "filename": "../../1-data-reporter-authentication/1-data-reporter-authentication.md",
       "description": "Understand Data Reporter personas and configure Oracle APEX Accounts as the current authentication scheme."
     },
     {
       "title": "Lab 2: Reporting Views and Application",
-      "filename": "../../2-create-reporting-views.md",
+      "filename": "../../2-create-reporting-views/2-create-reporting-views.md",
       "description": "Replace the temporary HAA application, create reporting views and a governed dataset, and create the Data Reporter application."
     },
     {
       "title": "Lab 3: Data Reporter Roles and Users",
-      "filename": "../../3-manage-data-reporter-roles.md",
+      "filename": "../../3-manage-data-reporter-roles/3-manage-data-reporter-roles.md",
       "description": "Create the Data Reporter administrator and assign editor and viewer access to the HR Analytics App."
     },
     {
       "title": "Lab 4: Build HR Analytics Reports",
-      "filename": "../../4-build-data-reporter-reports.md",
+      "filename": "../../4-build-data-reporter-reports/4-build-data-reporter-reports.md",
       "description": "Create four HR reports, group-by summaries, charts, facets, and Primary Default settings."
     },
     {
       "title": "Lab 5: Publish and Review",
-      "filename": "../../5-publish-and-review.md",
+      "filename": "../../5-publish-and-review/5-publish-and-review.md",
       "description": "Publish every report and validate the completed application as the end-user viewer."
     },
     {

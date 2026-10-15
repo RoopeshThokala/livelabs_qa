@@ -20,7 +20,7 @@ In this lab, you will:
 1. In SQL Workshop, select **Utilities**, then select **Quick SQL**.
     ![Quick SQL](images/nav-quick-sql.png ' ')
 
-2. Copy the contents of [`tms-schema.qsql`](files/tms-schema.qsql) into Quick SQL and review the generated DDL.
+2. Copy the contents of **[`tms-schema.qsql`](files/tms-schema.qsql)** into Quick SQL and review the generated DDL.
 
     ![Quick SQL showing generated DDL for the TMS schema.](images/quick-sql-generated-ddl.png ' ')
 

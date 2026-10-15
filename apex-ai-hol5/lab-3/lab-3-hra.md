@@ -10,7 +10,7 @@ Estimated time: 5 minutes
 
 In this lab, you will:
 
-- Create HR Analytics App (HAA) using Application from File.
+- Create the HR Analytics App (HAA) using Application from File.
 
 ### What You Will Build
 
@@ -82,5 +82,5 @@ In this lab, you created and ran the HR Analytics App from `candidate_pipeline_s
 
 ## Acknowledgements
 
-- **Author** - Ankita Beri, Senior Product Manager
+- **Author** - Ankita Beri, Senior Product Manager; Roopesh Thokala, Principal Product Manager
 - **Last Updated By/Date** - Ankita Beri, Senior Product Manager, July 2026

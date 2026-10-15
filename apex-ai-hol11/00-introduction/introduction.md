@@ -31,6 +31,20 @@ In this workshop, you will:
 - The forms from Module 10 have their page items configured.
 - Access to SQL Workshop and Page Designer.
 
+## Downloads
+
+Stuck or Missed out on completing the previous labs? Don't worry! You can download the following applications:
+
+- **<a href="files/tap-export5.sql" download="tap-export5.sql">Talent Acquisition Portal</a>**
+
+- **<a href="files/ess-export4.sql" download="ess-export4.sql">Employee Self-Service Portal</a>**
+
+Import them into your workspace. In **App Builder**, select **Import**, upload each file, and follow the steps in the **Import Application** wizard.
+
+> **Note:** Supporting objects are already loaded in the workspace.
+>
+> **AI Configuration:** Configure a Generative AI Service in the workspace and select it under **Shared Components > AI Attributes** for each application. See **Module 1, Lab 2: Configure Generative AI Service**.
+
 ## Start the Workshop
 
 Click **Getting Started** if you need to create an APEX workspace. Otherwise, click **Lab 1: Understanding Oracle APEX Page Processing** to begin.

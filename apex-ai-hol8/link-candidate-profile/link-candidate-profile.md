@@ -23,8 +23,8 @@ In this lab, you will:
 2. Right-click **Body** and select **Create Page Item**.
     ![Page Designer navigation with the Candidate Profile page selected.](images/create-page-item.png ' ')
 
-2. Add a hidden page item named `P11_CANDIDATE_ID`. Enter/select the following details:
-    - Name: **P11\_CANDIDATE\_ID**
+2. Add a hidden page item named `Pn_CANDIDATE_ID`. Enter/select the following details:
+    - Name: **Pn\_CANDIDATE\_ID**
     - Type: **Hidden**
 
     ![Create Page Item dialog configured with P11_CANDIDATE_ID and Hidden item type.](images/create-hidden-candidate-id.png ' ')
@@ -46,11 +46,11 @@ In this lab, you will:
 3. Set the target page to **Candidate Profile** (Page 11). In the dialog, select/enter the following:
     - Page: 11
     - Set Items:
-        - Name: **P11\_CANDIDATE\_ID**
+        - Name: **Pn\_CANDIDATE\_ID**
         - Value: **#CANDIDATE_ID#**
-    
+
     Click **OK**.
-    
+
     ![Link Target dialog targeting Candidate Profile Page 11.](images/target-candidate-profile-page.png ' ')
 
 

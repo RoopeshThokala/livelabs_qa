@@ -194,5 +194,5 @@ You may now **proceed to the next module**.
 
 ## Acknowledgements
 
-- **Author** - Shanmukh Kornana
+- **Author** - Roopesh Thokala, Principal Product Manager & Shanmukh Kornana, Principal Product Manager
 - **Last Updated By/Date** - Shanmukh Kornana, July 2026

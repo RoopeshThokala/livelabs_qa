@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Create a grouped navigation menu for TAP app. Keep contextual pages available through report links and buttons rather than adding them to the main menu.
+In this lab, you create a grouped navigation menu for the TAP app. Keep contextual pages available through report links and buttons rather than adding them to the main menu.
 
 Estimated Time: 5 minutes
 
@@ -13,6 +13,18 @@ In this lab, you will:
 - Create parent navigation entries.
 - Assign TAP pages to menu groups.
 - Add icons and verify the runtime menu.
+
+### Downloads
+
+Stuck or missed out on completing the previous labs? Don't worry! You can download the following application:
+
+- **<a href="../introduction/files/tap-export8.sql" download="tap-export8.sql">Talent Acquisition Portal</a>**
+
+Import it into your workspace. In **App Builder**, select **Import**, upload `tap-export8.sql`, and follow the steps in the **Import Application** wizard.
+
+> **Note:** Supporting objects are already loaded in the workspace.
+>
+> **AI Configuration:** Configure a Generative AI Service in the workspace and select it under **Shared Components > AI Attributes** for the application. See **Module 1, Lab 2: Configure Generative AI Service**.
 
 ## Task 1: Create the parent entries
 
@@ -44,7 +56,7 @@ In this lab, you will:
 ## Task 2: Assign TAP pages and verify the menu
 
 1. Assign Recruitment Metrics Hub, Job Openings, Job Requisitions, and Candidate Pipeline to **Recruitment**. 
-    Select **edit** for Recruitment Metrics Hub, change the Parent List Entry to **Recruitment**. Click **Apply Changes**.
+    Select **edit** for Recruitment Metrics Hub and change the Parent List Entry to **Recruitment**. Click **Apply Changes**.
 
     ![Navigation menu hierarchy showing TAP pages assigned to their parent entries.](images/edit-entry.png ' ')
 
@@ -61,7 +73,7 @@ In this lab, you will:
 
     ![Navigation menu hierarchy showing TAP pages assigned to their parent entries.](images/child-hiring2.png ' ')
 
-3. Finally, assign Parent List Entry to **Offers** for **Offer Management** entry.
+3. Finally, assign Parent List Entry to **Offers** for the **Offer Management** entry.
 
     ![Navigation menu hierarchy showing TAP pages assigned to their parent entries.](images/child-offer.png ' ')
 

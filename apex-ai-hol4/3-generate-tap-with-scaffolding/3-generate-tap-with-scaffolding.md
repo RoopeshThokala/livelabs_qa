@@ -39,6 +39,7 @@ In this lab, you will learn how to:
     <copy>Use tap_schema_metadata.md for the database schema, tms_module_04_functional_spec.md for business context, and apex-fa-icons-allowlist.txt for icon choices. Generate a complete Application Blueprint that follows blueprint_prompt.md exactly. Use only allowlisted APEX icons. Save the final blueprint as tap_generated_blueprint.md.
     </copy>
     ```
+
     ![Blueprint-generation prompt in the coding agent](images/task-02-step-02-prompt.png)
 
 3. Review each file-write request. Approve it only when the agent creates or updates `tap_generated_blueprint.md` in `tap_sdd`.
@@ -52,6 +53,7 @@ In this lab, you will learn how to:
 1. Open `tap_generated_blueprint.md`.
 
 2. Confirm that the blueprint names the app `Talent Acquisition Portal` and includes only TAP pages and components.
+
     ![Generated TAP Application Blueprint file](images/task-03-step-02-gen-bp.png)
 
 ## Task 4: Enable REST for Your Schema
@@ -59,9 +61,11 @@ In this lab, you will learn how to:
 **Prerequisite before moving to the next lab**
 
 1. In APEX, open **SQL Workshop**, then select **RESTful Services**.
+
     ![RESTful Services option in SQL Workshop](images/task-04-step-01-rest.png)
 
 2. Click **Register Schema** with **ORDS (Oracle REST Data Services)**.
+
     ![Register Schema action for ORDS](images/task-04-step-02-register.png)
 
 3. APEX fills in the **Schema Alias**.
@@ -69,11 +73,12 @@ In this lab, you will learn how to:
     - Change it only if needed.
 
     - Turn off **Install Sample Service**, then click **Save Schema Attributes**.
+
     ![ORDS schema registration settings](images/task-04-step-03-schema.png)
 
     - **Note:** Complete this step before you import the app from the blueprint.
 
 ## Acknowledgements
 
- - **Author -** Aravind Madhavan, Senior Product Manager.
+ - **Author -** Aravind Madhavan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
  - **Last Updated By/Date** - Aravind Madhavan, Senior Product Manager, July 2026

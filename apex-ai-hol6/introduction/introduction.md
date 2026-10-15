@@ -21,21 +21,23 @@ In this workshop, you will learn how to:
 
 ## Prerequisites
 
-- An Oracle APEX 26.1 workspace running on an Oracle Database 19c or later. This workshop requires APEX 26.1. Some features, instructions, and screenshots may differ or not be available in prior releases.
+- An Oracle APEX workspace running on an Oracle Database 19c or later. This workshop requires APEX 26.1 or later. Some features, instructions, and screenshots may differ or not be available in prior releases.
 
 > **Note:** The application ID in the screenshots may vary. Please ignore the application ID.
 
 ## Downloads
 
-If you are stuck or the applications are not working as expected, you can download and install the completed applications as follows:
+Stuck or Missed out on completing the previous labs? Don't worry! You can download the following applications:
 
-1. Download the [Talent Acquisition Portal export](files/talent-acquisition-portal-app.sql).
+- **<a href="files/tap-export1.sql" download="tap-export1.sql">Talent Acquisition Portal</a>**
 
-2. Import the **Talent Acquisition Portal** export into your APEX workspace. Follow the steps in the **Import Application** wizard.
+- **<a href="files/ess-export1.sql" download="ess-export1.sql">Employee Self-Service Portal</a>**
 
-3. Download the [Employee Self Service Portal export](files/employee-self-service-portal-app.sql).
+Import them into your workspace. In **App Builder**, select **Import**, upload each file, and follow the steps in the **Import Application** wizard.
 
-4. Import the **Employee Self Service Portal** export into your APEX workspace. Follow the steps in the **Import Application** wizard.
+> **Note:** Supporting objects are already loaded in the workspace.
+>
+> **AI Configuration:** Configure a Generative AI Service in the workspace and select it under **Shared Components > AI Attributes** for each application. See **Module 1, Lab 2: Configure Generative AI Service**.
 
 ## Learn More - Useful Links
 
@@ -51,5 +53,5 @@ You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
-- **Author** - Sahaana Manavalan, Senior Product Manager
+- **Author** - Sahaana Manavalan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
 - **Last Updated By/Date** - Sahaana Manavalan, Senior Product Manager, July 2026

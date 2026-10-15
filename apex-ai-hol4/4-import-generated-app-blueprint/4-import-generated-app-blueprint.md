@@ -16,10 +16,13 @@ In this lab, you will learn how to:
 
 ## Task 1: Import the Application Blueprint
 
+> **Note:** If you couldn't generate the application blueprint in the previous module, download the supplied <a href="files/tap_generated_blueprint.md" download="tap_generated_blueprint.md">tap&#95;generated&#95;blueprint.md</a> file and use it for the import steps below.
+
 1. In APEX, open **App Builder** and select **Import**.
     ![Import option in Oracle APEX App Builder](images/task-01-step-01-import.png)
 
-2. Upload `tap_generated_blueprint.md` from your `tap_sdd` project.
+2. Upload <a href="files/tap_generated_blueprint.md" download="tap_generated_blueprint.md">tap&#95;generated&#95;blueprint.md</a> from your <strong>tap&#95;sdd</strong> project.
+
     ![Application Blueprint upload selection](images/task-01-step-02-upload.png)
 
 3. Select **Application Blueprint** as the file type. Verify the file character set, then select **Next**.
@@ -27,6 +30,7 @@ In this lab, you will learn how to:
 4. Select the default **Generative AI Service** for the application and the **Parsing Schema**.
 
     - Enter a new, unique application ID outside the reserved range `3000` through `9000`, then select **Import Application**.
+
     ![Application Blueprint import summary](images/task-01-step-04-import-summary.png)
 
 5. If APEX reports blueprint errors, copy the full error log. Give it to the coding agent with the generated blueprint and four source files. Correct the blueprint, then repeat this task.
@@ -34,9 +38,11 @@ In this lab, you will learn how to:
 ## Task 2: Run the TAP Application
 
 1. Open the imported application in **App Builder** and select **Run Application**.
+
     ![Run Application action in App Builder](images/task-02-step-01-run-application.png)
 
 2. Review the generated navigation, reports, forms, and page names.
+
     ![Generated TAP application dashboard](images/task-02-step-02-run-dashboard.png)
 
 3. Verify that the application is focused on recruitment work: jobs, requisitions, candidates, interviews, and offers.
@@ -51,5 +57,5 @@ In this lab, you will learn how to:
 
 ## Acknowledgements
 
- - **Author -** Aravind Madhavan, Senior Product Manager.
+ - **Author -** Aravind Madhavan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
  - **Last Updated By/Date** - Aravind Madhavan, Senior Product Manager, July 2026

@@ -44,6 +44,9 @@ In this task, you will configure the **Application History** region from the sup
 
 4. In the Property Editor, update the region:
 
+    - Under Identification:
+        - Name: **Interview Feedback History**
+        - Location: **Classic Report**
     - Under Source:
         - Location: **Local Database**
         - Type: **SQL Query**
@@ -138,7 +141,7 @@ In this task, you will add a button that opens a new feedback entry for the sele
 
     The screenshot shows the page and item mapping. It leaves **Clear Cache** empty; enter **13** there before clicking **OK** so the form opens in insert mode.
 
-    Click **OK**.
+    - Click **OK**.
 
     Clearing Page 13 removes any previously loaded feedback entry, so the button opens the form in insert mode. Passing **P13\_CANDIDATE\_ID** associates the new feedback entry with the selected candidate.
 
@@ -187,7 +190,7 @@ In this task, you will refresh the detail report when the feedback form closes.
 
 ## Task 5: Run the Candidate Feedback Flow
 
-1. Run TAP and Navigate to **Candidate Pipeline** page.
+1. Run TAP and Navigate to the **Candidate Pipeline** page.
 
     ![Open candidate pipeline page](images/open-candidate-pipeline-page.png " ")
 
@@ -209,7 +212,7 @@ In this task, you will refresh the detail report when the feedback form closes.
 
 7. Confirm that **Interview Feedback History** refreshes and shows the new entry.
 
-    ![Enter Feedback and click Create](images/display-provided-feedback.png.png " ")
+    ![Enter Feedback and click Create](images/display-provided-feedback.png " ")
 
 ## Summary
 

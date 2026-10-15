@@ -16,7 +16,7 @@ In this lab, you will:
 
 ## Task 1: Add the Interactive Grid
 
-1. In Talent Acquisition Portal Application, open **Interview Schedule** page.
+1. In the Talent Acquisition Portal Application, open the **Interview Schedule** page.
 
     ![Interview Schedule grid source](images/interview-schedule-grid-source.png "")
 
@@ -34,7 +34,7 @@ In this lab, you will:
 
     ![Set Interactive Grid Properties](images/set-interactive-grid-properties.png "")
 
-4. In the Property Editor, Click **Attributes** Tab and then:
+4. In the Property Editor, click the **Attributes** tab and then:
     - Under Edit > Enabled: Yes
 
     ![Enable Edit option](images/enable-edit.png "")
@@ -81,7 +81,7 @@ In this lab, you will:
 
     ![Interview Schedule page](images/check-interview-schedule-page.png "")
 
-9. Edit a cell, in this example, update the candidate’s Interviewer ID. Click **Save** and confirm the change was committed.
+9. Edit a cell. In this example, update the candidate’s Interviewer ID. Click **Save** and confirm the change was committed.
 
     ![Interview Schedule inline edit](images/interview-schedule-inline-edit.png "")
 
@@ -93,5 +93,5 @@ You created an editable Interview Schedule grid with the right balance of visibi
 
 ## Acknowledgements
 
-* **Author** - Roopesh Thokala, Principal product manager
+* **Author** - Roopesh Thokala, Principal Product Manager
 * **Last Updated By/Date** - Roopesh Thokala, July, 2026

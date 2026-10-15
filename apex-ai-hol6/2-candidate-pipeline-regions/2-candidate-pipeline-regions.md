@@ -38,7 +38,7 @@ In this task, you will create an **Open Requisitions** Dynamic Content region. Y
 
     ![Candidate Pipeline page selected on the application home page](images/02-open-candidate-pipeline-page.png " ")
 
-3. In the **Rendering Tree**, right-click **Components**, then select **Create Region**.
+3. In the **Rendering Tab**, right-click **Components**, then select **Create Region**.
 
     ![Create Region selected from the Components context menu](images/03-create-region-from-components.png " ")
 
@@ -93,7 +93,7 @@ In this task, you will create an **Open Requisitions** Dynamic Content region. Y
 
 In this task, you will create an **Applied** Cards region based on a SQL Query. The query returns the candidate name, current stage, and applied date for the card title, subtitle, body, and initials.
 
-1. In the **Rendering Tree**, right-click **Body**, then select **Create Region**.
+1. In the **Rendering Tab**, right-click **Body**, then select **Create Region**.
 
     ![Create Region selected from the Body context menu](images/06-create-cards-region.png " ")
 
@@ -142,11 +142,15 @@ In this task, you will create an **Applied** Cards region based on a SQL Query. 
 
     ![Cards icon initials attributes configured](images/11-cards-icon-badge-attributes.png " ")
 
-4. Select **Save and Run**.
+4. Right Click on **Breadcrumb** region in the Rendering Tree and click **Delete**.
+
+    ![Delete Breadcrumb Bar](images/delete-breadcrumb.png " ")
+
+5. Select **Save and Run**.
 
     ![Save and Run selected for the Applied Cards region](images/12-save-and-run-applied-cards.png " ")
 
-5. Confirm that each card shows the candidate name, current stage, and applied date.
+6. Confirm that each card shows the candidate name, current stage, and applied date.
 
     ![Candidate Pipeline page showing Applied candidate cards](images/13-applied-cards-runtime.png " ")
 
@@ -169,5 +173,5 @@ You may now proceed to the next lab.
 
 ## Acknowledgements
 
-- **Author** - Sahaana Manavalan, Senior Product Manager
+- **Author** - Sahaana Manavalan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
 - **Last Updated By/Date** - Sahaana Manavalan, Senior Product Manager, July 2026

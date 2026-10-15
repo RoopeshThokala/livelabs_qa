@@ -14,13 +14,25 @@ In this lab, you will:
 - Configure a clear status list and protect task details from edits.
 - Hide audit fields for a cleaner employee view.
 
+### Downloads
+
+Stuck or Missed out on completing the previous labs? Don't worry! You can download the following application:
+
+- **<a href="../introduction/files/ess-export2.sql" download="ess-export2.sql">Employee Self-Service Portal</a>**
+
+Import it into your workspace. In **App Builder**, select **Import**, upload `ess-export2.sql`, and follow the steps in the **Import Application** wizard.
+
+> **Note:** Supporting objects are already loaded in the workspace.
+>
+> **AI Configuration:** Configure a Generative AI Service in the workspace and select it under **Shared Components > AI Attributes** for the application. See **Module 1, Lab 2: Configure Generative AI Service**.
+
 ## Task 1: Replace the report with an Interactive Grid
 
-1. Navigate to **Employee Self Service application**, and open the **My Onboarding Tasks** page.
+1. Navigate to the **Employee Self Service application**, and open the **My Onboarding Tasks** page.
 
     ![Open My Onboarding Tasks page](images/open-my-tasks-page.png "")
 
-2. In the Rendering tree, select **Onboarding Tasks** region.
+2. In the Rendering tree, select the **Onboarding Tasks** region.
 
     ![Select Onboarding Tasks region](images/select-onboarding-tasks-region.png "")
 
@@ -31,8 +43,9 @@ In this lab, you will:
     - Under Source:
         - Type: **SQL Query**
         - SQL Query: **Enter the following query**
-            <copy>
+
             ```sql
+            <copy>
                 SELECT
                     T.*, E.Email
                 FROM
@@ -40,8 +53,8 @@ In this lab, you will:
                     JOIN TMS_EMPLOYEES E ON E.EMPLOYEE_ID = T.EMPLOYEE_ID
                 WHERE
                     lower(T.ASSIGNED_TO) = LOWER(:APP_USER)
-            ```
             </copy>
+            ```
 
     ![Set My Onboarding Tasks grid properties](images/set-my-tasks-grid-properties.png "")
 
@@ -55,7 +68,7 @@ In this lab, you will:
 
     ![Expand Columns](images/expand-columns.png "")
 
-2. Select **TASK_ID** column. Then, in the Property Editor, under **Source**, set **Primary Key** and **Query Only** to **Yes**.
+2. Select the **TASK_ID** column. Then, in the Property Editor, under **Source**, set **Primary Key** and **Query Only** to **Yes**.
 
     ![Select Primary Key](images/set-item-id-primary-key.png "")
 
@@ -79,7 +92,7 @@ In this lab, you will:
 
     ![Configure Status select list](images/configure-my-tasks-status-list.png "")
 
-5. Next, select **Task Name** column in the Rendering Tree. Then, in the **Property Editor**:
+5. Next, select the **Task Name** column in the Rendering Tab. Then, in the **Property Editor**:
     - Set **Identification** > Type: **Display Only**.
 
     ![Configure Task Name as Display only](images/configure-task-name-display.png "")
@@ -100,7 +113,7 @@ In this lab, you will:
 
     ![Hide My Tasks audit columns](images/hide-my-tasks-audit-columns.png "")
 
-8. Save and run the page. If prompted, log in to the Application. Verify the Onboarding Tasks assigned to a logged in User.
+8. Save and run the page. If prompted, log in to the Application. Verify the Onboarding Tasks assigned to the logged-in user.
 
     ![Run the Page](images/run-app.png "")
 
@@ -110,5 +123,5 @@ You transformed My Onboarding Tasks into a focused Interactive Grid. Employees c
 
 ## Acknowledgements
 
-* **Author** - Roopesh Thokala, Principal product manager
+* **Author** - Roopesh Thokala, Principal Product Manager
 * **Last Updated By/Date** - Roopesh Thokala, July 29, 2026

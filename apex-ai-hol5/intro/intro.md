@@ -4,7 +4,7 @@
 
 In this workshop, you will create three applications in Oracle APEX by using low-code application creation options in App Builder.
 
-In this module, you will build the first working versions of the Talent Acquisition Portal, Employee Self-Service Portal, and HR Analytics App. You will create applications from wizard-defined pages, from an uploaded CSV file, from existing database tables, and from a natural-language prompts.
+In this module, you will build the first working versions of the Talent Acquisition Portal, Employee Self-Service Portal, and HR Analytics App. You will create applications from wizard-defined pages, from an uploaded CSV file, from existing database tables, and from a natural-language prompt.
 
 Estimated Time: 25 minutes
 
@@ -20,7 +20,7 @@ In this workshop, you will:
 
 - Add report and form pages to the Talent Acquisition Portal from existing database tables.
 
-- Create a Talent Acquisition Portal cards dashboard from a natural-language prompts.
+- Create a Talent Acquisition Portal cards dashboard from a natural-language prompt.
 
 - Review how Oracle APEX generates applications, pages, forms, and reports from the metadata you provide.
 
@@ -61,7 +61,7 @@ In this workshop, you will:
 
     - The logged-in user must have the necessary privileges to create and manage Autonomous Database instances in this compartment. You can configure these privileges via an OCI IAM Policy. If you are using a Free Tier account, it is likely that you already have all the necessary privileges.
 
-*Note: This workshop assumes you are using Oracle APEX 26.1. Some of the features might not be available in prior releases and the instructions, flow, and screenshots might differ if you use an older version of Oracle APEX.*
+*Note: This workshop assumes you are using Oracle APEX 26.1 or later. Some of the features might not be available in prior releases and the instructions, flow, and screenshots might differ if you use an older version of Oracle APEX.*
 
 *Important: This workshop requires an active account with a supported Generative AI provider. Oracle APEX connects to the provider using your own credentials. Any API usage charges are billed directly by your provider. Please review your provider’s pricing before proceeding.*
 
@@ -75,5 +75,5 @@ In this workshop, you will:
 
 ## Acknowledgements
 
-- **Author** - Ankita Beri, Senior Product Manager
+- **Author** - Ankita Beri, Senior Product Manager; Roopesh Thokala, Principal Product Manager
 - **Last Updated By/Date** - Ankita Beri, Senior Product Manager, July 2026

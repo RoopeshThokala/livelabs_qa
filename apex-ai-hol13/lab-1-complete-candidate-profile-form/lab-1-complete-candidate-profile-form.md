@@ -17,10 +17,22 @@ In this lab, you will:
 
 ### Downloads
 
+Stuck or missed out on completing the previous labs? Don't worry! You can download the following application:
+
+- **<a href="../introduction/files/tap-export7.sql" download="tap-export7.sql">Talent Acquisition Portal</a>**
+
+Import it into your workspace. In **App Builder**, select **Import**, upload `tap-export7.sql`, and follow the steps in the **Import Application** wizard.
+
+> **Note:** Supporting objects are already loaded in the workspace.
+>
+> **AI Configuration:** Configure a Generative AI Service in the workspace and select it under **Shared Components > AI Attributes** for the application. See **Module 1, Lab 2: Configure Generative AI Service**.
+
+The following files are also used in this lab:
+
 | File | Purpose | Status |
 | --- | --- | --- |
 | [Candidate sample images](files/tms_candidates_images.sql) | Populate candidate photo BLOBs and metadata | Existing script supplied with this lab |
-| [Sample CV instructions](files/sample-candidate-cv.pdf.placeholder.txt) | Prepare a PDF for the CV upload test | Placeholder; supply a real PDF |
+| Sample CV PDF | Prepare a PDF for the CV upload test | No sample PDF is supplied; use a PDF of your own |
 
 ## Task 1: Add Candidate Photo Columns
 
@@ -84,7 +96,7 @@ In this task, you will prepare the candidate table to store photos. The **RESUME
 
 ## Task 2: Configure the Candidate Details Form
 
-1. In the left navigation menu, click **App Builder** Icon.
+1. In the left navigation menu, click the **App Builder** icon.
 
     ![Open App Builder](images/open-app-builder.png " ")
 
@@ -97,7 +109,7 @@ In this task, you will prepare the candidate table to store photos. The **RESUME
     ![Open Page 11: Candidate Profile](images/select-candidate-profile-page.png " ")
 
 4. In the Rendering tree, locate **P11\_CANDIDATE\_ID**. If you are converting the earlier Static Content region and this item has no form source, delete it before synchronizing the new form items. If you are using the supplied export, keep the existing item: it is already bound to **Candidate Details** and marked as the primary key.
-To delete, Right-click **P11\_CANDIDATE\_ID**, click **Delete**.
+To delete the item, right-click **P11\_CANDIDATE\_ID** and click **Delete**.
     ![Delete an unbound P11\_CANDIDATE\_ID item](images/delete-unbound-candidate-id.png " ")
 
 5. Select **Candidate Details** in the Rendering tree. In the Property Editor, enter/select:
@@ -146,19 +158,25 @@ To delete, Right-click **P11\_CANDIDATE\_ID**, click **Delete**.
 
     ![Sync Candidate Details Form](images/sync-candidate-details-form.png " ")
 
-8. Select **P11\_CANDIDATE\_ID** and configure:
+8. Select **P11\_CANDIDATE\_ID**. In the Property Editor, enter/select:
 
-    | Property | Value |
-    | --- | --- |
-    | Identification > Type | **Hidden** |
-    | Source > Form Region | **Candidate Details** |
-    | Source > Column | **CANDIDATE\_ID** |
-    | Source > Primary Key | **Yes** |
-    | Session State > Storage | **Per Session (Persistent)** |
+    - Identification > Type: **Hidden**
+    - Under Source:
+        - Form Region: **Candidate Details**
+        - Column: **CANDIDATE\_ID**
+        - Primary Key: **Toggle ON**
+        - Query Only: **Toggle ON**
+    - Session State > Storage: **Per Request (Persistent)**
 
     ![Configure the candidate ID item source and primary key](images/configure-candidate-id.png " ")
 
-9. Set **Source > Query Only** to **Yes** for **REQUISITION**, **DEPARTMENT**, and **DAYS\_SINCE\_APPLIED**. These values come from joined tables or a calculation and must not be included in candidate updates.
+    Persistent session state keeps the candidate key available so the form can identify the row being edited.
+
+9. Select each of **REQUISITION**, **DEPARTMENT**, and **DAYS\_SINCE\_APPLIED**. In the Property Editor, set:
+
+    - Source > Query Only: **Toggle ON**
+
+    These values come from joined tables or a calculation, so Query Only prevents them from being included in candidate updates.
 
     ![Set Items to Display Only](images/set-selected-items-display-only.png " ")
 
@@ -189,18 +207,43 @@ In this task, you will create two sub-regions under **Candidate Details**. The l
 
     ![Configure Candidate Details](images/configure-candidate-details.png " ")
 
-4. Similarly, select each of the following items in the Rendering tree and update its settings in the Property Editor. For all items, set **Layout > Region: Candidate Profile** and **Layout > Start New Row: Toggle ON**.
+4. In the Rendering tree, select each of the following items and set **Layout > Region** to **Candidate Profile** in the Property Editor:
 
-    | Item | Identification > Type | Layout > Sequence | Source > Query Only |
-    | --- | --- | --- | --- |
-    | P11\_FIRST\_NAME | Display Only | 20 | Toggle ON |
-    | P11\_LAST\_NAME | Display Only | 30 | Toggle ON |
-    | P11\_EMAIL | Display Only | 40 | Toggle ON |
-    | P11\_PHONE | Display Only | 50 | Toggle ON |
-    | P11\_SOURCE | Display Only | 60 | Toggle ON |
-    | P11\_RESUME\_BLOB | File Upload | 80 | Toggle OFF |
+    - **P11\_PHOTO\_BLOB**
+    - **P11\_FIRST\_NAME**
+    - **P11\_LAST\_NAME**
+    - **P11\_EMAIL**
+    - **P11\_PHONE**
+    - **P11\_SOURCE**
+    - **P11\_RESUME\_BLOB**
 
-    **Display Only** shows a value without an input field. **Query Only** excludes the value from the form's update operation. You will configure the CV storage settings in Task 4.
+    ![Configure Candidate Details](images/set-items-under-candidate-profile.png " ")
+
+    For **P11\_FIRST\_NAME**, **P11\_LAST\_NAME**, **P11\_EMAIL**,and **P11\_PHONE**, set:
+
+    - Identification > Type: **Display Only**
+    - Source > Query Only: **Toggle ON**
+
+    ![Set Display only Items](images/set-items-display-only.png " ")
+
+    Similarly for **P11\_SOURCE**:
+    - Identification > Type: **Hidden**
+
+    Set the layout properties for each item in the Property Editor:
+
+    - **P11\_PHOTO\_BLOB**:
+        - Layout > Start New Row: **Toggle ON**
+        - Layout > Start New Column: **Toggle ON**
+    - **P11\_FIRST\_NAME**:
+        - Layout > Start New Row: **Toggle OFF**
+        - Layout > Start New Column: **Toggle ON**
+    - **P11\_LAST\_NAME**, **P11\_EMAIL**, **P11\_PHONE**, **P11\_SOURCE**, and **P11\_RESUME\_BLOB**:
+        - Layout > Start New Row: **Toggle OFF**
+        - Layout > Start New Column: **Toggle OFF**
+
+    ![Set Display only Items](images/start-new-row-column.png " ")
+
+    The profile values remain visible without editable fields, and Query Only keeps them out of the form's update operation. Task 4 configures the photo and resume item types and file settings.
 
 5. Right-click **Candidate Details** and select **Create Sub Region**.
 
@@ -229,23 +272,20 @@ In this task, you will create two sub-regions under **Candidate Details**. The l
 
 8. Similarly, select each of the following items and update the settings shown below. For all items, set **Layout > Region: Application Status** and **Layout > Region: Application Status**.
 
-    | Item | Identification > Type | Layout > Sequence | Source > Query Only | Additional Settings |
-    | --- | --- | --- | --- | --- |
-    | P11\_REQUISITION | Display Only | 10 | Toggle ON | None |
-    | P11\_APPLIED\_DATE | Display Only | 30 | Toggle ON | Appearance > Format Mask: **DD-MON-YYYY** |
-    | P11\_DAYS\_SINCE\_APPLIED | Display Only | 40 | Toggle ON | Label > Label: **Days Since Applied** |
-    | P11\_DIVERSITY\_FLAG | Display Only | 50 | Toggle ON | Label > Label: **Diversity Flag** |
+    | Item | Identification > Type | Additional Settings |
+    | --- | --- | --- |
+    | P11\_REQUISITION | Display Only |  |
+    | P11\_APPLIED\_DATE | Display Only | Appearance > Format Mask: **DD-MON-YYYY** |
+    | P11\_DAYS\_SINCE\_APPLIED | Display Only |  |
+    | P11\_DIVERSITY\_FLAG | Display Only |  |
 
     The form query from Task 2 calculates **Days Since Applied**.
 
     ![Configure Requisition, Applied Date, and Days Since Applied](images/configure-status-display-items.png " ")
 
-    ![Place the Application Status items](images/place-status-items.png " ")
-
 9. Select each of the following remaining items and set **Identification > Type: Hidden** and **Source > Query Only: Toggle ON**:
 
     - **P11\_REQ\_ID**
-    - **P11\_SOURCE**
     - **P11\_DEPARTMENT**
     - **P11\_AI\_SCORE**
     - **P11\_PHOTO\_MIME\_TYPE**
@@ -330,6 +370,7 @@ You may now **proceed to the next lab**.
 - [Oracle APEX 26.1: Configuring File Upload to a BLOB Column](https://docs.oracle.com/en/database/oracle/apex/26.1/apxdc/configuring-file-upload-blob-column.html)
 - [Oracle APEX 26.1: Controlling File Upload Item Behavior](https://docs.oracle.com/en/database/oracle/apex/26.1/apxdc/controlling-file-upload-item-behavior.html)
 - [Oracle APEX 26.1: Saving Changes with a Page Process](https://docs.oracle.com/en/database/oracle/apex/26.1/apxdc/saving-changes-page-process.html)
+- [Oracle APEX 26.1: Memory Only Storage for Form Page Items](https://docs.oracle.com/en/database/oracle/apex/26.1/apxdc/memory-only-storage-form-page-items.html)
 
 ## Acknowledgements
 

@@ -9,12 +9,6 @@
       "filename": "../../00-introduction/introduction.md"
     },
     {
-      "title": "Getting Started",
-      "description": "",
-      "type": "livelabs",
-      "filename": "../../getting-started/getting-started.md"
-    },
-    {
       "title": "Lab 1: Understanding Oracle APEX Page Processing",
       "description": "",
       "type": "livelabs",

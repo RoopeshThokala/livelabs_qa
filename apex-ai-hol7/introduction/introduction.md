@@ -19,15 +19,19 @@ In this module, you will:
 - Complete the earlier modules that create the TAP and ESS applications and their TMS tables.
 - Sign in to the APEX workspace that contains both applications.
 
-## Lab Modules
+## Downloads
 
-| # | Lab | Application | Est. Time |
-| --- | --- | --- | --- |
-| 1 | Upgrade the Candidate Pipeline to an Interactive Report | TAP | 10 minutes |
-| 2 | Add AI Interactive Report to Job Requisitions | TAP | 5 minutes |
-| 3 | Build the Interview Schedule as an Interactive Grid | TAP | 10 minutes |
-| 4 | Create Job Openings Cards Page | TAP | 5 minutes |
-| 5 | Upgrade My Tasks to an Interactive Grid | ESS | 5 minutes |
+Stuck or Missed out on completing the previous labs? Don't worry! You can download the following applications:
+
+- **<a href="files/tap-export2.sql" download="tap-export2.sql">Talent Acquisition Portal</a>**
+
+- **<a href="files/ess-export2.sql" download="ess-export2.sql">Employee Self-Service Portal</a>**
+
+Import them into your workspace. In **App Builder**, select **Import**, upload each file, and follow the steps in the **Import Application** wizard.
+
+> **Note:** Supporting objects are already loaded in the workspace.
+>
+> **AI Configuration:** Configure a Generative AI Service in the workspace and select it under **Shared Components > AI Attributes** for each application. See **Module 1, Lab 2: Configure Generative AI Service**.
 
 ## Summary
 
@@ -35,5 +39,5 @@ By the end of this module, TAP will support the key moments in a recruiter’s d
 
 ## Acknowledgements
 
-* **Author** - Roopesh Thokala, Principal product manager
+* **Author** - Roopesh Thokala, Principal Product Manager
 * **Last Updated By/Date** - Roopesh Thokala, July 29, 2026

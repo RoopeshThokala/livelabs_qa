@@ -76,7 +76,7 @@ Offer is accepted, rejected, expired, or withdrawn
 - The same candidate email should not be duplicated for the same requisition.
 - Candidate stage must be Applied, Screening, Interview, Offer, Hired, or Rejected.
 - AI score, when entered, must be between 0 and 10.
-- Candidates in Offer or Hired stage should be easy to find.
+- Candidates in the Offer or Hired stage should be easy to find.
 
 ### 5.4 Interviews
 

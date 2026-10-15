@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Apply the same navigation patterns to ESS. Configure menu groups, breadcrumbs, Quick Links, and a user-scoped global search.
+In this lab, you apply the same navigation patterns to ESS. Configure menu groups, breadcrumbs, Quick Links, and a user-scoped global search.
 
 Estimated Time: 5 minutes
 
@@ -13,6 +13,18 @@ In this lab, you will:
 - Organize ESS navigation and breadcrumbs.
 - Add ESS Home Quick Links.
 - Create profile and task searches limited to the signed-in user.
+
+### Downloads
+
+Stuck or missed out on completing the previous labs? Don't worry! You can download the following application:
+
+- **<a href="../introduction/files/ess-export7.sql" download="ess-export7.sql">Employee Self-Service Portal</a>**
+
+Import it into your workspace. In **App Builder**, select **Import**, upload `ess-export7.sql`, and follow the steps in the **Import Application** wizard.
+
+> **Note:** Supporting objects are already loaded in the workspace.
+>
+> **AI Configuration:** Configure a Generative AI Service in the workspace and select it under **Shared Components > AI Attributes** for the application. See **Module 1, Lab 2: Configure Generative AI Service**.
 
 ## Task 1: Configure the ESS navigation menu
 
@@ -32,7 +44,7 @@ In this lab, you will:
 
     ![ESS Navigation Menu showing the new parent entries and icon CSS classes.](images/create-ess-navigation-parents.png ' ')
 
-    For example, to create My Work entry, click **Create List Entry**. Enter/select the details as given in the table above.
+    For example, to create the My Work entry, click **Create List Entry**. Enter/select the details as given in the table above.
 
     ![ESS Navigation Menu showing the new parent entries and icon CSS classes.](images/create-my-work.png ' ')
 
@@ -104,7 +116,7 @@ In this lab, you will:
     ![Create list dialog](images/create-list-confirm.png ' ')
 
 
-6. Select ESS Quick Links. From the right side List Details, select **Grid Edit**. 
+6. Select ESS Quick Links. From List Details on the right side, select **Grid Edit**.
     ![Lists shared component with the ESS Quick Links static list being created.](images/grid-edit.png ' ')
 
 7. In the modal Dialog Wizard, add the below icons:
@@ -308,7 +320,7 @@ WHERE UPPER(e.email) = UPPER(:APP_USER);
 21. Run the page. 
     ![Shared Components](images/save-and-run2.png ' ')
 
-22. Login as user **ravi.menon@acme.example**. In the search bar, type **IT** and observe the results.
+22. Log in as user **ravi.menon@acme.example**. In the search bar, type **IT** and observe the results.
     ![Search result](images/ess-search-result.png ' ')
 
 

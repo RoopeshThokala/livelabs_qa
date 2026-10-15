@@ -16,13 +16,13 @@ In this lab, you will:
 
 ## Task 1: Create the page and master region
 
-1. From your application homepage, click **Create Page**. 
+1. From your application homepage, click **Create Page**.
     ![App home page](images/create-page.png ' ')
 
 2. Select **Blank Page**.
     ![App home page](images/blank-page.png ' ')
 
-3. In the Create Blank Page wizard, enter/select the following:         
+3. In the Create Blank Page wizard, enter/select the following:
     - Page Number: **14**
     - Name: **Requisition Detail**.
     - Icon: **fa-file-o**
@@ -83,7 +83,7 @@ In this lab, you will:
 
     ![Page Designer with the Editable Candidates interactive grid region below Requisition Info.](images/add-editable-candidates-region.png ' ')
 
-3. In the Property Editor, switch to Attributes tab, and toggle the **Edit** > **Enabled** button to **ON**.
+3. In the Property Editor, switch to the Attributes tab, and toggle the **Edit** > **Enabled** button to **ON**.
 
     ![Editable Candidates interactive grid attributes with editing enabled.](images/enable-grid-editing.png ' ')
 
@@ -91,7 +91,7 @@ In this lab, you will:
 
     ![CANDIDATE_ID column attributes with Primary Key set to Yes.](images/set-candidate-id-primary-key.png ' ')
 
-6. In the left pane, under Candidates region, select the `CANDIDATE_ID`, `NAME`, and `APPLIED_DATE` columns and change the Type to **Display Only**.
+6. In the left pane, under the Candidates region, select the `CANDIDATE_ID`, `NAME`, and `APPLIED_DATE` columns and change the Type to **Display Only**.
 
     ![Editable Candidates interactive grid attributes with editing enabled and Candidate ID configured as the primary key.](images/editable-candidates-grid.png ' ')
 
@@ -104,17 +104,14 @@ In this lab, you will:
 
     ![Page Designer search showing the Job Openings Cards page result.](images/search-job-openings-page.png ' ')
 
-2. In the left pane, under Job Openings regions, right-click **Actions** and select **Create Action**.
-    ![Page Designer search showing the Job Openings Cards page result.](images/create-action.png ' ')
+2. Navigate to **Job Openings** in the left pane. Select **View Application** under **Actions**.
 
+3. Then in the Property Editor, Click **Page n** target available under **Behavior**.
 
-3. In the Property Editor, enter/select the following:
-    - Type: **Button**
-    - Label: **View Applicants**
-    ![View Applicants card action targeting Requisition Detail Page 14.](images/target-requisition-detail1.png ' ')
+    ![click Link bahavior for View Applicants](images/select-link-view-applicants.png ' ')
 
     - Target:
-        - Page: **14**
+        - Page: **14** - Requisition Detail Page.
         - Set Items:
             - Name: **P14\_REQ\_ID**
             - Value: **&REQ_ID.**
@@ -124,7 +121,7 @@ In this lab, you will:
 4. **Save and Run** the page.
     ![Page Designer](images/save-and-run.png ' ')
 
-4. Select **View Applicants** for a Job Card. Confirm that the requisition information appears above candidates in an editable grid.
+5. Select **View Applicants** for a Job Card. Confirm that the requisition information appears above candidates in an editable grid.
 
     ![Job Openings page](images/job-card-select.png ' ')
 

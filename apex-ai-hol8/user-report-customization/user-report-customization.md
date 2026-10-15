@@ -16,7 +16,7 @@ In this lab, you will:
 
 ## Task 1: Prepare the report query
 
-1. In Page Designer, open the Candidate Pipeline interactive report region. Click **Edit Page** from Runtime Developer Toolbar.
+1. In Page Designer, open the Candidate Pipeline interactive report region. Click **Edit Page** from the Runtime Developer Toolbar.
 
     ![Page Designer with the Candidate Pipeline interactive report region selected.](images/edit-page.png ' ')
 
@@ -41,9 +41,9 @@ In this lab, you will:
        c.diversity_flag,
        c.ai_score,
        c.created_by,
-       c.created_at,
+       c.created,
        c.updated_by,
-       c.updated_at
+       c.updated
   from tms_candidates c
   left join tms_job_requisitions r
     on c.req_id = r.req_id
@@ -86,7 +86,7 @@ In this lab, you will:
 1. Run the application. Log out as the developer and log in as end user **APEXAI**.
     ![log in page](images/login.png ' ')
 
-2. On Candidate Pipeline page, navigate to **Actions** > **Columns**. Move the **Department Name** column to Display section.
+2. On the Candidate Pipeline page, navigate to **Actions** > **Columns**. Move the **Department Name** column to the Display section.
 
     ![Columns dialog with Department Name moved to the displayed columns list.](images/display-department-name.png ' ')
 
@@ -102,7 +102,7 @@ In this lab, you will:
     - Functions: **Count**
     - Column: **Candidate Name**
     - Format Mask: **5,234**
-    
+
     Click **Apply**.
 
     ![Interactive report grouped by Stage with a Candidate Name count aggregate.](images/group-stage-count-candidates.png ' ')
