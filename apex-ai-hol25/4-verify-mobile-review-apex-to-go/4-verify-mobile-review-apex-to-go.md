@@ -213,5 +213,5 @@ You reviewed ESS navigation, cards, report scrolling, form controls, and calenda
 
 ## Acknowledgements
 
-- **Author** - Shanmukh Kornana
-- **Last Updated By/Date** - Shanmukh Kornana, October 2026
+- **Author** - Shanmukh Kornana, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, October 2026

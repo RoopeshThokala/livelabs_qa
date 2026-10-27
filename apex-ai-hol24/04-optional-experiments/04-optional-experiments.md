@@ -223,5 +223,5 @@ Selected file imports in VS Code and SQLcl require **APEX 26.2 or later**. On AP
 
 ## Acknowledgements
 
-- **Author** - Aravind Madhavan, Senior Product Manager, Oracle
-- **Last Updated By/Date** - Aravind Madhavan, October 2026
+- **Author** - Aravind Madhavan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, October 2026

@@ -65,5 +65,5 @@ Import it into your workspace. In **App Builder**, select **Import**, upload `es
 
 ## Acknowledgements
 
-- **Author** - Aravind Madhavan, Senior Product Manager, Oracle
-- **Last Updated By/Date** - Aravind Madhavan, October 2026
+- **Author** - Aravind Madhavan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, October 2026

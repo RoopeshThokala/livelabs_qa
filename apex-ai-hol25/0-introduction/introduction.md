@@ -21,15 +21,6 @@ In this workshop, you will:
 
 ESS already contains the employee pages, authentication, branding, and automations created in earlier modules. This workshop adds mobile behavior to that application. Employees commonly check tasks, request leave, and view payslips on a phone, making ESS the primary application for this module. The Talent Acquisition Portal (TAP) remains available for the recruitment activities covered earlier in the course.
 
-### Workshop Flow
-
-| Lab | What you will build or verify | Estimated time |
-| --- | --- | --- |
-| 1 | Enable and install ESS as a PWA | 8 minutes |
-| 2 | Add PWA shortcuts and screenshots | 8 minutes |
-| 3 | Enable and test overdue task push notifications | 12 minutes |
-| 4 | Verify mobile pages and review APEX To Go | 7 minutes |
-
 ### Prerequisites
 
 - The existing **Employee Self-Service Portal** application from the preceding modules.
@@ -67,5 +58,5 @@ Import the application for the lab that you are completing. In **App Builder**, 
 
 ## Acknowledgements
 
-- **Author** - Shanmukh Kornana
-- **Last Updated By/Date** - Shanmukh Kornana, October 2026
+- **Author** - Shanmukh Kornana, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, October 2026

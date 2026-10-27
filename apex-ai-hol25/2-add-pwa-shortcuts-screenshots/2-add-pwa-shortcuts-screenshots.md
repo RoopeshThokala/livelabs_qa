@@ -301,5 +301,5 @@ In this lab, you configured session management for shortcut navigation, added th
 
 ## Acknowledgements
 
-- **Author** - Shanmukh Kornana
-- **Last Updated By/Date** - Shanmukh Kornana, October 2026
+- **Author** - Shanmukh Kornana, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, October 2026
