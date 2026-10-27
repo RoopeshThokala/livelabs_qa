@@ -51,7 +51,7 @@ In this lab, you will learn how to:
 
 You uploaded and ran the sample-data script to populate the TMS tables.
 
-### Acknowledgements
+## Acknowledgements
 
 - **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
 - **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

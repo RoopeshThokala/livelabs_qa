@@ -54,16 +54,6 @@ Import the application files into your workspace. In **App Builder**, select **I
 > - **Supporting Objects:** Supporting objects are already loaded in the workspace.
 > - **AI Configuration:** Configure a Generative AI Service from **App Builder > Workspace Utilities > Generative AI**. See **Module 1, Lab 2: Configure Generative AI Service**.
 
-## Lab Modules
-
-| Lab | Primary Application | Est. Time |
-| --- | --- | ---: |
-| Lab 1: Authenticate TAP and ESS | TAP and ESS | 6 minutes |
-| Lab 2: Create Authorization Schemes | TAP and ESS | 4 minutes |
-| Lab 3: Protect Pages and Navigation | TAP and ESS | 5 minutes |
-| Lab 4: Enforce Row-Level Security | TAP and ESS | 3 minutes |
-| Lab 5: Create the ESS Audit Log | ESS | 3 minutes |
-
 ## Start the Workshop
 
 Click **Lab 1: Authenticate TAP and ESS** to begin.

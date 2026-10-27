@@ -83,27 +83,27 @@ In this lab, you will:
 
     ![Run Application](images/3_4_1_run_application.png " ")
 
-2. Enter the employee username and password, then click **Sign In**. The authenticated username, represented by `APP_USER`, identifies the notification recipient.
+3. Enter the employee username and password, then click **Sign In**. The authenticated username, represented by `APP_USER`, identifies the notification recipient.
 
     ![Sign in to ESS](images/3_4_2_employee_sign_in.png " ")
 
-3. Click the employee account menu in the application header, then click **Settings**.
+4. Click the employee account menu in the application header, then click **Settings**.
 
     ![Open the employee account menu and Settings](images/3_4_3_open_settings.png " ")
 
-4. In **Settings**, click **Push Notifications**.
+5. In **Settings**, click **Push Notifications**.
 
     ![Open Push Notifications](images/3_4_4_push_notifications.png " ")
 
-5. Select **Enable push notifications on this device**.
+6. Select **Enable push notifications on this device**.
 
     ![Enable notifications on this device](images/3_4_5_enable_device_notifications.png " ")
 
-6. When the browser requests notification permission, click **Allow**.
+7. When the browser requests notification permission, click **Allow**.
 
     ![Allow notifications in the browser](images/3_4_5_allow_notifications.png " ")
 
-7. Verify that **Enable push notifications on this device** is selected. Keep the device connected for the notification test. Each receiving device must be subscribed separately.
+8. Verify that **Enable push notifications on this device** is selected. Keep the device connected for the notification test. Each receiving device must be subscribed separately.
 
     ![Verify the subscribed device](images/3_4_6_device_enabled.png " ")
 
@@ -215,14 +215,14 @@ In this lab, you will:
 
     ![Review Log Messages](images/3_7_4_log_messages.png " ")
 
-5. On the subscribed device, verify that a notification appears with the following title and body. Confirm that the task name matches a task selected for this employee.
+9. On the subscribed device, verify that a notification appears with the following title and body. Confirm that the task name matches a task selected for this employee.
 
     ```text
     Overdue Task: <Task Name>
     This task is overdue. Please complete it today.
     ```
 
-6. Click the notification and verify that ESS opens. Sign in if prompted. Open **My Work → My Onboarding Tasks** from the application navigation menu and confirm that the notified task has **Overdue** status.
+10. Click the notification and verify that ESS opens. Sign in if prompted. Open **My Work → My Onboarding Tasks** from the application navigation menu and confirm that the notified task has **Overdue** status.
 
 ## Summary
 

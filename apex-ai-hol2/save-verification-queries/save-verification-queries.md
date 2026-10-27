@@ -114,7 +114,7 @@ In this lab, you will learn how to:
 
 You ran two TMS verification queries and saved them as the reusable `TMS_VERIFY` script.
 
-### Acknowledgements
+## Acknowledgements
 
 - **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
 - **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

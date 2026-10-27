@@ -52,7 +52,7 @@ In this lab, you will learn how to:
 
 You opened SQL Workshop and reviewed the components used to manage database objects, run SQL, and save scripts.
 
-### Acknowledgements
+## Acknowledgements
 
 - **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
 - **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

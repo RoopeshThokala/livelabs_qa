@@ -67,7 +67,7 @@ In this lab, you will learn how to:
 
 You used the AI-assisted data-model feature to create an audit-log table and used the supplied SQL script as a fallback.
 
-### Acknowledgements
+## Acknowledgements
 
 - **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
 - **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

@@ -144,25 +144,25 @@ In this lab, you will:
 
     ![Leave Calendar in the expanded Leave menu](images/4_5_1_calendar_navigation.png " ")
 
-2. In **month** view, check that the month heading, weekday labels, date cells, and navigation buttons fit the mobile view.
+4. In **month** view, check that the month heading, weekday labels, date cells, and navigation buttons fit the mobile view.
 
     ![Leave Calendar in month view](images/4_5_2_calendar_month.png " ")
 
-4. Click **Previous** to move to the previous month.
+5. Click **Previous** to move to the previous month.
 
     ![Previous month on Leave Calendar](images/4_5_3_calendar_previous.png " ")
 
-5. Click **Next** to move to the next month. Verify that the month heading changes.
+6. Click **Next** to move to the next month. Verify that the month heading changes.
 
     ![Next month and today button on Leave Calendar](images/4_5_3_calendar_next.png " ")
 
-6. Click **today** to return to the current month.
+7. Click **today** to return to the current month.
 
-7. Click **list**. Compare the list with **month** view.
+8. Click **list**. Compare the list with **month** view.
 
-8. If leave events are present, verify that their dates and labels are readable. If the calendar shows **No events to display**, record event visibility as **Not Tested**. Repeat this check later for a period containing an employee leave event.
+9. If leave events are present, verify that their dates and labels are readable. If the calendar shows **No events to display**, record event visibility as **Not Tested**. Repeat this check later for a period containing an employee leave event.
 
-9. Click **month** to return to the calendar grid.
+10. Click **month** to return to the calendar grid.
 
     ![List view and available calendar view buttons](images/4_5_4_calendar_list.png " ")
 
@@ -176,15 +176,15 @@ In this lab, you will:
 
     ![Oracle APEX To Go Welcome screen with Next](images/4_6_1_to_go_welcome.png " ")
 
-2. On **Discover**, read the introduction to the mobile patterns available in the sample application. Click **Next** to continue.
+4. On **Discover**, read the introduction to the mobile patterns available in the sample application. Click **Next** to continue.
 
     ![Oracle APEX To Go Discover screen with Next](images/4_6_2_to_go_discover.png " ")
 
-3. On **Get Started**, click **Go!** to continue to the application. Sign in if prompted.
+5. On **Get Started**, click **Go!** to continue to the application. Sign in if prompted.
 
     ![Oracle APEX To Go Get Started screen](images/4_6_3_to_go_get_started.png " ")
 
-4. Explore the **APEXToGo** home screen in mobile view.
+6. Explore the **APEXToGo** home screen in mobile view.
 
     ![APEXToGo home screen in mobile view](images/4_6_4_to_go_home.png " ")
 

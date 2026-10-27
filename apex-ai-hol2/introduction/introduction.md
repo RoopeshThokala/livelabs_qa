@@ -24,7 +24,7 @@ In this workshop, you will learn how to:
 
 - [Oracle APEX SQL Workshop documentation](https://docs.oracle.com/en/database/oracle/apex/)
 
-### Acknowledgements
+## Acknowledgements
 
 - **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
 - **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

@@ -199,7 +199,7 @@ Complete Lab 1. Use a browser and device that support PWA shortcuts to complete 
 
 > **Note:** Both images must have the same aspect ratio. Each dimension must be between **320 and 3840 pixels**. PNG, JPG, and JPEG are supported. Exclude browser tabs, Developer Tools, desktop folders, and loading indicators from the uploaded images.
 
-Prepared runtime screenshots are also available: [ESS Home screenshot](../files/ess-home-narrow.png) and [My Tasks screenshot](../files/ess-my-tasks-narrow.png). Save each file with its supplied filename. Both files are **390 × 844 pixels**.
+Prepared runtime screenshots are also available: [ESS Home screenshot](../files/ess-home-narrow.png) and [My Tasks screenshot](../files/ess-my-tasks-narrow.png). Save each file with its supplied filename. Both files are **390 × 844 pixels**. These runtime files are separate from the annotated App Builder screenshots in this lab.
 
 8. Return to **Progressive Web App**. Under **Installability**, locate **Screenshots**.
 

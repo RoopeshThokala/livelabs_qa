@@ -81,7 +81,7 @@ In this lab, you will learn how to:
 
 You generated and ran the Quick SQL script that creates the TMS schema, optionally added a vector column, and verified the TMS tables.
 
-### Acknowledgements
+## Acknowledgements
 
 - **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
 - **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026
