@@ -1,84 +1,116 @@
-# Lab 2: Add TAP Breadcrumbs
+# Add TAP Breadcrumbs
 
 ## Introduction
 
-In this lab, you configure a hierarchy that makes related TAP pages easy to trace. For example, Candidate Profile becomes a child of Candidate Pipeline, and Requisition Detail becomes a child of Job Openings.
+Breadcrumbs show the location of the current page in the Talent Acquisition Portal (TAP). In this lab, you will create the Recruitment and Hiring Process parent entries, then define the page hierarchy for the existing breadcrumb entries.
 
-Estimated Time: 3 minutes
+Estimated Lab Time: 3 minutes
 
 ### Objectives
 
 In this lab, you will:
 
-- Add top-level breadcrumb entries.
-- Set parent entries for existing pages.
-- Reorder and test breadcrumb paths.
+- Create Recruitment and Hiring Process breadcrumb parents.
+- Configure the parent entry for the existing TAP pages.
+- Verify the breadcrumb path at runtime.
 
-## Task 1: Create breadcrumb parents
+### Prerequisites
 
-1. Open **TAP** > **Shared Components** > **Breadcrumbs**.
+Complete [Lab 1: Restructure TAP Navigation](../tap-navigation/tap-navigation.md).
 
-    ![TAP Breadcrumbs shared component with the existing breadcrumb selected.](images/open-tap-breadcrumbs.png ' ')
+## Task 1: Open the TAP Breadcrumb
 
-2. Open the existing TAP **Breadcrumb**.
-     ![TAP Breadcrumbs shared component with the existing breadcrumb selected.](images/select-breadcrumb.png ' ')
+1. In **App Builder**, open the **Talent Acquisition Portal** application.
 
-3. Add **Recruitment** and **Hiring Process** as new entries with **No Target**. Click **New Entry +**.
+2. Click **Shared Components**. Under **Navigation and Search**, click **Breadcrumbs**.
 
-    ![Breadcrumb entry dialog creating the Recruitment parent entry with no target.](images/new-entry.png ' ')
+    ![Open Breadcrumbs in Shared Components](images/open-tap-breadcrumbs.png " ")
 
-4. Enter/select the following:
-    - Page: 0
-    - Parent Entry: - No Parent Entry -
-    - Sequence: 10
-    - Short Name: Hiring Process
-    - Target is a: - No Target -
+3. Select the existing **Breadcrumb**.
 
-    Click Create and Create Another.
+    ![Select the TAP Breadcrumb](images/select-breadcrumb.png " ")
 
-    ![Breadcrumb entry dialog creating the Recruitment parent entry with no target.](images/new-entry-hiring-process.png ' ')
-    
+## Task 2: Create Breadcrumb Parent Entries
 
-5. Similarly, create a new entry for **Recruitment**.
+In this task, you will create the parent breadcrumb entries. These entries organize the page paths but do not open a page.
 
-    ![Breadcrumb entry dialog creating the Recruitment parent entry with no target.](images/new-entry-Recruitment.png ' ')
+1. Click **New Entry**.
 
-    
+    ![Create a new breadcrumb entry](images/new-entry.png " ")
 
-## Task 2: Configure the hierarchy
+2. Create the **Hiring Process** parent entry. Enter/select the following:
 
-1. In the **Breadcrumbs** tab, set parent entries so that the entries follow the hierarchy shown in the table:
+    - Page: **0**
+    - Parent Entry: **- No Parent Entry -**
+    - Sequence: **10**
+    - Short Name: **Hiring Process**
+    - Target is a: **- No Target -**
+
+    Click **Create and Create Another**.
+
+    ![Configure the Hiring Process breadcrumb parent entry](images/new-entry-hiring-process.png " ")
+
+3. Create the **Recruitment** parent entry. Enter/select the following:
+
+    - Page: **0**
+    - Parent Entry: **- No Parent Entry -**
+    - Sequence: **20**
+    - Short Name: **Recruitment**
+    - Target is a: **- No Target -**
+
+    Click **Create Entry**.
+
+    ![Configure the Recruitment breadcrumb parent entry](images/new-entry-Recruitment.png " ")
+
+## Task 3: Configure the Breadcrumb Hierarchy
+
+In this task, you will set the parent entry for each breadcrumb entry.
+
+1. Select **Interview Schedule**.
+
+2. In the Property Editor, set **Parent Entry** to **Hiring Process (Page 0)**, then click **Apply Changes**.
+
+    ![Set Hiring Process as the parent of Interview Schedule](images/parent-entry-interview-schedule.png " ")
+
+3. Repeat the same update for the remaining breadcrumb entries:
+
     | Breadcrumb Entry | Parent Entry |
     | --- | --- |
-    | Home	| No Parent |
-    | Recruitment |	No Parent |
-    | Recruitment Metrics Hub |	Recruitment |
-    | Job Openings | Recruitment |
-    | Bulk Stage Update | Recruitment |
-    | Requisition Detail |	Job Openings |
-    | Job Requisitions | Recruitment |
-    | Candidate Pipeline |	Recruitment |
-    | Candidate Profile	| Candidate Pipeline |
+    | Home | - No Parent Entry - |
+    | Recruitment | - No Parent Entry - |
+    | Recruitment Metrics Hub | Recruitment (Page 0) |
+    | Job Openings | Recruitment (Page 0) |
+    | Bulk Stage Update | Recruitment (Page 0) |
+    | Requisition Detail | Job Openings |
+    | Job Requisitions | Recruitment (Page 0) |
+    | Candidate Pipeline | Recruitment (Page 0) |
+    | Candidate Profile | Candidate Pipeline |
     | Interview Feedback | Candidate Profile |
-    | Hiring Process |	No Parent |
-    | Interview Schedule | Hiring Process |
-    | Offers | No Parent |
+    | Hiring Process | - No Parent Entry - |
+    | Offers | - No Parent Entry - |
     | Offer Management | Offers |
 
+    Click **Apply Changes** after updating each entry.
 
-    ![Breadcrumb entries showing Recruitment and its candidate-related hierarchy.](images/configure-hierarchy.png ' ')
+    ![Configure the TAP breadcrumb hierarchy](images/configure-hierarchy.png " ")
 
-2. For example, to set Hiring Process as the Parent Entry for Interview Schedule, select **Interview Schedule** and set Parent Entry to **Hiring Process (Page 0)**.
+## Task 4: Run and Verify the Breadcrumb Path
 
-    ![Breadcrumb entries showing Hiring Process and Offers hierarchy.](images/parent-entry-interview-schedule.png ' ')
+1. Run the **Talent Acquisition Portal** application.
 
+2. Open a candidate from **Candidate Pipeline** and confirm the breadcrumb path includes **Recruitment > Candidate Pipeline > Candidate Profile**.
 
-4. Run the app and open each affected page in Page Designer, verify its breadcrumb entry, and test paths such as **Recruitment > Job Requisition > Requisition Detail**.
+3. Open a requisition from **Job Openings** and confirm the breadcrumb path includes **Recruitment > Job Openings > Requisition Detail**.
 
-    ![TAP runtime page displaying the Recruitment, Candidate Pipeline, and Candidate Profile breadcrumb path.](images/verify-tap-breadcrumb-path.png ' ')
+    ![Verify the TAP breadcrumb path at runtime](images/verify-tap-breadcrumb-path.png " ")
+
+## Summary
+
+You created the Recruitment and Hiring Process breadcrumb parents and defined the hierarchy for the existing TAP pages. Users can now see a meaningful breadcrumb path while navigating related pages.
+
+You may now proceed to the next lab.
 
 ## Acknowledgements
 
-* **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-* **Last Updated By/Date** - Apoorva Srinivas, Principal Product Manager, August 2026
-
+- **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - October 2026

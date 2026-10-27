@@ -98,4 +98,4 @@ You may now proceed to the next lab.
 ## Acknowledgements
 
 - **Author** - Ashwin Rao, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-- **Last Updated By/Date** - Ashwin Rao Principal Product Manager, July 2026
+- **Last Updated By/Date** - Ashwin Rao Principal Product Manager, October 2026

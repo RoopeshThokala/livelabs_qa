@@ -20,8 +20,6 @@ In this lab, you will:
 - Register the CSS file so that APEX loads it at runtime.
 - Add the component to ESS Home and map SQL columns to its attributes.
 
-Use the Lab 4 snapshot, **15_04 : Employee Self-Service Portal** (App **157**), not the application used in Lab 3. Return to the App Builder application list, open this snapshot, and open **Home** in Page Designer before starting Task 1.
-
 If this snapshot already contains **Onboarding Progress Bar**, open it under **Shared Components > Templates** and continue with Task 2 instead of creating a duplicate. Likewise, reuse the existing **Onboarding Progress** subregion in Task 4 if it is already present.
 
 ## Task 1: Create the Template Component
@@ -161,6 +159,8 @@ If this snapshot already contains **Onboarding Progress Bar**, open it under **S
     </copy>
     ```
 
+    ![enter Cascading Style Sheet](images/enter-cascading-style-sheet.png " ")
+
     Creating a plug-in file does not by itself guarantee that the browser loads it. This URL tells APEX to load the normal or minified file, depending on the application's debug mode. Verify that the Files list contains both `onboarding-progress.css` and `onboarding-progress.min.css` after saving. If no minified file is present, use `#PLUGIN_FILES#onboarding-progress.css` instead so that the stylesheet loads in both debug and normal runtime.
 
 6. Select **Apply Changes**.
@@ -234,23 +234,11 @@ If this snapshot already contains **Onboarding Progress Bar**, open it under **S
     - A progress bar whose fill matches the percentage.
     - A summary in the form `n of n tasks complete`.
 
+    ![Check Onboarding Progress bar](images/check-onboard-progress-bar.png " ")
+
     If the text appears but the bar is not full width, confirm that the HTML class names use double underscores and that the CSS file is listed under **File URLs to Load**.
 
     With no matching employee tasks, the expected result is **0% complete** and **0 of 0 tasks complete**. To validate a populated result, use the assigned employee account with onboarding tasks; do not treat an empty-data result as proof that employee-specific counts are correct.
-
-## Task 5: Check Accessibility
-
-1. Inspect the rendered progress element with your browser's accessibility tools or a screen reader.
-
-2. Confirm that its accessible name follows this pattern:
-
-    ```text
-    Onboarding progress: 50 percent complete
-    ```
-
-3. Switch between ESS Light and ESS Dark. Confirm that the visible percentage and task summary remain readable in both styles.
-
-4. Do not remove the percentage or text summary. The bar's color and fill level must not be the only way the user receives progress information.
 
 ## Summary
 
@@ -260,5 +248,5 @@ You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
-- **Author** - Shanmukh Kornana
-- **Last Updated By/Date** - Shanmukh Kornana, August 2026
+- **Author** - Shanmukh Kornana, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, October 2026

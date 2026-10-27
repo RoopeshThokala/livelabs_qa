@@ -21,8 +21,6 @@ In this lab, you will:
 - Hide the computed helper column.
 - Render `STATUS` as a subtle Badge whose state comes from `STATUS_STATE`.
 
-Use the Lab 2 snapshot, **15_02 : Employee Self-Service Portal** (App **154**), not the application used in Lab 1. Return to the App Builder application list and check the application number before starting.
-
 For runtime validation, use the workshop-supplied employee account whose username matches `TMS_EMPLOYEES.EMAIL` and which has onboarding tasks. The App Builder developer account alone may not have matching employee data; ask your instructor for the assigned ESS test account if needed.
 
 ## Task 1: Open My Onboarding Tasks
@@ -48,6 +46,7 @@ For runtime validation, use the workshop-supplied employee account whose usernam
 2. Replace the existing SQL Query with the following code:
 
     ```sql
+    <copy>
     SELECT t.*,
            CASE
                WHEN UPPER(t.status) IN ('DONE', 'COMPLETED') THEN 'success'
@@ -61,6 +60,7 @@ For runtime validation, use the workshop-supplied employee account whose usernam
     JOIN tms_employees e
       ON e.employee_id = t.employee_id
     WHERE LOWER(e.email) = LOWER(:APP_USER)
+    </copy>
     ```
 
     ![Enter the status-state SQL](images/lab2-04-enter-status-state-sql.png " ")
@@ -126,5 +126,5 @@ You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
-- **Author** - Shanmukh Kornana
-- **Last Updated By/Date** - Shanmukh Kornana, August 2026
+- **Author** - Shanmukh Kornana, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, October 2026

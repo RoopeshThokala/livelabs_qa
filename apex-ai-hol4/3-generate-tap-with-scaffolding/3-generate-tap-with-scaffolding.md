@@ -1,33 +1,37 @@
-# Lab 3: Generate a TAP Application Blueprint with Scaffolding
+# Generate a TAP Application Blueprint with Scaffolding
 
 ## Introduction
 
-You now have the business requirements, schema details, and generation rules in one folder. Use them to generate a blueprint for a TAP comparison app.
+In Lab 2, you collected the business requirements, schema metadata, and generation rules in one folder. In this lab, you use those files to generate a blueprint for the TAP comparison application.
 
-Estimated Workshop Time: 25 minutes
+Estimated Lab Time: 25 minutes
 
 ### Objectives
 
 In this lab, you will learn how to:
 
 - Review the TAP source files before you generate the blueprint.
-- Prompt a coding agent to create a constrained blueprint.
-- Inspect the blueprint for a TAP-focused page layout.
+- Prompt a coding agent to generate a blueprint from the supplied files.
+- Compare the generated pages and components with the TAP requirements.
 
-## Task 1: Review the inputs before generation
+### Prerequisites
 
-1. In the `tap_sdd` folder, verify that these files are present:
+- Complete Lab 2 and sign in to Codex.
+
+## Task 1: Review the Inputs Before Generation
+
+1. In the `tap_sdd` folder, verify that the following files are present:
 
     - `tms_module_04_functional_spec.md`
     - `tap_schema_metadata.md`
     - `blueprint_prompt.md`
     - `apex-fa-icons-allowlist.txt`
 
-    ![TAP SDD project folder with the required input files](images/task-01-step-01-files.png)
+    ![Review the TAP SDD project files](images/task-01-step-01-files.png " ")
 
-2. Read the functional specification and confirm that it describes the Talent Acquisition Portal, not the Employee Self-Service Portal or HR Analytics App.
+2. Open `tms_module_04_functional_spec.md` and review the Talent Acquisition Portal requirements.
 
-3. Review the schema metadata and confirm that it includes every table and column used by the app.
+3. Open `tap_schema_metadata.md` and confirm that it contains the tables and columns referenced in the functional specification.
 
 ## Task 2: Generate the Application Blueprint
 
@@ -35,50 +39,54 @@ In this lab, you will learn how to:
 
 2. Submit the following prompt:
 
-    ```
-    <copy>Use tap_schema_metadata.md for the database schema, tms_module_04_functional_spec.md for business context, and apex-fa-icons-allowlist.txt for icon choices. Generate a complete Application Blueprint that follows blueprint_prompt.md exactly. Use only allowlisted APEX icons. Save the final blueprint as tap_generated_blueprint.md.
+    ```text
+    <copy>
+    Use tap_schema_metadata.md for the database schema, tms_module_04_functional_spec.md for business context, and apex-fa-icons-allowlist.txt for icon choices. Generate a complete Application Blueprint that follows blueprint_prompt.md exactly. Use only allowlisted APEX icons. Save the final blueprint as tap_generated_blueprint.md.
     </copy>
     ```
 
-    ![Blueprint-generation prompt in the coding agent](images/task-02-step-02-prompt.png)
+    ![Submit the Blueprint-generation prompt](images/task-02-step-02-prompt.png " ")
 
-3. Review each file-write request. Approve it only when the agent creates or updates `tap_generated_blueprint.md` in `tap_sdd`.
+3. Review each file-write request and approve it only when the agent creates or updates `tap_generated_blueprint.md` in `tap_sdd`.
 
 4. Wait for the agent to finish writing the blueprint.
 
-    ![Completed TAP Application Blueprint generation](images/task-02-step-04-completion.png)
+    ![Complete TAP Application Blueprint generation](images/task-02-step-04-completion.png " ")
 
-## Task 3: Inspect the generated blueprint
+## Task 3: Inspect the Generated Blueprint
 
 1. Open `tap_generated_blueprint.md`.
 
-2. Confirm that the blueprint names the app `Talent Acquisition Portal` and includes only TAP pages and components.
+2. Confirm that the application name matches the functional specification: **Talent Acquisition Portal - APEXlang Comparison**. Review the pages and components to confirm that they match the TAP requirements.
 
-    ![Generated TAP Application Blueprint file](images/task-03-step-02-gen-bp.png)
+    ![Review the generated TAP Application Blueprint](images/task-03-step-02-gen-bp.png " ")
 
 ## Task 4: Enable REST for Your Schema
 
-**Prerequisite before moving to the next lab**
+Register the schema with ORDS before importing the blueprint in Lab 4.
 
-1. In APEX, open **SQL Workshop**, then select **RESTful Services**.
+1. In your APEX workspace, select **SQL Workshop** and then select **RESTful Services**.
 
-    ![RESTful Services option in SQL Workshop](images/task-04-step-01-rest.png)
+    ![Open RESTful Services](images/task-04-step-01-rest.png " ")
 
-2. Click **Register Schema** with **ORDS (Oracle REST Data Services)**.
+2. Select **Register Schema with ORDS**.
 
-    ![Register Schema action for ORDS](images/task-04-step-02-register.png)
+    ![Register the schema with ORDS](images/task-04-step-02-register.png " ")
 
-3. APEX fills in the **Schema Alias**.
+3. In the **ORDS Schema Attributes** dialog, enter/select the following:
 
-    - Change it only if needed.
+    - **Schema Alias:** Keep the value generated by APEX, unless your environment requires a different alias.
+    - **Install Sample Service:** Set to **Off**.
 
-    - Turn off **Install Sample Service**, then click **Save Schema Attributes**.
+4. Select **Save Schema Attributes**.
 
-    ![ORDS schema registration settings](images/task-04-step-03-schema.png)
+    ![Save the ORDS schema attributes](images/task-04-step-03-schema.png " ")
 
-    - **Note:** Complete this step before you import the app from the blueprint.
+## Summary
 
-## Acknowledgements
+You generated the TAP Application Blueprint from the supplied SDD artifacts and registered the schema with ORDS.
 
- - **Author -** Aravind Madhavan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
- - **Last Updated By/Date** - Aravind Madhavan, Senior Product Manager, July 2026
+### Acknowledgements
+
+- **Author** - Aravind Madhavan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

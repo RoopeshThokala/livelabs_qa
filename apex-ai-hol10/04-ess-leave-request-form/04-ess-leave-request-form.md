@@ -1,10 +1,10 @@
-# Lab 4: Build the ESS Leave Request Form
+# Build the ESS Leave Request Form
 
 ## Introduction
 
 Employees need a clear form to request leave and review prior requests. Build the ESS Leave Request form and add a leave-history report.
 
-Estimated Workshop Time: 5 minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
@@ -16,17 +16,17 @@ In this lab, you will learn how to:
 
 - Add the My Leave History interactive report.
 
-## Task 1: Create the Leave Request form
+## Task 1: Create the Leave Request Form
 
 1. In ESS **App Builder**, open the **Leave Request** page in **Page Designer**.
 
-    ![Leave Request](images/task-01-step-01-leave-request.png)
+    ![Leave Request](images/task-01-step-01-leave-request.png " ")
 
 2. In the left pane, right-click **Body** and select **Create Region**.
 
-    ![Create Region action in the Body context menu](images/task-01-step-02-create-region.png)
+    ![Create Region action in the Body context menu](images/task-01-step-02-create-region.png " ")
 
-3. In the Property Editor, enter/select the following:
+3. In the Property Editor, enter or select the following:
 
     - Under Identification:
 
@@ -36,11 +36,11 @@ In this lab, you will learn how to:
 
     - Source > Table Name: **TMS\_LEAVE\_REQUESTS**
 
-    ![Form Region](images/task-01-step-03-form-region.png)
+    ![Form Region](images/task-01-step-03-form-region.png " ")
 
 4. Right-click **Leave Request Form** region and select **Create Button**.
 
-5. In the Property Editor, enter/select the following:
+5. In the Property Editor, enter or select the following:
 
     - Identification > Button Name: **SUBMIT_LEAVE**
 
@@ -48,11 +48,11 @@ In this lab, you will learn how to:
 
     - Behavior > Action: **Submit Page**
 
-    ![Submit Leave](images/task-01-step-04-submit-leave.png)
+    ![Submit Leave](images/task-01-step-04-submit-leave.png " ")
 
-6. Again, right-click **Leave Request Form** region and select **Create Button**.
+6. Right-click the **Leave Request Form** region and select **Create Button**.
 
-7. In the Property Editor, enter/select the following:
+7. In the Property Editor, enter or select the following:
 
     - Identification > Button Name: **CANCEL**
 
@@ -62,27 +62,38 @@ In this lab, you will learn how to:
 
         - Action: **Redirect to a Page in this Application**
 
-        - Target: Enter/select the following:
+        - Target: Enter or select the following:
 
             - Page: **1**
 
-            Click **OK**.
+            Select **OK**.
 
-    ![Cancel](images/task-01-step-05-cancel.png)
+    ![Cancel](images/task-01-step-05-cancel.png " ")
 
-    ![Cancel button redirect target](images/task-01-step-06-page-redirect.png)
+    ![Cancel button redirect target](images/task-01-step-06-page-redirect.png " ")
 
-## Task 2: Configure the form items
+## Task 2: Configure the Form Items
 
 > **Note:** The examples use page `5` and the `P5_` item prefix. If your Leave Request page has a different number, use its item names and update the report query accordingly.
 
-1. In the left pane, select **P5\_EMPLOYEE\_ID** page item. In the Property Editor, enter/select the following:
+1. In the left pane, select **P5\_EMPLOYEE\_ID** page item. In the Property Editor, enter or select the following:
 
     - Identification > Type: **Display Only**.
 
-    ![Employee ID](images/task-02-step-01-employee-id.png)
+    - Under **Default**:
+        - Type: **SQL Query(return single value)**
+        - SQL Query(return single value): **Enter the following**
+            ```
+            <copy>
+                SELECT e.employee_id
+                FROM tms_employees e
+                WHERE LOWER(e.email) = LOWER(:APP_USER);
+            </copy>
+            ```
 
-2. Select **P5\_LEAVE\_TYPE\_ID** page item. In the Property Editor, enter/select the following:
+    ![Employee ID](images/task-02-step-01-employee-id.png " ")
+
+2. Select **P5\_LEAVE\_TYPE\_ID** page item. In the Property Editor, enter or select the following:
 
     - Identification > Type: **Select List**
 
@@ -94,9 +105,9 @@ In this lab, you will learn how to:
 
         - Null Display Value: **---Select Leave Type---**
 
-    ![Leave Type ID](images/task-02-step-02-leave-type-id.png)
+    ![Leave Type ID](images/task-02-step-02-leave-type-id.png " ")
 
-3. Select **P5_STATUS** page item. In the Property Editor, enter/select the following:
+3. Select **P5_STATUS** page item. In the Property Editor, enter or select the following:
 
     - Identification > Type: **Hidden**
 
@@ -106,13 +117,13 @@ In this lab, you will learn how to:
 
         - Static Value: **Submitted**
 
-    ![Status](images/task-02-step-03-status.png)
+    ![Status](images/task-02-step-03-status.png " ")
 
-4. Select **P5\_APPROVER\_ID** page item. In the Property Editor, enter/select the following:
+4. Select **P5\_APPROVER\_ID** page item. In the Property Editor, enter or select the following:
 
     - Identification > Type: **Hidden**
 
-    ![Approver](images/task-02-step-04-approver.png)
+    ![Approver](images/task-02-step-04-approver.png " ")
 
 5. In the left pane, select `P5_CREATED_BY`, `P5_CREATED_AT`, `P5_UPDATED_BY`, and `P5_UPDATED_AT` page items.
 
@@ -120,15 +131,15 @@ In this lab, you will learn how to:
 
     - Right-click the selected items and choose **Delete**. Confirm deletion if prompted.
 
-    ![Audit](images/task-02-step-05-audit.png)
+    ![Audit](images/task-02-step-05-audit.png " ")
 
-## Task 3: Add the My Leave History report
+## Task 3: Add the My Leave History Report
 
 1. In the left pane, right-click **Body** and select **Create Region**.
 
-    ![Create the My Leave History region from the Body context menu](images/task-03-step-01-create-region.png)
+    ![Create the My Leave History region from the Body context menu](images/task-03-step-01-create-region.png " ")
 
-2. In the Property Editor, enter/select the following:
+2. In the Property Editor, enter or select the following:
 
     - Under Identification:
 
@@ -157,15 +168,15 @@ In this lab, you will learn how to:
 
     - Set the region **Sequence** after the **Leave Request Form** so that the report appears below the form.
 
-    ![Interactive Report](images/task-03-step-02-interactive-report.png)
+    ![Interactive Report](images/task-03-step-02-interactive-report.png " ")
 
-3. Click **Save and Run**.
+3. Select **Save and Run**.
 
 4. Confirm that the form displays the configured page items and the report displays leave requests for the current employee.
 
-    ![Rendered Page](images/task-03-step-03-rendered-page.png)
+    ![Rendered Page](images/task-03-step-03-rendered-page.png " ")
 
 ## Acknowledgements
 
-- **Author -** Aravind Madhavan, Senior Product Manager.
-- **Last Updated By/Date** - Aravind Madhavan, Senior Product Manager, July 2026
+- **Author** - Aravind Madhavan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

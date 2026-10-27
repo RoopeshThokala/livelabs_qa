@@ -63,11 +63,11 @@ In this task, you update the Applied region query and submit the selected requis
 
 In this task, you configure the requisition Select List and make its selected value available to the Candidates region.
 
-1. In the **Rendering** tree, select the **Candidates**  IR region. Enter `P4_REQ_ID` in **Page Items to Submit**.
+1. In the **Rendering** tree, select the **Candidates**  IR region. Enter **`P4_REQ_ID`** in **Page Items to Submit**.
 
     ![Configure the Candidates region Page Items to Submit](images/lab2-candidates-region-source.png " ")
 
-2. In the Rendering tree, select the `P4_REQ_ID` page item. In the Property Editor, set:
+2. In the Rendering tree, select the **`P4_REQ_ID`** page item. In the Property Editor, set:
 
     - Under Identification:
 
@@ -84,36 +84,26 @@ In this task, you configure the requisition Select List and make its selected va
 
 In this task, you create a debounced Change Dynamic Action that refreshes both candidate regions.
 
-1. Click the **Dynamic Actions** tab. Right-click the **Events** node and select **Create Dynamic Action**.
+1. In the **Rendering** tab, right-click the **`P4_REQ_ID`** item and select **Create Dynamic Action**.
 
-    ![Create the Refresh Regions Dynamic Action](images/lab2-create-refresh-dynamic-action.png " ")
+    ![Screenshot showing Create Dynamic Action selected for P4_REQ_ID](images/lab2-task3-create-dynamic-action-from-req-id.png " ")
 
 2. In the Property Editor, set:
 
     - Under Identification:
 
         - Name: **Refresh Regions**
-    
+
     - Under Execution:
 
         - Type: **Debounce**
         - Time: **3000** milliseconds
 
-    - Under When:
-
-        - Event: **Change**
-        - Selection Type: **Item(s)**
-        - Item(s): **`P4_REQ_ID`**
-
     Debouncing waits until the requisition value has stopped changing before refreshing the regions. This avoids sending repeated refresh requests to the server.
 
-    ![Configure the Refresh Regions Dynamic Action](images/lab2-configure-refresh-dynamic-action.png " ")
+    ![Configure Refresh Regions to debounce changes to P4_REQ_ID](images/lab2-task3-configure-refresh-dynamic-action.png " ")
 
-3. Under the **Refresh Regions** dynamic action, select **Create TRUE Action**.
-
-    ![Create a true action for the Refresh Regions Dynamic Action](images/lab2-create-refresh-true-action.png " ")
-
-4. In the Property Editor, set:
+3. In the **Rendering** pane, under **Refresh Regions**, click the **true action**. In the Property Editor, set:
 
     - Under Identification:
 
@@ -125,9 +115,13 @@ In this task, you create a debounced Change Dynamic Action that refreshes both c
         - Selection Type: **Region**
         - Region: **Applied**
 
-    ![Configure the Refresh action for the Applied region](images/lab2-refresh-applied-action.png " ")
+    ![Configure the Refresh action to refresh the Applied region](images/lab2-task3-configure-applied-refresh-action.png " ")
 
-5. Repeat step 3. Under the **Refresh Regions** dynamic action, right-click the **True** node and select **Create TRUE Action**. In the Property Editor, set:
+4. In the Rendering panel, right-click the **True** node under **Refresh Regions** and select **Create TRUE Action**.
+
+    ![Create a second TRUE action under Refresh Regions](images/lab2-task3-create-second-true-action.png " ")
+
+    In the Property Editor, set:
 
     - Under Identification:
 
@@ -139,13 +133,13 @@ In this task, you create a debounced Change Dynamic Action that refreshes both c
         - Selection Type: **Region**
         - Region: **Candidates**
 
-    ![Configure the Refresh action for the Candidates region](images/lab2-refresh-candidates-action.png " ")
+    ![Configure the Refresh action for the Candidates region](images/lab2-task3-configure-candidates-refresh-action.png " ")
 
-6. Click **Save and Run Page**.
+5. Click **Save and Run Page** in the upper-right corner.
 
-    ![Save and run the Candidate Pipeline page](images/lab2-save-and-run-page.png " ")
+    ![Save and run the Candidate Pipeline page from Page Designer](images/lab2-task3-run-page-latest.png " ")
 
-7. Select a requisition and verify that the Applied and Candidates regions refresh with matching results. Clear the Select List and verify that the unfiltered results return.
+6. Select a requisition and verify that the Applied and Candidates regions refresh with matching results. Clear the Select List and verify that the unfiltered results return.
 
     ![Verify the filtered candidate regions](images/lab2-verify-filtered-candidate-regions.png " ")
 

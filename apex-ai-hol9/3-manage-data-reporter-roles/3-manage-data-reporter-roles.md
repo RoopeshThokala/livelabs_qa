@@ -4,7 +4,7 @@
 
 Data Reporter uses a small, deliberate role model. An Administrator governs shared resources, while each reporting application assigns Editors and Viewers according to the work they perform.
 
-In this lab, you will review the built-in roles and create the three HAA users at the correct scope.
+In this lab, you review the built-in roles and create the three HAA users at the correct scope.
 
 Estimated Lab Time: 15 minutes
 
@@ -73,19 +73,29 @@ Keep the following rules in mind:
 
     ![Review editor and viewer role assignments](images/18-app-editor-viewer-roles.png " ")
 
-4. If the target assignments already exist, do not create duplicates. Verify or update them in Task 5 of this lab, then continue to Lab 4.
+4. If the target assignments already exist, do not create duplicates. Verify or update them in Task 5 of this lab.
 
 ## Task 4: Create the Data Reporter Administrator
 
-1. Return to the Data Reporter home page and select **Manage Users**. If `DR_ADMIN` already exists, open its username, verify **User is administrator** is enabled, and select **Apply Changes** if you changed it. Skip Points 2 and 3 and continue to Point 4.
+1. Return to the Data Reporter home page.
 
-2. Select **Create**.
+2. Select **Manage Users**.
+
+3. If `DR_ADMIN` already exists, open its username.
+
+4. Verify that **User is administrator** is enabled.
+
+5. Select **Apply Changes** if you changed the setting.
+
+    If `DR_ADMIN` already exists with the correct setting, continue to Task 5.
+
+6. If `DR_ADMIN` does not exist, select **Create**.
 
     ![Create a Data Reporter user](images/13-create-data-reporter-user.png " ")
 
-3. In **Create User**:
+7. In **Create User**, enter/select the following:
 
-    - For **User**, select **Create New**.
+    - **User:** Select **Create New**.
     - For **Role**, select **Administrator**.
     - For **Username**, enter `DR_ADMIN`.
     - Enter the email address supplied for your workshop environment.
@@ -95,41 +105,53 @@ Keep the following rules in mind:
 
     ![Configure the DR_ADMIN account](images/14-configure-dr-admin.png " ")
 
-4. Confirm that `DR_ADMIN` appears in the Data Reporter user list with the **Administrator** role.
+8. Confirm that `DR_ADMIN` appears in the Data Reporter user list with the **Administrator** role.
 
 ## Task 5: Create the Application Editor and Viewer
 
-1. Open **HR Analytics App**, and select **Manage Users**. For an account already assigned to this application, open its username and verify the role under **Reporting Applications**. Use the application's **Actions** menu to switch to **Editor** or **Viewer** if needed, and select **Apply Changes**. Skip the creation steps for any account whose assignment is already correct.
+1. Open **HR Analytics App**.
 
-2. If `DR_EDITOR` is not assigned to this application, select **Create**; otherwise continue to Point 4.
+2. Select **Manage Users**.
 
-3. Create or assign the editor account:
+3. For an account already assigned to this application, open its username.
 
-    - If `DR_EDITOR` already exists in the workspace, select it in **User** and assign it to this application as **Editor**. Do not select **Create New** or enter a second username. Select **Create User** to add the assignment, then continue to Point 4.
-    - If the account does not exist, for **User**, select **Create New** and complete the following fields.
-    - For **Role**, select **Editor**.
-    - For **Username**, enter `DR_EDITOR`.
-    - Enter the email address and workshop password.
-    - Confirm the password.
-    - Select **Create User**.
+4. Under **Reporting Applications**, verify the assigned role.
+
+5. Use the application's **Actions** menu to change the role to **Editor** or **Viewer**, if needed.
+
+6. Select **Apply Changes** if you changed the role.
+
+    Skip the creation steps for an account whose assignment is already correct.
+
+7. If `DR_EDITOR` is not assigned to this application, select **Create**. Otherwise, continue to Point 10.
+
+8. In **Create User**, enter/select the following:
+
+    - **User:** Select `DR_EDITOR` if it already exists. Otherwise, select **Create New**.
+    - **Role:** Select **Editor**.
+    - If you selected **Create New**, for **Username**, enter `DR_EDITOR`.
+    - If you selected **Create New**, enter the email address and workshop password.
+    - If you selected **Create New**, confirm the password.
+
+9. Select **Create User**.
 
     ![Configure the DR_EDITOR account](images/19-configure-dr-editor.png " ")
 
-4. If `DR_USER` is not assigned to this application, select **Create**; otherwise continue to Point 6.
+10. If `DR_USER` is not assigned to this application, select **Create**. Otherwise, continue to Point 13.
 
-5. Create or assign the viewer account:
+11. In **Create User**, enter/select the following:
 
-    - If `DR_USER` already exists in the workspace, select it in **User** and assign it to this application as **Viewer**. Do not select **Create New** or enter a second username. Select **Create User** to add the assignment, then continue to Point 6.
-    - If the account does not exist, for **User**, select **Create New** and complete the following fields.
-    - For **Role**, select **Viewer**.
-    - For **Username**, enter `DR_USER`.
-    - Enter the email address and workshop password.
-    - Confirm the password.
-    - Select **Create User**.
+    - **User:** Select `DR_USER` if it already exists. Otherwise, select **Create New**.
+    - **Role:** Select **Viewer**.
+    - If you selected **Create New**, for **Username**, enter `DR_USER`.
+    - If you selected **Create New**, enter the email address and workshop password.
+    - If you selected **Create New**, confirm the password.
+
+12. Select **Create User**.
 
     ![Configure the DR_USER account](images/20-configure-dr-user.png " ")
 
-6. Confirm that `DR_EDITOR` and `DR_USER` appear in the application's user list with the correct roles.
+13. Confirm that `DR_EDITOR` and `DR_USER` appear in the application's user list with the correct roles.
 
     ![Verify editor and viewer assignments](images/18-app-editor-viewer-roles.png " ")
 
@@ -154,4 +176,4 @@ You may now **proceed to the next lab**.
 ## Acknowledgements
 
 - **Author** - Shanmukh Kornana, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-- **Last Updated By/Date** - Shanmukh Kornana, July 2026
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

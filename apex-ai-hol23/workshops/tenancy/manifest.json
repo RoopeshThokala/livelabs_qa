@@ -8,13 +8,13 @@
             "filename": "../../intro/intro.md"
         },
         {
-            "title": "Lab 1: Setup the Environment",
-            "description": "Export TAP and identify familiar components in the generated APEXlang project.",
+            "title": "Lab 1: Set Up the Environment",
+            "description": "Install Visual Studio Code and its extensions, create a database connection, and configure the SQLcl MCP server.",
             "filename": "../../lab-0-setup-environment/1-setup-environment.md"
         },
         {
-            "title": "Lab 2: Set up the APEXlang Skills repo",
-            "description": "Set up the APEXlang Skills repo and validate the project.",
+            "title": "Lab 2: Set Up the APEXlang Skills Repository",
+            "description": "Use SQLcl to install the Oracle APEX and database skills.",
             "filename": "../../lab-4-enhance-application/5-enhance-application.md"
         },
         {

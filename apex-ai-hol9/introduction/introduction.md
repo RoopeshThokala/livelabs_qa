@@ -40,29 +40,22 @@ In this workshop, you will:
 
 ## Prerequisites
 
+- An Oracle APEX 26.2 workspace.
 - Complete the earlier modules that create and populate the `TMS_` tables.
 - Access to the Oracle APEX workspace used for the Talent Management System.
 - Access to APEX Administration Services, or help from an instance administrator, for the one-time Data Reporter authentication setting.
 - The Data Reporter user credentials supplied in your workshop environment. Do not store passwords in application source or lab notes.
 
-## Lab Modules
-
-| Module | Est. Time |
-| --- | --- |
-| Lab 1: What Is Data Reporter and Who Is It For? Set Up the Authentication Scheme | 10 minutes |
-| Lab 2: Create the Required Views and Replace the Existing HR Analytics App | 15 minutes |
-| Lab 3: Create or Manage Roles in Data Reporter | 15 minutes |
-| Lab 4: Create Data Reporter Users and Build Reports | 20 minutes |
-| Lab 5: Publish and Review as an End User | Final validation |
+> **Note:** Screenshots were captured with Oracle APEX 26.1. Minor user interface differences may appear in Oracle APEX 26.2.
 
 ## Learn More - Useful Links
 
 - [Oracle APEX Product Overview](https://www.oracle.com/apex/)
-- [Oracle APEX 26.1 Documentation](https://docs.oracle.com/en/database/oracle/apex/26.1/)
+- [Oracle APEX 26.2 Documentation](https://docs.oracle.com/en/database/oracle/apex/26.2/)
 - [Oracle APEX Tutorials](https://apex.oracle.com/en/learn/tutorials/)
 - [Oracle APEX Community](https://apex.oracle.com/community/)
 
 ## Acknowledgements
 
 - **Author** - Shanmukh Kornana, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-- **Last Updated By/Date** - Shanmukh Kornana, July 2026
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

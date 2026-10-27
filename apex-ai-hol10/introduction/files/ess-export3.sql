@@ -20,21 +20,21 @@ begin
 wwv_flow_imp.import_begin (
  p_version_yyyy_mm_dd=>'2026.04.07'
 ,p_release=>'26.2.0'
-,p_default_workspace_id=>4572114388865144911
-,p_default_application_id=>27966
-,p_default_id_offset=>0
-,p_default_owner=>'APEX262_LL'
+,p_default_workspace_id=>3102967996922007
+,p_default_application_id=>142
+,p_default_id_offset=>10166926857801843
+,p_default_owner=>'APEX_LL'
 );
 end;
 /
  
-prompt APPLICATION 27966 - Employee Self-Service Portal
+prompt APPLICATION 142 - Employee Self-Service Portal
 --
 -- Application Export:
---   Application:     27966
+--   Application:     142
 --   Name:            Employee Self-Service Portal
---   Date and Time:   07:51 Tuesday October 13, 2026
---   Exported By:     ROOPESH.THOKALA@ORACLE.COM
+--   Date and Time:   08:58 Tuesday October 27, 2026
+--   Exported By:     GENDEV
 --   Flashback:       0
 --   Export Type:     Application Export
 --     Pages:                      8
@@ -64,7 +64,7 @@ prompt APPLICATION 27966 - Employee Self-Service Portal
 --     Supporting Objects:  Included
 --       Install scripts:          2
 --   Version:         26.2.0
---   Instance ID:     63102946836549
+--   Instance ID:     745901295884059
 --
 
 prompt --application/delete_application
@@ -76,7 +76,7 @@ prompt --application/create_application
 begin
 wwv_imp_workspace.create_flow(
  p_id=>wwv_flow.g_flow_id
-,p_owner=>nvl(wwv_flow_application_install.get_schema,'APEX262_LL')
+,p_owner=>nvl(wwv_flow_application_install.get_schema,'APEX_LL')
 ,p_name=>nvl(wwv_flow_application_install.get_application_name,'Employee Self-Service Portal')
 ,p_alias=>nvl(wwv_flow_application_install.get_application_alias,'EMPLOYEE-SELF-SERVICE-PORTAL')
 ,p_page_view_logging=>'YES'
@@ -91,7 +91,7 @@ wwv_imp_workspace.create_flow(
 ,p_timestamp_format=>'DS'
 ,p_timestamp_tz_format=>'DS'
 ,p_flow_image_prefix=>nvl(wwv_flow_application_install.get_image_prefix,'')
-,p_authentication_id=>wwv_flow_imp.id(4585221700514463711)
+,p_authentication_id=>wwv_flow_imp.id(4595388627372265554)
 ,p_application_tab_set=>1
 ,p_logo_type=>'T'
 ,p_logo_text=>'Employee Self-Service Portal'
@@ -107,30 +107,30 @@ wwv_imp_workspace.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'Employee Self-Service Portal'
 ,p_created_on=>wwv_flow_imp.dz('20261013061004Z')
-,p_last_updated_on=>wwv_flow_imp.dz('20261013075035Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261027085650Z')
 ,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
-,p_last_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_last_updated_by=>'GENDEV'
 ,p_file_prefix=>nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>2461327061006
-,p_version_scn=>'50860304612771'
+,p_version_scn=>'44809959'
 ,p_print_server_type=>'INSTANCE'
 ,p_file_storage=>'DB'
 ,p_is_pwa=>'Y'
 ,p_pwa_is_installable=>'N'
 ,p_pwa_is_push_enabled=>'N'
-,p_ai_remote_server_id=>4572187351983162766
+,p_ai_remote_server_id=>10163142951742517
 ,p_theme_id=>42
 ,p_home_url=>'f?p=&APP_ID.:1:&APP_SESSION.::&DEBUG.:::'
 ,p_login_url=>'f?p=&APP_ID.:LOGIN:&APP_SESSION.::&DEBUG.:::'
 ,p_theme_style_by_user_pref=>false
 ,p_built_with_love=>false
 ,p_global_page_id=>0
-,p_navigation_list_id=>wwv_flow_imp.id(4585222659080463715)
+,p_navigation_list_id=>wwv_flow_imp.id(4595389585938265558)
 ,p_navigation_list_position=>'SIDE'
 ,p_navigation_list_template_id=>2471166859590295591
 ,p_nav_list_template_options=>'#DEFAULT#:t-TreeNav--styleA:js-navCollapsed--hidden'
 ,p_nav_bar_type=>'LIST'
-,p_nav_bar_list_id=>wwv_flow_imp.id(4585224711575463884)
+,p_nav_bar_list_id=>wwv_flow_imp.id(4595391638433265727)
 ,p_nav_bar_list_template_id=>2850970698196720012
 ,p_nav_bar_template_options=>'#DEFAULT#'
 );
@@ -139,7 +139,7 @@ end;
 prompt --workspace/credentials/credentials_for_oci_generative_ai
 begin
 wwv_imp_workspace.create_credential(
- p_id=>4572186934182162758
+ p_id=>10163023446742516
 ,p_name=>'Credentials for oci generative ai'
 ,p_static_id=>'credentials-for-oci-generative-ai'
 ,p_authentication_type=>'OCI'
@@ -148,8 +148,8 @@ wwv_imp_workspace.create_credential(
 'https://inference.generativeai.us-chicago-1.oci.oraclecloud.com',
 ''))
 ,p_prompt_on_install=>true
-,p_created_on=>wwv_flow_imp.dz('20261013051955Z')
-,p_updated_on=>wwv_flow_imp.dz('20261013051955Z')
+,p_created_on=>wwv_flow_imp.dz('20261009041303Z')
+,p_updated_on=>wwv_flow_imp.dz('20261009041337Z')
 ,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
@@ -158,17 +158,17 @@ end;
 prompt --workspace/remote_servers/oci_generative_ai
 begin
 wwv_imp_workspace.create_remote_server(
- p_id=>4572187351983162766
+ p_id=>10163142951742517
 ,p_name=>'OCI Generative AI'
 ,p_static_id=>'oci-generative-ai'
 ,p_base_url=>nvl(wwv_flow_application_install.get_remote_server_base_url('oci-generative-ai'),'https://inference.generativeai.us-chicago-1.oci.oraclecloud.com')
 ,p_https_host=>nvl(wwv_flow_application_install.get_remote_server_https_host('oci-generative-ai'),'')
 ,p_server_type=>'GENERATIVE_AI'
-,p_credential_id=>4572186934182162758
+,p_credential_id=>10163023446742516
 ,p_ai_provider_type=>'OCI_GENAI'
 ,p_ai_provider_api=>'GENERIC'
-,p_ai_is_builder_service=>true
-,p_ai_is_default_for_new_apps=>true
+,p_ai_is_builder_service=>false
+,p_ai_is_default_for_new_apps=>false
 ,p_ai_model_name=>nvl(wwv_flow_application_install.get_remote_server_ai_model('oci-generative-ai'),'xai.grok-4.5')
 ,p_ai_oci_compartment_id=>nvl(wwv_flow_application_install.get_remote_server_ai_oci_comp('oci-generative-ai'),'ocid1.compartment.oc1..aaaaaaaal6p4vtvg6ykzv426wxb4cwvgfrw6ztfpti2elpkali6wj3v23yla')
 ,p_ai_oci_serving_mode=>nvl(wwv_flow_application_install.get_remote_server_ai_oci_srvmd('oci-generative-ai'),'ON_DEMAND')
@@ -178,7 +178,7 @@ wwv_imp_workspace.create_remote_server(
 ,p_ai_attributes=>nvl(wwv_flow_application_install.get_remote_server_ai_attrs('oci-generative-ai'),'')
 ,p_ai_max_tokens=>nvl(wwv_flow_application_install.get_remote_server_ai_maxtokens('oci-generative-ai'),'')
 ,p_prompt_on_install=>false
-,p_created_on=>wwv_flow_imp.dz('20261013051955Z')
+,p_created_on=>wwv_flow_imp.dz('20261009041337Z')
 ,p_updated_on=>wwv_flow_imp.dz('20261013051955Z')
 ,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
@@ -188,7 +188,7 @@ end;
 prompt --application/plugin_settings
 begin
 wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(4585217321122463701)
+ p_id=>wwv_flow_imp.id(4595384247980265544)
 ,p_plugin_type=>'DYNAMIC ACTION'
 ,p_plugin=>'NATIVE_OPEN_AI_ASSISTANT'
 ,p_version_scn=>'SH256:NcagEyRP_F17oe14bnrSYSYienkBgpdRSvH17g_NxoE'
@@ -198,7 +198,7 @@ wwv_flow_imp_shared.create_plugin_setting(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(4585217686771463702)
+ p_id=>wwv_flow_imp.id(4595384613629265545)
 ,p_plugin_type=>'ITEM TYPE'
 ,p_plugin=>'NATIVE_COLOR_PICKER'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
@@ -211,7 +211,7 @@ wwv_flow_imp_shared.create_plugin_setting(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(4585217932926463703)
+ p_id=>wwv_flow_imp.id(4595384859784265546)
 ,p_plugin_type=>'ITEM TYPE'
 ,p_plugin=>'NATIVE_DATE_PICKER_APEX'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
@@ -226,7 +226,7 @@ wwv_flow_imp_shared.create_plugin_setting(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(4585218298764463703)
+ p_id=>wwv_flow_imp.id(4595385225622265546)
 ,p_plugin_type=>'ITEM TYPE'
 ,p_plugin=>'NATIVE_GEOCODED_ADDRESS'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
@@ -241,7 +241,7 @@ wwv_flow_imp_shared.create_plugin_setting(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(4585218515518463704)
+ p_id=>wwv_flow_imp.id(4595385442376265547)
 ,p_plugin_type=>'ITEM TYPE'
 ,p_plugin=>'NATIVE_SELECT_MANY'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
@@ -253,7 +253,7 @@ wwv_flow_imp_shared.create_plugin_setting(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(4585218856219463704)
+ p_id=>wwv_flow_imp.id(4595385783077265547)
 ,p_plugin_type=>'ITEM TYPE'
 ,p_plugin=>'NATIVE_SINGLE_CHECKBOX'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
@@ -266,7 +266,7 @@ wwv_flow_imp_shared.create_plugin_setting(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(4585219159291463705)
+ p_id=>wwv_flow_imp.id(4595386086149265548)
 ,p_plugin_type=>'ITEM TYPE'
 ,p_plugin=>'NATIVE_STAR_RATING'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
@@ -279,7 +279,7 @@ wwv_flow_imp_shared.create_plugin_setting(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(4585219462804463705)
+ p_id=>wwv_flow_imp.id(4595386389662265548)
 ,p_plugin_type=>'ITEM TYPE'
 ,p_plugin=>'NATIVE_YES_NO'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
@@ -293,7 +293,7 @@ wwv_flow_imp_shared.create_plugin_setting(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(4585219782054463706)
+ p_id=>wwv_flow_imp.id(4595386708912265549)
 ,p_plugin_type=>'PROCESS TYPE'
 ,p_plugin=>'NATIVE_GEOCODING'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
@@ -305,7 +305,7 @@ wwv_flow_imp_shared.create_plugin_setting(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(4585220039692463706)
+ p_id=>wwv_flow_imp.id(4595386966550265549)
 ,p_plugin_type=>'REGION TYPE'
 ,p_plugin=>'NATIVE_DISPLAY_SELECTOR'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
@@ -317,7 +317,7 @@ wwv_flow_imp_shared.create_plugin_setting(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(4585220398310463707)
+ p_id=>wwv_flow_imp.id(4595387325168265550)
 ,p_plugin_type=>'REGION TYPE'
 ,p_plugin=>'NATIVE_IR'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
@@ -330,7 +330,7 @@ wwv_flow_imp_shared.create_plugin_setting(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(4585220638936463708)
+ p_id=>wwv_flow_imp.id(4595387565794265551)
 ,p_plugin_type=>'REGION TYPE'
 ,p_plugin=>'NATIVE_MAP_REGION'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
@@ -342,7 +342,7 @@ wwv_flow_imp_shared.create_plugin_setting(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(4585220911657463709)
+ p_id=>wwv_flow_imp.id(4595387838515265552)
 ,p_plugin_type=>'WEB SOURCE TYPE'
 ,p_plugin=>'NATIVE_ADFBC'
 ,p_version_scn=>'SH256:fiSZ-OfcUl-d0e0dtJUYffG7q61xKsHlomsv7ZU1BMw'
@@ -352,7 +352,7 @@ wwv_flow_imp_shared.create_plugin_setting(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(4585221299386463709)
+ p_id=>wwv_flow_imp.id(4595388226244265552)
 ,p_plugin_type=>'WEB SOURCE TYPE'
 ,p_plugin=>'NATIVE_BOSS'
 ,p_version_scn=>'SH256:dRkCWi6vQMhdQUSqb0QlRls9iYcsZ93IPYrbTqFqJFE'
@@ -366,7 +366,7 @@ end;
 prompt --application/shared_components/navigation/lists/navigation_bar
 begin
 wwv_flow_imp_shared.create_list(
- p_id=>wwv_flow_imp.id(4585224711575463884)
+ p_id=>wwv_flow_imp.id(4595391638433265727)
 ,p_name=>'Navigation Bar'
 ,p_static_id=>'navigation-bar'
 ,p_version_scn=>'SH256:vnb1-G39r80BPE-5P2Enpuf0sMSVvBeNQDVbFiNwRto'
@@ -376,7 +376,7 @@ wwv_flow_imp_shared.create_list(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_list_item(
- p_id=>wwv_flow_imp.id(4585295405487464615)
+ p_id=>wwv_flow_imp.id(4595462332345266458)
 ,p_list_item_display_sequence=>10
 ,p_list_item_link_text=>'&APP_USER.'
 ,p_static_id=>'app-user'
@@ -390,13 +390,13 @@ wwv_flow_imp_shared.create_list_item(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_list_item(
- p_id=>wwv_flow_imp.id(4585296069722464616)
+ p_id=>wwv_flow_imp.id(4595462996580266459)
 ,p_list_item_display_sequence=>20
 ,p_list_item_link_text=>'---'
 ,p_static_id=>'list_item'
 ,p_list_item_link_target=>'separator'
 ,p_list_item_disp_cond_type=>'USER_IS_NOT_PUBLIC_USER'
-,p_parent_list_item_id=>wwv_flow_imp.id(4585295405487464615)
+,p_parent_list_item_id=>wwv_flow_imp.id(4595462332345266458)
 ,p_list_item_current_type=>'TARGET_PAGE'
 ,p_created_on=>wwv_flow_imp.dz('20261013061014Z')
 ,p_updated_on=>wwv_flow_imp.dz('20261013061014Z')
@@ -404,14 +404,14 @@ wwv_flow_imp_shared.create_list_item(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_list_item(
- p_id=>wwv_flow_imp.id(4585296567225464617)
+ p_id=>wwv_flow_imp.id(4595463494083266460)
 ,p_list_item_display_sequence=>30
 ,p_list_item_link_text=>'Sign Out'
 ,p_static_id=>'sign-out'
 ,p_list_item_link_target=>'&LOGOUT_URL.'
 ,p_list_item_icon=>'fa-sign-out'
 ,p_list_item_disp_cond_type=>'USER_IS_NOT_PUBLIC_USER'
-,p_parent_list_item_id=>wwv_flow_imp.id(4585295405487464615)
+,p_parent_list_item_id=>wwv_flow_imp.id(4595462332345266458)
 ,p_list_item_current_type=>'TARGET_PAGE'
 ,p_created_on=>wwv_flow_imp.dz('20261013061014Z')
 ,p_updated_on=>wwv_flow_imp.dz('20261013061014Z')
@@ -423,7 +423,7 @@ end;
 prompt --application/shared_components/navigation/lists/navigation_menu
 begin
 wwv_flow_imp_shared.create_list(
- p_id=>wwv_flow_imp.id(4585222659080463715)
+ p_id=>wwv_flow_imp.id(4595389585938265558)
 ,p_name=>'Navigation Menu'
 ,p_static_id=>'navigation-menu'
 ,p_version_scn=>'SH256:o7EmATn2t9u_rQlwX7yIBdRA81L9dsRC_YFE-di05LA'
@@ -433,7 +433,7 @@ wwv_flow_imp_shared.create_list(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_list_item(
- p_id=>wwv_flow_imp.id(4585237355680463944)
+ p_id=>wwv_flow_imp.id(4595404282538265787)
 ,p_list_item_display_sequence=>10
 ,p_list_item_link_text=>'Home'
 ,p_static_id=>'home'
@@ -446,7 +446,7 @@ wwv_flow_imp_shared.create_list_item(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_list_item(
- p_id=>wwv_flow_imp.id(4585268519704464576)
+ p_id=>wwv_flow_imp.id(4595435446562266419)
 ,p_list_item_display_sequence=>40
 ,p_list_item_link_text=>'Leave Request'
 ,p_static_id=>'leave-request'
@@ -459,7 +459,7 @@ wwv_flow_imp_shared.create_list_item(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_list_item(
- p_id=>wwv_flow_imp.id(4585238834074463950)
+ p_id=>wwv_flow_imp.id(4595405760932265793)
 ,p_list_item_display_sequence=>20
 ,p_list_item_link_text=>'My Onboarding Tasks'
 ,p_static_id=>'my-onboarding-tasks'
@@ -472,7 +472,7 @@ wwv_flow_imp_shared.create_list_item(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_list_item(
- p_id=>wwv_flow_imp.id(4585270206593464579)
+ p_id=>wwv_flow_imp.id(4595437133451266422)
 ,p_list_item_display_sequence=>50
 ,p_list_item_link_text=>'My Payslip'
 ,p_static_id=>'my-payslip'
@@ -485,7 +485,7 @@ wwv_flow_imp_shared.create_list_item(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_list_item(
- p_id=>wwv_flow_imp.id(4585266852503464572)
+ p_id=>wwv_flow_imp.id(4595433779361266415)
 ,p_list_item_display_sequence=>30
 ,p_list_item_link_text=>'My Profile'
 ,p_static_id=>'my-profile'
@@ -502,7 +502,7 @@ end;
 prompt --application/shared_components/navigation/lists/page_navigation
 begin
 wwv_flow_imp_shared.create_list(
- p_id=>wwv_flow_imp.id(4585291751964464607)
+ p_id=>wwv_flow_imp.id(4595458678822266450)
 ,p_name=>'Page Navigation'
 ,p_static_id=>'page-navigation'
 ,p_version_scn=>'SH256:mErkZ8no93s_eVACEd4GSsU2bSJpsSYc-Pvdry9To30'
@@ -512,7 +512,7 @@ wwv_flow_imp_shared.create_list(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_list_item(
- p_id=>wwv_flow_imp.id(4585293217385464610)
+ p_id=>wwv_flow_imp.id(4595460144243266453)
 ,p_list_item_display_sequence=>40
 ,p_list_item_link_text=>'Leave Request'
 ,p_static_id=>'leave-request'
@@ -525,7 +525,7 @@ wwv_flow_imp_shared.create_list_item(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_list_item(
- p_id=>wwv_flow_imp.id(4585292204613464608)
+ p_id=>wwv_flow_imp.id(4595459131471266451)
 ,p_list_item_display_sequence=>20
 ,p_list_item_link_text=>'My Onboarding Tasks'
 ,p_static_id=>'my-onboarding-tasks'
@@ -538,7 +538,7 @@ wwv_flow_imp_shared.create_list_item(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_list_item(
- p_id=>wwv_flow_imp.id(4585293664511464611)
+ p_id=>wwv_flow_imp.id(4595460591369266454)
 ,p_list_item_display_sequence=>50
 ,p_list_item_link_text=>'My Payslip'
 ,p_static_id=>'my-payslip'
@@ -551,7 +551,7 @@ wwv_flow_imp_shared.create_list_item(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_list_item(
- p_id=>wwv_flow_imp.id(4585292724923464609)
+ p_id=>wwv_flow_imp.id(4595459651781266452)
 ,p_list_item_display_sequence=>30
 ,p_list_item_link_text=>'My Profile'
 ,p_static_id=>'my-profile'
@@ -604,7 +604,7 @@ wwv_flow_imp.g_varchar2_table(28) := '666837CD9F904380233E0E02900CCE9503DEB404D4
 wwv_flow_imp.g_varchar2_table(29) := 'D24C1C202521AD76E300598DBCD2BC1D202521AD76E300598DBCD2BC1D202521AD76E300598DBCD2BC1D202521ED74B37FA60ED07E3DFC6E49051CA02505F3EAFB15F8120000FFFFC30FBEB2000000064944415403008F302A7B8F8F4C0F000000004945';
 wwv_flow_imp.g_varchar2_table(30) := '4E44AE426082';
 wwv_flow_imp_shared.create_app_static_file(
- p_id=>wwv_flow_imp.id(4585226012106463889)
+ p_id=>wwv_flow_imp.id(4595392938964265732)
 ,p_file_name=>'icons/app-icon-144-rounded.png'
 ,p_mime_type=>'image/png'
 ,p_file_charset=>'utf-8'
@@ -660,7 +660,7 @@ wwv_flow_imp.g_varchar2_table(38) := '93DD51101001A2C05853A26E32088800C91C950C1D
 wwv_flow_imp.g_varchar2_table(39) := '244054BBA44C084C8280083009CCDA64AE088800733D19D935090222C024306B93B9222002CCF56464D7240888003160968E64111001923D3A191E03011120068AD2912C022240B24727C363202002C440513A9245400448F6E8E66178EA567C060000FF';
 wwv_flow_imp.g_varchar2_table(40) := 'FF6E817BB000000006494441540300F468B8DBC4BF5FEA0000000049454E44AE426082';
 wwv_flow_imp_shared.create_app_static_file(
- p_id=>wwv_flow_imp.id(4585226316152463889)
+ p_id=>wwv_flow_imp.id(4595393243010265732)
 ,p_file_name=>'icons/app-icon-192.png'
 ,p_mime_type=>'image/png'
 ,p_file_charset=>'utf-8'
@@ -739,7 +739,7 @@ wwv_flow_imp.g_varchar2_table(61) := '0480E8B26E046AB35E04509BC765AF10300888000C
 wwv_flow_imp.g_varchar2_table(62) := '827E8540AD0888006AF5BCEC16020D0222800604FDD68D40CDD68B006AF6BE6CAF1E011140F5B78000A819011140CDDE97EDD5232002A8FE16A81B80DAADFF05000000FFFF9D54E5480000000649444154030036E870978587321A0000000049454E44AE';
 wwv_flow_imp.g_varchar2_table(63) := '426082';
 wwv_flow_imp_shared.create_app_static_file(
- p_id=>wwv_flow_imp.id(4585226613932463889)
+ p_id=>wwv_flow_imp.id(4595393540790265732)
 ,p_file_name=>'icons/app-icon-256-rounded.png'
 ,p_mime_type=>'image/png'
 ,p_file_charset=>'utf-8'
@@ -761,7 +761,7 @@ wwv_flow_imp.g_varchar2_table(4) := '5EEB6ABD82FF00C283620F3E32B7A1158D47F9631E8
 wwv_flow_imp.g_varchar2_table(5) := 'E6BECCF44A386CB56519026180F263850EF237741D0C9216EEA16E5DA793AF4FDA2A14980E1BF676CECF08BEA2109AA8E393A153A5ADD52229C41E0360F0B5DB9C746100A7205EF67C00BF02FFBF026E37E41B0000FFFF4A5B3114000000064944415403';
 wwv_flow_imp.g_varchar2_table(6) := '00D9DCE5414B7F27860000000049454E44AE426082';
 wwv_flow_imp_shared.create_app_static_file(
- p_id=>wwv_flow_imp.id(4585225797884463888)
+ p_id=>wwv_flow_imp.id(4595392724742265731)
 ,p_file_name=>'icons/app-icon-32.png'
 ,p_mime_type=>'image/png'
 ,p_file_charset=>'utf-8'
@@ -922,7 +922,7 @@ wwv_flow_imp.g_varchar2_table(143) := 'C073082F040810185D40FC63094800C61A6FD1122
 wwv_flow_imp.g_varchar2_table(144) := '4C80000102C30B4800863F0400102030BA80F8C71490008C39EEA22640800081C1052400831F00C22740607401F18F2A20011875E4C54D80000102430B4800861E7EC1132030BA80F8C71590008C3BF622274080008181052400030FBED00910185D40FC';
 wwv_flow_imp.g_varchar2_table(145) := '230B4800461E7DB113204080C0B002128061875EE004088C2E20FEB105FE060000FFFF36D2A9E60000000649444154030094D7E20060CEAF460000000049454E44AE426082';
 wwv_flow_imp_shared.create_app_static_file(
- p_id=>wwv_flow_imp.id(4585226909134463890)
+ p_id=>wwv_flow_imp.id(4595393835992265733)
 ,p_file_name=>'icons/app-icon-512.png'
 ,p_mime_type=>'image/png'
 ,p_file_charset=>'utf-8'
@@ -937,7 +937,7 @@ end;
 prompt --application/shared_components/security/authorizations/administration_rights
 begin
 wwv_flow_imp_shared.create_security_scheme(
- p_id=>wwv_flow_imp.id(4585228235810463891)
+ p_id=>wwv_flow_imp.id(4595395162668265734)
 ,p_name=>'Administration Rights'
 ,p_static_id=>'administration-rights'
 ,p_scheme_type=>'NATIVE_FUNCTION_BODY'
@@ -976,10 +976,10 @@ end;
 prompt --application/shared_components/user_interface/lovs/boolean
 begin
 wwv_flow_imp_shared.create_list_of_values(
- p_id=>wwv_flow_imp.id(4585294369002464613)
+ p_id=>wwv_flow_imp.id(4595461295860266456)
 ,p_lov_name=>'BOOLEAN'
 ,p_static_id=>'boolean'
-,p_lov_query=>'.'||wwv_flow_imp.id(4585294369002464613)||'.'
+,p_lov_query=>'.'||wwv_flow_imp.id(4595461295860266456)||'.'
 ,p_location=>'STATIC'
 ,p_version_scn=>'SH256:CnCBOq-zabcz-aPWKwU8C5KDeZy6YuyjvpJoTrTywfI'
 ,p_created_on=>wwv_flow_imp.dz('20261013061014Z')
@@ -988,14 +988,14 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_static_lov_data(
- p_id=>wwv_flow_imp.id(4585295078054464614)
+ p_id=>wwv_flow_imp.id(4595462004912266457)
 ,p_lov_disp_sequence=>2
 ,p_lov_disp_value=>'No'
 ,p_lov_return_value=>'FALSE'
 ,p_static_id=>'false'
 );
 wwv_flow_imp_shared.create_static_lov_data(
- p_id=>wwv_flow_imp.id(4585294610638464613)
+ p_id=>wwv_flow_imp.id(4595461537496266456)
 ,p_lov_disp_sequence=>1
 ,p_lov_disp_value=>'Yes'
 ,p_lov_return_value=>'TRUE'
@@ -1006,7 +1006,7 @@ end;
 prompt --application/shared_components/user_interface/lovs/tms_employees_first_name
 begin
 wwv_flow_imp_shared.create_list_of_values(
- p_id=>wwv_flow_imp.id(4585242144040464143)
+ p_id=>wwv_flow_imp.id(4595409070898265986)
 ,p_lov_name=>'TMS_EMPLOYEES.FIRST_NAME'
 ,p_static_id=>'tms-employees-first-name'
 ,p_source_type=>'TABLE'
@@ -1027,7 +1027,7 @@ end;
 prompt --application/pages/page_groups
 begin
 wwv_flow_imp_page.create_page_group(
- p_id=>wwv_flow_imp.id(4585228586165463893)
+ p_id=>wwv_flow_imp.id(4595395513023265736)
 ,p_group_name=>'Administration'
 ,p_static_id=>'administration'
 );
@@ -1036,7 +1036,7 @@ end;
 prompt --application/shared_components/navigation/breadcrumbs/breadcrumb
 begin
 wwv_flow_imp_shared.create_menu(
- p_id=>wwv_flow_imp.id(4585222197427463713)
+ p_id=>wwv_flow_imp.id(4595389124285265556)
 ,p_name=>'Breadcrumb'
 ,p_static_id=>'breadcrumb'
 ,p_created_on=>wwv_flow_imp.dz('20261013061005Z')
@@ -1045,7 +1045,7 @@ wwv_flow_imp_shared.create_menu(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_menu_option(
- p_id=>wwv_flow_imp.id(4585222369218463714)
+ p_id=>wwv_flow_imp.id(4595389296076265557)
 ,p_short_name=>'Home'
 ,p_static_id=>'home'
 ,p_link=>'f?p=&APP_ID.:1:&APP_SESSION.::&DEBUG.:::'
@@ -1056,7 +1056,7 @@ wwv_flow_imp_shared.create_menu_option(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_menu_option(
- p_id=>wwv_flow_imp.id(4585269875090464578)
+ p_id=>wwv_flow_imp.id(4595436801948266421)
 ,p_short_name=>'Leave Request'
 ,p_static_id=>'leave-request'
 ,p_link=>'f?p=&APP_ID.:5:&APP_SESSION.::&DEBUG.:::'
@@ -1067,7 +1067,7 @@ wwv_flow_imp_shared.create_menu_option(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_menu_option(
- p_id=>wwv_flow_imp.id(4585266153928464571)
+ p_id=>wwv_flow_imp.id(4595433080786266414)
 ,p_short_name=>'My Onboarding Tasks'
 ,p_static_id=>'my-onboarding-tasks'
 ,p_link=>'f?p=&APP_ID.:2:&APP_SESSION.::&DEBUG.:::'
@@ -1078,7 +1078,7 @@ wwv_flow_imp_shared.create_menu_option(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_menu_option(
- p_id=>wwv_flow_imp.id(4585271564298464581)
+ p_id=>wwv_flow_imp.id(4595438491156266424)
 ,p_short_name=>'My Payslip'
 ,p_static_id=>'my-payslip'
 ,p_link=>'f?p=&APP_ID.:6:&APP_SESSION.::&DEBUG.:::'
@@ -1089,7 +1089,7 @@ wwv_flow_imp_shared.create_menu_option(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_menu_option(
- p_id=>wwv_flow_imp.id(4585268189613464575)
+ p_id=>wwv_flow_imp.id(4595435116471266418)
 ,p_short_name=>'My Profile'
 ,p_static_id=>'my-profile'
 ,p_link=>'f?p=&APP_ID.:4:&APP_SESSION.::&DEBUG.:::'
@@ -1109,7 +1109,7 @@ end;
 prompt --application/shared_components/user_interface/themes
 begin
 wwv_flow_imp_shared.create_theme(
- p_id=>wwv_flow_imp.id(4585223074282463717)
+ p_id=>wwv_flow_imp.id(4595390001140265560)
 ,p_theme_id=>42
 ,p_static_id=>'universal-theme'
 ,p_theme_name=>'Universal Theme'
@@ -1195,7 +1195,7 @@ end;
 prompt --application/shared_components/logic/build_options
 begin
 wwv_flow_imp_shared.create_build_option(
- p_id=>wwv_flow_imp.id(4585221416796463710)
+ p_id=>wwv_flow_imp.id(4595388343654265553)
 ,p_build_option_name=>'Commented Out'
 ,p_static_id=>'commented-out'
 ,p_build_option_status=>'EXCLUDE'
@@ -1220,7 +1220,7 @@ end;
 prompt --application/shared_components/security/authentications/oracle_apex_accounts
 begin
 wwv_flow_imp_shared.create_authentication(
- p_id=>wwv_flow_imp.id(4585221700514463711)
+ p_id=>wwv_flow_imp.id(4595388627372265554)
 ,p_name=>'Oracle APEX Accounts'
 ,p_static_id=>'oracle-apex-accounts'
 ,p_scheme_type=>'NATIVE_APEX_ACCOUNTS'
@@ -1275,7 +1275,7 @@ wwv_flow_imp_page.create_page(
 ,p_last_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(4585238259421463948)
+ p_id=>wwv_flow_imp.id(4595405186279265791)
 ,p_plug_name=>'Employee Self-Service Portal'
 ,p_static_id=>'employee-self-service-portal'
 ,p_region_template_options=>'#DEFAULT#'
@@ -1298,7 +1298,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(4585293968996464612)
+ p_id=>wwv_flow_imp.id(4595460895854266455)
 ,p_plug_name=>'Page Navigation'
 ,p_static_id=>'page-navigation'
 ,p_region_template_options=>'#DEFAULT#:t-Region--hideHeader js-addHiddenHeadingRoleDesc:t-Region--noUI:t-Region--scrollBody'
@@ -1307,7 +1307,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_plug_template=>4075786578761660127
 ,p_plug_display_sequence=>30
 ,p_plug_item_display_point=>'ABOVE'
-,p_list_id=>wwv_flow_imp.id(4585291751964464607)
+,p_list_id=>wwv_flow_imp.id(4595458678822266450)
 ,p_plug_source_type=>'NATIVE_LIST'
 ,p_list_template_id=>2890197131116233323
 ,p_plug_query_num_rows=>15
@@ -1317,7 +1317,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(4472947109277473017)
+ p_id=>wwv_flow_imp.id(4483114036135274860)
 ,p_plug_name=>'Your Onboarding Progress'
 ,p_static_id=>'your-onboarding-progress'
 ,p_title=>'Your Onboarding Progress'
@@ -1366,12 +1366,12 @@ wwv_flow_imp_page.create_page(
 '<p>Click the <strong>Reset</strong> button to reset the interactive report back to the default settings.</p>'))
 ,p_page_component_map=>'21'
 ,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
-,p_last_updated_on=>wwv_flow_imp.dz('20261013075035Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261027085650Z')
 ,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
-,p_last_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_last_updated_by=>'GENDEV'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(4585265586260464570)
+ p_id=>wwv_flow_imp.id(4595432513118266413)
 ,p_plug_name=>'Breadcrumb'
 ,p_static_id=>'breadcrumb'
 ,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
@@ -1380,7 +1380,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_plug_display_sequence=>20
 ,p_plug_display_point=>'REGION_POSITION_01'
 ,p_plug_item_display_point=>'ABOVE'
-,p_menu_id=>wwv_flow_imp.id(4585222197427463713)
+,p_menu_id=>wwv_flow_imp.id(4595389124285265556)
 ,p_plug_source_type=>'NATIVE_BREADCRUMB'
 ,p_menu_template_id=>4075790987805660140
 ,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
@@ -1389,7 +1389,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(4585257873428464543)
+ p_id=>wwv_flow_imp.id(4595424800286266386)
 ,p_plug_name=>'Onboarding Tasks'
 ,p_static_id=>'my-onboarding-tasks'
 ,p_region_template_options=>'#DEFAULT#:t-IRR-region--hideHeader js-addHiddenHeadingRoleDesc'
@@ -1399,13 +1399,12 @@ wwv_flow_imp_page.create_page_plug(
 ,p_query_type=>'SQL'
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'SELECT',
-'        T.*, E.Email',
-'    FROM',
-'        TMS_ONBOARDING_TASKS T',
-'        JOIN TMS_EMPLOYEES E ON E.EMPLOYEE_ID = T.EMPLOYEE_ID',
-'    WHERE',
-'        lower(T.ASSIGNED_TO) = LOWER(:APP_USER)',
-''))
+'    T.*, E.Email',
+'FROM',
+'    TMS_ONBOARDING_TASKS T',
+'    JOIN TMS_EMPLOYEES E ON E.EMPLOYEE_ID = T.EMPLOYEE_ID',
+'WHERE',
+'    lower(T.ASSIGNED_TO) = LOWER(:APP_USER)'))
 ,p_plug_source_type=>'NATIVE_IG'
 ,p_prn_units=>'INCHES'
 ,p_prn_paper_size=>'LETTER'
@@ -1436,21 +1435,21 @@ wwv_flow_imp_page.create_page_plug(
 ,p_prn_border_color=>'#666666'
 ,p_ai_enabled=>false
 ,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
-,p_updated_on=>wwv_flow_imp.dz('20261013075035Z')
+,p_updated_on=>wwv_flow_imp.dz('20261027085650Z')
 ,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
-,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'GENDEV'
 );
 wwv_flow_imp_page.create_region_column(
- p_id=>wwv_flow_imp.id(4594983478761740408)
+ p_id=>wwv_flow_imp.id(9746952263954119)
 ,p_name=>'APEX$ROW_ACTION'
 ,p_session_state_data_type=>'VARCHAR2'
 ,p_item_type=>'NATIVE_ROW_ACTION'
 ,p_display_sequence=>20
-,p_updated_on=>wwv_flow_imp.dz('20261013074933Z')
-,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_on=>wwv_flow_imp.dz('20261027085424Z')
+,p_updated_by=>'GENDEV'
 );
 wwv_flow_imp_page.create_region_column(
- p_id=>wwv_flow_imp.id(4594983501178740409)
+ p_id=>wwv_flow_imp.id(9747038968954120)
 ,p_name=>'APEX$ROW_SELECTOR'
 ,p_session_state_data_type=>'VARCHAR2'
 ,p_item_type=>'NATIVE_ROW_SELECTOR'
@@ -1459,11 +1458,11 @@ wwv_flow_imp_page.create_region_column(
   'enable_multi_select', 'Y',
   'hide_control', 'N',
   'show_select_all', 'Y')).to_clob
-,p_updated_on=>wwv_flow_imp.dz('20261013074933Z')
-,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_on=>wwv_flow_imp.dz('20261027085424Z')
+,p_updated_by=>'GENDEV'
 );
 wwv_flow_imp_page.create_region_column(
- p_id=>wwv_flow_imp.id(4472950239029473048)
+ p_id=>wwv_flow_imp.id(9745939734954109)
 ,p_name=>'ASSIGNED_TO'
 ,p_source_type=>'DB_COLUMN'
 ,p_source_expression=>'ASSIGNED_TO'
@@ -1490,11 +1489,11 @@ wwv_flow_imp_page.create_region_column(
 ,p_is_primary_key=>false
 ,p_duplicate_value=>true
 ,p_include_in_export=>true
-,p_updated_on=>wwv_flow_imp.dz('20261013075022Z')
-,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_on=>wwv_flow_imp.dz('20261027085650Z')
+,p_updated_by=>'GENDEV'
 );
 wwv_flow_imp_page.create_region_column(
- p_id=>wwv_flow_imp.id(4472950368313473049)
+ p_id=>wwv_flow_imp.id(9746034340954110)
 ,p_name=>'CATEGORY'
 ,p_source_type=>'DB_COLUMN'
 ,p_source_expression=>'CATEGORY'
@@ -1521,11 +1520,11 @@ wwv_flow_imp_page.create_region_column(
 ,p_is_primary_key=>false
 ,p_duplicate_value=>true
 ,p_include_in_export=>true
-,p_updated_on=>wwv_flow_imp.dz('20261013075022Z')
-,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_on=>wwv_flow_imp.dz('20261027085650Z')
+,p_updated_by=>'GENDEV'
 );
 wwv_flow_imp_page.create_region_column(
- p_id=>wwv_flow_imp.id(4594982821992740402)
+ p_id=>wwv_flow_imp.id(9746311746954113)
 ,p_name=>'COMPLETED_DATE'
 ,p_source_type=>'DB_COLUMN'
 ,p_source_expression=>'COMPLETED_DATE'
@@ -1555,51 +1554,77 @@ wwv_flow_imp_page.create_region_column(
 ,p_is_primary_key=>false
 ,p_duplicate_value=>true
 ,p_include_in_export=>true
-,p_updated_on=>wwv_flow_imp.dz('20261013074933Z')
-,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_on=>wwv_flow_imp.dz('20261027085424Z')
+,p_updated_by=>'GENDEV'
 );
 wwv_flow_imp_page.create_region_column(
- p_id=>wwv_flow_imp.id(4594982951797740403)
+ p_id=>wwv_flow_imp.id(9746499646954114)
 ,p_name=>'CREATED'
 ,p_source_type=>'DB_COLUMN'
 ,p_source_expression=>'CREATED'
 ,p_data_type=>'DATE'
 ,p_session_state_data_type=>'VARCHAR2'
 ,p_is_query_only=>false
-,p_item_type=>'NATIVE_HIDDEN'
+,p_item_type=>'NATIVE_DATE_PICKER_APEX'
 ,p_heading=>'Created'
+,p_heading_alignment=>'LEFT'
 ,p_display_sequence=>110
+,p_value_alignment=>'LEFT'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'value_protected', 'N')).to_clob
+  'display_as', 'POPUP',
+  'max_date', 'NONE',
+  'min_date', 'NONE',
+  'multiple_months', 'N',
+  'show_time', 'N',
+  'use_defaults', 'Y')).to_clob
+,p_is_required=>true
+,p_enable_filter=>true
+,p_filter_date_ranges=>'ALL'
+,p_filter_lov_type=>'DISTINCT'
 ,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
 ,p_is_primary_key=>false
 ,p_duplicate_value=>true
-,p_include_in_export=>false
-,p_updated_on=>wwv_flow_imp.dz('20261013075035Z')
-,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20261027085424Z')
+,p_updated_by=>'GENDEV'
 );
 wwv_flow_imp_page.create_region_column(
- p_id=>wwv_flow_imp.id(4594983034213740404)
+ p_id=>wwv_flow_imp.id(9746553748954115)
 ,p_name=>'CREATED_BY'
 ,p_source_type=>'DB_COLUMN'
 ,p_source_expression=>'CREATED_BY'
 ,p_data_type=>'VARCHAR2'
 ,p_session_state_data_type=>'VARCHAR2'
 ,p_is_query_only=>false
-,p_item_type=>'NATIVE_HIDDEN'
+,p_item_type=>'NATIVE_TEXT_FIELD'
 ,p_heading=>'Created By'
+,p_heading_alignment=>'LEFT'
 ,p_display_sequence=>120
+,p_value_alignment=>'LEFT'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'value_protected', 'N')).to_clob
+  'trim_spaces', 'BOTH')).to_clob
+,p_is_required=>true
+,p_max_length=>255
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_lov_type=>'DISTINCT'
 ,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
 ,p_is_primary_key=>false
 ,p_duplicate_value=>true
-,p_include_in_export=>false
-,p_updated_on=>wwv_flow_imp.dz('20261013075035Z')
-,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20261027085424Z')
+,p_updated_by=>'GENDEV'
 );
 wwv_flow_imp_page.create_region_column(
- p_id=>wwv_flow_imp.id(4472950439356473050)
+ p_id=>wwv_flow_imp.id(9746171742954111)
 ,p_name=>'DUE_DATE'
 ,p_source_type=>'DB_COLUMN'
 ,p_source_expression=>'DUE_DATE'
@@ -1627,11 +1652,11 @@ wwv_flow_imp_page.create_region_column(
 ,p_is_primary_key=>false
 ,p_duplicate_value=>true
 ,p_include_in_export=>true
-,p_updated_on=>wwv_flow_imp.dz('20261013075022Z')
-,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_on=>wwv_flow_imp.dz('20261027085650Z')
+,p_updated_by=>'GENDEV'
 );
 wwv_flow_imp_page.create_region_column(
- p_id=>wwv_flow_imp.id(4594983318171740407)
+ p_id=>wwv_flow_imp.id(9746867402954118)
 ,p_name=>'EMAIL'
 ,p_source_type=>'DB_COLUMN'
 ,p_source_expression=>'EMAIL'
@@ -1660,11 +1685,11 @@ wwv_flow_imp_page.create_region_column(
 ,p_is_primary_key=>false
 ,p_duplicate_value=>true
 ,p_include_in_export=>true
-,p_updated_on=>wwv_flow_imp.dz('20261013074933Z')
-,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_on=>wwv_flow_imp.dz('20261027085424Z')
+,p_updated_by=>'GENDEV'
 );
 wwv_flow_imp_page.create_region_column(
- p_id=>wwv_flow_imp.id(4472950013035473046)
+ p_id=>wwv_flow_imp.id(9745717267954107)
 ,p_name=>'EMPLOYEE_ID'
 ,p_source_type=>'DB_COLUMN'
 ,p_source_expression=>'EMPLOYEE_ID'
@@ -1689,11 +1714,11 @@ wwv_flow_imp_page.create_region_column(
 ,p_is_primary_key=>false
 ,p_duplicate_value=>true
 ,p_include_in_export=>true
-,p_updated_on=>wwv_flow_imp.dz('20261013074932Z')
-,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_on=>wwv_flow_imp.dz('20261027085424Z')
+,p_updated_by=>'GENDEV'
 );
 wwv_flow_imp_page.create_region_column(
- p_id=>wwv_flow_imp.id(4594982708316740401)
+ p_id=>wwv_flow_imp.id(9746205550954112)
 ,p_name=>'STATUS'
 ,p_source_type=>'DB_COLUMN'
 ,p_source_expression=>'STATUS'
@@ -1723,11 +1748,11 @@ wwv_flow_imp_page.create_region_column(
 ,p_is_primary_key=>false
 ,p_duplicate_value=>true
 ,p_include_in_export=>true
-,p_updated_on=>wwv_flow_imp.dz('20261013074933Z')
-,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_on=>wwv_flow_imp.dz('20261027085623Z')
+,p_updated_by=>'GENDEV'
 );
 wwv_flow_imp_page.create_region_column(
- p_id=>wwv_flow_imp.id(4472949979484473045)
+ p_id=>wwv_flow_imp.id(9745666477954106)
 ,p_name=>'TASK_ID'
 ,p_source_type=>'DB_COLUMN'
 ,p_source_expression=>'TASK_ID'
@@ -1741,11 +1766,11 @@ wwv_flow_imp_page.create_region_column(
 ,p_use_as_row_header=>false
 ,p_is_primary_key=>true
 ,p_include_in_export=>false
-,p_updated_on=>wwv_flow_imp.dz('20261013074932Z')
-,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_on=>wwv_flow_imp.dz('20261027085424Z')
+,p_updated_by=>'GENDEV'
 );
 wwv_flow_imp_page.create_region_column(
- p_id=>wwv_flow_imp.id(4472950131566473047)
+ p_id=>wwv_flow_imp.id(9745813201954108)
 ,p_name=>'TASK_NAME'
 ,p_source_type=>'DB_COLUMN'
 ,p_source_expression=>'TASK_NAME'
@@ -1772,52 +1797,78 @@ wwv_flow_imp_page.create_region_column(
 ,p_is_primary_key=>false
 ,p_duplicate_value=>true
 ,p_include_in_export=>true
-,p_updated_on=>wwv_flow_imp.dz('20261013074955Z')
-,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_on=>wwv_flow_imp.dz('20261027085634Z')
+,p_updated_by=>'GENDEV'
 );
 wwv_flow_imp_page.create_region_column(
- p_id=>wwv_flow_imp.id(4594983156698740405)
+ p_id=>wwv_flow_imp.id(9746678899954116)
 ,p_name=>'UPDATED'
 ,p_source_type=>'DB_COLUMN'
 ,p_source_expression=>'UPDATED'
 ,p_data_type=>'DATE'
 ,p_session_state_data_type=>'VARCHAR2'
 ,p_is_query_only=>false
-,p_item_type=>'NATIVE_HIDDEN'
+,p_item_type=>'NATIVE_DATE_PICKER_APEX'
 ,p_heading=>'Updated'
+,p_heading_alignment=>'LEFT'
 ,p_display_sequence=>130
+,p_value_alignment=>'LEFT'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'value_protected', 'N')).to_clob
+  'display_as', 'POPUP',
+  'max_date', 'NONE',
+  'min_date', 'NONE',
+  'multiple_months', 'N',
+  'show_time', 'N',
+  'use_defaults', 'Y')).to_clob
+,p_is_required=>true
+,p_enable_filter=>true
+,p_filter_date_ranges=>'ALL'
+,p_filter_lov_type=>'DISTINCT'
 ,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
 ,p_is_primary_key=>false
 ,p_duplicate_value=>true
-,p_include_in_export=>false
-,p_updated_on=>wwv_flow_imp.dz('20261013075035Z')
-,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20261027085424Z')
+,p_updated_by=>'GENDEV'
 );
 wwv_flow_imp_page.create_region_column(
- p_id=>wwv_flow_imp.id(4594983216994740406)
+ p_id=>wwv_flow_imp.id(9746718237954117)
 ,p_name=>'UPDATED_BY'
 ,p_source_type=>'DB_COLUMN'
 ,p_source_expression=>'UPDATED_BY'
 ,p_data_type=>'VARCHAR2'
 ,p_session_state_data_type=>'VARCHAR2'
 ,p_is_query_only=>false
-,p_item_type=>'NATIVE_HIDDEN'
+,p_item_type=>'NATIVE_TEXT_FIELD'
 ,p_heading=>'Updated By'
+,p_heading_alignment=>'LEFT'
 ,p_display_sequence=>140
+,p_value_alignment=>'LEFT'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'value_protected', 'N')).to_clob
+  'trim_spaces', 'BOTH')).to_clob
+,p_is_required=>true
+,p_max_length=>255
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_lov_type=>'DISTINCT'
 ,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
 ,p_is_primary_key=>false
 ,p_duplicate_value=>true
-,p_include_in_export=>false
-,p_updated_on=>wwv_flow_imp.dz('20261013075035Z')
-,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20261027085424Z')
+,p_updated_by=>'GENDEV'
 );
 wwv_flow_imp_page.create_interactive_grid(
- p_id=>wwv_flow_imp.id(4472949887919473044)
-,p_internal_uid=>4472949887919473044
+ p_id=>wwv_flow_imp.id(9745563490954105)
+,p_internal_uid=>9745563490954105
 ,p_is_editable=>true
 ,p_edit_operations=>'i:u:d'
 ,p_lost_update_check_type=>'VALUES'
@@ -1839,23 +1890,23 @@ wwv_flow_imp_page.create_interactive_grid(
 ,p_fixed_header=>'PAGE'
 ,p_show_icon_view=>false
 ,p_show_detail_view=>false
-,p_updated_on=>wwv_flow_imp.dz('20261013074933Z')
-,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_on=>wwv_flow_imp.dz('20261027085424Z')
+,p_updated_by=>'GENDEV'
 );
 wwv_flow_imp_page.create_ig_report(
- p_id=>wwv_flow_imp.id(4595053514262752278)
-,p_interactive_grid_id=>wwv_flow_imp.id(4472949887919473044)
+ p_id=>wwv_flow_imp.id(10209973942477525)
+,p_interactive_grid_id=>wwv_flow_imp.id(9745563490954105)
 ,p_static_id=>'primary'
 ,p_type=>'PRIMARY'
 ,p_default_view=>'GRID'
 ,p_show_row_number=>false
 ,p_settings_area_expanded=>true
-,p_updated_on=>wwv_flow_imp.dz('20261013074933Z')
-,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_on=>wwv_flow_imp.dz('20261027085424Z')
+,p_updated_by=>'GENDEV'
 );
 wwv_flow_imp_page.create_ig_report_view(
- p_id=>wwv_flow_imp.id(4595053623944752279)
-,p_report_id=>wwv_flow_imp.id(4595053514262752278)
+ p_id=>wwv_flow_imp.id(10210059209477525)
+,p_report_id=>wwv_flow_imp.id(10209973942477525)
 ,p_view_type=>'GRID'
 ,p_stretch_columns=>true
 ,p_srv_exclude_null_values=>false
@@ -1863,121 +1914,121 @@ wwv_flow_imp_page.create_ig_report_view(
 ,p_edit_mode=>false
 );
 wwv_flow_imp_page.create_ig_report_column(
- p_id=>wwv_flow_imp.id(4595054138724752280)
-,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+ p_id=>wwv_flow_imp.id(10210537330477526)
+,p_view_id=>wwv_flow_imp.id(10210059209477525)
 ,p_display_seq=>1
-,p_column_id=>wwv_flow_imp.id(4472949979484473045)
+,p_column_id=>wwv_flow_imp.id(9745666477954106)
 ,p_is_visible=>true
 ,p_is_frozen=>false
 );
 wwv_flow_imp_page.create_ig_report_column(
- p_id=>wwv_flow_imp.id(4595055106590752282)
-,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+ p_id=>wwv_flow_imp.id(10211402242477528)
+,p_view_id=>wwv_flow_imp.id(10210059209477525)
 ,p_display_seq=>2
-,p_column_id=>wwv_flow_imp.id(4472950013035473046)
+,p_column_id=>wwv_flow_imp.id(9745717267954107)
 ,p_is_visible=>true
 ,p_is_frozen=>false
 );
 wwv_flow_imp_page.create_ig_report_column(
- p_id=>wwv_flow_imp.id(4595056055870752284)
-,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+ p_id=>wwv_flow_imp.id(10212305084477530)
+,p_view_id=>wwv_flow_imp.id(10210059209477525)
 ,p_display_seq=>3
-,p_column_id=>wwv_flow_imp.id(4472950131566473047)
+,p_column_id=>wwv_flow_imp.id(9745813201954108)
 ,p_is_visible=>true
 ,p_is_frozen=>false
 );
 wwv_flow_imp_page.create_ig_report_column(
- p_id=>wwv_flow_imp.id(4595057068356752286)
-,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+ p_id=>wwv_flow_imp.id(10213273321477531)
+,p_view_id=>wwv_flow_imp.id(10210059209477525)
 ,p_display_seq=>4
-,p_column_id=>wwv_flow_imp.id(4472950239029473048)
+,p_column_id=>wwv_flow_imp.id(9745939734954109)
 ,p_is_visible=>true
 ,p_is_frozen=>false
 );
 wwv_flow_imp_page.create_ig_report_column(
- p_id=>wwv_flow_imp.id(4595057822556752288)
-,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+ p_id=>wwv_flow_imp.id(10214178980477533)
+,p_view_id=>wwv_flow_imp.id(10210059209477525)
 ,p_display_seq=>5
-,p_column_id=>wwv_flow_imp.id(4472950368313473049)
+,p_column_id=>wwv_flow_imp.id(9746034340954110)
 ,p_is_visible=>true
 ,p_is_frozen=>false
 );
 wwv_flow_imp_page.create_ig_report_column(
- p_id=>wwv_flow_imp.id(4595058790762752290)
-,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+ p_id=>wwv_flow_imp.id(10215078141477535)
+,p_view_id=>wwv_flow_imp.id(10210059209477525)
 ,p_display_seq=>6
-,p_column_id=>wwv_flow_imp.id(4472950439356473050)
+,p_column_id=>wwv_flow_imp.id(9746171742954111)
 ,p_is_visible=>true
 ,p_is_frozen=>false
 );
 wwv_flow_imp_page.create_ig_report_column(
- p_id=>wwv_flow_imp.id(4595059635871752292)
-,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+ p_id=>wwv_flow_imp.id(10215998383477536)
+,p_view_id=>wwv_flow_imp.id(10210059209477525)
 ,p_display_seq=>7
-,p_column_id=>wwv_flow_imp.id(4594982708316740401)
+,p_column_id=>wwv_flow_imp.id(9746205550954112)
 ,p_is_visible=>true
 ,p_is_frozen=>false
 );
 wwv_flow_imp_page.create_ig_report_column(
- p_id=>wwv_flow_imp.id(4595060590182752293)
-,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+ p_id=>wwv_flow_imp.id(10216848709477538)
+,p_view_id=>wwv_flow_imp.id(10210059209477525)
 ,p_display_seq=>8
-,p_column_id=>wwv_flow_imp.id(4594982821992740402)
+,p_column_id=>wwv_flow_imp.id(9746311746954113)
 ,p_is_visible=>true
 ,p_is_frozen=>false
 );
 wwv_flow_imp_page.create_ig_report_column(
- p_id=>wwv_flow_imp.id(4595061489831752295)
-,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+ p_id=>wwv_flow_imp.id(10217791898477540)
+,p_view_id=>wwv_flow_imp.id(10210059209477525)
 ,p_display_seq=>9
-,p_column_id=>wwv_flow_imp.id(4594982951797740403)
+,p_column_id=>wwv_flow_imp.id(9746499646954114)
 ,p_is_visible=>true
 ,p_is_frozen=>false
 );
 wwv_flow_imp_page.create_ig_report_column(
- p_id=>wwv_flow_imp.id(4595062328213752297)
-,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+ p_id=>wwv_flow_imp.id(10218639711477541)
+,p_view_id=>wwv_flow_imp.id(10210059209477525)
 ,p_display_seq=>10
-,p_column_id=>wwv_flow_imp.id(4594983034213740404)
+,p_column_id=>wwv_flow_imp.id(9746553748954115)
 ,p_is_visible=>true
 ,p_is_frozen=>false
 );
 wwv_flow_imp_page.create_ig_report_column(
- p_id=>wwv_flow_imp.id(4595063270345752299)
-,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+ p_id=>wwv_flow_imp.id(10219512712477543)
+,p_view_id=>wwv_flow_imp.id(10210059209477525)
 ,p_display_seq=>11
-,p_column_id=>wwv_flow_imp.id(4594983156698740405)
+,p_column_id=>wwv_flow_imp.id(9746678899954116)
 ,p_is_visible=>true
 ,p_is_frozen=>false
 );
 wwv_flow_imp_page.create_ig_report_column(
- p_id=>wwv_flow_imp.id(4595064128301752301)
-,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+ p_id=>wwv_flow_imp.id(10220478027477545)
+,p_view_id=>wwv_flow_imp.id(10210059209477525)
 ,p_display_seq=>12
-,p_column_id=>wwv_flow_imp.id(4594983216994740406)
+,p_column_id=>wwv_flow_imp.id(9746718237954117)
 ,p_is_visible=>true
 ,p_is_frozen=>false
 );
 wwv_flow_imp_page.create_ig_report_column(
- p_id=>wwv_flow_imp.id(4595065030876752303)
-,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+ p_id=>wwv_flow_imp.id(10221393505477546)
+,p_view_id=>wwv_flow_imp.id(10210059209477525)
 ,p_display_seq=>13
-,p_column_id=>wwv_flow_imp.id(4594983318171740407)
+,p_column_id=>wwv_flow_imp.id(9746867402954118)
 ,p_is_visible=>true
 ,p_is_frozen=>false
 );
 wwv_flow_imp_page.create_ig_report_column(
- p_id=>wwv_flow_imp.id(4595065957241752304)
-,p_view_id=>wwv_flow_imp.id(4595053623944752279)
+ p_id=>wwv_flow_imp.id(10230630809477948)
+,p_view_id=>wwv_flow_imp.id(10210059209477525)
 ,p_display_seq=>0
-,p_column_id=>wwv_flow_imp.id(4594983478761740408)
+,p_column_id=>wwv_flow_imp.id(9746952263954119)
 ,p_is_visible=>true
 ,p_is_frozen=>false
 );
 wwv_flow_imp_page.create_page_button(
- p_id=>wwv_flow_imp.id(4585264264763464568)
+ p_id=>wwv_flow_imp.id(4595431191621266411)
 ,p_button_sequence=>10
-,p_button_plug_id=>wwv_flow_imp.id(4585257873428464543)
+,p_button_plug_id=>wwv_flow_imp.id(4595424800286266386)
 ,p_button_name=>'CREATE'
 ,p_static_id=>'create'
 ,p_show_as_disabled=>false
@@ -1989,17 +2040,17 @@ wwv_flow_imp_page.create_page_button(
 ,p_button_position=>'RIGHT_OF_IR_SEARCH_BAR'
 ,p_button_redirect_url=>'f?p=&APP_ID.:3:&APP_SESSION.::&DEBUG.:3::'
 ,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
-,p_updated_on=>wwv_flow_imp.dz('20261013074932Z')
+,p_updated_on=>wwv_flow_imp.dz('20261027085420Z')
 ,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
-,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_updated_by=>'GENDEV'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4585264614597464569)
+ p_id=>wwv_flow_imp.id(4595431541455266412)
 ,p_name=>'Edit Report - Dialog Closed'
 ,p_static_id=>'edit-report-dialog-closed'
 ,p_event_sequence=>10
 ,p_triggering_element_type=>'REGION'
-,p_triggering_region_id=>wwv_flow_imp.id(4585257873428464543)
+,p_triggering_region_id=>wwv_flow_imp.id(4595424800286266386)
 ,p_bind_type=>'bind'
 ,p_execution_type=>'IMMEDIATE'
 ,p_bind_event_type=>'apexafterclosedialog'
@@ -2009,15 +2060,15 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4585265069526464569)
-,p_event_id=>wwv_flow_imp.id(4585264614597464569)
+ p_id=>wwv_flow_imp.id(4595431996384266412)
+,p_event_id=>wwv_flow_imp.id(4595431541455266412)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'N'
 ,p_static_id=>'native-refresh'
 ,p_action=>'NATIVE_REFRESH'
 ,p_affected_elements_type=>'REGION'
-,p_affected_region_id=>wwv_flow_imp.id(4585257873428464543)
+,p_affected_region_id=>wwv_flow_imp.id(4595424800286266386)
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
   'maintain_pagination', 'N')).to_clob
 ,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
@@ -2026,10 +2077,10 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_process(
- p_id=>wwv_flow_imp.id(4594983636671740410)
+ p_id=>wwv_flow_imp.id(9747192355954121)
 ,p_process_sequence=>10
 ,p_process_point=>'AFTER_SUBMIT'
-,p_region_id=>wwv_flow_imp.id(4585257873428464543)
+,p_region_id=>wwv_flow_imp.id(4595424800286266386)
 ,p_process_type=>'NATIVE_IG_DML'
 ,p_process_name=>'Onboarding Tasks - Save Interactive Grid Data'
 ,p_static_id=>'onboarding-tasks-save-interactive-grid-data'
@@ -2039,11 +2090,11 @@ wwv_flow_imp_page.create_page_process(
   'return_primary_keys_after_insert', 'Y',
   'target_type', 'REGION_SOURCE')).to_clob
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
-,p_internal_uid=>4594983636671740410
-,p_created_on=>wwv_flow_imp.dz('20261013074932Z')
-,p_updated_on=>wwv_flow_imp.dz('20261013074932Z')
-,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
-,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
+,p_internal_uid=>9747192355954121
+,p_created_on=>wwv_flow_imp.dz('20261027085424Z')
+,p_updated_on=>wwv_flow_imp.dz('20261027085424Z')
+,p_created_by=>'GENDEV'
+,p_updated_by=>'GENDEV'
 );
 end;
 /
@@ -2068,7 +2119,7 @@ wwv_flow_imp_page.create_page(
 ,p_last_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(4585250453616464155)
+ p_id=>wwv_flow_imp.id(4595417380474265998)
 ,p_plug_name=>'Buttons'
 ,p_static_id=>'buttons'
 ,p_region_template_options=>'#DEFAULT#'
@@ -2082,7 +2133,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(4585241356105464142)
+ p_id=>wwv_flow_imp.id(4595408282963265985)
 ,p_plug_name=>'Onboarding Task'
 ,p_static_id=>'onboarding-task'
 ,p_region_template_options=>'#DEFAULT#'
@@ -2102,9 +2153,9 @@ wwv_flow_imp_page.create_page_plug(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_button(
- p_id=>wwv_flow_imp.id(4585250878131464155)
+ p_id=>wwv_flow_imp.id(4595417804989265998)
 ,p_button_sequence=>10
-,p_button_plug_id=>wwv_flow_imp.id(4585250453616464155)
+,p_button_plug_id=>wwv_flow_imp.id(4595417380474265998)
 ,p_button_name=>'CANCEL'
 ,p_static_id=>'cancel'
 ,p_show_as_disabled=>false
@@ -2120,20 +2171,21 @@ wwv_flow_imp_page.create_page_button(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_component_da_action(
- p_id=>wwv_flow_imp.id(4585251399432464156)
-,p_button_id=>wwv_flow_imp.id(4585250878131464155)
+ p_id=>wwv_flow_imp.id(4595418326290265999)
+,p_button_id=>wwv_flow_imp.id(4595417804989265998)
 ,p_action_sequence=>10
 ,p_action=>'NATIVE_DIALOG_CANCEL'
 ,p_static_id=>'native-dialog-cancel'
+,p_stop_execution_on_error=>true
 ,p_created_on=>wwv_flow_imp.dz('20261013061009Z')
 ,p_updated_on=>wwv_flow_imp.dz('20261013061009Z')
 ,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_button(
- p_id=>wwv_flow_imp.id(4585252637872464157)
+ p_id=>wwv_flow_imp.id(4595419564730266000)
 ,p_button_sequence=>40
-,p_button_plug_id=>wwv_flow_imp.id(4585250453616464155)
+,p_button_plug_id=>wwv_flow_imp.id(4595417380474265998)
 ,p_button_name=>'CREATE'
 ,p_static_id=>'create'
 ,p_show_as_disabled=>false
@@ -2152,9 +2204,9 @@ wwv_flow_imp_page.create_page_button(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_button(
- p_id=>wwv_flow_imp.id(4585251873494464157)
+ p_id=>wwv_flow_imp.id(4595418800352266000)
 ,p_button_sequence=>20
-,p_button_plug_id=>wwv_flow_imp.id(4585250453616464155)
+,p_button_plug_id=>wwv_flow_imp.id(4595417380474265998)
 ,p_button_name=>'DELETE'
 ,p_static_id=>'delete'
 ,p_show_as_disabled=>false
@@ -2175,9 +2227,9 @@ wwv_flow_imp_page.create_page_button(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_button(
- p_id=>wwv_flow_imp.id(4585252264648464157)
+ p_id=>wwv_flow_imp.id(4595419191506266000)
 ,p_button_sequence=>30
-,p_button_plug_id=>wwv_flow_imp.id(4585250453616464155)
+,p_button_plug_id=>wwv_flow_imp.id(4595417380474265998)
 ,p_button_name=>'SAVE'
 ,p_static_id=>'save'
 ,p_show_as_disabled=>false
@@ -2196,12 +2248,12 @@ wwv_flow_imp_page.create_page_button(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4585243181647464145)
+ p_id=>wwv_flow_imp.id(4595410108505265988)
 ,p_name=>'P3_ASSIGNED_TO'
 ,p_source_data_type=>'VARCHAR2'
 ,p_item_sequence=>40
-,p_item_plug_id=>wwv_flow_imp.id(4585241356105464142)
-,p_item_source_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_item_plug_id=>wwv_flow_imp.id(4595408282963265985)
+,p_item_source_plug_id=>wwv_flow_imp.id(4595408282963265985)
 ,p_prompt=>'Assigned To'
 ,p_source=>'ASSIGNED_TO'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
@@ -2222,12 +2274,12 @@ wwv_flow_imp_page.create_page_item(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4585243503050464146)
+ p_id=>wwv_flow_imp.id(4595410429908265989)
 ,p_name=>'P3_CATEGORY'
 ,p_source_data_type=>'VARCHAR2'
 ,p_item_sequence=>50
-,p_item_plug_id=>wwv_flow_imp.id(4585241356105464142)
-,p_item_source_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_item_plug_id=>wwv_flow_imp.id(4595408282963265985)
+,p_item_source_plug_id=>wwv_flow_imp.id(4595408282963265985)
 ,p_prompt=>'Category'
 ,p_source=>'CATEGORY'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
@@ -2248,12 +2300,12 @@ wwv_flow_imp_page.create_page_item(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4585244788723464149)
+ p_id=>wwv_flow_imp.id(4595411715581265992)
 ,p_name=>'P3_COMPLETED_DATE'
 ,p_source_data_type=>'DATE'
 ,p_item_sequence=>80
-,p_item_plug_id=>wwv_flow_imp.id(4585241356105464142)
-,p_item_source_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_item_plug_id=>wwv_flow_imp.id(4595408282963265985)
+,p_item_source_plug_id=>wwv_flow_imp.id(4595408282963265985)
 ,p_prompt=>'Completed Date'
 ,p_source=>'COMPLETED_DATE'
 ,p_display_as=>'NATIVE_DATE_PICKER_APEX'
@@ -2276,21 +2328,16 @@ wwv_flow_imp_page.create_page_item(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4585245185138464150)
+ p_id=>wwv_flow_imp.id(4595412111996265993)
 ,p_name=>'P3_CREATED'
 ,p_source_data_type=>'DATE'
-,p_is_required=>true
 ,p_item_sequence=>90
-,p_item_plug_id=>wwv_flow_imp.id(4585241356105464142)
-,p_item_source_plug_id=>wwv_flow_imp.id(4585241356105464142)
-,p_prompt=>'Created'
+,p_item_plug_id=>wwv_flow_imp.id(4595408282963265985)
+,p_item_source_plug_id=>wwv_flow_imp.id(4595408282963265985)
 ,p_source=>'CREATED'
 ,p_display_as=>'NATIVE_HIDDEN'
 ,p_cSize=>32
 ,p_cMaxlength=>255
-,p_label_alignment=>'RIGHT'
-,p_field_template=>1612549789555753698
-,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
   'value_protected', 'Y')).to_clob
@@ -2300,21 +2347,16 @@ wwv_flow_imp_page.create_page_item(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4585245557742464151)
+ p_id=>wwv_flow_imp.id(4595412484600265994)
 ,p_name=>'P3_CREATED_BY'
 ,p_source_data_type=>'VARCHAR2'
-,p_is_required=>true
 ,p_item_sequence=>100
-,p_item_plug_id=>wwv_flow_imp.id(4585241356105464142)
-,p_item_source_plug_id=>wwv_flow_imp.id(4585241356105464142)
-,p_prompt=>'Created By'
+,p_item_plug_id=>wwv_flow_imp.id(4595408282963265985)
+,p_item_source_plug_id=>wwv_flow_imp.id(4595408282963265985)
 ,p_source=>'CREATED_BY'
 ,p_display_as=>'NATIVE_HIDDEN'
 ,p_cSize=>32
 ,p_cMaxlength=>255
-,p_label_alignment=>'RIGHT'
-,p_field_template=>1612549789555753698
-,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
   'value_protected', 'Y')).to_clob
@@ -2324,12 +2366,12 @@ wwv_flow_imp_page.create_page_item(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4585243900954464147)
+ p_id=>wwv_flow_imp.id(4595410827812265990)
 ,p_name=>'P3_DUE_DATE'
 ,p_source_data_type=>'DATE'
 ,p_item_sequence=>60
-,p_item_plug_id=>wwv_flow_imp.id(4585241356105464142)
-,p_item_source_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_item_plug_id=>wwv_flow_imp.id(4595408282963265985)
+,p_item_source_plug_id=>wwv_flow_imp.id(4595408282963265985)
 ,p_prompt=>'Due Date'
 ,p_source=>'DUE_DATE'
 ,p_display_as=>'NATIVE_DATE_PICKER_APEX'
@@ -2352,12 +2394,12 @@ wwv_flow_imp_page.create_page_item(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4585242001932464143)
+ p_id=>wwv_flow_imp.id(4595408928790265986)
 ,p_name=>'P3_EMPLOYEE_ID'
 ,p_source_data_type=>'NUMBER'
 ,p_item_sequence=>20
-,p_item_plug_id=>wwv_flow_imp.id(4585241356105464142)
-,p_item_source_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_item_plug_id=>wwv_flow_imp.id(4595408282963265985)
+,p_item_source_plug_id=>wwv_flow_imp.id(4595408282963265985)
 ,p_prompt=>'Employee'
 ,p_source=>'EMPLOYEE_ID'
 ,p_display_as=>'NATIVE_SELECT_LIST'
@@ -2376,12 +2418,12 @@ wwv_flow_imp_page.create_page_item(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4585244357447464147)
+ p_id=>wwv_flow_imp.id(4595411284305265990)
 ,p_name=>'P3_STATUS'
 ,p_source_data_type=>'VARCHAR2'
 ,p_item_sequence=>70
-,p_item_plug_id=>wwv_flow_imp.id(4585241356105464142)
-,p_item_source_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_item_plug_id=>wwv_flow_imp.id(4595408282963265985)
+,p_item_source_plug_id=>wwv_flow_imp.id(4595408282963265985)
 ,p_prompt=>'Status'
 ,p_source=>'STATUS'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
@@ -2402,18 +2444,15 @@ wwv_flow_imp_page.create_page_item(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4585241605756464142)
+ p_id=>wwv_flow_imp.id(4595408532614265985)
 ,p_name=>'P3_TASK_ID'
 ,p_source_data_type=>'NUMBER'
-,p_is_required=>true
 ,p_is_primary_key=>true
 ,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_imp.id(4585241356105464142)
-,p_item_source_plug_id=>wwv_flow_imp.id(4585241356105464142)
-,p_prompt=>'Task ID'
+,p_item_plug_id=>wwv_flow_imp.id(4595408282963265985)
+,p_item_source_plug_id=>wwv_flow_imp.id(4595408282963265985)
 ,p_source=>'TASK_ID'
 ,p_display_as=>'NATIVE_HIDDEN'
-,p_field_template=>1612549789555753698
 ,p_is_persistent=>'N'
 ,p_protection_level=>'S'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
@@ -2424,13 +2463,13 @@ wwv_flow_imp_page.create_page_item(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4585242738079464145)
+ p_id=>wwv_flow_imp.id(4595409664937265988)
 ,p_name=>'P3_TASK_NAME'
 ,p_source_data_type=>'VARCHAR2'
 ,p_is_required=>true
 ,p_item_sequence=>30
-,p_item_plug_id=>wwv_flow_imp.id(4585241356105464142)
-,p_item_source_plug_id=>wwv_flow_imp.id(4585241356105464142)
+,p_item_plug_id=>wwv_flow_imp.id(4595408282963265985)
+,p_item_source_plug_id=>wwv_flow_imp.id(4595408282963265985)
 ,p_prompt=>'Task Name'
 ,p_source=>'TASK_NAME'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
@@ -2451,21 +2490,16 @@ wwv_flow_imp_page.create_page_item(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4585245905279464151)
+ p_id=>wwv_flow_imp.id(4595412832137265994)
 ,p_name=>'P3_UPDATED'
 ,p_source_data_type=>'DATE'
-,p_is_required=>true
 ,p_item_sequence=>110
-,p_item_plug_id=>wwv_flow_imp.id(4585241356105464142)
-,p_item_source_plug_id=>wwv_flow_imp.id(4585241356105464142)
-,p_prompt=>'Updated'
+,p_item_plug_id=>wwv_flow_imp.id(4595408282963265985)
+,p_item_source_plug_id=>wwv_flow_imp.id(4595408282963265985)
 ,p_source=>'UPDATED'
 ,p_display_as=>'NATIVE_HIDDEN'
 ,p_cSize=>32
 ,p_cMaxlength=>255
-,p_label_alignment=>'RIGHT'
-,p_field_template=>1612549789555753698
-,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
   'value_protected', 'Y')).to_clob
@@ -2475,21 +2509,16 @@ wwv_flow_imp_page.create_page_item(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4585246396950464152)
+ p_id=>wwv_flow_imp.id(4595413323808265995)
 ,p_name=>'P3_UPDATED_BY'
 ,p_source_data_type=>'VARCHAR2'
-,p_is_required=>true
 ,p_item_sequence=>120
-,p_item_plug_id=>wwv_flow_imp.id(4585241356105464142)
-,p_item_source_plug_id=>wwv_flow_imp.id(4585241356105464142)
-,p_prompt=>'Updated By'
+,p_item_plug_id=>wwv_flow_imp.id(4595408282963265985)
+,p_item_source_plug_id=>wwv_flow_imp.id(4595408282963265985)
 ,p_source=>'UPDATED_BY'
 ,p_display_as=>'NATIVE_HIDDEN'
 ,p_cSize=>32
 ,p_cMaxlength=>255
-,p_label_alignment=>'RIGHT'
-,p_field_template=>1612549789555753698
-,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
   'value_protected', 'Y')).to_clob
@@ -2499,7 +2528,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_process(
- p_id=>wwv_flow_imp.id(4585253842501464159)
+ p_id=>wwv_flow_imp.id(4595420769359266002)
 ,p_process_sequence=>50
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_CLOSE_WINDOW'
@@ -2515,10 +2544,10 @@ wwv_flow_imp_page.create_page_process(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_process(
- p_id=>wwv_flow_imp.id(4585253061567464158)
+ p_id=>wwv_flow_imp.id(4595419988425266001)
 ,p_process_sequence=>10
 ,p_process_point=>'BEFORE_HEADER'
-,p_region_id=>wwv_flow_imp.id(4585241356105464142)
+,p_region_id=>wwv_flow_imp.id(4595408282963265985)
 ,p_process_type=>'NATIVE_FORM_INIT'
 ,p_process_name=>'Initialize form Onboarding Task'
 ,p_static_id=>'initialize-form-onboarding-task'
@@ -2533,10 +2562,10 @@ wwv_flow_imp_page.create_page_process(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_process(
- p_id=>wwv_flow_imp.id(4585253440858464158)
+ p_id=>wwv_flow_imp.id(4595420367716266001)
 ,p_process_sequence=>10
 ,p_process_point=>'AFTER_SUBMIT'
-,p_region_id=>wwv_flow_imp.id(4585241356105464142)
+,p_region_id=>wwv_flow_imp.id(4595408282963265985)
 ,p_process_type=>'NATIVE_FORM_DML'
 ,p_process_name=>'Process form Onboarding Task'
 ,p_static_id=>'process-form-onboarding-task'
@@ -2572,7 +2601,7 @@ wwv_flow_imp_page.create_page(
 ,p_last_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(4585267505338464574)
+ p_id=>wwv_flow_imp.id(4595434432196266417)
 ,p_plug_name=>'Breadcrumb'
 ,p_static_id=>'breadcrumb'
 ,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
@@ -2581,7 +2610,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_plug_display_sequence=>20
 ,p_plug_display_point=>'REGION_POSITION_01'
 ,p_plug_item_display_point=>'ABOVE'
-,p_menu_id=>wwv_flow_imp.id(4585222197427463713)
+,p_menu_id=>wwv_flow_imp.id(4595389124285265556)
 ,p_plug_source_type=>'NATIVE_BREADCRUMB'
 ,p_menu_template_id=>4075790987805660140
 ,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
@@ -2609,7 +2638,7 @@ wwv_flow_imp_page.create_page(
 ,p_last_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(4585269241589464577)
+ p_id=>wwv_flow_imp.id(4595436168447266420)
 ,p_plug_name=>'Breadcrumb'
 ,p_static_id=>'breadcrumb'
 ,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
@@ -2618,7 +2647,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_plug_display_sequence=>20
 ,p_plug_display_point=>'REGION_POSITION_01'
 ,p_plug_item_display_point=>'ABOVE'
-,p_menu_id=>wwv_flow_imp.id(4585222197427463713)
+,p_menu_id=>wwv_flow_imp.id(4595389124285265556)
 ,p_plug_source_type=>'NATIVE_BREADCRUMB'
 ,p_menu_template_id=>4075790987805660140
 ,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
@@ -2646,7 +2675,7 @@ wwv_flow_imp_page.create_page(
 ,p_last_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(4585270991267464580)
+ p_id=>wwv_flow_imp.id(4595437918125266423)
 ,p_plug_name=>'Breadcrumb'
 ,p_static_id=>'breadcrumb'
 ,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
@@ -2655,7 +2684,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_plug_display_sequence=>20
 ,p_plug_display_point=>'REGION_POSITION_01'
 ,p_plug_item_display_point=>'ABOVE'
-,p_menu_id=>wwv_flow_imp.id(4585222197427463713)
+,p_menu_id=>wwv_flow_imp.id(4595389124285265556)
 ,p_plug_source_type=>'NATIVE_BREADCRUMB'
 ,p_menu_template_id=>4075790987805660140
 ,p_created_on=>wwv_flow_imp.dz('20261013061013Z')
@@ -2686,7 +2715,7 @@ wwv_flow_imp_page.create_page(
 ,p_last_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(4585230519800463898)
+ p_id=>wwv_flow_imp.id(4595397446658265741)
 ,p_plug_name=>'Employee Self-Service Portal'
 ,p_static_id=>'employee-self-service-portal'
 ,p_region_template_options=>'#DEFAULT#'
@@ -2703,9 +2732,9 @@ wwv_flow_imp_page.create_page_plug(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_button(
- p_id=>wwv_flow_imp.id(4585232753484463937)
+ p_id=>wwv_flow_imp.id(4595399680342265780)
 ,p_button_sequence=>40
-,p_button_plug_id=>wwv_flow_imp.id(4585230519800463898)
+,p_button_plug_id=>wwv_flow_imp.id(4595397446658265741)
 ,p_button_name=>'LOGIN'
 ,p_static_id=>'login'
 ,p_show_as_disabled=>false
@@ -2722,10 +2751,10 @@ wwv_flow_imp_page.create_page_button(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4585231973768463936)
+ p_id=>wwv_flow_imp.id(4595398900626265779)
 ,p_name=>'P9999_PASSWORD'
 ,p_item_sequence=>20
-,p_item_plug_id=>wwv_flow_imp.id(4585230519800463898)
+,p_item_plug_id=>wwv_flow_imp.id(4595397446658265741)
 ,p_prompt=>'Password'
 ,p_placeholder=>'Password'
 ,p_source_type=>'ALWAYS_NULL'
@@ -2746,10 +2775,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4585232488820463937)
+ p_id=>wwv_flow_imp.id(4595399415678265780)
 ,p_name=>'P9999_REMEMBER'
 ,p_item_sequence=>30
-,p_item_plug_id=>wwv_flow_imp.id(4585230519800463898)
+,p_item_plug_id=>wwv_flow_imp.id(4595397446658265741)
 ,p_prompt=>'Remember username'
 ,p_source_type=>'ALWAYS_NULL'
 ,p_display_as=>'NATIVE_SINGLE_CHECKBOX'
@@ -2767,10 +2796,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4585231491873463935)
+ p_id=>wwv_flow_imp.id(4595398418731265778)
 ,p_name=>'P9999_USERNAME'
 ,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_imp.id(4585230519800463898)
+,p_item_plug_id=>wwv_flow_imp.id(4595397446658265741)
 ,p_prompt=>'Username'
 ,p_placeholder=>'Username'
 ,p_source_type=>'ALWAYS_NULL'
@@ -2794,7 +2823,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_process(
- p_id=>wwv_flow_imp.id(4585236985933463943)
+ p_id=>wwv_flow_imp.id(4595403912791265786)
 ,p_process_sequence=>30
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_SESSION_STATE'
@@ -2810,7 +2839,7 @@ wwv_flow_imp_page.create_page_process(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_process(
- p_id=>wwv_flow_imp.id(4585236559617463943)
+ p_id=>wwv_flow_imp.id(4595403486475265786)
 ,p_process_sequence=>10
 ,p_process_point=>'BEFORE_HEADER'
 ,p_process_type=>'NATIVE_PLSQL'
@@ -2827,7 +2856,7 @@ wwv_flow_imp_page.create_page_process(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_process(
- p_id=>wwv_flow_imp.id(4585233103995463938)
+ p_id=>wwv_flow_imp.id(4595400030853265781)
 ,p_process_sequence=>20
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_INVOKE_API'
@@ -2845,8 +2874,8 @@ wwv_flow_imp_page.create_page_process(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_invokeapi_comp_param(
- p_id=>wwv_flow_imp.id(4585234225928463940)
-,p_page_process_id=>wwv_flow_imp.id(4585233103995463938)
+ p_id=>wwv_flow_imp.id(4595401152786265783)
+,p_page_process_id=>wwv_flow_imp.id(4595400030853265781)
 ,p_page_id=>9999
 ,p_name=>'p_password'
 ,p_direction=>'IN'
@@ -2861,8 +2890,8 @@ wwv_flow_imp_shared.create_invokeapi_comp_param(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_invokeapi_comp_param(
- p_id=>wwv_flow_imp.id(4585234749090463941)
-,p_page_process_id=>wwv_flow_imp.id(4585233103995463938)
+ p_id=>wwv_flow_imp.id(4595401675948265784)
+,p_page_process_id=>wwv_flow_imp.id(4595400030853265781)
 ,p_page_id=>9999
 ,p_name=>'p_set_persistent_auth'
 ,p_direction=>'IN'
@@ -2876,8 +2905,8 @@ wwv_flow_imp_shared.create_invokeapi_comp_param(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_invokeapi_comp_param(
- p_id=>wwv_flow_imp.id(4585233686841463939)
-,p_page_process_id=>wwv_flow_imp.id(4585233103995463938)
+ p_id=>wwv_flow_imp.id(4595400613699265782)
+,p_page_process_id=>wwv_flow_imp.id(4595400030853265781)
 ,p_page_id=>9999
 ,p_name=>'p_username'
 ,p_direction=>'IN'
@@ -2892,7 +2921,7 @@ wwv_flow_imp_shared.create_invokeapi_comp_param(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_page.create_page_process(
- p_id=>wwv_flow_imp.id(4585235165232463941)
+ p_id=>wwv_flow_imp.id(4595402092090265784)
 ,p_process_sequence=>10
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_INVOKE_API'
@@ -2910,8 +2939,8 @@ wwv_flow_imp_page.create_page_process(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_invokeapi_comp_param(
- p_id=>wwv_flow_imp.id(4585236195849463942)
-,p_page_process_id=>wwv_flow_imp.id(4585235165232463941)
+ p_id=>wwv_flow_imp.id(4595403122707265785)
+,p_page_process_id=>wwv_flow_imp.id(4595402092090265784)
 ,p_page_id=>9999
 ,p_name=>'p_consent'
 ,p_direction=>'IN'
@@ -2926,8 +2955,8 @@ wwv_flow_imp_shared.create_invokeapi_comp_param(
 ,p_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
 wwv_flow_imp_shared.create_invokeapi_comp_param(
- p_id=>wwv_flow_imp.id(4585235659208463942)
-,p_page_process_id=>wwv_flow_imp.id(4585235165232463941)
+ p_id=>wwv_flow_imp.id(4595402586066265785)
+,p_page_process_id=>wwv_flow_imp.id(4595402092090265784)
 ,p_page_id=>9999
 ,p_name=>'p_username'
 ,p_direction=>'IN'
@@ -2948,10 +2977,10 @@ prompt --application/deployment/definition
 begin
 wwv_flow_imp.g_varchar2_table := wwv_flow_imp.empty_varchar2_table;
 wwv_flow_imp_shared.create_install(
- p_id=>wwv_flow_imp.id(4592381611947774032)
+ p_id=>wwv_flow_imp.id(4602548538805575875)
 ,p_deinstall_script_clob=>wwv_flow_imp.varchar2_to_clob(wwv_flow_imp.g_varchar2_table)
 ,p_created_on=>wwv_flow_imp.dz('20261013070148Z')
-,p_last_updated_on=>wwv_flow_imp.dz('20261013070241Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261027073218Z')
 ,p_created_by=>'ROOPESH.THOKALA@ORACLE.COM'
 ,p_last_updated_by=>'ROOPESH.THOKALA@ORACLE.COM'
 );
@@ -2960,725 +2989,801 @@ end;
 prompt --application/deployment/install/install_tms_ddl
 begin
 wwv_flow_imp.g_varchar2_table := wwv_flow_imp.empty_varchar2_table;
-wwv_flow_imp.g_varchar2_table(1) := '-- TMS supporting objects extracted from APEX_262_LL_Exp (schema APEX262_LL).'||wwv_flow.LF||
-'-- Run this script bef';
-wwv_flow_imp.g_varchar2_table(2) := 'ore TMS_SUPPORTING_OBJECTS_DML.sql.'||wwv_flow.LF||
-'-- Rerunning drops the 14 TMS tables and their dependent indexes';
-wwv_flow_imp.g_varchar2_table(3) := ' and triggers.'||wwv_flow.LF||
+wwv_flow_imp.g_varchar2_table(1) := '-- TMS supporting objects extracted from APEX_LL_262 (schema APEX262_LL).'||wwv_flow.LF||
+'-- Run this script before ';
+wwv_flow_imp.g_varchar2_table(2) := 'TMS_SUPPORTING_OBJECTS_DML.sql.'||wwv_flow.LF||
+'-- Rerunning drops the 14 TMS tables and their dependent indexes and';
+wwv_flow_imp.g_varchar2_table(3) := ' triggers.'||wwv_flow.LF||
 'SET DEFINE OFF'||wwv_flow.LF||
 'WHENEVER SQLERROR EXIT SQL.SQLCODE'||wwv_flow.LF||
 ''||wwv_flow.LF||
 'DECLARE'||wwv_flow.LF||
-'    PROCEDURE drop_table(p';
-wwv_flow_imp.g_varchar2_table(4) := '_table_name IN VARCHAR2) IS'||wwv_flow.LF||
+'    PROCEDURE drop_table(p_tab';
+wwv_flow_imp.g_varchar2_table(4) := 'le_name IN VARCHAR2) IS'||wwv_flow.LF||
 '    BEGIN'||wwv_flow.LF||
-'        EXECUTE IMMEDIATE ''DROP TABLE '' || p_table_name || '' C';
-wwv_flow_imp.g_varchar2_table(5) := 'ASCADE CONSTRAINTS'';'||wwv_flow.LF||
+'        EXECUTE IMMEDIATE ''DROP TABLE '' || p_table_name || '' CASCA';
+wwv_flow_imp.g_varchar2_table(5) := 'DE CONSTRAINTS'';'||wwv_flow.LF||
 '    EXCEPTION'||wwv_flow.LF||
 '        WHEN OTHERS THEN'||wwv_flow.LF||
 '            IF SQLCODE != -942 THEN'||wwv_flow.LF||
-'    ';
-wwv_flow_imp.g_varchar2_table(6) := '            RAISE;'||wwv_flow.LF||
+'        ';
+wwv_flow_imp.g_varchar2_table(6) := '        RAISE;'||wwv_flow.LF||
 '            END IF;'||wwv_flow.LF||
 '    END drop_table;'||wwv_flow.LF||
 'BEGIN'||wwv_flow.LF||
-'    drop_table(''TMS_INTERVIEW_STAGE';
-wwv_flow_imp.g_varchar2_table(7) := 'S'');'||wwv_flow.LF||
+'    drop_table(''TMS_INTERVIEW_STAGES'');';
+wwv_flow_imp.g_varchar2_table(7) := ''||wwv_flow.LF||
 '    drop_table(''TMS_OFFERS'');'||wwv_flow.LF||
 '    drop_table(''TMS_ONBOARDING_TASKS'');'||wwv_flow.LF||
-'    drop_table(''TMS_LEAVE';
-wwv_flow_imp.g_varchar2_table(8) := '_REQUESTS'');'||wwv_flow.LF||
+'    drop_table(''TMS_LEAVE_REQ';
+wwv_flow_imp.g_varchar2_table(8) := 'UESTS'');'||wwv_flow.LF||
 '    drop_table(''TMS_LEAVE_BALANCES'');'||wwv_flow.LF||
 '    drop_table(''TMS_EMPLOYEES'');'||wwv_flow.LF||
-'    drop_table(''';
-wwv_flow_imp.g_varchar2_table(9) := 'TMS_CANDIDATES'');'||wwv_flow.LF||
+'    drop_table(''TMS_';
+wwv_flow_imp.g_varchar2_table(9) := 'CANDIDATES'');'||wwv_flow.LF||
 '    drop_table(''TMS_JOB_REQUISITIONS'');'||wwv_flow.LF||
 '    drop_table(''TMS_JOBS'');'||wwv_flow.LF||
-'    drop_table';
-wwv_flow_imp.g_varchar2_table(10) := '(''TMS_DEPARTMENTS'');'||wwv_flow.LF||
+'    drop_table(''TM';
+wwv_flow_imp.g_varchar2_table(10) := 'S_DEPARTMENTS'');'||wwv_flow.LF||
 '    drop_table(''TMS_LEAVE_TYPES'');'||wwv_flow.LF||
 '    drop_table(''TMS_HR_POLICY'');'||wwv_flow.LF||
-'    drop_ta';
-wwv_flow_imp.g_varchar2_table(11) := 'ble(''TMS_AUDIT_LOG'');'||wwv_flow.LF||
+'    drop_table(';
+wwv_flow_imp.g_varchar2_table(11) := '''TMS_AUDIT_LOG'');'||wwv_flow.LF||
 '    drop_table(''TMS_CANDIDATE_PIPELINE'');'||wwv_flow.LF||
 'END;'||wwv_flow.LF||
 '/'||wwv_flow.LF||
 ''||wwv_flow.LF||
-'CREATE TABLE "TMS_AUDIT_LOG"';
-wwv_flow_imp.g_varchar2_table(12) := ''||wwv_flow.LF||
-'   (	"LOG_ID" NUMBER GENERATED BY DEFAULT ON NULL AS IDENTITY MINVALUE 1 MAXVALUE 99999999999999999';
-wwv_flow_imp.g_varchar2_table(13) := '99999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  NOT NULL ENABLE,';
-wwv_flow_imp.g_varchar2_table(14) := ''||wwv_flow.LF||
-'	"TABLE_NAME" VARCHAR2(255 BYTE) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"OPERATION" VARCHAR2(50 BYTE) NOT NULL ENABLE,'||wwv_flow.LF||
-'	';
-wwv_flow_imp.g_varchar2_table(15) := '"OLD_VALUES" CLOB,'||wwv_flow.LF||
-'	"NEW_VALUES" CLOB,'||wwv_flow.LF||
-'	"CHANGED_BY" VARCHAR2(255 BYTE) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"CHANGED_A';
-wwv_flow_imp.g_varchar2_table(16) := 'T" DATE NOT NULL ENABLE,'||wwv_flow.LF||
-'	"ROW_VERSION" NUMBER(*,0) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"CREATED_ON" DATE NOT NULL ENA';
-wwv_flow_imp.g_varchar2_table(17) := 'BLE,'||wwv_flow.LF||
-'	"CREATED_BY" VARCHAR2(255 BYTE) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"UPDATED_ON" DATE NOT NULL ENABLE,'||wwv_flow.LF||
-'	"UPDATED';
-wwv_flow_imp.g_varchar2_table(18) := '_BY" VARCHAR2(255 BYTE) NOT NULL ENABLE'||wwv_flow.LF||
-'   ) ;'||wwv_flow.LF||
-''||wwv_flow.LF||
-'CREATE TABLE "TMS_CANDIDATES"'||wwv_flow.LF||
-'   (	"CANDIDATE_ID" NU';
-wwv_flow_imp.g_varchar2_table(19) := 'MBER DEFAULT ON NULL to_number(sys_guid(), ''XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'') NOT NULL ENABLE,'||wwv_flow.LF||
-'	"RE';
-wwv_flow_imp.g_varchar2_table(20) := 'Q_ID" NUMBER,'||wwv_flow.LF||
-'	"FIRST_NAME" VARCHAR2(80 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"LAST_NAME" VARCHAR2(80 CHAR) NOT NU';
-wwv_flow_imp.g_varchar2_table(21) := 'LL ENABLE,'||wwv_flow.LF||
-'	"EMAIL" VARCHAR2(320 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"PHONE" VARCHAR2(50 CHAR),'||wwv_flow.LF||
-'	"RESUME_BLOB" B';
-wwv_flow_imp.g_varchar2_table(22) := 'LOB,'||wwv_flow.LF||
-'	"SOURCE" VARCHAR2(100 CHAR),'||wwv_flow.LF||
-'	"CURRENT_STAGE" VARCHAR2(30 CHAR),'||wwv_flow.LF||
-'	"APPLIED_DATE" DATE,'||wwv_flow.LF||
-'	"DIVER';
-wwv_flow_imp.g_varchar2_table(23) := 'SITY_FLAG" VARCHAR2(1 CHAR),'||wwv_flow.LF||
-'	"AI_SCORE" NUMBER,'||wwv_flow.LF||
-'	"CREATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
-'	"CREATED_BY" VARC';
-wwv_flow_imp.g_varchar2_table(24) := 'HAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"UPDATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
-'	"UPDATED_BY" VARCHAR2(255 CHAR) NO';
-wwv_flow_imp.g_varchar2_table(25) := 'T NULL ENABLE'||wwv_flow.LF||
-'   ) ;'||wwv_flow.LF||
-''||wwv_flow.LF||
-'CREATE TABLE "TMS_CANDIDATE_PIPELINE"'||wwv_flow.LF||
-'   (	"ID" NUMBER GENERATED BY DEFAULT ON';
-wwv_flow_imp.g_varchar2_table(26) := ' NULL AS IDENTITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE';
-wwv_flow_imp.g_varchar2_table(27) := ' 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  NOT NULL ENABLE,'||wwv_flow.LF||
-'	"CANDIDATE_NAME" VARCHAR2(100 BYTE),'||wwv_flow.LF||
-'	"FIRS';
-wwv_flow_imp.g_varchar2_table(28) := 'T_NAME" VARCHAR2(100 BYTE),'||wwv_flow.LF||
-'	"LAST_NAME" VARCHAR2(100 BYTE),'||wwv_flow.LF||
-'	"EMAIL" VARCHAR2(50 BYTE),'||wwv_flow.LF||
-'	"JOB_TITLE';
-wwv_flow_imp.g_varchar2_table(29) := '" VARCHAR2(100 BYTE),'||wwv_flow.LF||
-'	"DEPARTMENT" VARCHAR2(50 BYTE),'||wwv_flow.LF||
-'	"REQUISITION_STATUS" VARCHAR2(50 BYTE),'||wwv_flow.LF||
-'	"SO';
-wwv_flow_imp.g_varchar2_table(30) := 'URCE" VARCHAR2(50 BYTE),'||wwv_flow.LF||
-'	"CURRENT_STAGE" VARCHAR2(50 BYTE),'||wwv_flow.LF||
-'	"APPLIED_DATE" DATE,'||wwv_flow.LF||
-'	"SCREENING_DATE"';
-wwv_flow_imp.g_varchar2_table(31) := ' DATE,'||wwv_flow.LF||
-'	"INTERVIEW_DATE" DATE,'||wwv_flow.LF||
-'	"OFFER_DATE" DATE,'||wwv_flow.LF||
-'	"HIRED_DATE" DATE,'||wwv_flow.LF||
-'	"REJECTED_DATE" DATE,'||wwv_flow.LF||
-'	"DAYS';
-wwv_flow_imp.g_varchar2_table(32) := '_IN_PIPELINE" NUMBER,'||wwv_flow.LF||
-'	"AI_SCORE" NUMBER,'||wwv_flow.LF||
-'	"INTERVIEW_SCORE" NUMBER,'||wwv_flow.LF||
-'	"OFFER_STATUS" VARCHAR2(50 BYT';
-wwv_flow_imp.g_varchar2_table(33) := 'E),'||wwv_flow.LF||
-'	"OFFERED_SALARY" NUMBER,'||wwv_flow.LF||
-'	"START_DATE" DATE,'||wwv_flow.LF||
-'	"RECRUITER" VARCHAR2(50 BYTE),'||wwv_flow.LF||
-'	"HIRING_MANAGER" ';
-wwv_flow_imp.g_varchar2_table(34) := 'VARCHAR2(50 BYTE),'||wwv_flow.LF||
-'	"LOCATION" VARCHAR2(50 BYTE),'||wwv_flow.LF||
-'	"DIVERSITY_FLAG" BOOLEAN'||wwv_flow.LF||
-'   ) ;'||wwv_flow.LF||
-''||wwv_flow.LF||
-'CREATE TABLE "TM';
-wwv_flow_imp.g_varchar2_table(35) := 'S_DEPARTMENTS"'||wwv_flow.LF||
-'   (	"DEPT_ID" NUMBER DEFAULT ON NULL to_number(sys_guid(), ''XXXXXXXXXXXXXXXXXXXXXXXX';
-wwv_flow_imp.g_varchar2_table(36) := 'XXXXXXXX'') NOT NULL ENABLE,'||wwv_flow.LF||
-'	"NAME" VARCHAR2(100 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"MANAGER_ID" NUMBER,'||wwv_flow.LF||
-'	"LOCA';
-wwv_flow_imp.g_varchar2_table(37) := 'TION" VARCHAR2(150 CHAR),'||wwv_flow.LF||
-'	"COLOR" VARCHAR2(30 CHAR),'||wwv_flow.LF||
-'	"CREATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
-'	"CREATED_BY"';
-wwv_flow_imp.g_varchar2_table(38) := ' VARCHAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"UPDATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
-'	"UPDATED_BY" VARCHAR2(255 CHA';
-wwv_flow_imp.g_varchar2_table(39) := 'R) NOT NULL ENABLE'||wwv_flow.LF||
-'   ) ;'||wwv_flow.LF||
-''||wwv_flow.LF||
-'CREATE TABLE "TMS_EMPLOYEES"'||wwv_flow.LF||
-'   (	"EMPLOYEE_ID" NUMBER DEFAULT ON NULL to';
-wwv_flow_imp.g_varchar2_table(40) := '_number(sys_guid(), ''XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'') NOT NULL ENABLE,'||wwv_flow.LF||
-'	"CANDIDATE_ID" NUMBER,'||wwv_flow.LF||
-'	"J';
-wwv_flow_imp.g_varchar2_table(41) := 'OB_ID" NUMBER,'||wwv_flow.LF||
-'	"DEPT_ID" NUMBER,'||wwv_flow.LF||
-'	"FIRST_NAME" VARCHAR2(80 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"LAST_NAME" VARC';
-wwv_flow_imp.g_varchar2_table(42) := 'HAR2(80 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"EMAIL" VARCHAR2(320 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"MANAGER_ID" NUMBER,'||wwv_flow.LF||
-'	"';
-wwv_flow_imp.g_varchar2_table(43) := 'SALARY" NUMBER,'||wwv_flow.LF||
-'	"HIRE_DATE" DATE,'||wwv_flow.LF||
-'	"STATUS" VARCHAR2(30 CHAR),'||wwv_flow.LF||
-'	"PHOTO_BLOB" BLOB,'||wwv_flow.LF||
-'	"CREATED" DATE ';
-wwv_flow_imp.g_varchar2_table(44) := 'NOT NULL ENABLE,'||wwv_flow.LF||
-'	"CREATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"UPDATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
+'  CREATE TABLE "TMS_AUDIT_LOG" '||wwv_flow.LF||
 '';
-wwv_flow_imp.g_varchar2_table(45) := '	"UPDATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
+wwv_flow_imp.g_varchar2_table(12) := '   (	"ID" NUMBER GENERATED BY DEFAULT ON NULL AS IDENTITY MINVALUE 1 MAXVALUE 9999999999999999999999';
+wwv_flow_imp.g_varchar2_table(13) := '999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  NOT NULL ENABLE, '||wwv_flow.LF||
+'	"T';
+wwv_flow_imp.g_varchar2_table(14) := 'ABLE_NAME" VARCHAR2(255) NOT NULL ENABLE, '||wwv_flow.LF||
+'	"OPERATION" VARCHAR2(255) NOT NULL ENABLE, '||wwv_flow.LF||
+'	"OLD_VALUES';
+wwv_flow_imp.g_varchar2_table(15) := '" CLOB, '||wwv_flow.LF||
+'	"NEW_VALUES" CLOB, '||wwv_flow.LF||
+'	"CHANGED_BY" VARCHAR2(255) NOT NULL ENABLE, '||wwv_flow.LF||
+'	"CHANGED_AT" DATE NOT N';
+wwv_flow_imp.g_varchar2_table(16) := 'ULL ENABLE, '||wwv_flow.LF||
+'	"ROW_VERSION" NUMBER(*,0) NOT NULL ENABLE, '||wwv_flow.LF||
+'	"CREATED_ON" DATE NOT NULL ENABLE, '||wwv_flow.LF||
+'	"CRE';
+wwv_flow_imp.g_varchar2_table(17) := 'ATED_BY" VARCHAR2(255) NOT NULL ENABLE, '||wwv_flow.LF||
+'	"UPDATED_ON" DATE NOT NULL ENABLE, '||wwv_flow.LF||
+'	"UPDATED_BY" VARCHAR2';
+wwv_flow_imp.g_varchar2_table(18) := '(255) NOT NULL ENABLE'||wwv_flow.LF||
 '   ) ;'||wwv_flow.LF||
-''||wwv_flow.LF||
-'CREATE TABLE "TMS_HR_POLICY"'||wwv_flow.LF||
-'   (	"POLICY_I';
-wwv_flow_imp.g_varchar2_table(46) := 'D" NUMBER DEFAULT ON NULL to_number(sys_guid(), ''XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'') NOT NULL ENABLE,';
-wwv_flow_imp.g_varchar2_table(47) := ''||wwv_flow.LF||
-'	"CATEGORY" VARCHAR2(100 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"TITLE" VARCHAR2(200 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"CONT';
-wwv_flow_imp.g_varchar2_table(48) := 'ENT" CLOB,'||wwv_flow.LF||
-'	"CREATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
-'	"CREATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"UPDA';
-wwv_flow_imp.g_varchar2_table(49) := 'TED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
-'	"UPDATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"EMBEDDING_VECTOR" VEC';
-wwv_flow_imp.g_varchar2_table(50) := 'TOR'||wwv_flow.LF||
-'   ) ;'||wwv_flow.LF||
-''||wwv_flow.LF||
-'CREATE TABLE "TMS_INTERVIEW_STAGES"'||wwv_flow.LF||
-'   (	"STAGE_ID" NUMBER DEFAULT ON NULL to_number(sys';
-wwv_flow_imp.g_varchar2_table(51) := '_guid(), ''XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'') NOT NULL ENABLE,'||wwv_flow.LF||
-'	"CANDIDATE_ID" NUMBER,'||wwv_flow.LF||
-'	"REQ_ID" NUMB';
-wwv_flow_imp.g_varchar2_table(52) := 'ER,'||wwv_flow.LF||
-'	"STAGE_NAME" VARCHAR2(60 CHAR),'||wwv_flow.LF||
-'	"INTERVIEWER_ID" NUMBER,'||wwv_flow.LF||
-'	"SCHEDULED_DATE" TIMESTAMP (6),'||wwv_flow.LF||
-'	"OU';
-wwv_flow_imp.g_varchar2_table(53) := 'TCOME" VARCHAR2(30 CHAR),'||wwv_flow.LF||
-'	"FEEDBACK_NOTES" CLOB,'||wwv_flow.LF||
-'	"SCORE" NUMBER,'||wwv_flow.LF||
-'	"CREATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
-'';
-wwv_flow_imp.g_varchar2_table(54) := '	"CREATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"UPDATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
-'	"UPDATED_BY" VAR';
-wwv_flow_imp.g_varchar2_table(55) := 'CHAR2(255 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
-'   ) ;'||wwv_flow.LF||
-''||wwv_flow.LF||
-'CREATE TABLE "TMS_JOBS"'||wwv_flow.LF||
-'   (	"JOB_ID" NUMBER DEFAULT ON NULL';
-wwv_flow_imp.g_varchar2_table(56) := ' to_number(sys_guid(), ''XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'') NOT NULL ENABLE,'||wwv_flow.LF||
-'	"DEPT_ID" NUMBER,'||wwv_flow.LF||
-'	"TIT';
-wwv_flow_imp.g_varchar2_table(57) := 'LE" VARCHAR2(150 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"MIN_SALARY" NUMBER,'||wwv_flow.LF||
-'	"MAX_SALARY" NUMBER,'||wwv_flow.LF||
-'	"CREATED" DATE ';
-wwv_flow_imp.g_varchar2_table(58) := 'NOT NULL ENABLE,'||wwv_flow.LF||
-'	"CREATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"UPDATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
-'';
-wwv_flow_imp.g_varchar2_table(59) := '	"UPDATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
-'   ) ;'||wwv_flow.LF||
-''||wwv_flow.LF||
-'CREATE TABLE "TMS_JOB_REQUISITIONS"'||wwv_flow.LF||
-'   (	"R';
-wwv_flow_imp.g_varchar2_table(60) := 'EQ_ID" NUMBER DEFAULT ON NULL to_number(sys_guid(), ''XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'') NOT NULL ENA';
-wwv_flow_imp.g_varchar2_table(61) := 'BLE,'||wwv_flow.LF||
-'	"JOB_ID" NUMBER,'||wwv_flow.LF||
-'	"DEPT_ID" NUMBER,'||wwv_flow.LF||
-'	"REQUESTED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"APPR';
-wwv_flow_imp.g_varchar2_table(62) := 'OVED_BY" VARCHAR2(255 CHAR),'||wwv_flow.LF||
-'	"HEADCOUNT" NUMBER,'||wwv_flow.LF||
-'	"STATUS" VARCHAR2(30 CHAR),'||wwv_flow.LF||
-'	"OPEN_DATE" DATE,'||wwv_flow.LF||
-'	"';
-wwv_flow_imp.g_varchar2_table(63) := 'CLOSE_DATE" DATE,'||wwv_flow.LF||
-'	"CREATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
-'	"CREATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE,';
-wwv_flow_imp.g_varchar2_table(64) := ''||wwv_flow.LF||
-'	"UPDATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
-'	"UPDATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
-'   ) ;'||wwv_flow.LF||
-''||wwv_flow.LF||
-'CREATE TA';
-wwv_flow_imp.g_varchar2_table(65) := 'BLE "TMS_LEAVE_BALANCES"'||wwv_flow.LF||
-'   (	"BALANCE_ID" NUMBER DEFAULT ON NULL to_number(sys_guid(), ''XXXXXXXXXXX';
-wwv_flow_imp.g_varchar2_table(66) := 'XXXXXXXXXXXXXXXXXXXXX'') NOT NULL ENABLE,'||wwv_flow.LF||
-'	"EMPLOYEE_ID" NUMBER,'||wwv_flow.LF||
-'	"LEAVE_TYPE_ID" NUMBER,'||wwv_flow.LF||
-'	"YEAR" NUM';
-wwv_flow_imp.g_varchar2_table(67) := 'BER,'||wwv_flow.LF||
-'	"ACCRUED" NUMBER,'||wwv_flow.LF||
-'	"USED" NUMBER,'||wwv_flow.LF||
-'	"REMAINING" NUMBER,'||wwv_flow.LF||
-'	"CREATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
-'	"CREA';
-wwv_flow_imp.g_varchar2_table(68) := 'TED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"UPDATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
-'	"UPDATED_BY" VARCHAR2(';
-wwv_flow_imp.g_varchar2_table(69) := '255 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
-'   ) ;'||wwv_flow.LF||
-''||wwv_flow.LF||
-'CREATE TABLE "TMS_LEAVE_REQUESTS"'||wwv_flow.LF||
-'   (	"REQUEST_ID" NUMBER DEFAULT';
-wwv_flow_imp.g_varchar2_table(70) := ' ON NULL to_number(sys_guid(), ''XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'') NOT NULL ENABLE,'||wwv_flow.LF||
-'	"EMPLOYEE_ID" N';
-wwv_flow_imp.g_varchar2_table(71) := 'UMBER,'||wwv_flow.LF||
-'	"LEAVE_TYPE_ID" NUMBER,'||wwv_flow.LF||
-'	"START_DATE" DATE,'||wwv_flow.LF||
-'	"END_DATE" DATE,'||wwv_flow.LF||
-'	"DAYS_REQUESTED" NUMBER,'||wwv_flow.LF||
-'	"RE';
-wwv_flow_imp.g_varchar2_table(72) := 'ASON" CLOB,'||wwv_flow.LF||
-'	"STATUS" VARCHAR2(30 CHAR),'||wwv_flow.LF||
-'	"APPROVER_ID" NUMBER,'||wwv_flow.LF||
-'	"CREATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
-'	"C';
-wwv_flow_imp.g_varchar2_table(73) := 'REATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"UPDATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
-'	"UPDATED_BY" VARCHA';
-wwv_flow_imp.g_varchar2_table(74) := 'R2(255 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
-'   ) ;'||wwv_flow.LF||
-''||wwv_flow.LF||
-'CREATE TABLE "TMS_LEAVE_TYPES"'||wwv_flow.LF||
-'   (	"LEAVE_TYPE_ID" NUMBER DEFA';
-wwv_flow_imp.g_varchar2_table(75) := 'ULT ON NULL to_number(sys_guid(), ''XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'') NOT NULL ENABLE,'||wwv_flow.LF||
-'	"NAME" VARCH';
-wwv_flow_imp.g_varchar2_table(76) := 'AR2(100 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"MAX_DAYS_PER_YEAR" NUMBER,'||wwv_flow.LF||
-'	"CREATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
-'	"CREAT';
-wwv_flow_imp.g_varchar2_table(77) := 'ED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"UPDATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
-'	"UPDATED_BY" VARCHAR2(2';
-wwv_flow_imp.g_varchar2_table(78) := '55 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
-'   ) ;'||wwv_flow.LF||
-''||wwv_flow.LF||
-'CREATE TABLE "TMS_OFFERS"'||wwv_flow.LF||
-'   (	"OFFER_ID" NUMBER DEFAULT ON NULL to';
-wwv_flow_imp.g_varchar2_table(79) := '_number(sys_guid(), ''XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'') NOT NULL ENABLE,'||wwv_flow.LF||
-'	"CANDIDATE_ID" NUMBER,'||wwv_flow.LF||
-'	"R';
-wwv_flow_imp.g_varchar2_table(80) := 'EQ_ID" NUMBER,'||wwv_flow.LF||
-'	"OFFERED_SALARY" NUMBER,'||wwv_flow.LF||
-'	"START_DATE" DATE,'||wwv_flow.LF||
-'	"EXPIRY_DATE" DATE,'||wwv_flow.LF||
-'	"STATUS" VARCHAR2';
-wwv_flow_imp.g_varchar2_table(81) := '(30 CHAR),'||wwv_flow.LF||
-'	"OFFER_LETTER_BLOB" BLOB,'||wwv_flow.LF||
-'	"APPROVED_BY" VARCHAR2(255 CHAR),'||wwv_flow.LF||
-'	"CREATED" DATE NOT NULL EN';
-wwv_flow_imp.g_varchar2_table(82) := 'ABLE,'||wwv_flow.LF||
-'	"CREATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"UPDATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
-'	"UPDATED_B';
-wwv_flow_imp.g_varchar2_table(83) := 'Y" VARCHAR2(255 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
-'   ) ;'||wwv_flow.LF||
-''||wwv_flow.LF||
-'CREATE TABLE "TMS_ONBOARDING_TASKS"'||wwv_flow.LF||
-'   (	"TASK_ID" NUM';
-wwv_flow_imp.g_varchar2_table(84) := 'BER DEFAULT ON NULL to_number(sys_guid(), ''XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'') NOT NULL ENABLE,'||wwv_flow.LF||
-'	"EMP';
-wwv_flow_imp.g_varchar2_table(85) := 'LOYEE_ID" NUMBER,'||wwv_flow.LF||
-'	"TASK_NAME" VARCHAR2(200 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"ASSIGNED_TO" VARCHAR2(255 CHAR)';
-wwv_flow_imp.g_varchar2_table(86) := ','||wwv_flow.LF||
-'	"CATEGORY" VARCHAR2(80 CHAR),'||wwv_flow.LF||
-'	"DUE_DATE" DATE,'||wwv_flow.LF||
-'	"STATUS" VARCHAR2(30 CHAR),'||wwv_flow.LF||
-'	"COMPLETED_DATE" DA';
-wwv_flow_imp.g_varchar2_table(87) := 'TE,'||wwv_flow.LF||
-'	"CREATED" DATE NOT NULL ENABLE,'||wwv_flow.LF||
-'	"CREATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE,'||wwv_flow.LF||
-'	"UPDATED" DA';
-wwv_flow_imp.g_varchar2_table(88) := 'TE NOT NULL ENABLE,'||wwv_flow.LF||
-'	"UPDATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
-'   ) ;'||wwv_flow.LF||
-''||wwv_flow.LF||
-'ALTER TABLE "TMS_AUDIT_';
-wwv_flow_imp.g_varchar2_table(89) := 'LOG" ADD CONSTRAINT "TMS_AUDIT_LOG_PK" PRIMARY KEY ("LOG_ID")'||wwv_flow.LF||
+'ALTER TABLE "TMS_AUDIT_LOG" ADD CONSTRAINT "TMS_AUDIT_LOG_OP_CK" CHECK ';
+wwv_flow_imp.g_varchar2_table(19) := '(operation in (''INSERT'',''UPDATE'',''DELETE'')) ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_AUDIT_LOG" ADD CONSTRAINT "TMS_';
+wwv_flow_imp.g_varchar2_table(20) := 'AUDIT_LOG_PK" PRIMARY KEY ("ID")'||wwv_flow.LF||
 '  USING INDEX  ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TM';
-wwv_flow_imp.g_varchar2_table(90) := 'S_CANDIDATES" ADD CONSTRAINT "TMS_CANDIDATES_CANDIDATE_ID_PK" PRIMARY KEY ("CANDIDATE_ID")'||wwv_flow.LF||
-'  USING I';
-wwv_flow_imp.g_varchar2_table(91) := 'NDEX  ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_CANDIDATE_PIPELINE" ADD PRIMARY KEY ("ID")'||wwv_flow.LF||
-'  USING INDEX  ENABLE;'||wwv_flow.LF||
-'ALT';
-wwv_flow_imp.g_varchar2_table(92) := 'ER TABLE "TMS_DEPARTMENTS" ADD CONSTRAINT "TMS_DEPARTMENTS_DEPT_ID_PK" PRIMARY KEY ("DEPT_ID")'||wwv_flow.LF||
-'  USI';
-wwv_flow_imp.g_varchar2_table(93) := 'NG INDEX  ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_EMPLOYEES" ADD CONSTRAINT "TMS_EMPLOYEES_EMPLOYEE_ID_PK" PRIMARY ';
-wwv_flow_imp.g_varchar2_table(94) := 'KEY ("EMPLOYEE_ID")'||wwv_flow.LF||
-'  USING INDEX  ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_HR_POLICY" ADD CONSTRAINT "TMS_HR_POLICY';
-wwv_flow_imp.g_varchar2_table(95) := '_POLICY_ID_PK" PRIMARY KEY ("POLICY_ID")'||wwv_flow.LF||
-'  USING INDEX  ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_INTERVIEW_STAGES" A';
-wwv_flow_imp.g_varchar2_table(96) := 'DD CONSTRAINT "TMS_INTERVIEW_STAGES_STAGE_ID_PK" PRIMARY KEY ("STAGE_ID")'||wwv_flow.LF||
-'  USING INDEX  ENABLE;'||wwv_flow.LF||
-'ALT';
-wwv_flow_imp.g_varchar2_table(97) := 'ER TABLE "TMS_JOBS" ADD CONSTRAINT "TMS_JOBS_JOB_ID_PK" PRIMARY KEY ("JOB_ID")'||wwv_flow.LF||
-'  USING INDEX  ENABLE';
-wwv_flow_imp.g_varchar2_table(98) := ';'||wwv_flow.LF||
-'ALTER TABLE "TMS_JOB_REQUISITIONS" ADD CONSTRAINT "TMS_JOB_REQUISITIONS_REQ_ID_PK" PRIMARY KEY ("R';
-wwv_flow_imp.g_varchar2_table(99) := 'EQ_ID")'||wwv_flow.LF||
-'  USING INDEX  ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_LEAVE_BALANCES" ADD CONSTRAINT "TMS_LEAVE_BALANCES_B';
-wwv_flow_imp.g_varchar2_table(100) := 'ALANCE_ID_PK" PRIMARY KEY ("BALANCE_ID")'||wwv_flow.LF||
-'  USING INDEX  ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_LEAVE_REQUESTS" ADD';
-wwv_flow_imp.g_varchar2_table(101) := ' CONSTRAINT "TMS_LEAVE_REQUESTS_REQUEST_ID_PK" PRIMARY KEY ("REQUEST_ID")'||wwv_flow.LF||
-'  USING INDEX  ENABLE;'||wwv_flow.LF||
-'ALT';
-wwv_flow_imp.g_varchar2_table(102) := 'ER TABLE "TMS_LEAVE_TYPES" ADD CONSTRAINT "TMS_LEAVE_TYPES_LEAVE_TYPE_ID_PK" PRIMARY KEY ("LEAVE_TYP';
-wwv_flow_imp.g_varchar2_table(103) := 'E_ID")'||wwv_flow.LF||
-'  USING INDEX  ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_OFFERS" ADD CONSTRAINT "TMS_OFFERS_OFFER_ID_PK" PRIMA';
-wwv_flow_imp.g_varchar2_table(104) := 'RY KEY ("OFFER_ID")'||wwv_flow.LF||
-'  USING INDEX  ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_ONBOARDING_TASKS" ADD CONSTRAINT "TMS_ON';
-wwv_flow_imp.g_varchar2_table(105) := 'BOARDING_TASKS_TASK_ID_PK" PRIMARY KEY ("TASK_ID")'||wwv_flow.LF||
-'  USING INDEX  ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_AUDIT_LOG';
-wwv_flow_imp.g_varchar2_table(106) := '" ADD CONSTRAINT "TMS_AUDIT_LOG_OP_CK" CHECK (operation in (''INSERT'', ''UPDATE'', ''DELETE'')) ENABLE;'||wwv_flow.LF||
-'A';
-wwv_flow_imp.g_varchar2_table(107) := 'LTER TABLE "TMS_CANDIDATES" ADD CONSTRAINT "TMS_CANDIDATES_CURRENT_STAGE_CK" CHECK (current_stage in';
-wwv_flow_imp.g_varchar2_table(108) := ' (''Applied'',''Screening'',''Interview'',''Offer'',''Hired'',''Rejected'')) ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_CANDIDATES';
-wwv_flow_imp.g_varchar2_table(109) := '" ADD CONSTRAINT "TMS_CANDIDATES_DIVERSITY_FLAG_CK" CHECK (diversity_flag in (''Y'',''N'')) ENABLE;'||wwv_flow.LF||
-'ALTE';
-wwv_flow_imp.g_varchar2_table(110) := 'R TABLE "TMS_EMPLOYEES" ADD CONSTRAINT "TMS_EMPLOYEES_STATUS_CK" CHECK (status in (''Onboarding'',''Act';
-wwv_flow_imp.g_varchar2_table(111) := 'ive'',''Inactive'',''Terminated'')) ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_INTERVIEW_STAGES" ADD CONSTRAINT "TMS_INTERV';
-wwv_flow_imp.g_varchar2_table(112) := 'IEW_STAGES_STAGE_NAME_CK" CHECK (stage_name in (''Screening'',''Phone Screen'',''Technical Interview'',''Ma';
-wwv_flow_imp.g_varchar2_table(113) := 'nager Interview'',''HR Interview'',''Offer Review'',''Final'')) ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_INTERVIEW_STAGES" ';
-wwv_flow_imp.g_varchar2_table(114) := 'ADD CONSTRAINT "TMS_INTERVIEW_STAGES_OUTCOME_CK" CHECK (outcome in (''Scheduled'',''Proceed'',''Hold'',''Re';
-wwv_flow_imp.g_varchar2_table(115) := 'jected'',''No Show'',''Completed'',''Cancelled'')) ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_JOB_REQUISITIONS" ADD CONSTRAIN';
-wwv_flow_imp.g_varchar2_table(116) := 'T "TMS_JOB_REQUISITIONS_STATUS_CK" CHECK (status in (''Draft'',''Pending Approval'',''Open'',''Filled'',''Can';
-wwv_flow_imp.g_varchar2_table(117) := 'celled'',''Closed'')) ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_LEAVE_REQUESTS" ADD CONSTRAINT "TMS_LEAVE_REQUESTS_STATU';
-wwv_flow_imp.g_varchar2_table(118) := 'S_CK" CHECK (status in (''Draft'',''Submitted'',''Approved'',''Rejected'',''Cancelled'')) ENABLE;'||wwv_flow.LF||
-'ALTER TABLE ';
-wwv_flow_imp.g_varchar2_table(119) := '"TMS_OFFERS" ADD CONSTRAINT "TMS_OFFERS_STATUS_CK" CHECK (status in (''Draft'',''Pending Approval'',''Sen';
-wwv_flow_imp.g_varchar2_table(120) := 't'',''Accepted'',''Rejected'',''Expired'',''Withdrawn'')) ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_ONBOARDING_TASKS" ADD CONS';
-wwv_flow_imp.g_varchar2_table(121) := 'TRAINT "TMS_ONBOARDING_TASKS_STATUS_CK" CHECK (status in (''Not Started'',''In Progress'',''Completed'',''B';
-wwv_flow_imp.g_varchar2_table(122) := 'locked'',''Cancelled'',''Overdue'')) ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_CANDIDATES" ADD CONSTRAINT "TMS_CANDIDATES_';
-wwv_flow_imp.g_varchar2_table(123) := 'REQ_ID_FK" FOREIGN KEY ("REQ_ID")'||wwv_flow.LF||
-'	  REFERENCES "TMS_JOB_REQUISITIONS" ("REQ_ID") ENABLE;'||wwv_flow.LF||
-'ALTER TABL';
-wwv_flow_imp.g_varchar2_table(124) := 'E "TMS_EMPLOYEES" ADD CONSTRAINT "TMS_EMPLOYEES_CANDIDATE_ID_FK" FOREIGN KEY ("CANDIDATE_ID")'||wwv_flow.LF||
-'	  REF';
-wwv_flow_imp.g_varchar2_table(125) := 'ERENCES "TMS_CANDIDATES" ("CANDIDATE_ID") ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_EMPLOYEES" ADD CONSTRAINT "TMS_EM';
-wwv_flow_imp.g_varchar2_table(126) := 'PLOYEES_JOB_ID_FK" FOREIGN KEY ("JOB_ID")'||wwv_flow.LF||
-'	  REFERENCES "TMS_JOBS" ("JOB_ID") ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "T';
-wwv_flow_imp.g_varchar2_table(127) := 'MS_EMPLOYEES" ADD CONSTRAINT "TMS_EMPLOYEES_DEPT_ID_FK" FOREIGN KEY ("DEPT_ID")'||wwv_flow.LF||
-'	  REFERENCES "TMS_D';
-wwv_flow_imp.g_varchar2_table(128) := 'EPARTMENTS" ("DEPT_ID") ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_INTERVIEW_STAGES" ADD CONSTRAINT "TMS_INTERVIEW_STA';
-wwv_flow_imp.g_varchar2_table(129) := 'GES_CANDIDATE_ID_FK" FOREIGN KEY ("CANDIDATE_ID")'||wwv_flow.LF||
-'	  REFERENCES "TMS_CANDIDATES" ("CANDIDATE_ID") EN';
-wwv_flow_imp.g_varchar2_table(130) := 'ABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_INTERVIEW_STAGES" ADD CONSTRAINT "TMS_INTERVIEW_STAGES_REQ_ID_FK" FOREIGN KEY';
-wwv_flow_imp.g_varchar2_table(131) := ' ("REQ_ID")'||wwv_flow.LF||
-'	  REFERENCES "TMS_JOB_REQUISITIONS" ("REQ_ID") ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_JOBS" ADD CONST';
-wwv_flow_imp.g_varchar2_table(132) := 'RAINT "TMS_JOBS_DEPT_ID_FK" FOREIGN KEY ("DEPT_ID")'||wwv_flow.LF||
-'	  REFERENCES "TMS_DEPARTMENTS" ("DEPT_ID") ENAB';
-wwv_flow_imp.g_varchar2_table(133) := 'LE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_JOB_REQUISITIONS" ADD CONSTRAINT "TMS_JOB_REQUISITIONS_JOB_ID_FK" FOREIGN KEY (';
-wwv_flow_imp.g_varchar2_table(134) := '"JOB_ID")'||wwv_flow.LF||
-'	  REFERENCES "TMS_JOBS" ("JOB_ID") ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_JOB_REQUISITIONS" ADD CONSTRA';
-wwv_flow_imp.g_varchar2_table(135) := 'INT "TMS_JOB_REQUISITIONS_DEPT_ID_FK" FOREIGN KEY ("DEPT_ID")'||wwv_flow.LF||
-'	  REFERENCES "TMS_DEPARTMENTS" ("DEPT';
-wwv_flow_imp.g_varchar2_table(136) := '_ID") ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_LEAVE_BALANCES" ADD CONSTRAINT "TMS_LEAVE_BALANCES_EMPLOYEE_ID_FK" FO';
-wwv_flow_imp.g_varchar2_table(137) := 'REIGN KEY ("EMPLOYEE_ID")'||wwv_flow.LF||
-'	  REFERENCES "TMS_EMPLOYEES" ("EMPLOYEE_ID") ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_LEA';
-wwv_flow_imp.g_varchar2_table(138) := 'VE_BALANCES" ADD CONSTRAINT "TMS_LEAVE_BALANCES_LEAVE_TYPE_ID_FK" FOREIGN KEY ("LEAVE_TYPE_ID")'||wwv_flow.LF||
-'	  R';
-wwv_flow_imp.g_varchar2_table(139) := 'EFERENCES "TMS_LEAVE_TYPES" ("LEAVE_TYPE_ID") ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_LEAVE_REQUESTS" ADD CONSTRAIN';
-wwv_flow_imp.g_varchar2_table(140) := 'T "TMS_LEAVE_REQUESTS_EMPLOYEE_ID_FK" FOREIGN KEY ("EMPLOYEE_ID")'||wwv_flow.LF||
-'	  REFERENCES "TMS_EMPLOYEES" ("EM';
-wwv_flow_imp.g_varchar2_table(141) := 'PLOYEE_ID") ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_LEAVE_REQUESTS" ADD CONSTRAINT "TMS_LEAVE_REQUESTS_LEAVE_TYPE_I';
-wwv_flow_imp.g_varchar2_table(142) := 'D_FK" FOREIGN KEY ("LEAVE_TYPE_ID")'||wwv_flow.LF||
-'	  REFERENCES "TMS_LEAVE_TYPES" ("LEAVE_TYPE_ID") ENABLE;'||wwv_flow.LF||
-'ALTER ';
-wwv_flow_imp.g_varchar2_table(143) := 'TABLE "TMS_OFFERS" ADD CONSTRAINT "TMS_OFFERS_CANDIDATE_ID_FK" FOREIGN KEY ("CANDIDATE_ID")'||wwv_flow.LF||
-'	  REFER';
-wwv_flow_imp.g_varchar2_table(144) := 'ENCES "TMS_CANDIDATES" ("CANDIDATE_ID") ENABLE;'||wwv_flow.LF||
-'ALTER TABLE "TMS_OFFERS" ADD CONSTRAINT "TMS_OFFERS_';
-wwv_flow_imp.g_varchar2_table(145) := 'REQ_ID_FK" FOREIGN KEY ("REQ_ID")'||wwv_flow.LF||
-'	  REFERENCES "TMS_JOB_REQUISITIONS" ("REQ_ID") ENABLE;'||wwv_flow.LF||
-'ALTER TABL';
-wwv_flow_imp.g_varchar2_table(146) := 'E "TMS_ONBOARDING_TASKS" ADD CONSTRAINT "TMS_ONBOARDING_TASKS_EMPLOYEE_ID_FK" FOREIGN KEY ("EMPLOYEE';
-wwv_flow_imp.g_varchar2_table(147) := '_ID")'||wwv_flow.LF||
-'	  REFERENCES "TMS_EMPLOYEES" ("EMPLOYEE_ID") ENABLE;'||wwv_flow.LF||
 ''||wwv_flow.LF||
-'CREATE INDEX "TMS_CANDIDATES_I1" ON "TM';
-wwv_flow_imp.g_varchar2_table(148) := 'S_CANDIDATES" ("REQ_ID");'||wwv_flow.LF||
-'CREATE INDEX "TMS_EMPLOYEES_I1" ON "TMS_EMPLOYEES" ("CANDIDATE_ID");'||wwv_flow.LF||
-'CREAT';
-wwv_flow_imp.g_varchar2_table(149) := 'E INDEX "TMS_EMPLOYEES_I2" ON "TMS_EMPLOYEES" ("JOB_ID");'||wwv_flow.LF||
-'CREATE INDEX "TMS_EMPLOYEES_I3" ON "TMS_EM';
-wwv_flow_imp.g_varchar2_table(150) := 'PLOYEES" ("DEPT_ID");'||wwv_flow.LF||
-'CREATE INDEX "TMS_INTERVIEW_STAGES_I1" ON "TMS_INTERVIEW_STAGES" ("CANDIDATE_I';
-wwv_flow_imp.g_varchar2_table(151) := 'D");'||wwv_flow.LF||
-'CREATE INDEX "TMS_INTERVIEW_STAGES_I2" ON "TMS_INTERVIEW_STAGES" ("REQ_ID");'||wwv_flow.LF||
-'CREATE INDEX "TMS_';
-wwv_flow_imp.g_varchar2_table(152) := 'JOBS_I1" ON "TMS_JOBS" ("DEPT_ID");'||wwv_flow.LF||
-'CREATE INDEX "TMS_JOB_REQUISITIONS_I1" ON "TMS_JOB_REQUISITIONS"';
-wwv_flow_imp.g_varchar2_table(153) := ' ("JOB_ID");'||wwv_flow.LF||
-'CREATE INDEX "TMS_JOB_REQUISITIONS_I2" ON "TMS_JOB_REQUISITIONS" ("DEPT_ID");'||wwv_flow.LF||
-'CREATE IN';
-wwv_flow_imp.g_varchar2_table(154) := 'DEX "TMS_LEAVE_BALANCES_I1" ON "TMS_LEAVE_BALANCES" ("EMPLOYEE_ID");'||wwv_flow.LF||
-'CREATE INDEX "TMS_LEAVE_BALANCE';
-wwv_flow_imp.g_varchar2_table(155) := 'S_I2" ON "TMS_LEAVE_BALANCES" ("LEAVE_TYPE_ID");'||wwv_flow.LF||
-'CREATE INDEX "TMS_LEAVE_REQUESTS_I1" ON "TMS_LEAVE_';
-wwv_flow_imp.g_varchar2_table(156) := 'REQUESTS" ("EMPLOYEE_ID");'||wwv_flow.LF||
-'CREATE INDEX "TMS_LEAVE_REQUESTS_I2" ON "TMS_LEAVE_REQUESTS" ("LEAVE_TYPE';
-wwv_flow_imp.g_varchar2_table(157) := '_ID");'||wwv_flow.LF||
-'CREATE INDEX "TMS_OFFERS_I1" ON "TMS_OFFERS" ("CANDIDATE_ID");'||wwv_flow.LF||
-'CREATE INDEX "TMS_OFFERS_I2" O';
-wwv_flow_imp.g_varchar2_table(158) := 'N "TMS_OFFERS" ("REQ_ID");'||wwv_flow.LF||
-'CREATE INDEX "TMS_ONBOARDING_TASKS_I1" ON "TMS_ONBOARDING_TASKS" ("EMPLOY';
-wwv_flow_imp.g_varchar2_table(159) := 'EE_ID");'||wwv_flow.LF||
-''||wwv_flow.LF||
-'CREATE OR REPLACE TRIGGER "TMS_AUDIT_LOG_BIU"'||wwv_flow.LF||
-'BEFORE INSERT OR UPDATE ON "TMS_AUDIT_LOG"'||wwv_flow.LF||
-'F';
-wwv_flow_imp.g_varchar2_table(160) := 'OR EACH ROW'||wwv_flow.LF||
+'  CREATE OR REPLACE EDITIONABLE TRIGGER "TM';
+wwv_flow_imp.g_varchar2_table(21) := 'S_AUDIT_LOG_BIU" '||wwv_flow.LF||
+'    before insert or update '||wwv_flow.LF||
+'    on tms_audit_log '||wwv_flow.LF||
+'    for each row '||wwv_flow.LF||
 'begin '||wwv_flow.LF||
-'    :new.updated_on := sysdate; '||wwv_flow.LF||
-'    :new.updated_by := coalesce(sys_context(''APE';
-wwv_flow_imp.g_varchar2_table(161) := 'X$SESSION'', ''APP_USER''), user); '||wwv_flow.LF||
+'    :n';
+wwv_flow_imp.g_varchar2_table(22) := 'ew.updated_on := sysdate; '||wwv_flow.LF||
+'    :new.updated_by := coalesce( sys_context( ''APEX$SESSION'', ''APP_USER'' ';
+wwv_flow_imp.g_varchar2_table(23) := '),user ); '||wwv_flow.LF||
 '    if inserting then '||wwv_flow.LF||
 '        :new.row_version := 1; '||wwv_flow.LF||
-'        :new';
-wwv_flow_imp.g_varchar2_table(162) := '.created_on  := :new.updated_on; '||wwv_flow.LF||
+'        :new.created_on  := :new.u';
+wwv_flow_imp.g_varchar2_table(24) := 'pdated_on; '||wwv_flow.LF||
 '        :new.created_by  := :new.updated_by; '||wwv_flow.LF||
-'        :new.changed';
-wwv_flow_imp.g_varchar2_table(163) := '_at  := :new.created_on; '||wwv_flow.LF||
 '    elsif updating then '||wwv_flow.LF||
-'        :new.row_version := nvl(:old.row_version,';
-wwv_flow_imp.g_varchar2_table(164) := ' 0) + 1; '||wwv_flow.LF||
+'        :new.row_';
+wwv_flow_imp.g_varchar2_table(25) := 'version := nvl( :old.row_version, 0 ) + 1; '||wwv_flow.LF||
 '    end if; '||wwv_flow.LF||
 'end tms_audit_log_biu;'||wwv_flow.LF||
 '/'||wwv_flow.LF||
+'ALTER TRIGGER "TMS';
+wwv_flow_imp.g_varchar2_table(26) := '_AUDIT_LOG_BIU" ENABLE;'||wwv_flow.LF||
 ''||wwv_flow.LF||
-'CREATE OR REPLACE TRIGGER "TMS_CANDIDATES_BIU"'||wwv_flow.LF||
-'BEFO';
-wwv_flow_imp.g_varchar2_table(165) := 'RE INSERT OR UPDATE ON "TMS_CANDIDATES"'||wwv_flow.LF||
-'FOR EACH ROW'||wwv_flow.LF||
+'  CREATE TABLE "TMS_CANDIDATE_PIPELINE" '||wwv_flow.LF||
+'   (	"ID" NUMBER GENERATED BY DEFA';
+wwv_flow_imp.g_varchar2_table(27) := 'ULT ON NULL AS IDENTITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1';
+wwv_flow_imp.g_varchar2_table(28) := ' CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  NOT NULL ENABLE, '||wwv_flow.LF||
+'	"CANDIDATE_NAME" VARCHAR2(100), '||wwv_flow.LF||
+'	"F';
+wwv_flow_imp.g_varchar2_table(29) := 'IRST_NAME" VARCHAR2(100), '||wwv_flow.LF||
+'	"LAST_NAME" VARCHAR2(100), '||wwv_flow.LF||
+'	"EMAIL" VARCHAR2(50), '||wwv_flow.LF||
+'	"JOB_TITLE" VARCHAR';
+wwv_flow_imp.g_varchar2_table(30) := '2(100), '||wwv_flow.LF||
+'	"DEPARTMENT" VARCHAR2(50), '||wwv_flow.LF||
+'	"REQUISITION_STATUS" VARCHAR2(50), '||wwv_flow.LF||
+'	"SOURCE" VARCHAR2(50), '||wwv_flow.LF||
+'';
+wwv_flow_imp.g_varchar2_table(31) := '	"CURRENT_STAGE" VARCHAR2(50), '||wwv_flow.LF||
+'	"APPLIED_DATE" DATE, '||wwv_flow.LF||
+'	"SCREENING_DATE" DATE, '||wwv_flow.LF||
+'	"INTERVIEW_DATE" DA';
+wwv_flow_imp.g_varchar2_table(32) := 'TE, '||wwv_flow.LF||
+'	"OFFER_DATE" DATE, '||wwv_flow.LF||
+'	"HIRED_DATE" DATE, '||wwv_flow.LF||
+'	"REJECTED_DATE" DATE, '||wwv_flow.LF||
+'	"DAYS_IN_PIPELINE" NUMBER, '||wwv_flow.LF||
+'';
+wwv_flow_imp.g_varchar2_table(33) := '	"AI_SCORE" NUMBER, '||wwv_flow.LF||
+'	"INTERVIEW_SCORE" NUMBER, '||wwv_flow.LF||
+'	"OFFER_STATUS" VARCHAR2(50), '||wwv_flow.LF||
+'	"OFFERED_SALARY" NU';
+wwv_flow_imp.g_varchar2_table(34) := 'MBER, '||wwv_flow.LF||
+'	"START_DATE" DATE, '||wwv_flow.LF||
+'	"RECRUITER" VARCHAR2(50), '||wwv_flow.LF||
+'	"HIRING_MANAGER" VARCHAR2(50), '||wwv_flow.LF||
+'	"LOCATION"';
+wwv_flow_imp.g_varchar2_table(35) := ' VARCHAR2(50), '||wwv_flow.LF||
+'	"DIVERSITY_FLAG" BOOLEAN'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+'ALTER TABLE "TMS_CANDIDATE_PIPELINE" ADD PRIMARY KE';
+wwv_flow_imp.g_varchar2_table(36) := 'Y ("ID")'||wwv_flow.LF||
+'  USING INDEX  ENABLE;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE TABLE "TMS_DEPARTMENTS" '||wwv_flow.LF||
+'   (	"DEPT_ID" NUMBER GENERATED B';
+wwv_flow_imp.g_varchar2_table(37) := 'Y DEFAULT ON NULL AS IDENTITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START ';
+wwv_flow_imp.g_varchar2_table(38) := 'WITH 1 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  NOT NULL ENABLE, '||wwv_flow.LF||
+'	"NAME" VARCHAR2(100 CHAR) NOT ';
+wwv_flow_imp.g_varchar2_table(39) := 'NULL ENABLE, '||wwv_flow.LF||
+'	"MANAGER_ID" NUMBER, '||wwv_flow.LF||
+'	"LOCATION" VARCHAR2(150 CHAR), '||wwv_flow.LF||
+'	"COLOR" VARCHAR2(30 CHAR), '||wwv_flow.LF||
+'	';
+wwv_flow_imp.g_varchar2_table(40) := '"CREATED" DATE NOT NULL ENABLE, '||wwv_flow.LF||
+'	"CREATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE, '||wwv_flow.LF||
+'	"UPDATED" DATE ';
+wwv_flow_imp.g_varchar2_table(41) := 'NOT NULL ENABLE, '||wwv_flow.LF||
+'	"UPDATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+'ALTER TABLE "TMS_DEPARTMEN';
+wwv_flow_imp.g_varchar2_table(42) := 'TS" ADD CONSTRAINT "TMS_DEPARTMENTS_DEPT_ID_PK" PRIMARY KEY ("DEPT_ID")'||wwv_flow.LF||
+'  USING INDEX  ENABLE;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CR';
+wwv_flow_imp.g_varchar2_table(43) := 'EATE OR REPLACE EDITIONABLE TRIGGER "TMS_DEPARTMENTS_BIU" '||wwv_flow.LF||
+'    before insert or update '||wwv_flow.LF||
+'    on tms_d';
+wwv_flow_imp.g_varchar2_table(44) := 'epartments '||wwv_flow.LF||
+'    for each row '||wwv_flow.LF||
 'begin '||wwv_flow.LF||
 '    if inserting then '||wwv_flow.LF||
-'        :new.crea';
-wwv_flow_imp.g_varchar2_table(166) := 'ted := sysdate; '||wwv_flow.LF||
-'        :new.created_by := user; '||wwv_flow.LF||
+'        :new.created := sysdate; '||wwv_flow.LF||
+'      ';
+wwv_flow_imp.g_varchar2_table(45) := '  :new.created_by := user; '||wwv_flow.LF||
 '    end if; '||wwv_flow.LF||
 '    :new.updated := sysdate; '||wwv_flow.LF||
-'    :n';
-wwv_flow_imp.g_varchar2_table(167) := 'ew.updated_by := user; '||wwv_flow.LF||
-'end tms_candidates_biu;'||wwv_flow.LF||
-'/'||wwv_flow.LF||
-''||wwv_flow.LF||
-'CREATE OR REPLACE TRIGGER "TMS_DEPARTMENTS_BIU"'||wwv_flow.LF||
-'B';
-wwv_flow_imp.g_varchar2_table(168) := 'EFORE INSERT OR UPDATE ON "TMS_DEPARTMENTS"'||wwv_flow.LF||
-'FOR EACH ROW'||wwv_flow.LF||
-'begin '||wwv_flow.LF||
-'    if inserting then '||wwv_flow.LF||
-'        :new.';
-wwv_flow_imp.g_varchar2_table(169) := 'created := sysdate; '||wwv_flow.LF||
-'        :new.created_by := user; '||wwv_flow.LF||
-'    end if; '||wwv_flow.LF||
-'    :new.updated := sysdate; '||wwv_flow.LF||
-'  ';
-wwv_flow_imp.g_varchar2_table(170) := '  :new.updated_by := user; '||wwv_flow.LF||
+'    :new.updated_by := user; ';
+wwv_flow_imp.g_varchar2_table(46) := ''||wwv_flow.LF||
 'end tms_departments_biu;'||wwv_flow.LF||
 '/'||wwv_flow.LF||
+'ALTER TRIGGER "TMS_DEPARTMENTS_BIU" ENABLE;'||wwv_flow.LF||
 ''||wwv_flow.LF||
-'CREATE OR REPLACE TRIGGER "TMS_EMPLOYEES_BIU';
-wwv_flow_imp.g_varchar2_table(171) := '"'||wwv_flow.LF||
-'BEFORE INSERT OR UPDATE ON "TMS_EMPLOYEES"'||wwv_flow.LF||
-'FOR EACH ROW'||wwv_flow.LF||
+'  CREATE TABLE "TMS_HR_POLI';
+wwv_flow_imp.g_varchar2_table(47) := 'CY" '||wwv_flow.LF||
+'   (	"POLICY_ID" NUMBER GENERATED BY DEFAULT ON NULL AS IDENTITY MINVALUE 1 MAXVALUE 9999999999';
+wwv_flow_imp.g_varchar2_table(48) := '999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  NOT NULL ';
+wwv_flow_imp.g_varchar2_table(49) := 'ENABLE, '||wwv_flow.LF||
+'	"CATEGORY" VARCHAR2(100 CHAR) NOT NULL ENABLE, '||wwv_flow.LF||
+'	"TITLE" VARCHAR2(200 CHAR) NOT NULL ENABL';
+wwv_flow_imp.g_varchar2_table(50) := 'E, '||wwv_flow.LF||
+'	"CONTENT" CLOB, '||wwv_flow.LF||
+'	"CREATED" DATE NOT NULL ENABLE, '||wwv_flow.LF||
+'	"CREATED_BY" VARCHAR2(255 CHAR) NOT NULL EN';
+wwv_flow_imp.g_varchar2_table(51) := 'ABLE, '||wwv_flow.LF||
+'	"UPDATED" DATE NOT NULL ENABLE, '||wwv_flow.LF||
+'	"UPDATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE, '||wwv_flow.LF||
+'	"EMBEDD';
+wwv_flow_imp.g_varchar2_table(52) := 'ING_VECTOR" VECTOR'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+'ALTER TABLE "TMS_HR_POLICY" ADD CONSTRAINT "TMS_HR_POLICY_POLICY_ID_PK" PR';
+wwv_flow_imp.g_varchar2_table(53) := 'IMARY KEY ("POLICY_ID")'||wwv_flow.LF||
+'  USING INDEX  ENABLE;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE OR REPLACE EDITIONABLE TRIGGER "TMS_HR_POLI';
+wwv_flow_imp.g_varchar2_table(54) := 'CY_BIU" '||wwv_flow.LF||
+'    before insert or update '||wwv_flow.LF||
+'    on tms_hr_policy '||wwv_flow.LF||
+'    for each row '||wwv_flow.LF||
+'begin '||wwv_flow.LF||
+'    if insertin';
+wwv_flow_imp.g_varchar2_table(55) := 'g then '||wwv_flow.LF||
+'        :new.created := sysdate; '||wwv_flow.LF||
+'        :new.created_by := user; '||wwv_flow.LF||
+'    end if; '||wwv_flow.LF||
+'    :new.up';
+wwv_flow_imp.g_varchar2_table(56) := 'dated := sysdate; '||wwv_flow.LF||
+'    :new.updated_by := user; '||wwv_flow.LF||
+'end tms_hr_policy_biu;'||wwv_flow.LF||
+'/'||wwv_flow.LF||
+'ALTER TRIGGER "TMS_HR_POLI';
+wwv_flow_imp.g_varchar2_table(57) := 'CY_BIU" ENABLE;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE TABLE "TMS_LEAVE_TYPES" '||wwv_flow.LF||
+'   (	"LEAVE_TYPE_ID" NUMBER GENERATED BY DEFAULT ';
+wwv_flow_imp.g_varchar2_table(58) := 'ON NULL AS IDENTITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CAC';
+wwv_flow_imp.g_varchar2_table(59) := 'HE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  NOT NULL ENABLE, '||wwv_flow.LF||
+'	"NAME" VARCHAR2(100 CHAR) NOT NULL ENABL';
+wwv_flow_imp.g_varchar2_table(60) := 'E, '||wwv_flow.LF||
+'	"MAX_DAYS_PER_YEAR" NUMBER, '||wwv_flow.LF||
+'	"CREATED" DATE NOT NULL ENABLE, '||wwv_flow.LF||
+'	"CREATED_BY" VARCHAR2(255 CHAR)';
+wwv_flow_imp.g_varchar2_table(61) := ' NOT NULL ENABLE, '||wwv_flow.LF||
+'	"UPDATED" DATE NOT NULL ENABLE, '||wwv_flow.LF||
+'	"UPDATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABL';
+wwv_flow_imp.g_varchar2_table(62) := 'E'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+'ALTER TABLE "TMS_LEAVE_TYPES" ADD CONSTRAINT "TMS_LEAVE_TYPES_LEAVE_TYPE_ID_PK" PRIMARY KEY';
+wwv_flow_imp.g_varchar2_table(63) := ' ("LEAVE_TYPE_ID")'||wwv_flow.LF||
+'  USING INDEX  ENABLE;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE OR REPLACE EDITIONABLE TRIGGER "TMS_LEAVE_TYPES_';
+wwv_flow_imp.g_varchar2_table(64) := 'BIU" '||wwv_flow.LF||
+'    before insert or update '||wwv_flow.LF||
+'    on tms_leave_types '||wwv_flow.LF||
+'    for each row '||wwv_flow.LF||
+'begin '||wwv_flow.LF||
+'    if inserting';
+wwv_flow_imp.g_varchar2_table(65) := ' then '||wwv_flow.LF||
+'        :new.created := sysdate; '||wwv_flow.LF||
+'        :new.created_by := user; '||wwv_flow.LF||
+'    end if; '||wwv_flow.LF||
+'    :new.upd';
+wwv_flow_imp.g_varchar2_table(66) := 'ated := sysdate; '||wwv_flow.LF||
+'    :new.updated_by := user; '||wwv_flow.LF||
+'end tms_leave_types_biu;'||wwv_flow.LF||
+'/'||wwv_flow.LF||
+'ALTER TRIGGER "TMS_LEAVE_';
+wwv_flow_imp.g_varchar2_table(67) := 'TYPES_BIU" ENABLE;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE TABLE "TMS_JOBS" '||wwv_flow.LF||
+'   (	"JOB_ID" NUMBER GENERATED BY DEFAULT ON NULL AS ';
+wwv_flow_imp.g_varchar2_table(68) := 'IDENTITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORD';
+wwv_flow_imp.g_varchar2_table(69) := 'ER  NOCYCLE  NOKEEP  NOSCALE  NOT NULL ENABLE, '||wwv_flow.LF||
+'	"DEPT_ID" NUMBER, '||wwv_flow.LF||
+'	"TITLE" VARCHAR2(150 CHAR) NOT ';
+wwv_flow_imp.g_varchar2_table(70) := 'NULL ENABLE, '||wwv_flow.LF||
+'	"MIN_SALARY" NUMBER, '||wwv_flow.LF||
+'	"MAX_SALARY" NUMBER, '||wwv_flow.LF||
+'	"CREATED" DATE NOT NULL ENABLE, '||wwv_flow.LF||
+'	"CREA';
+wwv_flow_imp.g_varchar2_table(71) := 'TED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE, '||wwv_flow.LF||
+'	"UPDATED" DATE NOT NULL ENABLE, '||wwv_flow.LF||
+'	"UPDATED_BY" VARCHAR';
+wwv_flow_imp.g_varchar2_table(72) := '2(255 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+'ALTER TABLE "TMS_JOBS" ADD CONSTRAINT "TMS_JOBS_JOB_ID_PK" PRIMAR';
+wwv_flow_imp.g_varchar2_table(73) := 'Y KEY ("JOB_ID")'||wwv_flow.LF||
+'  USING INDEX  ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_JOBS" ADD CONSTRAINT "TMS_JOBS_DEPT_ID_FK" ';
+wwv_flow_imp.g_varchar2_table(74) := 'FOREIGN KEY ("DEPT_ID")'||wwv_flow.LF||
+'	  REFERENCES "TMS_DEPARTMENTS" ("DEPT_ID") ENABLE;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE INDEX "TMS_JOB';
+wwv_flow_imp.g_varchar2_table(75) := 'S_I1" ON "TMS_JOBS" ("DEPT_ID") '||wwv_flow.LF||
+'  ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE OR REPLACE EDITIONABLE TRIGGER "TMS_JOBS_BIU" '||wwv_flow.LF||
+'    be';
+wwv_flow_imp.g_varchar2_table(76) := 'fore insert or update '||wwv_flow.LF||
+'    on tms_jobs '||wwv_flow.LF||
+'    for each row '||wwv_flow.LF||
 'begin '||wwv_flow.LF||
 '    if inserting then '||wwv_flow.LF||
 '        :new';
-wwv_flow_imp.g_varchar2_table(172) := '.created := sysdate; '||wwv_flow.LF||
+wwv_flow_imp.g_varchar2_table(77) := '.created := sysdate; '||wwv_flow.LF||
 '        :new.created_by := user; '||wwv_flow.LF||
 '    end if; '||wwv_flow.LF||
 '    :new.updated := sysdate; '||wwv_flow.LF||
 ' ';
-wwv_flow_imp.g_varchar2_table(173) := '   :new.updated_by := user; '||wwv_flow.LF||
-'end tms_employees_biu;'||wwv_flow.LF||
+wwv_flow_imp.g_varchar2_table(78) := '   :new.updated_by := user; '||wwv_flow.LF||
+'end tms_jobs_biu;'||wwv_flow.LF||
 '/'||wwv_flow.LF||
+'ALTER TRIGGER "TMS_JOBS_BIU" ENABLE;'||wwv_flow.LF||
 ''||wwv_flow.LF||
-'CREATE OR REPLACE TRIGGER "TMS_HR_POLICY_BIU"';
-wwv_flow_imp.g_varchar2_table(174) := ''||wwv_flow.LF||
-'BEFORE INSERT OR UPDATE ON "TMS_HR_POLICY"'||wwv_flow.LF||
-'FOR EACH ROW'||wwv_flow.LF||
+'  CREATE TABL';
+wwv_flow_imp.g_varchar2_table(79) := 'E "TMS_JOB_REQUISITIONS" '||wwv_flow.LF||
+'   (	"REQ_ID" NUMBER GENERATED BY DEFAULT ON NULL AS IDENTITY MINVALUE 1 M';
+wwv_flow_imp.g_varchar2_table(80) := 'AXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE  NOKEEP  ';
+wwv_flow_imp.g_varchar2_table(81) := 'NOSCALE  NOT NULL ENABLE, '||wwv_flow.LF||
+'	"JOB_ID" NUMBER, '||wwv_flow.LF||
+'	"DEPT_ID" NUMBER, '||wwv_flow.LF||
+'	"REQUESTED_BY" VARCHAR2(255 CHAR)';
+wwv_flow_imp.g_varchar2_table(82) := ' NOT NULL ENABLE, '||wwv_flow.LF||
+'	"APPROVED_BY" VARCHAR2(255 CHAR), '||wwv_flow.LF||
+'	"HEADCOUNT" NUMBER, '||wwv_flow.LF||
+'	"STATUS" VARCHAR2(30 C';
+wwv_flow_imp.g_varchar2_table(83) := 'HAR), '||wwv_flow.LF||
+'	"OPEN_DATE" DATE, '||wwv_flow.LF||
+'	"CLOSE_DATE" DATE, '||wwv_flow.LF||
+'	"CREATED" DATE NOT NULL ENABLE, '||wwv_flow.LF||
+'	"CREATED_BY" VARC';
+wwv_flow_imp.g_varchar2_table(84) := 'HAR2(255 CHAR) NOT NULL ENABLE, '||wwv_flow.LF||
+'	"UPDATED" DATE NOT NULL ENABLE, '||wwv_flow.LF||
+'	"UPDATED_BY" VARCHAR2(255 CHAR) ';
+wwv_flow_imp.g_varchar2_table(85) := 'NOT NULL ENABLE'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+'ALTER TABLE "TMS_JOB_REQUISITIONS" ADD CONSTRAINT "TMS_JOB_REQUISITIONS_STATU';
+wwv_flow_imp.g_varchar2_table(86) := 'S_CK" CHECK (status in (''Draft'',''Pending Approval'',''Open'',''Filled'',''Cancelled'',''Closed'')) ENABLE;'||wwv_flow.LF||
+'AL';
+wwv_flow_imp.g_varchar2_table(87) := 'TER TABLE "TMS_JOB_REQUISITIONS" ADD CONSTRAINT "TMS_JOB_REQUISITIONS_REQ_ID_PK" PRIMARY KEY ("REQ_I';
+wwv_flow_imp.g_varchar2_table(88) := 'D")'||wwv_flow.LF||
+'  USING INDEX  ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_JOB_REQUISITIONS" ADD CONSTRAINT "TMS_JOB_REQUISITIONS_J';
+wwv_flow_imp.g_varchar2_table(89) := 'OB_ID_FK" FOREIGN KEY ("JOB_ID")'||wwv_flow.LF||
+'	  REFERENCES "TMS_JOBS" ("JOB_ID") ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_JOB_RE';
+wwv_flow_imp.g_varchar2_table(90) := 'QUISITIONS" ADD CONSTRAINT "TMS_JOB_REQUISITIONS_DEPT_ID_FK" FOREIGN KEY ("DEPT_ID")'||wwv_flow.LF||
+'	  REFERENCES "';
+wwv_flow_imp.g_varchar2_table(91) := 'TMS_DEPARTMENTS" ("DEPT_ID") ENABLE;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE INDEX "TMS_JOB_REQUISITIONS_I1" ON "TMS_JOB_REQUISITI';
+wwv_flow_imp.g_varchar2_table(92) := 'ONS" ("JOB_ID") '||wwv_flow.LF||
+'  ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE INDEX "TMS_JOB_REQUISITIONS_I2" ON "TMS_JOB_REQUISITIONS" ("DEPT_ID")';
+wwv_flow_imp.g_varchar2_table(93) := ' '||wwv_flow.LF||
+'  ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE OR REPLACE EDITIONABLE TRIGGER "TMS_JOB_REQUISITIONS_BIU" '||wwv_flow.LF||
+'    before insert or upda';
+wwv_flow_imp.g_varchar2_table(94) := 'te '||wwv_flow.LF||
+'    on tms_job_requisitions '||wwv_flow.LF||
+'    for each row '||wwv_flow.LF||
 'begin '||wwv_flow.LF||
 '    if inserting then '||wwv_flow.LF||
-'        :new.';
-wwv_flow_imp.g_varchar2_table(175) := 'created := sysdate; '||wwv_flow.LF||
+'        :new.create';
+wwv_flow_imp.g_varchar2_table(95) := 'd := sysdate; '||wwv_flow.LF||
 '        :new.created_by := user; '||wwv_flow.LF||
 '    end if; '||wwv_flow.LF||
 '    :new.updated := sysdate; '||wwv_flow.LF||
-'  ';
-wwv_flow_imp.g_varchar2_table(176) := '  :new.updated_by := user; '||wwv_flow.LF||
-'end tms_hr_policy_biu;'||wwv_flow.LF||
+'    :new';
+wwv_flow_imp.g_varchar2_table(96) := '.updated_by := user; '||wwv_flow.LF||
+'end tms_job_requisitions_biu;'||wwv_flow.LF||
 '/'||wwv_flow.LF||
+'ALTER TRIGGER "TMS_JOB_REQUISITIONS_BIU" ENABL';
+wwv_flow_imp.g_varchar2_table(97) := 'E;'||wwv_flow.LF||
 ''||wwv_flow.LF||
-'CREATE OR REPLACE TRIGGER "TMS_INTERVIEW_STAGE';
-wwv_flow_imp.g_varchar2_table(177) := 'S_BIU"'||wwv_flow.LF||
-'BEFORE INSERT OR UPDATE ON "TMS_INTERVIEW_STAGES"'||wwv_flow.LF||
-'FOR EACH ROW'||wwv_flow.LF||
+'  CREATE TABLE "TMS_CANDIDATES" '||wwv_flow.LF||
+'   (	"CANDIDATE_ID" NUMBER GENERATED BY DEFAULT ON NULL AS IDEN';
+wwv_flow_imp.g_varchar2_table(98) := 'TITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  ';
+wwv_flow_imp.g_varchar2_table(99) := 'NOCYCLE  NOKEEP  NOSCALE  NOT NULL ENABLE, '||wwv_flow.LF||
+'	"REQ_ID" NUMBER, '||wwv_flow.LF||
+'	"FIRST_NAME" VARCHAR2(80 CHAR) NOT N';
+wwv_flow_imp.g_varchar2_table(100) := 'ULL ENABLE, '||wwv_flow.LF||
+'	"LAST_NAME" VARCHAR2(80 CHAR) NOT NULL ENABLE, '||wwv_flow.LF||
+'	"EMAIL" VARCHAR2(320 CHAR) NOT NULL E';
+wwv_flow_imp.g_varchar2_table(101) := 'NABLE, '||wwv_flow.LF||
+'	"PHONE" VARCHAR2(50 CHAR), '||wwv_flow.LF||
+'	"RESUME_BLOB" BLOB, '||wwv_flow.LF||
+'	"SOURCE" VARCHAR2(100 CHAR), '||wwv_flow.LF||
+'	"CURRENT_';
+wwv_flow_imp.g_varchar2_table(102) := 'STAGE" VARCHAR2(30 CHAR), '||wwv_flow.LF||
+'	"APPLIED_DATE" DATE, '||wwv_flow.LF||
+'	"DIVERSITY_FLAG" VARCHAR2(1 CHAR), '||wwv_flow.LF||
+'	"AI_SCORE" N';
+wwv_flow_imp.g_varchar2_table(103) := 'UMBER, '||wwv_flow.LF||
+'	"CREATED" DATE NOT NULL ENABLE, '||wwv_flow.LF||
+'	"CREATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE, '||wwv_flow.LF||
+'	"UPDAT';
+wwv_flow_imp.g_varchar2_table(104) := 'ED" DATE NOT NULL ENABLE, '||wwv_flow.LF||
+'	"UPDATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+'ALTER TABLE "TMS_';
+wwv_flow_imp.g_varchar2_table(105) := 'CANDIDATES" ADD CONSTRAINT "TMS_CANDIDATES_CURRENT_STAGE_CK" CHECK (current_stage in (''Applied'',''Scr';
+wwv_flow_imp.g_varchar2_table(106) := 'eening'',''Interview'',''Offer'',''Hired'',''Rejected'')) ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_CANDIDATES" ADD CONSTRAINT';
+wwv_flow_imp.g_varchar2_table(107) := ' "TMS_CANDIDATES_DIVERSITY_FLAG_CK" CHECK (diversity_flag in (''Y'',''N'')) ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_CAN';
+wwv_flow_imp.g_varchar2_table(108) := 'DIDATES" ADD CONSTRAINT "TMS_CANDIDATES_CANDIDATE_ID_PK" PRIMARY KEY ("CANDIDATE_ID")'||wwv_flow.LF||
+'  USING INDEX ';
+wwv_flow_imp.g_varchar2_table(109) := ' ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_CANDIDATES" ADD CONSTRAINT "TMS_CANDIDATES_REQ_ID_FK" FOREIGN KEY ("REQ_ID';
+wwv_flow_imp.g_varchar2_table(110) := '")'||wwv_flow.LF||
+'	  REFERENCES "TMS_JOB_REQUISITIONS" ("REQ_ID") ENABLE;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE INDEX "TMS_CANDIDATES_I1" ON "T';
+wwv_flow_imp.g_varchar2_table(111) := 'MS_CANDIDATES" ("REQ_ID") '||wwv_flow.LF||
+'  ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE OR REPLACE EDITIONABLE TRIGGER "TMS_CANDIDATES_BIU" '||wwv_flow.LF||
+'    be';
+wwv_flow_imp.g_varchar2_table(112) := 'fore insert or update '||wwv_flow.LF||
+'    on tms_candidates '||wwv_flow.LF||
+'    for each row '||wwv_flow.LF||
 'begin '||wwv_flow.LF||
 '    if inserting then '||wwv_flow.LF||
-'';
-wwv_flow_imp.g_varchar2_table(178) := '        :new.created := sysdate; '||wwv_flow.LF||
+'      ';
+wwv_flow_imp.g_varchar2_table(113) := '  :new.created := sysdate; '||wwv_flow.LF||
 '        :new.created_by := user; '||wwv_flow.LF||
 '    end if; '||wwv_flow.LF||
-'    :new.updated :=';
-wwv_flow_imp.g_varchar2_table(179) := ' sysdate; '||wwv_flow.LF||
+'    :new.updated := sysda';
+wwv_flow_imp.g_varchar2_table(114) := 'te; '||wwv_flow.LF||
+'    :new.updated_by := user; '||wwv_flow.LF||
+'end tms_candidates_biu;'||wwv_flow.LF||
+'/'||wwv_flow.LF||
+'ALTER TRIGGER "TMS_CANDIDATES_BIU" ENAB';
+wwv_flow_imp.g_varchar2_table(115) := 'LE;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE TABLE "TMS_EMPLOYEES" '||wwv_flow.LF||
+'   (	"EMPLOYEE_ID" NUMBER GENERATED BY DEFAULT ON NULL AS IDENT';
+wwv_flow_imp.g_varchar2_table(116) := 'ITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  N';
+wwv_flow_imp.g_varchar2_table(117) := 'OCYCLE  NOKEEP  NOSCALE  NOT NULL ENABLE, '||wwv_flow.LF||
+'	"CANDIDATE_ID" NUMBER, '||wwv_flow.LF||
+'	"JOB_ID" NUMBER, '||wwv_flow.LF||
+'	"DEPT_ID" NU';
+wwv_flow_imp.g_varchar2_table(118) := 'MBER, '||wwv_flow.LF||
+'	"FIRST_NAME" VARCHAR2(80 CHAR) NOT NULL ENABLE, '||wwv_flow.LF||
+'	"LAST_NAME" VARCHAR2(80 CHAR) NOT NULL ENA';
+wwv_flow_imp.g_varchar2_table(119) := 'BLE, '||wwv_flow.LF||
+'	"EMAIL" VARCHAR2(320 CHAR) NOT NULL ENABLE, '||wwv_flow.LF||
+'	"MANAGER_ID" NUMBER, '||wwv_flow.LF||
+'	"SALARY" NUMBER, '||wwv_flow.LF||
+'	"HIRE';
+wwv_flow_imp.g_varchar2_table(120) := '_DATE" DATE, '||wwv_flow.LF||
+'	"STATUS" VARCHAR2(30 CHAR), '||wwv_flow.LF||
+'	"PHOTO_BLOB" BLOB, '||wwv_flow.LF||
+'	"CREATED" DATE NOT NULL ENABLE, '||wwv_flow.LF||
+'	';
+wwv_flow_imp.g_varchar2_table(121) := '"CREATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE, '||wwv_flow.LF||
+'	"UPDATED" DATE NOT NULL ENABLE, '||wwv_flow.LF||
+'	"UPDATED_BY" VA';
+wwv_flow_imp.g_varchar2_table(122) := 'RCHAR2(255 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+'ALTER TABLE "TMS_EMPLOYEES" ADD CONSTRAINT "TMS_EMPLOYEES_ST';
+wwv_flow_imp.g_varchar2_table(123) := 'ATUS_CK" CHECK (status in (''Onboarding'',''Active'',''Inactive'',''Terminated'')) ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_';
+wwv_flow_imp.g_varchar2_table(124) := 'EMPLOYEES" ADD CONSTRAINT "TMS_EMPLOYEES_EMPLOYEE_ID_PK" PRIMARY KEY ("EMPLOYEE_ID")'||wwv_flow.LF||
+'  USING INDEX  ';
+wwv_flow_imp.g_varchar2_table(125) := 'ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_EMPLOYEES" ADD CONSTRAINT "TMS_EMPLOYEES_CANDIDATE_ID_FK" FOREIGN KEY ("CAN';
+wwv_flow_imp.g_varchar2_table(126) := 'DIDATE_ID")'||wwv_flow.LF||
+'	  REFERENCES "TMS_CANDIDATES" ("CANDIDATE_ID") ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_EMPLOYEES" ADD ';
+wwv_flow_imp.g_varchar2_table(127) := 'CONSTRAINT "TMS_EMPLOYEES_JOB_ID_FK" FOREIGN KEY ("JOB_ID")'||wwv_flow.LF||
+'	  REFERENCES "TMS_JOBS" ("JOB_ID") ENAB';
+wwv_flow_imp.g_varchar2_table(128) := 'LE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_EMPLOYEES" ADD CONSTRAINT "TMS_EMPLOYEES_DEPT_ID_FK" FOREIGN KEY ("DEPT_ID")'||wwv_flow.LF||
+'	 ';
+wwv_flow_imp.g_varchar2_table(129) := ' REFERENCES "TMS_DEPARTMENTS" ("DEPT_ID") ENABLE;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE INDEX "TMS_EMPLOYEES_I1" ON "TMS_EMPLOYE';
+wwv_flow_imp.g_varchar2_table(130) := 'ES" ("CANDIDATE_ID") '||wwv_flow.LF||
+'  ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE INDEX "TMS_EMPLOYEES_I2" ON "TMS_EMPLOYEES" ("JOB_ID") '||wwv_flow.LF||
+'  ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  C';
+wwv_flow_imp.g_varchar2_table(131) := 'REATE INDEX "TMS_EMPLOYEES_I3" ON "TMS_EMPLOYEES" ("DEPT_ID") '||wwv_flow.LF||
+'  ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE OR REPLACE EDITIONABLE ';
+wwv_flow_imp.g_varchar2_table(132) := 'TRIGGER "TMS_EMPLOYEES_BIU" '||wwv_flow.LF||
+'    before insert or update '||wwv_flow.LF||
+'    on tms_employees '||wwv_flow.LF||
+'    for each row '||wwv_flow.LF||
+'be';
+wwv_flow_imp.g_varchar2_table(133) := 'gin '||wwv_flow.LF||
+'    if inserting then '||wwv_flow.LF||
+'        :new.created := sysdate; '||wwv_flow.LF||
+'        :new.created_by := user; '||wwv_flow.LF||
+'    ';
+wwv_flow_imp.g_varchar2_table(134) := 'end if; '||wwv_flow.LF||
+'    :new.updated := sysdate; '||wwv_flow.LF||
+'    :new.updated_by := user; '||wwv_flow.LF||
+'end tms_employees_biu;'||wwv_flow.LF||
+'/'||wwv_flow.LF||
+'ALTER ';
+wwv_flow_imp.g_varchar2_table(135) := 'TRIGGER "TMS_EMPLOYEES_BIU" ENABLE;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE TABLE "TMS_INTERVIEW_STAGES" '||wwv_flow.LF||
+'   (	"STAGE_ID" NUMBER G';
+wwv_flow_imp.g_varchar2_table(136) := 'ENERATED BY DEFAULT ON NULL AS IDENTITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT B';
+wwv_flow_imp.g_varchar2_table(137) := 'Y 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  NOT NULL ENABLE, '||wwv_flow.LF||
+'	"CANDIDATE_ID" NUMBE';
+wwv_flow_imp.g_varchar2_table(138) := 'R, '||wwv_flow.LF||
+'	"REQ_ID" NUMBER, '||wwv_flow.LF||
+'	"STAGE_NAME" VARCHAR2(60 CHAR), '||wwv_flow.LF||
+'	"INTERVIEWER_ID" NUMBER, '||wwv_flow.LF||
+'	"SCHEDULED_DATE';
+wwv_flow_imp.g_varchar2_table(139) := '" TIMESTAMP (6), '||wwv_flow.LF||
+'	"OUTCOME" VARCHAR2(30 CHAR), '||wwv_flow.LF||
+'	"FEEDBACK_NOTES" CLOB, '||wwv_flow.LF||
+'	"SCORE" NUMBER, '||wwv_flow.LF||
+'	"CREATE';
+wwv_flow_imp.g_varchar2_table(140) := 'D" DATE NOT NULL ENABLE, '||wwv_flow.LF||
+'	"CREATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE, '||wwv_flow.LF||
+'	"UPDATED" DATE NOT NUL';
+wwv_flow_imp.g_varchar2_table(141) := 'L ENABLE, '||wwv_flow.LF||
+'	"UPDATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+'ALTER TABLE "TMS_INTERVIEW_STAGES';
+wwv_flow_imp.g_varchar2_table(142) := '" ADD CONSTRAINT "TMS_INTERVIEW_STAGES_STAGE_NAME_CK" CHECK (stage_name in (''Screening'',''Phone Scree';
+wwv_flow_imp.g_varchar2_table(143) := 'n'',''Technical Interview'',''Manager Interview'',''HR Interview'',''Offer Review'',''Final'')) ENABLE;'||wwv_flow.LF||
+'ALTER T';
+wwv_flow_imp.g_varchar2_table(144) := 'ABLE "TMS_INTERVIEW_STAGES" ADD CONSTRAINT "TMS_INTERVIEW_STAGES_OUTCOME_CK" CHECK (outcome in (''Sch';
+wwv_flow_imp.g_varchar2_table(145) := 'eduled'',''Proceed'',''Hold'',''Rejected'',''No Show'',''Completed'',''Cancelled'')) ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_INT';
+wwv_flow_imp.g_varchar2_table(146) := 'ERVIEW_STAGES" ADD CONSTRAINT "TMS_INTERVIEW_STAGES_STAGE_ID_PK" PRIMARY KEY ("STAGE_ID")'||wwv_flow.LF||
+'  USING IN';
+wwv_flow_imp.g_varchar2_table(147) := 'DEX  ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_INTERVIEW_STAGES" ADD CONSTRAINT "TMS_INTERVIEW_STAGES_CANDIDATE_ID_FK';
+wwv_flow_imp.g_varchar2_table(148) := '" FOREIGN KEY ("CANDIDATE_ID")'||wwv_flow.LF||
+'	  REFERENCES "TMS_CANDIDATES" ("CANDIDATE_ID") ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "';
+wwv_flow_imp.g_varchar2_table(149) := 'TMS_INTERVIEW_STAGES" ADD CONSTRAINT "TMS_INTERVIEW_STAGES_REQ_ID_FK" FOREIGN KEY ("REQ_ID")'||wwv_flow.LF||
+'	  REFE';
+wwv_flow_imp.g_varchar2_table(150) := 'RENCES "TMS_JOB_REQUISITIONS" ("REQ_ID") ENABLE;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE INDEX "TMS_INTERVIEW_STAGES_I1" ON "TMS_I';
+wwv_flow_imp.g_varchar2_table(151) := 'NTERVIEW_STAGES" ("CANDIDATE_ID") '||wwv_flow.LF||
+'  ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE INDEX "TMS_INTERVIEW_STAGES_I2" ON "TMS_INTERVIEW_S';
+wwv_flow_imp.g_varchar2_table(152) := 'TAGES" ("REQ_ID") '||wwv_flow.LF||
+'  ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE OR REPLACE EDITIONABLE TRIGGER "TMS_INTERVIEW_STAGES_BIU" '||wwv_flow.LF||
+'    befo';
+wwv_flow_imp.g_varchar2_table(153) := 're insert or update '||wwv_flow.LF||
+'    on tms_interview_stages '||wwv_flow.LF||
+'    for each row '||wwv_flow.LF||
+'begin '||wwv_flow.LF||
+'    if inserting then '||wwv_flow.LF||
+'  ';
+wwv_flow_imp.g_varchar2_table(154) := '      :new.created := sysdate; '||wwv_flow.LF||
+'        :new.created_by := user; '||wwv_flow.LF||
+'    end if; '||wwv_flow.LF||
+'    :new.updated := s';
+wwv_flow_imp.g_varchar2_table(155) := 'ysdate; '||wwv_flow.LF||
 '    :new.updated_by := user; '||wwv_flow.LF||
 'end tms_interview_stages_biu;'||wwv_flow.LF||
 '/'||wwv_flow.LF||
+'ALTER TRIGGER "TMS_INTERVIEW_';
+wwv_flow_imp.g_varchar2_table(156) := 'STAGES_BIU" ENABLE;'||wwv_flow.LF||
 ''||wwv_flow.LF||
-'CREATE OR REPLACE TRIGGER ';
-wwv_flow_imp.g_varchar2_table(180) := '"TMS_JOBS_BIU"'||wwv_flow.LF||
-'BEFORE INSERT OR UPDATE ON "TMS_JOBS"'||wwv_flow.LF||
-'FOR EACH ROW'||wwv_flow.LF||
-'begin '||wwv_flow.LF||
-'    if inserting then '||wwv_flow.LF||
-'    ';
-wwv_flow_imp.g_varchar2_table(181) := '    :new.created := sysdate; '||wwv_flow.LF||
-'        :new.created_by := user; '||wwv_flow.LF||
-'    end if; '||wwv_flow.LF||
-'    :new.updated := sys';
-wwv_flow_imp.g_varchar2_table(182) := 'date; '||wwv_flow.LF||
-'    :new.updated_by := user; '||wwv_flow.LF||
-'end tms_jobs_biu;'||wwv_flow.LF||
-'/'||wwv_flow.LF||
+'  CREATE TABLE "TMS_OFFERS" '||wwv_flow.LF||
+'   (	"OFFER_ID" NUMBER GENERATED BY DEFAULT ON NUL';
+wwv_flow_imp.g_varchar2_table(157) := 'L AS IDENTITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 ';
+wwv_flow_imp.g_varchar2_table(158) := 'NOORDER  NOCYCLE  NOKEEP  NOSCALE  NOT NULL ENABLE, '||wwv_flow.LF||
+'	"CANDIDATE_ID" NUMBER, '||wwv_flow.LF||
+'	"REQ_ID" NUMBER, '||wwv_flow.LF||
+'	"O';
+wwv_flow_imp.g_varchar2_table(159) := 'FFERED_SALARY" NUMBER, '||wwv_flow.LF||
+'	"START_DATE" DATE, '||wwv_flow.LF||
+'	"EXPIRY_DATE" DATE, '||wwv_flow.LF||
+'	"STATUS" VARCHAR2(30 CHAR), '||wwv_flow.LF||
+'	"O';
+wwv_flow_imp.g_varchar2_table(160) := 'FFER_LETTER_BLOB" BLOB, '||wwv_flow.LF||
+'	"APPROVED_BY" VARCHAR2(255 CHAR), '||wwv_flow.LF||
+'	"CREATED" DATE NOT NULL ENABLE, '||wwv_flow.LF||
+'	"CRE';
+wwv_flow_imp.g_varchar2_table(161) := 'ATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE, '||wwv_flow.LF||
+'	"UPDATED" DATE NOT NULL ENABLE, '||wwv_flow.LF||
+'	"UPDATED_BY" VARCHA';
+wwv_flow_imp.g_varchar2_table(162) := 'R2(255 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+'ALTER TABLE "TMS_OFFERS" ADD CONSTRAINT "TMS_OFFERS_STATUS_CK" C';
+wwv_flow_imp.g_varchar2_table(163) := 'HECK (status in (''Draft'',''Pending Approval'',''Sent'',''Accepted'',''Rejected'',''Expired'',''Withdrawn'')) ENA';
+wwv_flow_imp.g_varchar2_table(164) := 'BLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_OFFERS" ADD CONSTRAINT "TMS_OFFERS_OFFER_ID_PK" PRIMARY KEY ("OFFER_ID")'||wwv_flow.LF||
+'  USI';
+wwv_flow_imp.g_varchar2_table(165) := 'NG INDEX  ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_OFFERS" ADD CONSTRAINT "TMS_OFFERS_CANDIDATE_ID_FK" FOREIGN KEY (';
+wwv_flow_imp.g_varchar2_table(166) := '"CANDIDATE_ID")'||wwv_flow.LF||
+'	  REFERENCES "TMS_CANDIDATES" ("CANDIDATE_ID") ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_OFFERS" ADD';
+wwv_flow_imp.g_varchar2_table(167) := ' CONSTRAINT "TMS_OFFERS_REQ_ID_FK" FOREIGN KEY ("REQ_ID")'||wwv_flow.LF||
+'	  REFERENCES "TMS_JOB_REQUISITIONS" ("REQ';
+wwv_flow_imp.g_varchar2_table(168) := '_ID") ENABLE;'||wwv_flow.LF||
 ''||wwv_flow.LF||
-'CREATE OR REPLACE TRIGGER "TMS_JOB_REQUISI';
-wwv_flow_imp.g_varchar2_table(183) := 'TIONS_BIU"'||wwv_flow.LF||
-'BEFORE INSERT OR UPDATE ON "TMS_JOB_REQUISITIONS"'||wwv_flow.LF||
-'FOR EACH ROW'||wwv_flow.LF||
+'  CREATE INDEX "TMS_OFFERS_I1" ON "TMS_OFFERS" ("CANDIDATE_ID") '||wwv_flow.LF||
+'  ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE INDEX ';
+wwv_flow_imp.g_varchar2_table(169) := '"TMS_OFFERS_I2" ON "TMS_OFFERS" ("REQ_ID") '||wwv_flow.LF||
+'  ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE OR REPLACE EDITIONABLE TRIGGER "TMS_OFFERS';
+wwv_flow_imp.g_varchar2_table(170) := '_BIU" '||wwv_flow.LF||
+'    before insert or update '||wwv_flow.LF||
+'    on tms_offers '||wwv_flow.LF||
+'    for each row '||wwv_flow.LF||
 'begin '||wwv_flow.LF||
-'    if inserting th';
-wwv_flow_imp.g_varchar2_table(184) := 'en '||wwv_flow.LF||
+'    if inserting the';
+wwv_flow_imp.g_varchar2_table(171) := 'n '||wwv_flow.LF||
 '        :new.created := sysdate; '||wwv_flow.LF||
 '        :new.created_by := user; '||wwv_flow.LF||
 '    end if; '||wwv_flow.LF||
-'    :new.update';
-wwv_flow_imp.g_varchar2_table(185) := 'd := sysdate; '||wwv_flow.LF||
-'    :new.updated_by := user; '||wwv_flow.LF||
-'end tms_job_requisitions_biu;'||wwv_flow.LF||
-'/'||wwv_flow.LF||
-''||wwv_flow.LF||
-'CREATE OR REPLACE TRIG';
-wwv_flow_imp.g_varchar2_table(186) := 'GER "TMS_LEAVE_BALANCES_BIU"'||wwv_flow.LF||
-'BEFORE INSERT OR UPDATE ON "TMS_LEAVE_BALANCES"'||wwv_flow.LF||
-'FOR EACH ROW'||wwv_flow.LF||
-'begin '||wwv_flow.LF||
-'   ';
-wwv_flow_imp.g_varchar2_table(187) := ' if inserting then '||wwv_flow.LF||
-'        :new.created := sysdate; '||wwv_flow.LF||
-'        :new.created_by := user; '||wwv_flow.LF||
-'    end if; ';
-wwv_flow_imp.g_varchar2_table(188) := ''||wwv_flow.LF||
-'    :new.updated := sysdate; '||wwv_flow.LF||
-'    :new.updated_by := user; '||wwv_flow.LF||
-'end tms_leave_balances_biu;'||wwv_flow.LF||
-'/'||wwv_flow.LF||
-''||wwv_flow.LF||
-'CREATE O';
-wwv_flow_imp.g_varchar2_table(189) := 'R REPLACE TRIGGER "TMS_LEAVE_REQUESTS_BIU"'||wwv_flow.LF||
-'BEFORE INSERT OR UPDATE ON "TMS_LEAVE_REQUESTS"'||wwv_flow.LF||
-'FOR EACH ';
-wwv_flow_imp.g_varchar2_table(190) := 'ROW'||wwv_flow.LF||
-'begin '||wwv_flow.LF||
-'    if inserting then '||wwv_flow.LF||
-'        :new.created := sysdate; '||wwv_flow.LF||
-'        :new.created_by := user;';
-wwv_flow_imp.g_varchar2_table(191) := ' '||wwv_flow.LF||
-'    end if; '||wwv_flow.LF||
-'    :new.updated := sysdate; '||wwv_flow.LF||
-'    :new.updated_by := user; '||wwv_flow.LF||
-'end tms_leave_requests_bi';
-wwv_flow_imp.g_varchar2_table(192) := 'u;'||wwv_flow.LF||
-'/'||wwv_flow.LF||
-''||wwv_flow.LF||
-'CREATE OR REPLACE TRIGGER "TMS_LEAVE_TYPES_BIU"'||wwv_flow.LF||
-'BEFORE INSERT OR UPDATE ON "TMS_LEAVE_TYPES"'||wwv_flow.LF||
-'F';
-wwv_flow_imp.g_varchar2_table(193) := 'OR EACH ROW'||wwv_flow.LF||
-'begin '||wwv_flow.LF||
-'    if inserting then '||wwv_flow.LF||
-'        :new.created := sysdate; '||wwv_flow.LF||
-'        :new.created_by ';
-wwv_flow_imp.g_varchar2_table(194) := ':= user; '||wwv_flow.LF||
-'    end if; '||wwv_flow.LF||
-'    :new.updated := sysdate; '||wwv_flow.LF||
-'    :new.updated_by := user; '||wwv_flow.LF||
-'end tms_leave_typ';
-wwv_flow_imp.g_varchar2_table(195) := 'es_biu;'||wwv_flow.LF||
-'/'||wwv_flow.LF||
-''||wwv_flow.LF||
-'CREATE OR REPLACE TRIGGER "TMS_OFFERS_BIU"'||wwv_flow.LF||
-'BEFORE INSERT OR UPDATE ON "TMS_OFFERS"'||wwv_flow.LF||
-'FOR EA';
-wwv_flow_imp.g_varchar2_table(196) := 'CH ROW'||wwv_flow.LF||
-'begin '||wwv_flow.LF||
-'    if inserting then '||wwv_flow.LF||
-'        :new.created := sysdate; '||wwv_flow.LF||
-'        :new.created_by := us';
-wwv_flow_imp.g_varchar2_table(197) := 'er; '||wwv_flow.LF||
-'    end if; '||wwv_flow.LF||
-'    :new.updated := sysdate; '||wwv_flow.LF||
+'    :new.updated';
+wwv_flow_imp.g_varchar2_table(172) := ' := sysdate; '||wwv_flow.LF||
 '    :new.updated_by := user; '||wwv_flow.LF||
 'end tms_offers_biu;'||wwv_flow.LF||
 '/'||wwv_flow.LF||
-'';
-wwv_flow_imp.g_varchar2_table(198) := ''||wwv_flow.LF||
-'CREATE OR REPLACE TRIGGER "TMS_ONBOARDING_TASKS_BIU"'||wwv_flow.LF||
-'BEFORE INSERT OR UPDATE ON "TMS_ONBOARDING_TAS';
-wwv_flow_imp.g_varchar2_table(199) := 'KS"'||wwv_flow.LF||
-'FOR EACH ROW'||wwv_flow.LF||
+'ALTER TRIGGER "TMS_OFFERS_BIU" ENA';
+wwv_flow_imp.g_varchar2_table(173) := 'BLE;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE TABLE "TMS_ONBOARDING_TASKS" '||wwv_flow.LF||
+'   (	"TASK_ID" NUMBER GENERATED BY DEFAULT ON NULL AS I';
+wwv_flow_imp.g_varchar2_table(174) := 'DENTITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDE';
+wwv_flow_imp.g_varchar2_table(175) := 'R  NOCYCLE  NOKEEP  NOSCALE  NOT NULL ENABLE, '||wwv_flow.LF||
+'	"EMPLOYEE_ID" NUMBER, '||wwv_flow.LF||
+'	"TASK_NAME" VARCHAR2(200 CHA';
+wwv_flow_imp.g_varchar2_table(176) := 'R) NOT NULL ENABLE, '||wwv_flow.LF||
+'	"ASSIGNED_TO" VARCHAR2(255 CHAR), '||wwv_flow.LF||
+'	"CATEGORY" VARCHAR2(80 CHAR), '||wwv_flow.LF||
+'	"DUE_DATE"';
+wwv_flow_imp.g_varchar2_table(177) := ' DATE, '||wwv_flow.LF||
+'	"STATUS" VARCHAR2(30 CHAR), '||wwv_flow.LF||
+'	"COMPLETED_DATE" DATE, '||wwv_flow.LF||
+'	"CREATED" DATE NOT NULL ENABLE, '||wwv_flow.LF||
+'	"C';
+wwv_flow_imp.g_varchar2_table(178) := 'REATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE, '||wwv_flow.LF||
+'	"UPDATED" DATE NOT NULL ENABLE, '||wwv_flow.LF||
+'	"UPDATED_BY" VARC';
+wwv_flow_imp.g_varchar2_table(179) := 'HAR2(255 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+'ALTER TABLE "TMS_ONBOARDING_TASKS" ADD CONSTRAINT "TMS_ONBOARD';
+wwv_flow_imp.g_varchar2_table(180) := 'ING_TASKS_STATUS_CK" CHECK (status in (''Not Started'',''In Progress'',''Completed'',''Blocked'',''Cancelled''';
+wwv_flow_imp.g_varchar2_table(181) := ',''Overdue'')) ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_ONBOARDING_TASKS" ADD CONSTRAINT "TMS_ONBOARDING_TASKS_TASK_ID';
+wwv_flow_imp.g_varchar2_table(182) := '_PK" PRIMARY KEY ("TASK_ID")'||wwv_flow.LF||
+'  USING INDEX  ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_ONBOARDING_TASKS" ADD CONSTRAIN';
+wwv_flow_imp.g_varchar2_table(183) := 'T "TMS_ONBOARDING_TASKS_EMPLOYEE_ID_FK" FOREIGN KEY ("EMPLOYEE_ID")'||wwv_flow.LF||
+'	  REFERENCES "TMS_EMPLOYEES" ("';
+wwv_flow_imp.g_varchar2_table(184) := 'EMPLOYEE_ID") ENABLE;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE INDEX "TMS_ONBOARDING_TASKS_I1" ON "TMS_ONBOARDING_TASKS" ("EMPLOYEE';
+wwv_flow_imp.g_varchar2_table(185) := '_ID") '||wwv_flow.LF||
+'  ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE OR REPLACE EDITIONABLE TRIGGER "TMS_ONBOARDING_TASKS_BIU" '||wwv_flow.LF||
+'    before insert or';
+wwv_flow_imp.g_varchar2_table(186) := ' update '||wwv_flow.LF||
+'    on tms_onboarding_tasks '||wwv_flow.LF||
+'    for each row '||wwv_flow.LF||
 'begin '||wwv_flow.LF||
 '    if inserting then '||wwv_flow.LF||
-'        :new.created := sysdate; '||wwv_flow.LF||
-'        :new.create';
-wwv_flow_imp.g_varchar2_table(200) := 'd_by := user; '||wwv_flow.LF||
+'        :new.c';
+wwv_flow_imp.g_varchar2_table(187) := 'reated := sysdate; '||wwv_flow.LF||
+'        :new.created_by := user; '||wwv_flow.LF||
 '    end if; '||wwv_flow.LF||
 '    :new.updated := sysdate; '||wwv_flow.LF||
-'    :new.updated_by := user; '||wwv_flow.LF||
-'end tms_onbo';
-wwv_flow_imp.g_varchar2_table(201) := 'arding_tasks_biu;'||wwv_flow.LF||
+'   ';
+wwv_flow_imp.g_varchar2_table(188) := ' :new.updated_by := user; '||wwv_flow.LF||
+'end tms_onboarding_tasks_biu;'||wwv_flow.LF||
 '/'||wwv_flow.LF||
+'ALTER TRIGGER "TMS_ONBOARDING_TASKS_BIU" ';
+wwv_flow_imp.g_varchar2_table(189) := 'ENABLE;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE TABLE "TMS_LEAVE_BALANCES" '||wwv_flow.LF||
+'   (	"BALANCE_ID" NUMBER GENERATED BY DEFAULT ON NULL ';
+wwv_flow_imp.g_varchar2_table(190) := 'AS IDENTITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NO';
+wwv_flow_imp.g_varchar2_table(191) := 'ORDER  NOCYCLE  NOKEEP  NOSCALE  NOT NULL ENABLE, '||wwv_flow.LF||
+'	"EMPLOYEE_ID" NUMBER, '||wwv_flow.LF||
+'	"LEAVE_TYPE_ID" NUMBER, ';
+wwv_flow_imp.g_varchar2_table(192) := ''||wwv_flow.LF||
+'	"YEAR" NUMBER, '||wwv_flow.LF||
+'	"ACCRUED" NUMBER, '||wwv_flow.LF||
+'	"USED" NUMBER, '||wwv_flow.LF||
+'	"REMAINING" NUMBER, '||wwv_flow.LF||
+'	"CREATED" DATE NOT NUL';
+wwv_flow_imp.g_varchar2_table(193) := 'L ENABLE, '||wwv_flow.LF||
+'	"CREATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE, '||wwv_flow.LF||
+'	"UPDATED" DATE NOT NULL ENABLE, '||wwv_flow.LF||
+'	"UP';
+wwv_flow_imp.g_varchar2_table(194) := 'DATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+'ALTER TABLE "TMS_LEAVE_BALANCES" ADD CONSTRAINT ';
+wwv_flow_imp.g_varchar2_table(195) := '"TMS_LEAVE_BALANCES_BALANCE_ID_PK" PRIMARY KEY ("BALANCE_ID")'||wwv_flow.LF||
+'  USING INDEX  ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TM';
+wwv_flow_imp.g_varchar2_table(196) := 'S_LEAVE_BALANCES" ADD CONSTRAINT "TMS_LEAVE_BALANCES_EMPLOYEE_ID_FK" FOREIGN KEY ("EMPLOYEE_ID")'||wwv_flow.LF||
+'	  ';
+wwv_flow_imp.g_varchar2_table(197) := 'REFERENCES "TMS_EMPLOYEES" ("EMPLOYEE_ID") ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_LEAVE_BALANCES" ADD CONSTRAINT "';
+wwv_flow_imp.g_varchar2_table(198) := 'TMS_LEAVE_BALANCES_LEAVE_TYPE_ID_FK" FOREIGN KEY ("LEAVE_TYPE_ID")'||wwv_flow.LF||
+'	  REFERENCES "TMS_LEAVE_TYPES" (';
+wwv_flow_imp.g_varchar2_table(199) := '"LEAVE_TYPE_ID") ENABLE;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE INDEX "TMS_LEAVE_BALANCES_I1" ON "TMS_LEAVE_BALANCES" ("EMPLOYEE_';
+wwv_flow_imp.g_varchar2_table(200) := 'ID") '||wwv_flow.LF||
+'  ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE INDEX "TMS_LEAVE_BALANCES_I2" ON "TMS_LEAVE_BALANCES" ("LEAVE_TYPE_ID") '||wwv_flow.LF||
+'  ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  ';
+wwv_flow_imp.g_varchar2_table(201) := 'CREATE OR REPLACE EDITIONABLE TRIGGER "TMS_LEAVE_BALANCES_BIU" '||wwv_flow.LF||
+'    before insert or update '||wwv_flow.LF||
+'    on ';
+wwv_flow_imp.g_varchar2_table(202) := 'tms_leave_balances '||wwv_flow.LF||
+'    for each row '||wwv_flow.LF||
+'begin '||wwv_flow.LF||
+'    if inserting then '||wwv_flow.LF||
+'        :new.created := sysdate;';
+wwv_flow_imp.g_varchar2_table(203) := ' '||wwv_flow.LF||
+'        :new.created_by := user; '||wwv_flow.LF||
+'    end if; '||wwv_flow.LF||
+'    :new.updated := sysdate; '||wwv_flow.LF||
+'    :new.updated_by :';
+wwv_flow_imp.g_varchar2_table(204) := '= user; '||wwv_flow.LF||
+'end tms_leave_balances_biu;'||wwv_flow.LF||
+'/'||wwv_flow.LF||
+'ALTER TRIGGER "TMS_LEAVE_BALANCES_BIU" ENABLE;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE TABL';
+wwv_flow_imp.g_varchar2_table(205) := 'E "TMS_LEAVE_REQUESTS" '||wwv_flow.LF||
+'   (	"REQUEST_ID" NUMBER GENERATED BY DEFAULT ON NULL AS IDENTITY MINVALUE 1';
+wwv_flow_imp.g_varchar2_table(206) := ' MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE  NOKEEP';
+wwv_flow_imp.g_varchar2_table(207) := '  NOSCALE  NOT NULL ENABLE, '||wwv_flow.LF||
+'	"EMPLOYEE_ID" NUMBER, '||wwv_flow.LF||
+'	"LEAVE_TYPE_ID" NUMBER, '||wwv_flow.LF||
+'	"START_DATE" DATE, '||wwv_flow.LF||
+'';
+wwv_flow_imp.g_varchar2_table(208) := '	"END_DATE" DATE, '||wwv_flow.LF||
+'	"DAYS_REQUESTED" NUMBER, '||wwv_flow.LF||
+'	"REASON" CLOB, '||wwv_flow.LF||
+'	"STATUS" VARCHAR2(30 CHAR), '||wwv_flow.LF||
+'	"APPRO';
+wwv_flow_imp.g_varchar2_table(209) := 'VER_ID" NUMBER, '||wwv_flow.LF||
+'	"CREATED" DATE NOT NULL ENABLE, '||wwv_flow.LF||
+'	"CREATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE,';
+wwv_flow_imp.g_varchar2_table(210) := ' '||wwv_flow.LF||
+'	"UPDATED" DATE NOT NULL ENABLE, '||wwv_flow.LF||
+'	"UPDATED_BY" VARCHAR2(255 CHAR) NOT NULL ENABLE'||wwv_flow.LF||
+'   ) ;'||wwv_flow.LF||
+'ALTER TA';
+wwv_flow_imp.g_varchar2_table(211) := 'BLE "TMS_LEAVE_REQUESTS" ADD CONSTRAINT "TMS_LEAVE_REQUESTS_STATUS_CK" CHECK (status in (''Draft'',''Su';
+wwv_flow_imp.g_varchar2_table(212) := 'bmitted'',''Approved'',''Rejected'',''Cancelled'')) ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_LEAVE_REQUESTS" ADD CONSTRAINT';
+wwv_flow_imp.g_varchar2_table(213) := ' "TMS_LEAVE_REQUESTS_REQUEST_ID_PK" PRIMARY KEY ("REQUEST_ID")'||wwv_flow.LF||
+'  USING INDEX  ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "T';
+wwv_flow_imp.g_varchar2_table(214) := 'MS_LEAVE_REQUESTS" ADD CONSTRAINT "TMS_LEAVE_REQUESTS_EMPLOYEE_ID_FK" FOREIGN KEY ("EMPLOYEE_ID")'||wwv_flow.LF||
+'	 ';
+wwv_flow_imp.g_varchar2_table(215) := ' REFERENCES "TMS_EMPLOYEES" ("EMPLOYEE_ID") ENABLE;'||wwv_flow.LF||
+'ALTER TABLE "TMS_LEAVE_REQUESTS" ADD CONSTRAINT ';
+wwv_flow_imp.g_varchar2_table(216) := '"TMS_LEAVE_REQUESTS_LEAVE_TYPE_ID_FK" FOREIGN KEY ("LEAVE_TYPE_ID")'||wwv_flow.LF||
+'	  REFERENCES "TMS_LEAVE_TYPES" ';
+wwv_flow_imp.g_varchar2_table(217) := '("LEAVE_TYPE_ID") ENABLE;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE INDEX "TMS_LEAVE_REQUESTS_I1" ON "TMS_LEAVE_REQUESTS" ("EMPLOYEE';
+wwv_flow_imp.g_varchar2_table(218) := '_ID") '||wwv_flow.LF||
+'  ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+'  CREATE INDEX "TMS_LEAVE_REQUESTS_I2" ON "TMS_LEAVE_REQUESTS" ("LEAVE_TYPE_ID") '||wwv_flow.LF||
+'  ;'||wwv_flow.LF||
+''||wwv_flow.LF||
+' ';
+wwv_flow_imp.g_varchar2_table(219) := ' CREATE OR REPLACE EDITIONABLE TRIGGER "TMS_LEAVE_REQUESTS_BIU" '||wwv_flow.LF||
+'    before insert or update '||wwv_flow.LF||
+'    on';
+wwv_flow_imp.g_varchar2_table(220) := ' tms_leave_requests '||wwv_flow.LF||
+'    for each row '||wwv_flow.LF||
+'begin '||wwv_flow.LF||
+'    if inserting then '||wwv_flow.LF||
+'        :new.created := sysdate';
+wwv_flow_imp.g_varchar2_table(221) := '; '||wwv_flow.LF||
+'        :new.created_by := user; '||wwv_flow.LF||
+'    end if; '||wwv_flow.LF||
+'    :new.updated := sysdate; '||wwv_flow.LF||
+'    :new.updated_by ';
+wwv_flow_imp.g_varchar2_table(222) := ':= user; '||wwv_flow.LF||
+'end tms_leave_requests_biu;'||wwv_flow.LF||
+'/'||wwv_flow.LF||
+'ALTER TRIGGER "TMS_LEAVE_REQUESTS_BIU" ENABLE;'||wwv_flow.LF||
 '';
 wwv_flow_imp_shared.create_install_script(
- p_id=>wwv_flow_imp.id(4592415510916777124)
-,p_install_id=>wwv_flow_imp.id(4592381611947774032)
+ p_id=>wwv_flow_imp.id(4602582437774578967)
+,p_install_id=>wwv_flow_imp.id(4602548538805575875)
 ,p_name=>'TMS_DDL'
 ,p_sequence=>10
 ,p_script_type=>'INSTALL'
@@ -3693,1100 +3798,661 @@ end;
 prompt --application/deployment/install/install_tms_dml
 begin
 wwv_flow_imp.g_varchar2_table := wwv_flow_imp.empty_varchar2_table;
-wwv_flow_imp.g_varchar2_table(1) := '-- TMS supporting-object seed data for TAP, ESS, HR Analytics, and shared tables.'||wwv_flow.LF||
-'-- Run this script';
-wwv_flow_imp.g_varchar2_table(2) := ' once after TMS_SUPPORTING_OBJECTS_DDL.sql completes.'||wwv_flow.LF||
-'-- The DDL recreates empty tables; rerun that ';
-wwv_flow_imp.g_varchar2_table(3) := 'DDL before rerunning this script.'||wwv_flow.LF||
-'SET DEFINE OFF'||wwv_flow.LF||
+wwv_flow_imp.g_varchar2_table(1) := '-- TMS supporting-object seed data extracted from APEX_LL_262 (schema APEX262_LL).'||wwv_flow.LF||
+'-- Run this scrip';
+wwv_flow_imp.g_varchar2_table(2) := 't once after TMS_SUPPORTING_OBJECTS_DDL.sql completes.'||wwv_flow.LF||
+'-- Numeric IDs below match the small identity';
+wwv_flow_imp.g_varchar2_table(3) := ' values used by APEX_LL_262; foreign keys are remapped accordingly.'||wwv_flow.LF||
+'SET DEFINE OFF;'||wwv_flow.LF||
 ''||wwv_flow.LF||
-'PROMPT Loading TMS supporting-object data...'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSE';
-wwv_flow_imp.g_varchar2_table(4) := 'RT INTO tms_departments (name, location, color)'||wwv_flow.LF||
-'VALUES (''Engineering'', ''Bengaluru - Tower A'', ''#2563';
-wwv_flow_imp.g_varchar2_table(5) := 'EB'');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_departments (name, location, color)'||wwv_flow.LF||
-'VALUES (''Human Resources'', ''Bengaluru - T';
-wwv_flow_imp.g_varchar2_table(6) := 'ower B'', ''#10B981'');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_departments (name, location, color)'||wwv_flow.LF||
-'VALUES (''Sales'', ''Mumbai -';
-wwv_flow_imp.g_varchar2_table(7) := ' West Wing'', ''#F59E0B'');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_departments (name, location, color)'||wwv_flow.LF||
-'VALUES (''Finance'', ''Be';
-wwv_flow_imp.g_varchar2_table(8) := 'ngaluru - Tower B'', ''#8B5CF6'');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_departments (name, location, color)'||wwv_flow.LF||
-'VALUES (''IT Ope';
-wwv_flow_imp.g_varchar2_table(9) := 'rations'', ''Hyderabad - Cloud Hub'', ''#06B6D4'');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_departments (name, location, color)'||wwv_flow.LF||
+'REM INSERTING i';
+wwv_flow_imp.g_varchar2_table(4) := 'nto TMS_DEPARTMENTS'||wwv_flow.LF||
+'SET DEFINE OFF;'||wwv_flow.LF||
+'Insert into TMS_DEPARTMENTS (DEPT_ID,NAME,MANAGER_ID,LOCATION,CO';
+wwv_flow_imp.g_varchar2_table(5) := 'LOR,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (2,''Engineering'',1,''Bengaluru - Tower A'',''#2563EB''';
+wwv_flow_imp.g_varchar2_table(6) := ',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER''';
+wwv_flow_imp.g_varchar2_table(7) := ');'||wwv_flow.LF||
+'Insert into TMS_DEPARTMENTS (DEPT_ID,NAME,MANAGER_ID,LOCATION,COLOR,CREATED,CREATED_BY,UPDATED,UP';
+wwv_flow_imp.g_varchar2_table(8) := 'DATED_BY) values (3,''Human Resources'',3,''Bengaluru - Tower B'',''#10B981'',to_date(''26-10-26'',''DD-MM-RR';
+wwv_flow_imp.g_varchar2_table(9) := '''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_DEPARTMENT';
+wwv_flow_imp.g_varchar2_table(10) := 'S (DEPT_ID,NAME,MANAGER_ID,LOCATION,COLOR,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (4,''Sales'',4';
+wwv_flow_imp.g_varchar2_table(11) := ',''Mumbai - West Wing'',''#F59E0B'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26''';
+wwv_flow_imp.g_varchar2_table(12) := ',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_DEPARTMENTS (DEPT_ID,NAME,MANAGER_ID,LOCATION,COLO';
+wwv_flow_imp.g_varchar2_table(13) := 'R,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (5,''Finance'',5,''Bengaluru - Tower B'',''#8B5CF6'',to_da';
+wwv_flow_imp.g_varchar2_table(14) := 'te(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Ins';
+wwv_flow_imp.g_varchar2_table(15) := 'ert into TMS_DEPARTMENTS (DEPT_ID,NAME,MANAGER_ID,LOCATION,COLOR,CREATED,CREATED_BY,UPDATED,UPDATED_';
+wwv_flow_imp.g_varchar2_table(16) := 'BY) values (6,''IT Operations'',2,''Hyderabad - Cloud Hub'',''#06B6D4'',to_date(''26-10-26'',''DD-MM-RR''),''AP';
+wwv_flow_imp.g_varchar2_table(17) := 'EX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_DEPARTMENTS (DEP';
+wwv_flow_imp.g_varchar2_table(18) := 'T_ID,NAME,MANAGER_ID,LOCATION,COLOR,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (7,''Product'',6,''Pu';
+wwv_flow_imp.g_varchar2_table(19) := 'ne - Innovation Lab'',''#EF4444'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',';
+wwv_flow_imp.g_varchar2_table(20) := '''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'REM INSERTING into TMS_JOBS'||wwv_flow.LF||
+'SET DEFINE OFF;'||wwv_flow.LF||
+'Insert into TMS_JOBS (J';
+wwv_flow_imp.g_varchar2_table(21) := 'OB_ID,DEPT_ID,TITLE,MIN_SALARY,MAX_SALARY,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (1,2,''Engine';
+wwv_flow_imp.g_varchar2_table(22) := 'ering Manager'',115000,145000,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''D';
+wwv_flow_imp.g_varchar2_table(23) := 'D-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_JOBS (JOB_ID,DEPT_ID,TITLE,MIN_SALARY,MAX_SALARY,CREA';
+wwv_flow_imp.g_varchar2_table(24) := 'TED,CREATED_BY,UPDATED,UPDATED_BY) values (2,2,''Senior Developer'',85000,105000,to_date(''26-10-26'',''D';
+wwv_flow_imp.g_varchar2_table(25) := 'D-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_JOB';
+wwv_flow_imp.g_varchar2_table(26) := 'S (JOB_ID,DEPT_ID,TITLE,MIN_SALARY,MAX_SALARY,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (3,6,''De';
+wwv_flow_imp.g_varchar2_table(27) := 'vOps Engineer'',78000,98000,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-';
+wwv_flow_imp.g_varchar2_table(28) := 'MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_JOBS (JOB_ID,DEPT_ID,TITLE,MIN_SALARY,MAX_SALARY,CREATE';
+wwv_flow_imp.g_varchar2_table(29) := 'D,CREATED_BY,UPDATED,UPDATED_BY) values (4,3,''HR Business Partner'',78000,98000,to_date(''26-10-26'',''D';
+wwv_flow_imp.g_varchar2_table(30) := 'D-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_JOB';
+wwv_flow_imp.g_varchar2_table(31) := 'S (JOB_ID,DEPT_ID,TITLE,MIN_SALARY,MAX_SALARY,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (5,3,''HR';
+wwv_flow_imp.g_varchar2_table(32) := ' Generalist'',52000,68000,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM';
+wwv_flow_imp.g_varchar2_table(33) := '-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_JOBS (JOB_ID,DEPT_ID,TITLE,MIN_SALARY,MAX_SALARY,CREATED,';
+wwv_flow_imp.g_varchar2_table(34) := 'CREATED_BY,UPDATED,UPDATED_BY) values (6,4,''Sales Account Executive'',60000,90000,to_date(''26-10-26'',';
+wwv_flow_imp.g_varchar2_table(35) := '''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_J';
+wwv_flow_imp.g_varchar2_table(36) := 'OBS (JOB_ID,DEPT_ID,TITLE,MIN_SALARY,MAX_SALARY,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (7,7,''';
+wwv_flow_imp.g_varchar2_table(37) := 'Product Manager'',90000,125000,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''';
+wwv_flow_imp.g_varchar2_table(38) := 'DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_JOBS (JOB_ID,DEPT_ID,TITLE,MIN_SALARY,MAX_SALARY,CRE';
+wwv_flow_imp.g_varchar2_table(39) := 'ATED,CREATED_BY,UPDATED,UPDATED_BY) values (8,5,''Payroll Specialist'',50000,65000,to_date(''26-10-26'',';
+wwv_flow_imp.g_varchar2_table(40) := '''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_J';
+wwv_flow_imp.g_varchar2_table(41) := 'OBS (JOB_ID,DEPT_ID,TITLE,MIN_SALARY,MAX_SALARY,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (9,5,''';
+wwv_flow_imp.g_varchar2_table(42) := 'Data Analyst'',65000,85000,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-M';
+wwv_flow_imp.g_varchar2_table(43) := 'M-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_JOBS (JOB_ID,DEPT_ID,TITLE,MIN_SALARY,MAX_SALARY,CREATED';
+wwv_flow_imp.g_varchar2_table(44) := ',CREATED_BY,UPDATED,UPDATED_BY) values (10,7,''UX Designer'',70000,95000,to_date(''26-10-26'',''DD-MM-RR''';
+wwv_flow_imp.g_varchar2_table(45) := '),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'REM INSERTING into TMS_JOB_';
+wwv_flow_imp.g_varchar2_table(46) := 'REQUISITIONS'||wwv_flow.LF||
+'SET DEFINE OFF;'||wwv_flow.LF||
+'Insert into TMS_JOB_REQUISITIONS (REQ_ID,JOB_ID,DEPT_ID,REQUESTED_BY,AP';
+wwv_flow_imp.g_varchar2_table(47) := 'PROVED_BY,HEADCOUNT,STATUS,OPEN_DATE,CLOSE_DATE,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (1,2,2';
+wwv_flow_imp.g_varchar2_table(48) := ',''maya.patel@acme.example'',''priya.nair@acme.example'',2,''Open'',to_date(''01-06-26'',''DD-MM-RR''),null,to';
+wwv_flow_imp.g_varchar2_table(49) := '_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
 '';
-wwv_flow_imp.g_varchar2_table(10) := 'VALUES (''Product'', ''Pune - Innovation Lab'', ''#EF4444'');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_jobs (title, min_salary, ma';
-wwv_flow_imp.g_varchar2_table(11) := 'x_salary, dept_id)'||wwv_flow.LF||
-'VALUES (''Engineering Manager'', 115000, 145000, (SELECT dept_id FROM tms_departmen';
-wwv_flow_imp.g_varchar2_table(12) := 'ts WHERE name = ''Engineering''));'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_jobs (title, min_salary, max_salary, dept_id)'||wwv_flow.LF||
-'VALU';
-wwv_flow_imp.g_varchar2_table(13) := 'ES (''Senior Developer'', 85000, 105000, (SELECT dept_id FROM tms_departments WHERE name = ''Engineerin';
-wwv_flow_imp.g_varchar2_table(14) := 'g''));'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_jobs (title, min_salary, max_salary, dept_id)'||wwv_flow.LF||
-'VALUES (''DevOps Engineer'', 7800';
-wwv_flow_imp.g_varchar2_table(15) := '0, 98000, (SELECT dept_id FROM tms_departments WHERE name = ''IT Operations''));'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_jobs';
-wwv_flow_imp.g_varchar2_table(16) := ' (title, min_salary, max_salary, dept_id)'||wwv_flow.LF||
-'VALUES (''HR Business Partner'', 78000, 98000, (SELECT dept_';
-wwv_flow_imp.g_varchar2_table(17) := 'id FROM tms_departments WHERE name = ''Human Resources''));'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_jobs (title, min_salary, ';
-wwv_flow_imp.g_varchar2_table(18) := 'max_salary, dept_id)'||wwv_flow.LF||
-'VALUES (''HR Generalist'', 52000, 68000, (SELECT dept_id FROM tms_departments WHE';
-wwv_flow_imp.g_varchar2_table(19) := 'RE name = ''Human Resources''));'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_jobs (title, min_salary, max_salary, dept_id)'||wwv_flow.LF||
-'VALUES';
-wwv_flow_imp.g_varchar2_table(20) := ' (''Sales Account Executive'', 60000, 90000, (SELECT dept_id FROM tms_departments WHERE name = ''Sales''';
-wwv_flow_imp.g_varchar2_table(21) := '));'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_jobs (title, min_salary, max_salary, dept_id)'||wwv_flow.LF||
-'VALUES (''Product Manager'', 90000,';
-wwv_flow_imp.g_varchar2_table(22) := ' 125000, (SELECT dept_id FROM tms_departments WHERE name = ''Product''));'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_jobs (title';
-wwv_flow_imp.g_varchar2_table(23) := ', min_salary, max_salary, dept_id)'||wwv_flow.LF||
-'VALUES (''Payroll Specialist'', 50000, 65000, (SELECT dept_id FROM ';
-wwv_flow_imp.g_varchar2_table(24) := 'tms_departments WHERE name = ''Finance''));'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_jobs (title, min_salary, max_salary, dept';
-wwv_flow_imp.g_varchar2_table(25) := '_id)'||wwv_flow.LF||
-'VALUES (''Data Analyst'', 65000, 85000, (SELECT dept_id FROM tms_departments WHERE name = ''Financ';
-wwv_flow_imp.g_varchar2_table(26) := 'e''));'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_jobs (title, min_salary, max_salary, dept_id)'||wwv_flow.LF||
-'VALUES (''UX Designer'', 70000, 9';
-wwv_flow_imp.g_varchar2_table(27) := '5000, (SELECT dept_id FROM tms_departments WHERE name = ''Product''));'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_job_requisitio';
-wwv_flow_imp.g_varchar2_table(28) := 'ns ('||wwv_flow.LF||
-'  job_id, dept_id, requested_by, approved_by, headcount, status, open_date'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT';
-wwv_flow_imp.g_varchar2_table(29) := ' job_id FROM tms_jobs WHERE title = ''Senior Developer''),'||wwv_flow.LF||
-'  (SELECT dept_id FROM tms_departments WHER';
-wwv_flow_imp.g_varchar2_table(30) := 'E name = ''Engineering''),'||wwv_flow.LF||
-'  ''maya.patel@acme.example'','||wwv_flow.LF||
-'  ''priya.nair@acme.example'','||wwv_flow.LF||
-'  2,'||wwv_flow.LF||
-'  ''Open'','||wwv_flow.LF||
-'  ';
-wwv_flow_imp.g_varchar2_table(31) := 'DATE ''2026-06-01'''||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_job_requisitions ('||wwv_flow.LF||
-'  job_id, dept_id, requested_by, approved_b';
-wwv_flow_imp.g_varchar2_table(32) := 'y, headcount, status, open_date'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT job_id FROM tms_jobs WHERE title = ''DevOps Engi';
-wwv_flow_imp.g_varchar2_table(33) := 'neer''),'||wwv_flow.LF||
-'  (SELECT dept_id FROM tms_departments WHERE name = ''IT Operations''),'||wwv_flow.LF||
-'  ''liam.chen@acme.exam';
-wwv_flow_imp.g_varchar2_table(34) := 'ple'','||wwv_flow.LF||
-'  ''priya.nair@acme.example'','||wwv_flow.LF||
-'  1,'||wwv_flow.LF||
-'  ''Open'','||wwv_flow.LF||
-'  DATE ''2026-06-03'''||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_job_requis';
-wwv_flow_imp.g_varchar2_table(35) := 'itions ('||wwv_flow.LF||
-'  job_id, dept_id, requested_by, approved_by, headcount, status, open_date'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SE';
-wwv_flow_imp.g_varchar2_table(36) := 'LECT job_id FROM tms_jobs WHERE title = ''HR Generalist''),'||wwv_flow.LF||
-'  (SELECT dept_id FROM tms_departments WHE';
-wwv_flow_imp.g_varchar2_table(37) := 'RE name = ''Human Resources''),'||wwv_flow.LF||
-'  ''priya.nair@acme.example'','||wwv_flow.LF||
-'  NULL,'||wwv_flow.LF||
-'  1,'||wwv_flow.LF||
-'  ''Pending Approval'','||wwv_flow.LF||
-'  DATE';
-wwv_flow_imp.g_varchar2_table(38) := ' ''2026-06-10'''||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_job_requisitions ('||wwv_flow.LF||
-'  job_id, dept_id, requested_by, approved_by, h';
-wwv_flow_imp.g_varchar2_table(39) := 'eadcount, status, open_date'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT job_id FROM tms_jobs WHERE title = ''Sales Account E';
-wwv_flow_imp.g_varchar2_table(40) := 'xecutive''),'||wwv_flow.LF||
-'  (SELECT dept_id FROM tms_departments WHERE name = ''Sales''),'||wwv_flow.LF||
-'  ''sofia.garcia@acme.examp';
-wwv_flow_imp.g_varchar2_table(41) := 'le'','||wwv_flow.LF||
-'  ''priya.nair@acme.example'','||wwv_flow.LF||
-'  3,'||wwv_flow.LF||
-'  ''Open'','||wwv_flow.LF||
-'  DATE ''2026-05-25'''||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_job_requisi';
-wwv_flow_imp.g_varchar2_table(42) := 'tions ('||wwv_flow.LF||
-'  job_id, dept_id, requested_by, approved_by, headcount, status, open_date, close_date'||wwv_flow.LF||
-') VAL';
-wwv_flow_imp.g_varchar2_table(43) := 'UES ('||wwv_flow.LF||
-'  (SELECT job_id FROM tms_jobs WHERE title = ''Product Manager''),'||wwv_flow.LF||
-'  (SELECT dept_id FROM tms_de';
-wwv_flow_imp.g_varchar2_table(44) := 'partments WHERE name = ''Product''),'||wwv_flow.LF||
-'  ''ethan.brooks@acme.example'','||wwv_flow.LF||
-'  ''priya.nair@acme.example'','||wwv_flow.LF||
-'  1,'||wwv_flow.LF||
-'';
-wwv_flow_imp.g_varchar2_table(45) := '  ''Filled'','||wwv_flow.LF||
-'  DATE ''2026-04-15'','||wwv_flow.LF||
-'  DATE ''2026-06-15'''||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_job_requisitions ('||wwv_flow.LF||
-'  job_id';
-wwv_flow_imp.g_varchar2_table(46) := ', dept_id, requested_by, approved_by, headcount, status, open_date'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT job_id FROM ';
-wwv_flow_imp.g_varchar2_table(47) := 'tms_jobs WHERE title = ''Data Analyst''),'||wwv_flow.LF||
-'  (SELECT dept_id FROM tms_departments WHERE name = ''Finance';
-wwv_flow_imp.g_varchar2_table(48) := '''),'||wwv_flow.LF||
-'  ''noah.reed@acme.example'','||wwv_flow.LF||
-'  NULL,'||wwv_flow.LF||
-'  1,'||wwv_flow.LF||
-'  ''Draft'','||wwv_flow.LF||
-'  DATE ''2026-06-18'''||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_cand';
-wwv_flow_imp.g_varchar2_table(49) := 'idates ('||wwv_flow.LF||
-'  req_id, first_name, last_name, email, phone, source, current_stage,'||wwv_flow.LF||
-'  applied_date, diver';
-wwv_flow_imp.g_varchar2_table(50) := 'sity_flag, ai_score'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.j';
-wwv_flow_imp.g_varchar2_table(51) := 'ob_id = r.job_id WHERE j.title = ''Senior Developer'' AND r.requested_by = ''maya.patel@acme.example'' A';
-wwv_flow_imp.g_varchar2_table(52) := 'ND r.open_date = DATE ''2026-06-01''),'||wwv_flow.LF||
-'  ''Anika'', ''Rao'', ''anika.rao@example.com'', ''+91-98765-11001'', ''';
-wwv_flow_imp.g_varchar2_table(53) := 'LinkedIn'','||wwv_flow.LF||
-'  ''Offer'', DATE ''2026-06-04'', ''Y'', 8.70'||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_candidates ('||wwv_flow.LF||
-'  req_id, first_';
-wwv_flow_imp.g_varchar2_table(54) := 'name, last_name, email, phone, source, current_stage,'||wwv_flow.LF||
-'  applied_date, diversity_flag, ai_score'||wwv_flow.LF||
-') VAL';
-wwv_flow_imp.g_varchar2_table(55) := 'UES ('||wwv_flow.LF||
-'  (SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.';
-wwv_flow_imp.g_varchar2_table(56) := 'title = ''Senior Developer'' AND r.requested_by = ''maya.patel@acme.example'' AND r.open_date = DATE ''20';
-wwv_flow_imp.g_varchar2_table(57) := '26-06-01''),'||wwv_flow.LF||
-'  ''Marcus'', ''Hill'', ''marcus.hill@example.com'', ''+1-415-555-0134'','||wwv_flow.LF||
-'  ''Employee Referral'',';
-wwv_flow_imp.g_varchar2_table(58) := ' ''Interview'', DATE ''2026-06-05'', ''N'', 7.90'||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_candidates ('||wwv_flow.LF||
-'  req_id, first_name, la';
-wwv_flow_imp.g_varchar2_table(59) := 'st_name, email, phone, source, current_stage,'||wwv_flow.LF||
-'  applied_date, diversity_flag, ai_score'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  ';
-wwv_flow_imp.g_varchar2_table(60) := '(SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.title = ';
-wwv_flow_imp.g_varchar2_table(61) := '''Senior Developer'' AND r.requested_by = ''maya.patel@acme.example'' AND r.open_date = DATE ''2026-06-01';
-wwv_flow_imp.g_varchar2_table(62) := '''),'||wwv_flow.LF||
-'  ''Nina'', ''Park'', ''nina.park@example.com'', ''+82-10-5555-0135'','||wwv_flow.LF||
-'  ''Careers Site'', ''Screening'', DA';
-wwv_flow_imp.g_varchar2_table(63) := 'TE ''2026-06-07'', ''Y'', 6.40'||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_candidates ('||wwv_flow.LF||
-'  req_id, first_name, last_name, email, ';
-wwv_flow_imp.g_varchar2_table(64) := 'phone, source, current_stage,'||wwv_flow.LF||
-'  applied_date, diversity_flag, ai_score'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT r.req_id';
-wwv_flow_imp.g_varchar2_table(65) := ' FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.title = ''Senior Develope';
-wwv_flow_imp.g_varchar2_table(66) := 'r'' AND r.requested_by = ''maya.patel@acme.example'' AND r.open_date = DATE ''2026-06-01''),'||wwv_flow.LF||
-'  ''Jacob'', ''';
-wwv_flow_imp.g_varchar2_table(67) := 'Lee'', ''jacob.lee@example.com'', ''+1-206-555-0136'','||wwv_flow.LF||
-'  ''Campus Event'', ''Rejected'', DATE ''2026-06-08'', ''';
-wwv_flow_imp.g_varchar2_table(68) := 'N'', 4.20'||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_candidates ('||wwv_flow.LF||
-'  req_id, first_name, last_name, email, phone, source, cur';
-wwv_flow_imp.g_varchar2_table(69) := 'rent_stage,'||wwv_flow.LF||
-'  applied_date, diversity_flag, ai_score'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT r.req_id FROM tms_job_requ';
-wwv_flow_imp.g_varchar2_table(70) := 'isitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.title = ''DevOps Engineer'' AND r.requested_';
-wwv_flow_imp.g_varchar2_table(71) := 'by = ''liam.chen@acme.example'' AND r.open_date = DATE ''2026-06-03''),'||wwv_flow.LF||
-'  ''Tom'', ''Alvarez'', ''tom.alvarez';
-wwv_flow_imp.g_varchar2_table(72) := '@example.com'', ''+1-512-555-0141'','||wwv_flow.LF||
-'  ''Recruiter Sourced'', ''Interview'', DATE ''2026-06-06'', ''N'', 8.10'||wwv_flow.LF||
-')';
-wwv_flow_imp.g_varchar2_table(73) := ';'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_candidates ('||wwv_flow.LF||
-'  req_id, first_name, last_name, email, phone, source, current_stage';
-wwv_flow_imp.g_varchar2_table(74) := ','||wwv_flow.LF||
-'  applied_date, diversity_flag, ai_score'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT r.req_id FROM tms_job_requisitions r';
-wwv_flow_imp.g_varchar2_table(75) := ' JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.title = ''DevOps Engineer'' AND r.requested_by = ''liam';
-wwv_flow_imp.g_varchar2_table(76) := '.chen@acme.example'' AND r.open_date = DATE ''2026-06-03''),'||wwv_flow.LF||
-'  ''Mei'', ''Wong'', ''mei.wong@example.com'', ''';
-wwv_flow_imp.g_varchar2_table(77) := '+65-8123-0142'','||wwv_flow.LF||
-'  ''Careers Site'', ''Applied'', DATE ''2026-06-09'', ''Y'', 6.90'||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_candid';
-wwv_flow_imp.g_varchar2_table(78) := 'ates ('||wwv_flow.LF||
-'  req_id, first_name, last_name, email, phone, source, current_stage,'||wwv_flow.LF||
-'  applied_date, diversi';
-wwv_flow_imp.g_varchar2_table(79) := 'ty_flag, ai_score'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job';
-wwv_flow_imp.g_varchar2_table(80) := '_id = r.job_id WHERE j.title = ''HR Generalist'' AND r.requested_by = ''priya.nair@acme.example'' AND r.';
-wwv_flow_imp.g_varchar2_table(81) := 'open_date = DATE ''2026-06-10''),'||wwv_flow.LF||
-'  ''Grace'', ''Kim'', ''grace.kim@example.com'', ''+1-646-555-0143'','||wwv_flow.LF||
-'  ''Lin';
-wwv_flow_imp.g_varchar2_table(82) := 'kedIn'', ''Applied'', DATE ''2026-06-12'', ''Y'', 7.20'||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_candidates ('||wwv_flow.LF||
-'  req_id, first_nam';
-wwv_flow_imp.g_varchar2_table(83) := 'e, last_name, email, phone, source, current_stage,'||wwv_flow.LF||
-'  applied_date, diversity_flag, ai_score'||wwv_flow.LF||
-') VALUES';
-wwv_flow_imp.g_varchar2_table(84) := ' ('||wwv_flow.LF||
-'  (SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.tit';
-wwv_flow_imp.g_varchar2_table(85) := 'le = ''Sales Account Executive'' AND r.requested_by = ''sofia.garcia@acme.example'' AND r.open_date = DA';
-wwv_flow_imp.g_varchar2_table(86) := 'TE ''2026-05-25''),'||wwv_flow.LF||
-'  ''Olivia'', ''Grant'', ''olivia.grant@example.com'', ''+44-7700-900141'','||wwv_flow.LF||
-'  ''Agency'', ''O';
-wwv_flow_imp.g_varchar2_table(87) := 'ffer'', DATE ''2026-05-29'', ''N'', 8.30'||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_candidates ('||wwv_flow.LF||
-'  req_id, first_name, last_name';
-wwv_flow_imp.g_varchar2_table(88) := ', email, phone, source, current_stage,'||wwv_flow.LF||
-'  applied_date, diversity_flag, ai_score'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT';
-wwv_flow_imp.g_varchar2_table(89) := ' r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.title = ''Sales ';
-wwv_flow_imp.g_varchar2_table(90) := 'Account Executive'' AND r.requested_by = ''sofia.garcia@acme.example'' AND r.open_date = DATE ''2026-05-';
-wwv_flow_imp.g_varchar2_table(91) := '25''),'||wwv_flow.LF||
-'  ''Daniel'', ''Brown'', ''daniel.brown@example.com'', ''+1-312-555-0145'','||wwv_flow.LF||
-'  ''Careers Site'', ''Screeni';
-wwv_flow_imp.g_varchar2_table(92) := 'ng'', DATE ''2026-06-01'', ''N'', 6.80'||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_candidates ('||wwv_flow.LF||
-'  req_id, first_name, last_name, ';
-wwv_flow_imp.g_varchar2_table(93) := 'email, phone, source, current_stage,'||wwv_flow.LF||
-'  applied_date, diversity_flag, ai_score'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT r';
-wwv_flow_imp.g_varchar2_table(94) := '.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.title = ''Sales Ac';
-wwv_flow_imp.g_varchar2_table(95) := 'count Executive'' AND r.requested_by = ''sofia.garcia@acme.example'' AND r.open_date = DATE ''2026-05-25';
-wwv_flow_imp.g_varchar2_table(96) := '''),'||wwv_flow.LF||
-'  ''Aisha'', ''Khan'', ''aisha.khan@example.com'', ''+971-50-555-0146'','||wwv_flow.LF||
-'  ''Referral'', ''Applied'', DATE ''';
-wwv_flow_imp.g_varchar2_table(97) := '2026-06-04'', ''Y'', 7.10'||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_candidates ('||wwv_flow.LF||
-'  req_id, first_name, last_name, email, phon';
-wwv_flow_imp.g_varchar2_table(98) := 'e, source, current_stage,'||wwv_flow.LF||
-'  applied_date, diversity_flag, ai_score'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT r.req_id FRO';
-wwv_flow_imp.g_varchar2_table(99) := 'M tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.title = ''Product Manager'' AN';
-wwv_flow_imp.g_varchar2_table(100) := 'D r.requested_by = ''ethan.brooks@acme.example'' AND r.open_date = DATE ''2026-04-15''),'||wwv_flow.LF||
-'  ''Ravi'', ''Meno';
-wwv_flow_imp.g_varchar2_table(101) := 'n'', ''ravi.menon@example.com'', ''+91-98765-11451'','||wwv_flow.LF||
-'  ''Executive Referral'', ''Hired'', DATE ''2026-04-22'',';
-wwv_flow_imp.g_varchar2_table(102) := ' ''N'', 9.10'||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_candidates ('||wwv_flow.LF||
-'  req_id, first_name, last_name, email, phone, source, c';
-wwv_flow_imp.g_varchar2_table(103) := 'urrent_stage,'||wwv_flow.LF||
-'  applied_date, diversity_flag, ai_score'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT r.req_id FROM tms_job_re';
-wwv_flow_imp.g_varchar2_table(104) := 'quisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.title = ''Product Manager'' AND r.requeste';
-wwv_flow_imp.g_varchar2_table(105) := 'd_by = ''ethan.brooks@acme.example'' AND r.open_date = DATE ''2026-04-15''),'||wwv_flow.LF||
-'  ''Elena'', ''Petrova'', ''elen';
-wwv_flow_imp.g_varchar2_table(106) := 'a.petrova@example.com'', ''+49-30-555-0148'','||wwv_flow.LF||
-'  ''LinkedIn'', ''Rejected'', DATE ''2026-04-25'', ''Y'', 5.10'||wwv_flow.LF||
-');';
-wwv_flow_imp.g_varchar2_table(107) := ''||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_employees ('||wwv_flow.LF||
-'  first_name, last_name, email, job_id, dept_id, manager_id, salary, h';
-wwv_flow_imp.g_varchar2_table(108) := 'ire_date, status'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  ''Maya'', ''Patel'', ''maya.patel@acme.example'','||wwv_flow.LF||
-'  (SELECT job_id FROM tms_';
-wwv_flow_imp.g_varchar2_table(109) := 'jobs WHERE title = ''Engineering Manager''),'||wwv_flow.LF||
-'  (SELECT dept_id FROM tms_departments WHERE name = ''Engi';
-wwv_flow_imp.g_varchar2_table(110) := 'neering''),'||wwv_flow.LF||
-'  NULL, 132000, DATE ''2018-04-02'', ''Active'''||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_employees ('||wwv_flow.LF||
-'  first_name,';
-wwv_flow_imp.g_varchar2_table(111) := ' last_name, email, job_id, dept_id, manager_id, salary, hire_date, status'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  ''Liam'', ''Chen';
-wwv_flow_imp.g_varchar2_table(112) := ''', ''liam.chen@acme.example'','||wwv_flow.LF||
-'  (SELECT job_id FROM tms_jobs WHERE title = ''DevOps Engineer''),'||wwv_flow.LF||
-'  (SEL';
-wwv_flow_imp.g_varchar2_table(113) := 'ECT dept_id FROM tms_departments WHERE name = ''IT Operations''),'||wwv_flow.LF||
-'  NULL, 98000, DATE ''2019-09-16'', ''A';
-wwv_flow_imp.g_varchar2_table(114) := 'ctive'''||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_employees ('||wwv_flow.LF||
-'  first_name, last_name, email, job_id, dept_id, manager_id, ';
-wwv_flow_imp.g_varchar2_table(115) := 'salary, hire_date, status'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  ''Priya'', ''Nair'', ''priya.nair@acme.example'','||wwv_flow.LF||
-'  (SELECT job_id ';
-wwv_flow_imp.g_varchar2_table(116) := 'FROM tms_jobs WHERE title = ''HR Business Partner''),'||wwv_flow.LF||
-'  (SELECT dept_id FROM tms_departments WHERE nam';
-wwv_flow_imp.g_varchar2_table(117) := 'e = ''Human Resources''),'||wwv_flow.LF||
-'  NULL, 94000, DATE ''2017-11-20'', ''Active'''||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_employees ('||wwv_flow.LF||
-' ';
-wwv_flow_imp.g_varchar2_table(118) := ' first_name, last_name, email, job_id, dept_id, manager_id, salary, hire_date, status'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  ''';
-wwv_flow_imp.g_varchar2_table(119) := 'Sofia'', ''Garcia'', ''sofia.garcia@acme.example'','||wwv_flow.LF||
-'  (SELECT job_id FROM tms_jobs WHERE title = ''Sales A';
-wwv_flow_imp.g_varchar2_table(120) := 'ccount Executive''),'||wwv_flow.LF||
-'  (SELECT dept_id FROM tms_departments WHERE name = ''Sales''),'||wwv_flow.LF||
-'  NULL, 88000, DAT';
-wwv_flow_imp.g_varchar2_table(121) := 'E ''2020-02-10'', ''Active'''||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_employees ('||wwv_flow.LF||
-'  first_name, last_name, email, job_id, dep';
-wwv_flow_imp.g_varchar2_table(122) := 't_id, manager_id, salary, hire_date, status'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  ''Noah'', ''Reed'', ''noah.reed@acme.example'','||wwv_flow.LF||
-' ';
-wwv_flow_imp.g_varchar2_table(123) := ' (SELECT job_id FROM tms_jobs WHERE title = ''Payroll Specialist''),'||wwv_flow.LF||
-'  (SELECT dept_id FROM tms_depart';
-wwv_flow_imp.g_varchar2_table(124) := 'ments WHERE name = ''Finance''),'||wwv_flow.LF||
-'  NULL, 64000, DATE ''2021-05-03'', ''Active'''||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_employ';
-wwv_flow_imp.g_varchar2_table(125) := 'ees ('||wwv_flow.LF||
-'  first_name, last_name, email, job_id, dept_id, manager_id, salary, hire_date, status'||wwv_flow.LF||
-') VALUE';
-wwv_flow_imp.g_varchar2_table(126) := 'S ('||wwv_flow.LF||
-'  ''Ethan'', ''Brooks'', ''ethan.brooks@acme.example'','||wwv_flow.LF||
-'  (SELECT job_id FROM tms_jobs WHERE title = ''';
-wwv_flow_imp.g_varchar2_table(127) := 'Product Manager''),'||wwv_flow.LF||
-'  (SELECT dept_id FROM tms_departments WHERE name = ''Product''),'||wwv_flow.LF||
-'  NULL, 120000, D';
-wwv_flow_imp.g_varchar2_table(128) := 'ATE ''2018-08-27'', ''Active'''||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_employees ('||wwv_flow.LF||
-'  candidate_id, first_name, last_name, em';
-wwv_flow_imp.g_varchar2_table(129) := 'ail, job_id, dept_id, manager_id,'||wwv_flow.LF||
-'  salary, hire_date, status'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT candidate_id FROM';
-wwv_flow_imp.g_varchar2_table(130) := ' tms_candidates WHERE email = ''ravi.menon@example.com''),'||wwv_flow.LF||
-'  ''Ravi'', ''Menon'', ''ravi.menon@acme.example';
-wwv_flow_imp.g_varchar2_table(131) := ''','||wwv_flow.LF||
-'  (SELECT job_id FROM tms_jobs WHERE title = ''Product Manager''),'||wwv_flow.LF||
-'  (SELECT dept_id FROM tms_depar';
-wwv_flow_imp.g_varchar2_table(132) := 'tments WHERE name = ''Product''),'||wwv_flow.LF||
-'  (SELECT employee_id FROM tms_employees WHERE email = ''ethan.brooks';
-wwv_flow_imp.g_varchar2_table(133) := '@acme.example''),'||wwv_flow.LF||
-'  118000, DATE ''2026-06-24'', ''Onboarding'''||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_interview_stages ('||wwv_flow.LF||
-'  ';
-wwv_flow_imp.g_varchar2_table(134) := 'candidate_id, req_id, stage_name, interviewer_id, scheduled_date, outcome,'||wwv_flow.LF||
-'  feedback_notes, score'||wwv_flow.LF||
-')';
-wwv_flow_imp.g_varchar2_table(135) := ' VALUES ('||wwv_flow.LF||
-'  (SELECT candidate_id FROM tms_candidates WHERE email = ''anika.rao@example.com''),'||wwv_flow.LF||
-'  (SELE';
-wwv_flow_imp.g_varchar2_table(136) := 'CT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.title = ''Seni';
-wwv_flow_imp.g_varchar2_table(137) := 'or Developer'' AND r.requested_by = ''maya.patel@acme.example'' AND r.open_date = DATE ''2026-06-01''),'||wwv_flow.LF||
-' ';
-wwv_flow_imp.g_varchar2_table(138) := ' ''Screening'','||wwv_flow.LF||
-'  (SELECT employee_id FROM tms_employees WHERE email = ''priya.nair@acme.example''),'||wwv_flow.LF||
-'  T';
-wwv_flow_imp.g_varchar2_table(139) := 'O_TIMESTAMP(''2026-06-11 10:00'', ''YYYY-MM-DD HH24:MI''),'||wwv_flow.LF||
-'  ''Proceed'','||wwv_flow.LF||
-'  TO_CLOB(''Strong communication ';
-wwv_flow_imp.g_varchar2_table(140) := 'and strong Java/Spring foundation. Move to technical panel.''),'||wwv_flow.LF||
-'  4.4'||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_interview_s';
-wwv_flow_imp.g_varchar2_table(141) := 'tages ('||wwv_flow.LF||
-'  candidate_id, req_id, stage_name, interviewer_id, scheduled_date, outcome,'||wwv_flow.LF||
-'  feedback_note';
-wwv_flow_imp.g_varchar2_table(142) := 's, score'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT candidate_id FROM tms_candidates WHERE email = ''anika.rao@example.com''';
-wwv_flow_imp.g_varchar2_table(143) := '),'||wwv_flow.LF||
-'  (SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.tit';
-wwv_flow_imp.g_varchar2_table(144) := 'le = ''Senior Developer'' AND r.requested_by = ''maya.patel@acme.example'' AND r.open_date = DATE ''2026-';
-wwv_flow_imp.g_varchar2_table(145) := '06-01''),'||wwv_flow.LF||
-'  ''Technical Interview'','||wwv_flow.LF||
-'  (SELECT employee_id FROM tms_employees WHERE email = ''maya.patel';
-wwv_flow_imp.g_varchar2_table(146) := '@acme.example''),'||wwv_flow.LF||
-'  TO_TIMESTAMP(''2026-06-18 14:30'', ''YYYY-MM-DD HH24:MI''),'||wwv_flow.LF||
-'  ''Proceed'','||wwv_flow.LF||
-'  TO_CLOB(''E';
-wwv_flow_imp.g_varchar2_table(147) := 'xcellent backend design discussion with practical AWS experience.''),'||wwv_flow.LF||
-'  4.8'||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_inter';
-wwv_flow_imp.g_varchar2_table(148) := 'view_stages ('||wwv_flow.LF||
-'  candidate_id, req_id, stage_name, interviewer_id, scheduled_date, outcome,'||wwv_flow.LF||
-'  feedbac';
-wwv_flow_imp.g_varchar2_table(149) := 'k_notes, score'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT candidate_id FROM tms_candidates WHERE email = ''marcus.hill@exam';
-wwv_flow_imp.g_varchar2_table(150) := 'ple.com''),'||wwv_flow.LF||
-'  (SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHE';
-wwv_flow_imp.g_varchar2_table(151) := 'RE j.title = ''Senior Developer'' AND r.requested_by = ''maya.patel@acme.example'' AND r.open_date = DAT';
-wwv_flow_imp.g_varchar2_table(152) := 'E ''2026-06-01''),'||wwv_flow.LF||
-'  ''Technical Interview'','||wwv_flow.LF||
-'  (SELECT employee_id FROM tms_employees WHERE email = ''ma';
-wwv_flow_imp.g_varchar2_table(153) := 'ya.patel@acme.example''),'||wwv_flow.LF||
-'  TO_TIMESTAMP(''2026-06-24 11:00'', ''YYYY-MM-DD HH24:MI''),'||wwv_flow.LF||
-'  ''Scheduled'','||wwv_flow.LF||
-'  ';
-wwv_flow_imp.g_varchar2_table(154) := 'TO_CLOB(''Panel booked; resume shows strong API experience.''),'||wwv_flow.LF||
-'  NULL'||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_interview_s';
-wwv_flow_imp.g_varchar2_table(155) := 'tages ('||wwv_flow.LF||
-'  candidate_id, req_id, stage_name, interviewer_id, scheduled_date, outcome,'||wwv_flow.LF||
-'  feedback_note';
-wwv_flow_imp.g_varchar2_table(156) := 's, score'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT candidate_id FROM tms_candidates WHERE email = ''tom.alvarez@example.co';
-wwv_flow_imp.g_varchar2_table(157) := 'm''),'||wwv_flow.LF||
-'  (SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.t';
-wwv_flow_imp.g_varchar2_table(158) := 'itle = ''DevOps Engineer'' AND r.requested_by = ''liam.chen@acme.example'' AND r.open_date = DATE ''2026-';
-wwv_flow_imp.g_varchar2_table(159) := '06-03''),'||wwv_flow.LF||
-'  ''Technical Interview'','||wwv_flow.LF||
-'  (SELECT employee_id FROM tms_employees WHERE email = ''liam.chen@';
-wwv_flow_imp.g_varchar2_table(160) := 'acme.example''),'||wwv_flow.LF||
-'  TO_TIMESTAMP(''2026-06-25 15:00'', ''YYYY-MM-DD HH24:MI''),'||wwv_flow.LF||
-'  ''Scheduled'','||wwv_flow.LF||
-'  TO_CLOB(''';
-wwv_flow_imp.g_varchar2_table(161) := 'Focus areas: Kubernetes operations, Terraform modules, incident response.''),'||wwv_flow.LF||
-'  NULL'||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO ';
-wwv_flow_imp.g_varchar2_table(162) := 'tms_interview_stages ('||wwv_flow.LF||
-'  candidate_id, req_id, stage_name, interviewer_id, scheduled_date, outcome,'||wwv_flow.LF||
-'';
-wwv_flow_imp.g_varchar2_table(163) := '  feedback_notes, score'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT candidate_id FROM tms_candidates WHERE email = ''olivia.';
-wwv_flow_imp.g_varchar2_table(164) := 'grant@example.com''),'||wwv_flow.LF||
-'  (SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.';
-wwv_flow_imp.g_varchar2_table(165) := 'job_id WHERE j.title = ''Sales Account Executive'' AND r.requested_by = ''sofia.garcia@acme.example'' AN';
-wwv_flow_imp.g_varchar2_table(166) := 'D r.open_date = DATE ''2026-05-25''),'||wwv_flow.LF||
-'  ''Manager Interview'','||wwv_flow.LF||
-'  (SELECT employee_id FROM tms_employees ';
-wwv_flow_imp.g_varchar2_table(167) := 'WHERE email = ''sofia.garcia@acme.example''),'||wwv_flow.LF||
-'  TO_TIMESTAMP(''2026-06-07 12:00'', ''YYYY-MM-DD HH24:MI'')';
-wwv_flow_imp.g_varchar2_table(168) := ','||wwv_flow.LF||
-'  ''Proceed'','||wwv_flow.LF||
-'  TO_CLOB(''Clear enterprise selling examples; strong territory planning.''),'||wwv_flow.LF||
-'  4.5'||wwv_flow.LF||
-');'||wwv_flow.LF||
-'';
-wwv_flow_imp.g_varchar2_table(169) := ''||wwv_flow.LF||
-'INSERT INTO tms_interview_stages ('||wwv_flow.LF||
-'  candidate_id, req_id, stage_name, interviewer_id, scheduled_da';
-wwv_flow_imp.g_varchar2_table(170) := 'te, outcome,'||wwv_flow.LF||
-'  feedback_notes, score'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT candidate_id FROM tms_candidates WHERE ema';
-wwv_flow_imp.g_varchar2_table(171) := 'il = ''ravi.menon@example.com''),'||wwv_flow.LF||
-'  (SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.';
-wwv_flow_imp.g_varchar2_table(172) := 'job_id = r.job_id WHERE j.title = ''Product Manager'' AND r.requested_by = ''ethan.brooks@acme.example''';
-wwv_flow_imp.g_varchar2_table(173) := ' AND r.open_date = DATE ''2026-04-15''),'||wwv_flow.LF||
-'  ''Final'','||wwv_flow.LF||
-'  (SELECT employee_id FROM tms_employees WHERE ema';
-wwv_flow_imp.g_varchar2_table(174) := 'il = ''ethan.brooks@acme.example''),'||wwv_flow.LF||
-'  TO_TIMESTAMP(''2026-05-16 16:00'', ''YYYY-MM-DD HH24:MI''),'||wwv_flow.LF||
-'  ''Comp';
-wwv_flow_imp.g_varchar2_table(175) := 'leted'','||wwv_flow.LF||
-'  TO_CLOB(''Strong roadmap judgment and stakeholder management. Recommended hire.''),'||wwv_flow.LF||
-'  4.9'||wwv_flow.LF||
-');';
-wwv_flow_imp.g_varchar2_table(176) := ''||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_offers ('||wwv_flow.LF||
-'  candidate_id, req_id, offered_salary, start_date, expiry_date, status, ';
-wwv_flow_imp.g_varchar2_table(177) := 'approved_by'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT candidate_id FROM tms_candidates WHERE email = ''anika.rao@example.c';
-wwv_flow_imp.g_varchar2_table(178) := 'om''),'||wwv_flow.LF||
-'  (SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.';
-wwv_flow_imp.g_varchar2_table(179) := 'title = ''Senior Developer'' AND r.requested_by = ''maya.patel@acme.example'' AND r.open_date = DATE ''20';
-wwv_flow_imp.g_varchar2_table(180) := '26-06-01''),'||wwv_flow.LF||
-'  95000, DATE ''2026-07-15'', DATE ''2026-07-02'', ''Sent'', ''maya.patel@acme.example'''||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INS';
-wwv_flow_imp.g_varchar2_table(181) := 'ERT INTO tms_offers ('||wwv_flow.LF||
-'  candidate_id, req_id, offered_salary, start_date, expiry_date, status, appro';
-wwv_flow_imp.g_varchar2_table(182) := 'ved_by'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT candidate_id FROM tms_candidates WHERE email = ''olivia.grant@example.com';
-wwv_flow_imp.g_varchar2_table(183) := '''),'||wwv_flow.LF||
-'  (SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = r.job_id WHERE j.ti';
-wwv_flow_imp.g_varchar2_table(184) := 'tle = ''Sales Account Executive'' AND r.requested_by = ''sofia.garcia@acme.example'' AND r.open_date = D';
-wwv_flow_imp.g_varchar2_table(185) := 'ATE ''2026-05-25''),'||wwv_flow.LF||
-'  82000, DATE ''2026-07-22'', DATE ''2026-07-05'', ''Pending Approval'', ''sofia.garcia@';
-wwv_flow_imp.g_varchar2_table(186) := 'acme.example'''||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_offers ('||wwv_flow.LF||
-'  candidate_id, req_id, offered_salary, start_date, expir';
-wwv_flow_imp.g_varchar2_table(187) := 'y_date, status, approved_by'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT candidate_id FROM tms_candidates WHERE email = ''rav';
-wwv_flow_imp.g_varchar2_table(188) := 'i.menon@example.com''),'||wwv_flow.LF||
-'  (SELECT r.req_id FROM tms_job_requisitions r JOIN tms_jobs j ON j.job_id = ';
-wwv_flow_imp.g_varchar2_table(189) := 'r.job_id WHERE j.title = ''Product Manager'' AND r.requested_by = ''ethan.brooks@acme.example'' AND r.op';
-wwv_flow_imp.g_varchar2_table(190) := 'en_date = DATE ''2026-04-15''),'||wwv_flow.LF||
-'  118000, DATE ''2026-06-24'', DATE ''2026-06-10'', ''Accepted'', ''ethan.bro';
-wwv_flow_imp.g_varchar2_table(191) := 'oks@acme.example'''||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_onboarding_tasks ('||wwv_flow.LF||
-'  employee_id, task_name, assigned_to, cate';
-wwv_flow_imp.g_varchar2_table(192) := 'gory, due_date, status'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT employee_id FROM tms_employees WHERE email = ''ravi.menon';
-wwv_flow_imp.g_varchar2_table(193) := '@acme.example''),'||wwv_flow.LF||
-'  ''IT Setup'', ''liam.chen@acme.example'', ''IT'', DATE ''2026-06-28'', ''In Progress'''||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'';
-wwv_flow_imp.g_varchar2_table(194) := 'INSERT INTO tms_onboarding_tasks ('||wwv_flow.LF||
-'  employee_id, task_name, assigned_to, category, due_date, status';
-wwv_flow_imp.g_varchar2_table(195) := ', completed_date'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT employee_id FROM tms_employees WHERE email = ''ravi.menon@acme.';
-wwv_flow_imp.g_varchar2_table(196) := 'example''),'||wwv_flow.LF||
-'  ''HR Documents'', ''priya.nair@acme.example'', ''HR'', DATE ''2026-06-27'','||wwv_flow.LF||
-'  ''Completed'', DATE';
-wwv_flow_imp.g_varchar2_table(197) := ' ''2026-06-26'''||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_onboarding_tasks ('||wwv_flow.LF||
-'  employee_id, task_name, assigned_to, category';
-wwv_flow_imp.g_varchar2_table(198) := ', due_date, status'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT employee_id FROM tms_employees WHERE email = ''ravi.menon@acm';
-wwv_flow_imp.g_varchar2_table(199) := 'e.example''),'||wwv_flow.LF||
-'  ''Department Orientation'', ''ethan.brooks@acme.example'', ''Department'','||wwv_flow.LF||
-'  DATE ''2026-06-';
-wwv_flow_imp.g_varchar2_table(200) := '30'', ''Not Started'''||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_onboarding_tasks ('||wwv_flow.LF||
-'  employee_id, task_name, assigned_to, cat';
-wwv_flow_imp.g_varchar2_table(201) := 'egory, due_date, status'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT employee_id FROM tms_employees WHERE email = ''ravi.meno';
-wwv_flow_imp.g_varchar2_table(202) := 'n@acme.example''),'||wwv_flow.LF||
-'  ''Payroll Setup'', ''noah.reed@acme.example'', ''Payroll'','||wwv_flow.LF||
-'  DATE ''2026-06-29'', ''In P';
-wwv_flow_imp.g_varchar2_table(203) := 'rogress'''||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_onboarding_tasks ('||wwv_flow.LF||
-'  employee_id, task_name, assigned_to, category, due';
-wwv_flow_imp.g_varchar2_table(204) := '_date, status'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT employee_id FROM tms_employees WHERE email = ''ravi.menon@acme.exa';
-wwv_flow_imp.g_varchar2_table(205) := 'mple''),'||wwv_flow.LF||
-'  ''Security Awareness Training'', ''liam.chen@acme.example'', ''Compliance'','||wwv_flow.LF||
-'  DATE ''2026-07-03''';
-wwv_flow_imp.g_varchar2_table(206) := ', ''Not Started'''||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_leave_types (name, max_days_per_year)'||wwv_flow.LF||
-'VALUES (''Annual Leave'', 25';
-wwv_flow_imp.g_varchar2_table(207) := ');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_leave_types (name, max_days_per_year)'||wwv_flow.LF||
-'VALUES (''Sick Leave'', 10);'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tm';
-wwv_flow_imp.g_varchar2_table(208) := 's_leave_types (name, max_days_per_year)'||wwv_flow.LF||
-'VALUES (''Personal Leave'', 5);'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_leave_types (';
-wwv_flow_imp.g_varchar2_table(209) := 'name, max_days_per_year)'||wwv_flow.LF||
-'VALUES (''Parental Leave'', 60);'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_leave_types (name, max_days';
-wwv_flow_imp.g_varchar2_table(210) := '_per_year)'||wwv_flow.LF||
-'VALUES (''Bereavement Leave'', 5);'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_leave_balances (employee_id, leave_type';
-wwv_flow_imp.g_varchar2_table(211) := '_id, year, accrued, used, remaining)'||wwv_flow.LF||
-'VALUES ((SELECT employee_id FROM tms_employees WHERE email = ''m';
-wwv_flow_imp.g_varchar2_table(212) := 'aya.patel@acme.example''), (SELECT leave_type_id FROM tms_leave_types WHERE name = ''Annual Leave''), 2';
-wwv_flow_imp.g_varchar2_table(213) := '026, 25, 5, 20);'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_leave_balances (employee_id, leave_type_id, year, accrued, used, r';
-wwv_flow_imp.g_varchar2_table(214) := 'emaining)'||wwv_flow.LF||
-'VALUES ((SELECT employee_id FROM tms_employees WHERE email = ''maya.patel@acme.example''), (';
-wwv_flow_imp.g_varchar2_table(215) := 'SELECT leave_type_id FROM tms_leave_types WHERE name = ''Sick Leave''), 2026, 10, 1, 9);'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO ';
-wwv_flow_imp.g_varchar2_table(216) := 'tms_leave_balances (employee_id, leave_type_id, year, accrued, used, remaining)'||wwv_flow.LF||
-'VALUES ((SELECT empl';
-wwv_flow_imp.g_varchar2_table(217) := 'oyee_id FROM tms_employees WHERE email = ''liam.chen@acme.example''), (SELECT leave_type_id FROM tms_l';
-wwv_flow_imp.g_varchar2_table(218) := 'eave_types WHERE name = ''Annual Leave''), 2026, 25, 2, 23);'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_leave_balances (employee';
-wwv_flow_imp.g_varchar2_table(219) := '_id, leave_type_id, year, accrued, used, remaining)'||wwv_flow.LF||
-'VALUES ((SELECT employee_id FROM tms_employees W';
-wwv_flow_imp.g_varchar2_table(220) := 'HERE email = ''priya.nair@acme.example''), (SELECT leave_type_id FROM tms_leave_types WHERE name = ''An';
-wwv_flow_imp.g_varchar2_table(221) := 'nual Leave''), 2026, 25, 7, 18);'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_leave_balances (employee_id, leave_type_id, year, a';
-wwv_flow_imp.g_varchar2_table(222) := 'ccrued, used, remaining)'||wwv_flow.LF||
-'VALUES ((SELECT employee_id FROM tms_employees WHERE email = ''sofia.garcia@';
-wwv_flow_imp.g_varchar2_table(223) := 'acme.example''), (SELECT leave_type_id FROM tms_leave_types WHERE name = ''Annual Leave''), 2026, 25, 4';
-wwv_flow_imp.g_varchar2_table(224) := ', 21);'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_leave_balances (employee_id, leave_type_id, year, accrued, used, remaining)'||wwv_flow.LF||
-'';
-wwv_flow_imp.g_varchar2_table(225) := 'VALUES ((SELECT employee_id FROM tms_employees WHERE email = ''sofia.garcia@acme.example''), (SELECT l';
-wwv_flow_imp.g_varchar2_table(226) := 'eave_type_id FROM tms_leave_types WHERE name = ''Sick Leave''), 2026, 10, 2, 8);'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_leav';
-wwv_flow_imp.g_varchar2_table(227) := 'e_balances (employee_id, leave_type_id, year, accrued, used, remaining)'||wwv_flow.LF||
-'VALUES ((SELECT employee_id ';
-wwv_flow_imp.g_varchar2_table(228) := 'FROM tms_employees WHERE email = ''noah.reed@acme.example''), (SELECT leave_type_id FROM tms_leave_typ';
-wwv_flow_imp.g_varchar2_table(229) := 'es WHERE name = ''Annual Leave''), 2026, 25, 6, 19);'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_leave_balances (employee_id, lea';
-wwv_flow_imp.g_varchar2_table(230) := 've_type_id, year, accrued, used, remaining)'||wwv_flow.LF||
-'VALUES ((SELECT employee_id FROM tms_employees WHERE ema';
-wwv_flow_imp.g_varchar2_table(231) := 'il = ''ethan.brooks@acme.example''), (SELECT leave_type_id FROM tms_leave_types WHERE name = ''Annual L';
-wwv_flow_imp.g_varchar2_table(232) := 'eave''), 2026, 25, 3, 22);'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_leave_balances (employee_id, leave_type_id, year, accrued';
-wwv_flow_imp.g_varchar2_table(233) := ', used, remaining)'||wwv_flow.LF||
-'VALUES ((SELECT employee_id FROM tms_employees WHERE email = ''ravi.menon@acme.exa';
-wwv_flow_imp.g_varchar2_table(234) := 'mple''), (SELECT leave_type_id FROM tms_leave_types WHERE name = ''Annual Leave''), 2026, 25, 0, 25);'||wwv_flow.LF||
-''||wwv_flow.LF||
-'';
-wwv_flow_imp.g_varchar2_table(235) := 'INSERT INTO tms_leave_balances (employee_id, leave_type_id, year, accrued, used, remaining)'||wwv_flow.LF||
-'VALUES (';
-wwv_flow_imp.g_varchar2_table(236) := '(SELECT employee_id FROM tms_employees WHERE email = ''ravi.menon@acme.example''), (SELECT leave_type_';
-wwv_flow_imp.g_varchar2_table(237) := 'id FROM tms_leave_types WHERE name = ''Sick Leave''), 2026, 10, 0, 10);'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_leave_request';
-wwv_flow_imp.g_varchar2_table(238) := 's ('||wwv_flow.LF||
-'  employee_id, leave_type_id, start_date, end_date, days_requested, reason, status, approver_id'||wwv_flow.LF||
-'';
-wwv_flow_imp.g_varchar2_table(239) := ') VALUES ('||wwv_flow.LF||
-'  (SELECT employee_id FROM tms_employees WHERE email = ''maya.patel@acme.example''),'||wwv_flow.LF||
-'  (SEL';
-wwv_flow_imp.g_varchar2_table(240) := 'ECT leave_type_id FROM tms_leave_types WHERE name = ''Annual Leave''),'||wwv_flow.LF||
-'  DATE ''2026-07-08'', DATE ''2026';
-wwv_flow_imp.g_varchar2_table(241) := '-07-12'', 5,'||wwv_flow.LF||
-'  TO_CLOB(''Family trip booked after sprint planning.''),'||wwv_flow.LF||
-'  ''Approved'','||wwv_flow.LF||
-'  (SELECT employee';
-wwv_flow_imp.g_varchar2_table(242) := '_id FROM tms_employees WHERE email = ''priya.nair@acme.example'')'||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_leave_requests (';
-wwv_flow_imp.g_varchar2_table(243) := ''||wwv_flow.LF||
-'  employee_id, leave_type_id, start_date, end_date, days_requested, reason, status, approver_id'||wwv_flow.LF||
-') V';
-wwv_flow_imp.g_varchar2_table(244) := 'ALUES ('||wwv_flow.LF||
-'  (SELECT employee_id FROM tms_employees WHERE email = ''sofia.garcia@acme.example''),'||wwv_flow.LF||
-'  (SELE';
-wwv_flow_imp.g_varchar2_table(245) := 'CT leave_type_id FROM tms_leave_types WHERE name = ''Sick Leave''),'||wwv_flow.LF||
-'  DATE ''2026-06-20'', DATE ''2026-06';
-wwv_flow_imp.g_varchar2_table(246) := '-21'', 2,'||wwv_flow.LF||
-'  TO_CLOB(''Fever and recovery time.''),'||wwv_flow.LF||
-'  ''Approved'','||wwv_flow.LF||
-'  (SELECT employee_id FROM tms_employe';
-wwv_flow_imp.g_varchar2_table(247) := 'es WHERE email = ''priya.nair@acme.example'')'||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_leave_requests ('||wwv_flow.LF||
-'  employee_id, leav';
-wwv_flow_imp.g_varchar2_table(248) := 'e_type_id, start_date, end_date, days_requested, reason, status, approver_id'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT em';
-wwv_flow_imp.g_varchar2_table(249) := 'ployee_id FROM tms_employees WHERE email = ''ravi.menon@acme.example''),'||wwv_flow.LF||
-'  (SELECT leave_type_id FROM ';
-wwv_flow_imp.g_varchar2_table(250) := 'tms_leave_types WHERE name = ''Annual Leave''),'||wwv_flow.LF||
-'  DATE ''2026-08-12'', DATE ''2026-08-14'', 3,'||wwv_flow.LF||
-'  TO_CLOB(''';
-wwv_flow_imp.g_varchar2_table(251) := 'Planned travel after onboarding activities are complete.''),'||wwv_flow.LF||
-'  ''Submitted'','||wwv_flow.LF||
-'  (SELECT employee_id FRO';
-wwv_flow_imp.g_varchar2_table(252) := 'M tms_employees WHERE email = ''ethan.brooks@acme.example'')'||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_leave_requests ('||wwv_flow.LF||
-'  em';
-wwv_flow_imp.g_varchar2_table(253) := 'ployee_id, leave_type_id, start_date, end_date, days_requested, reason, status, approver_id'||wwv_flow.LF||
-') VALUES';
-wwv_flow_imp.g_varchar2_table(254) := ' ('||wwv_flow.LF||
-'  (SELECT employee_id FROM tms_employees WHERE email = ''noah.reed@acme.example''),'||wwv_flow.LF||
-'  (SELECT leave';
-wwv_flow_imp.g_varchar2_table(255) := '_type_id FROM tms_leave_types WHERE name = ''Personal Leave''),'||wwv_flow.LF||
-'  DATE ''2026-07-03'', DATE ''2026-07-03''';
-wwv_flow_imp.g_varchar2_table(256) := ', 1,'||wwv_flow.LF||
-'  TO_CLOB(''Personal appointment.''),'||wwv_flow.LF||
-'  ''Rejected'','||wwv_flow.LF||
-'  (SELECT employee_id FROM tms_employees WHER';
-wwv_flow_imp.g_varchar2_table(257) := 'E email = ''priya.nair@acme.example'')'||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_leave_requests ('||wwv_flow.LF||
-'  employee_id, leave_type_';
-wwv_flow_imp.g_varchar2_table(258) := 'id, start_date, end_date, days_requested, reason, status, approver_id'||wwv_flow.LF||
-') VALUES ('||wwv_flow.LF||
-'  (SELECT employee_';
-wwv_flow_imp.g_varchar2_table(259) := 'id FROM tms_employees WHERE email = ''liam.chen@acme.example''),'||wwv_flow.LF||
-'  (SELECT leave_type_id FROM tms_leav';
-wwv_flow_imp.g_varchar2_table(260) := 'e_types WHERE name = ''Annual Leave''),'||wwv_flow.LF||
-'  DATE ''2026-09-01'', DATE ''2026-09-05'', 5,'||wwv_flow.LF||
-'  TO_CLOB(''Tentativ';
-wwv_flow_imp.g_varchar2_table(261) := 'e vacation plan pending release freeze confirmation.''),'||wwv_flow.LF||
-'  ''Draft'','||wwv_flow.LF||
-'  NULL'||wwv_flow.LF||
-');'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_hr_pol';
-wwv_flow_imp.g_varchar2_table(262) := 'icy (category, title, content)'||wwv_flow.LF||
-'VALUES (''Leave'', ''Annual Leave Policy'', TO_CLOB(''Full-time employees ';
-wwv_flow_imp.g_varchar2_table(263) := 'receive 25 days of annual leave per calendar year. Leave should be requested at least two weeks in a';
-wwv_flow_imp.g_varchar2_table(264) := 'dvance and approved by the reporting manager. Unused annual leave may be carried forward according t';
-wwv_flow_imp.g_varchar2_table(265) := 'o local policy limits.''));'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_hr_policy (category, title, content)'||wwv_flow.LF||
-'VALUES (''Leave'', ''S';
-wwv_flow_imp.g_varchar2_table(266) := 'ick Leave Policy'', TO_CLOB(''Employees receive 10 days of paid sick leave per year. For absences long';
-wwv_flow_imp.g_varchar2_table(267) := 'er than two consecutive working days, employees may be asked to provide medical documentation to HR.';
-wwv_flow_imp.g_varchar2_table(268) := '''));'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_hr_policy (category, title, content)'||wwv_flow.LF||
-'VALUES (''Probation'', ''Probation Period'', ';
-wwv_flow_imp.g_varchar2_table(269) := 'TO_CLOB(''New hires serve a three-month probation period. Managers review onboarding progress, role e';
-wwv_flow_imp.g_varchar2_table(270) := 'xpectations, and performance checkpoints before confirming regular employment status.''));'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT IN';
-wwv_flow_imp.g_varchar2_table(271) := 'TO tms_hr_policy (category, title, content)'||wwv_flow.LF||
-'VALUES (''Remote Work'', ''Remote Work Policy'', TO_CLOB(''El';
-wwv_flow_imp.g_varchar2_table(272) := 'igible employees may work remotely up to two days per week with manager approval. New employees shou';
-wwv_flow_imp.g_varchar2_table(273) := 'ld coordinate remote work during onboarding so training, equipment setup, and team introductions are';
-wwv_flow_imp.g_varchar2_table(274) := ' not delayed.''));'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_hr_policy (category, title, content)'||wwv_flow.LF||
-'VALUES (''Benefits'', ''Health ';
-wwv_flow_imp.g_varchar2_table(275) := 'Insurance Enrollment'', TO_CLOB(''Employees are eligible for company-sponsored health insurance from t';
-wwv_flow_imp.g_varchar2_table(276) := 'heir hire date. HR sends enrollment instructions during onboarding and employees should complete the';
-wwv_flow_imp.g_varchar2_table(277) := ' form within seven calendar days.''));'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_hr_policy (category, title, content)'||wwv_flow.LF||
-'VALUES (';
-wwv_flow_imp.g_varchar2_table(278) := '''Security'', ''Information Security Policy'', TO_CLOB(''Employees must use company-managed devices for w';
-wwv_flow_imp.g_varchar2_table(279) := 'ork, enable multi-factor authentication, and report suspected security incidents immediately to IT O';
-wwv_flow_imp.g_varchar2_table(280) := 'perations.''));'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_hr_policy (category, title, content)'||wwv_flow.LF||
-'VALUES (''Conduct'', ''Code of Con';
-wwv_flow_imp.g_varchar2_table(281) := 'duct'', TO_CLOB(''Acme Corp expects respectful communication, inclusive collaboration, and responsible';
-wwv_flow_imp.g_varchar2_table(282) := ' handling of confidential information in every workplace interaction.''));'||wwv_flow.LF||
-''||wwv_flow.LF||
-'INSERT INTO tms_hr_policy';
-wwv_flow_imp.g_varchar2_table(283) := ' (category, title, content)'||wwv_flow.LF||
-'VALUES (''Travel'', ''Business Travel Policy'', TO_CLOB(''Business travel req';
-wwv_flow_imp.g_varchar2_table(284) := 'uires manager approval before booking. Employees should use preferred travel vendors and submit rece';
-wwv_flow_imp.g_varchar2_table(285) := 'ipts within five business days after the trip.''));'||wwv_flow.LF||
-''||wwv_flow.LF||
-'COMMIT;'||wwv_flow.LF||
-''||wwv_flow.LF||
-'prompt TMS sample data load complete.'||wwv_flow.LF||
-''||wwv_flow.LF||
-'';
-wwv_flow_imp.g_varchar2_table(286) := ''||wwv_flow.LF||
-'-- TMS_CANDIDATE_PIPELINE rows from APEX_262_LL_Exp.'||wwv_flow.LF||
-'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_';
-wwv_flow_imp.g_varchar2_table(287) := 'NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED';
-wwv_flow_imp.g_varchar2_table(288) := '_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,IN';
-wwv_flow_imp.g_varchar2_table(289) := 'TERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLA';
-wwv_flow_imp.g_varchar2_table(290) := 'G) values (''Anika Rao'',''Anika'',''Rao'',''anika.rao@example.com'',''Senior Developer'',''Engineering'',''Open''';
-wwv_flow_imp.g_varchar2_table(291) := ',''LinkedIn'',''Offer'',to_date(''04-06-26'',''DD-MM-RR''),to_date(''08-06-26'',''DD-MM-RR''),to_date(''18-06-26''';
-wwv_flow_imp.g_varchar2_table(292) := ',''DD-MM-RR''),to_date(''24-06-26'',''DD-MM-RR''),null,null,20,8.7,4.8,''Sent'',95000,to_date(''15-07-26'',''DD';
-wwv_flow_imp.g_varchar2_table(293) := '-MM-RR''),''Priya Nair'',''Maya Patel'',''Bengaluru'', TRUE);'||wwv_flow.LF||
-'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE';
-wwv_flow_imp.g_varchar2_table(294) := '_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIE';
-wwv_flow_imp.g_varchar2_table(295) := 'D_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,I';
-wwv_flow_imp.g_varchar2_table(296) := 'NTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FL';
-wwv_flow_imp.g_varchar2_table(297) := 'AG) values (''Marcus Hill'',''Marcus'',''Hill'',''marcus.hill@example.com'',''Senior Developer'',''Engineering''';
-wwv_flow_imp.g_varchar2_table(298) := ',''Open'',''Employee Referral'',''Interview'',to_date(''05-06-26'',''DD-MM-RR''),to_date(''09-06-26'',''DD-MM-RR''';
-wwv_flow_imp.g_varchar2_table(299) := '),to_date(''24-06-26'',''DD-MM-RR''),null,null,null,19,7.9,null,''Draft'',null,null,''Priya Nair'',''Maya Pat';
-wwv_flow_imp.g_varchar2_table(300) := 'el'',''Bengaluru'', FALSE);'||wwv_flow.LF||
-'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMA';
-wwv_flow_imp.g_varchar2_table(301) := 'IL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIE';
-wwv_flow_imp.g_varchar2_table(302) := 'W_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OF';
-wwv_flow_imp.g_varchar2_table(303) := 'FERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Nina Park'',''Nina''';
-wwv_flow_imp.g_varchar2_table(304) := ',''Park'',''nina.park@example.com'',''Senior Developer'',''Engineering'',''Open'',''Careers Site'',''Screening'',t';
-wwv_flow_imp.g_varchar2_table(305) := 'o_date(''07-06-26'',''DD-MM-RR''),to_date(''12-06-26'',''DD-MM-RR''),null,null,null,null,17,6.4,null,''Draft''';
-wwv_flow_imp.g_varchar2_table(306) := ',null,null,''Priya Nair'',''Maya Patel'',''Bengaluru'', TRUE);'||wwv_flow.LF||
-'Insert into TMS_CANDIDATE_PIPELINE (CANDIDA';
-wwv_flow_imp.g_varchar2_table(307) := 'TE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPL';
-wwv_flow_imp.g_varchar2_table(308) := 'IED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE';
-wwv_flow_imp.g_varchar2_table(309) := ',INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_';
-wwv_flow_imp.g_varchar2_table(310) := 'FLAG) values (''Jacob Lee'',''Jacob'',''Lee'',''jacob.lee@example.com'',''Senior Developer'',''Engineering'',''Op';
-wwv_flow_imp.g_varchar2_table(311) := 'en'',''Campus Event'',''Rejected'',to_date(''08-06-26'',''DD-MM-RR''),to_date(''13-06-26'',''DD-MM-RR''),null,nul';
-wwv_flow_imp.g_varchar2_table(312) := 'l,null,to_date(''16-06-26'',''DD-MM-RR''),8,4.2,null,''Rejected'',null,null,''Priya Nair'',''Maya Patel'',''Ben';
-wwv_flow_imp.g_varchar2_table(313) := 'galuru'', FALSE);'||wwv_flow.LF||
-'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_T';
-wwv_flow_imp.g_varchar2_table(314) := 'ITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,O';
-wwv_flow_imp.g_varchar2_table(315) := 'FFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SA';
-wwv_flow_imp.g_varchar2_table(316) := 'LARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Tom Alvarez'',''Tom'',''Alvar';
-wwv_flow_imp.g_varchar2_table(317) := 'ez'',''tom.alvarez@example.com'',''DevOps Engineer'',''IT Operations'',''Open'',''Recruiter Sourced'',''Intervie';
-wwv_flow_imp.g_varchar2_table(318) := 'w'',to_date(''06-06-26'',''DD-MM-RR''),to_date(''10-06-26'',''DD-MM-RR''),to_date(''25-06-26'',''DD-MM-RR''),null';
-wwv_flow_imp.g_varchar2_table(319) := ',null,null,18,8.1,null,''Draft'',null,null,''Priya Nair'',''Liam Chen'',''Hyderabad'', FALSE);'||wwv_flow.LF||
-'Insert into T';
-wwv_flow_imp.g_varchar2_table(320) := 'MS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_ST';
-wwv_flow_imp.g_varchar2_table(321) := 'ATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_';
-wwv_flow_imp.g_varchar2_table(322) := 'DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRI';
-wwv_flow_imp.g_varchar2_table(323) := 'NG_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Mei Wong'',''Mei'',''Wong'',''mei.wong@example.com'',''DevOps E';
-wwv_flow_imp.g_varchar2_table(324) := 'ngineer'',''IT Operations'',''Open'',''Careers Site'',''Applied'',to_date(''09-06-26'',''DD-MM-RR''),null,null,nu';
-wwv_flow_imp.g_varchar2_table(325) := 'll,null,null,15,6.9,null,''Draft'',null,null,''Priya Nair'',''Liam Chen'',''Hyderabad'', TRUE);'||wwv_flow.LF||
+wwv_flow_imp.g_varchar2_table(50) := 'Insert into TMS_JOB_REQUISITIONS (REQ_ID,JOB_ID,DEPT_ID,REQUESTED_BY,APPROVED_BY,HEADCOUNT,STATUS,OP';
+wwv_flow_imp.g_varchar2_table(51) := 'EN_DATE,CLOSE_DATE,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (2,3,6,''liam.chen@acme.example'',''pr';
+wwv_flow_imp.g_varchar2_table(52) := 'iya.nair@acme.example'',1,''Open'',to_date(''03-06-26'',''DD-MM-RR''),null,to_date(''26-10-26'',''DD-MM-RR''),''';
+wwv_flow_imp.g_varchar2_table(53) := 'APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_JOB_REQUISITIO';
+wwv_flow_imp.g_varchar2_table(54) := 'NS (REQ_ID,JOB_ID,DEPT_ID,REQUESTED_BY,APPROVED_BY,HEADCOUNT,STATUS,OPEN_DATE,CLOSE_DATE,CREATED,CRE';
+wwv_flow_imp.g_varchar2_table(55) := 'ATED_BY,UPDATED,UPDATED_BY) values (3,5,3,''priya.nair@acme.example'',null,1,''Pending Approval'',to_dat';
+wwv_flow_imp.g_varchar2_table(56) := 'e(''10-06-26'',''DD-MM-RR''),null,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''';
+wwv_flow_imp.g_varchar2_table(57) := 'DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_JOB_REQUISITIONS (REQ_ID,JOB_ID,DEPT_ID,REQUESTED_BY';
+wwv_flow_imp.g_varchar2_table(58) := ',APPROVED_BY,HEADCOUNT,STATUS,OPEN_DATE,CLOSE_DATE,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (4,';
+wwv_flow_imp.g_varchar2_table(59) := '6,4,''sofia.garcia@acme.example'',''priya.nair@acme.example'',3,''Open'',to_date(''25-05-26'',''DD-MM-RR''),nu';
+wwv_flow_imp.g_varchar2_table(60) := 'll,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USE';
+wwv_flow_imp.g_varchar2_table(61) := 'R'');'||wwv_flow.LF||
+'Insert into TMS_JOB_REQUISITIONS (REQ_ID,JOB_ID,DEPT_ID,REQUESTED_BY,APPROVED_BY,HEADCOUNT,STAT';
+wwv_flow_imp.g_varchar2_table(62) := 'US,OPEN_DATE,CLOSE_DATE,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (5,7,7,''ethan.brooks@acme.exam';
+wwv_flow_imp.g_varchar2_table(63) := 'ple'',''priya.nair@acme.example'',1,''Filled'',to_date(''15-04-26'',''DD-MM-RR''),to_date(''15-06-26'',''DD-MM-R';
+wwv_flow_imp.g_varchar2_table(64) := 'R''),to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_US';
+wwv_flow_imp.g_varchar2_table(65) := 'ER'');'||wwv_flow.LF||
+'Insert into TMS_JOB_REQUISITIONS (REQ_ID,JOB_ID,DEPT_ID,REQUESTED_BY,APPROVED_BY,HEADCOUNT,STA';
+wwv_flow_imp.g_varchar2_table(66) := 'TUS,OPEN_DATE,CLOSE_DATE,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (6,9,5,''noah.reed@acme.exampl';
+wwv_flow_imp.g_varchar2_table(67) := 'e'',null,1,''Draft'',to_date(''18-06-26'',''DD-MM-RR''),null,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_US';
+wwv_flow_imp.g_varchar2_table(68) := 'ER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'REM INSERTING into TMS_CANDIDATES'||wwv_flow.LF||
+'SET DEFINE';
+wwv_flow_imp.g_varchar2_table(69) := ' OFF;'||wwv_flow.LF||
+'Insert into TMS_CANDIDATES (CANDIDATE_ID,REQ_ID,FIRST_NAME,LAST_NAME,EMAIL,PHONE,RESUME_BLOB,S';
+wwv_flow_imp.g_varchar2_table(70) := 'OURCE,CURRENT_STAGE,APPLIED_DATE,DIVERSITY_FLAG,AI_SCORE,CREATED,CREATED_BY,UPDATED,UPDATED_BY) valu';
+wwv_flow_imp.g_varchar2_table(71) := 'es (1,1,''Anika'',''Rao'',''anika.rao@example.com'',''+91-98765-11001'',null,''LinkedIn'',''Offer'',to_date(''04-';
+wwv_flow_imp.g_varchar2_table(72) := '06-26'',''DD-MM-RR''),''Y'',8.7,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-';
+wwv_flow_imp.g_varchar2_table(73) := 'MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_CANDIDATES (CANDIDATE_ID,REQ_ID,FIRST_NAME,LAST_NAME,EM';
+wwv_flow_imp.g_varchar2_table(74) := 'AIL,PHONE,RESUME_BLOB,SOURCE,CURRENT_STAGE,APPLIED_DATE,DIVERSITY_FLAG,AI_SCORE,CREATED,CREATED_BY,U';
+wwv_flow_imp.g_varchar2_table(75) := 'PDATED,UPDATED_BY) values (2,1,''Marcus'',''Hill'',''marcus.hill@example.com'',''+1-415-555-0134'',null,''Emp';
+wwv_flow_imp.g_varchar2_table(76) := 'loyee Referral'',''Interview'',to_date(''05-06-26'',''DD-MM-RR''),''N'',7.9,to_date(''26-10-26'',''DD-MM-RR''),''A';
+wwv_flow_imp.g_varchar2_table(77) := 'PEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_CANDIDATES (CAN';
+wwv_flow_imp.g_varchar2_table(78) := 'DIDATE_ID,REQ_ID,FIRST_NAME,LAST_NAME,EMAIL,PHONE,RESUME_BLOB,SOURCE,CURRENT_STAGE,APPLIED_DATE,DIVE';
+wwv_flow_imp.g_varchar2_table(79) := 'RSITY_FLAG,AI_SCORE,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (3,1,''Nina'',''Park'',''nina.park@exam';
+wwv_flow_imp.g_varchar2_table(80) := 'ple.com'',''+82-10-5555-0135'',null,''Careers Site'',''Screening'',to_date(''07-06-26'',''DD-MM-RR''),''Y'',6.4,t';
+wwv_flow_imp.g_varchar2_table(81) := 'o_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');';
+wwv_flow_imp.g_varchar2_table(82) := ''||wwv_flow.LF||
+'Insert into TMS_CANDIDATES (CANDIDATE_ID,REQ_ID,FIRST_NAME,LAST_NAME,EMAIL,PHONE,RESUME_BLOB,SOURCE';
+wwv_flow_imp.g_varchar2_table(83) := ',CURRENT_STAGE,APPLIED_DATE,DIVERSITY_FLAG,AI_SCORE,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (4';
+wwv_flow_imp.g_varchar2_table(84) := ',1,''Jacob'',''Lee'',''jacob.lee@example.com'',''+1-206-555-0136'',null,''Campus Event'',''Rejected'',to_date(''0';
+wwv_flow_imp.g_varchar2_table(85) := '8-06-26'',''DD-MM-RR''),''N'',4.2,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''D';
+wwv_flow_imp.g_varchar2_table(86) := 'D-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_CANDIDATES (CANDIDATE_ID,REQ_ID,FIRST_NAME,LAST_NAME,';
+wwv_flow_imp.g_varchar2_table(87) := 'EMAIL,PHONE,RESUME_BLOB,SOURCE,CURRENT_STAGE,APPLIED_DATE,DIVERSITY_FLAG,AI_SCORE,CREATED,CREATED_BY';
+wwv_flow_imp.g_varchar2_table(88) := ',UPDATED,UPDATED_BY) values (5,2,''Tom'',''Alvarez'',''tom.alvarez@example.com'',''+1-512-555-0141'',null,''R';
+wwv_flow_imp.g_varchar2_table(89) := 'ecruiter Sourced'',''Interview'',to_date(''06-06-26'',''DD-MM-RR''),''N'',8.1,to_date(''26-10-26'',''DD-MM-RR''),';
+wwv_flow_imp.g_varchar2_table(90) := '''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_CANDIDATES (C';
+wwv_flow_imp.g_varchar2_table(91) := 'ANDIDATE_ID,REQ_ID,FIRST_NAME,LAST_NAME,EMAIL,PHONE,RESUME_BLOB,SOURCE,CURRENT_STAGE,APPLIED_DATE,DI';
+wwv_flow_imp.g_varchar2_table(92) := 'VERSITY_FLAG,AI_SCORE,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (6,2,''Mei'',''Wong'',''mei.wong@exam';
+wwv_flow_imp.g_varchar2_table(93) := 'ple.com'',''+65-8123-0142'',null,''Careers Site'',''Applied'',to_date(''09-06-26'',''DD-MM-RR''),''Y'',6.9,to_dat';
+wwv_flow_imp.g_varchar2_table(94) := 'e(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Inse';
+wwv_flow_imp.g_varchar2_table(95) := 'rt into TMS_CANDIDATES (CANDIDATE_ID,REQ_ID,FIRST_NAME,LAST_NAME,EMAIL,PHONE,RESUME_BLOB,SOURCE,CURR';
+wwv_flow_imp.g_varchar2_table(96) := 'ENT_STAGE,APPLIED_DATE,DIVERSITY_FLAG,AI_SCORE,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (7,3,''G';
+wwv_flow_imp.g_varchar2_table(97) := 'race'',''Kim'',''grace.kim@example.com'',''+1-646-555-0143'',null,''LinkedIn'',''Applied'',to_date(''12-06-26'',''';
+wwv_flow_imp.g_varchar2_table(98) := 'DD-MM-RR''),''Y'',7.2,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),';
+wwv_flow_imp.g_varchar2_table(99) := '''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_CANDIDATES (CANDIDATE_ID,REQ_ID,FIRST_NAME,LAST_NAME,EMAIL,PHON';
+wwv_flow_imp.g_varchar2_table(100) := 'E,RESUME_BLOB,SOURCE,CURRENT_STAGE,APPLIED_DATE,DIVERSITY_FLAG,AI_SCORE,CREATED,CREATED_BY,UPDATED,U';
+wwv_flow_imp.g_varchar2_table(101) := 'PDATED_BY) values (8,4,''Olivia'',''Grant'',''olivia.grant@example.com'',''+44-7700-900141'',null,''Agency'',''';
+wwv_flow_imp.g_varchar2_table(102) := 'Offer'',to_date(''29-05-26'',''DD-MM-RR''),''N'',8.3,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_d';
+wwv_flow_imp.g_varchar2_table(103) := 'ate(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_CANDIDATES (CANDIDATE_ID,REQ_ID,FIRS';
+wwv_flow_imp.g_varchar2_table(104) := 'T_NAME,LAST_NAME,EMAIL,PHONE,RESUME_BLOB,SOURCE,CURRENT_STAGE,APPLIED_DATE,DIVERSITY_FLAG,AI_SCORE,C';
+wwv_flow_imp.g_varchar2_table(105) := 'REATED,CREATED_BY,UPDATED,UPDATED_BY) values (9,4,''Daniel'',''Brown'',''daniel.brown@example.com'',''+1-31';
+wwv_flow_imp.g_varchar2_table(106) := '2-555-0145'',null,''Careers Site'',''Screening'',to_date(''01-06-26'',''DD-MM-RR''),''N'',6.8,to_date(''26-10-26';
+wwv_flow_imp.g_varchar2_table(107) := ''',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS';
+wwv_flow_imp.g_varchar2_table(108) := '_CANDIDATES (CANDIDATE_ID,REQ_ID,FIRST_NAME,LAST_NAME,EMAIL,PHONE,RESUME_BLOB,SOURCE,CURRENT_STAGE,A';
+wwv_flow_imp.g_varchar2_table(109) := 'PPLIED_DATE,DIVERSITY_FLAG,AI_SCORE,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (10,4,''Aisha'',''Kha';
+wwv_flow_imp.g_varchar2_table(110) := 'n'',''aisha.khan@example.com'',''+971-50-555-0146'',null,''Referral'',''Applied'',to_date(''04-06-26'',''DD-MM-R';
+wwv_flow_imp.g_varchar2_table(111) := 'R''),''Y'',7.1,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_P';
+wwv_flow_imp.g_varchar2_table(112) := 'UBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_CANDIDATES (CANDIDATE_ID,REQ_ID,FIRST_NAME,LAST_NAME,EMAIL,PHONE,RESUM';
+wwv_flow_imp.g_varchar2_table(113) := 'E_BLOB,SOURCE,CURRENT_STAGE,APPLIED_DATE,DIVERSITY_FLAG,AI_SCORE,CREATED,CREATED_BY,UPDATED,UPDATED_';
+wwv_flow_imp.g_varchar2_table(114) := 'BY) values (11,5,''Ravi'',''Menon'',''ravi.menon@example.com'',''+91-98765-11451'',null,''Executive Referral''';
+wwv_flow_imp.g_varchar2_table(115) := ',''Hired'',to_date(''22-04-26'',''DD-MM-RR''),''N'',9.1,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to';
+wwv_flow_imp.g_varchar2_table(116) := '_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_CANDIDATES (CANDIDATE_ID,REQ_ID,FI';
+wwv_flow_imp.g_varchar2_table(117) := 'RST_NAME,LAST_NAME,EMAIL,PHONE,RESUME_BLOB,SOURCE,CURRENT_STAGE,APPLIED_DATE,DIVERSITY_FLAG,AI_SCORE';
+wwv_flow_imp.g_varchar2_table(118) := ',CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (12,5,''Elena'',''Petrova'',''elena.petrova@example.com'',''';
+wwv_flow_imp.g_varchar2_table(119) := '+49-30-555-0148'',null,''LinkedIn'',''Rejected'',to_date(''25-04-26'',''DD-MM-RR''),''Y'',5.1,to_date(''26-10-26';
+wwv_flow_imp.g_varchar2_table(120) := ''',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'REM INSERTING i';
+wwv_flow_imp.g_varchar2_table(121) := 'nto TMS_EMPLOYEES'||wwv_flow.LF||
+'SET DEFINE OFF;'||wwv_flow.LF||
+'Insert into TMS_EMPLOYEES (EMPLOYEE_ID,CANDIDATE_ID,JOB_ID,DEPT_ID';
+wwv_flow_imp.g_varchar2_table(122) := ',FIRST_NAME,LAST_NAME,EMAIL,MANAGER_ID,SALARY,HIRE_DATE,STATUS,PHOTO_BLOB,CREATED,CREATED_BY,UPDATED';
+wwv_flow_imp.g_varchar2_table(123) := ',UPDATED_BY) values (1,null,1,2,''Maya'',''Patel'',''maya.patel@acme.example'',null,132000,to_date(''02-04-';
+wwv_flow_imp.g_varchar2_table(124) := '18'',''DD-MM-RR''),''Active'',null,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''';
+wwv_flow_imp.g_varchar2_table(125) := 'DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_EMPLOYEES (EMPLOYEE_ID,CANDIDATE_ID,JOB_ID,DEPT_ID,F';
+wwv_flow_imp.g_varchar2_table(126) := 'IRST_NAME,LAST_NAME,EMAIL,MANAGER_ID,SALARY,HIRE_DATE,STATUS,PHOTO_BLOB,CREATED,CREATED_BY,UPDATED,U';
+wwv_flow_imp.g_varchar2_table(127) := 'PDATED_BY) values (2,null,3,6,''Liam'',''Chen'',''liam.chen@acme.example'',null,98000,to_date(''16-09-19'',''';
+wwv_flow_imp.g_varchar2_table(128) := 'DD-MM-RR''),''Active'',null,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM';
+wwv_flow_imp.g_varchar2_table(129) := '-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_EMPLOYEES (EMPLOYEE_ID,CANDIDATE_ID,JOB_ID,DEPT_ID,FIRST_';
+wwv_flow_imp.g_varchar2_table(130) := 'NAME,LAST_NAME,EMAIL,MANAGER_ID,SALARY,HIRE_DATE,STATUS,PHOTO_BLOB,CREATED,CREATED_BY,UPDATED,UPDATE';
+wwv_flow_imp.g_varchar2_table(131) := 'D_BY) values (3,null,4,3,''Priya'',''Nair'',''priya.nair@acme.example'',null,94000,to_date(''20-11-17'',''DD-';
+wwv_flow_imp.g_varchar2_table(132) := 'MM-RR''),''Active'',null,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR';
+wwv_flow_imp.g_varchar2_table(133) := '''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_EMPLOYEES (EMPLOYEE_ID,CANDIDATE_ID,JOB_ID,DEPT_ID,FIRST_NAM';
+wwv_flow_imp.g_varchar2_table(134) := 'E,LAST_NAME,EMAIL,MANAGER_ID,SALARY,HIRE_DATE,STATUS,PHOTO_BLOB,CREATED,CREATED_BY,UPDATED,UPDATED_B';
+wwv_flow_imp.g_varchar2_table(135) := 'Y) values (4,null,6,4,''Sofia'',''Garcia'',''sofia.garcia@acme.example'',null,88000,to_date(''10-02-20'',''DD';
+wwv_flow_imp.g_varchar2_table(136) := '-MM-RR''),''Active'',null,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-R';
+wwv_flow_imp.g_varchar2_table(137) := 'R''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_EMPLOYEES (EMPLOYEE_ID,CANDIDATE_ID,JOB_ID,DEPT_ID,FIRST_NA';
+wwv_flow_imp.g_varchar2_table(138) := 'ME,LAST_NAME,EMAIL,MANAGER_ID,SALARY,HIRE_DATE,STATUS,PHOTO_BLOB,CREATED,CREATED_BY,UPDATED,UPDATED_';
+wwv_flow_imp.g_varchar2_table(139) := 'BY) values (5,null,8,5,''Noah'',''Reed'',''noah.reed@acme.example'',null,64000,to_date(''03-05-21'',''DD-MM-R';
+wwv_flow_imp.g_varchar2_table(140) := 'R''),''Active'',null,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''';
+wwv_flow_imp.g_varchar2_table(141) := 'APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_EMPLOYEES (EMPLOYEE_ID,CANDIDATE_ID,JOB_ID,DEPT_ID,FIRST_NAME,LA';
+wwv_flow_imp.g_varchar2_table(142) := 'ST_NAME,EMAIL,MANAGER_ID,SALARY,HIRE_DATE,STATUS,PHOTO_BLOB,CREATED,CREATED_BY,UPDATED,UPDATED_BY) v';
+wwv_flow_imp.g_varchar2_table(143) := 'alues (6,null,7,7,''Ethan'',''Brooks'',''ethan.brooks@acme.example'',null,120000,to_date(''27-08-18'',''DD-MM';
+wwv_flow_imp.g_varchar2_table(144) := '-RR''),''Active'',null,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR'')';
+wwv_flow_imp.g_varchar2_table(145) := ',''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_EMPLOYEES (EMPLOYEE_ID,CANDIDATE_ID,JOB_ID,DEPT_ID,FIRST_NAME,';
+wwv_flow_imp.g_varchar2_table(146) := 'LAST_NAME,EMAIL,MANAGER_ID,SALARY,HIRE_DATE,STATUS,PHOTO_BLOB,CREATED,CREATED_BY,UPDATED,UPDATED_BY)';
+wwv_flow_imp.g_varchar2_table(147) := ' values (7,11,7,7,''Ravi'',''Menon'',''ravi.menon@acme.example'',6,118000,to_date(''24-06-26'',''DD-MM-RR''),''';
+wwv_flow_imp.g_varchar2_table(148) := 'Onboarding'',null,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''A';
+wwv_flow_imp.g_varchar2_table(149) := 'PEX_PUBLIC_USER'');'||wwv_flow.LF||
+'REM INSERTING into TMS_INTERVIEW_STAGES'||wwv_flow.LF||
+'SET DEFINE OFF;'||wwv_flow.LF||
+'Insert into TMS_INTERVIEW';
+wwv_flow_imp.g_varchar2_table(150) := '_STAGES (STAGE_ID,CANDIDATE_ID,REQ_ID,STAGE_NAME,INTERVIEWER_ID,SCHEDULED_DATE,OUTCOME,FEEDBACK_NOTE';
+wwv_flow_imp.g_varchar2_table(151) := 'S,SCORE,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (1,1,1,''Screening'',3,to_timestamp(''11-06-26 10';
+wwv_flow_imp.g_varchar2_table(152) := ':00:00.000000000 AM'',''DD-MM-RR fmHH12:fmMI:SSXFF AM''),''Proceed'',''Strong communication and strong Jav';
+wwv_flow_imp.g_varchar2_table(153) := 'a/Spring foundation. Move to technical panel.'',4.4,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER''';
+wwv_flow_imp.g_varchar2_table(154) := ',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_INTERVIEW_STAGES (STAGE_ID,CAND';
+wwv_flow_imp.g_varchar2_table(155) := 'IDATE_ID,REQ_ID,STAGE_NAME,INTERVIEWER_ID,SCHEDULED_DATE,OUTCOME,FEEDBACK_NOTES,SCORE,CREATED,CREATE';
+wwv_flow_imp.g_varchar2_table(156) := 'D_BY,UPDATED,UPDATED_BY) values (2,1,1,''Technical Interview'',1,to_timestamp(''18-06-26 2:30:00.000000';
+wwv_flow_imp.g_varchar2_table(157) := '000 PM'',''DD-MM-RR fmHH12:fmMI:SSXFF AM''),''Proceed'',''Excellent backend design discussion with practic';
+wwv_flow_imp.g_varchar2_table(158) := 'al AWS experience.'',4.8,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-';
+wwv_flow_imp.g_varchar2_table(159) := 'RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_INTERVIEW_STAGES (STAGE_ID,CANDIDATE_ID,REQ_ID,STAGE_NAME,';
+wwv_flow_imp.g_varchar2_table(160) := 'INTERVIEWER_ID,SCHEDULED_DATE,OUTCOME,FEEDBACK_NOTES,SCORE,CREATED,CREATED_BY,UPDATED,UPDATED_BY) va';
+wwv_flow_imp.g_varchar2_table(161) := 'lues (3,2,1,''Technical Interview'',1,to_timestamp(''24-06-26 11:00:00.000000000 AM'',''DD-MM-RR fmHH12:f';
+wwv_flow_imp.g_varchar2_table(162) := 'mMI:SSXFF AM''),''Scheduled'',''Panel booked; resume shows strong API experience.'',null,to_date(''26-10-2';
+wwv_flow_imp.g_varchar2_table(163) := '6'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TM';
+wwv_flow_imp.g_varchar2_table(164) := 'S_INTERVIEW_STAGES (STAGE_ID,CANDIDATE_ID,REQ_ID,STAGE_NAME,INTERVIEWER_ID,SCHEDULED_DATE,OUTCOME,FE';
+wwv_flow_imp.g_varchar2_table(165) := 'EDBACK_NOTES,SCORE,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (4,5,2,''Technical Interview'',2,to_t';
+wwv_flow_imp.g_varchar2_table(166) := 'imestamp(''25-06-26 3:00:00.000000000 PM'',''DD-MM-RR fmHH12:fmMI:SSXFF AM''),''Scheduled'',''Focus areas: ';
+wwv_flow_imp.g_varchar2_table(167) := 'Kubernetes operations, Terraform modules, incident response.'',null,to_date(''26-10-26'',''DD-MM-RR''),''A';
+wwv_flow_imp.g_varchar2_table(168) := 'PEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_INTERVIEW_STAGE';
+wwv_flow_imp.g_varchar2_table(169) := 'S (STAGE_ID,CANDIDATE_ID,REQ_ID,STAGE_NAME,INTERVIEWER_ID,SCHEDULED_DATE,OUTCOME,FEEDBACK_NOTES,SCOR';
+wwv_flow_imp.g_varchar2_table(170) := 'E,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (5,8,4,''Manager Interview'',4,to_timestamp(''07-06-26 ';
+wwv_flow_imp.g_varchar2_table(171) := '12:00:00.000000000 PM'',''DD-MM-RR fmHH12:fmMI:SSXFF AM''),''Proceed'',''Clear enterprise selling examples';
+wwv_flow_imp.g_varchar2_table(172) := '; strong territory planning.'',4.5,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-2';
+wwv_flow_imp.g_varchar2_table(173) := '6'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_INTERVIEW_STAGES (STAGE_ID,CANDIDATE_ID,REQ_ID,S';
+wwv_flow_imp.g_varchar2_table(174) := 'TAGE_NAME,INTERVIEWER_ID,SCHEDULED_DATE,OUTCOME,FEEDBACK_NOTES,SCORE,CREATED,CREATED_BY,UPDATED,UPDA';
+wwv_flow_imp.g_varchar2_table(175) := 'TED_BY) values (6,11,5,''Final'',6,to_timestamp(''16-05-26 4:00:00.000000000 PM'',''DD-MM-RR fmHH12:fmMI:';
+wwv_flow_imp.g_varchar2_table(176) := 'SSXFF AM''),''Completed'',''Strong roadmap judgment and stakeholder management. Recommended hire.'',4.9,t';
+wwv_flow_imp.g_varchar2_table(177) := 'o_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');';
+wwv_flow_imp.g_varchar2_table(178) := ''||wwv_flow.LF||
+'REM INSERTING into TMS_OFFERS'||wwv_flow.LF||
+'SET DEFINE OFF;'||wwv_flow.LF||
+'Insert into TMS_OFFERS (OFFER_ID,CANDIDATE_ID,REQ_ID,';
+wwv_flow_imp.g_varchar2_table(179) := 'OFFERED_SALARY,START_DATE,EXPIRY_DATE,STATUS,OFFER_LETTER_BLOB,APPROVED_BY,CREATED,CREATED_BY,UPDATE';
+wwv_flow_imp.g_varchar2_table(180) := 'D,UPDATED_BY) values (1,1,1,95000,to_date(''15-07-26'',''DD-MM-RR''),to_date(''02-07-26'',''DD-MM-RR''),''Sen';
+wwv_flow_imp.g_varchar2_table(181) := 't'',null,''maya.patel@acme.example'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-2';
+wwv_flow_imp.g_varchar2_table(182) := '6'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_OFFERS (OFFER_ID,CANDIDATE_ID,REQ_ID,OFFERED_SAL';
+wwv_flow_imp.g_varchar2_table(183) := 'ARY,START_DATE,EXPIRY_DATE,STATUS,OFFER_LETTER_BLOB,APPROVED_BY,CREATED,CREATED_BY,UPDATED,UPDATED_B';
+wwv_flow_imp.g_varchar2_table(184) := 'Y) values (2,8,4,82000,to_date(''22-07-26'',''DD-MM-RR''),to_date(''05-07-26'',''DD-MM-RR''),''Pending Approv';
+wwv_flow_imp.g_varchar2_table(185) := 'al'',null,''sofia.garcia@acme.example'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-1';
+wwv_flow_imp.g_varchar2_table(186) := '0-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_OFFERS (OFFER_ID,CANDIDATE_ID,REQ_ID,OFFERED_';
+wwv_flow_imp.g_varchar2_table(187) := 'SALARY,START_DATE,EXPIRY_DATE,STATUS,OFFER_LETTER_BLOB,APPROVED_BY,CREATED,CREATED_BY,UPDATED,UPDATE';
+wwv_flow_imp.g_varchar2_table(188) := 'D_BY) values (3,11,5,118000,to_date(''24-06-26'',''DD-MM-RR''),to_date(''10-06-26'',''DD-MM-RR''),''Accepted''';
+wwv_flow_imp.g_varchar2_table(189) := ',null,''ethan.brooks@acme.example'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-2';
+wwv_flow_imp.g_varchar2_table(190) := '6'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'REM INSERTING into TMS_ONBOARDING_TASKS'||wwv_flow.LF||
+'SET DEFINE OFF;'||wwv_flow.LF||
+'Insert i';
+wwv_flow_imp.g_varchar2_table(191) := 'nto TMS_ONBOARDING_TASKS (TASK_ID,EMPLOYEE_ID,TASK_NAME,ASSIGNED_TO,CATEGORY,DUE_DATE,STATUS,COMPLET';
+wwv_flow_imp.g_varchar2_table(192) := 'ED_DATE,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (1,7,''IT Setup'',''liam.chen@acme.example'',''IT'',';
+wwv_flow_imp.g_varchar2_table(193) := 'to_date(''28-06-26'',''DD-MM-RR''),''In Progress'',null,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',';
+wwv_flow_imp.g_varchar2_table(194) := 'to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_ONBOARDING_TASKS (TASK_ID,EMPLOY';
+wwv_flow_imp.g_varchar2_table(195) := 'EE_ID,TASK_NAME,ASSIGNED_TO,CATEGORY,DUE_DATE,STATUS,COMPLETED_DATE,CREATED,CREATED_BY,UPDATED,UPDAT';
+wwv_flow_imp.g_varchar2_table(196) := 'ED_BY) values (2,7,''HR Documents'',''priya.nair@acme.example'',''HR'',to_date(''27-06-26'',''DD-MM-RR''),''Com';
+wwv_flow_imp.g_varchar2_table(197) := 'pleted'',to_date(''26-06-26'',''DD-MM-RR''),to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26';
+wwv_flow_imp.g_varchar2_table(198) := '-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_ONBOARDING_TASKS (TASK_ID,EMPLOYEE_ID,TASK_';
+wwv_flow_imp.g_varchar2_table(199) := 'NAME,ASSIGNED_TO,CATEGORY,DUE_DATE,STATUS,COMPLETED_DATE,CREATED,CREATED_BY,UPDATED,UPDATED_BY) valu';
+wwv_flow_imp.g_varchar2_table(200) := 'es (3,7,''Department Orientation'',''ethan.brooks@acme.example'',''Department'',to_date(''30-06-26'',''DD-MM-';
+wwv_flow_imp.g_varchar2_table(201) := 'RR''),''Not Started'',null,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-';
+wwv_flow_imp.g_varchar2_table(202) := 'RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_ONBOARDING_TASKS (TASK_ID,EMPLOYEE_ID,TASK_NAME,ASSIGNED_T';
+wwv_flow_imp.g_varchar2_table(203) := 'O,CATEGORY,DUE_DATE,STATUS,COMPLETED_DATE,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (4,7,''Payrol';
+wwv_flow_imp.g_varchar2_table(204) := 'l Setup'',''noah.reed@acme.example'',''Payroll'',to_date(''29-06-26'',''DD-MM-RR''),''In Progress'',null,to_dat';
+wwv_flow_imp.g_varchar2_table(205) := 'e(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Inse';
+wwv_flow_imp.g_varchar2_table(206) := 'rt into TMS_ONBOARDING_TASKS (TASK_ID,EMPLOYEE_ID,TASK_NAME,ASSIGNED_TO,CATEGORY,DUE_DATE,STATUS,COM';
+wwv_flow_imp.g_varchar2_table(207) := 'PLETED_DATE,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (5,7,''Security Awareness Training'',''liam.c';
+wwv_flow_imp.g_varchar2_table(208) := 'hen@acme.example'',''Compliance'',to_date(''03-07-26'',''DD-MM-RR''),''Not Started'',null,to_date(''26-10-26'',';
+wwv_flow_imp.g_varchar2_table(209) := '''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'REM INSERTING int';
+wwv_flow_imp.g_varchar2_table(210) := 'o TMS_LEAVE_TYPES'||wwv_flow.LF||
+'SET DEFINE OFF;'||wwv_flow.LF||
+'Insert into TMS_LEAVE_TYPES (LEAVE_TYPE_ID,NAME,MAX_DAYS_PER_YEAR,';
+wwv_flow_imp.g_varchar2_table(211) := 'CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (1,''Annual Leave'',25,to_date(''26-10-26'',''DD-MM-RR''),''A';
+wwv_flow_imp.g_varchar2_table(212) := 'PEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_LEAVE_TYPES (LE';
+wwv_flow_imp.g_varchar2_table(213) := 'AVE_TYPE_ID,NAME,MAX_DAYS_PER_YEAR,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (2,''Sick Leave'',10,';
+wwv_flow_imp.g_varchar2_table(214) := 'to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'')';
+wwv_flow_imp.g_varchar2_table(215) := ';'||wwv_flow.LF||
+'Insert into TMS_LEAVE_TYPES (LEAVE_TYPE_ID,NAME,MAX_DAYS_PER_YEAR,CREATED,CREATED_BY,UPDATED,UPDAT';
+wwv_flow_imp.g_varchar2_table(216) := 'ED_BY) values (3,''Personal Leave'',5,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10';
+wwv_flow_imp.g_varchar2_table(217) := '-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_LEAVE_TYPES (LEAVE_TYPE_ID,NAME,MAX_DAYS_PER_Y';
+wwv_flow_imp.g_varchar2_table(218) := 'EAR,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (4,''Parental Leave'',60,to_date(''26-10-26'',''DD-MM-R';
+wwv_flow_imp.g_varchar2_table(219) := 'R''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_LEAVE_TYP';
+wwv_flow_imp.g_varchar2_table(220) := 'ES (LEAVE_TYPE_ID,NAME,MAX_DAYS_PER_YEAR,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (5,''Bereaveme';
+wwv_flow_imp.g_varchar2_table(221) := 'nt Leave'',5,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_P';
+wwv_flow_imp.g_varchar2_table(222) := 'UBLIC_USER'');'||wwv_flow.LF||
+'REM INSERTING into TMS_LEAVE_BALANCES'||wwv_flow.LF||
+'SET DEFINE OFF;'||wwv_flow.LF||
+'Insert into TMS_LEAVE_BALANCES (';
+wwv_flow_imp.g_varchar2_table(223) := 'BALANCE_ID,EMPLOYEE_ID,LEAVE_TYPE_ID,YEAR,ACCRUED,USED,REMAINING,CREATED,CREATED_BY,UPDATED,UPDATED_';
+wwv_flow_imp.g_varchar2_table(224) := 'BY) values (1,1,1,2026,25,5,20,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',';
+wwv_flow_imp.g_varchar2_table(225) := '''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_LEAVE_BALANCES (BALANCE_ID,EMPLOYEE_ID,LEAVE_TYPE_I';
+wwv_flow_imp.g_varchar2_table(226) := 'D,YEAR,ACCRUED,USED,REMAINING,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (2,1,2,2026,10,1,9,to_da';
+wwv_flow_imp.g_varchar2_table(227) := 'te(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Ins';
+wwv_flow_imp.g_varchar2_table(228) := 'ert into TMS_LEAVE_BALANCES (BALANCE_ID,EMPLOYEE_ID,LEAVE_TYPE_ID,YEAR,ACCRUED,USED,REMAINING,CREATE';
+wwv_flow_imp.g_varchar2_table(229) := 'D,CREATED_BY,UPDATED,UPDATED_BY) values (3,2,1,2026,25,2,23,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUB';
+wwv_flow_imp.g_varchar2_table(230) := 'LIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_LEAVE_BALANCES (BALANC';
+wwv_flow_imp.g_varchar2_table(231) := 'E_ID,EMPLOYEE_ID,LEAVE_TYPE_ID,YEAR,ACCRUED,USED,REMAINING,CREATED,CREATED_BY,UPDATED,UPDATED_BY) va';
+wwv_flow_imp.g_varchar2_table(232) := 'lues (4,3,1,2026,25,7,18,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM';
+wwv_flow_imp.g_varchar2_table(233) := '-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_LEAVE_BALANCES (BALANCE_ID,EMPLOYEE_ID,LEAVE_TYPE_ID,YEAR';
+wwv_flow_imp.g_varchar2_table(234) := ',ACCRUED,USED,REMAINING,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (5,4,1,2026,25,4,21,to_date(''2';
+wwv_flow_imp.g_varchar2_table(235) := '6-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert i';
+wwv_flow_imp.g_varchar2_table(236) := 'nto TMS_LEAVE_BALANCES (BALANCE_ID,EMPLOYEE_ID,LEAVE_TYPE_ID,YEAR,ACCRUED,USED,REMAINING,CREATED,CRE';
+wwv_flow_imp.g_varchar2_table(237) := 'ATED_BY,UPDATED,UPDATED_BY) values (6,4,2,2026,10,2,8,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_US';
+wwv_flow_imp.g_varchar2_table(238) := 'ER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_LEAVE_BALANCES (BALANCE_ID,E';
+wwv_flow_imp.g_varchar2_table(239) := 'MPLOYEE_ID,LEAVE_TYPE_ID,YEAR,ACCRUED,USED,REMAINING,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (';
+wwv_flow_imp.g_varchar2_table(240) := '7,5,1,2026,25,6,19,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),';
+wwv_flow_imp.g_varchar2_table(241) := '''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_LEAVE_BALANCES (BALANCE_ID,EMPLOYEE_ID,LEAVE_TYPE_ID,YEAR,ACCRU';
+wwv_flow_imp.g_varchar2_table(242) := 'ED,USED,REMAINING,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (8,6,1,2026,25,3,22,to_date(''26-10-2';
+wwv_flow_imp.g_varchar2_table(243) := '6'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TM';
+wwv_flow_imp.g_varchar2_table(244) := 'S_LEAVE_BALANCES (BALANCE_ID,EMPLOYEE_ID,LEAVE_TYPE_ID,YEAR,ACCRUED,USED,REMAINING,CREATED,CREATED_B';
+wwv_flow_imp.g_varchar2_table(245) := 'Y,UPDATED,UPDATED_BY) values (9,7,1,2026,25,0,25,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',t';
+wwv_flow_imp.g_varchar2_table(246) := 'o_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_LEAVE_BALANCES (BALANCE_ID,EMPLOY';
+wwv_flow_imp.g_varchar2_table(247) := 'EE_ID,LEAVE_TYPE_ID,YEAR,ACCRUED,USED,REMAINING,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (10,7,';
+wwv_flow_imp.g_varchar2_table(248) := '2,2026,10,0,10,to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APE';
+wwv_flow_imp.g_varchar2_table(249) := 'X_PUBLIC_USER'');'||wwv_flow.LF||
+'REM INSERTING into TMS_LEAVE_REQUESTS'||wwv_flow.LF||
+'SET DEFINE OFF;'||wwv_flow.LF||
+'Insert into TMS_LEAVE_REQUEST';
+wwv_flow_imp.g_varchar2_table(250) := 'S (REQUEST_ID,EMPLOYEE_ID,LEAVE_TYPE_ID,START_DATE,END_DATE,DAYS_REQUESTED,REASON,STATUS,APPROVER_ID';
+wwv_flow_imp.g_varchar2_table(251) := ',CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (1,1,1,to_date(''08-07-26'',''DD-MM-RR''),to_date(''12-07-';
+wwv_flow_imp.g_varchar2_table(252) := '26'',''DD-MM-RR''),5,''Family trip booked after sprint planning.'',''Approved'',3,to_date(''26-10-26'',''DD-MM';
+wwv_flow_imp.g_varchar2_table(253) := '-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_LEAVE_R';
+wwv_flow_imp.g_varchar2_table(254) := 'EQUESTS (REQUEST_ID,EMPLOYEE_ID,LEAVE_TYPE_ID,START_DATE,END_DATE,DAYS_REQUESTED,REASON,STATUS,APPRO';
+wwv_flow_imp.g_varchar2_table(255) := 'VER_ID,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (2,4,2,to_date(''20-06-26'',''DD-MM-RR''),to_date(''';
+wwv_flow_imp.g_varchar2_table(256) := '21-06-26'',''DD-MM-RR''),2,''Fever and recovery time.'',''Approved'',3,to_date(''26-10-26'',''DD-MM-RR''),''APEX';
+wwv_flow_imp.g_varchar2_table(257) := '_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_LEAVE_REQUESTS (RE';
+wwv_flow_imp.g_varchar2_table(258) := 'QUEST_ID,EMPLOYEE_ID,LEAVE_TYPE_ID,START_DATE,END_DATE,DAYS_REQUESTED,REASON,STATUS,APPROVER_ID,CREA';
+wwv_flow_imp.g_varchar2_table(259) := 'TED,CREATED_BY,UPDATED,UPDATED_BY) values (3,7,1,to_date(''12-08-26'',''DD-MM-RR''),to_date(''14-08-26'',''';
+wwv_flow_imp.g_varchar2_table(260) := 'DD-MM-RR''),3,''Planned travel after onboarding activities are complete.'',''Submitted'',6,to_date(''26-10';
+wwv_flow_imp.g_varchar2_table(261) := '-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
 'Insert into ';
-wwv_flow_imp.g_varchar2_table(326) := 'TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_S';
-wwv_flow_imp.g_varchar2_table(327) := 'TATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED';
-wwv_flow_imp.g_varchar2_table(328) := '_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIR';
-wwv_flow_imp.g_varchar2_table(329) := 'ING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Grace Kim'',''Grace'',''Kim'',''grace.kim@example.com'',''HR G';
-wwv_flow_imp.g_varchar2_table(330) := 'eneralist'',''Human Resources'',''Pending Approval'',''LinkedIn'',''Applied'',to_date(''12-06-26'',''DD-MM-RR''),';
-wwv_flow_imp.g_varchar2_table(331) := 'null,null,null,null,null,12,7.2,null,''Draft'',null,null,''Priya Nair'',''Priya Nair'',''Bengaluru'', TRUE);';
-wwv_flow_imp.g_varchar2_table(332) := ''||wwv_flow.LF||
-'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,';
-wwv_flow_imp.g_varchar2_table(333) := 'REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_';
-wwv_flow_imp.g_varchar2_table(334) := 'DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,';
-wwv_flow_imp.g_varchar2_table(335) := 'RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Olivia Grant'',''Olivia'',''Grant'',''olivia.gr';
-wwv_flow_imp.g_varchar2_table(336) := 'ant@example.com'',''Sales Account Executive'',''Sales'',''Open'',''Agency'',''Offer'',to_date(''29-05-26'',''DD-MM';
-wwv_flow_imp.g_varchar2_table(337) := '-RR''),to_date(''02-06-26'',''DD-MM-RR''),to_date(''07-06-26'',''DD-MM-RR''),to_date(''21-06-26'',''DD-MM-RR''),n';
-wwv_flow_imp.g_varchar2_table(338) := 'ull,null,23,8.3,4.5,''Pending Approval'',82000,to_date(''22-07-26'',''DD-MM-RR''),''Priya Nair'',''Sofia Garc';
-wwv_flow_imp.g_varchar2_table(339) := 'ia'',''Mumbai'', FALSE);'||wwv_flow.LF||
-'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,';
-wwv_flow_imp.g_varchar2_table(340) := 'JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_D';
-wwv_flow_imp.g_varchar2_table(341) := 'ATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFER';
-wwv_flow_imp.g_varchar2_table(342) := 'ED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Daniel Brown'',''Danie';
-wwv_flow_imp.g_varchar2_table(343) := 'l'',''Brown'',''daniel.brown@example.com'',''Sales Account Executive'',''Sales'',''Open'',''Careers Site'',''Scree';
-wwv_flow_imp.g_varchar2_table(344) := 'ning'',to_date(''01-06-26'',''DD-MM-RR''),to_date(''06-06-26'',''DD-MM-RR''),null,null,null,null,23,6.8,null,';
-wwv_flow_imp.g_varchar2_table(345) := '''Draft'',null,null,''Priya Nair'',''Sofia Garcia'',''Mumbai'', FALSE);'||wwv_flow.LF||
-'Insert into TMS_CANDIDATE_PIPELINE (';
-wwv_flow_imp.g_varchar2_table(346) := 'CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STA';
-wwv_flow_imp.g_varchar2_table(347) := 'GE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,A';
-wwv_flow_imp.g_varchar2_table(348) := 'I_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIV';
-wwv_flow_imp.g_varchar2_table(349) := 'ERSITY_FLAG) values (''Aisha Khan'',''Aisha'',''Khan'',''aisha.khan@example.com'',''Sales Account Executive'',';
-wwv_flow_imp.g_varchar2_table(350) := '''Sales'',''Open'',''Referral'',''Applied'',to_date(''04-06-26'',''DD-MM-RR''),null,null,null,null,null,20,7.1,n';
-wwv_flow_imp.g_varchar2_table(351) := 'ull,''Draft'',null,null,''Priya Nair'',''Sofia Garcia'',''Mumbai'', TRUE);'||wwv_flow.LF||
-'Insert into TMS_CANDIDATE_PIPELIN';
-wwv_flow_imp.g_varchar2_table(352) := 'E (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_';
-wwv_flow_imp.g_varchar2_table(353) := 'STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELIN';
-wwv_flow_imp.g_varchar2_table(354) := 'E,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,';
-wwv_flow_imp.g_varchar2_table(355) := 'DIVERSITY_FLAG) values (''Ravi Menon'',''Ravi'',''Menon'',''ravi.menon@example.com'',''Product Manager'',''Prod';
-wwv_flow_imp.g_varchar2_table(356) := 'uct'',''Filled'',''Executive Referral'',''Hired'',to_date(''22-04-26'',''DD-MM-RR''),to_date(''29-04-26'',''DD-MM-';
-wwv_flow_imp.g_varchar2_table(357) := 'RR''),to_date(''16-05-26'',''DD-MM-RR''),to_date(''28-05-26'',''DD-MM-RR''),to_date(''24-06-26'',''DD-MM-RR''),nu';
-wwv_flow_imp.g_varchar2_table(358) := 'll,63,9.1,4.9,''Accepted'',118000,to_date(''24-06-26'',''DD-MM-RR''),''Priya Nair'',''Ethan Brooks'',''Pune'', F';
-wwv_flow_imp.g_varchar2_table(359) := 'ALSE);'||wwv_flow.LF||
-'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPAR';
-wwv_flow_imp.g_varchar2_table(360) := 'TMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,';
-wwv_flow_imp.g_varchar2_table(361) := 'HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START';
-wwv_flow_imp.g_varchar2_table(362) := '_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Elena Petrova'',''Elena'',''Petrova'',''e';
-wwv_flow_imp.g_varchar2_table(363) := 'lena.petrova@example.com'',''Product Manager'',''Product'',''Filled'',''LinkedIn'',''Rejected'',to_date(''25-04-';
-wwv_flow_imp.g_varchar2_table(364) := '26'',''DD-MM-RR''),to_date(''01-05-26'',''DD-MM-RR''),to_date(''14-05-26'',''DD-MM-RR''),null,null,to_date(''18-';
-wwv_flow_imp.g_varchar2_table(365) := '05-26'',''DD-MM-RR''),23,5.1,3.1,''Rejected'',null,null,''Priya Nair'',''Ethan Brooks'',''Pune'', TRUE);'||wwv_flow.LF||
-'Insert';
-wwv_flow_imp.g_varchar2_table(366) := ' into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISI';
-wwv_flow_imp.g_varchar2_table(367) := 'TION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,RE';
-wwv_flow_imp.g_varchar2_table(368) := 'JECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUIT';
-wwv_flow_imp.g_varchar2_table(369) := 'ER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Chris Morgan'',''Chris'',''Morgan'',''chris.morgan@exa';
-wwv_flow_imp.g_varchar2_table(370) := 'mple.com'',''Data Analyst'',''Finance'',''Draft'',''Careers Site'',''Applied'',to_date(''18-06-26'',''DD-MM-RR''),n';
-wwv_flow_imp.g_varchar2_table(371) := 'ull,null,null,null,null,6,6.3,null,''Draft'',null,null,''Priya Nair'',''Noah Reed'',''Bengaluru'', FALSE);'||wwv_flow.LF||
+wwv_flow_imp.g_varchar2_table(262) := 'TMS_LEAVE_REQUESTS (REQUEST_ID,EMPLOYEE_ID,LEAVE_TYPE_ID,START_DATE,END_DATE,DAYS_REQUESTED,REASON,S';
+wwv_flow_imp.g_varchar2_table(263) := 'TATUS,APPROVER_ID,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (4,5,3,to_date(''03-07-26'',''DD-MM-RR''';
+wwv_flow_imp.g_varchar2_table(264) := '),to_date(''03-07-26'',''DD-MM-RR''),1,''Personal appointment.'',''Rejected'',3,to_date(''26-10-26'',''DD-MM-RR';
+wwv_flow_imp.g_varchar2_table(265) := '''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'Insert into TMS_LEAVE_REQU';
+wwv_flow_imp.g_varchar2_table(266) := 'ESTS (REQUEST_ID,EMPLOYEE_ID,LEAVE_TYPE_ID,START_DATE,END_DATE,DAYS_REQUESTED,REASON,STATUS,APPROVER';
+wwv_flow_imp.g_varchar2_table(267) := '_ID,CREATED,CREATED_BY,UPDATED,UPDATED_BY) values (5,2,1,to_date(''01-09-26'',''DD-MM-RR''),to_date(''05-';
+wwv_flow_imp.g_varchar2_table(268) := '09-26'',''DD-MM-RR''),5,''Tentative vacation plan pending release freeze confirmation.'',''Draft'',null,to_';
+wwv_flow_imp.g_varchar2_table(269) := 'date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'');'||wwv_flow.LF||
+'R';
+wwv_flow_imp.g_varchar2_table(270) := 'EM INSERTING into TMS_HR_POLICY'||wwv_flow.LF||
+'SET DEFINE OFF;'||wwv_flow.LF||
+'Insert into TMS_HR_POLICY (POLICY_ID,CATEGORY,TITLE,';
+wwv_flow_imp.g_varchar2_table(271) := 'CONTENT,CREATED,CREATED_BY,UPDATED,UPDATED_BY,EMBEDDING_VECTOR) values (1,''Leave'',''Annual Leave Poli';
+wwv_flow_imp.g_varchar2_table(272) := 'cy'',''Full-time employees receive 25 days of annual leave per calendar year. Leave should be requeste';
+wwv_flow_imp.g_varchar2_table(273) := 'd at least two weeks in advance and approved by the reporting manager. Unused annual leave may be ca';
+wwv_flow_imp.g_varchar2_table(274) := 'rried forward according to local policy limits.'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',t';
+wwv_flow_imp.g_varchar2_table(275) := 'o_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',null);'||wwv_flow.LF||
+'Insert into TMS_HR_POLICY (POLICY_ID,CATEGOR';
+wwv_flow_imp.g_varchar2_table(276) := 'Y,TITLE,CONTENT,CREATED,CREATED_BY,UPDATED,UPDATED_BY,EMBEDDING_VECTOR) values (2,''Leave'',''Sick Leav';
+wwv_flow_imp.g_varchar2_table(277) := 'e Policy'',''Employees receive 10 days of paid sick leave per year. For absences longer than two conse';
+wwv_flow_imp.g_varchar2_table(278) := 'cutive working days, employees may be asked to provide medical documentation to HR.'',to_date(''26-10-';
+wwv_flow_imp.g_varchar2_table(279) := '26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',null);'||wwv_flow.LF||
+'Insert i';
+wwv_flow_imp.g_varchar2_table(280) := 'nto TMS_HR_POLICY (POLICY_ID,CATEGORY,TITLE,CONTENT,CREATED,CREATED_BY,UPDATED,UPDATED_BY,EMBEDDING_';
+wwv_flow_imp.g_varchar2_table(281) := 'VECTOR) values (3,''Probation'',''Probation Period'',''New hires serve a three-month probation period. Ma';
+wwv_flow_imp.g_varchar2_table(282) := 'nagers review onboarding progress, role expectations, and performance checkpoints before confirming ';
+wwv_flow_imp.g_varchar2_table(283) := 'regular employment status.'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD';
+wwv_flow_imp.g_varchar2_table(284) := '-MM-RR''),''APEX_PUBLIC_USER'',null);'||wwv_flow.LF||
+'Insert into TMS_HR_POLICY (POLICY_ID,CATEGORY,TITLE,CONTENT,CREAT';
+wwv_flow_imp.g_varchar2_table(285) := 'ED,CREATED_BY,UPDATED,UPDATED_BY,EMBEDDING_VECTOR) values (4,''Remote Work'',''Remote Work Policy'',''Eli';
+wwv_flow_imp.g_varchar2_table(286) := 'gible employees may work remotely up to two days per week with manager approval. New employees shoul';
+wwv_flow_imp.g_varchar2_table(287) := 'd coordinate remote work during onboarding so training, equipment setup, and team introductions are ';
+wwv_flow_imp.g_varchar2_table(288) := 'not delayed.'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX';
+wwv_flow_imp.g_varchar2_table(289) := '_PUBLIC_USER'',null);'||wwv_flow.LF||
+'Insert into TMS_HR_POLICY (POLICY_ID,CATEGORY,TITLE,CONTENT,CREATED,CREATED_BY,';
+wwv_flow_imp.g_varchar2_table(290) := 'UPDATED,UPDATED_BY,EMBEDDING_VECTOR) values (5,''Benefits'',''Health Insurance Enrollment'',''Employees a';
+wwv_flow_imp.g_varchar2_table(291) := 're eligible for company-sponsored health insurance from their hire date. HR sends enrollment instruc';
+wwv_flow_imp.g_varchar2_table(292) := 'tions during onboarding and employees should complete the form within seven calendar days.'',to_date(';
+wwv_flow_imp.g_varchar2_table(293) := '''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',null);'||wwv_flow.LF||
 'I';
-wwv_flow_imp.g_varchar2_table(372) := 'nsert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,RE';
-wwv_flow_imp.g_varchar2_table(373) := 'QUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DA';
-wwv_flow_imp.g_varchar2_table(374) := 'TE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RE';
-wwv_flow_imp.g_varchar2_table(375) := 'CRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Sara Ibrahim'',''Sara'',''Ibrahim'',''sara.ibrahi';
-wwv_flow_imp.g_varchar2_table(376) := 'm@example.com'',''Data Analyst'',''Finance'',''Draft'',''LinkedIn'',''Applied'',to_date(''19-06-26'',''DD-MM-RR''),';
-wwv_flow_imp.g_varchar2_table(377) := 'null,null,null,null,null,5,7.4,null,''Draft'',null,null,''Priya Nair'',''Noah Reed'',''Bengaluru'', TRUE);'||wwv_flow.LF||
-'I';
-wwv_flow_imp.g_varchar2_table(378) := 'nsert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,RE';
-wwv_flow_imp.g_varchar2_table(379) := 'QUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DA';
-wwv_flow_imp.g_varchar2_table(380) := 'TE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RE';
-wwv_flow_imp.g_varchar2_table(381) := 'CRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Farah Ali'',''Farah'',''Ali'',''farah.ali@example';
-wwv_flow_imp.g_varchar2_table(382) := '.com'',''HR Generalist'',''Human Resources'',''Pending Approval'',''Agency'',''Screening'',to_date(''13-06-26'',''';
-wwv_flow_imp.g_varchar2_table(383) := 'DD-MM-RR''),to_date(''18-06-26'',''DD-MM-RR''),null,null,null,null,11,6.7,null,''Draft'',null,null,''Priya N';
-wwv_flow_imp.g_varchar2_table(384) := 'air'',''Priya Nair'',''Bengaluru'', TRUE);'||wwv_flow.LF||
-'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,';
-wwv_flow_imp.g_varchar2_table(385) := 'LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_';
-wwv_flow_imp.g_varchar2_table(386) := 'DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OF';
-wwv_flow_imp.g_varchar2_table(387) := 'FER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Ben ';
-wwv_flow_imp.g_varchar2_table(388) := 'Carter'',''Ben'',''Carter'',''ben.carter@example.com'',''DevOps Engineer'',''IT Operations'',''Open'',''LinkedIn'',';
-wwv_flow_imp.g_varchar2_table(389) := '''Rejected'',to_date(''30-05-26'',''DD-MM-RR''),to_date(''04-06-26'',''DD-MM-RR''),to_date(''12-06-26'',''DD-MM-R';
-wwv_flow_imp.g_varchar2_table(390) := 'R''),null,null,to_date(''14-06-26'',''DD-MM-RR''),15,5.6,2.8,''Rejected'',null,null,''Priya Nair'',''Liam Chen';
-wwv_flow_imp.g_varchar2_table(391) := ''',''Hyderabad'', FALSE);'||wwv_flow.LF||
-'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL';
-wwv_flow_imp.g_varchar2_table(392) := ',JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_';
-wwv_flow_imp.g_varchar2_table(393) := 'DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFE';
-wwv_flow_imp.g_varchar2_table(394) := 'RED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Ivy Chen'',''Ivy'',''Ch';
-wwv_flow_imp.g_varchar2_table(395) := 'en'',''ivy.chen@example.com'',''Senior Developer'',''Engineering'',''Open'',''Referral'',''Interview'',to_date(''1';
-wwv_flow_imp.g_varchar2_table(396) := '0-06-26'',''DD-MM-RR''),to_date(''14-06-26'',''DD-MM-RR''),to_date(''28-06-26'',''DD-MM-RR''),null,null,null,14';
-wwv_flow_imp.g_varchar2_table(397) := ',8.4,null,''Draft'',null,null,''Priya Nair'',''Maya Patel'',''Bengaluru'', TRUE);'||wwv_flow.LF||
-'Insert into TMS_CANDIDATE_';
-wwv_flow_imp.g_varchar2_table(398) := 'PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,C';
-wwv_flow_imp.g_varchar2_table(399) := 'URRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_';
-wwv_flow_imp.g_varchar2_table(400) := 'PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LO';
-wwv_flow_imp.g_varchar2_table(401) := 'CATION,DIVERSITY_FLAG) values (''Owen Miller'',''Owen'',''Miller'',''owen.miller@example.com'',''Senior Devel';
-wwv_flow_imp.g_varchar2_table(402) := 'oper'',''Engineering'',''Open'',''Careers Site'',''Applied'',to_date(''15-06-26'',''DD-MM-RR''),null,null,null,nu';
-wwv_flow_imp.g_varchar2_table(403) := 'll,null,9,6.1,null,''Draft'',null,null,''Priya Nair'',''Maya Patel'',''Bengaluru'', FALSE);'||wwv_flow.LF||
-'Insert into TMS_';
-wwv_flow_imp.g_varchar2_table(404) := 'CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATU';
-wwv_flow_imp.g_varchar2_table(405) := 'S,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DAT';
-wwv_flow_imp.g_varchar2_table(406) := 'E,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_';
-wwv_flow_imp.g_varchar2_table(407) := 'MANAGER,LOCATION,DIVERSITY_FLAG) values (''Priyanka Das'',''Priyanka'',''Das'',''priyanka.das@example.com'',';
-wwv_flow_imp.g_varchar2_table(408) := '''Sales Account Executive'',''Sales'',''Open'',''LinkedIn'',''Interview'',to_date(''31-05-26'',''DD-MM-RR''),to_da';
-wwv_flow_imp.g_varchar2_table(409) := 'te(''05-06-26'',''DD-MM-RR''),to_date(''19-06-26'',''DD-MM-RR''),null,null,null,24,7.6,4,''Draft'',null,null,''';
-wwv_flow_imp.g_varchar2_table(410) := 'Priya Nair'',''Sofia Garcia'',''Mumbai'', TRUE);'||wwv_flow.LF||
-'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST';
-wwv_flow_imp.g_varchar2_table(411) := '_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCRE';
-wwv_flow_imp.g_varchar2_table(412) := 'ENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SC';
-wwv_flow_imp.g_varchar2_table(413) := 'ORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values ';
-wwv_flow_imp.g_varchar2_table(414) := '(''Mateo Silva'',''Mateo'',''Silva'',''mateo.silva@example.com'',''Sales Account Executive'',''Sales'',''Open'',''A';
-wwv_flow_imp.g_varchar2_table(415) := 'gency'',''Rejected'',to_date(''28-05-26'',''DD-MM-RR''),to_date(''03-06-26'',''DD-MM-RR''),to_date(''11-06-26'',''';
-wwv_flow_imp.g_varchar2_table(416) := 'DD-MM-RR''),null,null,to_date(''13-06-26'',''DD-MM-RR''),16,5.3,2.7,''Rejected'',null,null,''Priya Nair'',''So';
-wwv_flow_imp.g_varchar2_table(417) := 'fia Garcia'',''Mumbai'', FALSE);'||wwv_flow.LF||
-'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAM';
-wwv_flow_imp.g_varchar2_table(418) := 'E,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INT';
-wwv_flow_imp.g_varchar2_table(419) := 'ERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STAT';
-wwv_flow_imp.g_varchar2_table(420) := 'US,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Hannah Scott';
-wwv_flow_imp.g_varchar2_table(421) := ''',''Hannah'',''Scott'',''hannah.scott@example.com'',''Product Manager'',''Product'',''Filled'',''Careers Site'',''R';
-wwv_flow_imp.g_varchar2_table(422) := 'ejected'',to_date(''20-04-26'',''DD-MM-RR''),to_date(''26-04-26'',''DD-MM-RR''),to_date(''09-05-26'',''DD-MM-RR''';
-wwv_flow_imp.g_varchar2_table(423) := '),null,null,to_date(''12-05-26'',''DD-MM-RR''),22,5.8,3,''Rejected'',null,null,''Priya Nair'',''Ethan Brooks''';
-wwv_flow_imp.g_varchar2_table(424) := ',''Pune'', FALSE);'||wwv_flow.LF||
-'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_T';
-wwv_flow_imp.g_varchar2_table(425) := 'ITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,O';
-wwv_flow_imp.g_varchar2_table(426) := 'FFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SA';
-wwv_flow_imp.g_varchar2_table(427) := 'LARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Kabir Mehta'',''Kabir'',''Meh';
-wwv_flow_imp.g_varchar2_table(428) := 'ta'',''kabir.mehta@example.com'',''Product Manager'',''Product'',''Filled'',''LinkedIn'',''Offer'',to_date(''21-04';
-wwv_flow_imp.g_varchar2_table(429) := '-26'',''DD-MM-RR''),to_date(''28-04-26'',''DD-MM-RR''),to_date(''15-05-26'',''DD-MM-RR''),to_date(''24-05-26'',''D';
-wwv_flow_imp.g_varchar2_table(430) := 'D-MM-RR''),null,null,33,8.5,4.6,''Withdrawn'',122000,to_date(''20-06-26'',''DD-MM-RR''),''Priya Nair'',''Ethan';
-wwv_flow_imp.g_varchar2_table(431) := ' Brooks'',''Pune'', FALSE);'||wwv_flow.LF||
-'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMA';
-wwv_flow_imp.g_varchar2_table(432) := 'IL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIE';
-wwv_flow_imp.g_varchar2_table(433) := 'W_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OF';
-wwv_flow_imp.g_varchar2_table(434) := 'FERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Marta Novak'',''Mar';
-wwv_flow_imp.g_varchar2_table(435) := 'ta'',''Novak'',''marta.novak@example.com'',''HR Generalist'',''Human Resources'',''Pending Approval'',''Careers ';
-wwv_flow_imp.g_varchar2_table(436) := 'Site'',''Applied'',to_date(''14-06-26'',''DD-MM-RR''),null,null,null,null,null,10,6.5,null,''Draft'',null,nul';
-wwv_flow_imp.g_varchar2_table(437) := 'l,''Priya Nair'',''Priya Nair'',''Bengaluru'', FALSE);'||wwv_flow.LF||
-'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,';
-wwv_flow_imp.g_varchar2_table(438) := 'FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE';
-wwv_flow_imp.g_varchar2_table(439) := ',SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVI';
-wwv_flow_imp.g_varchar2_table(440) := 'EW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) va';
-wwv_flow_imp.g_varchar2_table(441) := 'lues (''Noor Hassan'',''Noor'',''Hassan'',''noor.hassan@example.com'',''DevOps Engineer'',''IT Operations'',''Ope';
-wwv_flow_imp.g_varchar2_table(442) := 'n'',''Referral'',''Screening'',to_date(''08-06-26'',''DD-MM-RR''),to_date(''15-06-26'',''DD-MM-RR''),null,null,nu';
-wwv_flow_imp.g_varchar2_table(443) := 'll,null,16,7.5,null,''Draft'',null,null,''Priya Nair'',''Liam Chen'',''Hyderabad'', TRUE);'||wwv_flow.LF||
-'Insert into TMS_C';
-wwv_flow_imp.g_varchar2_table(444) := 'ANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS';
-wwv_flow_imp.g_varchar2_table(445) := ',SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE';
-wwv_flow_imp.g_varchar2_table(446) := ',DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_M';
-wwv_flow_imp.g_varchar2_table(447) := 'ANAGER,LOCATION,DIVERSITY_FLAG) values (''Arjun Nair'',''Arjun'',''Nair'',''arjun.nair@example.com'',''Senior';
-wwv_flow_imp.g_varchar2_table(448) := ' Developer'',''Engineering'',''Open'',''Recruiter Sourced'',''Screening'',to_date(''12-06-26'',''DD-MM-RR''),to_d';
-wwv_flow_imp.g_varchar2_table(449) := 'ate(''18-06-26'',''DD-MM-RR''),null,null,null,null,12,7,null,''Draft'',null,null,''Priya Nair'',''Maya Patel''';
-wwv_flow_imp.g_varchar2_table(450) := ',''Bengaluru'', FALSE);'||wwv_flow.LF||
-'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,';
-wwv_flow_imp.g_varchar2_table(451) := 'JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_D';
-wwv_flow_imp.g_varchar2_table(452) := 'ATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFER';
-wwv_flow_imp.g_varchar2_table(453) := 'ED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Tara Wilson'',''Tara'',';
-wwv_flow_imp.g_varchar2_table(454) := '''Wilson'',''tara.wilson@example.com'',''Data Analyst'',''Finance'',''Draft'',''LinkedIn'',''Applied'',to_date(''20';
-wwv_flow_imp.g_varchar2_table(455) := '-06-26'',''DD-MM-RR''),null,null,null,null,null,4,6.8,null,''Draft'',null,null,''Priya Nair'',''Noah Reed'',''';
-wwv_flow_imp.g_varchar2_table(456) := 'Bengaluru'', TRUE);'||wwv_flow.LF||
-'Insert into TMS_CANDIDATE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB';
-wwv_flow_imp.g_varchar2_table(457) := '_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE';
-wwv_flow_imp.g_varchar2_table(458) := ',OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_';
-wwv_flow_imp.g_varchar2_table(459) := 'SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (''Leah Thompson'',''Leah'',''';
-wwv_flow_imp.g_varchar2_table(460) := 'Thompson'',''leah.thompson@example.com'',''Data Analyst'',''Finance'',''Draft'',''Employee Referral'',''Screenin';
-wwv_flow_imp.g_varchar2_table(461) := 'g'',to_date(''16-06-26'',''DD-MM-RR''),to_date(''21-06-26'',''DD-MM-RR''),null,null,null,null,8,7.6,null,''Dra';
-wwv_flow_imp.g_varchar2_table(462) := 'ft'',null,null,''Priya Nair'',''Noah Reed'',''Bengaluru'', FALSE);'||wwv_flow.LF||
-'Insert into TMS_CANDIDATE_PIPELINE (CAND';
-wwv_flow_imp.g_varchar2_table(463) := 'IDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,A';
-wwv_flow_imp.g_varchar2_table(464) := 'PPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SC';
-wwv_flow_imp.g_varchar2_table(465) := 'ORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSI';
-wwv_flow_imp.g_varchar2_table(466) := 'TY_FLAG) values (''Samir Khan'',''Samir'',''Khan'',''samir.khan@example.com'',''DevOps Engineer'',''IT Operatio';
-wwv_flow_imp.g_varchar2_table(467) := 'ns'',''Open'',''Recruiter Sourced'',''Offer'',to_date(''27-05-26'',''DD-MM-RR''),to_date(''01-06-26'',''DD-MM-RR'')';
-wwv_flow_imp.g_varchar2_table(468) := ',to_date(''10-06-26'',''DD-MM-RR''),to_date(''18-06-26'',''DD-MM-RR''),null,null,28,8.6,4.4,''Expired'',99000,';
-wwv_flow_imp.g_varchar2_table(469) := 'to_date(''08-07-26'',''DD-MM-RR''),''Priya Nair'',''Liam Chen'',''Hyderabad'', FALSE);'||wwv_flow.LF||
+wwv_flow_imp.g_varchar2_table(294) := 'nsert into TMS_HR_POLICY (POLICY_ID,CATEGORY,TITLE,CONTENT,CREATED,CREATED_BY,UPDATED,UPDATED_BY,EMB';
+wwv_flow_imp.g_varchar2_table(295) := 'EDDING_VECTOR) values (6,''Security'',''Information Security Policy'',''Employees must use company-manage';
+wwv_flow_imp.g_varchar2_table(296) := 'd devices for work, enable multi-factor authentication, and report suspected security incidents imme';
+wwv_flow_imp.g_varchar2_table(297) := 'diately to IT Operations.'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-';
+wwv_flow_imp.g_varchar2_table(298) := 'MM-RR''),''APEX_PUBLIC_USER'',null);'||wwv_flow.LF||
+'Insert into TMS_HR_POLICY (POLICY_ID,CATEGORY,TITLE,CONTENT,CREATE';
+wwv_flow_imp.g_varchar2_table(299) := 'D,CREATED_BY,UPDATED,UPDATED_BY,EMBEDDING_VECTOR) values (7,''Conduct'',''Code of Conduct'',''Acme Corp e';
+wwv_flow_imp.g_varchar2_table(300) := 'xpects respectful communication, inclusive collaboration, and responsible handling of confidential i';
+wwv_flow_imp.g_varchar2_table(301) := 'nformation in every workplace interaction.'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',to_dat';
+wwv_flow_imp.g_varchar2_table(302) := 'e(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',null);'||wwv_flow.LF||
+'Insert into TMS_HR_POLICY (POLICY_ID,CATEGORY,TIT';
+wwv_flow_imp.g_varchar2_table(303) := 'LE,CONTENT,CREATED,CREATED_BY,UPDATED,UPDATED_BY,EMBEDDING_VECTOR) values (8,''Travel'',''Business Trav';
+wwv_flow_imp.g_varchar2_table(304) := 'el Policy'',''Business travel requires manager approval before booking. Employees should use preferred';
+wwv_flow_imp.g_varchar2_table(305) := ' travel vendors and submit receipts within five business days after the trip.'',to_date(''26-10-26'',''D';
+wwv_flow_imp.g_varchar2_table(306) := 'D-MM-RR''),''APEX_PUBLIC_USER'',to_date(''26-10-26'',''DD-MM-RR''),''APEX_PUBLIC_USER'',null);'||wwv_flow.LF||
+''||wwv_flow.LF||
+'-- TMS_CANDID';
+wwv_flow_imp.g_varchar2_table(307) := 'ATE_PIPELINE sample data loaded from tms_candidate_pipeline.xlsx.'||wwv_flow.LF||
+'REM INSERTING into TMS_CANDIDATE_P';
+wwv_flow_imp.g_varchar2_table(308) := 'IPELINE'||wwv_flow.LF||
+'SET DEFINE OFF;'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (ID,CANDIDATE_NAME,FIRST_NAME,LAST_NAME,E';
+wwv_flow_imp.g_varchar2_table(309) := 'MAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERV';
+wwv_flow_imp.g_varchar2_table(310) := 'IEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,';
+wwv_flow_imp.g_varchar2_table(311) := 'OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (1,''Anika Rao'',''A';
+wwv_flow_imp.g_varchar2_table(312) := 'nika'',''Rao'',''anika.rao@example.com'',''Senior Developer'',''Engineering'',''Open'',''LinkedIn'',''Offer'',to_da';
+wwv_flow_imp.g_varchar2_table(313) := 'te(''04-06-26'',''DD-MM-RR''),to_date(''08-06-26'',''DD-MM-RR''),to_date(''18-06-26'',''DD-MM-RR''),to_date(''24-';
+wwv_flow_imp.g_varchar2_table(314) := '06-26'',''DD-MM-RR''),null,null,20,8.7,4.8,''Sent'',95000,to_date(''15-07-26'',''DD-MM-RR''),''Priya Nair'',''Ma';
+wwv_flow_imp.g_varchar2_table(315) := 'ya Patel'',''Bengaluru'',TRUE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (ID,CANDIDATE_NAME,FIRST_NAME,LAST_N';
+wwv_flow_imp.g_varchar2_table(316) := 'AME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,I';
+wwv_flow_imp.g_varchar2_table(317) := 'NTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_ST';
+wwv_flow_imp.g_varchar2_table(318) := 'ATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (2,''Marcus H';
+wwv_flow_imp.g_varchar2_table(319) := 'ill'',''Marcus'',''Hill'',''marcus.hill@example.com'',''Senior Developer'',''Engineering'',''Open'',''Employee Ref';
+wwv_flow_imp.g_varchar2_table(320) := 'erral'',''Interview'',to_date(''05-06-26'',''DD-MM-RR''),to_date(''09-06-26'',''DD-MM-RR''),to_date(''24-06-26'',';
+wwv_flow_imp.g_varchar2_table(321) := '''DD-MM-RR''),null,null,null,19,7.9,null,''Draft'',null,null,''Priya Nair'',''Maya Patel'',''Bengaluru'',FALSE';
+wwv_flow_imp.g_varchar2_table(322) := ');'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (ID,CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPART';
+wwv_flow_imp.g_varchar2_table(323) := 'MENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,H';
+wwv_flow_imp.g_varchar2_table(324) := 'IRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_';
+wwv_flow_imp.g_varchar2_table(325) := 'DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (3,''Nina Park'',''Nina'',''Park'',''nina.par';
+wwv_flow_imp.g_varchar2_table(326) := 'k@example.com'',''Senior Developer'',''Engineering'',''Open'',''Careers Site'',''Screening'',to_date(''07-06-26''';
+wwv_flow_imp.g_varchar2_table(327) := ',''DD-MM-RR''),to_date(''12-06-26'',''DD-MM-RR''),null,null,null,null,17,6.4,null,''Draft'',null,null,''Priya';
+wwv_flow_imp.g_varchar2_table(328) := ' Nair'',''Maya Patel'',''Bengaluru'',TRUE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (ID,CANDIDATE_NAME,FIRST_N';
+wwv_flow_imp.g_varchar2_table(329) := 'AME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREEN';
+wwv_flow_imp.g_varchar2_table(330) := 'ING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCOR';
+wwv_flow_imp.g_varchar2_table(331) := 'E,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (4';
+wwv_flow_imp.g_varchar2_table(332) := ',''Jacob Lee'',''Jacob'',''Lee'',''jacob.lee@example.com'',''Senior Developer'',''Engineering'',''Open'',''Campus E';
+wwv_flow_imp.g_varchar2_table(333) := 'vent'',''Rejected'',to_date(''08-06-26'',''DD-MM-RR''),to_date(''13-06-26'',''DD-MM-RR''),null,null,null,to_dat';
+wwv_flow_imp.g_varchar2_table(334) := 'e(''16-06-26'',''DD-MM-RR''),8,4.2,null,''Rejected'',null,null,''Priya Nair'',''Maya Patel'',''Bengaluru'',FALSE';
+wwv_flow_imp.g_varchar2_table(335) := ');'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (ID,CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPART';
+wwv_flow_imp.g_varchar2_table(336) := 'MENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,H';
+wwv_flow_imp.g_varchar2_table(337) := 'IRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_';
+wwv_flow_imp.g_varchar2_table(338) := 'DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (5,''Tom Alvarez'',''Tom'',''Alvarez'',''tom.';
+wwv_flow_imp.g_varchar2_table(339) := 'alvarez@example.com'',''DevOps Engineer'',''IT Operations'',''Open'',''Recruiter Sourced'',''Interview'',to_dat';
+wwv_flow_imp.g_varchar2_table(340) := 'e(''06-06-26'',''DD-MM-RR''),to_date(''10-06-26'',''DD-MM-RR''),to_date(''25-06-26'',''DD-MM-RR''),null,null,nul';
+wwv_flow_imp.g_varchar2_table(341) := 'l,18,8.1,null,''Draft'',null,null,''Priya Nair'',''Liam Chen'',''Hyderabad'',FALSE);'||wwv_flow.LF||
 'Insert into TMS_CANDIDA';
-wwv_flow_imp.g_varchar2_table(470) := 'TE_PIPELINE (CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURC';
-wwv_flow_imp.g_varchar2_table(471) := 'E,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_';
-wwv_flow_imp.g_varchar2_table(472) := 'IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER';
-wwv_flow_imp.g_varchar2_table(473) := ',LOCATION,DIVERSITY_FLAG) values (''Mina George'',''Mina'',''George'',''mina.george@example.com'',''HR Genera';
-wwv_flow_imp.g_varchar2_table(474) := 'list'',''Human Resources'',''Pending Approval'',''Employee Referral'',''Interview'',to_date(''09-06-26'',''DD-MM';
-wwv_flow_imp.g_varchar2_table(475) := '-RR''),to_date(''14-06-26'',''DD-MM-RR''),to_date(''26-06-26'',''DD-MM-RR''),null,null,null,15,7.7,null,''Draf';
-wwv_flow_imp.g_varchar2_table(476) := 't'',null,null,''Priya Nair'',''Priya Nair'',''Bengaluru'', TRUE);'||wwv_flow.LF||
-'Insert into TMS_CANDIDATE_PIPELINE (CANDI';
-wwv_flow_imp.g_varchar2_table(477) := 'DATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,AP';
-wwv_flow_imp.g_varchar2_table(478) := 'PLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCO';
-wwv_flow_imp.g_varchar2_table(479) := 'RE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSIT';
-wwv_flow_imp.g_varchar2_table(480) := 'Y_FLAG) values (''Lucas Evans'',''Lucas'',''Evans'',''lucas.evans@example.com'',''Sales Account Executive'',''S';
-wwv_flow_imp.g_varchar2_table(481) := 'ales'',''Open'',''Careers Site'',''Applied'',to_date(''10-06-26'',''DD-MM-RR''),null,null,null,null,null,14,6.2';
-wwv_flow_imp.g_varchar2_table(482) := ',null,''Draft'',null,null,''Priya Nair'',''Sofia Garcia'',''Mumbai'', FALSE);'||wwv_flow.LF||
+wwv_flow_imp.g_varchar2_table(342) := 'TE_PIPELINE (ID,CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SO';
+wwv_flow_imp.g_varchar2_table(343) := 'URCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DA';
+wwv_flow_imp.g_varchar2_table(344) := 'YS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANA';
+wwv_flow_imp.g_varchar2_table(345) := 'GER,LOCATION,DIVERSITY_FLAG) values (6,''Mei Wong'',''Mei'',''Wong'',''mei.wong@example.com'',''DevOps Engine';
+wwv_flow_imp.g_varchar2_table(346) := 'er'',''IT Operations'',''Open'',''Careers Site'',''Applied'',to_date(''09-06-26'',''DD-MM-RR''),null,null,null,nu';
+wwv_flow_imp.g_varchar2_table(347) := 'll,null,15,6.9,null,''Draft'',null,null,''Priya Nair'',''Liam Chen'',''Hyderabad'',TRUE);'||wwv_flow.LF||
+'Insert into TMS_CA';
+wwv_flow_imp.g_varchar2_table(348) := 'NDIDATE_PIPELINE (ID,CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STAT';
+wwv_flow_imp.g_varchar2_table(349) := 'US,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DA';
+wwv_flow_imp.g_varchar2_table(350) := 'TE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING';
+wwv_flow_imp.g_varchar2_table(351) := '_MANAGER,LOCATION,DIVERSITY_FLAG) values (7,''Grace Kim'',''Grace'',''Kim'',''grace.kim@example.com'',''HR Ge';
+wwv_flow_imp.g_varchar2_table(352) := 'neralist'',''Human Resources'',''Pending Approval'',''LinkedIn'',''Applied'',to_date(''12-06-26'',''DD-MM-RR''),n';
+wwv_flow_imp.g_varchar2_table(353) := 'ull,null,null,null,null,12,7.2,null,''Draft'',null,null,''Priya Nair'',''Priya Nair'',''Bengaluru'',TRUE);'||wwv_flow.LF||
+'I';
+wwv_flow_imp.g_varchar2_table(354) := 'nsert into TMS_CANDIDATE_PIPELINE (ID,CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT';
+wwv_flow_imp.g_varchar2_table(355) := ',REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED';
+wwv_flow_imp.g_varchar2_table(356) := '_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE';
+wwv_flow_imp.g_varchar2_table(357) := ',RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (8,''Olivia Grant'',''Olivia'',''Grant'',''olivia';
+wwv_flow_imp.g_varchar2_table(358) := '.grant@example.com'',''Sales Account Executive'',''Sales'',''Open'',''Agency'',''Offer'',to_date(''29-05-26'',''DD';
+wwv_flow_imp.g_varchar2_table(359) := '-MM-RR''),to_date(''02-06-26'',''DD-MM-RR''),to_date(''07-06-26'',''DD-MM-RR''),to_date(''21-06-26'',''DD-MM-RR''';
+wwv_flow_imp.g_varchar2_table(360) := '),null,null,23,8.3,4.5,''Pending Approval'',82000,to_date(''22-07-26'',''DD-MM-RR''),''Priya Nair'',''Sofia G';
+wwv_flow_imp.g_varchar2_table(361) := 'arcia'',''Mumbai'',FALSE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (ID,CANDIDATE_NAME,FIRST_NAME,LAST_NAME,E';
+wwv_flow_imp.g_varchar2_table(362) := 'MAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERV';
+wwv_flow_imp.g_varchar2_table(363) := 'IEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,';
+wwv_flow_imp.g_varchar2_table(364) := 'OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (9,''Daniel Brown''';
+wwv_flow_imp.g_varchar2_table(365) := ',''Daniel'',''Brown'',''daniel.brown@example.com'',''Sales Account Executive'',''Sales'',''Open'',''Careers Site''';
+wwv_flow_imp.g_varchar2_table(366) := ',''Screening'',to_date(''01-06-26'',''DD-MM-RR''),to_date(''06-06-26'',''DD-MM-RR''),null,null,null,null,23,6.';
+wwv_flow_imp.g_varchar2_table(367) := '8,null,''Draft'',null,null,''Priya Nair'',''Sofia Garcia'',''Mumbai'',FALSE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPE';
+wwv_flow_imp.g_varchar2_table(368) := 'LINE (ID,CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CU';
+wwv_flow_imp.g_varchar2_table(369) := 'RRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_P';
+wwv_flow_imp.g_varchar2_table(370) := 'IPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOC';
+wwv_flow_imp.g_varchar2_table(371) := 'ATION,DIVERSITY_FLAG) values (10,''Aisha Khan'',''Aisha'',''Khan'',''aisha.khan@example.com'',''Sales Account';
+wwv_flow_imp.g_varchar2_table(372) := ' Executive'',''Sales'',''Open'',''Referral'',''Applied'',to_date(''04-06-26'',''DD-MM-RR''),null,null,null,null,n';
+wwv_flow_imp.g_varchar2_table(373) := 'ull,20,7.1,null,''Draft'',null,null,''Priya Nair'',''Sofia Garcia'',''Mumbai'',TRUE);'||wwv_flow.LF||
+'Insert into TMS_CANDID';
+wwv_flow_imp.g_varchar2_table(374) := 'ATE_PIPELINE (ID,CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,S';
+wwv_flow_imp.g_varchar2_table(375) := 'OURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,D';
+wwv_flow_imp.g_varchar2_table(376) := 'AYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MAN';
+wwv_flow_imp.g_varchar2_table(377) := 'AGER,LOCATION,DIVERSITY_FLAG) values (11,''Ravi Menon'',''Ravi'',''Menon'',''ravi.menon@example.com'',''Produ';
+wwv_flow_imp.g_varchar2_table(378) := 'ct Manager'',''Product'',''Filled'',''Executive Referral'',''Hired'',to_date(''22-04-26'',''DD-MM-RR''),to_date(''';
+wwv_flow_imp.g_varchar2_table(379) := '29-04-26'',''DD-MM-RR''),to_date(''16-05-26'',''DD-MM-RR''),to_date(''28-05-26'',''DD-MM-RR''),to_date(''24-06-2';
+wwv_flow_imp.g_varchar2_table(380) := '6'',''DD-MM-RR''),null,63,9.1,4.9,''Accepted'',118000,to_date(''24-06-26'',''DD-MM-RR''),''Priya Nair'',''Ethan ';
+wwv_flow_imp.g_varchar2_table(381) := 'Brooks'',''Pune'',FALSE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (ID,CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EM';
+wwv_flow_imp.g_varchar2_table(382) := 'AIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVI';
+wwv_flow_imp.g_varchar2_table(383) := 'EW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,O';
+wwv_flow_imp.g_varchar2_table(384) := 'FFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (12,''Elena Petrova';
+wwv_flow_imp.g_varchar2_table(385) := ''',''Elena'',''Petrova'',''elena.petrova@example.com'',''Product Manager'',''Product'',''Filled'',''LinkedIn'',''Rej';
+wwv_flow_imp.g_varchar2_table(386) := 'ected'',to_date(''25-04-26'',''DD-MM-RR''),to_date(''01-05-26'',''DD-MM-RR''),to_date(''14-05-26'',''DD-MM-RR''),';
+wwv_flow_imp.g_varchar2_table(387) := 'null,null,to_date(''18-05-26'',''DD-MM-RR''),23,5.1,3.1,''Rejected'',null,null,''Priya Nair'',''Ethan Brooks''';
+wwv_flow_imp.g_varchar2_table(388) := ',''Pune'',TRUE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (ID,CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_';
+wwv_flow_imp.g_varchar2_table(389) := 'TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,';
+wwv_flow_imp.g_varchar2_table(390) := 'OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_S';
+wwv_flow_imp.g_varchar2_table(391) := 'ALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (13,''Chris Morgan'',''Chris''';
+wwv_flow_imp.g_varchar2_table(392) := ',''Morgan'',''chris.morgan@example.com'',''Data Analyst'',''Finance'',''Draft'',''Careers Site'',''Applied'',to_da';
+wwv_flow_imp.g_varchar2_table(393) := 'te(''18-06-26'',''DD-MM-RR''),null,null,null,null,null,6,6.3,null,''Draft'',null,null,''Priya Nair'',''Noah R';
+wwv_flow_imp.g_varchar2_table(394) := 'eed'',''Bengaluru'',FALSE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (ID,CANDIDATE_NAME,FIRST_NAME,LAST_NAME,';
+wwv_flow_imp.g_varchar2_table(395) := 'EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTER';
+wwv_flow_imp.g_varchar2_table(396) := 'VIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS';
+wwv_flow_imp.g_varchar2_table(397) := ',OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (14,''Sara Ibrahi';
+wwv_flow_imp.g_varchar2_table(398) := 'm'',''Sara'',''Ibrahim'',''sara.ibrahim@example.com'',''Data Analyst'',''Finance'',''Draft'',''LinkedIn'',''Applied''';
+wwv_flow_imp.g_varchar2_table(399) := ',to_date(''19-06-26'',''DD-MM-RR''),null,null,null,null,null,5,7.4,null,''Draft'',null,null,''Priya Nair'',''';
+wwv_flow_imp.g_varchar2_table(400) := 'Noah Reed'',''Bengaluru'',TRUE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (ID,CANDIDATE_NAME,FIRST_NAME,LAST_';
+wwv_flow_imp.g_varchar2_table(401) := 'NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,';
+wwv_flow_imp.g_varchar2_table(402) := 'INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_S';
+wwv_flow_imp.g_varchar2_table(403) := 'TATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (15,''Farah ';
+wwv_flow_imp.g_varchar2_table(404) := 'Ali'',''Farah'',''Ali'',''farah.ali@example.com'',''HR Generalist'',''Human Resources'',''Pending Approval'',''Age';
+wwv_flow_imp.g_varchar2_table(405) := 'ncy'',''Screening'',to_date(''13-06-26'',''DD-MM-RR''),to_date(''18-06-26'',''DD-MM-RR''),null,null,null,null,1';
+wwv_flow_imp.g_varchar2_table(406) := '1,6.7,null,''Draft'',null,null,''Priya Nair'',''Priya Nair'',''Bengaluru'',TRUE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_';
+wwv_flow_imp.g_varchar2_table(407) := 'PIPELINE (ID,CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURC';
+wwv_flow_imp.g_varchar2_table(408) := 'E,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_';
+wwv_flow_imp.g_varchar2_table(409) := 'IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER';
+wwv_flow_imp.g_varchar2_table(410) := ',LOCATION,DIVERSITY_FLAG) values (16,''Ben Carter'',''Ben'',''Carter'',''ben.carter@example.com'',''DevOps En';
+wwv_flow_imp.g_varchar2_table(411) := 'gineer'',''IT Operations'',''Open'',''LinkedIn'',''Rejected'',to_date(''30-05-26'',''DD-MM-RR''),to_date(''04-06-2';
+wwv_flow_imp.g_varchar2_table(412) := '6'',''DD-MM-RR''),to_date(''12-06-26'',''DD-MM-RR''),null,null,to_date(''14-06-26'',''DD-MM-RR''),15,5.6,2.8,''R';
+wwv_flow_imp.g_varchar2_table(413) := 'ejected'',null,null,''Priya Nair'',''Liam Chen'',''Hyderabad'',FALSE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (';
+wwv_flow_imp.g_varchar2_table(414) := 'ID,CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_';
+wwv_flow_imp.g_varchar2_table(415) := 'STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELIN';
+wwv_flow_imp.g_varchar2_table(416) := 'E,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,';
+wwv_flow_imp.g_varchar2_table(417) := 'DIVERSITY_FLAG) values (17,''Ivy Chen'',''Ivy'',''Chen'',''ivy.chen@example.com'',''Senior Developer'',''Engine';
+wwv_flow_imp.g_varchar2_table(418) := 'ering'',''Open'',''Referral'',''Interview'',to_date(''10-06-26'',''DD-MM-RR''),to_date(''14-06-26'',''DD-MM-RR''),t';
+wwv_flow_imp.g_varchar2_table(419) := 'o_date(''28-06-26'',''DD-MM-RR''),null,null,null,14,8.4,null,''Draft'',null,null,''Priya Nair'',''Maya Patel''';
+wwv_flow_imp.g_varchar2_table(420) := ',''Bengaluru'',TRUE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (ID,CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL';
+wwv_flow_imp.g_varchar2_table(421) := ',JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_';
+wwv_flow_imp.g_varchar2_table(422) := 'DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFE';
+wwv_flow_imp.g_varchar2_table(423) := 'RED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (18,''Owen Miller'',''Ow';
+wwv_flow_imp.g_varchar2_table(424) := 'en'',''Miller'',''owen.miller@example.com'',''Senior Developer'',''Engineering'',''Open'',''Careers Site'',''Appli';
+wwv_flow_imp.g_varchar2_table(425) := 'ed'',to_date(''15-06-26'',''DD-MM-RR''),null,null,null,null,null,9,6.1,null,''Draft'',null,null,''Priya Nair';
+wwv_flow_imp.g_varchar2_table(426) := ''',''Maya Patel'',''Bengaluru'',FALSE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (ID,CANDIDATE_NAME,FIRST_NAME,';
+wwv_flow_imp.g_varchar2_table(427) := 'LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_';
+wwv_flow_imp.g_varchar2_table(428) := 'DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OF';
+wwv_flow_imp.g_varchar2_table(429) := 'FER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (19,''P';
+wwv_flow_imp.g_varchar2_table(430) := 'riyanka Das'',''Priyanka'',''Das'',''priyanka.das@example.com'',''Sales Account Executive'',''Sales'',''Open'',''L';
+wwv_flow_imp.g_varchar2_table(431) := 'inkedIn'',''Interview'',to_date(''31-05-26'',''DD-MM-RR''),to_date(''05-06-26'',''DD-MM-RR''),to_date(''19-06-26';
+wwv_flow_imp.g_varchar2_table(432) := ''',''DD-MM-RR''),null,null,null,24,7.6,4,''Draft'',null,null,''Priya Nair'',''Sofia Garcia'',''Mumbai'',TRUE);'||wwv_flow.LF||
+'';
+wwv_flow_imp.g_varchar2_table(433) := 'Insert into TMS_CANDIDATE_PIPELINE (ID,CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMEN';
+wwv_flow_imp.g_varchar2_table(434) := 'T,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRE';
+wwv_flow_imp.g_varchar2_table(435) := 'D_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DAT';
+wwv_flow_imp.g_varchar2_table(436) := 'E,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (20,''Mateo Silva'',''Mateo'',''Silva'',''mateo.';
+wwv_flow_imp.g_varchar2_table(437) := 'silva@example.com'',''Sales Account Executive'',''Sales'',''Open'',''Agency'',''Rejected'',to_date(''28-05-26'',''';
+wwv_flow_imp.g_varchar2_table(438) := 'DD-MM-RR''),to_date(''03-06-26'',''DD-MM-RR''),to_date(''11-06-26'',''DD-MM-RR''),null,null,to_date(''13-06-26';
+wwv_flow_imp.g_varchar2_table(439) := ''',''DD-MM-RR''),16,5.3,2.7,''Rejected'',null,null,''Priya Nair'',''Sofia Garcia'',''Mumbai'',FALSE);'||wwv_flow.LF||
+'Insert in';
+wwv_flow_imp.g_varchar2_table(440) := 'to TMS_CANDIDATE_PIPELINE (ID,CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISI';
+wwv_flow_imp.g_varchar2_table(441) := 'TION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,RE';
+wwv_flow_imp.g_varchar2_table(442) := 'JECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUIT';
+wwv_flow_imp.g_varchar2_table(443) := 'ER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (21,''Hannah Scott'',''Hannah'',''Scott'',''hannah.scott@';
+wwv_flow_imp.g_varchar2_table(444) := 'example.com'',''Product Manager'',''Product'',''Filled'',''Careers Site'',''Rejected'',to_date(''20-04-26'',''DD-M';
+wwv_flow_imp.g_varchar2_table(445) := 'M-RR''),to_date(''26-04-26'',''DD-MM-RR''),to_date(''09-05-26'',''DD-MM-RR''),null,null,to_date(''12-05-26'',''D';
+wwv_flow_imp.g_varchar2_table(446) := 'D-MM-RR''),22,5.8,3,''Rejected'',null,null,''Priya Nair'',''Ethan Brooks'',''Pune'',FALSE);'||wwv_flow.LF||
+'Insert into TMS_C';
+wwv_flow_imp.g_varchar2_table(447) := 'ANDIDATE_PIPELINE (ID,CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STA';
+wwv_flow_imp.g_varchar2_table(448) := 'TUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_D';
+wwv_flow_imp.g_varchar2_table(449) := 'ATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRIN';
+wwv_flow_imp.g_varchar2_table(450) := 'G_MANAGER,LOCATION,DIVERSITY_FLAG) values (22,''Kabir Mehta'',''Kabir'',''Mehta'',''kabir.mehta@example.com';
+wwv_flow_imp.g_varchar2_table(451) := ''',''Product Manager'',''Product'',''Filled'',''LinkedIn'',''Offer'',to_date(''21-04-26'',''DD-MM-RR''),to_date(''28';
+wwv_flow_imp.g_varchar2_table(452) := '-04-26'',''DD-MM-RR''),to_date(''15-05-26'',''DD-MM-RR''),to_date(''24-05-26'',''DD-MM-RR''),null,null,33,8.5,4';
+wwv_flow_imp.g_varchar2_table(453) := '.6,''Withdrawn'',122000,to_date(''20-06-26'',''DD-MM-RR''),''Priya Nair'',''Ethan Brooks'',''Pune'',FALSE);'||wwv_flow.LF||
+'Inse';
+wwv_flow_imp.g_varchar2_table(454) := 'rt into TMS_CANDIDATE_PIPELINE (ID,CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,RE';
+wwv_flow_imp.g_varchar2_table(455) := 'QUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DA';
+wwv_flow_imp.g_varchar2_table(456) := 'TE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RE';
+wwv_flow_imp.g_varchar2_table(457) := 'CRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (23,''Marta Novak'',''Marta'',''Novak'',''marta.nova';
+wwv_flow_imp.g_varchar2_table(458) := 'k@example.com'',''HR Generalist'',''Human Resources'',''Pending Approval'',''Careers Site'',''Applied'',to_date';
+wwv_flow_imp.g_varchar2_table(459) := '(''14-06-26'',''DD-MM-RR''),null,null,null,null,null,10,6.5,null,''Draft'',null,null,''Priya Nair'',''Priya N';
+wwv_flow_imp.g_varchar2_table(460) := 'air'',''Bengaluru'',FALSE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (ID,CANDIDATE_NAME,FIRST_NAME,LAST_NAME,';
+wwv_flow_imp.g_varchar2_table(461) := 'EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTER';
+wwv_flow_imp.g_varchar2_table(462) := 'VIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS';
+wwv_flow_imp.g_varchar2_table(463) := ',OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (24,''Noor Hassan';
+wwv_flow_imp.g_varchar2_table(464) := ''',''Noor'',''Hassan'',''noor.hassan@example.com'',''DevOps Engineer'',''IT Operations'',''Open'',''Referral'',''Scr';
+wwv_flow_imp.g_varchar2_table(465) := 'eening'',to_date(''08-06-26'',''DD-MM-RR''),to_date(''15-06-26'',''DD-MM-RR''),null,null,null,null,16,7.5,nul';
+wwv_flow_imp.g_varchar2_table(466) := 'l,''Draft'',null,null,''Priya Nair'',''Liam Chen'',''Hyderabad'',TRUE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (';
+wwv_flow_imp.g_varchar2_table(467) := 'ID,CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_';
+wwv_flow_imp.g_varchar2_table(468) := 'STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELIN';
+wwv_flow_imp.g_varchar2_table(469) := 'E,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,';
+wwv_flow_imp.g_varchar2_table(470) := 'DIVERSITY_FLAG) values (25,''Arjun Nair'',''Arjun'',''Nair'',''arjun.nair@example.com'',''Senior Developer'',''';
+wwv_flow_imp.g_varchar2_table(471) := 'Engineering'',''Open'',''Recruiter Sourced'',''Screening'',to_date(''12-06-26'',''DD-MM-RR''),to_date(''18-06-26';
+wwv_flow_imp.g_varchar2_table(472) := ''',''DD-MM-RR''),null,null,null,null,12,7,null,''Draft'',null,null,''Priya Nair'',''Maya Patel'',''Bengaluru'',';
+wwv_flow_imp.g_varchar2_table(473) := 'FALSE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (ID,CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,D';
+wwv_flow_imp.g_varchar2_table(474) := 'EPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_D';
+wwv_flow_imp.g_varchar2_table(475) := 'ATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,S';
+wwv_flow_imp.g_varchar2_table(476) := 'TART_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (26,''Tara Wilson'',''Tara'',''Wilson''';
+wwv_flow_imp.g_varchar2_table(477) := ',''tara.wilson@example.com'',''Data Analyst'',''Finance'',''Draft'',''LinkedIn'',''Applied'',to_date(''20-06-26'',';
+wwv_flow_imp.g_varchar2_table(478) := '''DD-MM-RR''),null,null,null,null,null,4,6.8,null,''Draft'',null,null,''Priya Nair'',''Noah Reed'',''Bengalur';
+wwv_flow_imp.g_varchar2_table(479) := 'u'',TRUE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (ID,CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE';
+wwv_flow_imp.g_varchar2_table(480) := ',DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER';
+wwv_flow_imp.g_varchar2_table(481) := '_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY';
+wwv_flow_imp.g_varchar2_table(482) := ',START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSITY_FLAG) values (27,''Leah Thompson'',''Leah'',''Tho';
+wwv_flow_imp.g_varchar2_table(483) := 'mpson'',''leah.thompson@example.com'',''Data Analyst'',''Finance'',''Draft'',''Employee Referral'',''Screening'',';
+wwv_flow_imp.g_varchar2_table(484) := 'to_date(''16-06-26'',''DD-MM-RR''),to_date(''21-06-26'',''DD-MM-RR''),null,null,null,null,8,7.6,null,''Draft''';
+wwv_flow_imp.g_varchar2_table(485) := ',null,null,''Priya Nair'',''Noah Reed'',''Bengaluru'',FALSE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE (ID,CANDI';
+wwv_flow_imp.g_varchar2_table(486) := 'DATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT_STAGE,AP';
+wwv_flow_imp.g_varchar2_table(487) := 'PLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELINE,AI_SCO';
+wwv_flow_imp.g_varchar2_table(488) := 'RE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION,DIVERSIT';
+wwv_flow_imp.g_varchar2_table(489) := 'Y_FLAG) values (28,''Samir Khan'',''Samir'',''Khan'',''samir.khan@example.com'',''DevOps Engineer'',''IT Operat';
+wwv_flow_imp.g_varchar2_table(490) := 'ions'',''Open'',''Recruiter Sourced'',''Offer'',to_date(''27-05-26'',''DD-MM-RR''),to_date(''01-06-26'',''DD-MM-RR';
+wwv_flow_imp.g_varchar2_table(491) := '''),to_date(''10-06-26'',''DD-MM-RR''),to_date(''18-06-26'',''DD-MM-RR''),null,null,28,8.6,4.4,''Expired'',9900';
+wwv_flow_imp.g_varchar2_table(492) := '0,to_date(''08-07-26'',''DD-MM-RR''),''Priya Nair'',''Liam Chen'',''Hyderabad'',FALSE);'||wwv_flow.LF||
+'Insert into TMS_CANDID';
+wwv_flow_imp.g_varchar2_table(493) := 'ATE_PIPELINE (ID,CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,S';
+wwv_flow_imp.g_varchar2_table(494) := 'OURCE,CURRENT_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,D';
+wwv_flow_imp.g_varchar2_table(495) := 'AYS_IN_PIPELINE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MAN';
+wwv_flow_imp.g_varchar2_table(496) := 'AGER,LOCATION,DIVERSITY_FLAG) values (29,''Mina George'',''Mina'',''George'',''mina.george@example.com'',''HR';
+wwv_flow_imp.g_varchar2_table(497) := ' Generalist'',''Human Resources'',''Pending Approval'',''Employee Referral'',''Interview'',to_date(''09-06-26''';
+wwv_flow_imp.g_varchar2_table(498) := ',''DD-MM-RR''),to_date(''14-06-26'',''DD-MM-RR''),to_date(''26-06-26'',''DD-MM-RR''),null,null,null,15,7.7,nul';
+wwv_flow_imp.g_varchar2_table(499) := 'l,''Draft'',null,null,''Priya Nair'',''Priya Nair'',''Bengaluru'',TRUE);'||wwv_flow.LF||
+'Insert into TMS_CANDIDATE_PIPELINE ';
+wwv_flow_imp.g_varchar2_table(500) := '(ID,CANDIDATE_NAME,FIRST_NAME,LAST_NAME,EMAIL,JOB_TITLE,DEPARTMENT,REQUISITION_STATUS,SOURCE,CURRENT';
+wwv_flow_imp.g_varchar2_table(501) := '_STAGE,APPLIED_DATE,SCREENING_DATE,INTERVIEW_DATE,OFFER_DATE,HIRED_DATE,REJECTED_DATE,DAYS_IN_PIPELI';
+wwv_flow_imp.g_varchar2_table(502) := 'NE,AI_SCORE,INTERVIEW_SCORE,OFFER_STATUS,OFFERED_SALARY,START_DATE,RECRUITER,HIRING_MANAGER,LOCATION';
+wwv_flow_imp.g_varchar2_table(503) := ',DIVERSITY_FLAG) values (30,''Lucas Evans'',''Lucas'',''Evans'',''lucas.evans@example.com'',''Sales Account E';
+wwv_flow_imp.g_varchar2_table(504) := 'xecutive'',''Sales'',''Open'',''Careers Site'',''Applied'',to_date(''10-06-26'',''DD-MM-RR''),null,null,null,null';
+wwv_flow_imp.g_varchar2_table(505) := ',null,14,6.2,null,''Draft'',null,null,''Priya Nair'',''Sofia Garcia'',''Mumbai'',FALSE);'||wwv_flow.LF||
+'COMMIT;'||wwv_flow.LF||
 '';
 wwv_flow_imp_shared.create_install_script(
- p_id=>wwv_flow_imp.id(4592425231586779351)
-,p_install_id=>wwv_flow_imp.id(4592381611947774032)
+ p_id=>wwv_flow_imp.id(4602592158444581194)
+,p_install_id=>wwv_flow_imp.id(4602548538805575875)
 ,p_name=>'TMS_DML'
 ,p_sequence=>20
 ,p_script_type=>'INSTALL'

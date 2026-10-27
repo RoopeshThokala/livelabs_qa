@@ -1,10 +1,8 @@
-# Create Data Reporter Users and Build Reports in Data Reporter
+# Build Reports in Data Reporter
 
 ## Introduction
 
-The Data Reporter users are ready. In this lab, you will return to the HR Analytics App and create four reports from the governed dataset.
-
-The curriculum title retains “Create Data Reporter Users,” but the named users were created at the correct scopes in Lab 3. The remaining work in this lab is report construction.
+The Data Reporter users are ready. In this lab, you return to the HR Analytics App and create four reports from the governed dataset.
 
 Estimated Lab Time: 20 minutes
 
@@ -25,9 +23,15 @@ In this lab, you will:
 
 1. On the Data Reporter home page, open **HR Analytics App**.
 
-2. Before creating the Interactive Reports, select **Edit Reporting Application Definition**. Under **Generative AI**, select the workshop's configured **AI Service**, and select **Apply Changes**. If no service is available, ask your instructor to complete the prerequisite AI setup. A service configured only in the workspace does not enable AI-assisted search in this reporting application.
+2. Select **Edit Reporting Application Definition**.
 
-3. Select **Create Report**.
+3. Under **Generative AI**, select the workshop's configured **AI Service**.
+
+4. Select **Apply Changes**.
+
+    If no service is available, ask your instructor to complete the prerequisite AI setup. A service configured only in the workspace does not enable AI-assisted search in this reporting application.
+
+5. Select **Create Report**.
 
     ![Create a report](images/16-create-report.png " ")
 
@@ -56,23 +60,29 @@ This report gives HR leadership insight into the recruitment pipeline. With an A
 
     ![Select the candidate pipeline view](images/22-select-candidate-pipeline-source.png " ")
 
-3. On the report details page, open **Actions**, select **Edit Details**, and set **Description** to:
+3. On the report details page, select **Actions**.
+
+4. Select **Edit Details**.
+
+5. For **Description**, enter:
 
     `Give HR leadership insights into the recruitment pipeline.`
 
-4. Select **Apply Changes**, and then open **Run** in a separate browser tab. Keep the report builder tab open for the remaining report-creation tasks.
+6. Select **Apply Changes**.
 
-5. If prompted, sign in as `DR_EDITOR` using the password supplied in your workshop environment. If a different account is already signed in, sign out of the runtime application and sign in as `DR_EDITOR`. Confirm the runtime account before configuring the report.
+7. Open **Run** in a separate browser tab. Keep the report builder tab open for the remaining report-creation tasks.
+
+8. If prompted, sign in as `DR_EDITOR` using the password supplied in your workshop environment. If a different account is already signed in, sign out of the runtime application and sign in as `DR_EDITOR`. Confirm the runtime account before configuring the report.
 
     ![Sign in as DR_EDITOR](images/30-sign-in-as-dr-editor.png " ")
 
 ### Configure the Stage Summary
 
-6. Select **Actions**, and then select **Group By**.
+9. Select **Actions**, and then select **Group By**.
 
     ![Open the Group By action](images/33-open-group-by-action.png " ")
 
-7. In **Group By**:
+10. In **Group By**:
 
     - For **Group By Column 1**, select **Current Stage**.
     - For **Function 1**, select **Count**.
@@ -81,31 +91,37 @@ This report gives HR leadership insight into the recruitment pipeline. With an A
 
     ![Configure the recruitment group-by summary](images/34-configure-recruitment-group-by.png " ")
 
-8. Confirm that the Group By view shows one row per recruitment stage and a candidate count.
+11. Confirm that the Group By view shows one row per recruitment stage and a candidate count.
 
     ![Review candidates grouped by stage](images/32-recruitment-group-by-stage.png " ")
 
 ### Configure the Average Days-in-Pipeline Chart
 
-9. Select **Actions**, select **Chart**, and configure:
+12. Select **Actions**, and then select **Chart**.
 
-    - **Chart Type**: Bar
-    - **Label**: Department
-    - **Value**: Days in Pipeline
-    - **Function**: Average
-    - **Axis Title for Value**: `Average Days in Pipeline`
+13. In the **Chart** dialog, enter/select the following:
 
-10. Select **Apply**.
+    - **Chart Type:** **Bar**
+    - **Label:** **Department**
+    - **Value:** **Days in Pipeline**
+    - **Function:** **Average**
+    - **Axis Title for Value:** `Average Days in Pipeline`
 
-11. Confirm that the Chart view displays average days in the pipeline by department. This measures days since application across all candidate stages; it does not measure time to hire.
+14. Select **Apply**.
+
+15. Confirm that the Chart view displays average days in the pipeline by department. This measures days since application across all candidate stages; it does not measure time to hire.
 
 ### Save the Primary Default
 
-12. Select **Actions**, select **Report**, and then select **Save Report**.
+16. Select **Actions**.
 
-13. For **Save**, select **As Default Report Settings**.
+17. Select **Report**, and then select **Save Report**.
 
-14. In **Save Default Report**, select **Primary**, and then select **Apply**.
+18. For **Save**, select **As Default Report Settings**.
+
+19. In **Save Default Report**, select **Primary**.
+
+20. Select **Apply**.
 
 ## Task 3: Create Candidate Search and Shortlisting
 
@@ -206,54 +222,72 @@ This report provides HR with insight into employee leave requests and utilizatio
 
     ![Select the leave summary view](images/28-select-leave-summary-source.png " ")
 
-4. On the report details page, open **Actions**, select **Edit Details**, set **Description** to the following text, and select **Apply Changes**:
+4. On the report details page, select **Actions**.
+
+5. Select **Edit Details**.
+
+6. For **Description**, enter:
 
     `Provide HR with insights into employee leave requests and utilization.`
 
-5. Select **Run** and sign in as `DR_EDITOR` or `DR_ADMIN` if prompted. Verify the runtime account before configuring the summaries.
+7. Select **Apply Changes**.
+
+8. Select **Run**.
+
+9. If prompted, sign in as `DR_EDITOR` or `DR_ADMIN`. Verify the runtime account before configuring the summaries.
 
 ### Configure the Leave-Type Summary
 
-6. Select **Actions**, and then select **Group By**.
+10. Select **Actions**.
 
-7. In **Group By**:
+11. Select **Group By**.
 
-    - For **Group By Column 1**, select **Leave Type**.
-    - For **Function 1**, select **Count**.
-    - For **Column 1**, select **Request ID**.
-    - Select **Apply**.
+12. In **Group By**, enter/select the following:
+
+    - **Group By Column 1:** **Leave Type**
+    - **Function 1:** **Count**
+    - **Column 1:** **Request ID**
+
+13. Select **Apply**.
 
     ![Configure the leave group-by summary](images/43-configure-leave-group-by.png " ")
 
-8. Confirm that the Group By view shows the number of requests for each leave type.
+14. Confirm that the Group By view shows the number of requests for each leave type.
 
     ![Review leave requests grouped by type](images/42-leave-type-group-by.png " ")
 
 ### Configure the Leave-Type Pie Chart
 
-9. Select **Actions**, select **Chart**, and configure:
+15. Select **Actions**.
 
-    - **Chart Type**: Pie
-    - **Label**: Leave Type
-    - **Value**: Request ID
-    - **Function**: Count
+16. Select **Chart**.
+
+17. In the **Chart** dialog, enter/select the following:
+
+    - **Chart Type:** **Pie**
+    - **Label:** **Leave Type**
+    - **Value:** **Request ID**
+    - **Function:** **Count**
 
     The combination of **Request ID** and **Count** represents the Module 9 requirement, **Count of Leave Requests**.
 
-10. Select **Apply**.
+18. Select **Apply**.
 
     ![Configure the leave pie chart](images/41-configure-leave-pie-chart.png " ")
 
-11. Confirm that the Chart view displays leave-request counts by leave type.
+19. Confirm that the Chart view displays leave-request counts by leave type.
 
     ![Review the leave-type pie chart](images/40-leave-type-pie-chart.png " ")
 
-12. Save the current report settings as the **Primary** default:
+20. Select **Actions**.
 
-    - Select **Actions**.
-    - Select **Report**, and then select **Save Report**.
-    - For **Save**, select **As Default Report Settings**.
-    - Select **Primary**, and then select **Apply**.
+21. Select **Report**, and then select **Save Report**.
+
+22. For **Save**, select **As Default Report Settings**.
+
+23. Select **Primary**.
+
+24. Select **Apply**.
 
 ## Task 6: Verify the Four Reports
 
@@ -284,4 +318,4 @@ You may now **proceed to the next lab**.
 ## Acknowledgements
 
 - **Author** - Shanmukh Kornana, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-- **Last Updated By/Date** - Shanmukh Kornana, July 2026
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

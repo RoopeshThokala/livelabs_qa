@@ -22,6 +22,20 @@ In this lab, you will:
 - Calculate requested days from the selected start and end dates.
 - Show an over-limit leave warning.
 
+### Downloads
+
+Stuck or missed out on completing the previous labs? Don't worry! You can download the following application:
+
+- **<a href="../introduction/files/ess-export5.sql" download="ess-export5.sql">Employee Self-Service Portal</a>**
+
+Import it into your workspace. In **App Builder**, select **Import**, upload `ess-export5.sql`, and follow the steps in the **Import Application** wizard.
+
+> **Note:**
+>
+> - **APEX Version:** The supplied application export was created with Oracle APEX 26.2 and cannot be imported into earlier APEX releases.
+> - **Supporting Objects:** Supporting objects are already loaded in the workspace.
+> - **AI Configuration:** Configure a Generative AI Service from **App Builder > Workspace Utilities > Generative AI**. See **Module 1, Lab 2: Configure Generative AI Service**.
+
 ## Task 1: Create the leave balance items
 
 In this task, you create the items that display the available leave balance and store the over-limit warning.
@@ -63,9 +77,9 @@ In this task, you create the items that display the available leave balance and 
 
 In this task, you create a Change Dynamic Action that calculates and displays the balance for the selected leave type.
 
-1. Under the **Dynamic Actions** tab, right-click the **Events** node and select **Create Dynamic Action**.
+1. In the Rendering tree, right-click the **`P5_LEAVE_TYPE_ID`** item and select **Create Dynamic Action**.
 
-    ![Create the Calculate Leave Balance Dynamic Action](./images/lab4-create-leave-balance-dynamic-action.png " ")
+    ![Create a Dynamic Action from the P5_LEAVE_TYPE_ID item](./images/lab4-task2-create-dynamic-action.png " ")
 
 2. In the Property Editor, set:
 
@@ -73,19 +87,9 @@ In this task, you create a Change Dynamic Action that calculates and displays th
 
         - Name: **Calculate Leave Balance**
 
-    - Under When:
+    ![Set the Calculate Leave Balance name and Change event on P5_LEAVE_TYPE_ID](./images/lab4-task2-configure-dynamic-action.png " ")
 
-        - Event: **Change**
-        - Selection Type: **Item(s)**
-        - Item(s): **`P5_LEAVE_TYPE_ID`**
-
-    ![Configure the Calculate Leave Balance Dynamic Action](./images/lab4-configure-leave-balance-dynamic-action.png " ")
-
-3. Under the **Calculate Leave Balance** dynamic action, select **Create TRUE Action**.
-
-    ![Create the Calculate Leave Balance true action](./images/lab4-create-leave-balance-true-action.png " ")
-
-4. In the Property Editor, set:
+3. In the Rendering panel, under **Calculate Leave Balance**, click the **TRUE action**. In the Property Editor, set:
 
     - Under Identification:
 
@@ -108,9 +112,9 @@ In this task, you create a Change Dynamic Action that calculates and displays th
 
         - Selection Type: **Item(s)**
         - Item(s): **`P5_AVAILABLE_BALANCE`**
-    
 
-    ![Configure the Calculate Leave Balance Set Value action](./images/lab4-configure-leave-balance-set-value.png " ")
+
+    ![Configure the Set Value TRUE action to calculate the available leave balance](./images/lab4-task2-configure-set-value-action.png " ")
 
 ## Task 3: Calculate requested days
 

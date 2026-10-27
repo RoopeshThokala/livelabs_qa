@@ -1,10 +1,14 @@
-# Lab 2: Create Authorization Schemes
+# Create Authorization Schemes
 
 ## Introduction
 
 In this lab, you create reusable authorization schemes. Each scheme checks whether the authenticated employee has a role recorded in `TMS_EMPLOYEE_ROLES`.
 
-Estimated Time: 4 minutes
+Estimated Lab Time: 4 minutes
+
+### Where We Are
+
+TAP and ESS now authenticate users and set `APP_EMPLOYEE_ID`. You will create the authorization schemes that use the employee role information created in Lab 1.
 
 ### Objectives
 
@@ -158,6 +162,8 @@ Estimated Time: 4 minutes
 ## Summary
 
 You now have named, reusable policy checks for TAP and ESS. In the next lab, you attach them to pages and navigation entries.
+
+You may now **proceed to the next lab**.
 
 ## Acknowledgements
 

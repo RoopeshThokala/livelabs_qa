@@ -1,10 +1,10 @@
-# Lab 5: Upgrade My Tasks to an Interactive Grid
+# Upgrade My Onboarding Tasks to an Interactive Grid
 
 ## Introduction
 
 Onboarding works best when employees can see what is due and keep their own progress current. In this lab, you will transform My Onboarding Tasks into an editable grid that keeps the task list focused on the signed-in employee.
 
-Estimated Time: 5 minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
@@ -16,71 +16,80 @@ In this lab, you will:
 
 ### Downloads
 
-Stuck or Missed out on completing the previous labs? Don't worry! You can download the following application:
+Stuck or missed out on completing the previous labs? Don't worry! You can download the following application:
 
 - **<a href="../introduction/files/ess-export2.sql" download="ess-export2.sql">Employee Self-Service Portal</a>**
 
 Import it into your workspace. In **App Builder**, select **Import**, upload `ess-export2.sql`, and follow the steps in the **Import Application** wizard.
 
-> **Note:** Supporting objects are already loaded in the workspace.
+> **Note:**
 >
-> **AI Configuration:** Configure a Generative AI Service in the workspace and select it under **Shared Components > AI Attributes** for the application. See **Module 1, Lab 2: Configure Generative AI Service**.
+> - **APEX Version:** The supplied application export was created with Oracle APEX 26.2 and cannot be imported into earlier APEX releases.
+> - **Supporting Objects:** Supporting objects are already loaded in the workspace.
+> - **AI Configuration:** Configure a Generative AI Service from **App Builder > Workspace Utilities > Generative AI**. See **Module 1, Lab 2: Configure Generative AI Service**.
 
-## Task 1: Replace the report with an Interactive Grid
+## Task 1: Replace the Report with an Interactive Grid
 
-1. Navigate to the **Employee Self Service application**, and open the **My Onboarding Tasks** page.
+1. In the **Employee Self-Service Portal** application, open the **My Onboarding Tasks** page in Page Designer.
 
-    ![Open My Onboarding Tasks page](images/open-my-tasks-page.png "")
+    > **Note:** The page number might differ. Open the page named **My Onboarding Tasks**.
 
-2. In the Rendering tree, select the **Onboarding Tasks** region.
+    ![Open the My Onboarding Tasks page](images/open-my-tasks-page.png " ")
 
-    ![Select Onboarding Tasks region](images/select-onboarding-tasks-region.png "")
+2. In the Rendering tab, select the **Onboarding Tasks** region.
 
-3. In the Property Editor, update, enter or select the following properties:
+    ![Select the Onboarding Tasks region](images/select-onboarding-tasks-region.png " ")
 
-    - Under Identification:
-        - Type: **Interactive Grid**
-    - Under Source:
-        - Type: **SQL Query**
-        - SQL Query: **Enter the following query**
+3. In the Property Editor, enter or select the following:
+
+    - Under **Identification**, set **Type** to **Interactive Grid**.
+    - Under **Source**:
+        - **Type:** **SQL Query**
+        - For **SQL Query**, enter the following:
 
             ```sql
             <copy>
-                SELECT
-                    T.*, E.Email
-                FROM
-                    TMS_ONBOARDING_TASKS T
-                    JOIN TMS_EMPLOYEES E ON E.EMPLOYEE_ID = T.EMPLOYEE_ID
-                WHERE
-                    lower(T.ASSIGNED_TO) = LOWER(:APP_USER)
+            SELECT
+                T.*, E.Email
+            FROM
+                TMS_ONBOARDING_TASKS T
+                JOIN TMS_EMPLOYEES E ON E.EMPLOYEE_ID = T.EMPLOYEE_ID
+            WHERE
+                lower(T.ASSIGNED_TO) = LOWER(:APP_USER)
             </copy>
             ```
 
-    ![Set My Onboarding Tasks grid properties](images/set-my-tasks-grid-properties.png "")
+    ![Configure the Onboarding Tasks Interactive Grid](images/set-my-tasks-grid-properties.png " ")
 
-4. In the Property Editor, click the **Attributes** tab. Under **Edit**, set **Enabled** to **Yes**.
+4. In the Property Editor, select **Attributes**.
 
-    ![Enable My Tasks editing](images/enable-my-tasks-editing.png "")
+5. Under **Edit**, turn on **Enabled**.
 
-## Task 2: Configure editable columns
+    ![Enable editing for the Onboarding Tasks Interactive Grid](images/enable-my-tasks-editing.png " ")
 
-1. In the Rendering tree, expand the report columns under the **My Onboarding Tasks** Interactive Grid region.
+## Task 2: Configure Editable Columns
 
-    ![Expand Columns](images/expand-columns.png "")
+1. In the Rendering tab, expand **Onboarding Tasks**, then expand **Columns**.
 
-2. Select the **TASK_ID** column. Then, in the Property Editor, under **Source**, set **Primary Key** and **Query Only** to **Yes**.
+    ![Expand the Onboarding Tasks columns](images/expand-columns.png " ")
 
-    ![Select Primary Key](images/set-item-id-primary-key.png "")
+2. Select **TASK\_ID**.
 
-3. Select **STATUS**.
+3. In the Property Editor, under **Source**, make sure **Query Only** and **Primary Key** are turned **On**.
 
-    ![Select Status column](images/select-my-tasks-status-column.png "")
+    ![Configure TASK_ID as the primary key](images/set-item-id-primary-key.png " ")
 
-4. In the Property Editor,  enter or select the following properties:
-    - Under Identification > Type: **Select List**.
-    - Under List of Values:
-        - Type: **Static Values**
-        - Static Values: **Set the static values as follows**
+4. In the Rendering tab, select **STATUS**.
+
+    ![Select the STATUS column](images/select-my-tasks-status-column.png " ")
+
+5. In the Property Editor, enter or select the following:
+
+    - Under **Identification**, set **Type** to **Select List**.
+    - Under **List of Values**:
+        - **Type:** **Static Values**
+        - For **Static Values**, enter the following values:
+
             | Display Value | Return Value |
             | --- | --- |
             | Pending | Pending |
@@ -88,34 +97,45 @@ Import it into your workspace. In **App Builder**, select **Import**, upload `es
             | Done | Done |
             | Blocked | Blocked |
 
-        - Null Display Value: **--Select Status--**
+        - Turn on **Display Null Value**.
+        - **Null Display Value:** `--Select Status--`
 
-    ![Configure Status select list](images/configure-my-tasks-status-list.png "")
+    ![Configure the STATUS Select List](images/configure-my-tasks-status-list.png " ")
 
-5. Next, select the **Task Name** column in the Rendering Tab. Then, in the **Property Editor**:
-    - Set **Identification** > Type: **Display Only**.
+6. In the Rendering tab, select **TASK\_NAME**.
 
-    ![Configure Task Name as Display only](images/configure-task-name-display.png "")
+7. In the Property Editor, under **Identification**, set **Type** to **Display Only**.
 
-6. Similarly, set the below columns as **Display Only**.
-    - To select these three Columns, click on the **ASSIGNED\_TO** column under the My Onboarding Tasks region, and then hold shift and click on the last column, **DUE\_DATE**.
-    - In the Property Editor, Set the Identification Type as **Display Only**:
+    ![Configure TASK_NAME as Display Only](images/configure-task-name-display.png " ")
 
-    | Column Name |
+8. In the Rendering tab, select **ASSIGNED\_TO**. Hold **Shift** and select **DUE\_DATE** to select the following columns:
+
+    | Column |
     | --- |
-    | ASSIGNED\_TO |
-    | CATEGORY |
-    | DUE\_DATE |
+    | **ASSIGNED\_TO** |
+    | **CATEGORY** |
+    | **DUE\_DATE** |
 
-    ![Configure columns as display only](images/configure-display-only-columns.png "")
+9. In the Property Editor, under **Identification**, set **Type** to **Display Only**.
 
-7. Select **CREATED\_BY**, **CREATED\_AT**, **UPDATED\_BY**, and **UPDATED\_AT**. In the Property Editor, set **Identification > Type** to **Hidden** and **Value Protected** to **No**.
+    ![Configure columns as Display Only](images/configure-display-only-columns.png " ")
 
-    ![Hide My Tasks audit columns](images/hide-my-tasks-audit-columns.png "")
+10. In the Rendering tab, select **CREATED**. Hold **Shift** and select **UPDATED\_BY** to select the audit columns.
 
-8. Save and run the page. If prompted, log in to the Application. Verify the Onboarding Tasks assigned to the logged-in user.
+11. In the Property Editor, enter or select the following:
 
-    ![Run the Page](images/run-app.png "")
+    - Under **Identification**, set **Type** to **Hidden**.
+    - Under **Settings**, turn off **Value Protected**.
+
+    ![Hide the audit columns](images/hide-my-tasks-audit-columns.png " ")
+
+12. Click **Save and Run**.
+
+13. If prompted, sign in to the application.
+
+14. Verify that the grid shows the onboarding tasks assigned to the signed-in user.
+
+    ![Run the My Onboarding Tasks page](images/run-app.png " ")
 
 ## Summary
 
@@ -123,5 +143,5 @@ You transformed My Onboarding Tasks into a focused Interactive Grid. Employees c
 
 ## Acknowledgements
 
-* **Author** - Roopesh Thokala, Principal Product Manager
-* **Last Updated By/Date** - Roopesh Thokala, July 29, 2026
+- **Author** - Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, July 29, 2026

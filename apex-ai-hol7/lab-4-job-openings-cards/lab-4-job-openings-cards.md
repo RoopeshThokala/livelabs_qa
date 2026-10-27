@@ -1,10 +1,10 @@
-# Lab 4: Create Job Openings Cards Page
+# Create a Job Openings Cards Page
 
 ## Introduction
 
 When a hiring manager asks what roles are open, the answer should be easy to browse. In this lab, you will turn open requisitions into a clean job board where each card shows the essentials and Smart Filters help the recruitment team find the right openings quickly.
 
-Estimated Time: 5 minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
@@ -14,66 +14,71 @@ In this lab, you will:
 - Present each opening with department, headcount, opening date, and an icon.
 - Add department and headcount filters to narrow the job board.
 
-## Task 1: Create the Job Openings page
+## Task 1: Create the Job Openings Page
 
-1. In the Talent Acquisition Portal application, click **Create Page**.
+1. In the **Talent Acquisition Portal** application, click **Create Page**.
 
-    ![Create a page](images/create-job-openings-page.png "")
+    ![Create a page](images/create-job-openings-page.png " ")
 
-2. In the Create a Page wizard, select **Cards** as the page type and click **Next**.
+2. In the Create Page wizard, select **Cards** and click **Next**.
 
-    ![Select Cards as Page Type](images/select-cards-page.png "")
+    ![Select Cards as the page type](images/select-cards-page.png " ")
 
-3. In the **Create Cards** page wizard:
-    - Under Page Definition > Name: **Job Openings**.
-    - Under Data Source:
-        - Data Source: **Local Database**
-        - Source Type: **SQL Query**
-        - Enter a SQL SELECT statement: **Enter the following query**
+3. In the Create Cards wizard, enter or select the following:
+
+    - Under **Page Definition**, for **Name**, enter **Job Openings**.
+    - Under **Data Source**:
+        - **Data Source:** **Local Database**
+        - **Source Type:** **SQL Query**
+        - For **Enter a SQL SELECT statement**, enter the following:
 
             ```sql
             <copy>
-                SELECT
-                    R.REQ_ID,
-                    J.TITLE,
-                    D.NAME AS DEPARTMENT,
-                    R.HEADCOUNT AS HEADCOUNT,
-                    TO_CHAR(R.OPEN_DATE, 'DD-Mon-YYYY') AS OPEN_DATE
-                FROM
-                    TMS_JOB_REQUISITIONS R
-                    JOIN TMS_JOBS J
-                        ON R.JOB_ID = J.JOB_ID
-                    JOIN TMS_DEPARTMENTS D
-                        ON R.DEPT_ID = D.DEPT_ID
-                WHERE
-                    R.STATUS = 'Open'
+            SELECT
+                R.REQ_ID,
+                J.TITLE,
+                D.NAME AS DEPARTMENT,
+                R.HEADCOUNT AS HEADCOUNT,
+                TO_CHAR(R.OPEN_DATE, 'DD-Mon-YYYY') AS OPEN_DATE
+            FROM
+                TMS_JOB_REQUISITIONS R
+                JOIN TMS_JOBS J
+                    ON R.JOB_ID = J.JOB_ID
+                JOIN TMS_DEPARTMENTS D
+                    ON R.DEPT_ID = D.DEPT_ID
+            WHERE
+                R.STATUS = 'Open'
             </copy>
             ```
 
-        - Click **Next**
+4. Click **Next**.
 
-    ![Enter Job Openings Page Definitions](images/cofigure-cards-page.png "")
+    ![Define the Job Openings Cards page data source](images/cofigure-cards-page.png " ")
 
-4. In the **Create Cards** wizard, under **Cards Attributes**, set **Title Column** to **TITLE**. Then, click **Create Page**.
+5. Under **Cards Attributes**, set **Title Column** to **TITLE**.
 
-    ![Set the card title column](images/set-card-title-column.png "")
+6. Click **Create Page**.
 
-## Task 2: Configure the Cards region
+    > **Note:** The generated page number might differ. In later steps, use the item with the same suffix on the **Job Openings** page.
 
-1. Under Page Rendering, select the **Job Openings** region.
+    ![Set the card title column and create the page](images/set-card-title-column.png " ")
 
-    ![Set Cards Region](images/select-job-openings.png "")
+## Task 2: Configure the Cards Region
 
-2. With the **Job Openings** Cards region selected, in the Property Editor, Under **Region**, set **Order By Type** to **None**.
+1. In the Rendering tab, select the **Job Openings** region.
 
-    ![Set Cards order by type](images/set-cards-order-by.png "")
+    ![Select the Job Openings region](images/select-job-openings.png " ")
 
-3. In the Property Editor, select **Attributes**. Enter or select the following properties:
+2. In the Property Editor, under **Order By**, set **Type** to **None**.
 
-    - Under Subtitle > Column: **Department**
-    - Under Body:
-        - Advanced Formatting: **Yes**
-        - HTML Expression:
+    ![Set the Cards Order By type](images/set-cards-order-by.png " ")
+
+3. In the Property Editor, select **Attributes**. Enter or select the following:
+
+    - Under **Subtitle**, set **Column** to **DEPARTMENT**.
+    - Under **Body**:
+        - Turn on **Advanced Formatting**.
+        - For **HTML Expression**, enter the following:
 
             ```html
             <copy>
@@ -84,75 +89,80 @@ In this lab, you will:
             ```
 
     - Under **Icon and Badge**:
-        - Icon Source: **Icon Class**
-        - Icon CSS Classes: `fa-briefcase`
+        - **Icon Source:** **Icon Class**
+        - **Icon CSS Classes:** `fa-briefcase`
 
-    ![Configure Job Openings card attributes](images/configure-job-openings-card.png "")
+    ![Configure the Job Openings Cards attributes](images/configure-job-openings-card.png " ")
 
-4. Now, In the Rendering Tab(Left Pane), Right click on P13\_ORDER\_BY under Sort Order, if it exists, and click **Delete**.
+4. In the Rendering tab, expand **Job Openings**, then expand **Sort Order**.
 
-    ![Delete Sort Order](images/delete-sort-order.png "")
+5. Right-click **P13\_ORDER\_BY** and select **Delete**.
+
+    ![Delete the Sort Order item](images/delete-sort-order.png " ")
 
 ## Task 3: Add Smart Filters
 
-1. In the Rendering tree, right-click **Body** and select **Create Region**.
+1. In the Rendering tab, right-click **Body** and select **Create Region**.
 
-    ![Create Smart Filters region](images/create-job-openings-smart-filters.png "")
+    ![Create a Smart Filters region](images/create-job-openings-smart-filters.png " ")
 
-2. Drag and drop the **New** region above the **Job Openings** region to re-order the sequence.
+2. Drag the new region above **Job Openings**.
 
-    ![Move Smart filters Region](images/move-smart-filters.png "")
+    ![Move the new region above Job Openings](images/move-smart-filters.png " ")
 
-3. Select the Newly created region **New**. Then, in the Property Editor, enter or select the following properties:
+3. With the new region selected, enter or select the following in the Property Editor:
 
-    - Under Identification:
-        - Name: **Smart Filters**
-        - Type: **Smart Filters**
-    - Under Source:
-        - Filtered Region: **Job Openings**
+    - Under **Identification**:
+        - **Name:** **Smart Filters**
+        - **Type:** **Smart Filters**
+    - Under **Source**, set **Filtered Region** to **Job Openings**.
 
-    ![Configure Smart Filters region](images/configure-job-openings-smart-filters.png "")
+    ![Configure the Smart Filters region](images/configure-job-openings-smart-filters.png " ")
 
-4. In the Rendering tree, expand **Smart Filters** and right click on **Filters**. Click **Create Filter**.
+4. In the Rendering tab, expand **Smart Filters**. Right-click **Filters** and select **Create Filter**.
 
-    ![Add Department Filter](images/add-department-filter.png "")
+    ![Create a Department filter](images/add-department-filter.png " ")
 
-5. In the Property Editor, enter or select the following properties:
-    - Under Identification
-        - Name: **Pn\_DEPARTMENT**
-        - Type: **Checkbox Group**
-    - Under List of Values > Type: **Distinct Values**
-    - Under Source:
-        - Database Column: **DEPARTMENT**
-        - Data Type: **VARCHAR2**
+5. With the new filter selected, enter or select the following in the Property Editor:
 
-    ![Configure Department Filter](images/configure-department-filter.png "")
+    - Under **Identification**:
+        - **Name:** **P13\_DEPARTMENT**
+        - **Type:** **Checkbox Group**
+    - Under **Label**, set **Label** to **Department**.
+    - Under **List of Values**, set **Type** to **Distinct Values**.
+    - Under **Source**:
+        - **Database Column:** **DEPARTMENT**
+        - **Data Type:** **VARCHAR2**
 
-6. Similarly, create another filter in the **Rendering Tab**. Then, in the Property Editor, enter or select the following properties:
+    ![Configure the Department filter](images/configure-department-filter.png " ")
 
-    - Under Identification
-        - Name: **Pn\_HEADCOUNT**
-        - Type: **Range**
-    - Under Label > Label: **Headcount Range**
-    - Under Source:
-        - Database Column: **HEADCOUNT**
-        - Data Type: **NUMBER**
+6. In the Rendering tab, right-click **Filters** and select **Create Filter**.
 
-    ![Configure Headcount Range Filter](images/configure-headcount-filter.png "")
+7. With the new filter selected, enter or select the following in the Property Editor:
 
-7. Save and run the page.
+    - Under **Identification**:
+        - **Name:** **P13\_HEADCOUNT**
+        - **Type:** **Range**
+    - Under **Label**, set **Label** to **Headcount Range**.
+    - Under **Source**:
+        - **Database Column:** **HEADCOUNT**
+        - **Data Type:** **NUMBER**
 
-    ![Run Job Openings page](images/run-job-openings-page.png "")
+    ![Configure the Headcount Range filter](images/configure-headcount-filter.png " ")
 
-    ![Ran Job Openings page](images/job-openings-page.png "")
+8. Click **Save and Run**.
 
-8. Verify that the Cards page shows open jobs and that both filters narrow the results.
+    ![Save and run the Job Openings page](images/run-job-openings-page.png " ")
 
-    ![Verify Job Openings page](images/verify-job-openings-page.png "")
+9. Verify that the Cards page displays the **Department** and **Headcount Range** filters.
 
-8. Apply **Department** Filters and check the narrowed Results.
+    ![Job Openings page with Smart Filters](images/verify-job-openings-page.png " ")
 
-    ![Apply Department Filters](images/apply-department-filters.png "")
+10. In the **Department** filter, select **Engineering** and **IT Operations**.
+
+11. Verify that the displayed cards are narrowed to those departments.
+
+    ![Apply Department filter values](images/apply-department-filters.png " ")
 
 ## Summary
 
@@ -160,5 +170,5 @@ You created a browsable Job Openings page that shows the details recruiters need
 
 ## Acknowledgements
 
-* **Author** - Roopesh Thokala, Principal Product Manager
-* **Last Updated By/Date** - Roopesh Thokala, July 29, 2026
+- **Author** - Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, July 29, 2026

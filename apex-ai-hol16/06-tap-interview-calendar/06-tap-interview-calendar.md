@@ -1,84 +1,128 @@
-# Lab 6: Create the TAP Interview Calendar
+# Create the TAP Interview Calendar
 
 ## Introduction
 
-In this lab, you create a Calendar page for interviewers. The Calendar region filters interviews by the signed-in interviewer and links existing events to the Interview Feedback page.
+In this lab, you will create a Calendar page that shows each interviewer only the interview stages assigned to them. You will configure the event query, map the calendar columns, and link each event to the existing **Interview Feedback** page.
 
-Estimated Workshop Time: 5 minutes
+Estimated Lab Time: 5 minutes
+
+### Where We Are
+
+TAP stores interview stages and feedback, but interviewers need a focused view of their upcoming interviews. The calendar provides that view while preserving the existing Interview Feedback workflow.
 
 ### Objectives
 
-In this lab, you will learn how to:
+In this lab, you will:
 
-- Create the TAP Interview Calendar.
-- Link calendar events to the Interview Feedback page.
+- Create the **Interview Calendar** page.
+- Display only the signed-in interviewer's assigned interviews.
+- Link each calendar event to **Interview Feedback**.
 
-## Task 1: Create the Interview Calendar
+### Downloads
 
-1. In TAP **App Builder**:
+Stuck or missed out on completing the previous labs? Don't worry! You can download the following application:
 
-    - Select **Create Page**.
-    - Under **Component**, select **Calendar**.
+- **<a href="../introduction/files/tap-export10.sql" download="tap-export10.sql">Talent Acquisition Portal</a>**
 
-    ![Task 1: Select calendar page](images/task-01-step-01-select-calendar-page.png)
+Import it into your workspace. In **App Builder**, select **Import**, upload `tap-export10.sql`, and follow the steps in the **Import Application** wizard.
 
-2. Configure the page name and data source:
+> **Note:**
+>
+> - **APEX Version:** The supplied application export was created with Oracle APEX 26.2 and cannot be imported into earlier APEX releases.
+> - **Supporting Objects:** Supporting objects are already loaded in the workspace.
+> - **AI Configuration:** Configure a Generative AI Service from **App Builder > Workspace Utilities > Generative AI**. See **Module 1, Lab 2: Configure Generative AI Service**.
 
-    - Enter **Interview Calendar** as the page name.
-    - Select **Local Database**.
-    - Select **SQL Query**.
+## Task 1: Create the Interview Calendar Page
 
-    - Enter:
+1. In **App Builder**, open the **Talent Acquisition Portal** application.
 
-        ```sql
-        <copy>SELECT i.stage_id AS event_id,
-               c.first_name || ' ' || c.last_name ||
-                   ' - ' || i.stage_name AS event_title,
-               i.scheduled_date AS start_date,
-               i.scheduled_date + (1 / 24) AS end_date,
-               i.candidate_id,
-               i.outcome
-          FROM tms_interview_stages i
-          JOIN tms_candidates c ON c.candidate_id = i.candidate_id
-          JOIN tms_employees e ON e.employee_id = i.interviewer_id
-         WHERE UPPER(e.email) = UPPER(:APP_USER)</copy>
-        ```
-    ![Task 1: Calendar page configuration](images/task-01-step-02-calendar-page-details.png)
+2. On the application home page, select **Create Page**.
 
-3. Enable navigation.
+3. Under **Component**, select **Calendar**.
 
-    - Set **Hiring Process** as the navigation parent.
-    - Select the `fa-calendar` icon.
+    ![Select the Calendar page type](images/task-01-step-01-select-calendar-page.png " ")
 
-    ![Task 1: Navigation icon](images/task-01-step-03-navigation-icon.png)
+4. In the Create Calendar wizard, enter/select the following:
 
-4. Map `EVENT_TITLE` to **Display Column**.
+    - **Page Name**: `Interview Calendar`
+    - **Data Source**: `Local Database`
+    - **Source Type**: `SQL Query`
 
-    - Map `START_DATE` and `END_DATE` to the Calendar date columns.
+5. For **SQL Query**, enter the following code:
 
-    - Leave **Primary Key Column** unselected.
+    ```sql
+    <copy>
+    SELECT
+        i.stage_id AS event_id,
+        c.first_name || ' ' || c.last_name ||
+            ' - ' || i.stage_name AS event_title,
+        i.scheduled_date AS start_date,
+        i.scheduled_date + (1 / 24) AS end_date,
+        i.candidate_id,
+        i.outcome
+    FROM tms_interview_stages i
+    JOIN tms_candidates c
+        ON c.candidate_id = i.candidate_id
+    JOIN tms_employees e
+        ON e.employee_id = i.interviewer_id
+    WHERE UPPER(e.email) = UPPER(:APP_USER)
+    </copy>
+    ```
 
-    ![Task 1: Calendar column mapping](images/task-01-step-04-calendar-page-details.png)
+    ![Configure the Interview Calendar data source](images/task-01-step-02-calendar-page-details.png " ")
 
-5. In the Calendar **Attributes**, open **View/Edit Link**.
+6. In the navigation settings, enter/select the following:
 
-    ![Task 1: Calendar event link attributes](images/task-01-step-05-page-attr.png)
+    - **Parent Navigation Menu Entry**: `Hiring Process`
+    - **Icon**: `fa-calendar-o`
+    - Click **Next**
 
-6. Target page `13`, **Interview Feedback**.
+    ![Configure the calendar navigation entry](images/task-01-step-03-navigation-icon.png " ")
 
-    - Set `P13_CANDIDATE_ID` to `&CANDIDATE_ID.` and `P13_SCHEDULED_DATE` to `&START_DATE.`.
+7. Map the calendar columns as follows:
 
-    ![Task 1: Calendar event link target](images/task-01-step-06-page-attr-det.png)
+    | Calendar Setting | Column |
+    | --- | --- |
+    | Display Column | `EVENT_TITLE` |
+    | Start Date Column | `START_DATE` |
+    | End Date Column | `END_DATE` |
 
-7. Verify the page:
+    ![Map the Interview Calendar columns](images/task-01-step-04-calendar-page-details.png " ")
 
-    - Save the page.
-    - Run the page.
-    - Confirm that each interviewer sees only their assigned interviews.
-    
-    ![Task 1: Final page](images/task-01-step-07-final-page.png)
+8. Select **Create Page**.
+
+## Task 2: Link Calendar Events to Interview Feedback
+
+1. In Page Designer, select the **Interview Calendar** region.
+
+2. Select the **Attributes** tab.
+
+3. Under **Settings**, open **View/Edit Link**.
+
+    ![Open the calendar event link settings](images/task-01-step-05-page-attr.png " ")
+
+4. In the link target dialog, enter/select the following:
+
+    - **Target Type**: `Page in this Application`
+    - **Page**: `13 - Interview Feedback`
+    - **Set Items**: `P13_CANDIDATE_ID`, `P13_SCHEDULED_DATE`
+    - **With These Values**: `&CANDIDATE_ID.`, `&START_DATE.`
+
+5. Select **OK**, and then select **Save and Run Page**.
+
+    ![Configure the Interview Feedback link target](images/task-01-step-06-page-attr-det.png " ")
+
+6. Sign in with an interviewer account. Confirm that the calendar displays only that interviewer's assigned interviews and that selecting an event opens the related **Interview Feedback** page.
+
+    ![Verify the Interview Calendar at runtime](images/task-01-step-07-final-page.png " ")
+
+## Summary
+
+You created a TAP interview calendar that displays only the signed-in interviewer's assigned interviews and links each event to the related Interview Feedback page.
+
+You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
-- **Author -** Aravind Madhavan, Senior Product Manager.
-- **Last Updated By/Date** - Aravind Madhavan, Senior Product Manager, July 2026
+- **Author** - Aravind Madhavan; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, October 2026

@@ -1,10 +1,10 @@
-# Lab 2: Enable Natural Language Support for Job Requisitions
+# Enable Natural Language Support for Job Requisitions
 
 ## Introduction
 
 Recruiters often start with a question, not a set of filters. In this lab, you will make the Job Requisitions report understand the language of the hiring team, so a plain-English request can become a useful report filter.
 
-Estimated Time: 5 minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
@@ -16,84 +16,77 @@ In this lab, you will:
 
 ## Task 1: Enable Natural Language Support
 
-1. From the **Candidate Pipeline** page, click on the **Page Finder** and select the **Job Requisitions** Page.
+1. From the **Candidate Pipeline** page, open **Page Finder**.
 
-    ![Select Job Requisitions Page](images/select-job-requistions-page.png "")
+2. Select the **Job Requisitions** page.
 
-2. Click on the **Job Requisitions** region.
+    > **Note:** The page number might differ. Open the page named **Job Requisitions**.
 
-    ![Click Job Requisitions Region](images/click-job-requisitions.png "")
+    ![Select the Job Requisitions page](images/select-job-requistions-page.png " ")
 
-3. Then in the Property Editor, select the **Attributes** Tab and then:
+3. In the Rendering tab, select the **Job Requisitions** region.
 
-    - Under Generative AI > Enable **Natural Language Support**.
+    ![Select the Job Requisitions region](images/click-job-requisitions.png " ")
 
-    ![Enable AI Interactive Report](images/enable-ai-interactive-report.png "")
+4. In the Property Editor, select **Attributes**.
 
-## Task 2: Add column context
+5. Under **Generative AI**, turn on **Natural Language Support**.
+
+    ![Enable Natural Language Support](images/enable-ai-interactive-report.png " ")
+
+## Task 2: Add Column Context
 
 Column context helps the AI interpret business terms in a prompt.
 
-1. In the left pane, expand the report columns.
+1. In the Rendering tab, expand **Job Requisitions**, then expand **Columns**.
 
-    ![Expand the report columns](images/expand-report-columns.png)
+    ![Expand the Job Requisitions report columns](images/expand-report-columns.png " ")
 
-2. Select the column **DEPT\_ID**.
+2. Select **DEPT\_ID**.
 
-    ![Select the DEPT ID column](images/select-dept-id-column.png)
+    ![Select the DEPT_ID column](images/select-dept-id-column.png " ")
 
-3. In the right pane, scroll to the **Generative AI** section for the selected column. If the section is collapsed, expand it.
+3. In the Property Editor, expand **Generative AI** if necessary.
 
-    ![Open the Generative AI section](images/open-generative-ai-section-for-qty-to-target.png)
+    ![Open the Generative AI section](images/open-generative-ai-section-for-qty-to-target.png " ")
 
-4. In **Column Context**, enter the following context value:
+4. For **Column Context**, enter `Organizational department name (e.g., Sales, Engineering, HR)`.
 
-    ```
-    <copy>
-    Organizational department name (e.g., Sales, Engineering, HR)
-    </copy>
-    ```
+    ![Enter the DEPT_ID column context](images/enter-dept-id-column-context.png " ")
 
-    ![Enter the DEPT\_ID column context](images/enter-dept-id-column-context.png)
+5. In the Rendering tab, select **STATUS**.
 
-5. Select the second column **STATUS**.
+    ![Select the STATUS column](images/select-status-column.png " ")
 
-    ![Select the Status column](images/select-status-column.png)
+6. In the Property Editor, under **Generative AI**, enter `Requisition status; values include Open, Filled, Pending Approval, Draft` for **Column Context**.
 
-6. In the **Generative AI** section, enter the following **Column Context** value:
+    ![Enter the STATUS column context](images/enter-status-column-context.png " ")
 
-    ```
-    <copy>
-    Requisition status; values include Open, Filled, Pending Approval, Draft
-    </copy>
-    ```
+## Task 3: Test a Natural-Language Filter
 
-    ![Enter the PRIORITY\_CODE column context](images/enter-status-column-context.png)
+1. Click **Save and Run**.
 
-## Task 3: Test a natural-language filter
+    ![Save and run the Job Requisitions page](images/save-and-run-page.png " ")
 
-1. Save and run the page.
+2. In the **Search or ask a question** field, enter **Show me Engineering requisitions open for more than 30 days**.
 
-    ![Save and Run the page](images/save-and-run-page.png)
+    ![Enter a natural-language request](images/job-requisitions-natural-language-filter.png " ")
 
-2. In the natural-language Search bar, enter `Show me Engineering requisitions open for more than 30 days`. Alternatively, click the Chat button to open a Chatbot to the right of the Interactive report.
+3. Press **Enter**. The Assistant opens and processes the request.
 
-    ![Search using Natural language filter](images/job-requisitions-natural-language-filter.png "")
+    ![Assistant processing the natural-language request](images/job-requisitions-natural-language-filter-1.png " ")
 
-    ![Search using Natural language filter chat](images/job-requisitions-natural-language-filter-1.png "")
+4. Verify that APEX applies filters for department, status, and open date, and shows the matching requisition.
 
-3. Confirm that APEX converts the prompt to a filter and shows matching requisitions.
+    ![Applied filters for the natural-language request](images/job-requisitions-filter-result.png " ")
 
-    ![Job Requisitions natural-language filter result](images/job-requisitions-filter-result.png "")
-
-    ![Job Requisitions natural-language filter result](images/job-requisitions-filter-result-1.png "")
-
+    ![Assistant response for the natural-language request](images/job-requisitions-filter-result-1.png " ")
 
 ## Summary
 
-You enabled AI Interactive Report and explained the meaning of the department and status fields. Recruiters can now start with a natural-language question and quickly focus the requisitions report.
+You enabled Natural Language Support and explained the meaning of the department and status fields. Recruiters can now start with a natural-language question and quickly focus the Job Requisitions report.
 
 ## Acknowledgements
 
-* **Author** - Roopesh Thokala, Principal Product Manager
-* **Last Updated By/Date** - Roopesh Thokala, July 29, 2026
+- **Author** - Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, July 29, 2026

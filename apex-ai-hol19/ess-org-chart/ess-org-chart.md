@@ -1,10 +1,14 @@
-# Lab 4: Create the ESS Organisation Tree
+# Create the ESS Organisation Tree
 
 ## Introduction
 
 In this lab, you create an ESS page that displays active employees in their manager hierarchy. Each tree node shows the employee name and provides job and department details in a tooltip.
 
-Estimated Time: 5 minutes
+Estimated Lab Time: 5 minutes
+
+### Where We Are
+
+ESS now includes dashboard charts and an editable Leave Calendar. You will create the Our Organisation page and use a Tree region to display the employee hierarchy.
 
 ### Objectives
 
@@ -16,19 +20,19 @@ In this lab, you will:
 
 ## Task 1: Create the organisation page
 
-1. From the ESS Application homepage, click **Create Page**.
+1. From the ESS application home page, click **Create Page**.
 
     ![Create Page wizard showing Our Organisation under the HR Info navigation and breadcrumb parents.](images/create-page.png ' ')
 
 2. Select **Blank Page**.
-    ![Create Page wizard showing Our Organisation under the HR Info navigation and breadcrumb parents.](images/blank-page.png ' ')
 
+    ![Select Blank Page in the Create Page wizard.](images/blank-page.png ' ')
 
 3. For Name, enter **Our Organisation**. Set the navigation parent and breadcrumb parent to **HR Info**, and set the icon to `fa-sitemap`.
 
-    ![Create Page wizard showing Our Organisation under the HR Info navigation and breadcrumb parents.](images/create-organisation-page.png ' ')
+    ![Define the Our Organisation page in the Create Page wizard.](images/create-organisation-page.png ' ')
 
-2. Add a native **Tree** region named **Organisation Structure**.
+4. Add a native **Tree** region and name it as **Organisation Structure**.
 
     ![Our Organisation Page Designer showing the Organisation Structure Tree region.](images/add-organisation-tree-region.png ' ')
 
@@ -60,7 +64,7 @@ In this lab, you will:
 
 2. Switch to the **Attributes** tab and select the following:
     - Node Label Column: **TITLE**
-    - NODE ID Column: **ID**
+    - Node ID Column: **ID**
     - Parent Key Column: **PARENT_ID**
     - Tooltip: **Database Column**
     - Tooltip Column: **TOOLTIP**
@@ -71,7 +75,13 @@ In this lab, you will:
 
     ![Our Organisation runtime tree showing employees and hierarchy tooltips.](images/verify-organisation-tree.png ' ')
 
+## Summary
+
+You created the Our Organisation page and configured a Tree region that displays active employees in their manager hierarchy.
+
+You may now **proceed to the next lab**.
+
 ## Acknowledgements
 
-* **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-* **Last Updated By/Date** - Apoorva Srinivas, Principal Product Manager, August 2026
+- **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

@@ -1,20 +1,22 @@
-# Lab 4: Optional Application Updates
+# Optional Application Updates
 
 ## Introduction
 
 You have added bulk validations and improved button prominence in TAP and ESS. You can also try the prompts below to explore other changes. Use one prompt at a time, review the edited source, and import only the affected files.
 
-Estimated Workshop Time: 15 minutes (choose an experiment; outside the core workshop)
+Estimated Lab Time: 15 minutes (choose an experiment; outside the core workshop)
 
 ### Objectives
 
-In this lab, you will learn how to:
+In this lab, you will:
 
 - Explore more validations and page improvements with short prompts.
 - Review the scope and behavior of each change.
 - Try single-file and multiple-file imports with SQLcl as an alternative.
 
 ### Prerequisites
+
+- Complete Labs 1 through 3 in this workshop.
 
 Selected file imports in VS Code and SQLcl require **APEX 26.2 or later**. On APEX 26.1, try the editing prompts and use full application import from Module 23 instead.
 
@@ -89,7 +91,7 @@ Selected file imports in VS Code and SQLcl require **APEX 26.2 or later**. On AP
         cd /path/to/tap-project
         ```
 
-3. Validate and repair the project:
+3. Validate the project:
 
     - Run the validation command:
 
@@ -189,7 +191,7 @@ Selected file imports in VS Code and SQLcl require **APEX 26.2 or later**. On AP
         cd /path/to/ess-project
         ```
 
-3. Validate and repair the project:
+3. Validate the project:
 
     - Run the validation command:
 

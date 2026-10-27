@@ -5,17 +5,17 @@
         {
             "title": "Introduction",
             "filename": "../../introduction/introduction.md",
-            "description": "Workshop overview, audience, objectives, and lab flow for the new AI Interactive Report feature."
+            "description": "Workshop overview, prerequisites, downloads, objectives, and lab flow."
         },
         {
             "title": "Lab 1: Upgrade the Candidate Pipeline to an Interactive Report",
-            "description": "Add the Candidate Pipeline Interactive Report and Faceted Search.",
+            "description": "Add an Interactive Report to Candidate Pipeline and enable downloads.",
             "type": "livelabs",
             "filename": "../../lab-1-candidate-pipeline-interactive-report/lab-1-candidate-pipeline-interactive-report.md"
         },
         {
-            "title": "Lab 2: Add AI Interactive Report to Job Requisitions",
-            "description": "Enable AI report filtering and add column context.",
+            "title": "Lab 2: Enable Natural Language Support for Job Requisitions",
+            "description": "Enable Natural Language Support and add context to report columns.",
             "type": "livelabs",
             "filename": "../../lab-2-ai-interactive-report/lab-2-ai-interactive-report.md"
         },
@@ -32,8 +32,8 @@
             "filename": "../../lab-4-job-openings-cards/lab-4-job-openings-cards.md"
         },
         {
-            "title": "Lab 5: Upgrade My Tasks to an Interactive Grid",
-            "description": "Replace the ESS My Tasks report with an editable grid.",
+            "title": "Lab 5: Upgrade My Onboarding Tasks to an Interactive Grid",
+            "description": "Replace the ESS My Onboarding Tasks report with an editable grid.",
             "type": "livelabs",
             "filename": "../../lab-5-ess-my-tasks-interactive-grid/lab-5-ess-my-tasks-interactive-grid.md"
         },

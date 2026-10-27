@@ -1,73 +1,87 @@
-# Lab 3: Build the TMS Schema with Quick SQL
+# Build the TMS Schema with Quick SQL
 
 ## Introduction
 
-Use Quick SQL shorthand to generate the Talent-Management-System(TMS) tables. 
+Use Quick SQL shorthand to generate the Talent Management System (TMS) tables.
 
-Estimated Time: 15 minutes
+Estimated Lab Time: 15 minutes
 
 ### Objectives
 
-In this lab, you will:
+In this lab, you will learn how to:
 
 - Create the TMS schema from Quick SQL shorthand.
-- Review and run generated DDL.
+- Review and run the generated DDL.
 - Optionally add a vector column to the HR policy table.
 - Verify the created tables in Object Browser.
 
 ## Task 1: Generate the TMS DDL
 
-1. In SQL Workshop, select **Utilities**, then select **Quick SQL**.
-    ![Quick SQL](images/nav-quick-sql.png ' ')
+1. In SQL Workshop, select **Utilities**, and then select **Quick SQL**.
 
-2. Copy the contents of **[`tms-schema.qsql`](files/tms-schema.qsql)** into Quick SQL and review the generated DDL.
+    ![Open Quick SQL](images/nav-quick-sql.png " ")
 
-    ![Quick SQL showing generated DDL for the TMS schema.](images/quick-sql-generated-ddl.png ' ')
+2. Copy the contents of [tms-schema.qsql](files/tms-schema.qsql) into Quick SQL and review the generated DDL.
 
-3. Click the context menu (3 dots) and select **Save SQL Script**. 
-    ![Save script dialog](images/save-sql-script.png ' ')
+    ![Review the generated TMS schema DDL](images/quick-sql-generated-ddl.png " ")
 
-4. Provide a meaningful name such as **TMS SCHEMA**, and select **Save Script**.
-    ![Save script dialog](images/name-sql-script.png ' ')
+3. In the generated SQL pane, select **SQL Actions**, and then select **Save SQL Script**.
 
-5. Click **Review and Run**.
-    ![Review and Run](images/review-and-run.png ' ')
+    ![Open the Save SQL Script dialog](images/save-sql-script.png " ")
 
-6. Click **Run**.
-    ![Review and Run](images/sql-run.png ' ')
+4. For the script name, enter **TMS SCHEMA**, and then select **Save Script**.
 
-7. On the confirmation screen, click Run.
-    ![Confirm Run](images/confirm-run.png ' ')
+    ![Name and save the SQL script](images/name-sql-script.png " ")
 
-8. If the Quick SQL generated SQL script throws errors or you would like to run the final SQL script directly, download the [TMS_SCHEMA SQL script](files/TMS_SCHEMA.sql). 
+5. Select **Review and Run**.
 
-## Task 2: Add the optional vector column
+    ![Review the generated SQL script](images/review-and-run.png " ")
 
-1. Navigate to **SQL Commands**.
-    ![Navigate to SQL Commands](images/nav-sql-commands.png ' ')
+6. Select **Run**.
 
-2. If your database supports Oracle AI Database vector data types, run the following statement in SQL Commands.
+    ![Start the script run](images/sql-run.png " ")
+
+7. If prompted to overwrite the script that you saved, select **Yes**.
+
+8. On the confirmation page, select **Run**.
+
+    ![Confirm the script run](images/confirm-run.png " ")
+
+9. If Quick SQL reports errors, or if you prefer to run the completed script directly, use [TMS_SCHEMA.sql](files/TMS_SCHEMA.sql).
+
+## Task 2: Add the Optional Vector Column
+
+1. In SQL Workshop, open **SQL Commands**.
+
+    ![Open SQL Commands](images/nav-sql-commands.png " ")
+
+2. If your database supports Oracle AI Database vector data types, run the following statement:
 
     ```sql
     <copy>
-    alter table tms_hr_policy add embedding_vector vector;
+    ALTER TABLE tms_hr_policy ADD embedding_vector VECTOR
     </copy>
     ```
-    ![SQL Commands](images/run-sql-commands.png ' ')
 
-    `Note`: If the database does not support vector data types, skip this step.
+    ![Run the vector-column statement](images/run-sql-commands.png " ")
 
-## Task 3: Verify the tables
+    > **Note:** If the database does not support vector data types, skip this task.
 
-1. Navigate to Object Browser.
-    ![Object Browser](images/nav-object-browser.png ' ')
+## Task 3: Verify the Tables
 
+1. In SQL Workshop, open **Object Browser**.
 
-2. Confirm that the **TMS_** tables are created and appear under Tables.
+    ![Open Object Browser](images/nav-object-browser.png " ")
 
-    ![Object Browser showing the created TMS tables.](images/object-browser-tms-tables.png ' ')
+2. Confirm that the **TMS_** tables are listed under **Tables**.
 
-## Acknowledgements
+    ![Review the created TMS tables](images/object-browser-tms-tables.png " ")
 
-* **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-* **Last Updated By/Date** - Apoorva Srinivas, Principal Product Manager, July 2026
+## Summary
+
+You generated and ran the Quick SQL script that creates the TMS schema, optionally added a vector column, and verified the TMS tables.
+
+### Acknowledgements
+
+- **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

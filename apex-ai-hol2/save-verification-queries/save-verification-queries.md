@@ -1,94 +1,120 @@
-# Lab 6: Save Verification Queries as Scripts
+# Save Verification Queries as Scripts
 
 ## Introduction
 
-Run basic verification queries against the TMS data, then save them as a reusable SQL script for later labs.
+Run verification queries against the TMS data, then save them as a reusable SQL script for later labs.
 
-Estimated Time: 5 minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
-In this lab, you will:
+In this lab, you will learn how to:
 
 - Count candidates by stage.
 - Identify requisitions with candidates.
 - Save the statements as `TMS_VERIFY`.
 
-## Task 1: Run verification queries
+## Task 1: Run Verification Queries
 
-1. Open **SQL Commands** and **Run** the following statements:
+1. Open **SQL Commands**.
+
+2. Run the following query to count candidates in each stage:
 
     ```sql
     <copy>
     -- How many candidates are in each stage?
-    select current_stage, count(*) as cnt
-      from tms_candidates
-     group by current_stage
-     order by cnt desc;
+    SELECT current_stage,
+           COUNT(*) AS cnt
+      FROM tms_candidates
+     GROUP BY current_stage
+     ORDER BY cnt DESC
     </copy>
-     ```
-
-     ```sql
-     <copy>
-
-    -- Which requisitions have the most candidates?
-    select r.req_id, j.title, count(c.candidate_id) as candidates
-      from tms_job_requisitions r
-      join tms_jobs j
-        on r.job_id = j.job_id
-      left join tms_candidates c
-        on c.req_id = r.req_id
-     group by r.req_id, j.title
-     order by candidates desc, r.req_id;
-     </copy>
     ```
-    ![SQL Commands](images/run-sql1.png ' ')
 
-    ![SQL Commands](images/run-sql2.png ' ')
+    ![Run the candidate-stage query](images/run-sql1.png " ")
 
-  `Note`: Confirm that both statements return rows. 
-
-## Task 2: Save the script
-
-1. Navigate to **SQL Scripts** and click **Create**. 
-
-    ![SQL Scripts](images/nav-sql-script.png ' ')
-
-1. Enter the SQL statements in **SQL Editor** with the Script Name `TMS_VERIFY`. Click **Create**.
+3. Run the following query to identify requisitions with candidates:
 
     ```sql
-      <copy>
-      -- How many candidates are in each stage?
-      select current_stage, count(*) as cnt
-        from tms_candidates
-      group by current_stage
-      order by cnt desc;
+    <copy>
+    -- Which requisitions have the most candidates?
+    SELECT r.req_id,
+           j.title,
+           COUNT(c.candidate_id) AS candidates
+      FROM tms_job_requisitions r
+      JOIN tms_jobs j
+        ON r.job_id = j.job_id
+      LEFT JOIN tms_candidates c
+        ON c.req_id = r.req_id
+     GROUP BY r.req_id, j.title
+     ORDER BY candidates DESC, r.req_id
+    </copy>
+    ```
 
-      -- Which requisitions have the most candidates?
-      select r.req_id, j.title, count(c.candidate_id) as candidates
-        from tms_job_requisitions r
-        join tms_jobs j
-          on r.job_id = j.job_id
-        left join tms_candidates c
-          on c.req_id = r.req_id
-      group by r.req_id, j.title
-      order by candidates desc, r.req_id;
-      </copy>
-      ```
+    ![Run the requisition-candidate query](images/run-sql2.png " ")
 
-    ![SQL Scripts](images/save-script.png ' ')
+4. Confirm that both queries return rows.
 
-2. Run the saved script once to confirm it is reusable in later modules. 
+## Task 2: Save the Script
 
-    ![SQL Scripts page with the TMS_VERIFY script saved.](images/run-tms-verify.png ' ')
+1. In SQL Workshop, select **SQL Scripts**.
 
-    ![SQL Scripts page with the TMS_VERIFY script saved.](images/run-again.png ' ')
+2. Select **Create**.
 
-3. Select view as **Detail** and click **Go** to view the results.
+    ![Open the Create Script page](images/nav-sql-script.png " ")
 
-    ![SQL Scripts page with the TMS_VERIFY script saved.](images/sql-scripts-tms-verify.png ' ')
+3. For **Script Name**, enter `TMS_VERIFY`.
 
-## Acknowledgements
+4. In **SQL Editor**, enter the following statements:
 
-* **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-* **Last Updated By/Date** - Apoorva Srinivas, Principal Product Manager, July 2026
+    ```sql
+    <copy>
+    -- How many candidates are in each stage?
+    SELECT current_stage,
+           COUNT(*) AS cnt
+      FROM tms_candidates
+     GROUP BY current_stage
+     ORDER BY cnt DESC;
+
+    -- Which requisitions have the most candidates?
+    SELECT r.req_id,
+           j.title,
+           COUNT(c.candidate_id) AS candidates
+      FROM tms_job_requisitions r
+      JOIN tms_jobs j
+        ON r.job_id = j.job_id
+      LEFT JOIN tms_candidates c
+        ON c.req_id = r.req_id
+     GROUP BY r.req_id, j.title
+     ORDER BY candidates DESC, r.req_id;
+    </copy>
+    ```
+
+5. Select **Create**.
+
+    ![Create the TMS_VERIFY script](images/save-script.png " ")
+
+6. Select the **TMS_VERIFY** script.
+
+7. Select **Run**.
+
+    ![Run the saved TMS_VERIFY script](images/run-tms-verify.png " ")
+
+8. Select **Run**.
+
+    ![Confirm the saved script run](images/run-again.png " ")
+
+9. For **View**, select **Detail**.
+
+10. Select **Go**.
+
+    ![Review the TMS_VERIFY results in Detail view](images/sql-scripts-tms-verify.png " ")
+
+## Summary
+
+You ran two TMS verification queries and saved them as the reusable `TMS_VERIFY` script.
+
+### Acknowledgements
+
+- **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

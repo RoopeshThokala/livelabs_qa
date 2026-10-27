@@ -1,62 +1,73 @@
-# Lab 5: Add the Audit Log Table with AI
+# Add the Audit Log Table with AI
 
 ## Introduction
 
-Use the AI-assisted custom data model experience to create the TMS audit-log table. Keep the provided SQL script as a deterministic fallback.
+Use the AI-assisted custom data model experience to create the TMS audit-log table. Keep the supplied SQL script as a deterministic fallback.
 
-Estimated Time: 10 minutes
+Estimated Lab Time: 10 minutes
 
 ### Objectives
 
-In this lab, you will:
+In this lab, you will learn how to:
 
-- Ask the AI-assisted data-model feature to create an audit-log table.
+- Use the AI-assisted data-model feature to create an audit-log table.
 - Review and run the generated DDL.
-- Use a supplied SQL fallback when the AI feature is unavailable.
+- Use the supplied SQL fallback when the AI feature is unavailable.
 
-## Task 1: Generate the table with AI
+## Task 1: Generate the Table with AI
 
-1. In SQL Workshop, open **Create Custom Data Model using AI**.
-    ![SQL Workshop home](images/create-ai-data-model.png ' ')
+1. In SQL Workshop, open **Create Data Model Using AI**.
 
-    `Note`: This option appears only if you have configured a Generative AI service in your APEX workspace. 
+    ![Open Create Data Model Using AI](images/create-ai-data-model.png " ")
 
-2. Enter the following prompt.
+    > **Note:** This option appears only if a Generative AI service is configured in your APEX workspace.
+
+2. Enter the following prompt:
+
     ```
     <copy>
     Create an Oracle APEX-friendly audit log table named TMS_AUDIT_LOG.
     It should record the table name, operation, old values, new values,
-    changed by, and changed at. Use LOG_ID as a generated primary key.
+    changed by, and changed at. Use ID as a generated primary key.
     Store old and new values as CLOB JSON payloads.
     </copy>
     ```
 
-    ![APEX assistant](images/enter-prompt.png ' ')
+    ![Enter the audit-log prompt](images/enter-prompt.png " ")
 
-3. Review the generated DDL and click **Create SQL Script**.
+3. Review the generated DDL.
 
-    ![AI-assisted data model screen showing the audit-log prompt and generated DDL.](images/review-ai-response.png ' ')
+4. Select **Create SQL Script**.
 
-## Task 2: Run the SQL script
+    ![Create the audit-log SQL script](images/review-ai-response.png " ")
 
-1. If the AI-assisted feature is unavailable or does not produce a suitable DDL script, run **[`tms-audit-log.sql`](files/tms-audit-log.sql)** from SQL Scripts.
+## Task 2: Run the SQL Script
 
-2. For the Script name, enter **tms-audit-log**, and click **Run**.
+1. If the AI-assisted feature is unavailable or does not produce a suitable DDL script, use [tms-audit-log.sql](files/tms-audit-log.sql) from SQL Scripts.
 
-     ![SQL script editor](images/run-script.png ' ')
+2. For **Script Name**, enter **tms-audit-log**.
 
-3. Click **Run** and verify that the script ran without errors.
+3. Select **Run**.
 
-    ![SQL script editor](images/run-again.png ' ')
+    ![Run the audit-log SQL script](images/run-script.png " ")
 
-    ![SQL script editor](images/run-result.png ' ')
+4. Select **Run**.
 
+    ![Confirm the audit-log script run](images/run-again.png " ")
 
-3. Verify that `TMS_AUDIT_LOG` appears in Object Browser.
+5. Verify that the script completed without errors.
 
-    ![Object Browser with TMS_AUDIT_LOG visible.](images/object-browser-audit-log.png ' ')
+    ![Review the audit-log script results](images/run-result.png " ")
 
-## Acknowledgements
+6. In Object Browser, confirm that **TMS\_AUDIT\_LOG** is listed.
 
-* **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-* **Last Updated By/Date** - Apoorva Srinivas, Principal Product Manager, July 2026
+    ![Verify TMS_AUDIT_LOG in Object Browser](images/object-browser-audit-log.png " ")
+
+## Summary
+
+You used the AI-assisted data-model feature to create an audit-log table and used the supplied SQL script as a fallback.
+
+### Acknowledgements
+
+- **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

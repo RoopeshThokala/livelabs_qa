@@ -21,7 +21,19 @@ In this lab, you will:
 - Map four recruiting KPI rows to a four-column layout.
 - Run and validate the completed TAP Home page.
 
-Use the Lab 5 snapshot, **15_05 Talent Acquisition Portal** (App **158**). Return to the App Builder application list and check the application number before starting; do not continue in the ESS application used in Lab 4.
+### Downloads
+
+Stuck or missed out on completing the previous labs? Don't worry! You can download the following application:
+
+- **<a href="../introduction/files/tap-export9.sql" download="tap-export9.sql">Talent Acquisition Portal</a>**
+
+Import it into your workspace. In **App Builder**, select **Import**, upload `tap-export9.sql`, and follow the steps in the **Import Application** wizard.
+
+> **Note:**
+>
+> - **APEX Version:** The supplied application export was created with Oracle APEX 26.2 and cannot be imported into earlier APEX releases.
+> - **Supporting Objects:** Supporting objects are already loaded in the workspace.
+> - **AI Configuration:** Configure a Generative AI Service from **App Builder > Workspace Utilities > Generative AI**. See **Module 1, Lab 2: Configure Generative AI Service**.
 
 ## Task 1: Apply the TAP Corporate Theme
 
@@ -30,8 +42,6 @@ Use the Lab 5 snapshot, **15_05 Talent Acquisition Portal** (App **158**). Retur
 2. Run the application and sign in with the TAP credentials supplied in your workshop environment.
 
 3. On the Developer Toolbar, select **Customize > Theme Roller**.
-
-    If **TAP Corporate** already exists, select it under **Theme > Select Theme** before editing its palette. In step 7, use **Save** to update it instead of **Save As**.
 
 4. Expand **Appearance** and set **Pillar** to **Slate** to establish the corporate grey foundation. If **Pillar** is not available, first select **Redwood Light** under **Theme > Select Theme**, and then expand **Appearance**.
 
@@ -118,6 +128,10 @@ The corporate style intentionally differs from ESS: TAP uses slate and blue, whi
     </copy>
     ```
 
+    - Under **Appearance**, set **Tempalte** as **Standard**.
+
+    You can also download [tap-home-metrics.sql](files/tap-home-metrics.sql).
+
     ![Enter the TAP metric SQL](images/lab5-08-enter-tap-metric-sql.png " ")
 
 The four `SELECT` statements answer different recruiting questions but return the same four columns. `UNION ALL` produces the four records required by the Metric Card region.
@@ -148,9 +162,13 @@ The four `SELECT` statements answer different recruiting questions but return th
 
     ![Configure Avatar settings in the Attributes tab](images/lab5-09-configure-tap-avatar.png " ")
 
-4. Save and run the page.
+4. In the Rendering tree, right-click **Page Navigation**. Then, click **Delete**.
 
-5. Confirm that TAP Home displays:
+    ![Delete page navigation](images/delete-page-navigation.png " ")
+
+5. Save and run the page.
+
+6. Confirm that TAP Home displays:
 
     - Active Requisitions
     - Candidates This Week
@@ -169,5 +187,5 @@ You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
-- **Author** - Shanmukh Kornana
-- **Last Updated By/Date** - Shanmukh Kornana, August 2026
+- **Author** - Shanmukh Kornana, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, October 2026

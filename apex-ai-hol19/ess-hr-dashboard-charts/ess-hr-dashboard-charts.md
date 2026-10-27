@@ -1,10 +1,14 @@
-# Lab 2: Build ESS HR Dashboard Charts
+# Build ESS HR Dashboard Charts
 
 ## Introduction
 
 In this lab, you add headcount, leave-distribution, and new-hire charts to the ESS Home page. You then replace the default chart gallery sample series before you configure each chart.
 
-Estimated Time: 10 minutes
+Estimated Lab Time: 10 minutes
+
+### Where We Are
+
+ESS Home displays the employee dashboard. You will add headcount, leave-distribution, and new-hire charts to the page.
 
 ### Objectives
 
@@ -14,13 +18,27 @@ In this lab, you will:
 - Map each chart to a query result.
 - Apply consistent dashboard styling.
 
+### Downloads
+
+Stuck or missed out on completing the previous labs? Don't worry! You can download the following application:
+
+- **<a href="../introduction/files/ess-export12.sql" download="ess-export12.sql">Employee Self-Service Portal</a>**
+
+Import it into your workspace. In **App Builder**, select **Import**, upload `ess-export12.sql`, and follow the steps in the **Import Application** wizard.
+
+> **Note:**
+>
+> - **APEX Version:** The supplied application export was created with Oracle APEX 26.2 and cannot be imported into earlier APEX releases.
+> - **Supporting Objects:** Supporting objects are already loaded in the workspace.
+> - **AI Configuration:** Configure a Generative AI Service from **App Builder > Workspace Utilities > Generative AI**. See **Module 1, Lab 2: Configure Generative AI Service**.
+
 ## Task 1: Add the Headcount chart
 
 1. Open ESS Home in Page Designer. Drag a **Chart** region under the **Your Onboarding Progress** Metric Card region.
 
     ![ESS Home Page Designer showing the Headcount by Department chart region.](images/insert-chart.png ' ')
 
-2.  Name it **Headcount by Department**.
+2. Name it **Headcount by Department**.
     ![ESS Home Page Designer showing the Headcount by Department chart region.](images/create-headcount-chart.png ' ')
 
 3. Switch to the Attributes tab and for Type, select Bar.
@@ -56,7 +74,7 @@ In this lab, you will:
 
 3. Select the Series and enter/select the following:
     - Name: **Leave Requests**
-    - SQL Query: 
+    - SQL Query:
     ```sql
     <copy>
     SELECT lt.name        AS leave_type,
@@ -88,7 +106,7 @@ In this lab, you will:
 6. Switch to the Attributes tab and set Type to **Line**.
     ![New Hires line chart configured in the third dashboard column.](images/line-chart.png ' ')
 
-6. Select the Series and enter/select the following:
+7. Select the Series and enter/select the following:
     - Name: **New Hires**
     - SQL Query:
     ```sql
@@ -103,8 +121,8 @@ In this lab, you will:
     </copy>
     ```
     ![New Hires line chart configured in the third dashboard column.](images/configure-new-hire1.png ' ')
-    
-7. Under Column Mapping, select the following:
+
+8. Under Column Mapping, select the following:
     - Label: **HIRE_MONTH**
     - Value: **HIRES**
 
@@ -112,7 +130,7 @@ In this lab, you will:
 
 ## Task 3: Apply dashboard styling
 
-1. For each chart region, open **Appearance** > **Template Options** and for Style, select **Remove UI Decoration**. Click **Ok**.
+1. For each chart region, open **Appearance** > **Template Options** and for Style, select **Remove UI Decoration**. Click **OK**.
 
     ![Chart region template options with Remove UI Decoration selected.](images/remove-chart-ui-decoration.png ' ')
 
@@ -120,7 +138,13 @@ In this lab, you will:
 
     ![ESS Home dashboard showing the headcount, leave, and new-hire charts.](images/verify-ess-dashboard-charts.png ' ')
 
+## Summary
+
+You added headcount, leave-distribution, and new-hire charts to ESS Home. Each chart uses a SQL query and column mappings to display dashboard data.
+
+You may now **proceed to the next lab**.
+
 ## Acknowledgements
 
-* **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-* **Last Updated By/Date** - Apoorva Srinivas, Principal Product Manager, August 2026
+- **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Apoorva Srinivas, Principal Product Manager, August 2026

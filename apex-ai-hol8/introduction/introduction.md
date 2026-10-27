@@ -1,40 +1,45 @@
 # Managing Interactive Reports and Grids
 
-## Introduction
+The Talent Acquisition Portal (TAP) application includes a Candidate Pipeline Interactive Report and an Interview Schedule Interactive Grid. In this workshop, you customize these components so that users can find and work with candidate information more effectively.
 
-The Candidate Pipeline interactive report exists but has no saved reports or page links. The Interview Schedule interactive grid exists but needs customization. In this workshop, you manage interactive-report views and build the first master-detail page in the Talent Acquisition Portal (TAP).
-
-Estimated Workshop Time: 75 minutes
+Estimated Workshop Time: 30 minutes
 
 ### Objectives
 
-In this workshop, you will:
+In this workshop, you will learn how to:
 
-- Create developer and user saved reports for Candidate Pipeline.
-- Link candidates and job openings to related TAP pages.
-- Filter Candidate Pipeline by a requisition passed from a job card.
-- Build a requisition master-detail page with an editable candidate grid.
+- Customize an Interactive Report.
+- Save report customizations.
+- Create a detail page and link it from an Interactive Report.
+- Filter report data from a Cards region.
+- Create a master-detail page.
 
 ### Prerequisites
 
-- The TAP application from the earlier modules, including Candidate Pipeline, Candidate Profile, and Job Openings pages.
-- TMS candidate, requisition, job, and department data.
+This workshop requires:
 
-![The TAP application home page with the Candidate Pipeline and Job Openings pages available.](images/tap-pages-overview.png ' ')
+- An Oracle APEX 26.2 workspace.
+- Completion of the previous workshops in this series.
 
-## Downloads
+> **Note:** Screenshots were captured with Oracle APEX 26.1. Minor user interface differences may appear in Oracle APEX 26.2.
 
-Stuck or Missed out on completing the previous labs? Don't worry! You can download the following application:
+![Candidate Pipeline page](images/tap-pages-overview.png " ")
+
+### Downloads
+
+Stuck or missed out on completing the previous labs? Don't worry! You can download the following file:
 
 - **<a href="files/tap-export3.sql" download="tap-export3.sql">Talent Acquisition Portal</a>**
 
 Import it into your workspace. In **App Builder**, select **Import**, upload `tap-export3.sql`, and follow the steps in the **Import Application** wizard.
 
-> **Note:** Supporting objects are already loaded in the workspace.
+> **Note:**
+>
+> - **APEX Version:** The supplied application export was created with Oracle APEX 26.2 and cannot be imported into earlier APEX releases.
+> - **Supporting Objects:** Supporting objects are already loaded in the workspace.
+> - **AI Configuration:** Configure a Generative AI Service from **App Builder > Workspace Utilities > Generative AI**. See **Module 1, Lab 2: Configure Generative AI Service**.
 
-> **AI Configuration:** To use AI features in the application, configure a Generative AI Service in the workspace and select it under **Shared Components > AI Attributes**. See **Module 1, Lab 2: Configure Generative AI Service**.
+### Acknowledgements
 
-## Acknowledgements
-
-* **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-* **Last Updated By/Date** - Apoorva Srinivas, Principal Product Manager, July 2026
+- **Author** - Roopesh Thokala, Principal Product Manager, Oracle APEX
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

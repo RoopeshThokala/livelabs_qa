@@ -1,4 +1,4 @@
-# Lab 5: Enable Debugging and Review
+# Enable Debugging and Review
 
 ## Introduction
 
@@ -17,7 +17,7 @@ APEX debug messages include **Error (Level 1)**, **Warning (Level 2)**, **Inform
 
 In this lab, you enable **App Trace** and inspect the TAP Home page debug output. You review page and region rendering, SQL execution, and elapsed times, and then turn debugging off.
 
-Estimated time: 5 minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
@@ -82,10 +82,10 @@ You may now proceed to the next lab.
 
 ## Learn More
 
-* [Utilizing Debug Mode](https://docs.oracle.com/en/database/oracle/apex/26.1/htmdb/utilizing-debug-mode.html)
-* [Developer Toolbar](https://docs.oracle.com/en/database/oracle/apex/26.1/htmdb/runtime-developer-toolbar.html)
+- [Utilizing Debug Mode](https://docs.oracle.com/en/database/oracle/apex/26.2/htmdb/utilizing-debug-mode.html)
+- [Developer Toolbar](https://docs.oracle.com/en/database/oracle/apex/26.2/htmdb/runtime-developer-toolbar.html)
 
 ## Acknowledgements
 
 - **Author** - Sahaana Manavalan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
-- **Last Updated By/Date** - Sahaana Manavalan, Senior Product Manager, July 2026
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

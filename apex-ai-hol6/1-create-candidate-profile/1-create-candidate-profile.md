@@ -1,10 +1,10 @@
-# Lab 1: Create Candidate Profile Page Manually
+# Create a Candidate Profile Page Manually
 
 ## Introduction
 
 In this lab, you use the Create Page Wizard to create a blank **Candidate Profile** page in the Talent Acquisition Portal (TAP). You then review the Page Designer panes, display help for an attribute, and add two Static Content regions to **Body**.
 
-Estimated time: 5 minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
@@ -18,15 +18,17 @@ In this lab, you will learn how to:
 
 ### Downloads
 
-Stuck or Missed out on completing the previous labs? Don't worry! You can download the following application:
+Stuck or missed out on completing the previous labs? Don't worry! You can download the following application:
 
 - **<a href="../introduction/files/tap-export1.sql" download="tap-export1.sql">Talent Acquisition Portal</a>**
 
 Import it into your workspace. In **App Builder**, select **Import**, upload `tap-export1.sql`, and follow the steps in the **Import Application** wizard.
 
-> **Note:** Supporting objects are already loaded in the workspace.
+> **Note:**
 >
-> **AI Configuration:** Configure a Generative AI Service in the workspace and select it under **Shared Components > AI Attributes** for the application. See **Module 1, Lab 2: Configure Generative AI Service**.
+> - **APEX Version:** The supplied application export was created with Oracle APEX 26.2 and cannot be imported into earlier APEX releases.
+> - **Supporting Objects:** Supporting objects are already loaded in the workspace.
+> - **AI Configuration:** Configure a Generative AI Service from **App Builder > Workspace Utilities > Generative AI**. See **Module 1, Lab 2: Configure Generative AI Service**.
 
 ## Task 1: Create and Inspect the Page
 
@@ -58,7 +60,7 @@ In this task, you will create a blank **Candidate Profile** page. You will then 
 
     ![Candidate Profile page in Page Designer](images/05-page-designer-opened.png " ")
 
-6. In Page Designer, select **Breadcrumb** in the **Rendering Tab** (Left Pane), select **Identification > Type** in the **Property Editor** (Right Pane), then select **Help** on the toolbar.
+6. In Page Designer, select **Breadcrumb** in the **Rendering tab** (Left Pane), select **Identification > Type** in the **Property Editor** (Right Pane), then select **Help** on the toolbar.
 
     The help text for **Type** is displayed.
 
@@ -76,7 +78,7 @@ In this task, you will create the **Candidate Details** and **Application Histor
 
     ![Static Content region dragged into the Body section](images/08-drag-static-content-region.png " ")
 
-3. In the **Property Editor**, enter/select the following:
+3. In the **Property Editor**, enter or select the following:
 
     - Under Identification:
 
@@ -84,11 +86,11 @@ In this task, you will create the **Candidate Details** and **Application Histor
 
     ![Candidate Details region properties](images/09-configure-candidate-details-region.png " ")
 
-4. In the **Rendering Tab**, right-click **Body**, then select **Create Region**.
+4. In the **Rendering** tab, right-click **Body**, then select **Create Region**.
 
     ![Create Region selected from the Body context menu](images/10-create-second-region.png " ")
 
-5. In the **Property Editor**, enter/select the following:
+5. In the **Property Editor**, enter or select the following:
 
     - Under Identification:
 
@@ -100,7 +102,7 @@ In this task, you will create the **Candidate Details** and **Application Histor
 
     ![Save and Run selected in Page Designer](images/12-save-and-run-page.png " ")
 
-7. Enter your username and password, then click **Sign In**.
+7. Enter your username and password, then select **Sign In**.
 
     ![Talent Acquisition Portal application sign-in page](images/13-application-sign-in.png " ")
 
@@ -112,9 +114,9 @@ In this task, you will create the **Candidate Details** and **Application Histor
 
 You learned how to add a page with the Create Page Wizard and maintain it in Page Designer.
 
-You also learned how Page Designer represents page components in the **Rendering Tab** and displays their settings in the **Property Editor**. Attribute help explains individual settings while you work.
+You also learned how Page Designer represents page components in the **Rendering tab** and displays their settings in the **Property Editor**. Attribute help explains individual settings while you work.
 
-You learned how to create regions from the **Gallery Menu** and the **Rendering Tab** context menu. You used both methods to add Static Content regions to **Body**.
+You learned how to create regions from the **Gallery Menu** and the **Rendering tab** context menu. You used both methods to add Static Content regions to **Body**.
 
 At the end of this lab, you are on the running **Candidate Profile** page. In the next lab, you will return to the TAP application home page and open the **Candidate Pipeline** page in Page Designer.
 
@@ -122,11 +124,11 @@ You may now proceed to the next lab.
 
 ## Learn More
 
-* [About Page Designer](https://docs.oracle.com/en/database/oracle/apex/26.1/htmdb/about-page-designer.html)
-* [Managing Pages in an Application](https://docs.oracle.com/en/database/oracle/apex/26.1/htmdb/managing-pages-in-an-application.html)
-* [About Regions](https://docs.oracle.com/en/database/oracle/apex/26.1/htmdb/about-regions.html)
+- [About Page Designer](https://docs.oracle.com/en/database/oracle/apex/26.2/htmdb/about-page-designer.html)
+- [Managing Pages in an Application](https://docs.oracle.com/en/database/oracle/apex/26.2/htmdb/managing-pages-in-an-application.html)
+- [About Regions](https://docs.oracle.com/en/database/oracle/apex/26.2/htmdb/about-regions.html)
 
 ## Acknowledgements
 
 - **Author** - Sahaana Manavalan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
-- **Last Updated By/Date** - Sahaana Manavalan, Senior Product Manager, July 2026
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

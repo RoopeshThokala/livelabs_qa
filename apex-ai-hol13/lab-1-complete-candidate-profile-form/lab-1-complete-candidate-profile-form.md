@@ -23,9 +23,11 @@ Stuck or missed out on completing the previous labs? Don't worry! You can downlo
 
 Import it into your workspace. In **App Builder**, select **Import**, upload `tap-export7.sql`, and follow the steps in the **Import Application** wizard.
 
-> **Note:** Supporting objects are already loaded in the workspace.
+> **Note:**
 >
-> **AI Configuration:** Configure a Generative AI Service in the workspace and select it under **Shared Components > AI Attributes** for the application. See **Module 1, Lab 2: Configure Generative AI Service**.
+> - **APEX Version:** The supplied application export was created with Oracle APEX 26.2 and cannot be imported into earlier APEX releases.
+> - **Supporting Objects:** Supporting objects are already loaded in the workspace.
+> - **AI Configuration:** Configure a Generative AI Service from **App Builder > Workspace Utilities > Generative AI**. See **Module 1, Lab 2: Configure Generative AI Service**.
 
 The following files are also used in this lab:
 

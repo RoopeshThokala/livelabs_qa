@@ -1,10 +1,14 @@
-# Lab 1: Authenticate TAP and ESS
+# Authenticate TAP and ESS
 
 ## Introduction
 
 In this lab, you prepare role-based demo accounts and a local lab credential, then configure custom authentication and an employee session context for the Talent Acquisition Portal (TAP) and Employee Self-Service Portal (ESS).
 
-Estimated Time: 6 minutes
+Estimated Lab Time: 6 minutes
+
+### Where We Are
+
+TAP and ESS currently allow open access. You will add custom authentication and set the employee session context used by the authorization schemes in the following lab.
 
 ### Objectives
 
@@ -12,13 +16,29 @@ Estimated Time: 6 minutes
 - Create and activate custom authentication schemes in TAP and ESS.
 - Set `APP_EMPLOYEE_ID` after authentication.
 
+### Downloads
+
+Stuck or missed out on completing the previous labs? Don't worry! You can download the following files:
+
+- **<a href="../0-introduction/files/ess-export11.sql" download="ess-export11.sql">Employee Self-Service Portal</a>**
+- **<a href="../0-introduction/files/tap-export12.sql" download="tap-export12.sql">Talent Acquisition Portal</a>**
+- **<a href="../0-introduction/files/role-based-access-setup.sql" download="role-based-access-setup.sql">Role-Based Access Setup Script</a>**
+
+Import the application files into your workspace. In **App Builder**, select **Import**, upload each application file, and follow the steps in the **Import Application** wizard. In Task 1, upload and run `role-based-access-setup.sql` from **SQL Workshop**.
+
+> **Note:**
+>
+> - **APEX Version:** The supplied application exports were created with Oracle APEX 26.2 and cannot be imported into earlier APEX releases.
+> - **Supporting Objects:** Supporting objects are already loaded in the workspace.
+> - **AI Configuration:** Configure a Generative AI Service from **App Builder > Workspace Utilities > Generative AI**. See **Module 1, Lab 2: Configure Generative AI Service**.
+
 ## Task 1: Upload and run the demo-account setup script
 
 1. From the workspace home page, open **SQL Workshop** and select **SQL Scripts**.
 
     ![Open SQL Scripts from the workspace dashboard](images/lab1-open-sql-scripts-dashboard.png " ")
 
-2. Download the [TAP and ESS role and credential setup script](files/role-based-access-setup.sql) to your computer. It creates the role tables, adds one active demo employee for each role, and prepares the lab password for active employees.
+2. Download the [role-based access setup script](../0-introduction/files/role-based-access-setup.sql) to your computer. It creates the role tables, adds one active demo employee for each role, and prepares the lab password for active employees.
 
 3. On the **SQL Scripts** page, click **Upload**. Choose the downloaded `role-based-access-setup.sql` file and submit the upload.
 
@@ -241,7 +261,9 @@ Estimated Time: 6 minutes
 
 Both applications now identify users before serving protected pages, and each session carries an employee ID for security decisions. Next, you will define those security decisions as reusable authorization schemes.
 
+You may now **proceed to the next lab**.
+
 ## Acknowledgements
 
 - **Author** - Ashwin Rao, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-- **Last Updated By/Date** - Ashwin Rao, August 2026
+- **Last Updated By/Date** - Roopesh Thokala, October, 2026

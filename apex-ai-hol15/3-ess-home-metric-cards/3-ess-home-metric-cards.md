@@ -20,8 +20,6 @@ In this lab, you will:
 - Map query columns to Metric Card text and avatar properties.
 - Remove the obsolete Page Navigation placeholder.
 
-Use the Lab 3 snapshot, **15_03 : Employee Self-Service Portal** (App **155**), not the application used in Lab 2. Return to the App Builder application list, open this snapshot, and display its Pages report before starting Task 1.
-
 ## Task 1: Personalize the Home Banner
 
 1. In the Pages report, select **Home**.
@@ -32,11 +30,9 @@ Use the Lab 3 snapshot, **15_03 : Employee Self-Service Portal** (App **155**), 
 
     ![Select the Home breadcrumb region](images/lab3-02-select-breadcrumb.png " ")
 
-3. In **Identification**, set **Title** to:
-
-    ```text
-    Welcome, &APP_USER.
-    ```
+3. In **Identification**,
+        - Set **Title** to: **Welcome, &APP_USER.**
+        - Source -> HTML Code: **You have onboarding tasks waiting.**
 
     ![Set the personalized welcome title](images/lab3-03-set-welcome-title.png " ")
 
@@ -142,6 +138,11 @@ The terminating period belongs to the APEX substitution string syntax. At runtim
     </copy>
     ```
 
+    - Under **Appearance**:
+        - Template: **Standard**
+
+    You can also download [ess-home-metrics.sql](files/ess-home-metrics.sql).
+
     ![Enter the ESS metric SQL](images/lab3-06-enter-ess-metric-sql.png " ")
 
 Each `SELECT` returns the same columns, and `UNION ALL` turns the four results into four Metric Card records. The displayed numbers therefore remain live as the underlying task, employee, and leave data changes.
@@ -209,5 +210,5 @@ You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
-- **Author** - Shanmukh Kornana
-- **Last Updated By/Date** - Shanmukh Kornana, August 2026
+- **Author** - Shanmukh Kornana, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, October 2026

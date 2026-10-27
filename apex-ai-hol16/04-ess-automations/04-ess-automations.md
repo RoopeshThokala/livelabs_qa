@@ -1,20 +1,24 @@
-# Lab 4: Create ESS Scheduled Automations
+# Create ESS Scheduled Automations
 
 ## Introduction
 
 In this lab, you create three scheduled automations in ESS. Automations run a sequential set of actions when query results identify data to process. The actions can use columns from the current query row.
 
-Estimated Workshop Time: 10 minutes
+Estimated Lab Time: 10 minutes
+
+### Where We Are
+
+ESS now has reusable templates for leave, onboarding, and probation notifications. You will use those templates in scheduled automations that identify records, update task data, and send email from the application.
 
 ### Objectives
 
-In this lab, you will learn how to:
+In this lab, you will:
 
 - Create the Task Overdue automation.
 - Create the Monthly Leave Accrual automation.
 - Create the Probation End Alert automation.
 
-## Task 1: Create the Task Overdue automation
+## Task 1: Create the Task Overdue Automation
 
 1. In ESS, navigate to **Shared Components**.
 
@@ -32,14 +36,14 @@ In this lab, you will learn how to:
 
 4. In the **Create Automation** wizard, enter or select:
 
-    - **Name:** Task Overdue.
-    - **Type:** Scheduled.
-    - **Actions initiated on:** Query.
-    - **Execution Schedule:** Custom.
-    - **Frequency:** Daily.
-    - **Interval:** `1`.
-    - **Execution Time:** `08:00`.
-    - Click **Next**.
+    - **Name:** Task Overdue
+    - **Type:** Scheduled
+    - **Actions initiated on:** Query
+    - **Execution Schedule:** Custom
+    - **Frequency:** Daily
+    - **Interval:** `1`
+    - **Execution Time:** `08:00`
+    - Click **Next**
 
     - The schedule runs in the database server time zone.
 
@@ -75,15 +79,15 @@ In this lab, you will learn how to:
 
 8. Open the action editor:
 
-    - Scroll down to **Actions**.
-    - Click **Create Action**.
+    - Scroll down to **Actions**
+    - Click **Edit** button on **New Action**
 
     ![Create Action control in the Task Overdue automation](images/task-01-step-08-create-action.png)
 
 9. Enter or select the following attributes:
 
-    - **Name:** Update Task.
-    - **Type:** Execute Code.
+    - **Name:** Update Task
+    - **Type:** Execute Code
     - **Code:** Copy and paste the following PL/SQL code:
 
         ```sql
@@ -102,17 +106,17 @@ In this lab, you will learn how to:
 
 11. Under **Actions**, configure the email action:
 
-    - Click **Create Action**.
+    - Click **Add Action**.
     - Enter or select the following attributes:
 
     - Under **Identification** (shown as **Action** in the screenshot):
-        - **Name:** Send Email.
-        - **Type:** Send E-Mail.
+        - **Name:** Send Email
+        - **Type:** Send E-Mail
     - Under **Send Email Settings**:
-        - **From:** `&APP_EMAIL.`.
-        - **To:** `&EMPLOYEE_EMAIL.`.
+        - **From:** `&APP_EMAIL.`
+        - **To:** `&EMPLOYEE_EMAIL.`
         - **Email Template:** Task Overdue Notification.
-    - Click **Set Placeholder Values**.
+    - Click **Set Placeholder Values**
 
     ![Send E-Mail action type, recipient, template, and Set Placeholder Values button](images/task-01-step-11-send-email-settings.png)
 
@@ -125,7 +129,6 @@ In this lab, you will learn how to:
     | `DUE_DATE` | `&DUE_DATE_TEXT.` |
 
     - Click **Save**.
-    - Close the placeholder dialog.
 
     ![Email placeholder mappings with Save highlighted](images/task-01-step-12-email-placeholders.svg)
 
@@ -144,14 +147,14 @@ In this lab, you will learn how to:
 
 1. Create the second automation:
 
-    - Navigate to **Automations**.
-    - Click **Create**.
+    - Navigate to **Automations**
+    - Click **Create**
     - In the **Create Automation** wizard, enter or select:
-        - **Name:** Monthly Leave Accrual.
-        - **Type:** On Demand.
-        - **Actions initiated on:** Query.
+        - **Name:** Monthly Leave Accrual
+        - **Type:** On Demand
+        - **Actions initiated on:** Query
     - Click **Next**.
-    - Change its type to **Scheduled** in Step 4.
+    - We will change its type to **Scheduled** in Step 4.
 
     ![Task 2: Monthly leave accrual](images/task-02-step-01-monthly-leave-accrual.png)
 
@@ -166,6 +169,7 @@ In this lab, you will learn how to:
          WHERE status = 'Active'
          </copy>
         ```
+
     ![Task 2: Monthly leave accrual SQL query](images/task-02-step-02-monthly-leave-accrual-sql-query.png)
 
 3. Click **Create**.
@@ -177,11 +181,14 @@ In this lab, you will learn how to:
     - Enter this **Schedule Expression**:
 
         ```text
+        <copy>
         FREQ=MONTHLY;BYMONTHDAY=1;BYHOUR=0;BYMINUTE=0;BYSECOND=0
+        </copy>
         ```
+
     ![Task 2: Monthly leave accrual schedule](images/task-02-step-04-monthly-leave-accrual-schedule.png)
 
-5. Add an **Execute Code** action named **Merge Leave Balances**.
+5. Under Actions, edit the existing **New Action** and rename it to **Merge Leave Balances**. Then, replace the PL/SQL Code under **Code** section with the below **PL/SQL Code**.
 
     - This example uses the `MAX_LEAVE_DAYS` application setting and leave type ID `1`. Create or adjust them to match your application.
 
@@ -211,6 +218,7 @@ In this lab, you will learn how to:
 
         </copy>
         ```
+
     ![Task 2: Monthly leave accrual add execute action](images/task-02-step-05-monthly-leave-accrual-add-execute-action.png)
 
 6. Activate and run the automation:
@@ -219,7 +227,7 @@ In this lab, you will learn how to:
     - Click **Save and Run**.
     ![Task 2: Monthly leave accrual set active run](images/task-02-step-06-monthly-leave-accrual-set-active-run.png)
 
-## Task 3: Create Probation End Alert
+## Task 3: Create the Probation End Alert
 
 1. Create and configure the **Probation End Alert** automation:
 
@@ -237,7 +245,8 @@ In this lab, you will learn how to:
     - Enter:
 
         ```sql
-        <copy>SELECT e.employee_id,
+        <copy>
+        SELECT e.employee_id,
                e.first_name || ' ' || e.last_name AS employee_name,
                e.hire_date,
                ADD_MONTHS(e.hire_date,
@@ -246,7 +255,8 @@ In this lab, you will learn how to:
          WHERE e.status = 'Active'
            AND ADD_MONTHS(e.hire_date,
                apex_app_setting.get_value('PROBATION_MONTHS'))
-               BETWEEN TRUNC(SYSDATE) AND TRUNC(SYSDATE) + 7</copy>
+               BETWEEN TRUNC(SYSDATE) AND TRUNC(SYSDATE) + 7
+        </copy>
         ```
     ![Task 3: Probation end alert SQL query](images/task-03-step-02-probation-end-alert-sql-query.png)
 
@@ -256,8 +266,8 @@ In this lab, you will learn how to:
 
 4. Configure the sender and recipient:
 
-    - Set **From** to `&APP_EMAIL.`.
-    - Set **To** to `apex_app_setting.get_value('SUPPORT_EMAIL')`.
+    - Set **From** to `&APP_EMAIL.`
+    - Set **To** to `apex_app_setting.get_value('SUPPORT_EMAIL')`
 
     - Select the **Probation Alert** email template.
 
@@ -280,7 +290,7 @@ In this lab, you will learn how to:
 
     ![Task 3: Probation end alert set active](images/task-03-step-06-probation-end-alert-set-active.png)
 
-## Task 4: Monitor automation runs
+## Task 4: Monitor Automation Runs
 
 1. Open the execution log:
 
@@ -289,7 +299,7 @@ In this lab, you will learn how to:
     - Select **Execution Log**.
 
     - Review the run history and messages for each automation.
-    
+
     ![Task 4: Execution log](images/task-04-step-01-execution-log.png)
 
 2. Open the **System Logs** page from the next lab (Lab 5) for an HR administrator.
@@ -301,7 +311,13 @@ In this lab, you will learn how to:
     - Check `APEX_MAIL_LOG`.
     - Check the mail queue for the failure.
 
+## Summary
+
+You created three ESS automations that mark overdue tasks, accrue leave balances, and notify HR about upcoming probation end dates. You also reviewed the automation execution log and the data shown on the System Logs page.
+
+You may now **proceed to the next lab**.
+
 ## Acknowledgements
 
-- **Author -** Aravind Madhavan, Senior Product Manager.
-- **Last Updated By/Date** - Aravind Madhavan, Senior Product Manager, July 2026
+- **Author** - Aravind Madhavan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, October 2026

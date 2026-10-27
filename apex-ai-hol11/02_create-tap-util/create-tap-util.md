@@ -4,33 +4,33 @@
 
 In this lab, you will create the `TAP_UTIL` PL/SQL package. The package centralizes Talent Acquisition Portal logic for offer salary validation, open requisition counts, and candidate stage progression.
 
-Estimated Time: 5 minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
-In this lab, you will:
+In this lab, you will learn how to:
 
-- Create the `TAP_UTIL` package specification.
-- Create the `TAP_UTIL` package body.
+- Create the **TAP_UTIL** package specification.
+- Create the **TAP_UTIL** package body.
 - Add reusable PL/SQL logic for offer validation and pipeline status.
 
 ## Task 1: Create the TAP_UTIL Package
 
 1. In Oracle APEX, go to **SQL Workshop**.
 
-    !["Open SQL Workshop"](images/open-sql-workshop.png "")
+    ![Open SQL Workshop](images/open-sql-workshop.png " ")
 
 2. Open **Object Browser**.
 
-    !["Open Object Browser"](images/open-object-browser.png "")
+    ![Open Object Browser](images/open-object-browser.png " ")
 
 3. In Object Browser, right-click Packages and select **Create Package**.
 
-    !["Create package menu"](images/create-package-menu.png "")
+    ![Create package menu](images/create-package-menu.png " ")
 
-4. For **Name**, enter `TAP_UTIL`, and then click **Create Package**.
+4. For **Name**, enter `TAP_UTIL`, and then select **Create Package**.
 
-    !["Create TAP_UTIL package"](images/create-tap-util-package.png "")
+    ![Create TAP_UTIL package](images/create-tap-util-package.png " ")
 
 5. In the **Specification** tab, replace the generated package specification with the following code:
 
@@ -56,15 +56,15 @@ In this lab, you will:
     </copy>
     ```
 
-    !["TAP_UTIL package specification"](images/tap-util-package-specification.png "")
+    ![TAP_UTIL package specification](images/tap-util-package-specification.png " ")
 
-6. Click **Save and Compile**.
+6. Select **Save and Compile**.
 
-    !["Compile TAP_UTIL specification"](images/compile-tap-util-specification.png "")
+    ![Compile TAP_UTIL specification](images/compile-tap-util-specification.png " ")
 
 7. Confirm that the package specification compiles successfully, and then open the **Body** tab.
 
-    !["TAP_UTIL specification compile success"](images/tap-util-specification-compile-success.png "")
+    ![TAP_UTIL specification compile success](images/tap-util-specification-compile-success.png " ")
 
 8. Replace the generated package body with the following code:
 
@@ -171,24 +171,23 @@ In this lab, you will:
     </copy>
     ```
 
-    !["TAP_UTIL package body"](images/tap-util-package-body.png "")
+    ![TAP_UTIL package body](images/tap-util-package-body.png " ")
 
-9. Click **Save and Compile**.
+9. Select **Save and Compile**.
 
-    !["Compile TAP_UTIL body"](images/compile-tap-util-body.png "")
+    ![Compile TAP_UTIL body](images/compile-tap-util-body.png " ")
 
 10. Confirm that the package body compiles successfully.
 
     The package now exposes reusable PL/SQL functions and procedures for later validations and processes.
 
-    !["TAP_UTIL compile success"](images/tap-util-compile-success.png "")
+    ![TAP_UTIL compile success](images/tap-util-compile-success.png " ")
 
 ## Summary
 
-You created the `TAP_UTIL` package. It validates offer salary bands, counts open requisitions, and updates candidate stages based on interview outcomes.
+You created the **TAP_UTIL** package. It validates offer salary bands, counts open requisitions, and updates candidate stages based on interview outcomes.
 
 ## Acknowledgements
 
-**Author** - Ankita Beri, Senior Product Manager; Roopesh Thokala, Principal Product Manager
-
-**Last Updated By/Date** - Ankita Beri, July 28, 2026
+- **Author** - Ankita Beri, Senior Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

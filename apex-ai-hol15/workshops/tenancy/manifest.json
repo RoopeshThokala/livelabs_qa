@@ -4,7 +4,7 @@
   "tutorials": [
     {
       "title": "Introduction",
-      "filename": "../../introduction.md",
+      "filename": "../../introduction/introduction.md",
       "description": "Review the purpose, architecture, and flow of the Themes and Templates workshop."
     },
     {

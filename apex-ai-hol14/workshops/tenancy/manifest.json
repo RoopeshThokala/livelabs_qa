@@ -21,13 +21,13 @@
             "filename": "../../tap-breadcrumbs/tap-breadcrumbs.md"
         },
         {
-            "title": "Lab 3: Add TAP Quick Links and Global Search",
+            "title": "Lab 3: Add TAP Quick Links",
             "description": "",
             "type": "livelabs",
             "filename": "../../tap-quick-links-and-search/tap-quick-links-and-search.md"
         },
         {
-            "title": "Lab 4: Configure Global Search",
+            "title": "Lab 4: Configure TAP Global Search",
             "description": "",
             "type": "livelabs",
             "filename": "../../configure-global-search/configure-global-search.md"

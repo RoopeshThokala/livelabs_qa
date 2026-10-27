@@ -1,34 +1,34 @@
-# Create the Employee Self-Service Portal using the Create App Wizard
+# Create the Employee Self-Service Portal Using the Create App Wizard
 
 ## Introduction
 
 In this lab, you will use the APEX Create App Wizard to build an Employee Self-Service Portal (ESS). You will add an interactive report with a form for onboarding tasks and blank pages for employee profile, leave requests, and payslips, then run the application and confirm that its pages load.
 
-Estimated time: 5 minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
-In this lab, you will:
+In this lab, you will learn how to:
 
 - Create the Employee Self-Service Portal (ESS) using the Create App Wizard.
 
 ### What You Will Build
 
-- **Employee Self-Service Portal (ESS)**: Created with the Create App Wizard. It includes Home, My Tasks, My Profile, Leave Request, and My Payslip pages.
+- **Employee Self-Service Portal (ESS)**: Created with the Create App Wizard. It includes Home, My Onboarding Tasks, My Profile, Leave Request, and My Payslip pages.
 
-## Task 1: Create the Employee Self-Service Portal using the Create App Wizard
+## Task 1: Create the Employee Self-Service Portal Application Using the Create App Wizard
 
 In this task, you create the Employee Self-Service Portal application. This application becomes the employee-facing workspace for onboarding tasks, profile details, leave requests, and payslip access.
 
-1. From the left navigation menu, click the **App Builder** icon.
+1. From the left navigation menu, select the **App Builder** icon.
 
     ![App Builder with Talent Acquisition Portal created](images/app-builder-tap-created.png " ")
 
-2. Click **Create**.
+2. Select **Create**.
 
     ![Create a new Employee Self-Service Portal application](images/app-builder-create-ess-start.png " ")
 
-3. Click **Use Create App Wizard**.
+3. Select **Use Create App Wizard**.
 
     ![Employee Self-Service Portal Create App Wizard option](images/ess-create-app-wizard.png " ")
 
@@ -36,7 +36,7 @@ In this task, you create the Employee Self-Service Portal application. This appl
 
     ![Employee Self-Service Portal application name](images/ess-enter-application-name.png " ")
 
-5. To add a **Report with Form** page, click **Add Page**.
+5. To add a **Report with Form** page, select **Add Page**.
 
     ![Add page in the Employee Self-Service Portal wizard](images/ess-click-add-page.png " ")
 
@@ -54,11 +54,11 @@ In this task, you create the Employee Self-Service Portal application. This appl
 
     This page gives employees a simple place to view and update their onboarding tasks.
 
-8. Click **Add Page**.
+8. Select **Add Page**.
 
     ![My Tasks report page details](images/ess-my-tasks-report-page.png " ")
 
-9. On the Create an Application page, click **Add Page** again.
+9. On the Create an Application page, select **Add Page** again.
 
     ![My Tasks page added](images/ess-my-tasks-page-added.png " ")
 
@@ -66,37 +66,37 @@ In this task, you create the Employee Self-Service Portal application. This appl
 
     ![Select Blank Page type](images/add-page-select-blank-page.png " ")
 
-11. For the page name, enter: **My Profile** and click **Add Page**.
+11. For the page name, enter: **My Profile** and select **Add Page**.
 
     ![My Profile blank page details](images/ess-my-profile-blank-page.png " ")
 
     This blank page reserves a place for employee profile information that is added in a later module.
 
-12. To add another **Blank Page**, click **Add Page**.
+12. To add another **Blank Page**, select **Add Page**.
 
     ![Add another Employee Self-Service Portal page](images/ess-add-page-after-profile.png " ")
 
-13. For the page name, enter: **Leave Request** and click **Add Page**.
+13. For the page name, enter: **Leave Request** and select **Add Page**.
 
     ![Leave Request blank page details](images/ess-leave-request-blank-page.png " ")
 
     This blank page reserves a place for leave request functionality that is added in a later module.
 
-14. To add another **Blank** page, click **Add Page**.
+14. To add another **Blank** page, select **Add Page**.
 
     ![Leave Request page added](images/ess-leave-request-page-added.png " ")
 
-15. For the page name, enter: **My Payslip** and click **Add Page**.
+15. For the page name, enter: **My Payslip** and select **Add Page**.
 
     ![My Payslip blank page details](images/ess-my-payslip-blank-page.png " ")
 
     This blank page reserves a place for payslip access that is added in a later module.
 
-16. Click **Create Application**.
+16. Select **Create Application**.
 
     ![Review Employee Self-Service Portal pages and create application](images/ess-review-pages-create-application.png " ")
 
-17. Click **Run Application**.
+17. Select **Run Application**.
 
     ![Employee Self-Service Portal application home in App Builder](images/ess-application-home-builder.png " ")
 
@@ -119,4 +119,4 @@ In this lab, you created and ran the Employee Self-Service Portal using the Crea
 ## Acknowledgements
 
 - **Author** - Ankita Beri, Senior Product Manager; Roopesh Thokala, Principal Product Manager
-- **Last Updated By/Date** - Ankita Beri, Senior Product Manager, July 2026
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

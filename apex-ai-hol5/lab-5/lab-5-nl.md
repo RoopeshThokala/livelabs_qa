@@ -1,18 +1,18 @@
-# Create a Page using Natural Language
+# Create a Page Using Natural Language
 
 ## Introduction
 
 In this lab, you will use APEX Generative AI to create a cards page for the Talent Acquisition Portal from a natural-language prompt. You will review the generated recruiting metrics layout, create the page, and run it in Page Designer.
 
-Estimated time: 5 minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
-In this lab, you will:
+In this lab, you will learn how to:
 
 - Create the Cards page using Natural Language.
 
-## Task 1: Create a Page using Natural Language
+## Task 1: Create a Page Using Natural Language
 
 In this task, you use Generative AI to create the Talent Acquisition Portal page. The cards page gives recruiters a high-level view of open requisitions, candidate activity, interviews, and pending offers.
 
@@ -22,11 +22,11 @@ In this task, you use Generative AI to create the Talent Acquisition Portal page
 
 2. On the Create a Page page, select the **Generative AI** tab.
 
-3. If prompted, accept the Generative AI terms.
+3. If prompted, review and accept the Generative AI terms. If you have already accepted them, the Generative AI conversation opens directly.
 
-    ![Accept the Generative AI terms](images/generative-ai-terms-dialog.png " ")
+    ![Generative AI ready for a page description](images/generative-ai-terms-dialog.png " ")
 
-4. Enter the following prompt and click the send icon:
+4. Enter the following prompt and select the send icon:
 
     ```
     <copy>
@@ -38,15 +38,15 @@ In this task, you use Generative AI to create the Talent Acquisition Portal page
 
     This prompt asks APEX AI to create metric cards that summarize the recruiting pipeline.
 
-5. Review the generated cards page and click **Create Page**.
+5. Review the generated cards page and select **Create Page**.
 
     ![APEX AI page generation response](images/ai-dashboard-create-page-response.png " ")
 
-6. Review the cards layout and attribute settings and click **Create Page**.
+6. Review the cards layout and attribute settings and select **Create Page**.
 
     ![Create the generated cards page](images/ai-dashboard-cards-layout-create-page.png " ")
 
-7. In Page Designer, click **Save and Run**.
+7. In Page Designer, select **Save and Run**.
 
     ![Recruitment Metrics page in Page Designer](images/recruitment-metrics-page-designer.png " ")
 
@@ -63,4 +63,4 @@ In this lab, you used a natural-language prompt to generate and run a Recruitmen
 ## Acknowledgements
 
 - **Author** - Ankita Beri, Senior Product Manager; Roopesh Thokala, Principal Product Manager
-- **Last Updated By/Date** - Ankita Beri, Senior Product Manager, July 2026
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

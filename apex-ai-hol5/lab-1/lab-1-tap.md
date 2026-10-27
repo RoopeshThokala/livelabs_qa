@@ -1,14 +1,14 @@
-# Create Talent Acquisition Portal (TAP) using the Create App Wizard
+# Create the Talent Acquisition Portal (TAP) Using the Create App Wizard
 
 ## Introduction
 
 In this lab, you will use the APEX Create App Wizard to build a starter Talent Acquisition Portal (TAP). You will add report pages for job requisitions and candidates, along with blank pages reserved for interview scheduling and offers, then run the application to confirm that its pages are available.
 
-Estimated time: 5 minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
-In this lab, you will:
+In this lab, you will learn how to:
 
 - Create the Talent Acquisition Portal (TAP) using the Create App Wizard.
 
@@ -16,19 +16,19 @@ In this lab, you will:
 
 - **Talent Acquisition Portal (TAP)**: Created with the Create App Wizard. It includes Home, Job Requisitions, Candidate Pipeline, Interview Schedule, and Offers pages.
 
-## Task 1: Create the Talent Acquisition Portal Application using the Create App Wizard
+## Task 1: Create the Talent Acquisition Portal Application Using the Create App Wizard
 
 In this task, you create the Talent Acquisition Portal application using the Create App Wizard. This application becomes the main recruiting workspace for job requisitions, candidates, interviews, and offers.
 
-1. On the Workspace home page, click **App Builder**.
+1. On the Workspace home page, select **App Builder**.
 
     ![App Builder create application tile](images/app-builder-create-app-tile.png " ")
 
-2. Click **Create**.
+2. Select **Create**.
 
     ![App Builder New Application card](images/app-builder-new-application-card.png " ")
 
-3. Click **Use Create App Wizard**.
+3. Select **Use Create App Wizard**.
 
     ![Create App Wizard option](images/create-application-create-app-wizard.png " ")
 
@@ -36,7 +36,7 @@ In this task, you create the Talent Acquisition Portal application using the Cre
 
     ![Talent Acquisition Portal application name](images/tap-enter-application-name.png " ")
 
-5. To add a **Report with Form** page, click **Add Page**.
+5. To add a **Report with Form** page, select **Add Page**.
 
     ![Add page in the Talent Acquisition Portal wizard](images/tap-click-add-page.png " ")
 
@@ -54,11 +54,11 @@ In this task, you create the Talent Acquisition Portal application using the Cre
 
     This page gives recruiters a working list of open job requisitions and a form to maintain each requisition.
 
-8. Click **Add Page**.
+8. Select **Add Page**.
 
     ![Job Requisitions report page details](images/tap-job-requisitions-report-page.png " ")
 
-9. On the Create an Application page, click **Add Page** again.
+9. On the Create an Application page, select **Add Page** again.
 
     ![Job Requisitions page added](images/tap-job-requisitions-page-added.png " ")
 
@@ -76,11 +76,11 @@ In this task, you create the Talent Acquisition Portal application using the Cre
 
     This page lets recruiters review candidates and update candidate records as they move through the hiring process.
 
-12. Click **Add Page**.
+12. Select **Add Page**.
 
     ![Candidate Pipeline report page details](images/tap-candidate-pipeline-report-page.png " ")
 
-13. On the Create an Application page, click **Add Page** again.
+13. On the Create an Application page, select **Add Page** again.
 
     ![Candidate Pipeline page added](images/tap-candidate-pipeline-page-added.png " ")
 
@@ -88,19 +88,19 @@ In this task, you create the Talent Acquisition Portal application using the Cre
 
     ![Select Blank Page type](images/add-page-select-blank-page.png " ")
 
-15. For the page name, enter: **Interview Schedule** and click **Add Page**.
+15. For the page name, enter: **Interview Schedule** and select **Add Page**.
 
     ![Interview Schedule blank page details](images/tap-interview-schedule-blank-page.png " ")
 
     This blank page reserves a place for interview scheduling functionality that is added in a later module.
 
-16. To add another **Blank Page**, click **Add Page** on the Create an Application page.
+16. To add another **Blank Page**, select **Add Page** on the Create an Application page.
 
 17. Select **Blank**.
 
     ![Select Blank Page type](images/add-page-select-blank-page.png " ")
 
-18. For the page name, enter: **Offers** and click **Add Page**.
+18. For the page name, enter: **Offers** and select **Add Page**.
 
     ![Offers blank page details](images/tap-offers-blank-page.png " ")
 
@@ -110,11 +110,11 @@ In this task, you create the Talent Acquisition Portal application using the Cre
 
 19. Make sure **Appearance** is selected with the default **IRIS** style.
 
-20. Click **Create Application**.
+20. Select **Create Application**.
 
     ![Review Talent Acquisition Portal pages and create application](images/tap-review-pages-create-application.png " ")
 
-21. Click **Run Application**.
+21. Select **Run Application**.
 
     ![Talent Acquisition Portal application home in App Builder](images/tap-application-home-builder.png " ")
 
@@ -122,7 +122,7 @@ In this task, you create the Talent Acquisition Portal application using the Cre
 
     ![Talent Acquisition Portal sign in page](images/tap-sign-in-page.png " ")
 
-23. Click through all five pages and confirm that the application is live.
+23. Open each of the five pages and confirm that the application runs.
 
     ![Talent Acquisition Portal running home page](images/tap-home-page-running.png " ")
 
@@ -137,4 +137,4 @@ In this lab, you created and ran the Talent Acquisition Portal using the Create 
 ## Acknowledgements
 
 - **Author** - Ankita Beri, Senior Product Manager; Roopesh Thokala, Principal Product Manager
-- **Last Updated By/Date** - Ankita Beri, Senior Product Manager, July 2026
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

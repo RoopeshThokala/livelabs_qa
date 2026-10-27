@@ -1,14 +1,14 @@
-# Lab 1: Add Bulk Validations and Make TAP Buttons More Prominent
+# Add Bulk Validations and Make TAP Buttons More Prominent
 
 ## Introduction
 
 TAP is already installed after the complete application import in Module 23. In this lab, you add bulk validations to recruitment forms, then make buttons more prominent across the application. Review the changes and import a page through SQL Developer for VS Code. Then import the complete application to apply the remaining changes.
 
-Estimated Workshop Time: 25 minutes
+Estimated Lab Time: 25 minutes
 
 ### Objectives
 
-In this lab, you will learn how to:
+In this lab, you will:
 
 - Add bulk validations to the existing TAP application.
 - Edit buttons across the application.
@@ -20,14 +20,26 @@ The **single-file import** feature requires **Oracle APEX 26.2 or later** and a 
 
 On **APEX 26.1**, follow the editing tasks, then skip the single-file import in Task 4. Use **Import Application** in Task 5, as learned in Module 23.
 
+### Downloads
+
+Stuck or missed out on completing the earlier labs? Don't worry! You can download the following file:
+
+- **<a href="../introduction/files/tap-export18.sql" download="tap-export18.sql">Talent Acquisition Portal</a>**
+
+Import it into your workspace. In **App Builder**, select **Import**, upload `tap-export18.sql`, and follow the steps in the **Import Application** wizard.
+
+> **Note:**
+>
+> - **APEX Version:** The supplied application export was created with Oracle APEX 26.2 and cannot be imported into earlier APEX releases.
+
 ## Task 1: Check the TAP Project and Export Version
 
-1. Open the TAP APEXlang project from Module 23 in VS Code:
+1. Open the TAP APEXlang project from Module 23 in Visual Studio Code:
 
     - In **Explorer**, expand **applications**.
     - Locate the **talent-acquisition-portal** folder.
 
-    ![TAP application folder and exported project files in VS Code Explorer](images/task-01-step-01-tap-application.png)
+    ![TAP application folder and exported project files in VS Code Explorer](images/task-01-step-01-tap-application.png " ")
 
 2. Check the APEXlang export version:
 
@@ -52,18 +64,18 @@ On **APEX 26.1**, follow the editing tasks, then skip the single-file import in 
 
     The build number after `+` may differ in your environment.
 
-    ![APEXlang metadata file showing mmdVersion 26.2.0+3479](images/task-01-step-02-tap-application-mmd-version.png)
+    ![APEXlang metadata file showing mmdVersion 26.2.0+3479](images/task-01-step-02-tap-application-mmd-version.png " ")
 
 ## Task 2: Add Bulk Validations
 
-1. Open Codex in VS Code:
+1. Open Codex in Visual Studio Code:
 
     - Click the **Codex** icon in the Activity Bar.
     - Open the chat.
 
     - Use the TAP project and the Oracle APEXlang skills configured in **Module 23**.
 
-    ![Codex icon in the VS Code Activity Bar with the TAP project open](images/task-02-step-01-open-codex.png)
+    ![Codex icon in the VS Code Activity Bar with the TAP project open](images/task-02-step-01-open-codex.png " ")
 
 2. Submit the validation prompt for the TAP project:
 
@@ -80,7 +92,7 @@ On **APEX 26.1**, follow the editing tasks, then skip the single-file import in 
 
     - Click **Send**.
 
-    ![TAP project attached to the Codex chat with the validation prompt ready to send](images/task-02-step-02-paste-prompt.png)
+    ![TAP project attached to the Codex chat with the validation prompt ready to send](images/task-02-step-02-paste-prompt.png " ")
 
 3. Review Codex's response:
 
@@ -90,17 +102,19 @@ On **APEX 26.1**, follow the editing tasks, then skip the single-file import in 
     - Confirm that **Codex** added validations to the existing forms.
     - Confirm that it used the correct items.
 
-    ![Codex response listing three edited form pages and the headcount validation diff](images/task-02-step-03-codex-output.png)
+    ![Codex response listing three edited form pages and the headcount validation diff](images/task-02-step-03-codex-output.png " ")
 
 4. Review the headcount validation:
 
     - Open `pages/p00003-job-requisition.apx`.
     - Review the validation and its error message.
 
+    > **Note:** The page number might differ. Open the file for the page named **Job Requisition**.
+
     - Keep the edits local for now.
     - Test the validations after importing the page.
 
-    ![Headcount validation and its associated error message in the Job Requisition page source](images/task-02-step-04-validation.png)
+    ![Headcount validation and its associated error message in the Job Requisition page source](images/task-02-step-04-validation.png " ")
 
 ## Task 3: Make Buttons More Prominent Across TAP
 
@@ -114,11 +128,11 @@ On **APEX 26.1**, follow the editing tasks, then skip the single-file import in 
 
     - Click **Send**.
 
-    ![Button prominence prompt entered in the existing Codex chat](images/task-03-step-01-button-prompt.png)
+    ![Button prominence prompt entered in the existing Codex chat](images/task-03-step-01-button-prompt.png " ")
 
 2. Review the response while **Codex** identifies the buttons and proposed appearance changes.
 
-    ![Codex identifying TAP buttons and describing the proposed theme-based changes](images/task-03-step-02-codex-response-01.png)
+    ![Codex identifying TAP buttons and describing the proposed theme-based changes](images/task-03-step-02-codex-response-01.png " ")
 
 3. Review Codex's completed button updates:
 
@@ -127,7 +141,7 @@ On **APEX 26.1**, follow the editing tasks, then skip the single-file import in 
 
     - This example identifies **94 buttons across 16 pages** and applies styles from the existing theme. Your totals may differ.
 
-    ![Codex summary reporting updated buttons across 16 TAP pages](images/task-03-step-03-codex-response-02.png)
+    ![Codex summary reporting updated buttons across 16 TAP pages](images/task-03-step-03-codex-response-02.png " ")
 
 4. Review the button appearance settings:
 
@@ -137,7 +151,7 @@ On **APEX 26.1**, follow the editing tasks, then skip the single-file import in 
     - Confirm that button actions and conditions remain intact.
     - Check the visual result after import.
 
-    ![Updated Create and Delete button appearance settings in the Job Requisition page source](images/task-03-step-04-codex-changes.png)
+    ![Updated Create and Delete button appearance settings in the Job Requisition page source](images/task-03-step-04-codex-changes.png " ")
 
 ## Task 4: Compare the Changes and Import One Page
 
@@ -147,20 +161,20 @@ On **APEX 26.1**, follow the editing tasks, then skip the single-file import in 
 
     - Review the differences between your local project and TAP in the connected workspace.
 
-    ![Compare with APEX Application icon in the SQL Developer editor toolbar](images/task-04-step-01-compare-changes.png)
+    ![Compare with APEX Application icon in the SQL Developer editor toolbar](images/task-04-step-01-compare-changes.png " ")
 
 2. In **APEXlang Differences**, review the files marked **modified**.
 
     - Confirm that the connection and application shown at the top are your intended targets.
     - Reconcile any unexpected differences before import.
 
-    ![APEXlang Differences view listing modified TAP page files](images/task-04-step-02-compare-changes-02.png)
+    ![APEXlang Differences view listing modified TAP page files](images/task-04-step-02-compare-changes-02.png " ")
 
 3. Click `pages/p00003-job-requisition.apx` in the differences list to open the **Remote ↔ Local** comparison.
 
     - Review the button changes and added validations before importing.
 
-    ![Remote and local Job Requisition source compared side by side with button changes highlighted](images/task-04-step-03-compare-changes-03.png)
+    ![Remote and local Job Requisition source compared side by side with button changes highlighted](images/task-04-step-03-compare-changes-03.png " ")
 
 4. Check for APEXlang errors:
 
@@ -169,7 +183,7 @@ On **APEX 26.1**, follow the editing tasks, then skip the single-file import in 
 
     - Review warnings before proceeding.
 
-    ![Problems panel showing no detected problems in the VS Code workspace](images/task-04-step-04-check-complie-errors.png)
+    ![Problems panel showing no detected problems in the VS Code workspace](images/task-04-step-04-check-complie-errors.png " ")
 
 5. Import the edited Job Requisition page:
 
@@ -182,7 +196,7 @@ On **APEX 26.1**, follow the editing tasks, then skip the single-file import in 
 
     - Wait for the **File successfully imported** message.
 
-    ![Import File icon and File successfully imported notification for the Job Requisition page](images/task-04-step-05-import-file.png)
+    ![Import File icon and File successfully imported notification for the Job Requisition page](images/task-04-step-05-import-file.png " ")
 
     > **Note:** **Import File** imports only the open file.
 
@@ -199,7 +213,7 @@ On **APEX 26.1**, follow the editing tasks, then skip the single-file import in 
     - Correct the value.
     - Verify that valid data passes the check.
 
-    ![Job Requisition form showing the headcount validation error for a value of minus one](images/task-04-step-06-ui-validation-error.png)
+    ![Job Requisition form showing the headcount validation error for a value of minus one](images/task-04-step-06-ui-validation-error.png " ")
 
 ## Task 5: Import the Complete Application and Verify the Remaining Changes
 
@@ -216,7 +230,7 @@ On **APEX 26.1**, follow the editing tasks, then skip the single-file import in 
     - Correct the reported issue.
     - Retry the import.
 
-    ![Import Application icon and Application successfully imported notification in VS Code](images/task-05-step-02-import-application.png)
+    ![Import Application icon and Application successfully imported notification in VS Code](images/task-05-step-02-import-application.png " ")
 
 3. Verify the updated buttons in TAP:
 
@@ -228,7 +242,7 @@ On **APEX 26.1**, follow the editing tasks, then skip the single-file import in 
 
     - Use a disposable record when testing **Delete**.
 
-    ![Job Requisition form with larger Cancel and Apply Changes buttons and a red Delete button](images/task-05-step-03-verify-button-changes.png)
+    ![Job Requisition form with larger Cancel and Apply Changes buttons and a red Delete button](images/task-05-step-03-verify-button-changes.png " ")
 
 4. Test the validations on the other updated forms:
 
@@ -241,10 +255,7 @@ On **APEX 26.1**, follow the editing tasks, then skip the single-file import in 
     - Correct the invalid values.
     - Confirm that valid submissions succeed.
 
-    - **Try More Changes:**
-
-    - Lab 4 provides optional prompts for TAP and ESS.
-    - Extend the same edit, review, import, and test workflow to other validations and page improvements.
+    > **Try More:** Lab 4 provides optional prompts for TAP and ESS. Use the same edit, review, import, and test workflow for other validations and page improvements.
 
 ## Acknowledgements
 

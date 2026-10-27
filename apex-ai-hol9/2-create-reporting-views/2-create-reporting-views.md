@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab, you will remove the temporary App Builder version of HAA, create three reporting views, assemble them into a governed dataset, and create the Data Reporter application.
+In this lab, you remove the temporary App Builder version of HAA, create three reporting views, assemble them into a governed dataset, and create the Data Reporter application.
 
 Estimated Lab Time: 15 minutes
 
@@ -21,13 +21,11 @@ In this lab, you will:
 
 ## Task 1: Remove the Temporary HAA Application
 
-> **Important:** Delete only the old App Builder application named **HR Analytics App** or **HAA**. Do not delete TAP, ESS, Data Reporter applications, or any other workspace application.
+> **Note:** Delete only the old App Builder application named **HR Analytics App** or **HAA**. Do not delete TAP, ESS, Data Reporter applications, or any other workspace application.
 
 1. From the APEX workspace home page, select **App Builder**.
 
 2. In **Applications**, search for the old **HR Analytics App** application.
-
-    ![Check for the old HAA application](images/49-check-for-old-haa-application.png " ")
 
 3. If the application exists:
 
@@ -42,17 +40,22 @@ In this lab, you will:
 
 The views present stable, human-readable reporting columns and keep joins and calculated values out of the report editor.
 
-1. Return to the APEX workspace home page, open **SQL Workshop**, and select **SQL Scripts**.
+1. Return to the APEX workspace home page.
+
+2. Select **SQL Workshop**.
+
+3. Select **SQL Scripts**.
 
     ![Open SQL Scripts](images/47-open-sql-scripts.png " ")
 
-2. On the **SQL Scripts** page, select **Create**.
+4. On the **SQL Scripts** page, select **Create**.
 
-3. For **Script Name**, enter `module9_create_reporting_views.sql`.
+5. For **Script Name**, enter **module9\_create\_reporting\_views.sql**.
 
-4. Copy the following four statements into the script editor. You can also open the included [module9_create_reporting_views.sql](files/module9_create_reporting_views.sql) file and copy its contents.
+6. Add the following four statements to the script editor. The complete script is also available in [module9_create_reporting_views.sql](files/module9\_create\_reporting\_views.sql).
 
     ```sql
+    <copy>
     CREATE OR REPLACE VIEW v_candidate_pipeline AS
     SELECT c.candidate_id,
            c.req_id,
@@ -84,9 +87,9 @@ The views present stable, human-readable reporting columns and keep joins and ca
            e.status,
            TRUNC(SYSDATE - e.hire_date) AS days_employed,
            e.created_by,
-           e.created_at,
+           e.created,
            e.updated_by,
-           e.updated_at
+           e.updated
       FROM tms_employees e
       LEFT JOIN tms_jobs j
         ON e.job_id = j.job_id
@@ -106,9 +109,9 @@ The views present stable, human-readable reporting columns and keep joins and ca
            lr.status,
            lr.approver_id,
            lr.created_by,
-           lr.created_at,
+           lr.created,
            lr.updated_by,
-           lr.updated_at
+           lr.updated
       FROM tms_leave_requests lr
       LEFT JOIN tms_employees e
         ON lr.employee_id = e.employee_id
@@ -126,32 +129,31 @@ The views present stable, human-readable reporting columns and keep joins and ca
      ORDER BY object_name;
     ```
 
-5. Select **Create** to save the script.
+7. Select **Create**.
 
     ![Review the created reporting views script](images/48-create-reporting-views-script.png " ")
 
-6. In the Script Editor, select **Run**.
+8. In the Script Editor, select **Run**.
 
-7. On the **Run Script** confirmation page, verify that:
+9. On the **Run Script** confirmation page, verify the following:
 
-    - **Script Name** is `module9_create_reporting_views.sql`.
+    - **Script Name** is **module9\_create\_reporting\_views.sql**.
     - **Number of Statements** is `4`.
     - **Schema** is the schema containing your workshop's `TMS_` tables. The example screenshot uses `WKSP_APEXLL`; use your assigned schema if its name differs.
 
     ![Run the reporting views script](images/48-run-reporting-views-script.png " ")
 
-    Select **Run**.
+10. Select **Run**.
 
-8. Review the results. Confirm that:
+11. Review the results. Confirm the following:
 
-    - **Status** is `Complete`.
+    - **Status** is **Complete**.
     - All four statements are successful, with zero errors.
-    - The first three statements display `View created.`
-    - The verification query displays `3 rows selected.`
+    - The first three statements display **View created**
+    - The verification query displays **3 rows selected**
 
     ![Review the reporting views script results](images/48-review-reporting-views-script-results.png " ")
 
-    Open **SQL Workshop**, select **SQL Commands**, and select the schema used for the script. Copy only the final `SELECT object_name, status ...` statement from Point 4 into the command editor and select **Run**. Inspect the returned **OBJECT_NAME** and **STATUS** values: `V_CANDIDATE_PIPELINE`, `V_EMPLOYEES_SUMMARY`, and `V_LEAVE_SUMMARY` must each have a status of `VALID`. A message of `3 rows selected.` alone is not sufficient. Resolve any script errors with your instructor before creating the dataset.
 
 ## Task 3: Create the HR Analytics Dataset
 
@@ -217,4 +219,4 @@ You may now **proceed to the next lab**.
 ## Acknowledgements
 
 - **Author** - Shanmukh Kornana, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-- **Last Updated By/Date** - Shanmukh Kornana, July 2026
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

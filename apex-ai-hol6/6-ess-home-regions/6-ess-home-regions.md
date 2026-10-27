@@ -1,10 +1,10 @@
-# Lab 6: Employee Self Service (ESS) - Add Home Regions
+# Add Employee Self-Service (ESS) Home Regions
 
 ## Introduction
 
 In this lab, you update the existing welcome region in **Breadcrumb Bar** and add an onboarding-progress region to **Body** in the Employee Self Service (ESS) application.
 
-Estimated time: 5 minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
@@ -17,15 +17,17 @@ In this lab, you will learn how to:
 
 ### Downloads
 
-Stuck or Missed out on completing the previous labs? Don't worry! You can download the following application:
+Stuck or missed out on completing the previous labs? Don't worry! You can download the following application:
 
 - **<a href="../introduction/files/ess-export1.sql" download="ess-export1.sql">Employee Self-Service Portal</a>**
 
 Import it into your workspace. In **App Builder**, select **Import**, upload `ess-export1.sql`, and follow the steps in the **Import Application** wizard.
 
-> **Note:** Supporting objects are already loaded in the workspace.
+> **Note:**
 >
-> **AI Configuration:** Configure a Generative AI Service in the workspace and select it under **Shared Components > AI Attributes** for the application. See **Module 1, Lab 2: Configure Generative AI Service**.
+> - **APEX Version:** The supplied application export was created with Oracle APEX 26.2 and cannot be imported into earlier APEX releases.
+> - **Supporting Objects:** Supporting objects are already loaded in the workspace.
+> - **AI Configuration:** Configure a Generative AI Service from **App Builder > Workspace Utilities > Generative AI**. See **Module 1, Lab 2: Configure Generative AI Service**.
 
 ## Task 1: Update the Breadcrumb Welcome Region
 
@@ -43,7 +45,7 @@ In this task, you will update the existing **Employee Self-Service Portal** Stat
 
     ![ESS Home page selected on the application home page](images/03-open-ess-home-page.png " ")
 
-4. In the **Rendering Tab**, select the existing **Employee Self-Service Portal** region under **Breadcrumb Bar**. In the **Property Editor**, enter/select the following:
+4. In the **Rendering** tab, select the existing **Employee Self-Service Portal** region under **Breadcrumb Bar**. In the **Property Editor**, enter or select the following:
 
     - Under Source:
 
@@ -63,11 +65,11 @@ In this task, you will update the existing **Employee Self-Service Portal** Stat
 
 In this task, you will create the **Your Onboarding Progress** Static Content region in **Body**. You will add HTML for a progress bar with a fixed value of zero.
 
-1. In the **Rendering Tab**, right-click **Body**, then select **Create Region**.
+1. In the **Rendering** tab, right-click **Body**, then select **Create Region**.
 
     ![Create Region selected from the Body context menu](images/05-create-progress-region.png " ")
 
-2. In the **Property Editor**, enter/select the following:
+2. In the **Property Editor**, enter or select the following:
 
     - Under Identification:
 
@@ -112,10 +114,10 @@ This completes the module.
 
 ## Learn More
 
-* [Editing Regions](https://docs.oracle.com/en/database/oracle/apex/26.1/htmdb/editing-regions.html)
-* [Using Built-in Substitution Strings](https://docs.oracle.com/en/database/oracle/apex/26.1/htmdb/using-available-built-in-substitution-strings.html)
+- [Editing Regions](https://docs.oracle.com/en/database/oracle/apex/26.2/htmdb/editing-regions.html)
+- [Using Built-in Substitution Strings](https://docs.oracle.com/en/database/oracle/apex/26.2/htmdb/using-available-built-in-substitution-strings.html)
 
 ## Acknowledgements
 
 - **Author** - Sahaana Manavalan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
-- **Last Updated By/Date** - Sahaana Manavalan, Senior Product Manager, July 2026
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

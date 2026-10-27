@@ -1,4 +1,4 @@
-# Lab 3: Implement Semantic Search on the Candidate Pipeline in TAP
+# Implement Semantic Search on the Candidate Pipeline in TAP
 
 ## Introduction
 
@@ -18,153 +18,167 @@ In this lab, you will:
 
 - Validate result ranking with natural-language searches.
 
+### Prerequisites
+
+- Complete Labs 1 and 2 to create the vector provider and generate candidate embeddings.
+- Access to the **Talent Acquisition Portal** application.
+
+### Downloads
+
+Stuck or missed out on completing the earlier labs? Don't worry! You can download the following file:
+
+- **<a href="../introduction/files/tap-export16.sql" download="tap-export16.sql">Talent Acquisition Portal</a>**
+
+Import it into your workspace. In **App Builder**, select **Import**, upload `tap-export16.sql`, and follow the steps in the **Import Application** wizard.
+
+> **Note:**
+>
+> - **APEX Version:** The supplied application export was created with Oracle APEX 26.2 and cannot be imported into earlier APEX releases.
+
 ## Task 1: Create the Vector Search Configuration
 
-1. Open the **Talent Acquisition Portal(TAP)** application.
+1. In **App Builder**, open the **Talent Acquisition Portal (TAP)** application.
 
-2. From the **App Builder** home page, navigate to **Shared Components**.
+2. On the Application home page, click **Shared Components**.
 
-    ![Opening Search Configurations in Shared Components](images/open-tap-shared-components.png)
+    ![Open TAP Shared Components](images/open-tap-shared-components.png " ")
 
 3. Under **Navigation and Search**, select **Search Configurations**.
 
-    ![Opening Search Configurations in Shared Components](images/open-tap-search-configurations.png)
+    ![Opening Search Configurations in Shared Components](images/open-tap-search-configurations.png " ")
 
 4. Click **Create**.
 
-    ![Opening Search Configurations in Shared Components](images/tap-search-configurations-list.png)
+    ![Create a search configuration](images/tap-search-configurations-list.png " ")
 
-5. Configure the settings as follows:
+5. On the **Create Search Configuration** page, enter/select the following:
 
-    - Name: **Candidate Semantic Search**
+    - **Name:** **Candidate Semantic Search**
 
-    - Search Type: **Oracle AI Vector Search**
+    - **Search Type:** **Oracle AI Vector Search**
 
 6. Click **Next**.
 
-    ![Configuring Candidate Semantic Search vector search settings](images/create-candidate-search-configuration.png)
+    ![Configuring Candidate Semantic Search vector search settings](images/create-candidate-search-configuration.png " ")
 
-7. Select **DB ONNX Model** as Vector Provider.
+7. On the **Source** page, enter/select the following:
 
-8. For Table/View Owner, select **TMS_CANDIDATES** and click **Next**.
+    - **Vector Provider:** **ONNX Model**, created in Lab 1 with Static ID `db-onnx-model`.
+    - **Source Type:** **Table**
+    - **Table / View Owner:** Select the schema that contains `TMS_CANDIDATES`.
+    - **Table / View Name:** **TMS_CANDIDATES**
 
-    ![Configuring Candidate Semantic Search vector search settings](images/select-candidate-search-source.png)
+    > **Note:** The screenshots show this vector provider named **DB ONNX Model**. Select the provider created in Lab 1.
 
-9. For Column Mapping, enter/select the following:
+8. Click **Next**.
 
-    - Primary Key: **CANDIDATE_ID (Number)**
+    ![Configuring Candidate Semantic Search vector search settings](images/select-candidate-search-source.png " ")
 
-    - Vector Column: **SKILLS_VECTOR (Vector)**
+9. On the **Column Mapping** page, enter/select the following:
 
-    - Title Column: **FIRST_NAME (Varchar2)**
+    - **Primary Key:** **CANDIDATE_ID (Number)**
 
-    - Description Column: **SKILLS_TEXT (Varchar2)**
+    - **Vector Column:** **SKILLS_VECTOR (Vector)**
 
-10. Click **Create Search Configuration**
+    - **Title Column:** **FIRST_NAME (Varchar2)**
 
-    ![Configuring Candidate Semantic Search vector search settings](images/map-candidate-search-columns.png)
+    - **Description Column:** **SKILLS_TEXT (Varchar2)**
 
-## Task 2: Add the search item and region on the Candidate Pipeline page
+10. Click **Create Search Configuration**.
 
-1. Navigate to your **Application ID**.
+    ![Configuring Candidate Semantic Search vector search settings](images/map-candidate-search-columns.png " ")
 
-    ![Opening Page 4 Candidate Pipeline in Page Designer](images/candidate-search-configuration-created.png)
+## Task 2: Add the Search Item and Region to the Candidate Pipeline Page
+
+1. In the breadcrumb, click the **Application ID** to return to the Application home page.
+
+    ![Return to the Application home page](images/candidate-search-configuration-created.png " ")
 
 2. Select the **4: Candidate Pipeline** page.
 
-    ![Opening Page 4 Candidate Pipeline in Page Designer](images/open-candidate-pipeline-page.png)
+    > **Note:** Your page number might differ. Open the page named **Candidate Pipeline** and use its page number in place of `4` in page item names such as `P4_SEMANTIC_SEARCH` and `P4_REQ_ID`.
 
-3. Right-click **Body** and select **Create Page Item**.
+    ![Opening Page 4 Candidate Pipeline in Page Designer](images/open-candidate-pipeline-page.png " ")
 
-4. Drag the page item above the **P4\_REQ_ID** page item. In the Property Editor, enter/select the following:
+3. In the **Rendering** tab, right-click **Body** and select **Create Page Item**.
 
-    - Under Identification:
+4. Drag the new page item above **P4\_REQ\_ID**.
 
-        - Name: **P4\_SEMANTIC\_SEARCH**
+    In the **Property Editor**, enter/select the following:
 
-        - Type: **Text Field**
+    - Under **Identification**:
 
-    - Label > Label: **Search Candidates**
+        - **Name:** **P4\_SEMANTIC\_SEARCH**
 
-    - Appearance > Value Placeholder: **Search candidates by skills or experience...**
+        - **Type:** **Text Field**
 
-    ![Creating P4_SEMANTIC_SEARCH text field item](images/create-semantic-search-page-item.png)
+    - **Label > Label:** **Search Candidates**
 
-5. Now, right-click on **Body** and select **Create Region**. Drag it below the P4\_SEMANTIC\_SEARCH page item.
+    - **Appearance > Value Placeholder:** **Search candidates by skills or experience...**
 
-6. In the Property Editor, enter/select the following:
+    ![Creating P4_SEMANTIC_SEARCH text field item](images/create-semantic-search-page-item.png " ")
 
-    - Under Identification:
+5. In the **Rendering** tab, right-click **Body** and select **Create Region**.
 
-        - Name: **Semantic Candidate Search**
+6. Drag the new region below **P4\_SEMANTIC\_SEARCH**.
 
-        - Type: **Search**
+    In the **Property Editor**, enter/select the following:
 
-    ![Adding Search region to Candidate Pipeline page](images/create-semantic-candidate-search-region.png)
+    - Under **Identification**:
 
-7. In the Property Editor, select the **Attributes** tab and enter/select the following:
+        - **Name:** **Semantic Candidate Search**
 
-    - Under Settings:
+        - **Type:** **Search**
 
-        - Search Page Item: **P4\_SEMANTIC\_SEARCH**
+    ![Adding Search region to Candidate Pipeline page](images/create-semantic-candidate-search-region.png " ")
 
-        - Search as You Type: **Toggle On**
+7. With **Semantic Candidate Search** selected, click the **Attributes** tab in the **Property Editor** and enter/select the following:
 
-        - Minimum Characters: **3**
+    - Under **Settings**:
 
-    ![Configuring search region attributes and search as you type](images/configure-semantic-search-region.png)
+        - **Search Page Item:** **P4_SEMANTIC_SEARCH**
 
-8. Under the **Semantic Candidate Search** region, select **Search Sources** and configure it with the following:
+        - **Search as You Type:** **Toggle ON**
 
-    - Under Identification:
+        - **Minimum Characters:** **3**
 
-        - Name: **Candidate Semantic Search**
+    ![Configuring search region attributes and search as you type](images/configure-semantic-search-region.png " ")
 
-        - Search Configuration: **Candidate Semantic Search**
+8. In the **Rendering** tab, expand **Semantic Candidate Search > Search Sources** and select **New**.
+
+    In the **Property Editor**, enter/select the following:
+
+    - Under **Identification**:
+
+        - **Name:** **Candidate Semantic Search**
+
+        - **Search Configuration:** **Candidate Semantic Search**
+
+    ![Configure the Candidate Semantic Search source](images/add-candidate-search-source.png " ")
 
 9. Click **Save and Run**.
 
-    ![Adding Search Source configured to Candidate Semantic Search](images/add-candidate-search-source.png)
-
-    ![Saving the Page Designer changes to Candidate Pipeline page](images/save-and-run-candidate-search-page.png)
+    ![Saving the Page Designer changes to Candidate Pipeline page](images/save-and-run-candidate-search-page.png " ")
 
 ## Task 3: Test Semantic Candidate Ranking
 
-1. Open the **Candidate Pipeline** in **TAP** and enter the following search text in the Search Candidates field:
-
-    ```
-    <copy>
-    low code Oracle application developer
-    </copy>
-    ```
+1. On the **Candidate Pipeline** page, enter **low code Oracle application developer** in **Search Candidates**.
 
     Candidates with skills such as Oracle APEX, PL/SQL, ORDS, REST APIs, and Oracle Database should rank higher in the results.
 
-    ![Candidate Pipeline showing search results for low-code Oracle developer role](images/candidate-pipeline-low-code-results.png)
+    ![Candidate Pipeline showing search results for low-code Oracle developer role](images/candidate-pipeline-low-code-results.png " ")
 
-2. Now, let's test an OCI-focused search. Search for:
-
-    ```
-    <copy>
-    cloud infrastructure engineer
-    </copy>
-    ```
+2. Replace the search text with **cloud infrastructure engineer**.
 
     Candidates with OCI Compute, OCI Networking, IAM, Object Storage, and cloud architecture experience should rank higher.
 
-    ![Candidate Pipeline showing search results for cloud infrastructure engineer role](images/candidate-pipeline-cloud-results.png)
+    ![Candidate Pipeline showing search results for cloud infrastructure engineer role](images/candidate-pipeline-cloud-results.png " ")
 
-3. Test an AI and vector-focused search. Search for:
-
-    ```
-     <copy>
-    AI semantic search database developer
-     </copy>
-    ```
+3. Replace the search text with **AI semantic search database developer**.
 
     Candidates with Oracle AI Database, AI Vector Search, VECTOR, ONNX embedding models, SQL, and PL/SQL should rank higher.
 
-    ![Candidate Pipeline showing search results for AI and vector-focused database developer role](images/candidate-pipeline-ai-results.png)
+    ![Candidate Pipeline showing search results for AI and vector-focused database developer role](images/candidate-pipeline-ai-results.png " ")
 
 ## Summary
 
@@ -172,5 +186,5 @@ The Candidate Pipeline now supports semantic search using the vector embeddings 
 
 ## Acknowledgements
 
-- **Author** - Ankita Beri, Senior Product Manager
-- **Last Updated By/Date** - Ankita Beri, August 2026
+- **Author** - Ankita Beri, Senior Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

@@ -1,51 +1,54 @@
-# Set up the APEXlang Skills repo
+# Set Up the APEXlang Skills Repository
 
 ## Introduction
 
 APEXlang is an Open Application Specification Language introduced in Oracle APEX 26.1. In this lab, you will set up APEXlang skills.
 
+Estimated Lab Time: 5 minutes
+
 ### Objectives
+
+In this lab, you will:
 
 - Configure the APEXlang skills repository in Visual Studio Code.
 
-Estimated Time: 5 minutes
+### Prerequisites
 
-### Downloads
+- Complete Lab 1 to install Oracle SQL Developer for VS Code and create a database connection.
 
-## Task 1: Set up the APEXlang Skills repo in Visual Studio Code
+## Task 1: Set Up the APEXlang Skills Repository in Visual Studio Code
 
 To install the required Oracle APEX and database skills:
 
-1. Open SQL Developer. Right-click your database connection. Select **Open SQLcl**.
+1. In **Oracle SQL Developer for VS Code**, right-click your database connection and select **Open SQLcl**.
 
-    ![VS Code left navigation bar](images/open-sql.png)
+    ![Open SQLcl from the database connection](images/open-sql.png " ")
 
-2. This opens an SQLcl terminal connected to your database schema.
+2. Confirm that the SQLcl terminal is connected to your database schema.
 
-    ![VS Code](images/sqlcl-started.png)
+    ![SQLcl terminal connected to the database](images/sqlcl-started.png " ")
 
-3. Run the below command to install the required skills:
+3. In the SQLcl terminal, run the following command to install the required skills:
 
-    ```
+    ```text
     <copy>
     skills sync -skill-name apex,db
     </copy>
     ```
 
-    ![VS Code](images/skill-sync.png)
+4. Wait for the command to complete.
 
-    **Note:** *The Skills repository is updated regularly. To get the latest changes, simply re-run the same command to sync it again.*
+    Confirm that the output reports that the skills repository was synchronized and the skills were installed.
 
-    This command installs the Oracle APEX and database-related skills needed for APEXlang workflows.
+    ![SQLcl output confirming skills synchronization and installation](images/skill-sync.png " ")
 
-    After installation, the required skills should be available locally in your coding agent’s skills directory.
+    > **Note:** The skills repository is updated regularly. Run the same command again to synchronize later changes.
 
-    You are now ready to start building APEX applications with APEXlang in your preferred AI coding agent.
+    The command installs the Oracle APEX and database skills for use by your coding agent.
 
-    Our skills are publicly available at [https://github.com/oracle/skills](https://github.com/oracle/skills).  More advanced users may clone, fork or download them from there and install them in their local agents.
+    The source files are available in the [Oracle skills repository](https://github.com/oracle/skills).
 
 ## Acknowledgements
 
-- **Author** - Ankita Beri, Senior product manager
-
-- **Last Updated By/Date** - Ankita Beri, September, 2026
+- **Author** - Ankita Beri, Senior Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Ankita Beri, September 2026

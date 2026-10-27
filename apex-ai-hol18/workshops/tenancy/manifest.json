@@ -1,10 +1,10 @@
 {
   "workshoptitle": "Security in APEX",
   "include": {
-    "role-based-access-setup.sql": "../../files/role-based-access-setup.sql"
+    "role-based-access-setup.sql": "../../0-introduction/files/role-based-access-setup.sql"
   },
   "tutorials": [
-    { "title": "Introduction", "filename": "../../introduction.md" },
+    { "title": "Introduction", "filename": "../../0-introduction/introduction.md" },
     { "title": "Lab 1: Authenticate TAP and ESS", "filename": "../../1-authenticate-tap-and-ess/1-authenticate-tap-and-ess.md" },
     { "title": "Lab 2: Create Authorization Schemes", "filename": "../../2-create-authorization-schemes/2-create-authorization-schemes.md" },
     { "title": "Lab 3: Protect Pages and Navigation", "filename": "../../3-protect-pages-navigation-and-session-state/3-protect-pages-navigation-and-session-state.md" },

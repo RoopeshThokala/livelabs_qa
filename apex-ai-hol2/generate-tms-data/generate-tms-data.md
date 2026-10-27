@@ -1,48 +1,57 @@
-# Lab 4: Insert Realistic Data
+# Insert Realistic Data
 
 ## Introduction
 
-Create enough data to develop and test the APEX app. 
+Load data that you can use to develop and test the APEX application.
 
-Estimated Time: 5 minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
-In this lab, you will:
+In this lab, you will learn how to:
 
-- Upload the DML script into SQL scripts.
+- Upload the DML script to SQL Scripts.
 - Run the script to insert TMS data into the relevant tables.
 
-## Task 1: Upload the SQL script to Insert Data
+## Task 1: Upload the SQL Script
 
-1. In the SQL Workshop, navigate to **SQL Scripts**.
+1. In SQL Workshop, select **SQL Scripts**.
 
-    ![SQL script](images/nav-sql-script.png ' ')
+    ![Open SQL Scripts](images/nav-sql-script.png " ")
 
-2. Click **Upload**.
+2. Select **Upload**.
 
-    ![SQL script](images/upload.png ' ')
+    ![Open the Upload Script dialog](images/upload.png " ")
 
-3. Select the [tms\_sample\_data.sql](files/tms_sample_data.sql) file. For Script Name, enter **tms\_sample\_data** and click **Upload**.
+3. Select [tms\_sample\_data.sql](files/tms_sample_data.sql).
 
-    ![SQL script](images/tms_sample_upload.png ' ')
+4. For **Script Name**, enter **tms\_sample\_data**.
 
-## Task 2: Run the SQL script
+5. Select **Upload**.
 
-1. Run the **tms\_sample\_data** script.
+    ![Upload the TMS sample-data script](images/tms_sample_upload.png " ")
 
-    ![SQL script](images/run-script.png ' ')
+## Task 2: Run the SQL Script
 
-2. Click **Run**.
+1. Select the **tms\_sample\_data** script.
 
-    ![SQL script](images/run-again.png ' ')
+2. Select **Run**.
 
-3. Verify that the script ran without any errors.
+    ![Run the TMS sample-data script](images/run-script.png " ")
 
-    ![SQL script run result](images/run-result.png ' ')
+3. Select **Run**.
 
+    ![Confirm the script run](images/run-again.png " ")
 
-## Acknowledgements
+4. Verify that the script completed without errors.
 
-* **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-* **Last Updated By/Date** - Apoorva Srinivas, Principal Product Manager, July 2026
+    ![Review the script run results](images/run-result.png " ")
+
+## Summary
+
+You uploaded and ran the sample-data script to populate the TMS tables.
+
+### Acknowledgements
+
+- **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

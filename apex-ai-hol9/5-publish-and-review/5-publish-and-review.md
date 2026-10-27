@@ -4,7 +4,7 @@
 
 Unpublished Data Reporter reports are available only to developers. In this lab, you will publish all four HAA reports and validate the final experience as `DR_USER`.
 
-Estimated Lab Time: Final validation included in the 60-minute workshop
+Estimated Lab Time: Final validation is included in the 60-minute workshop
 
 ### Where We Are
 
@@ -137,4 +137,4 @@ You may now **proceed to the next module**.
 ## Acknowledgements
 
 - **Author** - Shanmukh Kornana, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-- **Last Updated By/Date** - Shanmukh Kornana, July 2026
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

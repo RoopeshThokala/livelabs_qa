@@ -1,124 +1,166 @@
-# Lab 2: Demonstrate User Report Customization
+# Demonstrate User Report Customization
 
 ## Introduction
 
-Use a separate end-user account to personalize Candidate Pipeline. This illustrates that user-saved reports remain private, while developer-saved reports can be shared.
+Use a separate end-user account to personalize Candidate Pipeline. This demonstrates that end-user report customizations are private, whereas developer-saved reports can be shared.
 
-Estimated Time: 5 minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
-In this lab, you will:
+In this lab, you will learn how to:
 
 - Update the Candidate Pipeline query to include department information.
-- Create a private report as the end user.
-- Compare the primary report with the private report.
+- Create a private report as an end user.
+- Compare the primary report with a private report.
 
-## Task 1: Prepare the report query
+## Task 1: Prepare the Report Query
 
-1. In Page Designer, open the Candidate Pipeline interactive report region. Click **Edit Page** from the Runtime Developer Toolbar.
+1. Run the application.
 
-    ![Page Designer with the Candidate Pipeline interactive report region selected.](images/edit-page.png ' ')
+2. On the **Candidate Pipeline** page, select **Edit Page** in the Developer Toolbar.
 
-3. In the left pane, select **Candidates**, and click SQL Query **Code Editor**.
-    ![Page Designer with the Candidate Pipeline interactive report region selected.](images/code-editor.png ' ')
+    ![Open Candidate Pipeline in Page Designer](images/edit-page.png " ")
 
-2. Replace the region SQL query with the following:
+3. In the Rendering tab, select the **Candidates** region.
+
+4. In the Property Editor, under **Source**, select **SQL Query**.
+
+    ![Open the Candidate Pipeline SQL Query editor](images/code-editor.png " ")
+
+5. Replace the query with the following:
 
     ```sql
-    <copy>
-    select c.candidate_id,
-       c.req_id,
-       c.first_name || ' ' || c.last_name as candidate_name,
-       d.name as department_name,
-       c.email,
-       c.phone,
-       c.resume_blob,
-       c.source,
-       c.current_stage as stage,
-       c.applied_date,
-       trunc(sysdate - c.applied_date) as days_since_applied,
-       c.diversity_flag,
-       c.ai_score,
-       c.created_by,
-       c.created,
-       c.updated_by,
-       c.updated
-  from tms_candidates c
-  left join tms_job_requisitions r
-    on c.req_id = r.req_id
-  left join tms_departments d
-    on r.dept_id = d.dept_id;
-    </copy>
+    SELECT c.candidate_id,
+           c.req_id,
+           c.first_name || ' ' || c.last_name AS candidate_name,
+           d.name AS department_name,
+           c.email,
+           c.phone,
+           c.resume_blob,
+           c.source,
+           c.current_stage AS stage,
+           c.applied_date,
+           TRUNC(SYSDATE - c.applied_date) AS days_since_applied,
+           c.diversity_flag,
+           c.ai_score,
+           c.created_by,
+           c.created,
+           c.updated_by,
+           c.updated
+      FROM tms_candidates c
+      LEFT JOIN tms_job_requisitions r
+        ON c.req_id = r.req_id
+      LEFT JOIN tms_departments d
+        ON r.dept_id = d.dept_id
     ```
 
-    ![SQL source editor containing the Candidate Pipeline query with Department Name.](images/replace-candidate-pipeline-query.png ' ')
+    ![Add Department Name to the Candidate Pipeline query](images/replace-candidate-pipeline-query.png " ")
 
-3. Save and run the page.
+6. Select **Save and Run Page**.
 
-    ![Page Designer showing the Candidate Pipeline interactive report SQL source.](images/save-run.png ' ')
+    ![Save and run the Candidate Pipeline page](images/save-run.png " ")
 
+## Task 2: Create an End-User Account
 
-## Task 2: Create an End User
+1. In your APEX workspace, select **Administration**.
 
-1. From your APEX Workspace, navigate to **Administration** > **Manage Users and Groups**.
+2. Select **Manage Users and Groups**.
 
-    ![APEX workspace](images/manage-users.png ' ')
+    ![Open Manage Users and Groups](images/manage-users.png " ")
 
+3. Select **Create User**.
 
-2. Click **Create User**.
-    ![APEX workspace](images/create-user.png ' ')
+    ![Select Create User](images/create-user.png " ")
 
-3. Enter the following details:
-    - Username: **APEXAI**
-    - Email Address: **apexai@email.com**
-    - Password: `Enter a password of your choice`
-    - Confirm Password: `Enter the password again`
-    
-    Click **Create User**.
+4. Enter/select the following:
 
-    ![APEX workspace](images/create-user-details.png ' ')
+    - **Username:** **APEXAI**
+    - **Email Address:** **apexai@example.com**
+    - **Password:** Enter a password of your choice.
+    - **Confirm Password:** Enter the password again.
 
+5. Select **Create User**.
 
-## Task 3: Create a private user report
+    ![Create the APEXAI end-user account](images/create-user-details.png " ")
 
+## Task 3: Create a Private User Report
 
-1. Run the application. Log out as the developer and log in as end user **APEXAI**.
-    ![log in page](images/login.png ' ')
+1. Run the application.
 
-2. On the Candidate Pipeline page, navigate to **Actions** > **Columns**. Move the **Department Name** column to the Display section.
+2. Sign out of the developer account.
 
-    ![Columns dialog with Department Name moved to the displayed columns list.](images/display-department-name.png ' ')
+3. Sign in as **APEXAI**.
 
-3. Navigate to **Actions** > **Filter**. Add a filter that limits department results to Sales and Engineering. Enter/select the following:
-    - Column: **Department Name**
-    - Operator: **in**
-    - Expression: **Sales,Engineering**
+    ![Sign in as the APEXAI user](images/login.png " ")
 
-    ![Filter dialog limiting Department Name to Sales and Engineering.](images/filter-sales-engineering.png ' ')
+4. On the **Candidate Pipeline** page, select **Actions**.
 
-4. Navigate to **Actions** > **Group By**. Enter/select the following:
-    - Group By: **Stage**
-    - Functions: **Count**
-    - Column: **Candidate Name**
-    - Format Mask: **5,234**
+5. Select **Columns**.
 
-    Click **Apply**.
+6. In the **Columns** dialog, move **Department Name** to the displayed columns.
 
-    ![Interactive report grouped by Stage with a Candidate Name count aggregate.](images/group-stage-count-candidates.png ' ')
+7. Select **Apply**.
 
-5. Navigate to **Actions** > **Report** > **Save Report**. Save the result as a private report with the following details:
-    - Save (Only displayed for developers): **As Named Report**
-    - Name: **My Dashboard**.
+    ![Display the Department Name column](images/display-department-name.png " ")
 
-    ![Candidate Pipeline customized by an end user with Department Name, stage grouping, and My Dashboard selected.](images/my-dashboard-private-report.png ' ')
+8. Select **Actions**.
 
-6. Switch to Primary Report. Navigate to **Actions** > **Report** > **Reset**. 
-    Reset the primary report and compare it with **My Dashboard**. Confirm that **My Dashboard** is private to the signed-in user.
+9. Select **Filter**.
 
-    ![Report selector showing the primary report and the private My Dashboard report.](images/compare-primary-private-report.png ' ')
+10. In the **Filter** dialog, enter/select the following:
 
-## Acknowledgements
+    - **Column:** **Department Name**
+    - **Operator:** **in**
+    - **Expression:** **Sales,Engineering**
 
-* **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-* **Last Updated By/Date** - Apoorva Srinivas, Principal Product Manager, July 2026
+11. Select **Apply**.
+
+    ![Filter candidates by department](images/filter-sales-engineering.png " ")
+
+12. Select **Actions**.
+
+13. Then, select **Group By**.
+
+14. In the **Group By** dialog, enter/select the following:
+
+    - **Group By:** **Stage**
+    - **Function:** **Count**
+    - **Column:** **Candidate Name**
+    - **Format Mask:** **5,234**
+
+15. Select **Apply**.
+
+    ![Group candidates by Stage and count Candidate Name](images/group-stage-count-candidates.png " ")
+
+16. Select **Actions**.
+
+17. Select **Report** and then select **Save Report**.
+
+18. In the **Save Report** dialog, enter/select the following:
+
+    - **Save:** **As Named Report**
+    - **Name:** **My Dashboard**
+
+19. Select **Apply**.
+
+    ![Save the My Dashboard private report](images/my-dashboard-private-report.png " ")
+
+20. Select the report selector and select **Primary Report**.
+
+21. Select **Actions**.
+
+22. Select **Report** and then select **Reset**.
+
+23. Compare the primary report with **My Dashboard**. Confirm that **My Dashboard** is available only to the signed-in user.
+
+    ![Compare the primary and private reports](images/compare-primary-private-report.png " ")
+
+## Summary
+
+You updated Candidate Pipeline to display department information and created the private **My Dashboard** report for the **APEXAI** user.
+
+### Acknowledgements
+
+- **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

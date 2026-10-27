@@ -2,13 +2,13 @@
 
 ## Introduction
 
-Before you build an Oracle APEX application, create and verify the database objects it will use. In this workshop, you use SQL Workshop to explore a sample relational dataset, create a Talent-Management-System (TMS) schema, generate data, and save verification queries.
+Before you build an Oracle APEX application, create and verify the database objects that it uses. In this workshop, you use SQL Workshop to explore a sample relational dataset, create a Talent Management System (TMS) schema, generate data, and save verification queries.
 
 Estimated Workshop Time: 50 minutes
 
 ### Objectives
 
-In this workshop, you will:
+In this workshop, you will learn how to:
 
 - Identify the SQL Workshop tools available in Oracle APEX.
 - Create the TMS tables with Quick SQL.
@@ -18,14 +18,13 @@ In this workshop, you will:
 ### Prerequisites
 
 - An Oracle APEX workspace where you can access SQL Workshop and create database objects.
-- A database that supports the APEX features used in the lab. The optional vector column requires Oracle AI Database vector support.
-
+- A database that supports the APEX features used in the workshop. The optional vector column requires Oracle AI Database vector support.
 
 ## Learn More
 
 - [Oracle APEX SQL Workshop documentation](https://docs.oracle.com/en/database/oracle/apex/)
 
-## Acknowledgements
+### Acknowledgements
 
-* **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-* **Last Updated By/Date** - Apoorva Srinivas, Principal Product Manager, July 2026
+- **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

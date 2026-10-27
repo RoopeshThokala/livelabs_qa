@@ -1,18 +1,19 @@
-# Lab 1: Restructure TAP Navigation
+# Restructure TAP Navigation
 
 ## Introduction
 
-In this lab, you create a grouped navigation menu for the TAP app. Keep contextual pages available through report links and buttons rather than adding them to the main menu.
+The Talent Acquisition Portal (TAP) navigation menu lists individual pages at the top level. In this lab, you will group related pages under parent entries so recruiters can find the pages they need more easily. You will also remove contextual pages that users open from reports and buttons.
 
-Estimated Time: 5 minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
 In this lab, you will:
 
-- Create parent navigation entries.
-- Assign TAP pages to menu groups.
-- Add icons and verify the runtime menu.
+- Create parent entries for the TAP navigation menu.
+- Assign existing pages to the appropriate parent entry.
+- Remove contextual pages from the navigation menu.
+- Verify the updated menu at runtime.
 
 ### Downloads
 
@@ -22,74 +23,118 @@ Stuck or missed out on completing the previous labs? Don't worry! You can downlo
 
 Import it into your workspace. In **App Builder**, select **Import**, upload `tap-export8.sql`, and follow the steps in the **Import Application** wizard.
 
-> **Note:** Supporting objects are already loaded in the workspace.
+> **Note:**
 >
-> **AI Configuration:** Configure a Generative AI Service in the workspace and select it under **Shared Components > AI Attributes** for the application. See **Module 1, Lab 2: Configure Generative AI Service**.
+> - **APEX Version:** The supplied application export was created with Oracle APEX 26.2 and cannot be imported into earlier APEX releases.
+> - **Supporting Objects:** Supporting objects are already loaded in the workspace.
+> - **AI Configuration:** Configure a Generative AI Service from **App Builder > Workspace Utilities > Generative AI**. See **Module 1, Lab 2: Configure Generative AI Service**.
 
-## Task 1: Create the parent entries
+## Task 1: Create Parent Navigation Entries
 
-1. From the **TAP** application, navigate to **Shared Components** > **Navigation Menu**.
+In this task, you will create top-level entries for the Recruitment, Hiring Process, and Offers groups.
 
-    ![TAP Shared Components page with Navigation Menu selected.](images/open-tap-navigation-menu.png ' ')
+1. In **App Builder**, open the **Talent Acquisition Portal** application.
 
-2. Select **Navigation Menu**.
+2. Click **Shared Components**. Under **Navigation and Search**, click **Navigation Menu**.
 
-    ![TAP Shared Components page with Navigation Menu selected.](images/select-navigation-menu.png ' ')
+    ![Open Navigation Menu in Shared Components](images/open-tap-navigation-menu.png " ")
 
-3. Select **Create List Entry**.
+3. Select **Navigation Menu**.
 
-    ![TAP Shared Components page with Navigation Menu selected.](images/create-list-entry.png ' ')
+    ![Select the Navigation Menu list](images/select-navigation-menu.png " ")
 
-3. Create the following parent entries with corresponding attributes.
+4. Click **Create List Entry**.
 
-    | List Entry Label | Sequence | Icon | Target Type |
-    |--- |--- |--- | --- |
-    | Recruitment | 120 | fa-briefcase | No Target |
-    | Hiring Process | 130 |fa-tasks | No Target |
+    ![Create a navigation menu list entry](images/create-list-entry.png " ")
 
-    ![Navigation menu entries configured as parent items with no target.](images/create-tap-parent-recruitment.png ' ')
+5. Create the **Recruitment** parent entry. Enter/select the following:
 
-    ![Navigation menu entries configured as parent items with no target.](images/create-tap-parent-hiring.png ' ')
+    - List Entry Label: **Recruitment**
+    - Sequence: **120**
+    - Icon: **fa-briefcase**
+    - Target Type: **- No Target -**
 
+    Click **Create and Create Another**.
 
+    ![Configure the Recruitment parent navigation entry](images/create-tap-parent-recruitment.png " ")
 
-## Task 2: Assign TAP pages and verify the menu
+    A parent entry with **No Target** groups its child pages without opening a page itself.
 
-1. Assign Recruitment Metrics Hub, Job Openings, Job Requisitions, and Candidate Pipeline to **Recruitment**. 
-    Select **edit** for Recruitment Metrics Hub and change the Parent List Entry to **Recruitment**. Click **Apply Changes**.
+6. Create the remaining parent entries. For each entry, set **Parent List Entry** to **- No Parent List Item -** and **Target Type** to **- No Target -**.
 
-    ![Navigation menu hierarchy showing TAP pages assigned to their parent entries.](images/edit-entry.png ' ')
+    | List Entry Label | Sequence | Icon |
+    | --- | --- | --- |
+    | Hiring Process | 130 | fa-tasks |
+    | Offers | 50 | fa-envelope |
 
-    ![Navigation menu hierarchy showing TAP pages assigned to their parent entries.](images/child-recruitment1.png ' ')
+    Click **Create and Create Another** after **Hiring Process**, then click **Create List Entry** after **Offers**.
 
-    Similarly, for entries **Job Openings** and **Job Requisitions**, change the Parent List Entry to **Recruitment**.
+    ![Configure the Hiring Process parent navigation entry](images/create-tap-parent-hiring.png " ")
 
-    ![Navigation menu hierarchy showing TAP pages assigned to their parent entries.](images/child-recruitment2.png ' ')
+    ![Configure the Offers parent navigation entry](images/create-tap-parent-offers.png " ")
 
-    ![Navigation menu hierarchy showing TAP pages assigned to their parent entries.](images/child-recruitment3.png ' ')
+## Task 2: Assign Pages to the Parent Entries
 
-2. Next, assign Parent List Entry to **Hiring Process** for entries  **Interview Schedule** and **Bulk Stage Update**.
-    ![Navigation menu hierarchy showing TAP pages assigned to their parent entries.](images/child-hiring1.png ' ')
+In this task, you will organize the existing TAP pages below their parent entries.
 
-    ![Navigation menu hierarchy showing TAP pages assigned to their parent entries.](images/child-hiring2.png ' ')
+1. In the Navigation Menu entries report, select **Recruitment Metrics Hub**.
 
-3. Finally, assign Parent List Entry to **Offers** for the **Offer Management** entry.
+    ![Open a navigation entry for editing](images/edit-entry.png " ")
 
-    ![Navigation menu hierarchy showing TAP pages assigned to their parent entries.](images/child-offer.png ' ')
+2. In the Property Editor, set **Parent List Entry** to **Recruitment**, then click **Apply Changes**.
 
-2. Delete the following entries from the Navigation list entries:
-    - Requisition Detail
-    - Candidate Profile 
-    - Offers
+    ![Assign Recruitment Metrics Hub to Recruitment](images/child-recruitment1.png " ")
 
-    ![Navigation menu with contextual pages removed from the main menu.](images/remove-req-detail.png ' ')
+3. Repeat the same update for the following entries:
 
-3. Run TAP and confirm that the left sidebar groups and links open the expected pages.
+    | Navigation Menu Entry | Parent List Entry |
+    | --- | --- |
+    | Job Openings | Recruitment |
+    | Job Requisitions | Recruitment |
+    | Candidate Pipeline | Recruitment |
+    | Interview Schedule | Hiring Process |
+    | Bulk Stage Update | Hiring Process |
+    | Offer Management | Offers |
 
-    ![TAP runtime navigation sidebar showing Recruitment, Hiring Process, Offers, and Admin groups.](images/verify-tap-navigation-runtime.png ' ')
+    Click **Apply Changes** after updating each entry.
+
+    ![Assign Job Openings and Job Requisitions to Recruitment](images/child-recruitment2.png " ")
+
+    ![Assign Candidate Pipeline to Recruitment](images/child-recruitment3.png " ")
+
+    ![Assign Interview Schedule and Bulk Stage Update to Hiring Process](images/child-hiring1.png " ")
+
+    ![Assign Offer Management to Offers](images/child-offer.png " ")
+
+## Task 3: Remove Contextual Pages from the Menu
+
+In this task, you will remove the detail pages that users access from reports and buttons.
+
+1. In the Navigation Menu entries report, select **Requisition Detail**.
+
+2. Click **Delete** and confirm the deletion.
+
+3. Repeat the deletion for **Candidate Profile**.
+
+    ![Remove Requisition Detail from the Navigation Menu](images/remove-req-detail.png " ")
+
+## Task 4: Run and Verify the Navigation Menu
+
+1. Run the **Talent Acquisition Portal** application.
+
+2. Expand **Recruitment**, **Hiring Process**, and **Offers** in the navigation menu.
+
+3. Confirm that each group shows the expected child pages and that the links open the correct pages.
+
+    ![Verify the grouped TAP navigation menu at runtime](images/verify-tap-navigation-runtime.png " ")
+
+## Summary
+
+You created parent navigation entries, grouped the TAP pages beneath them, and removed detail pages from the main navigation menu. Recruiters can now navigate the application through focused page groups.
+
+You may now proceed to the next lab.
 
 ## Acknowledgements
 
-* **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-* **Last Updated By/Date** - Apoorva Srinivas, Principal Product Manager, August 2026
-
+- **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - October 2026

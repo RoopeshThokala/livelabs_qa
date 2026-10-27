@@ -16,7 +16,29 @@ In this workshop, you will learn how to:
 - Configure page items for offers and interview feedback.
 - Build an ESS Leave Request form with a leave-history report.
 
+## Prerequisites
+
+- An Oracle APEX 26.2 workspace.
+
+> **Note:** Screenshots were captured with Oracle APEX 26.1. Minor user interface differences may appear in Oracle APEX 26.2.
+
+## Downloads
+
+Stuck or missed out on completing the previous labs? Don't worry! You can download the following applications:
+
+- **<a href="files/tap-export4.sql" download="tap-export4.sql">Talent Acquisition Portal</a>**
+
+- **<a href="files/ess-export3.sql" download="ess-export3.sql">Employee Self-Service Portal</a>**
+
+Import them into your workspace. In **App Builder**, select **Import**, upload each file, and follow the steps in the **Import Application** wizard.
+
+> **Note:**
+>
+> - **APEX Version:** The supplied application exports were created with Oracle APEX 26.2 and cannot be imported into earlier APEX releases.
+> - **Supporting Objects:** Supporting objects are already loaded in the workspace.
+> - **AI Configuration:** Configure a Generative AI Service from **App Builder > Workspace Utilities > Generative AI**. See **Module 1, Lab 2: Configure Generative AI Service**.
+
 ## Acknowledgements
 
- - **Author -** Aravind Madhavan, Senior Product Manager.
- - **Last Updated By/Date** - Aravind Madhavan, Senior Product Manager, July 2026
+- **Author** - Aravind Madhavan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

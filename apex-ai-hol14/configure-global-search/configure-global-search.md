@@ -1,201 +1,211 @@
-# Lab 3: Add Quick Links and Global Search
+# Configure TAP Global Search
 
 ## Introduction
 
-In this lab, you configure a Search page that finds candidates and requisitions and opens the right detail page.
+Global Search helps recruiters locate candidates and job requisitions from one search page. In this lab, you will create a search configuration for each record type, add the Search page to the navigation bar, and verify that each result opens the appropriate detail page.
 
-Estimated Time: 5 minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
 In this lab, you will:
 
-- Configure candidate and requisition search sources.
-- Add Search to the TAP navigation bar.
+- Create Candidate Search and Requisition Search configurations.
+- Create a Search page that uses both configurations.
+- Add Search to the TAP navigation bar and verify the results.
 
-## Task 1: Create Candidate Search Configuration
+## Task 1: Create Candidate Search
 
-1. Open **Shared Components** > **Search Configurations**.
-    ![Shared Components page](images/nav-search-config.png ' ')
+1. In **App Builder**, open the **Talent Acquisition Portal** application.
 
-2. Click **Create**.
-    ![Search Configurations page](images/create-search-config1.png ' ')
+2. Click **Shared Components**. Under **Navigation and Search**, click **Search Configurations**.
 
-3. In the Create Search Configuration dialog, enter/select the following:
+    ![Open Search Configurations in Shared Components](images/nav-search-config.png " ")
+
+3. Click **Create**.
+
+    ![Create a search configuration](images/create-search-config1.png " ")
+
+4. In the Create Search Configuration wizard, enter/select the following:
+
     - Name: **Candidate Search**
     - Search Type: **Standard**
 
     Click **Next**.
 
-    ![Search Configurations page](images/create-candidate-search1.png ' ')
+    ![Set the Candidate Search configuration name and type](images/create-candidate-search1.png " ")
 
-4. For Source Type, select **SQL Query** and enter the following query:
+5. Set **Source Type** to **SQL Query** and enter the following query:
 
     ```sql
     <copy>
     SELECT
-    c.candidate_id,
-    c.first_name,
-    c.last_name,
-    c.email,
-    c.current_stage,
-    c.first_name || ' ' || c.last_name AS result_title,
-    'Stage: ' || c.current_stage AS result_description
-    FROM tms_candidates c;
+        c.candidate_id,
+        c.first_name,
+        c.last_name,
+        c.email,
+        c.current_stage,
+        c.first_name || ' ' || c.last_name AS result_title,
+        'Stage: ' || c.current_stage AS result_description
+    FROM tms_candidates c
     </copy>
     ```
 
     Click **Next**.
 
-    ![Search Configurations page](images/create-candidate-search2.png ' ')
+    ![Enter the Candidate Search SQL query](images/create-candidate-search2.png " ")
 
-5. Enter/select the following:
-    - Primary Key Column: **CANDIDATE_ID(Number)**
-    - Title Column: **RESULT_TITLE(Varchar2)**
-    - Description Column: **RESULT_DESCRIPTION(Varchar2)**
+6. Configure the search result columns:
+
+    - Primary Key Column: **CANDIDATE\_ID (Number)**
+    - Title Column: **RESULT\_TITLE (Varchar2)**
+    - Description Column: **RESULT\_DESCRIPTION (Varchar2)**
     - Icon Source: **Icon Class**
     - Icon CSS Classes: **fa-user**
 
     Click **Create Search Configuration**.
 
-    ![Search Configurations page](images/create-candidate-search3.png ' ')
+    ![Configure Candidate Search result columns](images/create-candidate-search3.png " ")
 
-6. Click on the **Link** tab. Enter/select the following:
+7. Select the **Link** tab and enter/select the following:
+
     - Link Type: **Redirect to Page in this Application**
-    - Page: **11**
-    - Set these items: **P11\_CANDIDATE\_ID**
-    - With these values: **&CANDIDATE\_ID.**
+    - Page: **11 - Candidate Profile**
+    - Set These Items: **P11\_CANDIDATE\_ID**
+    - With These Values: **&CANDIDATE\_ID.**
 
     Click **Apply Changes**.
 
-    ![Search Configurations page](images/create-candidate-search4.png ' ')
+    ![Configure the Candidate Search result link](images/create-candidate-search4.png " ")
 
+## Task 2: Create Requisition Search
 
+1. Return to **Search Configurations** and click **Create**.
 
-## Task 2: Create Requisition Search Configuration
+    ![Create another search configuration](images/create-search-config2.png " ")
 
-1. Click **Create**.
-    ![Search Configurations page](images/create-search-config2.png ' ')
+2. In the Create Search Configuration wizard, enter/select the following:
 
-3. In the Create Search Configuration dialog, enter/select the following:
     - Name: **Requisition Search**
     - Search Type: **Standard**
 
     Click **Next**.
 
-    ![Search Configurations page](images/create-req-search1.png ' ')
+    ![Set the Requisition Search configuration name and type](images/create-req-search1.png " ")
 
-4. For Source Type, select **SQL Query** and enter the following query:
+3. Set **Source Type** to **SQL Query** and enter the following query:
 
     ```sql
     <copy>
     SELECT
-    r.req_id,
-    j.title,
-    r.status,
-    d.name AS department_name,
-    j.title AS result_title,
-    'Status: ' || r.status ||
-        CASE
-            WHEN d.name IS NOT NULL
-            THEN ' - ' || d.name
-        END AS result_description
+        r.req_id,
+        j.title,
+        r.status,
+        d.name AS department_name,
+        j.title AS result_title,
+        'Status: ' || r.status ||
+            CASE
+                WHEN d.name IS NOT NULL THEN ' - ' || d.name
+            END AS result_description
     FROM tms_job_requisitions r
     JOIN tms_jobs j
-    ON j.job_id = r.job_id
+        ON j.job_id = r.job_id
     LEFT JOIN tms_departments d
-    ON d.dept_id = r.dept_id;
+        ON d.dept_id = r.dept_id
     </copy>
     ```
 
     Click **Next**.
 
-    ![Search Configurations page](images/create-req-search2.png ' ')
+    ![Enter the Requisition Search SQL query](images/create-req-search2.png " ")
 
-5. Enter/select the following:
-    - Primary Key Column: **REQ_ID(Number)**
-    - Title Column: **RESULT_TITLE(Varchar2)**
-    - Description Column: **RESULT_DESCRIPTION(Varchar2)**
+4. Configure the search result columns:
+
+    - Primary Key Column: **REQ\_ID (Number)**
+    - Title Column: **RESULT\_TITLE (Varchar2)**
+    - Description Column: **RESULT\_DESCRIPTION (Varchar2)**
     - Icon Source: **Icon Class**
     - Icon CSS Classes: **fa-file-text**
 
     Click **Create Search Configuration**.
 
-    ![Search Configurations page](images/create-req-search3.png ' ')
+    ![Configure Requisition Search result columns](images/create-req-search3.png " ")
 
-6. Click on the **Link** tab. Enter/select the following:
+5. Select the **Link** tab and enter/select the following:
+
     - Link Type: **Redirect to Page in this Application**
-    - Page: **14**
-    - Set these items: **P14\_REQ\_ID**
-    - With these values: **&REQ\_ID.**
+    - Page: **14 - Requisition Detail**
+    - Set These Items: **P14\_REQ\_ID**
+    - With These Values: **&REQ\_ID.**
 
     Click **Apply Changes**.
 
-    ![Search Configurations page](images/create-req-search4.png ' ')
+    ![Configure the Requisition Search result link](images/create-req-search4.png " ")
 
-## Task 3: Create the Search page
+## Task 3: Create the Search Page and Navigation Entry
 
-1. Navigate to the **Application Home page**.
-    ![Home page](images/nav-app-home.png ' ')
+1. Return to the application home page and click **Create Page**.
 
-2. Click **Create Page**.
-    ![Create Page wizard](images/create-page.png ' ')
+    ![Open the application home page](images/nav-app-home.png " ")
 
+    ![Open the Create Page wizard](images/create-page.png " ")
 
-3. Select **Search Page**.
-    ![Create Page wizard configured to create the TAP Search page with both search configurations.](images/create-tap-search-page.png ' ')
+2. Select **Search Page**.
 
-4. In the Create Search Page dialog, enter the following details:
+    ![Select Search Page](images/create-tap-search-page.png " ")
+
+3. In the Create Search Page wizard, enter/select the following:
+
     - Name: **Search**
-    - Search Configurations: Check **Candidate Search** and **Requisition Search**
-    - Use Navigation: Toggle the button to **OFF**.
+    - Search Configurations: **Candidate Search** and **Requisition Search**
+    - Use Navigation: **Off**
 
     Click **Create Page**.
 
-    ![Create Page wizard configured to create the TAP Search page with both search configurations.](images/search-page-details.png ' ')
+    ![Configure the TAP Search page](images/search-page-details.png " ")
 
-5. Navigate to **Shared Components** to add the page to the Navigation Bar.
-    ![Page Designer](images/nav-shared-components.png ' ')
+4. Click **Shared Components**. Under **Navigation and Search**, click **Navigation Bar List**, then select **Navigation Bar**.
 
+    ![Open Shared Components](images/nav-shared-components.png " ")
 
-6. Select **Navigation Bar List**.
-    ![Shared Components](images/nav-bar-list.png ' ')
+    ![Open Navigation Bar List](images/nav-bar-list.png " ")
 
-7. Select **Navigation Bar**.
-    ![Shared Components](images/open-nav-bar.png ' ')
+    ![Select the Navigation Bar list](images/open-nav-bar.png " ")
 
-8. Click **Create List Entry**.
-    ![Shared Components](images/create-list-entry.png ' ')
+5. Click **Create List Entry**.
 
-9. Enter/select the following:
+    ![Create a Navigation Bar list entry](images/create-list-entry.png " ")
+
+6. Enter/select the following, then click **Create List Entry**:
+
     - List Entry Label: **Search**
     - Icon: **fa-search**
     - Target Type: **Page in this Application**
     - Page: **15**
 
-    Click **Create List Entry**.
+    ![Add Search to the TAP Navigation Bar](images/add-tap-search-navigation-bar.png " ")
 
-    ![Navigation Bar List entry configured for the TAP Search page.](images/add-tap-search-navigation-bar.png ' ')
+## Task 4: Run and Verify Global Search
 
-10. Save and Run the page. 
-    ![Shared Components](images/save-and-run2.png ' ')
+1. Run the **Talent Acquisition Portal** application.
 
+    ![Run the TAP Search page](images/save-and-run2.png " ")
 
-11. Try searching for a candidate like '**Grace Kim**'. Verify that the result opens the Candidate Profile page. Similarly, try searching for a Job Requisition (like 'Data Analyst') and see what happens.
+2. Search for a candidate, such as **Grace Kim**, and select the result. Confirm that the Candidate Profile page opens.
 
-    ![TAP Search results showing candidate and requisition results.](images/verify-tap-global-search1.png ' ')
+    ![Verify candidate search results](images/verify-tap-global-search1.png " ")
 
-    ![TAP Search results showing candidate and requisition results.](images/verify-tap-global-search2.png ' ')
+3. Search for a requisition, such as **Data Analyst**, and select the result. Confirm that the Requisition Detail page opens.
 
+    ![Verify requisition search results](images/verify-tap-global-search2.png " ")
 
+## Summary
+
+You created candidate and requisition search configurations, added them to a Search page, and added Search to the TAP navigation bar. Recruiters can now open the relevant detail page directly from a search result.
+
+You may now proceed to the next lab.
 
 ## Acknowledgements
 
-* **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-* **Last Updated By/Date** - Apoorva Srinivas, Principal Product Manager, August 2026  
-
-
-
-    
-
-
+- **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - October 2026

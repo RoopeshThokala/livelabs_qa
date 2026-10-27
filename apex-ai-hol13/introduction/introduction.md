@@ -11,7 +11,7 @@ Estimated Workshop Time: 25 minutes
 In this workshop, you will:
 
 - Organize Candidate Profile into two columns and add photo display, CV upload, and CV download.
-- Link Candidate Profile to Interview Feedback using a master-detail relationship.
+- Link Candidate Profle to Interview Feedback using a master-detail relationship.
 - Create an editable interactive grid for bulk candidate stage updates.
 - Extend My Profile and Leave Request pages in the ESS Application with contact details and file uploads.
 
@@ -25,16 +25,6 @@ In this workshop, you will:
 
 *Note: These instructions use the page numbers from the workshop applications. If your page numbers differ, replace the page numbers and item prefixes throughout the tasks. Property labels can vary with your Oracle APEX version; use the Property Editor help for the equivalent setting.*
 
-
-## Labs
-
-| Lab | Application | Estimated Time |
-| --- | --- | --- |
-| [Complete the Candidate Profile Form](../lab-1-complete-candidate-profile-form/lab-1-complete-candidate-profile-form.md) | TAP | 10 minutes |
-| [Link Candidate Profile and Interview Feedback](../lab-2-candidate-profile-as-master-detail/lab-2-candidate-profile-as-master-detail.md) | TAP | 5 minutes |
-| [Build a Bulk Stage Update Interactive Grid](../lab-3-build-bulk-stage-update-ig/lab-3-build-bulk-stage-update-ig.md) | TAP | 5 minutes |
-| [Extend ESS My Profile and Leave Request](../lab-4-ess-my-profile-form/lab-4-ess-my-profile-form.md) | ESS | 15 minutes |
-
 ## Downloads
 
 Stuck or missed out on completing the previous labs? Don't worry! You can download the following applications:
@@ -45,10 +35,11 @@ Stuck or missed out on completing the previous labs? Don't worry! You can downlo
 
 Import them into your workspace. In **App Builder**, select **Import**, upload each file, and follow the steps in the **Import Application** wizard.
 
-> **Note:** Supporting objects are already loaded in the workspace.
+> **Note:**
 >
-> **AI Configuration:** Configure a Generative AI Service in the workspace and select it under **Shared Components > AI Attributes** for each application. See **Module 1, Lab 2: Configure Generative AI Service**.
-
+> - **APEX Version:** The supplied application exports were created with Oracle APEX 26.2 and cannot be imported into earlier APEX releases.
+> - **Supporting Objects:** Supporting objects are already loaded in the workspace.
+> - **AI Configuration:** Configure a Generative AI Service from **App Builder > Workspace Utilities > Generative AI**. See **Module 1, Lab 2: Configure Generative AI Service**.
 
 ## What Carries Forward
 

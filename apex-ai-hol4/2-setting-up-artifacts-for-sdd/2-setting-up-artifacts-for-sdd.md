@@ -1,10 +1,10 @@
-# Lab 2: Set Up the Artifacts for Spec-Driven Development
+# Set Up the Artifacts for Spec-Driven Development
 
 ## Introduction
 
-An SDD workflow needs a clear functional specification, a precise schema description, and rules for the generated app. In this lab, create a TAP project folder, gather those files, and prepare a coding agent to use them together.
+A spec-driven development (SDD) workflow uses a functional specification, schema metadata, and rules for the generated application. In this lab, you create a TAP project folder, collect these files, and prepare a coding agent to use them.
 
-Estimated Workshop Time: 20 minutes
+Estimated Lab Time: 20 minutes
 
 ### Objectives
 
@@ -15,86 +15,90 @@ In this lab, you will learn how to:
 - Describe the TAP and shared TMS tables to create schema metadata.
 - Prepare a coding agent to generate the blueprint.
 
-### Downloads
+### Prerequisites
 
-Stuck or Missed out on completing the previous labs? Don't worry! First, follow the steps described in the following workshop:
+- Complete Lab 1.
+- Complete [Module 2: Using SQL Workshop to Build a TMS Schema](https://roopeshthokala.github.io/livelabs_qa/apex-ai-hol2/workshops/tenancy/index.html). This lab uses that schema to generate metadata.
 
-- **[Module 2: Using SQL Workshop to Build a TMS Schema](https://roopeshthokala.github.io/livelabs_qa/apex-ai-hol2/workshops/tenancy/index.html)**. Complete this workshop before continuing; this lab uses the TMS schema created there to generate schema metadata.
-
-## Task 1: Create the TAP SDD project folder
+## Task 1: Create the TAP SDD Project Folder
 
 1. Create a local folder named **tap_sdd**.
 
-2. Use the following names for the files you will collect:
+2. Review the filenames that you use for the files collected in Tasks 2 and 3:
 
     - `tms_module_04_functional_spec.md`
     - `blueprint_prompt.md`
     - `apex-fa-icons-allowlist.txt`
     - `tap_schema_metadata.md`
 
-## Task 2: Download the blueprint artifacts
+## Task 2: Download the Blueprint Artifacts
 
-1. Download the Oracle APEX Blueprint Prompt and save it as [blueprint_prompt.md](https://github.com/oracle/apex/blob/26.1/blueprints/prompt/blueprint-prompt.md) in the `tap_sdd` folder.
+1. Download the [Oracle APEX Blueprint Prompt](https://github.com/oracle/apex/blob/26.1/blueprints/prompt/blueprint-prompt.md) and save it as `blueprint_prompt.md` in the **tap_sdd** folder.
 
-    ![Oracle APEX Blueprint Prompt download page](images/task-02-step-01-prompt.png)
+    ![Download the Oracle APEX Blueprint Prompt](images/task-02-step-01-prompt.png " ")
 
-2. Download the APEX allowed-icons list. Save it as [apex-fa-icons-allowlist.txt](https://github.com/oracle/apex/blob/26.1/blueprints/prompt/apex-fa-icons-allowlist.txt) in the same folder.
+2. Download the [APEX allowed-icons list](https://github.com/oracle/apex/blob/26.1/blueprints/prompt/apex-fa-icons-allowlist.txt) and save it as `apex-fa-icons-allowlist.txt` in the **tap_sdd** folder.
 
-    ![APEX allowed-icons list download page](images/task-02-step-02-icons.png)
+    ![Download the APEX allowed-icons list](images/task-02-step-02-icons.png " ")
 
-3. Download the Module 4 <a href="tms_module_04_functional_spec.md" download="tms_module_04_functional_spec.md">TMS functional specification</a> and save it as `tms_module_04_functional_spec.md`.
+3. Download the Module 4 <a href="tms_module_04_functional_spec.md" download="tms_module_04_functional_spec.md">TMS functional specification</a> and save it as **tms_module_04_functional_spec.md** in the **tap_sdd** folder.
 
 4. Confirm that all three files are present before you continue.
 
-## Task 3: Generate TAP schema metadata
+## Task 3: Generate TAP Schema Metadata
 
-1. In APEX, open **SQL Workshop**, then select **Utilities** and **Describe Tables**.
+1. In your APEX workspace, select **SQL Workshop**, select **Utilities**, and then select **Describe Tables**.
 
-    ![Describe Tables utility in SQL Workshop](images/task-03-step-01-describe-tables.png)
+    ![Open the Describe Tables utility](images/task-03-step-01-describe-tables.png " ")
 
-2. Select `TMS_DEPARTMENTS`, `TMS_JOBS`, `TMS_JOB_REQUISITIONS`, `TMS_CANDIDATES`, `TMS_INTERVIEW_STAGES`, and `TMS_OFFERS`.
+2. In the **Tables** shuttle, select the following tables and move them to the right:
 
-    - Use the shuttle to move the tables.
+    - **TMS\_DEPARTMENTS**
+    - **TMS\_JOBS**
+    - **TMS\_JOB_REQUISITIONS**
+    - **TMS\_CANDIDATES**
+    - **TMS\_INTERVIEW\_STAGES**
+    - **TMS\_OFFERS**
 
-    ![TAP tables selected in the Describe Tables utility](images/task-03-step-02-select-tables.png)
+    ![Select TAP tables in Describe Tables](images/task-03-step-02-select-tables.png " ")
 
-3. Include the shared `TMS_EMPLOYEES` table.
+3. Move **TMS_EMPLOYEES** to the right side of the shuttle to include the shared employee table.
 
-    ![Shared TMS_EMPLOYEES table selected for metadata generation](images/task-03-step-03-select-shared-table.png)
+    ![Include TMS_EMPLOYEES in the schema metadata](images/task-03-step-03-select-shared-table.png " ")
 
-4. Click **Describe**, download the result, and save it as `tap_schema_metadata.md` in `tap_sdd`.
+4. For **Format**, select **Markdown**, and then select **Describe**.
 
-    ![Download action for generated schema metadata](images/task-03-step-04-describe-download.png)
+5. Under **Table Descriptions**, select **Download** and save the file as **tap_schema_metadata.md** in the **tap_sdd** folder.
 
-## Task 4: Set up your coding agent
+    ![Download the schema metadata](images/task-03-step-04-describe-download.png " ")
 
-1. Open the `tap_sdd` folder that you created in **Task 1, Step 1** using VS Code.
+## Task 4: Set Up Your Coding Agent
 
-    ![TAP SDD folder opened in Visual Studio Code](images/task-04-step-01-open-vs-code.png)
+1. In **Visual Studio Code**, open the **tap_sdd** folder created in Task 1.
 
-2. VS Code may limit access to your project folder.
+    ![Open the TAP SDD folder in Visual Studio Code](images/task-04-step-01-open-vs-code.png " ")
 
-    - If it does, click the **Restricted Mode** icon in the lower-left corner.
+2. If Visual Studio Code opens the folder in **Restricted Mode**, select **Restricted Mode** in the lower-left corner, select **Trust**, and close the workspace trust window.
 
-    - Click **Trust**, then close the window.
+    ![Trust the Visual Studio Code workspace](images/task-04-step-02-access-folder.png " ")
 
-    ![Visual Studio Code workspace trust prompt](images/task-04-step-02-access-folder.png)
+3. In the Visual Studio Code sidebar, select **Extensions**, search for the **Codex IDE extension**, and select **Install**.
 
-3. Click the **Extensions** icon in the VS Code sidebar, search for the **Codex IDE extension**, and click **Install**, as shown below.
+    ![Install the Codex IDE extension](images/task-04-step-03-coding-agent.png " ")
 
-    ![Codex IDE extension in the Visual Studio Code marketplace](images/task-04-step-03-coding-agent.png)
+4. In the Visual Studio Code sidebar, select **Codex**.
 
-4. Click the **Codex** icon in the VS Code sidebar after you install the extension.
+    Select **Sign in with ChatGPT** and complete the sign-in steps in your browser. Alternatively, select **Use API key** and enter an OpenAI API key.
 
-    - Select **Sign in with ChatGPT** and complete the browser sign-in flow.
+    ![Review the Codex sign-in options](images/task-04-step-04-sign-in.png " ")
 
-    - Alternatively, select **Use API key** and enter an OpenAI API key.
+    > **Note:** Access to any AI Coding agent is required for the for the remaining labs in this module. We are using Codex access for the remaining labs in this module. Availability depends on your account.
 
-    ![Codex sign-in options in Visual Studio Code](images/task-04-step-04-sign-in.png)
+## Summary
 
-    - Note: **Codex** access is required for the remaining labs in this module. ChatGPT availability depends on the account; review the current **Codex** access requirements before you begin.
+You assembled the functional specification, Blueprint Prompt, icon list, and schema metadata required to generate a TAP Application Blueprint.
 
-## Acknowledgements
+### Acknowledgements
 
- - **Author -** Aravind Madhavan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
- - **Last Updated By/Date** - Aravind Madhavan, Senior Product Manager, July 2026
+- **Author** - Aravind Madhavan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

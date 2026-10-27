@@ -4,7 +4,7 @@
   "tutorials": [
     {
       "title": "Introduction",
-      "filename": "../../introduction.md",
+      "filename": "../../0-introduction/introduction.md",
       "description": "Review the Module 20 architecture, applications, prerequisites, and learning goals."
     },
     {

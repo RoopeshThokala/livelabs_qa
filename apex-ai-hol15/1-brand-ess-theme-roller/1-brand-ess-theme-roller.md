@@ -22,7 +22,19 @@ In this lab, you will:
 - Enable the end-user theme-style selector.
 - Switch the running application to ESS Dark.
 
-Use the Lab 1 snapshot, **15_01 : Employee Self-Service Portal** (App **153**). Check the application number in App Builder before making changes; later labs use different snapshots.
+### Downloads
+
+Stuck or missed out on completing the previous labs? Don't worry! You can download the following application:
+
+- **<a href="../introduction/files/ess-export8.sql" download="ess-export8.sql">Employee Self-Service Portal</a>**
+
+Import it into your workspace. In **App Builder**, select **Import**, upload `ess-export8.sql`, and follow the steps in the **Import Application** wizard.
+
+> **Note:**
+>
+> - **APEX Version:** The supplied application export was created with Oracle APEX 26.2 and cannot be imported into earlier APEX releases.
+> - **Supporting Objects:** Supporting objects are already loaded in the workspace.
+> - **AI Configuration:** Configure a Generative AI Service from **App Builder > Workspace Utilities > Generative AI**. See **Module 1, Lab 2: Configure Generative AI Service**.
 
 ## Task 1: Run ESS and Open Theme Roller
 
@@ -148,5 +160,5 @@ You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
-- **Author** - Shanmukh Kornana
-- **Last Updated By/Date** - Shanmukh Kornana, August 2026
+- **Author** - Shanmukh Kornana, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, October 2026

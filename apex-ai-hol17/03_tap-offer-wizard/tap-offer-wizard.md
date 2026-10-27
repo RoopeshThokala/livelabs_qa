@@ -4,7 +4,11 @@
 
 In this lab, you will create a two-step Offer Wizard in the Talent Acquisition Portal. The first step collects offer terms and stages them in an APEX Collection. The second step reviews the staged values, creates the offer row, sends an offer email, and removes the collection.
 
-Estimated Time: 5 minutes
+Estimated Lab Time: 5 minutes
+
+### Where We Are
+
+TAP creates offers through a single form. You will replace that flow with a two-step wizard that stages incomplete offer data in an APEX Collection before creating the offer and sending its email.
 
 ### Objectives
 
@@ -16,6 +20,20 @@ In this lab, you will:
 - Stage offer terms in an APEX Collection.
 - Review and send the offer.
 - Clean up the collection when the user finishes or cancels.
+
+### Downloads
+
+Stuck or missed out on completing the previous labs? Don't worry! You can download the following application:
+
+- **<a href="../00-introduction/files/tap-export11.sql" download="tap-export11.sql">Talent Acquisition Portal</a>**
+
+Import it into your workspace. In **App Builder**, select **Import**, upload `tap-export11.sql`, and follow the steps in the **Import Application** wizard.
+
+> **Note:**
+>
+> - **APEX Version:** The supplied application export was created with Oracle APEX 26.2 and cannot be imported into earlier APEX releases.
+> - **Supporting Objects:** Supporting objects are already loaded in the workspace.
+> - **AI Configuration:** Configure a Generative AI Service from **App Builder > Workspace Utilities > Generative AI**. See **Module 1, Lab 2: Configure Generative AI Service**.
 
 ## Task 1: Create the Offer Wizard
 
@@ -48,7 +66,7 @@ The wizard replaces a single Offer Form with a guided flow that separates offer 
         | 1 | 16 | Offer Terms |
         | 2 | 19 | Preview & Send |
 
-        *Note: Delete the remaining steps. We only need a two-step wizard for this task.*
+        Delete the remaining steps. This wizard uses only two steps.
 
     - Navigation > Parent Navigation Menu Entry: **Offers**
 
@@ -58,7 +76,7 @@ The wizard replaces a single Offer Form with a guided flow that separates offer 
 
     ![Wizard steps renamed to Offer Terms and Preview and Send](images/06-name-offer-wizard-steps.png)
 
-    *Note: The source uses page 16 for **Offer Terms** and page 19 for **Preview & Send**. Your generated page numbers may differ.*
+    > **Note:** The source uses page 16 for **Offer Terms** and page 19 for **Preview & Send**. Your generated page numbers can differ. Select the appropriate page by its name when your page numbers differ.
 
 ## Task 2: Configure Step 1 for Offer Terms
 
@@ -66,19 +84,21 @@ Step 1 collects offer values and stages them in `OFFER_COLLECTION`.
 
 1. Open the first wizard step in Page Designer.
 
+    > **Note:** Your generated page number might differ. Select the page named **Offer Terms**.
+
 2. In the left pane, right-click **Offer Terms** under **Wizard Sub Regions** and select **Create Page Item**.
 
     ![Offer Terms page open in Page Designer](images/07-create-offer-terms-page-item.png)
 
 3. In the **Offer Terms** region, add the following items:
 
-    | Item | Type |
+    | Item | Type | Value Protected |
     | --- | --- |
-    | `P16_CANDIDATE_ID` | Select List |
-    | `P16_JOB_ID` | Hidden |
-    | `P16_SALARY` | Number Field |
-    | `P16_START_DATE` | Date Picker |
-    | `P16_EXPIRY_DATE` | Date Picker |
+    | `P16_CANDIDATE_ID` | Select List | --- |
+    | `P16_JOB_ID` | Hidden | No |
+    | `P16_SALARY` | Number Field | --- |
+    | `P16_START_DATE` | Date Picker | --- |
+    | `P16_EXPIRY_DATE` | Date Picker | --- |
 
 4. Select the `P16\_CANDIDATE\_ID` page item and enter/select the following:
 
@@ -94,7 +114,7 @@ Step 1 collects offer values and stages them in `OFFER_COLLECTION`.
 
     ![Create Dynamic Action menu for the candidate item](images/09-create-candidate-dynamic-action.png)
 
-6. In the Property Editor, enter Name as **Derive Job Id**.
+6. In the Property Editor, enter Name as **Derive Job ID**.
 
     ![Derive Job ID dynamic action configured on candidate change](images/10-derive-job-id-dynamic-action.png)
 
@@ -106,9 +126,9 @@ Step 1 collects offer values and stages them in `OFFER_COLLECTION`.
 
         - Set Type: **SQL Query**
 
-        - SQL Query: Copy and Paste the following code:
+        - SQL Query: Copy and paste the following code:
 
-        ```
+        ```sql
         <copy>
         SELECT r.job_id
         FROM   tms_job_requisitions r
@@ -137,17 +157,17 @@ Step 1 collects offer values and stages them in `OFFER_COLLECTION`.
 
     ![Offer start date and expiry date picker items](images/15-offer-date-picker-items.png)
 
-9. Navigate to the **Processing** tab and right-click **Processing** and select **Create Process**.
+9. Navigate to the **Processing** tab, right-click **Processing**, and select **Create Process**.
 
     ![Create Process menu in the Processing tab](images/12-create-stage-to-collection-process.png)
 
 10. In the Property Editor, enter/select the following:
 
-    - Identification > Name: **Stage to collection**
+    - Identification > Name: **Stage to Collection**
 
-    - Source > PL/SQL Code: Copy and Paste the following code:
+    - Source > PL/SQL Code: Copy and paste the following code:
 
-    ```
+    ```sql
     <copy>
     BEGIN
         APEX_COLLECTION.CREATE_OR_TRUNCATE_COLLECTION('OFFER_COLLECTION');
@@ -170,7 +190,7 @@ Step 1 collects offer values and stages them in `OFFER_COLLECTION`.
 
 The cancel action must remove the staged offer collection before returning the user to the portal home page.
 
-1. Navigate to the **Rendering Pane**, right-click the **Cancel** button and select **Create Trigger Action**.
+1. In the Rendering pane, right-click the **Cancel** button and select **Create Trigger Action**.
 
     ![Create trigger action from the Cancel button](images/16-create-cancel-trigger-action.png)
 
@@ -178,7 +198,7 @@ The cancel action must remove the staged offer collection before returning the u
 
     - Settings > PL/SQL Code: Copy and paste the following code:
 
-    ```
+    ```sql
     <copy>
     IF APEX_COLLECTION.COLLECTION_EXISTS('OFFER_COLLECTION') THEN
         APEX_COLLECTION.DELETE_COLLECTION('OFFER_COLLECTION');
@@ -196,7 +216,9 @@ The cancel action must remove the staged offer collection before returning the u
 
 Step 2 shows the staged offer data, creates the final offer row, and sends the offer email.
 
-1. From the Page Designer toolbar, navigate to the Page Selector and select **Page 19: Preview & Send**.
+1. From the Page Designer toolbar, open the page selector and select **Page 19: Preview & Send**.
+
+    > **Note:** Your generated page number might differ. Select the page named **Preview & Send**.
 
     ![Page Finder with Preview and Send selected](images/18-open-preview-send-page.png)
 
@@ -214,7 +236,7 @@ Step 2 shows the staged offer data, creates the final offer row, and sends the o
     | `P19_START_DATE` | Display Only |
     | `P19_EXPIRY_DATE` | Display Only |
     | `P19_OFFER_TO` | Hidden |
-    | `P19_OFFER_ID`| Hidden |
+    | `P19_OFFER_ID` | Hidden |
 
     ![Candidate display-only item on the Preview and Send step](images/20-preview-candidate-display-item.png)
 
@@ -232,11 +254,13 @@ Step 2 shows the staged offer data, creates the final offer row, and sends the o
 
         - Type: **SQL Query (return single value)**
 
-        - SQL Query (return single value: Copy and paste the following code:
+        - SQL Query: Copy and paste the following code:
 
-        ```
+        ```sql
         <copy>
-        SELECT first_name || ' ' || last_name FROM tms_candidates WHERE candidate_id = :P16_CANDIDATE_ID
+        SELECT first_name || ' ' || last_name
+        FROM tms_candidates
+        WHERE candidate_id = :P16_CANDIDATE_ID
         </copy>
         ```
 
@@ -254,11 +278,13 @@ Step 2 shows the staged offer data, creates the final offer row, and sends the o
 
         - Type: **SQL Query (return single value)**
 
-        - SQL Query (return single value: Copy and paste the following code:
+        - SQL Query: Copy and paste the following code:
 
-        ```
+        ```sql
         <copy>
-        SELECT title FROM tms_jobs WHERE job_id = :P16_JOB_ID
+        SELECT title
+        FROM tms_jobs
+        WHERE job_id = :P16_JOB_ID
         </copy>
         ```
 
@@ -266,7 +292,7 @@ Step 2 shows the staged offer data, creates the final offer row, and sends the o
 
 6. Update the **Source** for the following page items as follows:
 
-    | Page Item | Type | Item | Used |
+    | Page Item | Default -> Type | Default -> Item | Used |
     | -- | --- | --- | --- |
     | `P19_SALARY` | Item | `P16_SALARY` | Always, replacing any existing value in session state |
     | `P19_START_DATE` | Item | `P16_START_DATE` | Always, replacing any existing value in session state |
@@ -278,11 +304,11 @@ Step 2 shows the staged offer data, creates the final offer row, and sends the o
 
     - Under Default:
 
-        - Type:  **SQL Query (return single value)**
+        - Type: **SQL Query (return single value)**
 
-        - SQL Query (return single value: Copy and paste the following code:
+        - SQL Query: Copy and paste the following code:
 
-        ```
+        ```sql
         <copy>
         SELECT email
         FROM tms_candidates
@@ -306,7 +332,7 @@ The final processing step reads the staged collection row, creates the offer, an
 
     - Source > PL/SQL Code: Copy and paste the following code:
 
-    ```
+    ```sql
     <copy>
     DECLARE
     l_cand_id NUMBER;
@@ -362,7 +388,7 @@ The final processing step reads the staged collection row, creates the offer, an
 
     ![Create Offer process configured with PL/SQL code](images/24-create-offer-process-code.png)
 
-3. Create another process. Right-click **processing** and select **Create Process**.
+3. Create another process. Right-click **Processing** and select **Create Process**.
 
     ![Create Send Offer Email process menu](images/25-create-send-email-process-menu.png)
 
@@ -432,10 +458,11 @@ Test both the finish path and the cancel path.
 
 ## Summary
 
-You created a two-step Offer Wizard in the Talent Acquisition Portal. The wizard stages offer terms in an APEX Collection, previews the staged offer, creates the final offer row, sends an email, and clears the collection when the user finishes or cancels.
+You created a two-step Offer Wizard in TAP. The wizard stages offer terms in an APEX Collection, previews the staged offer, creates the final offer row, sends an email, and clears the collection when the user finishes or cancels.
+
+You have completed this workshop.
 
 ## Acknowledgements
 
-**Author** - Ankita Beri, Senior Product Manager; Roopesh Thokala, Principal Product Manager
-
-**Last Updated By/Date** - Ankita Beri, August 12, 2026
+- **Author** - Ankita Beri, Senior Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, October, 2026

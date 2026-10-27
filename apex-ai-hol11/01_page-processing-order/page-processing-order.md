@@ -4,11 +4,11 @@
 
 In this lab, you will explore the Oracle APEX page processing lifecycle. This helps you decide where to place computations, validations, processes, and branches.
 
-Estimated Time: 5 minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
-In this lab, you will:
+In this lab, you will learn how to:
 
 - Understand the pre-rendering processing points.
 - Learn how processing works after a page is submitted.
@@ -17,15 +17,17 @@ In this lab, you will:
 
 ### Downloads
 
-Stuck or Missed out on completing the previous labs? Don't worry! You can download the following application:
+Stuck or missed out on completing the previous labs? Don't worry! You can download the following application:
 
 - **<a href="../00-introduction/files/tap-export5.sql" download="tap-export5.sql">Talent Acquisition Portal</a>**
 
 Import it into your workspace. In **App Builder**, select **Import**, upload `tap-export5.sql`, and follow the steps in the **Import Application** wizard.
 
-> **Note:** Supporting objects are already loaded in the workspace.
+> **Note:**
 >
-> **AI Configuration:** Configure a Generative AI Service in the workspace and select it under **Shared Components > AI Attributes** for the application. See **Module 1, Lab 2: Configure Generative AI Service**.
+> - **APEX Version:** The supplied application export was created with Oracle APEX 26.2 and cannot be imported into earlier APEX releases.
+> - **Supporting Objects:** Supporting objects are already loaded in the workspace.
+> - **AI Configuration:** Configure a Generative AI Service from **App Builder > Workspace Utilities > Generative AI**. See **Module 1, Lab 2: Configure Generative AI Service**.
 
 ## Task 1: Explore Pre-Rendering Processes
 
@@ -162,6 +164,5 @@ In this lab, you explored the Oracle APEX page processing lifecycle. You reviewe
 
 ## Acknowledgements
 
-**Author** - Ankita Beri, Senior Product Manager; Roopesh Thokala, Principal Product Manager
-
-**Last Updated By/Date** - Ankita Beri, July 28, 2026
+- **Author** - Ankita Beri, Senior Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

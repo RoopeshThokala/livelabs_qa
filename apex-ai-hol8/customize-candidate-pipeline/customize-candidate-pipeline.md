@@ -1,108 +1,156 @@
-# Lab 1: Customize the Candidate Pipeline Report
+# Customize the Candidate Pipeline Report
 
 ## Introduction
 
-Configure the Candidate Pipeline interactive report so its default view surfaces actionable candidates. Then create a shared developer-saved report for active candidates.
+The Candidate Pipeline page contains an Interactive Report that users can customize at run time. In this lab, you highlight important candidate stages, configure the report layout, and save an Active Candidates report.
 
-Estimated Time: 15 minutes
+Estimated Lab Time: 10 minutes
 
 ### Objectives
 
-In this lab, you will:
+In this lab, you will learn how to:
 
-- Add row highlighting, default columns, sorting, and grouping.
-- Save the configuration as the primary report.
-- Create an **Active Candidates** developer-saved report.
+- Highlight report values.
+- Configure report columns, sorting, and control breaks.
+- Create and save a named report.
 
-## Task 1: Configure the primary report
+## Task 1: Configure the Primary Report
 
-1. Run the TAP application and open **Candidate Pipeline**. In the Interactive Report region, click the **Actions** menu. Select **Format** > **Highlight**.
+1. Run the **Talent Acquisition Portal** application.
 
-    ![Candidate Pipeline Actions menu with Format and Highlight selected.](images/open-highlight-dialog.png ' ')
+2. From the navigation menu, select **Candidate Pipeline**.
 
-2. Add the following row highlighting rule:
+3. On the **Candidates** report, select **Actions**.
 
-    - Background Color: **#ffd6d2**
-    - Column: **Stage**
-    - Operator: **=**
-    - Expression: **Rejected**
-    
-    Click **Apply**.
+4. Select **Format** and then select **Highlight**.
 
-    ![Row Highlighting dialog configured for rejected candidates with a red background.](images/rejected-row-highlight.png ' ')
+    ![Open the Highlight dialog](images/open-highlight-dialog.png " ")
 
-3. Similarly, add the following highlighting rule:
+5. In the **Highlight** dialog, enter/select the following:
 
-    - Background Color: **#d0f1cc**
-    - Column: **Stage**
-    - Operator: **=**
-    - Expression: **Hired**
-    
-    Click **Apply**.
+    - **Column:** **Stage**
+    - **Operator:** **=**
+    - **Expression:** **Rejected**
+    - **Background Color:** **#FFD6D2**
 
-    ![Row Highlighting dialog configured for hired candidates with a green background.](images/hired-row-highlight.png ' ')
+6. Select **Apply**.
 
-4. Click **Actions** and select **Columns**. Select the columns `Email`, `Created At`, `Created By`, `Updated At`, and `Updated By` and move them to the **Do Not Display** section. Click **Apply**.
+    ![Configure the Rejected highlight](images/rejected-row-highlight.png " ")
 
-    ![Columns dialog showing audit and email columns in the Do Not Display list.](images/hide-default-columns.png ' ')
+7. Repeat steps 3 through 6 to add a highlight for candidates in the **Hired** stage.
 
-5. Click **Actions** and select **Data** > **Sort**.
+8. In the **Highlight** dialog, enter/select the following for the **Hired** stage:
 
-    ![Candidate Pipeline Actions menu with Data and Sort selected.](images/open-sort-dialog.png ' ')
+    - **Column:** **Stage**
+    - **Operator:** **=**
+    - **Expression:** **Hired**
+    - **Background Color:** **#D0F1CC**
 
-6. In the Sort dialog, enter/select the following:
-    - Column: **Applied Date**
-    - Direction: **Descending**
-    Click **Apply**.
+9. Select **Apply**.
 
-    ![Sort dialog configured to order Applied Date in descending order.](images/applied-date-descending-sort.png ' ')
+    ![Configure the Hired highlight](images/hired-row-highlight.png " ")
 
-7. Click **Actions** and select **Format** > **Control Break**. Enter/select the following:
-    - Column: Stage
-    Click **Apply**.
+10. Select **Actions**.
 
-    ![Candidate Pipeline Actions menu showing the Customize option and report settings.](images/control-break.png ' ')
+11. Select **Columns**.
 
-8. Let us save the configuration as the default report. Click **Actions** > **Report** > **Save Report**. In the dialog, for Save (Only displayed for developers), select **As Default Report Settings** and click **Apply**.
+    ![Open the Columns dialog](images/hide-default-columns.png " ")
 
-    ![Save Report dialog with As Default Report Settings selected.](images/save-default-report-settings.png ' ')
+12. In the **Columns** dialog, move **Email** and the audit columns to **Do Not Display**.
 
-9. For Default Report Type, select **Primary** and click **Apply**.
+13. Select **Apply**.
 
-    ![Default Report Type dialog with Primary selected.](images/select-primary-report.png ' ')
+    ![Configure the displayed columns](images/hide-default-columns.png " ")
 
-## Task 2: Create the Active Candidates report
+14. Select **Actions**.
 
-1. In the running application, select **Actions**, then **Filter**.
+15. Select **Data** and then select **Sort**.
 
-    ![Actions menu](images/open-filter.png ' ')
+    ![Open the Sort dialog](images/open-sort-dialog.png " ")
 
-2. In the filter dialog, enter/select the following:
-    - Column: **Stage**
-    - Operator: **Not in**
-    - Expression: **Hired,Rejected**
+16. In the **Sort** dialog, enter/select the following:
 
-    Click **Apply**.
+    - **Column:** **Applied Date**
+    - **Direction:** **Descending**
 
-    ![Filter dialog configured to exclude Hired and Rejected stages.](images/filter-active-candidates.png ' ')
+17. Select **Apply**.
+
+    ![Configure the Applied Date sort](images/applied-date-descending-sort.png " ")
+
+18. Select **Actions**.
+
+19. Select **Format** and then select **Control Break**.
+
+    ![Open the Control Break dialog](images/control-break.png " ")
+
+20. In the **Control Break** dialog, enter/select the following:
+
+    - **Column:** **Stage**
+    - **Direction:** **Ascending**
+
+21. Select **Apply**.
+
+    ![Configure the Stage control break](images/control-break.png " ")
+
+22. Select **Actions**.
+
+23. Select **Report** and then select **Save Report**.
+
+    ![Open the Save Report dialog](images/save-default-report-settings.png " ")
+
+24. In the **Save Report** dialog, select **As Default Report Settings**.
+
+25. Select **Apply**.
+
+    ![Save the report as the default](images/save-default-report-settings.png " ")
+
+26. In the confirmation dialog, select **Primary**.
+
+27. Select **Apply**.
+
+    ![Set the report as the primary default](images/select-primary-report.png " ")
+
+## Task 2: Create the Active Candidates Report
+
+1. On the **Candidates** report, select **Actions**.
+
+2. Select select **Filter**.
+
+    ![Open the Filter dialog](images/open-filter.png " ")
+
+3. In the **Filter** dialog, enter/select the following:
+
+    - **Column:** **Stage**
+    - **Operator:** **Not in**
+    - **Expression:** **Hired,Rejected**
+
+4. Select **Apply**.
+
+    ![Filter out Hired and Rejected candidates](images/filter-active-candidates.png " ")
+
+5. Select **Actions**.
+
+6. Select **Report** and then select **Save Report**.
+
+    ![Open the Save Report dialog](images/name-active-candidates-report.png " ")
+
+7. In the **Save Report** dialog, enter/select the following:
+
+    - **Save:** **As Named Report**
+    - **Name:** **Active Candidates**
+
+8. Select **Apply**.
+
+    ![Save the Active Candidates report](images/active-candidates-saved-report.png " ")
+
+    ![Active Candidates named report](images/active-candidates-report.png " ")
+
+## Summary
+
+You customized the Candidate Pipeline Interactive Report, saved the layout as the primary default report, and created the **Active Candidates** named report.
 
 
-3. Navigate to **Actions** > **Report** > **Save Report**. 
+### Acknowledgements
 
-    ![Save Report dialog with Active Candidates entered as the report name.](images/name-active-candidates-report.png ' ')
-
-4. In the Save Report dialog, enter/select the following:
-    - Save (Only displayed for developers): **As Named Report**
-    - Name: **Active Candidates**
-    Click **Apply**.
-
-    ![Candidate Pipeline report filtered to active candidates and the saved-report controls.](images/active-candidates-saved-report.png ' ')
-
-    ![Candidate Pipeline report filtered to active candidates and the saved-report controls.](images/active-candidates-report.png ' ')
-
-    
-
-## Acknowledgements
-
-* **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-* **Last Updated By/Date** - Apoorva Srinivas, Principal Product Manager, July 2026
+- **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

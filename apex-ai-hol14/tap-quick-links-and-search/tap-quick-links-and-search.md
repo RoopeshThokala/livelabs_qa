@@ -1,104 +1,126 @@
-# Lab 3: Add Quick Links and Global Search
+# Add TAP Quick Links
 
 ## Introduction
 
-In this lab, you place common TAP actions on the home page as Quick Links which are easily accessible.
+Quick Links give recruiters direct access to common actions from the Talent Acquisition Portal (TAP) home page. In this lab, you will create a static list, configure its entries and icons, and display it as a Quick Links region on the home page.
 
-Estimated Time: 5 minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
 In this lab, you will:
 
-- Create a TAP Quick Links list.
+- Create the TAP Quick Links static list.
+- Configure links and icons for common recruiter actions.
+- Display the list on the TAP home page.
 
-## Task 1: Create TAP Quick Links List
+## Task 1: Create the TAP Quick Links List
 
-1. Open **TAP** > **Shared Components** > **Lists**. 
-    ![Lists shared component with the TAP Quick Links static list being created.](images/nav-list.png ' ')
+1. In **App Builder**, open the **Talent Acquisition Portal** application.
 
-2. Click **Create**. 
-    ![Lists shared component with the TAP Quick Links static list being created.](images/create-tap-quick-links-list.png ' ')
+2. Click **Shared Components**. Under **Other Components**, click **Lists**.
 
-3. Create a static list named **TAP Quick Links**. Enter/select the following:
+    ![Open Lists in Shared Components](images/nav-list.png " ")
+
+3. Click **Create**.
+
+    ![Create a new list](images/create-tap-quick-links-list.png " ")
+
+4. Create a static list. Enter/select the following:
+
     - Name: **TAP Quick Links**
     - Type: **Static**
 
     Click **Next**.
-    ![Lists shared component with the TAP Quick Links static list being created.](images/create-list-details.png ' ')
 
+    ![Configure the TAP Quick Links static list](images/create-list-details.png " ")
 
-4. Add the following 4 entries:
+5. Add the following list entries:
 
-    | List Entry Label  |  Target Page ID or custom URL |
-    | --- | --- |
-    | New Requisition | 2 |
-    | Add Candidate  |   5 |
-    | Today’s Interviews | 6 |
-    | Pending Offers | 8 |
+    | List Entry Label | Target Page | Target Page Name |
+    | --- | --- | --- |
+    | New Requisition | 2 | Job Requisitions |
+    | Add Candidate | 5 | Candidate |
+    | Today's Interviews | 6 | Interview Schedule |
+    | Pending Offers | 8 | Offer Management |
 
     Click **Next**.
-    ![Lists shared component with the TAP Quick Links static list being created.](images/list-entries.png ' ')
 
-5. Click **Create List**.
-    ![Create list dialog](images/create-list-confirm.png ' ')
+    *Note: Page numbers can differ between applications. If a page number differs, select the appropriate target page by using its name in the **Target Page Name** column.*
 
+    ![Add TAP Quick Links list entries](images/list-entries.png " ")
 
-6. Select TAP Quick Links. From List Details on the right side, select **Grid Edit**.
-    ![Lists shared component with the TAP Quick Links static list being created.](images/grid-edit.png ' ')
+6. Click **Create List**.
 
-7. In the modal Dialog Wizard, add the below icons:
+    ![Create the TAP Quick Links list](images/create-list-confirm.png " ")
 
-    | Entry  |  Icon |
+## Task 2: Configure Quick Link Icons
+
+1. Select **TAP Quick Links** in the Lists report.
+
+2. In the List Details pane, click **Grid Edit**.
+
+    ![Open Grid Edit for the TAP Quick Links list](images/grid-edit.png " ")
+
+3. Set the icon for **New Requisition** to **fa-plus**.
+
+4. Set the icons for the remaining entries:
+
+    | List Entry Label | Icon |
     | --- | --- |
-    | New Requisitions  |   fa-plus |
-    | Add Candidate     |   fa-user-plus |
-    | Today’s Interviews |  fa-calendar |
-    | Pending Offers  |     fa-envelope |
+    | Add Candidate | fa-user-plus |
+    | Today's Interviews | fa-calendar |
+    | Pending Offers | fa-envelope |
 
-    Click **Save**.
+5. Click **Save**.
 
-    ![Grid list entries](images/edit-icons.png ' ')
+    ![Configure icons for the TAP Quick Links entries](images/edit-icons.png " ")
 
+## Task 3: Display Quick Links on the TAP Home Page
 
-## Task 2: Display TAP Quick Links on Home Page
+1. Open **Page 1: Home** in Page Designer.
 
-1. Click **Edit Page 1**.
+    ![Open the TAP home page in Page Designer](images/edit-page1.png " ")
 
-    ![TAP Quick Links list entries](images/edit-page1.png ' ')
+2. In the Rendering tree, right-click **Body** and select **Create Region**.
 
-2. On TAP Home, add a **Quick Links** List region sourced from TAP Quick Links. 
-    Right-click **Body** and select **Create Region**.
+    ![Create a region on the TAP home page](images/create-region.png " ")
 
-    ![TAP Home Page Designer showing the Quick Links media-list region.](images/create-region.png ' ')
+3. Select the new region and enter/select the following in the Property Editor:
 
-3. Enter/select the following in the Property Editor:
-    - Name: Quick Links
-    - Type: List
-    - Source > List: TAP Quick Links
-    ![Property Editor](images/region-details1.png ' ')
+    - Identification > Name: **Quick Links**
+    - Identification > Type: **List**
+    - Source > List: **TAP Quick Links**
+    - Appearance > Template Options > Style: **Remove UI Decoration**
 
-    - Template Options:
-        - Style: Remove UI Decoration
+    ![Configure the Quick Links region source and template options](images/region-details1.png " ")
 
-        ![Property Editor](images/region-details2.png ' ')
+    ![Set the Quick Links region style](images/region-details2.png " ")
 
-4. Switch to the Attributes tab in the Property Editor. Enter/select the following:
+4. Select the **Attributes** tab. Enter/select the following:
+
     - List Template: **Media List**
-        ![Property Editor](images/attributes1.png ' ')
-    - Template Options:
-        - Apply Theme Colors: **Check** the box
-        ![Property Editor](images/attributes2.png ' ')
+    - Template Options > Apply Theme Colors: **On**
 
-4. **Save and Run**. Verify that all four links open their expected pages.
+    ![Select the Media List template](images/attributes1.png " ")
 
-    ![Property Editor](images/save-and-run.png ' ')
+    ![Apply theme colors to the Quick Links list](images/attributes2.png " ")
 
-    ![TAP Home page displaying the Quick Links media list.](images/verify-tap-quick-links.png ' ')
+5. Click **Save and Run Page**.
 
+6. Confirm that all four links appear on the home page and open their expected pages.
 
+    ![Save and run the TAP home page](images/save-and-run.png " ")
+
+    ![Verify TAP Quick Links at runtime](images/verify-tap-quick-links.png " ")
+
+## Summary
+
+You created a TAP Quick Links list, configured its icons, and displayed it on the home page. Recruiters can now open common actions directly from the application home page.
+
+You may now proceed to the next lab.
 
 ## Acknowledgements
 
-* **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-* **Last Updated By/Date** - Apoorva Srinivas, Principal Product Manager, August 2026
+- **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - October 2026

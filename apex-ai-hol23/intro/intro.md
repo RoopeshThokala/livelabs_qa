@@ -2,11 +2,11 @@
 
 ## Introduction
 
-This module exports the Talent Acquisition Portal (TAP) and Employee Skills Search (ESS) applications to APEXlang specifications. TAP now has 17 pages, 2 workflows, 2 AI agents, REST endpoints, security, and charts. ESS has 18 pages with similar complexity. You will review the exported TAP project, add a static content region, validate the project, and verify the imported change in APEX.
+In this module, you will export the Talent Acquisition Portal (TAP) application to APEXlang. You will review the exported project, add a static content region, validate the project, and verify the imported change in APEX.
 
-In Module 4, you used Blueprints with a simple 3-page specification to create a basic TAP skeleton. Here, you export the full 17-page TAP application and read the specification that describes the pages, regions, items, processes, validations, and workflows built in the preceding modules.
+In Module 4, you used an Application Blueprint to create a TAP comparison application. In this module, you will export the TAP application developed in the preceding modules and review how its pages, regions, items, processes, validations, and workflows are represented in APEXlang.
 
-Estimated Time: 45 minutes
+Estimated Workshop Time: 45 minutes
 
 ### Objectives
 
@@ -23,26 +23,40 @@ This workshop assumes that you have completed the preceding APEX UI modules and 
 
 You need:
 
-- VS Code.
-- SQL Developer Extension for VS Code.
+- Visual Studio Code.
+- Oracle SQL Developer for VS Code.
 - A database connection.
 - A local folder where you can export the TAP project.
 
+### Downloads
+
+Stuck or missed out on completing the earlier labs? Don't worry! You can download the following files:
+
+- **<a href="files/tap-export17.sql" download="tap-export17.sql">Talent Acquisition Portal</a>**
+- **<a href="files/ess-export16.sql" download="ess-export16.sql">Employee Self-Service Portal</a>**
+
+Import the application that you need. In **App Builder**, select **Import**, upload the export file, and follow the steps in the **Import Application** wizard.
+
+> **Note:**
+>
+> - **APEX Version:** The supplied application exports were created with Oracle APEX 26.2 and cannot be imported into earlier APEX releases.
+> - The hands-on steps in this module use TAP.
+
 ## Labs
 
-| Lab | Focus | Estimated time |
+| Lab | Focus | Estimated Time |
 | --- | --- | --- |
 | Lab 1 | Set up the environment | 15 minutes |
-| Lab 2 | Set up the APEXlang skills repo | 5 minutes |
+| Lab 2 | Set up the APEXlang skills repository | 5 minutes |
 | Lab 3 | Export TAP and review the APEXlang project | 10 minutes |
 | Lab 4 | Add a new component and validate the project | 10 minutes |
 | Lab 5 | Import TAP and verify the change | 5 minutes |
 
 ## What Carries Forward
 
-Both applications are now version-controlled in APEXlang specifications. Module 24 uses those specifications to make changes to the applications without opening the APEX UI.
+The exported TAP project contains the updated APEXlang source files. Module 24 uses APEXlang specifications to make further changes to the applications.
 
 ## Acknowledgements
 
-- **Author** - Ankita Beri, Senior product manager
+- **Author** - Ankita Beri, Senior Product Manager
 - **Last Updated By/Date** - Ankita Beri, September 2026

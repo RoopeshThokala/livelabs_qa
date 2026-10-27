@@ -1,10 +1,10 @@
-# Lab 3: Build the Interview Schedule as an Interactive Grid
+# Build the Interview Schedule as an Interactive Grid
 
 ## Introduction
 
 An interview schedule changes quickly, and recruiters should not have to leave the page to keep it accurate. In this lab, you will build an editable grid that puts each interview stage and its working details in one place.
 
-Estimated Time: 10 minutes
+Estimated Lab Time: 10 minutes
 
 ### Objectives
 
@@ -16,76 +16,86 @@ In this lab, you will:
 
 ## Task 1: Add the Interactive Grid
 
-1. In the Talent Acquisition Portal Application, open the **Interview Schedule** page.
+1. In the **Talent Acquisition Portal** application, open the **Interview Schedule** page in Page Designer.
 
-    ![Interview Schedule grid source](images/interview-schedule-grid-source.png "")
+    > **Note:** The page number might differ. Open the page named **Interview Schedule**.
 
-2. In the Rendering tree (left pane), right click on Body and click **Create Region**.
+    ![Open the Interview Schedule page](images/interview-schedule-grid-source.png " ")
 
-    ![Add a new Region](images/click-create-region.png "")
+2. In the Rendering tab, right-click **Body** and select **Create Region**.
 
-3. In the Property Editor, enter/select the following properties:
-    - Under Identification:
-        - Name: **Interview Stages**
-        - Type: **Interactive Grid**
-    - Under Source:
-        - Table Owner: **Parsing Schema**
-        - Table Name: `TMS_INTERVIEW_STAGES`
+    ![Create a region under Body](images/click-create-region.png " ")
 
-    ![Set Interactive Grid Properties](images/set-interactive-grid-properties.png "")
+3. With the new region selected, enter or select the following in the Property Editor:
 
-4. In the Property Editor, click the **Attributes** tab and then:
-    - Under Edit > Enabled: Yes
+    - Under **Identification**:
+        - **Name:** **Interview Stages**
+        - **Type:** **Interactive Grid**
+    - Under **Source**:
+        - **Type:** **Table / View**
+        - **Table Owner:** **Parsing Schema**
+        - **Table Name:** **TMS\_INTERVIEW\_STAGES**
 
-    ![Enable Edit option](images/enable-edit.png "")
+    ![Configure the Interview Stages Interactive Grid](images/set-interactive-grid-properties.png " ")
 
-## Task 2: Configure editable columns
+4. In the Property Editor, select **Attributes**.
 
-1. In the left pane, expand the report columns of the Interactive Grid Region.
+5. Under **Edit**, turn on **Enabled**.
 
-    ![Expand the report columns](images/expand-report-columns.png)
+    ![Enable Interactive Grid editing](images/enable-edit.png " ")
 
-2. Select the column **CANDIDATE\_ID**.
+## Task 2: Configure Editable Columns
 
-    ![Select the Candidate ID column](images/select-candidate-id-column.png)
+1. In the Rendering tab, expand **Interview Stages**, then expand **Columns**.
 
-3. In the right pane:
-    - Under Identification > Type: Display Only
+    ![Expand the Interview Stages columns](images/expand-report-columns.png " ")
 
-    ![Set Candidate ID  as Display only](images/update-candidate-id-type.png)
+2. Select **CANDIDATE\_ID**.
 
-4. Similarly, Update the Identification **Type** for **REQ\_ID** and **STAGE\_NAME** as Display Only.
+    ![Select the CANDIDATE_ID column](images/select-candidate-id-column.png " ")
 
-  |Column Name | Identification Type |
-  |----------|-------|
-  | REQ\_ID | Display Only |
-  | STAGE\_NAME | Display Only |
+3. In the Property Editor, under **Identification**, set **Type** to **Display Only**.
 
-    ![Set REQ ID as Display only](images/update-req-id-type.png)
+    ![Set CANDIDATE_ID to Display Only](images/update-candidate-id-type.png " ")
 
-    ![Set Stage Name as  Display only](images/update-stage-name-type.png)
+4. Set **Identification > Type** to **Display Only** for the following columns:
 
-5. Next, you will need to hide all the Audit Columns **CREATED\_BY**, **CREATED\_AT**, **UPDATED\_BY**, and **UPDATED\_AT**. To do this, you can set the Type of the column to Hidden, which will not display the column on the frontend.
+    | Column | Identification > Type |
+    | --- | --- |
+    | **REQ\_ID** | **Display Only** |
+    | **STAGE\_NAME** | **Display Only** |
 
-    - To select these four Columns, click on the **CREATED\_BY** column under the Interview Stages region, and then hold shift and click on the last column, **UPDATED\_AT**.
+    ![Set REQ_ID to Display Only](images/update-req-id-type.png " ")
 
-6. Then, In the **Property Editor**, Update the Identification **Type** as **Hidden**.
+    ![Set STAGE_NAME to Display Only](images/update-stage-name-type.png " ")
 
-    ![Set Audit Columns type as Hidden](images/update-audit-columns-type.png)
+5. In the Rendering tab, select **CREATED\_BY**. Hold **Shift** and select **UPDATED** to select all four audit columns.
 
-7. Save and Run the Page.
+6. In the Property Editor, under **Identification**, set **Type** to **Hidden**.
 
-    ![Save and Run Page](images/save-and-run-page.png)
+    ![Hide the audit columns](images/update-audit-columns-type.png " ")
 
-8. Navigate through the **Interview Schedule** Grid page.
+7. Click **Save and Run**.
 
-    ![Interview Schedule page](images/check-interview-schedule-page.png "")
+    ![Save and run the Interview Schedule page](images/save-and-run-page.png " ")
 
-9. Edit a cell. In this example, update the candidate’s Interviewer ID. Click **Save** and confirm the change was committed.
+8. Verify that the Interview Schedule Interactive Grid appears.
 
-    ![Interview Schedule inline edit](images/interview-schedule-inline-edit.png "")
+    ![Interview Schedule Interactive Grid at runtime](images/check-interview-schedule-page.png " ")
 
-    ![Interview Schedule save Edit](images/interview-schedule-save-edit.png "")
+9. Select a row.
+
+10. Click **Edit**.
+
+11. In the **Interviewer Id** column, enter `4` for the selected row.
+
+    ![Edit an Interviewer Id value](images/interview-schedule-inline-edit.png " ")
+
+12. Click **Save**.
+
+13. Confirm that the change is committed.
+
+    ![Save the edited row](images/interview-schedule-save-edit.png " ")
 
 ## Summary
 
@@ -93,5 +103,5 @@ You created an editable Interview Schedule grid with the right balance of visibi
 
 ## Acknowledgements
 
-* **Author** - Roopesh Thokala, Principal Product Manager
-* **Last Updated By/Date** - Roopesh Thokala, July, 2026
+- **Author** - Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, July 2026

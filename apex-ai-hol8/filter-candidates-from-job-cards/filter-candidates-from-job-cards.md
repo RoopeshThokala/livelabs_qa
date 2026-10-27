@@ -1,105 +1,134 @@
-# Lab 4: Link Job Cards to a Filtered Candidate List
+# Link Job Cards to a Filtered Candidate List
 
 ## Introduction
 
 Pass a requisition ID from each Job Openings card to Candidate Pipeline. The report query reads the page item and displays applicants only for the selected requisition.
 
-Estimated Time: 5 minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
-In this lab, you will:
+In this lab, you will learn how to:
 
 - Add a requisition ID page item to Candidate Pipeline.
-- Filter the interactive report with a bind variable.
+- Filter an Interactive Report with a bind variable.
 - Link Job Openings cards to the filtered report.
 
-## Task 1: Filter Candidate Pipeline by requisition
+## Task 1: Filter Candidate Pipeline by Requisition
 
-1. Click the Edit page button from the Candidate Pipeline Page in the app.
-    ![Candidate Pipeline Page Designer with the P4_REQ_ID page item added.](images/edit-page.png ' ')
+1. Run the application.
 
+2. On the **Candidate Pipeline** page, select **Edit Page** in the Developer Toolbar.
 
-2. Right-click **Body** and select **Create Page Item**. 
-    ![Candidate Pipeline Page Designer with the P4_REQ_ID page item added.](images/create-page-item.png ' ')
+    ![Open Candidate Pipeline in Page Designer](images/edit-page.png " ")
 
+3. In the Rendering tab, right-click **Body**.
 
-3. Enter/select the following details:
-    - Name: **P4\_REQ\_ID**
-    - Type: **Hidden**
+4. Select **Create Page Item**.
 
-    ![Candidate Pipeline Page Designer with the P4_REQ_ID page item added.](images/create-p4-req-id.png ' ')
+    ![Create a page item under Body](images/create-page-item.png " ")
 
-4. Select the **Candidates** region in the left pane. Expand the SQL Query code editor. Replace the SQL query with the following:
+5. In the Property Editor, enter/select the following:
+
+    - **Identification > Name:** **P4\_REQ\_ID**
+    - **Identification > Type:** **Hidden**
+
+    ![Configure the hidden requisition ID item](images/create-p4-req-id.png " ")
+
+6. In the Rendering tab, select the **Candidates** region.
+
+7. In the Property Editor, under **Source**, select **SQL Query**.
+
+    ![Open the Candidate Pipeline SQL Query editor](images/open-code-editor.png " ")
+
+8. Replace the query with the following:
+
     ```sql
-    <copy>
-    select c.candidate_id,
-       c.req_id,
-       c.first_name || ' ' || c.last_name as candidate_name,
-       d.name as department_name,
-       c.email,
-       c.phone,
-       c.resume_blob,
-       c.source,
-       c.current_stage as stage,
-       c.applied_date,
-       trunc(sysdate - c.applied_date) as days_since_applied,
-       c.diversity_flag,
-       c.ai_score,
-       c.created_by,
-       c.created_at,
-       c.updated_by,
-       c.updated_at
-  from tms_candidates c
-  left join tms_job_requisitions r
-    on c.req_id = r.req_id
-  left join tms_departments d
-    on r.dept_id = d.dept_id
- where :P4_REQ_ID is null
-    or c.req_id = :P4_REQ_ID;
-
-    </copy>
+    SELECT c.candidate_id,
+           c.req_id,
+           c.first_name || ' ' || c.last_name AS candidate_name,
+           d.name AS department_name,
+           c.email,
+           c.phone,
+           c.resume_blob,
+           c.source,
+           c.current_stage AS stage,
+           c.applied_date,
+           TRUNC(SYSDATE - c.applied_date) AS days_since_applied,
+           c.diversity_flag,
+           c.ai_score,
+           c.created_by,
+           c.created,
+           c.updated_by,
+           c.updated
+      FROM tms_candidates c
+      LEFT JOIN tms_job_requisitions r
+        ON c.req_id = r.req_id
+      LEFT JOIN tms_departments d
+        ON r.dept_id = d.dept_id
+     WHERE :P4_REQ_ID IS NULL
+        OR c.req_id = :P4_REQ_ID
     ```
-    ![SQL source editor showing the P4_REQ_ID bind-variable filter.](images/open-code-editor.png ' ')
-    ![SQL source editor showing the P4_REQ_ID bind-variable filter.](images/add-requisition-filter-query.png ' ')
 
-3. Save and run the page. Navigate to the **Job Openings** page. Click **View Applicants** for any job opening.
-    ![Job Opening page](images/view-applicants.png ' ')
+    ![Add the P4_REQ_ID filter to the Candidate Pipeline query](images/add-requisition-filter-query.png " ")
 
-4. Confirm that the report returns candidates filtered by the Job Opening.
+9. Select **Save**.
 
-    ![Candidate Pipeline Page Designer showing the P4_REQ_ID item and filtered report SQL.](images/candidate-pipeline-req-filter.png ' ')
+## Task 2: Link the Job Openings Card
 
-## Task 2: Link the Job Openings card
+1. Open the page named **Job Openings** in Page Designer.
 
-1. Open the **Job Openings** Cards page in Page Designer.
+    > **Note:** The page number can differ between applications. Select the page by its name, **Job Openings**.
 
-    ![Page Designer with the Job Openings Cards page selected.](images/open-job-openings-cards.png ' ')
+    ![Open the Job Openings page](images/open-job-openings-cards.png " ")
 
-2. Navigate to **Job Openings** in the left pane. Right-click **Actions** and select **Create Action**.
-    ![Page Designer with the Job Openings Cards page selected.](images/create-action.png ' ')
+2. In the Rendering tab, expand the **Job Openings** region.
 
-3. Enter/select the following in the Property Editor:
-    - Type: **Button**
-    - Label: **View Applicants**
+3. Right-click **Actions**.
 
-    ![Cards region link settings with View Applicants entered as the link label.](images/add-button.png ' ')
-    - Behaviour > Target:
-        - Page: **4** (*Candidate Pipeline Page*)
-        - Set Items:
-            - Name: **P4\_REQ\_ID**
-            - Value: **&REQ_ID.**
-        
-        Click **OK**.
-    
-    ![Cards region link settings with View Applicants entered as the link label.](images/add-view-applicants-link.png ' ')
+4. Select **Create Action**.
 
-4. Save and Run the page. Select **View Applicants**, and confirm that Candidate Pipeline lists candidates for that requisition only.
-    ![Job Openings card with View Applicants action](images/view-applications.png ' ')
+    ![Create an action for the Job Openings Cards region](images/create-action.png " ")
 
-    ![Job Openings card with View Applicants action and the resulting filtered Candidate Pipeline report.](images/job-card-filtered-candidates.png ' ')
+5. In the Property Editor, under **Identification**, enter/select the following:
 
-## Acknowledgements
+    - **Type:** **Button**
+    - **Label:** **View Applicants**
 
-* **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-* **Last Updated By/Date** - Apoorva Srinivas, Principal Product Manager, July 2026
+    ![Configure the View Applicants action](images/add-button.png " ")
+
+6. Under **Behavior**, select the target picker.
+
+7. In the Link Builder, enter/select the following:
+
+    - **Page:** **4**
+    - Under **Set Items**:
+        - **Name:** **P\_REQ\_ID**
+        - **Value:** **&REQ_ID.**
+
+8. Select **OK**.
+
+    ![Set the Candidate Pipeline link target](images/link-job-openings-page-4.png " ")
+
+9. In the Property Editor, under **Appearance**, set **Hot** to **On**.
+
+    ![Complete the View Applicants action configuration](images/add-view-applicants-link.png " ")
+
+10. Select **Save and Run Page**.
+
+11. Select **View Applicants** for a job opening.
+
+12. Confirm that Candidate Pipeline lists candidates only for that requisition.
+
+    ![Select View Applicants on a Job Openings card](images/view-applications.png " ")
+
+    ![Candidate Pipeline filtered by the selected requisition](images/job-card-filtered-candidates.png " ")
+
+## Summary
+
+You added a requisition ID page item and used it to filter Candidate Pipeline from a **View Applicants** action on Job Openings cards.
+
+### Acknowledgements
+
+- **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

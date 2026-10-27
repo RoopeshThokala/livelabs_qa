@@ -1,65 +1,92 @@
-# Lab 3: Link Candidate Pipeline to Candidate Profile
+# Link Candidate Pipeline to Candidate Profile
 
 ## Introduction
 
 Link each candidate ID in Candidate Pipeline to the Candidate Profile page. The profile page is intentionally blank at this point; a later module builds its content.
 
-Estimated Time: 10 minutes
+Estimated Lab Time: 10 minutes
 
 ### Objectives
 
-In this lab, you will:
+In this lab, you will learn how to:
 
 - Add a hidden candidate ID item to Candidate Profile.
 - Configure the Candidate Pipeline candidate ID column as a link.
-- Pass the selected candidate ID to Page 11.
+- Pass the selected candidate ID to Candidate Profile.
 
-## Task 1: Add the target page item
+## Task 1: Add the Target Page Item
 
-1. Open the **Candidate Profile** page in Page Designer.
+1. Open the page named **Candidate Profile** in Page Designer.
 
-    ![Page Designer navigation with the Candidate Profile page selected.](images/open-candidate-profile-page.png ' ')
+    > **Note:** The page number can differ between applications. Select the page by its name, **Candidate Profile**.
 
-2. Right-click **Body** and select **Create Page Item**.
-    ![Page Designer navigation with the Candidate Profile page selected.](images/create-page-item.png ' ')
+    ![Open the Candidate Profile page](images/open-candidate-profile-page.png " ")
 
-2. Add a hidden page item named `Pn_CANDIDATE_ID`. Enter/select the following details:
-    - Name: **Pn\_CANDIDATE\_ID**
-    - Type: **Hidden**
+2. In the Rendering tab, right-click **Body**.
 
-    ![Create Page Item dialog configured with P11_CANDIDATE_ID and Hidden item type.](images/create-hidden-candidate-id.png ' ')
+3. Select **Create Page Item**.
 
-3. Save the page.
+    ![Create a page item under Body](images/create-page-item.png " ")
 
-    ![Candidate Profile Page Designer showing the hidden P11_CANDIDATE_ID item.](images/save-page.png ' ')
+4. In the Property Editor, enter/select the following:
 
-## Task 2: Configure the Candidate Pipeline link
+    - **Identification > Name:** **P11\_CANDIDATE\_ID**
+    - **Identification > Type:** **Hidden**
 
-1. Run the application and open the Candidate Pipeline page. Use **Quick Edit** to select the interactive report region.
+    ![Configure the hidden candidate ID item](images/create-hidden-candidate-id.png " ")
 
-    ![Candidate Pipeline page with Quick Edit controls for the interactive report region.](images/quick-edit-candidate-pipeline.png ' ')
+5. Select **Save**.
 
-2. Under Columns, select the `CANDIDATE_ID` column and set **Identification> Type** to **Link**.
+    ![Save the Candidate Profile page](images/save-page.png " ")
 
-    ![CANDIDATE_ID column attributes with Identification Type set to Link.](images/set-candidate-id-link.png ' ')
+## Task 2: Configure the Candidate Pipeline Link
 
-3. Set the target page to **Candidate Profile** (Page 11). In the dialog, select/enter the following:
-    - Page: 11
-    - Set Items:
-        - Name: **Pn\_CANDIDATE\_ID**
-        - Value: **#CANDIDATE_ID#**
+1. Run the application.
 
-    Click **OK**.
+2. Open the **Candidate Pipeline** page.
 
-    ![Link Target dialog targeting Candidate Profile Page 11.](images/target-candidate-profile-page.png ' ')
+3. In the Developer Toolbar, select **Quick Edit** for the **Candidates** report.
 
+    ![Open the Candidates report in Quick Edit](images/quick-edit-candidate-pipeline.png " ")
 
-5. Save and Run the page. Select a candidate ID, and confirm that Candidate Profile opens.
-    ![Candidate Pipeline page](images/candidate-pipeline.png ' ')
+4. In the Rendering tab, expand **Columns** under the **Candidates** region.
 
-    ![Candidate Profile page opened after selecting a candidate ID in Candidate Pipeline.](images/candidate-profile-link-result.png ' ')
+5. Select **CANDIDATE\_ID**.
 
-## Acknowledgements
+6. In the Property Editor, set **Identification > Type** to **Link**.
 
-* **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-* **Last Updated By/Date** - Apoorva Srinivas, Principal Product Manager, July 2026
+    ![Set the Candidate ID column type to Link](images/set-candidate-id-link.png " ")
+
+7. Under **Link**, select the target picker.
+
+8. In the Link Builder, enter/select the following:
+
+    - **Page:** **11**
+    - Under **Set Items**:
+        - **Name:** **P11\_CANDIDATE\_ID**
+        - **Value:** **#CANDIDATE_ID#**
+
+    > **Note:** The page number can differ between applications. Select the page named **Candidate Profile**.
+
+9. Select **OK**.
+
+    ![Configure the Candidate Profile link target](images/target-candidate-profile-page.png " ")
+
+10. Select **Save and Run Page**.
+
+11. Select a candidate ID.
+
+12. Confirm that the **Candidate Profile** page opens.
+
+    ![Candidate Pipeline page](images/candidate-pipeline.png " ")
+
+    ![Candidate Profile opened from a candidate ID link](images/candidate-profile-link-result.png " ")
+
+## Summary
+
+You added a hidden candidate ID item to Candidate Profile and linked each Candidate Pipeline candidate ID to that page.
+
+### Acknowledgements
+
+- **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

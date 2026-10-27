@@ -4,7 +4,11 @@
 
 In this lab, you will create an Onboarding Assistant for employees. The agent identifies the signed-in employee through `APP_USER`, retrieves only that employee's tasks, searches company policy text, and completes only a task owned by that employee.
 
-Estimated Time: 20 minutes
+Estimated Lab Time: 20 minutes
+
+### Where We Are
+
+ESS already contains the onboarding workflows and identifies the signed-in employee through authentication. In this lab, you create an Onboarding Assistant that retrieves the employee's tasks, answers policy questions, and updates only the employee's own tasks.
 
 ### Objectives
 
@@ -23,6 +27,18 @@ In this lab, you will:
 - A Generative AI Service configured in the workspace and selected under **Shared Components > AI Attributes** for the application.
 - If a component already exists in the supplied completed app, open it to review its properties. In your workshop starter app, create it using the steps below.
 
+### Downloads
+
+Stuck or missed out on completing the previous labs? Don't worry! You can download the following file:
+
+- **<a href="../0-introduction/files/ess-export13.sql" download="ess-export13.sql">Employee Self-Service Portal</a>**
+
+Import it into your workspace. In **App Builder**, select **Import**, upload `ess-export13.sql`, and follow the steps in the **Import Application** wizard.
+
+> **Note:**
+>
+> - **APEX Version:** The supplied application export was created with Oracle APEX 26.2 and cannot be imported into earlier APEX releases.
+
 ## Task 1: Create and Configure the Onboarding Assistant
 
 1. In App Builder, open **Employee Self-Service Portal**.
@@ -37,29 +53,18 @@ In this lab, you will:
 
     ![Open ESS AI Agents](images/lab2-03-open-ai-agents.png " ")
 
-4. Click **Create**.
+4. Select **Create**.
 
     ![Create the Onboarding Assistant](images/lab2-04-create-agent.png " ")
 
-5. Configure the agent:
+5. In the **Property Editor**, configure the agent:
 
     | Property | Value |
     | --- | --- |
     | Name | `Onboarding Assistant` |
     | Service | Application Default |
-    | Response Format > Type | Text |
 
-    ```text
-    <copy>
-    Onboarding Assistant
-    </copy>
-    ```
-
-    ![Configure the Onboarding Assistant name and default AI service](images/lab2-task1-point5-onboarding-agent-settings.png " ")
-
-    ![Select Text as the Onboarding Assistant response format](images/lab2-task1-point5-onboarding-response-format.png " ")
-
-6. Enter this System Prompt:
+    - Under Generative AI, enter this System Prompt:
 
     ```text
     <copy>
@@ -93,39 +98,37 @@ In this lab, you will:
     </copy>
     ```
 
-7. Open **Advanced**. Unlock **Static ID** if required, and enter `ONBOARDING_ASSISTANT`.
+    ![Configure the Onboarding Assistant name and default AI service](images/lab2-task1-point5-onboarding-agent-settings.png " ")
+
+    ![Select Text as the Onboarding Assistant response format](images/lab2-task1-point5-onboarding-response-format.png " ")
+
+6. Open **Advanced**, unlock **Static ID** if required. Enter `ONBOARDING_ASSISTANT`.
 
     > **Note:** APEX can display an automatically generated value such as `onboarding-assistant`. Use the workshop identifier when the field is editable.
 
     ![Unlock and set the Onboarding Assistant Static ID before saving](images/lab2-task1-point7-agent-static-id.png " ")
 
-8. Click **Create** for a new agent, or **Apply Changes** when reviewing an existing agent.
+7. Click **Create**.
 
     ![Review Onboarding Assistant settings](images/lab2-13-agent-settings.png " ")
 
-9. Open **Onboarding Assistant** to continue.
+8. Open **Onboarding Assistant** to continue.
 
     ![Open the Onboarding Assistant](images/lab2-05-open-onboarding-assistant.png " ")
 
 ## Task 2: Create the Employee Task Retrieval Tool
 
-1. On the agent's **Tools** tab, click **Add Tool**.
+1. On the agent's **Tools** tab, select **Add Tool**.
 
     ![Select Tools and click Add Tool](images/lab2-task2-point1-tools-add-tool.png " ")
 
-2. Configure the tool:
+2. In the **Property Editor**, configure the tool:
 
     | Property | Value |
     | --- | --- |
     | Name | `get_my_tasks` |
     | Type | Retrieve Data |
     | Execution Point | On Demand |
-
-    ```text
-    <copy>
-    get_my_tasks
-    </copy>
-    ```
 
     ![Configure the tool Name Type and On Demand execution before saving](images/lab2-task2-point2-tool-identification.png " ")
 
@@ -141,7 +144,9 @@ In this lab, you will:
 
     ![Enter the tool description before saving](images/lab2-task2-point3-tool-description.png " ")
 
-4. Under **Settings**, set **Type** to **SQL Query**, and enter the following in **SQL Query**:
+4. Under **Settings**, set **Type** to **SQL Query**.
+
+    Enter the following in **SQL Query**:
 
     ```sql
     <copy>
@@ -168,27 +173,23 @@ In this lab, you will:
 
     ![Enter the task query filtered by the signed-in employee](images/lab2-task2-point4-employee-task-query.png " ")
 
-5. Save the tool.
+5. Click **Create** to add the tool.
+
+   ![Click create tool](images/create-tool1.png " ")
 
 ## Task 3: Create the HR Policy Search Tool
 
-1. Click **Add Tool**.
+1. Select **Add Tool**.
 
     ![Click Add Tool to create the HR policy tool](images/lab2-task3-point1-add-policy-tool.png " ")
 
-2. Configure the tool:
+2. In the **Property Editor**, configure the tool:
 
     | Property | Value |
     | --- | --- |
     | Name | `get_hr_policy` |
     | Type | Retrieve Data |
     | Execution Point | On Demand |
-
-    ```text
-    <copy>
-    get_hr_policy
-    </copy>
-    ```
 
     ![Configure the tool Name Type and On Demand execution before saving](images/lab2-task3-point2-tool-identification.png " ")
 
@@ -205,7 +206,9 @@ In this lab, you will:
 
     ![Enter the tool description before saving](images/lab2-task3-point3-tool-description.png " ")
 
-4. Under **Parameters**, click **Add Parameter**. Enter the following row in the grid:
+4. Under **Parameters**, select **Add Parameter**.
+
+5. Enter the following row in the grid:
 
     | Property | Value |
     | --- | --- |
@@ -213,17 +216,11 @@ In this lab, you will:
     | Data Type | VARCHAR2 |
     | Required | Yes |
 
-    Copy **Parameter Name**:
-
-    ```text
-    <copy>
-    TOPIC
-    </copy>
-    ```
-
     ![Configure the required TOPIC parameter](images/lab2-task3-point4-policy-topic-parameter.png " ")
 
-5. Under **Settings**, set **Type** to **SQL Query**, and enter the following in **SQL Query**:
+6. Under **Settings**, set **Type** to **SQL Query**.
+
+    Enter the following in **SQL Query**:
 
     ```sql
     <copy>
@@ -242,29 +239,23 @@ In this lab, you will:
 
     ![Configure the HR policy search SQL](images/lab2-task3-point5-policy-query.png " ")
 
-6. Save the tool.
+7. Click **Create** to save the tool.
 
-This module uses keyword matching intentionally. `TMS_HR_POLICY.EMBEDDING_VECTOR` allows a later module to replace the query with semantic search while keeping the same tool interface.
+This lab uses keyword matching intentionally. `TMS_HR_POLICY.EMBEDDING_VECTOR` allows a later lab to replace the query with semantic search while keeping the same tool interface.
 
 ## Task 4: Create the Task Completion Tool
 
-1. Click **Add Tool**.
+1. Select **Add Tool**.
 
     ![Click Add Tool to create the completion tool](images/lab2-task4-point1-add-completion-tool.png " ")
 
-2. Configure the tool:
+2. In the **Property Editor**, configure the tool:
 
     | Property | Value |
     | --- | --- |
     | Name | `mark_task_complete` |
     | Type | Execute Server-side Code |
     | Execution Point | On Demand |
-
-    ```text
-    <copy>
-    mark_task_complete
-    </copy>
-    ```
 
     ![Configure the tool Name Type and On Demand execution before saving](images/lab2-task4-point2-tool-identification.png " ")
 
@@ -281,7 +272,9 @@ This module uses keyword matching intentionally. `TMS_HR_POLICY.EMBEDDING_VECTOR
 
     ![Enter the tool description before saving](images/lab2-task4-point3-tool-description.png " ")
 
-4. Under **Parameters**, click **Add Parameter**. Enter the following row in the grid:
+4. Under **Parameters**, select **Add Parameter**.
+
+5. Enter the following row in the grid:
 
     | Property | Value |
     | --- | --- |
@@ -289,17 +282,11 @@ This module uses keyword matching intentionally. `TMS_HR_POLICY.EMBEDDING_VECTOR
     | Data Type | NUMBER |
     | Required | Yes |
 
-    Copy **Parameter Name**:
-
-    ```text
-    <copy>
-    TASK_ID
-    </copy>
-    ```
-
     ![Set TASK_ID to NUMBER and Required Yes before saving](images/lab2-task4-point4-completion-parameter.png " ")
 
-5. Under **Settings**, set **Language** to **PL/SQL** and enter the following in **PL/SQL Code**:
+6. Under **Settings**, set **Language** to **PL/SQL**.
+
+    Enter the following in **PL/SQL Code**:
 
     ```plsql
     <copy>
@@ -327,7 +314,10 @@ This module uses keyword matching intentionally. `TMS_HR_POLICY.EMBEDDING_VECTOR
 
     ![Enter the task update code with the employee ownership check before saving](images/lab2-task4-point5-complete-owned-task.png " ")
 
-6. Save the tool.
+7. Under User Approval, set Requires Confirmation to No. Then click **Create** to Save the tool.
+
+    ![Create Tool](images/create-tool2.png " ")
+
 
     Confirm that `TASK_ID` has **Data Type** set to **NUMBER**, **Required** set to **Yes**, and that the tool appears under **On Demand**.
 
@@ -356,62 +346,39 @@ This module uses keyword matching intentionally. `TMS_HR_POLICY.EMBEDDING_VECTOR
 
 2. Open **Page 1: Home**.
 
+    > **Note:** Your generated page number might differ. Select the page named **Home**.
+
     ![Select Home on the application home page](images/lab2-10-open-home-page.png " ")
 
-3. In the Rendering tree, select the existing **Employee Self-Service Portal** Breadcrumb region.
-
-4. Right-click the Breadcrumb region and select **Create Button**.
+3. In the **Rendering** tab, right-click on the existing **Employee Self-Service Portal** Breadcrumb region and click **Create Button**.
 
     ![Create the assistant button from the Breadcrumb region context menu](images/lab2-task6-point4-create-button-menu.png " ")
 
-5. Configure the button:
+4. In the **Property Editor**, configure the button:
 
     | Property | Value |
     | --- | --- |
     | Button Name | `ASK_ONBOARDING_ASSISTANT` |
     | Label | `Ask Onboarding Assistant` |
     | Layout > Slot | Next |
+    | Appearance > Button Template | Icon |
     | Appearance > Icon | `fa-sparkles` |
-    | Appearance > Button Template | Text with Icon |
-    | Behavior > Action | Trigger Action |
-
-    Copy **Button Name**:
-
-    ```text
-    <copy>
-    ASK_ONBOARDING_ASSISTANT
-    </copy>
-    ```
-
-    Copy **Label**:
-
-    ```text
-    <copy>
-    Ask Onboarding Assistant
-    </copy>
-    ```
-
-    Copy **Appearance > Icon**:
-
-    ```text
-    <copy>
-    fa-sparkles
-    </copy>
-    ```
 
     ![Configure the onboarding assistant button](images/lab2-11-assistant-button.png " ")
 
-6. Save the page.
+5. Save the page.
 
 ## Task 7: Connect the Button to the Onboarding Assistant
 
-1. Select **`ASK_ONBOARDING_ASSISTANT`** in the Rendering tree.
+1. In the **Rendering** tab, select **`ASK_ONBOARDING_ASSISTANT`**. Right-click **`ASK_ONBOARDING_ASSISTANT`**. Then, select **Create Trigger Action**.
 
-2. Right-click **`ASK_ONBOARDING_ASSISTANT`** and select **Create Trigger Action**. Select the new action under **Triggered Actions**. Task 6 must have **Behavior > Action** set to **Trigger Action** for this option to appear.
+    ![Click create trigger action](images/click-create-trigger-action.png " ")
+
+2. Select the new action under **Triggered Actions**.
 
     ![Create the Show AI Assistant trigger action from the button](images/lab2-task7-point2-trigger-action-menu.png " ")
 
-3. Configure the action:
+3. In the **Property Editor**, configure the action:
 
     | Property | Value |
     | --- | --- |
@@ -419,15 +386,11 @@ This module uses keyword matching intentionally. `TMS_HR_POLICY.EMBEDDING_VECTOR
     | Action | Show AI Assistant |
     | Generative AI > Agent | Onboarding Assistant |
 
-    ```text
-    <copy>
-    Show AI Assistant
-    </copy>
-    ```
-
     ![Configure Show AI Assistant](images/lab2-12-show-ai-assistant.png " ")
 
-4. Under **Appearance**, set **Display As** to **Dialog** and **Title** to `Onboarding Assistant`. Leave **Initial Prompt > Type** as **None** so the employee can enter a question.
+4. Under **Appearance**, set **Display As** to **Dialog** and **Title** to `Onboarding Assistant`.
+
+    Leave **Initial Prompt > Type** as **None** so the employee can enter a question.
 
     ![Set Dialog, Onboarding Assistant title and no initial prompt before saving](images/lab2-task7-point4-assistant-dialog.png " ")
 
@@ -437,9 +400,11 @@ This module uses keyword matching intentionally. `TMS_HR_POLICY.EMBEDDING_VECTOR
 
 1. Confirm that the test employee's login name matches a value in `TMS_EMPLOYEES.EMAIL`. The comparison is case-insensitive.
 
-2. Run ESS and sign in as that employee.
+2. Run ESS.
 
-3. On ESS Home, click **Ask Onboarding Assistant**.
+3. Sign in as that employee.
+
+4. On ESS Home, click **Ask Onboarding Assistant**.
 
     > **Note:** The reference app currently displays this control as an icon and the dialog title as **Assistant**. The settings in Tasks 6–7 display the button text and title **Onboarding Assistant** in your app.
 
@@ -447,7 +412,7 @@ This module uses keyword matching intentionally. `TMS_HR_POLICY.EMBEDDING_VECTOR
 
     ![Open the Onboarding Assistant dialog](images/lab2-task8-point3-employee-assistant.png " ")
 
-4. Enter the LiveLab test prompt:
+5. Enter the LiveLab test prompt:
 
     ```text
     <copy>
@@ -455,11 +420,11 @@ This module uses keyword matching intentionally. `TMS_HR_POLICY.EMBEDDING_VECTOR
     </copy>
     ```
 
-5. Verify that the agent calls `get_hr_policy` and bases its answer on the returned policy text.
+6. Verify that the agent calls `get_hr_policy` and bases its answer on the returned policy text.
 
     ![Review the annual leave policy answer returned by the assistant](images/lab2-task8-point5-annual-leave-answer.png " ")
 
-6. Test task retrieval with:
+7. Test task retrieval with:
 
     ```text
     <copy>
@@ -467,13 +432,13 @@ This module uses keyword matching intentionally. `TMS_HR_POLICY.EMBEDDING_VECTOR
     </copy>
     ```
 
-7. Verify that the assistant lists only the signed-in employee's tasks and identifies incomplete or overdue entries.
+8. Verify that the assistant lists only the signed-in employee's tasks and identifies incomplete or overdue entries.
 
-    > **Note:** If the assistant reports no assigned tasks, verify that this employee has rows in `TMS_ONBOARDING_TASKS`. Use an employee with an incomplete owned task for Points 8–10. An empty task list does not validate the completion path.
+    > **Note:** If the assistant reports no assigned tasks, verify that this employee has rows in `TMS_ONBOARDING_TASKS`. Use an employee with an incomplete owned task for Points 9–11. An empty task list does not validate the completion path.
 
     ![The assistant reports no onboarding tasks for the signed-in employee](images/lab2-task8-point7-empty-owned-task-list.png " ")
 
-8. To test the update path, identify one incomplete task from the assistant response that you have completed. Use its task name in your message. For example, if the task is called **Complete tax forms**, enter:
+9. To test the update path, identify one incomplete task from the assistant response that you have completed. Use its task name in your message. For example, if the task is called **Complete tax forms**, enter:
 
     ```text
     <copy>
@@ -481,9 +446,9 @@ This module uses keyword matching intentionally. `TMS_HR_POLICY.EMBEDDING_VECTOR
     </copy>
     ```
 
-9. Review any confirmation that appears. Check the task name and, if needed, its category or due date. Confirm only the task you intended to complete.
+10. Review any confirmation that appears. Check the task name and, if needed, its category or due date. Confirm only the task you intended to complete.
 
-10. Ask for the task list again:
+11. Ask for the task list again:
 
     ```text
     <copy>
@@ -499,12 +464,12 @@ You created an Onboarding Assistant that retrieves live employee data, answers f
 
 You may now **proceed to the next lab**.
 
-## Acknowledgements
-
-- **Author** - Shanmukh Kornana
-- **Last Updated By/Date** - Shanmukh Kornana, October 2026
-
-## Learn More
+## Learn More - Useful Links
 
 - [Adding Interactivity to Pages](https://docs.oracle.com/en/database/oracle/apex/26.1/apxdc/adding-interactivity-pages.html)
 - [Including Generative AI in Applications](https://docs.oracle.com/en/database/oracle/apex/26.1/htmdb/including-generative-ai-in-applications.html)
+
+## Acknowledgements
+
+- **Author** - Shanmukh Kornana, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

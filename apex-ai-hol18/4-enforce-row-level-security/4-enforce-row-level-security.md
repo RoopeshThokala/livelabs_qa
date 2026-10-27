@@ -1,10 +1,14 @@
-# Lab 4: Enforce Row-Level Security
+# Enforce Row-Level Security
 
 ## Introduction
 
 Page authorization decides who can open a page. Row-level security decides which rows they can see after it opens. In this lab, a TA administrator sees all candidate records, while a hiring manager sees candidates only for requisitions they requested.
 
-Estimated Time: 3 minutes
+Estimated Lab Time: 3 minutes
+
+### Where We Are
+
+Pages and navigation entries now use authorization schemes. You will add SQL queries that filter Candidate Pipeline and ESS leave data for the employee roles defined in the earlier labs.
 
 ### Objectives
 
@@ -17,47 +21,61 @@ Estimated Time: 3 minutes
 
 1. From **App Builder**, open **Talent Acquisition Portal (TAP)**. On the application home page, select **Candidate Pipeline** (Page 4).
 
+    > **Note:** If your page number differs, select the page named **Candidate Pipeline**.
+
     ![Open the TAP Candidate Pipeline page](images/lab4-tap-open-candidate-pipeline.png " ")
 
 2. Under **Source** > **SQL Query**, replace the **Candidates** region query with the following SQL:
 
     ```sql
     <copy>
-    SELECT c.candidate_id,
-           c.req_id,
-           c.first_name
-           || ' '
-           || c.last_name                  AS candidate_name,
-           d.NAME                          AS department_name,
-           c.email,
-           c.phone,
-           c.resume_blob,
-           c.source,
-           c.current_stage                 AS stage,
-           c.applied_date,
-           Trunc(sysdate - c.applied_date) AS days_since_applied,
-           c.diversity_flag,
-           c.ai_score,
-           c.created_by,
-           c.created_at,
-           c.updated_by,
-           c.updated_at
-    FROM   tms_candidates c
-           LEFT JOIN tms_job_requisitions r
-                  ON c.req_id = r.req_id
-           LEFT JOIN tms_departments d
-                  ON r.dept_id = d.dept_id
-    WHERE  ( :P4_REQ_ID IS NULL
-              OR c.req_id = Lower(:P4_REQ_ID) )
-           AND ( c.req_id IN (SELECT r.req_id
-                              FROM   tms_job_requisitions r
-                              WHERE  lower(r.requested_by) = lower(:APP_USER))
-                  OR EXISTS (SELECT 1
-                             FROM   tms_roles r
-                                    JOIN tms_employee_roles er
-                                      ON er.role_id = r.role_id
-                             WHERE  r.role_code = 'TA_ADMIN'
-                                    AND er.employee_id = :APP_EMPLOYEE_ID) )
+SELECT 
+  c.candidate_id, 
+  c.req_id, 
+  c.first_name || ' ' || c.last_name AS candidate_name, 
+  d.NAME AS department_name, 
+  c.email, 
+  c.phone, 
+  c.resume_blob, 
+  c.source, 
+  c.current_stage AS stage, 
+  c.applied_date, 
+  Trunc(sysdate - c.applied_date) AS days_since_applied, 
+  c.diversity_flag, 
+  c.ai_score, 
+  c.created_by, 
+  c.created, 
+  c.updated_by, 
+  c.updated 
+FROM 
+  tms_candidates c 
+  LEFT JOIN tms_job_requisitions r ON c.req_id = r.req_id 
+  LEFT JOIN tms_departments d ON r.dept_id = d.dept_id 
+WHERE 
+  (
+    : P4_REQ_ID IS NULL 
+    OR c.req_id = Lower(: P4_REQ_ID)
+  ) 
+  AND (
+    c.req_id IN (
+      SELECT 
+        r.req_id 
+      FROM 
+        tms_job_requisitions r 
+      WHERE 
+        lower(r.requested_by) = lower(: APP_USER)
+    ) 
+    OR EXISTS (
+      SELECT 
+        1 
+      FROM 
+        tms_roles r 
+        JOIN tms_employee_roles er ON er.role_id = r.role_id 
+      WHERE 
+        r.role_code = 'TA_ADMIN' 
+        AND er.employee_id = : APP_EMPLOYEE_ID
+    )
+  )
     </copy>
     ```
 
@@ -68,6 +86,8 @@ Estimated Time: 3 minutes
 ## Task 2: Filter ESS leave data
 
 1. Use the breadcrumb to return to **App Builder**, open **Employee Self-Service Portal (ESS)**, and on the application home page select **Leave Request** (Page 5).
+
+    > **Note:** If your page number differs, select the page named **Leave Request**.
 
     ![Open the ESS Leave Request page](images/lab4-ess-open-leave-request.png " ")
 
@@ -100,6 +120,8 @@ Estimated Time: 3 minutes
     ![Confirm the My Leave History query on Page 5](images/lab4-ess-confirm-leave-history-query.png " ")
 
 4. Save the **Leave Request** page. Then use **Page Finder** to open **Leave Calendar** (Page 8).
+
+    > **Note:** If your page number differs, select the page named **Leave Calendar**.
 
     ![Open the ESS Leave Calendar page](images/lab4-ess-open-leave-calendar.png " ")
 
@@ -167,7 +189,9 @@ Estimated Time: 3 minutes
 
 You added server-side filtering that remains effective after a user reaches the page, including employee/HR-admin filtering for ESS leave history and leave-calendar data. In the final lab, you add an HR-admin-only audit report for reviewing changes to sensitive ESS data.
 
+You may now **proceed to the next lab**.
+
 ## Acknowledgements
 
 - **Author** - Ashwin Rao, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-- **Last Updated By/Date** - Ashwin Rao, August 2026
+- **Last Updated By/Date** - Roopesh Thokala, October, 2026

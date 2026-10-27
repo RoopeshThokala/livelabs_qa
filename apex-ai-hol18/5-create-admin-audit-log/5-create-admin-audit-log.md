@@ -1,10 +1,14 @@
-# Lab 5: Create the ESS Audit Log
+# Create the ESS Audit Log
 
 ## Introduction
 
 In this lab, you create an HR-administrator-only Interactive Report over the audit log. The report provides a reviewable history of changes recorded in `TMS_AUDIT_LOG`.
 
-Estimated Time: 3 minutes
+Estimated Lab Time: 3 minutes
+
+### Where We Are
+
+TAP and ESS now authenticate users, apply authorization schemes, and filter data by role. You will add an HR-administrator-only Audit Log report in ESS.
 
 ### Objectives
 
@@ -24,6 +28,8 @@ Estimated Time: 3 minutes
 
 3. In the Interactive Report definition, set **Page Number** to **`20`**, **Name** to **`Audit Log`**, choose **Table** as the source type, and set **Table / View Name** to **`TMS_AUDIT_LOG`**. Keep **Use Navigation** enabled with **Create a new entry**, then click **Create Page**.
 
+    > **Note:** Your generated page number might differ. Select the page named **Audit Log**.
+
     ![Define and create the Audit Log page](images/lab5-define-audit-log-page.png " ")
 
 4. In Page Designer, select the **Page 20: Audit Log** page root. In the Property Editor, expand **Security**, set **Authorization Scheme** to **`IS_HR_ADMIN`**, and click **Save**.
@@ -40,12 +46,11 @@ Estimated Time: 3 minutes
 
 7. On the Navigation Menu list, click the **edit pencil** for the **Audit Log** entry to open its **List Entry** screen.
 
-     ![Confirm the secured Audit Log navigation entry](images/lab5-audit-log-entry-confirmed.png " ")
+    ![Confirm the secured Audit Log navigation entry](images/lab5-audit-log-entry-confirmed.png " ")
 
 8. On the **Authorization** tab, set **Authorization Scheme** to **`IS_HR_ADMIN`**, then click **Apply Changes**.
 
-     ![Authorize the Audit Log navigation entry](images/lab5-authorize-audit-log-entry.png " ")
-   
+    ![Authorize the Audit Log navigation entry](images/lab5-authorize-audit-log-entry.png " ")
 
 ## Task 2: Verify access and audit visibility
 
@@ -60,6 +65,8 @@ Estimated Time: 3 minutes
 ## Summary
 
 You have completed the security baseline for TAP and ESS: authenticated users, reusable role checks, protected pages and requests, row-level data filtering, and HR-admin audit visibility.
+
+You have completed this workshop.
 
 ## Acknowledgements
 

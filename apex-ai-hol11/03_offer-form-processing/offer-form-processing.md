@@ -4,11 +4,11 @@
 
 In this lab, you will add page processing logic to the Talent Acquisition Portal. You will validate offered salary on the Offer Form and add an AJAX Callback process for pipeline statistics.
 
-Estimated Time: 8 minutes
+Estimated Lab Time: 8 minutes
 
 ### Objectives
 
-In this lab, you will:
+In this lab, you will learn how to:
 
 - Add a salary validation to the Offer Form.
 - Use the `TAP_UTIL.validate_offer_salary` function in a page validation.
@@ -21,19 +21,19 @@ In this lab, you will:
 
 2. Select the **Talent Acquisition Portal** application.
 
-    !["Open Talent Acquisition Portal"](images/open-talent-acquisition-portal.png "")
+    ![Open Talent Acquisition Portal](images/open-talent-acquisition-portal.png " ")
 
 3. Open the **Form on Offers** page in Page Designer.
 
-    !["Open Offer Form"](images/open-offer-form.png "")
+    ![Open Offer Form](images/open-offer-form.png " ")
 
 4. In the left pane, select the **Processing** tab.
 
-    !["Select Processing tab"](images/select-processing-tab.png "")
+    ![Select Processing tab](images/select-processing-tab.png " ")
 
 5. Right-click **Validating** and select **Create Validation**.
 
-    !["Create salary validation"](images/create-salary-validation.png "")
+    ![Create salary validation](images/create-salary-validation.png " ")
 
 6. In the Property Editor, enter or select the following settings:
 
@@ -68,13 +68,13 @@ In this lab, you will:
 
         - Associated Item: **P9\_OFFERED\_SALARY**
 
-    !["Salary validation settings"](images/salary-validation-settings.png "")
+    ![Salary validation settings](images/salary-validation-settings.png " ")
 
 7. Save the page.
 
     This validation prevents offers from being submitted when the offered salary is outside the salary band for the selected job.
 
-    !["Save Offer Form validation"](images/save-offer-form-validation.png "")
+    ![Save Offer Form validation](images/save-offer-form-validation.png " ")
 
 ## Task 2: Add an AJAX Callback for Pipeline Stats
 
@@ -82,15 +82,15 @@ In this lab, you will:
 
     The source identifies this as page 1.
 
-    !["Open TAP Home page"](images/open-tap-home-page.png "")
+    ![Open TAP Home page](images/open-tap-home-page.png " ")
 
 2. In the left pane, select the **Processing** tab.
 
-    !["Select TAP Home processing tab"](images/select-tap-home-processing-tab.png "")
+    ![Select TAP Home processing tab](images/select-tap-home-processing-tab.png " ")
 
 3. Right-click **AJAX Callback** and select **Create Process**.
 
-    !["Create pipeline stats process"](images/create-pipeline-stats-process.png "")
+    ![Create pipeline stats process](images/create-pipeline-stats-process.png " ")
 
 4. In the Property Editor, enter or select the following settings:
 
@@ -116,13 +116,13 @@ In this lab, you will:
     </copy>
     ```
 
-    !["Pipeline stats process settings"](images/pipeline-stats-process-settings.png "")
+    ![Pipeline stats process settings](images/pipeline-stats-process-settings.png " ")
 
 5. Save the page.
 
     A Dynamic Action in Module 12 can call this callback to refresh the dashboard without reloading the page.
 
-    !["Save pipeline stats process"](images/save-pipeline-stats-process.png "")
+    ![Save pipeline stats process](images/save-pipeline-stats-process.png " ")
 
 ## Summary
 
@@ -130,6 +130,5 @@ You added salary validation to the Offer Form and created an AJAX Callback proce
 
 ## Acknowledgements
 
-**Author** - Ankita Beri, Senior Product Manager; Roopesh Thokala, Principal Product Manager
-
-**Last Updated By/Date** - Ankita Beri, July 28, 2026
+- **Author** - Ankita Beri, Senior Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

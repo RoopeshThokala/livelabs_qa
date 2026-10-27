@@ -1,4 +1,4 @@
-# Lab 2: Add Regions to the Candidate Pipeline Page
+# Add Regions to the Candidate Pipeline Page
 
 ## Introduction
 
@@ -13,7 +13,7 @@ In this lab, you configure two supported region types on the TAP **Candidate Pip
 
 The Dynamic Content region uses a PL/SQL function to display the number of open requisitions. The Cards region uses a SQL Query to display candidate information.
 
-Estimated time: 10 minutes
+Estimated Lab Time: 10 minutes
 
 ### Objectives
 
@@ -38,11 +38,11 @@ In this task, you will create an **Open Requisitions** Dynamic Content region. Y
 
     ![Candidate Pipeline page selected on the application home page](images/02-open-candidate-pipeline-page.png " ")
 
-3. In the **Rendering Tab**, right-click **Components**, then select **Create Region**.
+3. In the **Rendering** tab, right-click **Components**, then select **Create Region**.
 
     ![Create Region selected from the Components context menu](images/03-create-region-from-components.png " ")
 
-4. In the **Property Editor**, enter/select the following:
+4. In the **Property Editor**, enter or select the following:
 
     - Under Identification:
 
@@ -77,7 +77,7 @@ In this task, you will create an **Open Requisitions** Dynamic Content region. Y
         - Template Options:
             - Header: **Hidden**
 
-                Click **Ok**.
+                Select **Ok**.
 
     ![Open Requisitions banner region properties](images/04-configure-open-requisitions-banner.png " ")
 
@@ -93,11 +93,11 @@ In this task, you will create an **Open Requisitions** Dynamic Content region. Y
 
 In this task, you will create an **Applied** Cards region based on a SQL Query. The query returns the candidate name, current stage, and applied date for the card title, subtitle, body, and initials.
 
-1. In the **Rendering Tab**, right-click **Body**, then select **Create Region**.
+1. In the **Rendering** tab, right-click **Body**, then select **Create Region**.
 
     ![Create Region selected from the Body context menu](images/06-create-cards-region.png " ")
 
-2. In the **Property Editor**, enter/select the following:
+2. In the **Property Editor**, enter or select the following:
 
     - Under Identification:
 
@@ -142,7 +142,7 @@ In this task, you will create an **Applied** Cards region based on a SQL Query. 
 
     ![Cards icon initials attributes configured](images/11-cards-icon-badge-attributes.png " ")
 
-4. Right Click on **Breadcrumb** region in the Rendering Tree and click **Delete**.
+4. In the **Rendering** tab, right-click **Breadcrumb** and select **Delete**.
 
     ![Delete Breadcrumb Bar](images/delete-breadcrumb.png " ")
 
@@ -168,10 +168,10 @@ You may now proceed to the next lab.
 
 ## Learn More
 
-* [Supported Region Types](https://docs.oracle.com/en/database/oracle/apex/26.1/htmdb/supported-region-types.html)
-* [Developing Reports](https://docs.oracle.com/en/database/oracle/apex/26.1/htmdb/developing-reports.html)
+- [Supported Region Types](https://docs.oracle.com/en/database/oracle/apex/26.2/htmdb/supported-region-types.html)
+- [Developing Reports](https://docs.oracle.com/en/database/oracle/apex/26.2/htmdb/developing-reports.html)
 
 ## Acknowledgements
 
 - **Author** - Sahaana Manavalan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
-- **Last Updated By/Date** - Sahaana Manavalan, Senior Product Manager, July 2026
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

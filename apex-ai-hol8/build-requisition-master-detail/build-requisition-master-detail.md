@@ -1,133 +1,176 @@
-# Lab 5: Build the Requisition Master-Detail Page
+# Build the Requisition Master-Detail Page
 
 ## Introduction
 
-Create a Requisition Detail page that displays requisition information above an editable interactive grid of its candidates. Then update the Job Openings card action to open this page.
+Create a Requisition Detail page that displays requisition information above an editable Interactive Grid of candidates. Then update the Job Openings card action to open this page.
 
-Estimated Time: 15 minutes
+Estimated Lab Time: 15 minutes
 
 ### Objectives
 
-In this lab, you will:
+In this lab, you will learn how to:
 
-- Create the Requisition Detail page and Request ID item.
+- Create the Requisition Detail page and requisition ID item.
 - Add a read-only requisition report and editable candidate grid.
 - Link Job Openings cards to the new master-detail page.
 
-## Task 1: Create the page and master region
+## Task 1: Create the Page and Master Region
 
-1. From your application homepage, click **Create Page**.
-    ![App home page](images/create-page.png ' ')
+1. From the application home page, select **Create Page**.
+
+    ![Select Create Page](images/create-page.png " ")
 
 2. Select **Blank Page**.
-    ![App home page](images/blank-page.png ' ')
+
+    ![Select Blank Page](images/blank-page.png " ")
 
 3. In the Create Blank Page wizard, enter/select the following:
-    - Page Number: **14**
-    - Name: **Requisition Detail**.
-    - Icon: **fa-file-o**
 
-    Click **Create Page**.
+    - **Page Number:** **14**
+    - **Name:** **Requisition Detail**
+    - **Icon:** **fa-file-o**
 
-    ![Create Page wizard with Requisition Detail entered as the page name.](images/create-requisition-detail-page.png ' ')
+4. Select **Create Page**.
 
-4. Right-click **Body** and select **Create Page Item**.
-    ![Page Designer](images/create-page-item1.png ' ')
+    ![Create the Requisition Detail page](images/create-requisition-detail-page.png " ")
 
-5. In the Property Editor, enter/select the following:
-    - Name: **P14\_REQ\_ID**
-    - Type: **Hidden**
-    ![Requisition Detail Page Designer showing the P14_REQ_ID page item.](images/create-p14-req-id.png ' ')
+5. In the Rendering tab, right-click **Body**.
 
-6. Right-click **Body** and select **Create Region**.
-    ![Page Designer](images/create-region1.png ' ')
+6. Select **Create Page Item**.
+
+    ![Create a page item under Body](images/create-page-item1.png " ")
 
 7. In the Property Editor, enter/select the following:
-    - Name: **Requisition info**
-    - Type: **Classic Report**
-    - Source:
-        - Type: **SQL Query**
-        - SQL Query:
+
+    - **Identification > Name:** **P14_REQ_ID**
+    - **Identification > Type:** **Hidden**
+
+    ![Configure the hidden requisition ID item](images/create-p14-req-id.png " ")
+
+8. In the Rendering tab, right-click **Body**.
+
+9. Select **Create Region**.
+
+    ![Create a region under Body](images/create-region1.png " ")
+
+10. In the Property Editor, enter/select the following:
+
+    - **Identification > Name:** **Requisition Info**
+    - **Identification > Type:** **Classic Report**
+    - **Source > Type:** **SQL Query**
+    - **Source > SQL Query:**
+
         ```sql
-        <copy>
-        SELECT r.req_id, j.title, d.name as department, r.headcount,
-       r.status, TO_CHAR(r.open_date,'DD-Mon-YYYY') as open_since
-        FROM TMS_job_requisitions r
-        JOIN TMS_jobs j ON r.job_id = j.job_id
-        JOIN TMS_departments d ON r.dept_id = d.dept_id
-        WHERE r.req_id = :P14_REQ_ID
-        </copy>
+        SELECT r.req_id,
+               j.title,
+               d.name AS department,
+               r.headcount,
+               r.status,
+               TO_CHAR(r.open_date, 'DD-Mon-YYYY') AS open_since
+          FROM tms_job_requisitions r
+          JOIN tms_jobs j
+            ON r.job_id = j.job_id
+          JOIN tms_departments d
+            ON r.dept_id = d.dept_id
+         WHERE r.req_id = :P14_REQ_ID
         ```
 
-    ![Requisition Detail Page Designer showing P14_REQ_ID and the Requisition Info classic report.](images/requisition-detail-master-region.png ' ')
+    ![Configure the Requisition Info Classic Report](images/requisition-detail-master-region.png " ")
 
-## Task 2: Add the editable Interactive Grid
+## Task 2: Add the Editable Interactive Grid
 
-1. Right-click **Body** and select **Create Region**.
-    ![Page Designer](images/create-region2.png ' ')
+1. In the Rendering tab, right-click **Body**.
 
-2. In the Property Editor, enter/select the following:
-    - Name: **Candidates**
-    - Type: **Interactive Grid**
-    - Source:
-        - Type: SQL Query
-        - SQL Query:
+2. Select **Create Region**.
+
+    ![Create the Candidates region](images/create-region2.png " ")
+
+3. In the Property Editor, enter/select the following:
+
+    - **Identification > Name:** **Candidates**
+    - **Identification > Type:** **Interactive Grid**
+    - **Source > Type:** **SQL Query**
+    - **Source > SQL Query:**
+
         ```sql
-        <copy>
-        SELECT candidate_id, first_name || ' ' || last_name as name,
-       current_stage, applied_date
-        FROM TMS_candidates
-        WHERE req_id = :P14_REQ_ID
-        </copy>
+        SELECT candidate_id,
+               first_name || ' ' || last_name AS name,
+               current_stage,
+               applied_date
+          FROM tms_candidates
+         WHERE req_id = :P14_REQ_ID
         ```
 
-    ![Page Designer with the Editable Candidates interactive grid region below Requisition Info.](images/add-editable-candidates-region.png ' ')
+    ![Configure the Candidates Interactive Grid region](images/add-editable-candidates-region.png " ")
 
-3. In the Property Editor, switch to the Attributes tab, and toggle the **Edit** > **Enabled** button to **ON**.
+4. In the Property Editor, select the **Attributes** tab.
 
-    ![Editable Candidates interactive grid attributes with editing enabled.](images/enable-grid-editing.png ' ')
+5. Under **Edit**, set **Enabled** to **On**.
 
-5. In the left pane, under Candidates > Columns, select **CANDIDATE_ID**. In the Property Editor, under Source, toggle the **Primary Key** button to **ON**.
+    ![Enable Interactive Grid editing](images/enable-grid-editing.png " ")
 
-    ![CANDIDATE_ID column attributes with Primary Key set to Yes.](images/set-candidate-id-primary-key.png ' ')
+6. In the Rendering tab, expand **Columns** under the **Candidates** region.
 
-6. In the left pane, under the Candidates region, select the `CANDIDATE_ID`, `NAME`, and `APPLIED_DATE` columns and change the Type to **Display Only**.
+7. Select **CANDIDATE_ID**.
 
-    ![Editable Candidates interactive grid attributes with editing enabled and Candidate ID configured as the primary key.](images/editable-candidates-grid.png ' ')
+8. In the Property Editor, under **Source**, set **Primary Key** to **On**.
 
-7. **Save** the changes.
-    ![Page designer](images/save.png ' ')
+    ![Set Candidate ID as the primary key](images/set-candidate-id-primary-key.png " ")
 
-## Task 3: Update the Job Openings link
+9. In the Rendering tab, select **CANDIDATE_ID**, **NAME**, and **APPLIED_DATE**.
 
-1. Click the Page Finder and navigate to the **Job Openings (12)** page.
+10. In the Property Editor, set **Identification > Type** to **Display Only**.
 
-    ![Page Designer search showing the Job Openings Cards page result.](images/search-job-openings-page.png ' ')
+    ![Configure the read-only candidate columns](images/editable-candidates-grid.png " ")
 
-2. Navigate to **Job Openings** in the left pane. Select **View Application** under **Actions**.
+11. Select **Save**.
 
-3. Then in the Property Editor, Click **Page n** target available under **Behavior**.
+    ![Save the Requisition Detail page](images/save.png " ")
 
-    ![click Link bahavior for View Applicants](images/select-link-view-applicants.png ' ')
+## Task 3: Update the Job Openings Link
 
-    - Target:
-        - Page: **14** - Requisition Detail Page.
-        - Set Items:
-            - Name: **P14\_REQ\_ID**
-            - Value: **&REQ_ID.**
+1. In Page Designer, use Page Finder to open the page named **Job Openings**.
 
-    ![View Applicants card action targeting Requisition Detail Page 14.](images/target-requisition-detail2.png ' ')
+    > **Note:** The page number can differ between applications. Select the page by its name, **Job Openings**.
 
-4. **Save and Run** the page.
-    ![Page Designer](images/save-and-run.png ' ')
+    ![Find the Job Openings page](images/search-job-openings-page.png " ")
 
-5. Select **View Applicants** for a Job Card. Confirm that the requisition information appears above candidates in an editable grid.
+2. In the Rendering tab, expand the **Job Openings** region.
 
-    ![Job Openings page](images/job-card-select.png ' ')
+3. Under **Actions**, select **View Applicants**.
 
-    ![Requisition Detail page displaying requisition information above editable candidate rows.](images/requisition-detail-runtime.png ' ')
+4. In the Property Editor, under **Behavior**, select the target picker.
 
-## Acknowledgements
+    ![Open the View Applicants target](images/select-link-view-applicants.png " ")
 
-* **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-* **Last Updated By/Date** - Apoorva Srinivas, Principal Product Manager, July 2026
+5. In the Link Builder, enter/select the following:
+
+    - **Page:** **14**
+    - Under **Set Items**:
+        - **Name:** **P14_REQ_ID**
+        - **Value:** **&REQ_ID.**
+
+6. Select **OK**.
+
+    ![Target the Requisition Detail page](images/target-requisition-detail2.png " ")
+
+7. Select **Save and Run Page**.
+
+    ![Save and run the Job Openings page](images/save-and-run.png " ")
+
+8. Select **View Applicants** for a job card.
+
+9. Confirm that requisition information appears above the editable candidate grid.
+
+    ![Select View Applicants for a job card](images/job-card-select.png " ")
+
+    ![Requisition Detail page with the editable candidate grid](images/requisition-detail-runtime.png " ")
+
+## Summary
+
+You created the Requisition Detail page with a Classic Report and editable Interactive Grid, then linked Job Openings cards to the page.
+
+### Acknowledgements
+
+- **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

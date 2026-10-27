@@ -1,182 +1,183 @@
-# Lab 7: Create TAP Email Templates
+# Create TAP Email Templates
 
 ## Introduction
 
-In this lab, you create email templates for offer and interview events. Each template includes an HTML Format and a Plain Text Format. Its static identifier lets automations and `APEX_MAIL` refer to the template, while placeholders supply row-specific values.
+Oracle APEX email templates keep notification content separate from the process that sends it. In this lab, you will create reusable templates for offer and interview events. Each template uses a static identifier and placeholders that receive values from the row processed by an automation.
 
-Estimated Workshop Time: 5 minutes
+Estimated Lab Time: 5 minutes
+
+### Where We Are
+
+TAP now provides interviewers with a calendar of their assigned interviews. You will create the notifications that TAP uses for offers and interview reminders before configuring the associated automations in the next lab.
 
 ### Objectives
 
-In this lab, you will learn how to:
+In this lab, you will:
 
-- Create three TAP email templates.
-- Configure static identifiers and placeholders.
-- Prepare templates for offer and interview notifications.
+- Create templates for sent offers, accepted offers, and interview reminders.
+- Configure a static identifier, subject, HTML body, and plain-text body for each template.
+- Verify the identifiers used by TAP automation actions.
 
 ## Task 1: Open Email Templates
 
-1. In TAP, open **Shared Components**.
+1. In **App Builder**, open the **Talent Acquisition Portal** application.
 
-    ![Task 1: Shared components](images/task-01-step-01-shared-components.png)
+2. Select **Shared Components**.
 
-2. Select **Email Templates**.
+    ![Open Shared Components in TAP](images/task-01-step-01-shared-components.png " ")
 
-    ![Task 1: Email templates](images/task-01-step-02-email-templates.png)
+3. Under **User Interface**, select **Email Templates**.
 
-3. Select **Create Email Template**.
+    ![Open Email Templates](images/task-01-step-02-email-templates.png " ")
 
-    ![Task 1: Create email template](images/task-01-step-03-create-email-template.png)
+## Task 2: Create the Offer Sent Template
 
-## Task 2: Create the TAP templates
+1. Select **Create Email Template**.
 
-1. Create the **Offer Sent** email template using these values:
+    ![Create an email template](images/task-01-step-03-create-email-template.png " ")
 
-    - **Name:** Offer Sent
-    - **Static ID:** `offer-sent` (Auto-Generated)
-    - **Subject:** Offer of Employment - #JOB_TITLE#
+2. Under **Identification**, enter/select the following:
 
-    ![Task 2: Offer Sent template, part 1](images/task-02-step-01-offer-sent-01.png)
+    | Property | Value |
+    | --- | --- |
+    | Template Name | `Offer Sent` |
+    | Email Subject | `Offer of Employment - #JOB_TITLE#` |
 
-2. Enter the HTML and plain-text content for **Offer Sent**:
+    ![Configure the Offer Sent template](images/task-02-step-01-offer-sent-01.png " ")
 
-    - **HTML Format > Body:**
+3. Under **HTML Format > Body**, enter the following code:
 
-        ```html
-        <copy>
+    ```html
+    <copy>
+    <p>Dear <strong>#CANDIDATE_NAME#</strong>,</p>
 
-        <p>Dear <strong>#CANDIDATE_NAME#</strong>,</p>
+    <p>We are pleased to offer you the position of <strong>#JOB_TITLE#</strong> with a salary of <strong>#OFFERED_SALARY#</strong>. Your proposed start date is <strong>#START_DATE#</strong>.</p>
 
-        <p>We are pleased to offer you the position of <strong>#JOB_TITLE#</strong> with a salary of <strong>#OFFERED_SALARY#</strong>. Your proposed start date is <strong>#START_DATE#</strong>.</p>
+    <p>Please review and accept the attached offer by <strong>#EXPIRY_DATE#</strong>.</p>
 
-        <p>Please review and accept the attached offer by <strong>#EXPIRY_DATE#</strong>.</p>
+    <p>Recruiting Team</p>
+    </copy>
+    ```
 
-        <p>Recruiting Team</p>
+4. Under **Plain Text Format > Content**, enter the following text:
 
-        </copy>
-        ```
+    ```text
+    <copy>
+    Dear #CANDIDATE_NAME#,
 
-    - **Plain-Text Format > Content:**
+    We are pleased to offer you the position of #JOB_TITLE# with a salary of #OFFERED_SALARY#.
 
-        ```text
-        <copy>
+    Your proposed start date is #START_DATE#.
 
-        Dear #CANDIDATE_NAME#,
+    Please review and accept the attached offer by #EXPIRY_DATE#.
 
-        We are pleased to offer you the position of #JOB_TITLE# with a salary of #OFFERED_SALARY#.
+    Recruiting Team
+    </copy>
+    ```
 
-        Your proposed start date is #START_DATE#.
+5. Select **Create Email Template**.
 
-        Please review and accept the attached offer by #EXPIRY_DATE#.
+    ![Save the Offer Sent template](images/task-02-step-02-offer-sent-02.png " ")
 
-        Recruiting Team
+## Task 3: Create the Offer Accepted Template
 
-        </copy>
-        ```
+1. Again, click **Create Email Template**.
 
-    - Select **Create Email Template** to save this template.
-    - Start the next template.
+2. Under **Identification**, enter/select the following:
 
-    ![Task 2: Offer Sent template, part 2](images/task-02-step-02-offer-sent-02.png)
+    | Property | Value |
+    | --- | --- |
+    | Template Name | `Offer Accepted` |
+    | Email Subject | `Offer accepted by #CANDIDATE_NAME#` |
 
-3. Create the **Offer Accepted** email template using these values:
+    ![Configure the Offer Accepted template](images/task-02-step-03-offer-accepted-01.png " ")
 
-    - **Name:** Offer Accepted
-    - **Static ID:** `offer-accepted` (Auto-Generated)
-    - **Subject:** Offer accepted by #CANDIDATE_NAME#
+3. Under **HTML Format > Body**, enter the following code:
 
-    ![Task 2: Offer Accepted template, part 1](images/task-02-step-03-offer-accepted-01.png)
+    ```html
+    <copy>
+    <p><strong>#CANDIDATE_NAME#</strong> has accepted the offer for <strong>#JOB_TITLE#</strong>. Start date: <strong>#START_DATE#</strong>.</p>
 
-4. Enter the HTML and plain-text content for **Offer Accepted**:
+    <p>Please trigger the onboarding workflow.</p>
+    </copy>
+    ```
 
-    - **HTML Format > Body:**
+4. Under **Plain Text Format > Content**, enter the following text:
 
-        ```html
-        <copy>
+    ```text
+    <copy>
+    #CANDIDATE_NAME# has accepted the offer for #JOB_TITLE#.
 
-        <p><strong>#CANDIDATE_NAME#</strong> has accepted the offer for <strong>#JOB_TITLE#</strong>. Start date: <strong>#START_DATE#</strong>.</p>
+    Start date: #START_DATE#.
 
-        <p>Please trigger the onboarding workflow.</p></copy>
-        ```
+    Please trigger the onboarding workflow.
+    </copy>
+    ```
 
-    - **Plain-Text Format > Content:**
+5. Select **Create Email Template**.
 
-        ```text
-        <copy>
+    ![Save the Offer Accepted template](images/task-02-step-04-offer-accepted-02.png " ")
 
-        #CANDIDATE_NAME# has accepted the offer for #JOB_TITLE#.
+## Task 4: Create the Interview Reminder Template
 
-        Start date: #START_DATE#.
+1. Return to **Email Templates**, and then click **Create Email Template**.
 
-        Please trigger the onboarding workflow.
+2. Under **Identification**, enter/select the following:
 
-        </copy>
-        ```
+    | Property | Value |
+    | --- | --- |
+    | Template Name | `Interview Reminder` |
+    | Email Subject | `Interview tomorrow: #CANDIDATE_NAME#` |
 
-    - Select **Create Email Template** to save this template.
-    - Start the next template.
+    ![Configure the Interview Reminder template](images/task-02-step-05-interview-reminder-01.png " ")
 
-    ![Task 2: Offer Accepted template, part 2](images/task-02-step-04-offer-accepted-02.png)
+3. Under **HTML Format > Body**, enter the following code:
 
-5. Create the **Interview Reminder** email template using these values:
+    ```html
+    <copy>
+    <p>Hello <strong>#INTERVIEWER_NAME#</strong>,</p>
 
-    - **Name:** Interview Reminder
-    - **Static ID:** `interview-reminder` (Auto-Generated)
-    - **Subject:** Interview tomorrow: #CANDIDATE_NAME#
+    <p>This is a reminder of your <strong>#STAGE_NAME#</strong> interview with <strong>#CANDIDATE_NAME#</strong> scheduled for <strong>#INTERVIEW_DATE#</strong>.</p>
 
-    ![Task 2: Interview Reminder template, part 1](images/task-02-step-05-interview-reminder-01.png)
+    <p>Please review the candidate profile before the interview.</p>
+    </copy>
+    ```
 
-6. Enter the HTML and plain-text content for **Interview Reminder**:
+4. Under **Plain Text Format > Content**, enter the following text:
 
-    - **HTML Format > Body:**
+    ```text
+    <copy>
+    Hello #INTERVIEWER_NAME#,
 
-        ```html
-        <copy>
+    This is a reminder of your #STAGE_NAME# interview with #CANDIDATE_NAME# scheduled for #INTERVIEW_DATE#.
 
-        <p>Hello <strong>#INTERVIEWER_NAME#</strong>,</p>
+    Please review the candidate profile before the interview.
+    </copy>
+    ```
 
-        <p>This is a reminder of your <strong>#STAGE_NAME#</strong> interview with
+5. Select **Create Email Template**.
 
-        <strong>#CANDIDATE_NAME#</strong> scheduled for <strong>#INTERVIEW_DATE#</strong>.</p>
+    ![Save the Interview Reminder template](images/task-02-step-06-interview-reminder-02.png " ")
 
-        <p>Please review the candidate profile before the interview.</p>
+## Task 5: Verify the Template Identifiers
 
-        </copy>
-        ```
+1. Return to **Email Templates**.
 
-    - **Plain-Text Format > Content:**
+2. Confirm that the **Static ID** column includes `offer-sent`, `offer-accepted`, and `interview-reminder`.
 
-        ```text
-        <copy>
+    ![Verify the TAP email templates](images/task-02-step-07-email-templates.png " ")
 
-        Hello #INTERVIEWER_NAME#,
+3. Use `offer-sent` after generating an offer and `offer-accepted` when a candidate accepts an offer. Lab 8 uses the **Interview Reminder** template.
 
-        This is a reminder of your #STAGE_NAME# interview with #CANDIDATE_NAME# scheduled for #INTERVIEW_DATE#.
+4. In PL/SQL business logic, reference a template by its static identifier, for example: `p_template_static_id => 'offer-sent'` in `APEX_MAIL.SEND`.
 
-        Please review the candidate profile before the interview.
+## Summary
 
-        </copy>
-        ```
+You created three TAP email templates with stable static identifiers and placeholders for offer and interview notifications. The next lab uses the **Interview Reminder** template in a scheduled automation.
 
-    - Select **Create Email Template** to save this template.
-    - Start the next template.
-
-    ![Task 2: Interview Reminder template, part 2](images/task-02-step-06-interview-reminder-02.png)
-
-7. Verify the static identifiers:
-
-    - Return to **Email Templates**.
-    - Confirm that `offer-sent`, `offer-accepted`, and `interview-reminder` appear in the **Static ID** column.
-    
-    ![Task 2: Email templates](images/task-02-step-07-email-templates.png)
-
-8. Use `offer-sent` after you generate an offer.
-
-    - Use `offer-accepted` when a candidate accepts an offer. Lab 8 uses the **Interview Reminder** email template.
-
-9. In PL/SQL business logic, reference a template by its static ID, such as `p_template_static_id => 'offer-sent'` in `APEX_MAIL.SEND`.
+You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
-- **Author -** Aravind Madhavan, Senior Product Manager.
-- **Last Updated By/Date** - Aravind Madhavan, Senior Product Manager, July 2026
+- **Author** - Aravind Madhavan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, October 2026

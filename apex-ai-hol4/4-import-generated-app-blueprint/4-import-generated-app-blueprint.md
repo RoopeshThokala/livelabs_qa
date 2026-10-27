@@ -1,61 +1,92 @@
-# Lab 4: Import and Compare the Generated TAP Blueprint
+# Import and Compare the Generated TAP Blueprint
 
 ## Introduction
 
-Import the generated blueprint into APEX and run the TAP comparison app. Then assess what the specification-first workflow produced. Module 5 creates the Wizard-built TAP that the course develops going forward.
+In this lab, you import the generated blueprint into APEX and run the TAP comparison application. You review its pages and navigation before creating the course TAP application with the **Create App Wizard** in Module 5.
 
-Estimated Workshop Time: 30 minutes
+Estimated Lab Time: 30 minutes
 
 ### Objectives
 
 In this lab, you will learn how to:
 
 - Import the generated TAP blueprint.
-- Run the comparison app and inspect its pages.
-- Decide to continue with the Wizard-built TAP in Module 5.
+- Run the comparison application and inspect its pages.
+- Identify the TAP application to use in later modules.
+
+### Prerequisites
+
+- Complete Lab 3 to generate the Application Blueprint and register the schema with ORDS.
+
+### Downloads
+
+- **<a href="files/tap_generated_blueprint.md" download="tap_generated_blueprint.md">TAP Application Blueprint</a>**
+
+Save it as `tap_generated_blueprint.md` in your `tap_sdd` folder.
 
 ## Task 1: Import the Application Blueprint
 
-> **Note:** If you couldn't generate the application blueprint in the previous module, download the supplied <a href="files/tap_generated_blueprint.md" download="tap_generated_blueprint.md">tap&#95;generated&#95;blueprint.md</a> file and use it for the import steps below.
+1. In your APEX workspace, open **App Builder**.
 
-1. In APEX, open **App Builder** and select **Import**.
-    ![Import option in Oracle APEX App Builder](images/task-01-step-01-import.png)
+2. Select **Import**.
 
-2. Upload <a href="files/tap_generated_blueprint.md" download="tap_generated_blueprint.md">tap&#95;generated&#95;blueprint.md</a> from your <strong>tap&#95;sdd</strong> project.
+    ![Open the Import page in App Builder](images/task-01-step-01-import.png " ")
 
-    ![Application Blueprint upload selection](images/task-01-step-02-upload.png)
+3. Upload **<a href="files/tap_generated_blueprint.md" download="tap_generated_blueprint.md">TAP Application Blueprint</a>** from your `tap_sdd` folder.
 
-3. Select **Application Blueprint** as the file type. Verify the file character set, then select **Next**.
+4. For **File Type**, select **Application Blueprint**.
 
-4. Select the default **Generative AI Service** for the application and the **Parsing Schema**.
+5. Verify **File Character Set**.
 
-    - Enter a new, unique application ID outside the reserved range `3000` through `9000`, then select **Import Application**.
+6. Select **Next**.
 
-    ![Application Blueprint import summary](images/task-01-step-04-import-summary.png)
+    ![Upload the Application Blueprint](images/task-01-step-02-upload.png " ")
 
-5. If APEX reports blueprint errors, copy the full error log. Give it to the coding agent with the generated blueprint and four source files. Correct the blueprint, then repeat this task.
+7. On the **Import Blueprint** page, enter/select the following:
+
+    - **Generative AI Service:** Select the default service, if one is configured in your workspace.
+    - **Parsing Schema:** Select the schema associated with your APEX workspace.
+    - **Application ID:** Enter a new, unique ID outside the reserved range `3000` through `9000`.
+
+8. Select **Import Application**.
+
+    ![Review the Application Blueprint import summary](images/task-01-step-04-import-summary.png " ")
+
+9. If APEX reports blueprint errors, copy the full error log.
+
+10. Provide the error log, generated blueprint, and four source files to the coding agent.
+
+11. Correct the blueprint and repeat this task.
 
 ## Task 2: Run the TAP Application
 
-1. Open the imported application in **App Builder** and select **Run Application**.
+1. In **App Builder**, open the imported application.
 
-    ![Run Application action in App Builder](images/task-02-step-01-run-application.png)
+2. Select **Run Application**.
 
-2. Review the generated navigation, reports, forms, and page names.
+    ![Run the imported application](images/task-02-step-01-run-application.png " ")
 
-    ![Generated TAP application dashboard](images/task-02-step-02-run-dashboard.png)
+3. Review the generated navigation, reports, forms, and page names.
 
-3. Verify that the application is focused on recruitment work: jobs, requisitions, candidates, interviews, and offers.
+    ![Review the generated TAP application dashboard](images/task-02-step-02-run-dashboard.png " ")
 
-## Task 3: Make the course decision
+4. Verify that the application is focused on recruitment work: jobs, requisitions, candidates, interviews, and offers.
 
-1. Keep the imported app only as a comparison reference. Do not use it as the starting point for later modules.
+## Task 3: Continue with Module 5
 
-2. In Module 5, create TAP with the **Create App Wizard**. Develop that Wizard-built app through the rest of the course.
+1. Keep the imported application as a comparison reference.
 
-3. Keep the `tap_sdd` project folder. In Modules 23 and 24, export the Wizard-built TAP and manage it as source.
+2. In Module 5, create TAP with the **Create App Wizard**.
 
-## Acknowledgements
+3. Use that application for the remaining modules.
 
- - **Author -** Aravind Madhavan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
- - **Last Updated By/Date** - Aravind Madhavan, Senior Product Manager, July 2026
+4. Keep the `tap_sdd` project folder for Modules 23 and 24, where you export the TAP application and manage its source files.
+
+## Summary
+
+You imported and reviewed the generated TAP comparison application. Use the application created in Module 5 for the remaining modules.
+
+### Acknowledgements
+
+- **Author** - Aravind Madhavan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

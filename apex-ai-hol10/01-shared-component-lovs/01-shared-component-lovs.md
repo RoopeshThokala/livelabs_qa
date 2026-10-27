@@ -1,10 +1,10 @@
-# Lab 1: Create Shared Lists of Values
+# Create Shared Lists of Values
 
 ## Introduction
 
 In Oracle APEX, a list of values (LOV) supplies values to LOV-based page items and report columns. Named LOVs in Shared Components are reusable throughout an application. Create TAP LOVs for recruitment forms, then create ESS LOVs for leave and onboarding tasks.
 
-Estimated Workshop Time: 10 minutes
+Estimated Lab Time: 10 minutes
 
 ### Objectives
 
@@ -16,35 +16,51 @@ In this lab, you will learn how to:
 
 - Verify that each LOV is available when you configure page items.
 
+### Downloads
+
+Stuck or missed out on completing the previous labs? Don't worry! You can download the following applications:
+
+- **<a href="../introduction/files/tap-export4.sql" download="tap-export4.sql">Talent Acquisition Portal</a>**
+
+- **<a href="../introduction/files/ess-export3.sql" download="ess-export3.sql">Employee Self-Service Portal</a>**
+
+Import them into your workspace. In **App Builder**, select **Import**, upload each file, and follow the steps in the **Import Application** wizard.
+
+> **Note:**
+>
+> - **APEX Version:** The supplied application exports were created with Oracle APEX 26.2 and cannot be imported into earlier APEX releases.
+> - **Supporting Objects:** Supporting objects are already loaded in the workspace.
+> - **AI Configuration:** Configure a Generative AI Service from **App Builder > Workspace Utilities > Generative AI**. See **Module 1, Lab 2: Configure Generative AI Service**.
+
 ## Task 1: Create the TAP LOVs
 
 1. In TAP, navigate to **Shared Components**.
 
-    ![Shared Components](images/task-01-step-01-shared-components.png)
+    ![Shared Components](images/task-01-step-01-shared-components.png " ")
 
 2. Under **Other Components**, select **List of Values**.
 
-    ![List of Values](images/task-01-step-02-list-of-values.png)
+    ![List of Values](images/task-01-step-02-list-of-values.png " ")
 
-3. Click **Create**.
+3. Select **Create**.
 
-    ![Create LOV](images/task-01-step-03-create-lov.png)
+    ![Create LOV](images/task-01-step-03-create-lov.png " ")
 
-4. In the **Create List of Values** wizard, select **From Scratch** and click **Next**.
+4. In the **Create List of Values** wizard, select **From Scratch** and select **Next**.
 
-    ![Select From Scratch in the Create List of Values wizard](images/task-01-step-04-create-lov-wizard-name.png)
+    ![Select From Scratch in the Create List of Values wizard](images/task-01-step-04-create-lov-wizard-name.png " ")
 
-5. Under **Name and Type**, enter/select the following:
+5. Under **Name and Type**, enter or select the following:
 
     - Name: **TMS\_INTERVIEWERS.NAME**
 
     - Type: **Dynamic**
 
-6. Click **Next**.
+6. Select **Next**.
 
-    ![Enter the LOV name and select Dynamic type](images/task-01-step-05-create-lov-name.png)
+    ![Enter the LOV name and select Dynamic type](images/task-01-step-05-create-lov-name.png " ")
 
-7. Under **List of Values Source**, enter/select the following:
+7. Under **List of Values Source**, enter or select the following:
 
     - Source Type: **SQL Query**
 
@@ -61,31 +77,31 @@ In this lab, you will learn how to:
      </copy>
     ```
 
-8. Click **Next**.
+8. Select **Next**.
 
-    ![Enter the SQL query for the LOV source](images/task-01-step-06-create-lov-source.png)
+    ![Enter the SQL query for the LOV source](images/task-01-step-06-create-lov-source.png " ")
 
-9. Leave **Column Mappings** as the default and click **Create**.
+9. Leave **Column Mappings** as the default and select **Create**.
 
-    ![Confirm the default column mappings and create the LOV](images/task-01-step-07-create-lov-col-mapping.png)
+    ![Confirm the default column mappings and create the LOV](images/task-01-step-07-create-lov-col-mapping.png " ")
 
-10. Click **Create** to start creating a static LOV.
+10. Select **Create** to start creating a static LOV.
 
-    ![Create another shared list of values](images/task-01-step-08-create-lov.png)
+    ![Create another shared list of values](images/task-01-step-08-create-lov.png " ")
 
-11. In the **Create List of Values** wizard, select **From Scratch** and click **Next**.
+11. In the **Create List of Values** wizard, select **From Scratch** and select **Next**.
 
-    ![Select From Scratch in the Create List of Values wizard](images/task-01-step-09-create-lov-wizard-name.png)
+    ![Select From Scratch in the Create List of Values wizard](images/task-01-step-09-create-lov-wizard-name.png " ")
 
-12. Under **Name and Type**, enter/select the following:
+12. Under **Name and Type**, enter or select the following:
 
     - Name: **TMS\_INTERVIEWERS.STAGES**
 
     - Type: **Static**
 
-13. Click **Next**.
+13. Select **Next**.
 
-    ![Enter the static LOV name and select Static type](images/task-01-step-10-create-static-lov-wizard.png)
+    ![Enter the static LOV name and select Static type](images/task-01-step-10-create-static-lov-wizard.png " ")
 
 14. Enter the following values, using each stage as both the **Display Value** and **Return Value**.
 
@@ -98,27 +114,27 @@ In this lab, you will learn how to:
     | Hired         | Hired        |
     | Rejected      | Rejected     |
 
-15. Click **Create List of Values**
+15. Select **Create List of Values**
 
-    ![Enter static LOV display and return values](images/task-01-step-11-create-static-lov-wizard-name.png)
+    ![Enter static LOV display and return values](images/task-01-step-11-create-static-lov-wizard-name.png " ")
 
-16. Click **Create** to start creating a static LOV.
+16. Select **Create** to start creating a static LOV.
 
-    ![Create another shared list of values](images/task-01-step-12-create-lov.png)
+    ![Create another shared list of values](images/task-01-step-12-create-lov.png " ")
 
-17. In the **Create List of Values** wizard, select **From Scratch** and click **Next**.
+17. In the **Create List of Values** wizard, select **From Scratch** and select **Next**.
 
-    ![Select From Scratch in the Create List of Values wizard](images/task-01-step-13-create-lov-wizard-name.png)
+    ![Select From Scratch in the Create List of Values wizard](images/task-01-step-13-create-lov-wizard-name.png " ")
 
-18. Under **Name and Type**, enter/select the following:
+18. Under **Name and Type**, enter or select the following:
 
     - Name: **TMS\_OFFERS.STATUS**
 
     - Type: **Static**
 
-19. Click **Next**.
+19. Select **Next**.
 
-    ![Enter the status LOV name and select Static type](images/task-01-step-14-static-value-wiz.png)
+    ![Enter the status LOV name and select Static type](images/task-01-step-14-static-value-wiz.png " ")
 
 20. Enter the following values, using each status as both the **Display Value** and **Return Value**.
 
@@ -131,13 +147,13 @@ In this lab, you will learn how to:
     | Rejected         | Rejected         |
     | Withdrawn        | Withdrawn        |
 
-21. Click **Create List of Values**
+21. Select **Create List of Values**
 
-    ![Enter static status LOV display and return values](images/task-01-step-15-static-lov-col-disp-ret.png)
+    ![Enter static status LOV display and return values](images/task-01-step-15-static-lov-col-disp-ret.png " ")
 
 22. Confirm that all three LOVs appear in the application’s **Lists of Values** page.
 
-    ![LOVs](images/task-01-step-16-lovs.png)
+    ![LOVs](images/task-01-step-16-lovs.png " ")
 
 ## Task 2: Create the ESS LOVs
 
@@ -145,65 +161,65 @@ In this lab, you will learn how to:
 
 2. Navigate to **Shared Components**.
 
-    ![Shared Components](images/task-02-step-01-shared-components.png)
+    ![Shared Components](images/task-02-step-01-shared-components.png " ")
 
 3. Under **Other Components**, select **List of Values**.
 
-    ![List of Values](images/task-02-step-02-list-of-values.png)
+    ![List of Values](images/task-02-step-02-list-of-values.png " ")
 
-4. Click **Create**.
+4. Select **Create**.
 
-    ![Create LOV](images/task-02-step-03-create-lov.png)
+    ![Create LOV](images/task-02-step-03-create-lov.png " ")
 
-5. In the **Create List of Values** wizard, select **From Scratch** and click **Next**.
+5. In the **Create List of Values** wizard, select **From Scratch** and select **Next**.
 
-    ![Select From Scratch in the Create List of Values wizard](images/task-02-step-04-create-lov-wizard-name.png)
+    ![Select From Scratch in the Create List of Values wizard](images/task-02-step-04-create-lov-wizard-name.png " ")
 
-6. Under **Name and Type**, enter/select the following:
+6. Under **Name and Type**, enter or select the following:
 
     - Name: **TMS\_LEAVE.TYPES**
 
     - Type: **Dynamic**
 
-7. Click **Next**.
+7. Select **Next**.
 
-    ![Enter the dynamic LOV name and select Dynamic type](images/task-02-step-05-create-dynamic-lov-wizard-name.png)
+    ![Enter the dynamic LOV name and select Dynamic type](images/task-02-step-05-create-dynamic-lov-wizard-name.png " ")
 
-8. Under **List of Values Source**, enter/select the following:
+8. Under **List of Values Source**, enter or select the following:
 
     - Source Type: **Table**
 
     - Table / View Name: **TMS\_LEAVE\_TYPES**
 
-    ![Select Local Database, Table, and TMS_LEAVE_TYPES](images/task-02-step-06-create-dynamic-lov-wizard-values.png)
+    ![Select Local Database, Table, and TMS_LEAVE_TYPES](images/task-02-step-06-create-dynamic-lov-wizard-values.png " ")
 
-9. Under **Column Mappings**, enter/select the following:
+9. Under **Column Mappings**, enter or select the following:
 
     - Return Column: **LEAVE\_TYPE\_ID**
 
     - Display Column: **NAME**
 
-10. Click **Create**.
+10. Select **Create**.
 
-    ![Confirm the return and display column mappings and create the LOV](images/task-02-step-07-create-dynamic-lov-col-mapping.png)
+    ![Confirm the return and display column mappings and create the LOV](images/task-02-step-07-create-dynamic-lov-col-mapping.png " ")
 
-11. Click **Create** to start creating a static LOV.
+11. Select **Create** to start creating a static LOV.
 
-    ![Create another shared list of values](images/task-02-step-08-create-lov.png)
+    ![Create another shared list of values](images/task-02-step-08-create-lov.png " ")
 
-12. In the **Create List of Values** wizard, select **From Scratch** and click **Next**.
+12. In the **Create List of Values** wizard, select **From Scratch** and select **Next**.
 
-    ![Select From Scratch in the Create List of Values wizard](images/task-02-step-09-create-lov-wizard-name.png)
+    ![Select From Scratch in the Create List of Values wizard](images/task-02-step-09-create-lov-wizard-name.png " ")
 
-13. Under **Name and Type**, enter/select the following:
+13. Under **Name and Type**, enter or select the following:
 
     - Name: **TMS\_TASK.STATUS**
 
     - Type: **Static**
 
-14. Click **Next**.
+14. Select **Next**.
 
-    ![Enter the TMS_TASK.STATUS name and select Static type](images/task-02-step-10-select-static-value.png)
+    ![Enter the TMS_TASK.STATUS name and select Static type](images/task-02-step-10-select-static-value.png " ")
 
 15. Enter the following values, using each status as both the **Display Value** and **Return Value**:
 
@@ -214,27 +230,27 @@ In this lab, you will learn how to:
     | Done          | Done         |
     | Blocked       | Blocked      |
 
-16. Click **Create List of Values**.
+16. Select **Create List of Values**.
 
-    ![Enter the task status display and return values](images/task-02-step-11-create-static-lov-wizard-values.png)
+    ![Enter the task status display and return values](images/task-02-step-11-create-static-lov-wizard-values.png " ")
 
-17. Click **Create** to start creating a static LOV.
+17. Select **Create** to start creating a static LOV.
 
-    ![Create another shared list of values](images/task-02-step-12-create-lov.png)
+    ![Create another shared list of values](images/task-02-step-12-create-lov.png " ")
 
-18. In the **Create List of Values** wizard, select **From Scratch** and click **Next**.
+18. In the **Create List of Values** wizard, select **From Scratch** and select **Next**.
 
-    ![Select From Scratch in the Create List of Values wizard](images/task-02-step-13-create-lov-wizard-name.png)
+    ![Select From Scratch in the Create List of Values wizard](images/task-02-step-13-create-lov-wizard-name.png " ")
 
-19. Under **Name and Type**, enter/select the following:
+19. Under **Name and Type**, enter or select the following:
 
     - Name: **TMS\_TASK.CATEGORY**
 
     - Type: **Static**
 
-20. Click **Next**.
+20. Select **Next**.
 
-    ![Enter the TMS_TASK.CATEGORY name and select Static type](images/task-02-step-14-select-static-value.png)
+    ![Enter the TMS_TASK.CATEGORY name and select Static type](images/task-02-step-14-select-static-value.png " ")
 
 21. Enter the following values, using each category as both the **Display Value** and **Return Value**:
 
@@ -246,16 +262,15 @@ In this lab, you will learn how to:
     | Benefits      | Benefits     |
     | Facilities    | Facilities   |
 
-22. Click **Create List of Values**.
+22. Select **Create List of Values**.
 
-    ![Enter the task category display and return values](images/task-02-step-15-create-static-lov-wizard-values.png)
+    ![Enter the task category display and return values](images/task-02-step-15-create-static-lov-wizard-values.png " ")
 
 23. Confirm that all the LOVs appear in the application’s **Lists of Values** page.
 
-    ![All LOVs listed in Shared Components](images/task-02-step-16-lovs.png)
+    ![All LOVs listed in Shared Components](images/task-02-step-16-lovs.png " ")
 
 ## Acknowledgements
 
-- **Author -** Aravind Madhavan, Senior Product Manager.
-
-- **Last Updated By/Date** - Aravind Madhavan, Senior Product Manager, July 2026
+- **Author** - Aravind Madhavan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

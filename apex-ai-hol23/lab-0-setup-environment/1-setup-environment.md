@@ -4,80 +4,109 @@
 
 In this lab, you prepare your local machine with the core tools needed to enhance the TAP application.
 
-*Note:* Use of an AI Agent and/or LLM incurs additional costs and requires a separate commercial agreement with the respective AI Agent/LLM provider.
+Estimated Lab Time: 15 minutes
+
+> **Note:** Use of an AI agent or LLM incurs additional costs and requires a separate commercial agreement with the provider.
 
 ### Objectives
 
+In this lab, you will:
+
 - Install Visual Studio Code on the local machine.
 - Install the Codex and SQL Developer extensions required for APEX development.
+- Configure SQLcl as an MCP server in Codex.
 
-Estimated Time: 15 minutes
+## Task 1: Install Visual Studio Code on Your Local Machine
 
-## Task 1: Install Visual Studio Code on your local machine
+1. Open the [Visual Studio Code download page](https://code.visualstudio.com/Download) in a web browser.
 
-1. Open a browser and go to the Visual Studio Code download page at `https://code.visualstudio.com/Download`.
+    ![Visual Studio Code download page highlighting platform options](images/vscode-download-page.png " ")
 
-    ![Visual Studio Code download page highlighting platform options](images/vscode-download-page.png)
+2. Download the installer for your operating system (Windows, macOS, or Linux).
 
-2. Choose the installer that matches your operating system (Windows, macOS, or Linux) and start the download.
+    ![Visual Studio Code platform-specific installer options](images/vscode-select-installer.png " ")
 
-    ![Visual Studio Code platform-specific installer options](images/vscode-select-installer.png)
+3. Run the downloaded installer.
 
-3. Run the downloaded installer and accept the default prompts to complete the installation.
+    Accept the default options to complete the installation.
 
-4. Launch Visual Studio Code to confirm it opens successfully and pin it to your taskbar or dock for quick access.
+4. Open **Visual Studio Code** and confirm that the welcome screen appears.
 
-    ![Visual Studio Code first launch window with welcome screen](images/vscode-first-launch.png)
+    ![Visual Studio Code first launch window with welcome screen](images/vscode-first-launch.png " ")
 
-## Task 2: Install the extensions
+## Task 2: Install the Extensions
 
-1. In Visual Studio Code, open the Extensions view (`View` > `Extensions`) and search for `Codex`. In this workshop, we use Codex. However, you are free to choose your AI Coding Agent such as Claude Code.
+1. In **Visual Studio Code**, select **View** > **Extensions**.
 
-    ![Visual Studio Code Extensions view focused on search bar](images/vscode-open-extensions-view.png)
+    Search for **Codex**.
 
-2. Select the Codex extension, click `Install`, then press `Ctrl+Shift+P` (Windows/Linux) or `Cmd+Shift+P` (macOS) and run `Codex: Set API Key` to paste your API key.
+    ![Visual Studio Code Extensions view focused on search bar](images/vscode-open-extensions-view.png " ")
 
-    ![Codex extension page showing install button and API key command palette entry](images/codex-set-api-key.png)
+2. Select the **Codex** extension.
 
-3. While in the Extensions view, search for the SQL Developer extension and install it.
+    Click **Install**.
 
-    ![Visual Studio Code Extensions view displaying SQL Developer extension listing](images/vscode-sql-developer-extension.png)
+3. Open **Codex** and select **Use API Key**.
 
-4. After installation, use the SQL Developer extension command palette entries to add a new connection, supplying the credentials for your APEX Workspace schema so the extension can reach the correct tenancy workspace.
+    Enter your OpenAI API key.
 
-    ![SQL Developer extension new connection dialog with APEX workspace fields](images/sql-developer-new-connection.png)
+    Click **OK**.
 
-5. Switch back to the Extensions view. Search for **Python** and click **Install**.
+    ![Enter the API key in Codex](images/codex-set-api-key.png " ")
 
-    *Note:* Python is sometimes used by the AI Coding agent (Codex in this case) to perform certain tasks. For example, offline syntax validation.
+4. In **Extensions**, search for **Oracle SQL Developer for VS Code**.
 
-    ![Visual Studio Code Extensions view displaying Python extension listing](images/vscode-python-extension.png)
+    Select the extension.
 
-6. Finally, we need to install the SQLcl MCP server. Download the latest version of [SQLcl](https://www.oracle.com/database/sqldeveloper/technologies/sqlcl/download/) to your local machine.
+    Click **Install**.
 
-    ![SQLcl Download page](images/sqlcl-download.png)
+    ![Visual Studio Code Extensions view displaying SQL Developer extension listing](images/vscode-sql-developer-extension.png " ")
 
-    *Note:* SQLcl requires a Java Runtime Environment (JRE) or Java Development Kit (JDK) to be installed on your system. Ensure that Java is installed and available in your system’s PATH before using SQLcl.
+5. In **Oracle SQL Developer for VS Code**, add a database connection for the schema associated with your APEX workspace.
 
-7. In the Codex chat agent, click on **Codex Settings**.
-    ![Codex settings](images/codex-settings.png)
+    ![Create a database connection in Oracle SQL Developer for VS Code](images/sql-developer-new-connection.png " ")
 
-8. In the Codex Settings page, navigate to **MCP servers** and click **Add server**.
-    ![Codex settings](images/add-mcp-server.png)
+6. In **Extensions**, search for **Python**.
 
-9. Enter the following details on the Connect to Custom MCP page:
+    Select the extension.
 
-    - Name: **sqlcl**
+    Click **Install**.
 
-    - Command to launch: *Enter the path to the sqlcl/bin/sql folder on your local machine*
+    > **Note:** A coding agent may use Python for tasks such as offline syntax validation.
 
-    - Arguments: **-mcp**
+    ![Visual Studio Code Extensions view displaying Python extension listing](images/vscode-python-extension.png " ")
 
-10. Click **Save**.
+## Task 3: Configure the SQLcl MCP Server
 
-    ![Codex settings](images/sqlcl-mcp-settings.png)
+1. Download [SQLcl](https://www.oracle.com/database/sqldeveloper/technologies/sqlcl/download/) to your local machine.
+
+    ![SQLcl Download page](images/sqlcl-download.png " ")
+
+    > **Note:** SQLcl requires a Java Runtime Environment (JRE) or Java Development Kit (JDK). Ensure that Java is installed and available in your system's `PATH` before using SQLcl.
+
+2. In **Codex**, open **Codex Settings**.
+
+    ![Codex settings](images/codex-settings.png " ")
+
+3. In **Codex Settings**, select **MCP servers**.
+
+    Click **Add server**.
+
+    ![Add an MCP server in Codex Settings](images/add-mcp-server.png " ")
+
+4. On the **Connect to a custom MCP** page, enter/select the following:
+
+    - **Name:** **sqlcl**
+
+    - **Command to launch:** Enter the full path to the SQLcl executable, `sqlcl/bin/sql`, on your machine.
+
+    - **Arguments:** **-mcp**
+
+5. Click **Save**.
+
+    ![Configure the SQLcl MCP server command and arguments](images/sqlcl-mcp-settings.png " ")
 
 ## Acknowledgements
 
-- **Author** - Ankita Beri, Senior Product Manager
+- **Author** - Ankita Beri, Senior Product Manager; Roopesh Thokala, Principal Product Manager
 - **Last Updated By/Date** - Ankita Beri, Senior Product Manager, October 2026

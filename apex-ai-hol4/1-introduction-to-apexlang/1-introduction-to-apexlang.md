@@ -1,82 +1,111 @@
-# Lab 1: Export and Inspect an Application with APEXlang
+# Export and Inspect an Application with APEXlang
 
 ## Introduction
 
-APEXlang stores an Oracle APEX app in readable `.apx` source files. Export the Module 3 sample app, then inspect its project files before you scaffold TAP.
+APEXlang stores an Oracle APEX application in readable `.apx` source files. In this lab, you export the APEXToGo sample application from Module 3 and inspect its project files before scaffolding TAP.
 
-Estimated Workshop Time: 15 minutes
+Estimated Lab Time: 15 minutes
 
 ### Objectives
 
 In this lab, you will learn how to:
 
-- Export an existing APEX app in APEXlang format.
-- Find the app, page, and shared-component source files.
-- See how an APEXlang project supports code review in a coding workspace.
+- Export an existing APEX application in APEXlang format.
+- Find the application, page, and shared-component source files.
+- Inspect APEXlang component definitions in Visual Studio Code.
 
-### Downloads
+### Prerequisites
 
-Stuck or Missed out on completing the previous labs? Don't worry! First, follow the steps described in the following workshop:
+- Access to a database that supports direct connections from Oracle SQL Developer for VS Code.
+- Complete **Task 3: Install and Explore a Gallery Sample Application** in [Module 3: APEX Components Overview](https://roopeshthokala.github.io/livelabs_qa/apex-ai-hol3/workshops/tenancy/index.html) to install **APEXToGo**.
 
-- **[Module 3: APEX Components Overview](https://roopeshthokala.github.io/livelabs_qa/apex-ai-hol3/workshops/tenancy/index.html)**. In **Task 3: Install and Explore a Gallery Sample Application**, install **APEXToGo** from the Gallery before continuing. You will export it in this lab.
+## Task 1: Set Up Visual Studio Code
 
-## Task 1: Prerequisites
+> **Free Developer Tier:** Direct database connections from Oracle SQL Developer for VS Code are not supported for Oracle APEX Free Developer Tier workspaces. If you use this tier, you can skip this lab.
 
-> **Free Developer Tier:** Direct database connections from Oracle SQL Developer for VS Code are not supported for Oracle APEX Free Developer Tier workspaces. If you are using this tier, you can skip this lab.
+1. Open the [Visual Studio Code download page](https://code.visualstudio.com/Download) in a web browser.
 
-1. Open a web browser and navigate to the **Visual Studio Code** download page: `https://code.visualstudio.com/Download`.
+    ![Open the Visual Studio Code download page](images/task-01-step-01-vscode-download-page.png " ")
 
-    ![Visual Studio Code download page](images/task-01-step-01-vscode-download-page.png)
+2. Download the installer for your operating system: Windows, macOS, or Linux.
 
-2. Download and install the version that matches your operating system (Windows, macOS, or Linux).
+3. Run the installer and follow the installation steps.
 
-    ![Visual Studio Code installer selection](images/task-01-step-02-vscode-select-installer.png)
+    ![Select the Visual Studio Code installer](images/task-01-step-02-vscode-select-installer.png " ")
 
-3. In the **Visual Studio Code** **Extensions** marketplace, search for **Oracle SQL Developer for VS Code** and install the extension.
+4. In **Visual Studio Code**, open **Extensions**.
 
-    ![Oracle SQL Developer for VS Code extension in the Visual Studio Code marketplace](images/task-01-step-03-sql-developer.png)
+5. Search for **Oracle SQL Developer for VS Code**.
 
-4. Open the **Connections** navigator in **Oracle SQL Developer for VS Code**. Create a database connection for a schema associated with your APEX workspace.
+6. Select **Install**.
 
-    ![SQL Developer database connection setup](images/task-01-step-04-sql-developer-connection.png)
+    ![Install Oracle SQL Developer for VS Code](images/task-01-step-03-sql-developer.png " ")
 
-## Task 2: Export the application using Oracle SQL Developer for VS Code
+7. In **Oracle SQL Developer for VS Code**, open the **Connections** navigator.
 
-1. In the **Connections** navigator, expand the database connection and the **APEX** application node.
+8. Create a database connection for a schema associated with your APEX workspace.
 
-    - Right-click the **APEXToGo** app from Module 3 and select **Export…**.
+    ![Create a SQL Developer database connection](images/task-01-step-04-sql-developer-connection.png " ")
 
-    ![Export action for the APEXToGo application](images/task-02-step-01-export-application.png)
+## Task 2: Export the Application Using Oracle SQL Developer for VS Code
 
-2. Create and select the `applications` folder in your local workspace as the destination and click **Apply**.
+1. In the **Connections** navigator, expand your database connection.
 
-    ![Application export destination folder](images/task-02-step-02-export-path.png)
+2. Expand the **APEX** application node.
 
-3. Wait for the export to complete and check if the application folder appears under `applications`.
+3. Right-click **APEXToGo**.
 
-    ![Exported APEXlang application folder](images/task-02-step-03-exported-application.png)
+4. Select **Export…**.
+
+    ![Export the APEXToGo application](images/task-02-step-01-export-application.png " ")
+
+5. Create a local folder named `applications` for the exported source files.
+
+6. In the export dialog, select **Browse…**.
+
+7. Select the `applications` folder as the destination.
+
+8. Select **Apply**.
+
+    ![Select the application export destination](images/task-02-step-02-export-path.png " ")
+
+9. Wait for the export to complete.
+
+10. Confirm that the exported application folder appears under `applications`.
+
+    ![Review the exported APEXlang application folder](images/task-02-step-03-exported-application.png " ")
 
 ## Task 3: Review the Exported Project
 
 1. In **Visual Studio Code**, expand the exported application folder.
 
-2. Expand the `deployments` folder and open `default.json`.
-    - This file stores the exported APEX app's **Application ID**.
-    - To create a new app during import, enter a new **Application ID** and save the file.
-    - If you keep the **Application ID**, import replaces the existing app in your workspace.
+2. Expand the **deployments** folder.
 
-    ![Deployments folder and default application configuration](images/task-03-step-02-deployments.png)
+3. Open **default.json**.
 
-3. Expand the **pages** folder and open **p00001-welcome-page.apx**.
-    - This file shows the page definition in a readable format.
-    - Inspect **regions**, **buttons**, and other APEX components to see how the page works.
-    - Explore the other folders and pages to see how the project works.
+4. Review the exported application's **Application ID**.
 
-    ![APEXlang page components in a page definition file](images/task-03-step-03-components.png)
+    > **Note:** To import the project as a new application, change the Application ID and save the file. Importing with the existing Application ID replaces that application.
 
-4. Keep this project open. In later modules, export the Wizard-built TAP to this format after you learn the core APEX components.
+    ![Review the deployments folder and default application configuration](images/task-03-step-02-deployments.png " ")
 
-## Acknowledgements
+5. Expand the **pages** folder.
 
- - **Author -** Aravind Madhavan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
- - **Last Updated By/Date** - Aravind Madhavan, Senior Product Manager, July 2026
+6. Open **p00001-welcome.apx**.
+
+7. Inspect the regions, buttons, and other APEX components in the page definition.
+
+8. Explore the other folders and pages to review the application structure.
+
+    ![Review APEXlang page components](images/task-03-step-03-components.png " ")
+
+9. Keep the exported project for reference. In later modules, you export the TAP application built with the **Create App Wizard** to this format.
+
+## Summary
+
+You exported APEXToGo in APEXlang format and reviewed its application configuration and page source files.
+
+### Acknowledgements
+
+- **Author** - Aravind Madhavan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

@@ -4,7 +4,7 @@
 
 Oracle APEX is an enterprise AI application platform for building secure, scalable web and mobile applications. Trusted by thousands of organizations, APEX powers systems that run core business operations every day. With Oracle AI Database and Oracle Cloud Infrastructure, every application inherits built-in reliability, governance, and security. APEX helps developers turn ideas into production-ready apps quickly, without sacrificing control or performance. To start, you will need to decide on the service you are going to use for this workshop and then create an APEX Workspace accordingly.
 
-If you already have an Oracle APEX 26.2 Workspace provisioned, you can skip this lab.
+If you already have an Oracle APEX 26.1 or later Workspace provisioned, you can skip this lab.
 
 Estimated Time: 5 minutes
 <!--
@@ -39,13 +39,13 @@ To determine which release of Oracle APEX you are currently running, do one of t
 
 ### Where to Run the Lab
 
-You can run this lab in any Oracle Database with APEX 26.1 installed. You can use the APEX Application Development Service, the free "Development Only" apex.oracle.com service, your on-premises Oracle Database (provided APEX 26.1 is installed), or a database on a third-party cloud provider where APEX 26.1 is installed. You can also run the lab on your laptop by installing Oracle XE or Oracle VirtualBox App Dev VM and installing APEX 26.1.
+You can run this lab in any Oracle Database with Oracle APEX 26.1 or later installed. You can use the APEX Application Development Service, the free "Development Only" apex.oracle.com service, your on-premises Oracle Database (provided Oracle APEX 26.1 or later is installed), or a database on a third-party cloud provider where Oracle APEX 26.1 or later is installed. You can also run the lab on your laptop by installing Oracle XE or Oracle VirtualBox App Dev VM and installing Oracle APEX 26.1 or later.
 
 The following steps show how to sign up for an **APEX Application Development** service, an **Oracle Autonomous AI Database** cloud service, or the **oracleapex.com** service.
 
 - The **oracleapex.com** service is also free, but it is designated only for development purposes. Running production apps is not allowed. You can use any of these options for this workshop.
 
-- The **Oracle Autonomous AI Database** option is ideal for learning about Oracle Database and APEX. It comes with a minimum of 2 ECPU and 1 TB of storage and can be extended as needed. This service can also be used for production applications.
+- The **Oracle Autonomous AI Database** option is ideal for learning about Oracle Database and APEX. It comes with a minimum of 2 ECPU and 20 GB of storage and can be extended as needed. This service can also be used for production applications.
 
 - The **APEX Application Development Service** is a flexible paid option that lets you focus on APEX development without worrying about database management. It provides 2 ECPU and 1 TB of storage and can be extended as needed.
 

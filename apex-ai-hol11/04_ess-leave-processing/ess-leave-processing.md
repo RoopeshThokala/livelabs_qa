@@ -4,11 +4,11 @@
 
 In this lab, you will add leave request logic to the **Employee Self-Service Portal**. You will create the `ESS_UTIL` package, calculate requested days, validate dates and leave balance, and confirm DML processing.
 
-Estimated Time: 4 minutes
+Estimated Lab Time: 4 minutes
 
 ### Objectives
 
-In this lab, you will:
+In this lab, you will learn how to:
 
 - Create the `ESS_UTIL` package.
 - Add a computation for requested leave days.
@@ -17,15 +17,17 @@ In this lab, you will:
 
 ### Downloads
 
-Stuck or Missed out on completing the previous labs? Don't worry! You can download the following application:
+Stuck or missed out on completing the previous labs? Don't worry! You can download the following application:
 
 - **<a href="../00-introduction/files/ess-export4.sql" download="ess-export4.sql">Employee Self-Service Portal</a>**
 
 Import it into your workspace. In **App Builder**, select **Import**, upload `ess-export4.sql`, and follow the steps in the **Import Application** wizard.
 
-> **Note:** Supporting objects are already loaded in the workspace.
+> **Note:**
 >
-> **AI Configuration:** Configure a Generative AI Service in the workspace and select it under **Shared Components > AI Attributes** for the application. See **Module 1, Lab 2: Configure Generative AI Service**.
+> - **APEX Version:** The supplied application export was created with Oracle APEX 26.2 and cannot be imported into earlier APEX releases.
+> - **Supporting Objects:** Supporting objects are already loaded in the workspace.
+> - **AI Configuration:** Configure a Generative AI Service from **App Builder > Workspace Utilities > Generative AI**. See **Module 1, Lab 2: Configure Generative AI Service**.
 
 ## Task 1: Create the ESS_UTIL Package
 
@@ -33,7 +35,7 @@ Import it into your workspace. In **App Builder**, select **Import**, upload `es
 
 2. Open **SQL Commands**.
 
-    !["Open SQL Commands"](images/open-sql-commands.png "")
+    ![Open SQL Commands](images/open-sql-commands.png " ")
 
 3. Paste and run the following package **specification**:
 
@@ -49,7 +51,7 @@ Import it into your workspace. In **App Builder**, select **Import**, upload `es
     </copy>
     ```
 
-    !["Run ESS_UTIL specification"](images/run-ess-util-specification.png "")
+    ![Run ESS_UTIL specification](images/run-ess-util-specification.png " ")
 
 4. Paste and run the following package **body**:
 
@@ -111,11 +113,11 @@ Import it into your workspace. In **App Builder**, select **Import**, upload `es
     </copy>
     ```
 
-    !["Run ESS_UTIL body"](images/run-ess-util-body.png "")
+    ![Run ESS_UTIL body](images/run-ess-util-body.png " ")
 
 5. Confirm that the package compiles successfully.
 
-    !["ESS_UTIL compile success"](images/ess-util-compile-success.png "")
+    ![ESS_UTIL compile success](images/ess-util-compile-success.png " ")
 
 ## Task 2: Add Leave Request Form Processing
 
@@ -125,19 +127,19 @@ Import it into your workspace. In **App Builder**, select **Import**, upload `es
 
 3. Open the **Leave Request** form page.
 
-    !["Open Leave Request form"](images/open-leave-request-form.png "")
+    ![Open Leave Request form](images/open-leave-request-form.png " ")
 
 4. Select `P5_DAYS_REQUESTED`.
 
     This allows APEX to calculate the value during page processing instead of requiring the user to enter it manually.
 
-    !["Select days requested item"](images/select-days-requested-item.png "")
+    ![Select days requested item](images/select-days-requested-item.png " ")
 
 5. In the Property Editor, set **Value Required** to **No**.
 
 6. Right-click `P5_DAYS_REQUESTED` and select **Create Computation**.
 
-    ![Create days requested computation](images/create-days-requested-computation.png "")
+    ![Create days requested computation](images/create-days-requested-computation.png " ")
 
 7. In the Property Editor, enter or select the following settings:
 
@@ -159,13 +161,13 @@ Import it into your workspace. In **App Builder**, select **Import**, upload `es
 
     This computation automatically calculates the number of requested leave days.
 
-    !["Days requested computation expression"](images/days-requested-computation-expression.png "")
+    ![Days requested computation expression](images/days-requested-computation-expression.png " ")
 
 8. Navigate to the **Processing** tab.
 
 9. Right-click **Validating** and select **Create Validation**.
 
-    !["Add end date validation"](images/add-end-date-validation.png "")
+    ![Add end date validation](images/add-end-date-validation.png " ")
 
 10. In the Property Editor, enter or select the following:
 
@@ -190,11 +192,11 @@ Import it into your workspace. In **App Builder**, select **Import**, upload `es
         </copy>
         ```
 
-    !["End date validation code"](images/end-date-validation-code.png "")
+    ![End date validation code](images/end-date-validation-code.png " ")
 
 11. Right-click **Validating** and select **Create Validation**.
 
-    !["Add sufficient balance validation"](images/add-sufficient-balance-validation.png "")
+    ![Add sufficient balance validation](images/add-sufficient-balance-validation.png " ")
 
 12. In the Property Editor, enter or select the following:
 
@@ -228,19 +230,19 @@ Import it into your workspace. In **App Builder**, select **Import**, upload `es
         </copy>
         ```
 
-    ![Sufficient balance validation code](images/sufficient-balance-validation-code.png "")
+    ![Sufficient balance validation code](images/sufficient-balance-validation-code.png " ")
 
 13. Navigate to the **Rendering** tab.
 
 14. Select the **SUBMIT_LEAVE** button and set **Database Action** to **SQL Insert Action**.
 
-    !["Set submit database action"](images/get-image.png "")
+    ![Set submit database action](images/get-image.png " ")
 
 15. Navigate back to the **Processing** tab.
 
 16. Right-click **Processing** and select **Create Process**.
 
-    !["Create Leave Request DML process"](images/create-leave-request-dml-process.png "")
+    ![Create Leave Request DML process](images/create-leave-request-dml-process.png " ")
 
 17. In the Property Editor, enter or select the following:
 
@@ -252,13 +254,13 @@ Import it into your workspace. In **App Builder**, select **Import**, upload `es
 
         - Form Region: **Leave Request Form**
 
-    !["Confirm Leave Request DML process"](images/leave-req-region.png "")
+    ![Confirm Leave Request DML process](images/leave-req-region.png " ")
 
 18. Save the page.
 
     The Leave Request form can now calculate requested days, block invalid date ranges, check leave balance, and save submitted data.
 
-    !["Run Leave Request page"](images/run-leave-request-page.png "")
+    ![Run Leave Request page](images/run-leave-request-page.png " ")
 
 ## Summary
 
@@ -266,6 +268,5 @@ You created `ESS_UTIL` and wired the Leave Request form with computations, valid
 
 ## Acknowledgements
 
-**Author** - Ankita Beri, Senior Product Manager; Roopesh Thokala, Principal Product Manager
-
-**Last Updated By/Date** - Ankita Beri, July 28, 2026
+- **Author** - Ankita Beri, Senior Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

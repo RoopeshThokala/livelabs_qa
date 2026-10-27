@@ -1,10 +1,14 @@
-# Lab 3: Protect Pages and Navigation
+# Protect Pages and Navigation
 
 ## Introduction
 
-Authorization must be applied to the page itself, not only to a navigation link. In this lab, you protect the TAP and ESS pages and hide unavailable navigation entries.
+Apply authorization to the page itself and to its navigation link. In this lab, you protect the TAP and ESS pages and hide unavailable navigation entries.
 
-Estimated Time: 5 minutes
+Estimated Lab Time: 5 minutes
+
+### Where We Are
+
+TAP and ESS now have reusable authorization schemes. You will apply those schemes to pages and navigation entries so access and menu visibility follow the employee role.
 
 ### Objectives
 
@@ -15,6 +19,8 @@ Estimated Time: 5 minutes
 ## Task 1: Add page authorization in TAP
 
 1. From **App Builder**, open **Talent Acquisition Portal (TAP)**. On the application home page, select **Job Requisitions** (Page 2).
+
+    > **Note:** If your page number differs, select the page named **Job Requisitions**.
 
     ![Open the TAP Job Requisitions page](images/lab3-tap-open-job-requisitions.png " ")
 
@@ -30,6 +36,8 @@ Estimated Time: 5 minutes
     | Candidate Pipeline | 4 | `IS_RECRUITER_OR_TA_ADMIN` |
     | Offer Management | 8 | `IS_RECRUITER_OR_TA_ADMIN` |
     | Bulk Stage Update | 17 | `IS_TA_ADMIN` |
+
+    > **Note:** If a listed page number differs, select the page by its name.
 
 ## Task 2: Add navigation-menu authorization in TAP
 
@@ -65,6 +73,8 @@ Estimated Time: 5 minutes
 
 1. Return to **App Builder**, open **Employee Self-Service Portal (ESS)**, and select **System Logs** (Page 17) on the application home page.
 
+    > **Note:** If your page number differs, select the page named **System Logs**.
+
     ![Open the ESS System Logs page](images/lab3-ess-open-system-logs.png " ")
 
 2. In **Page Designer**, select the **Page 17: System Logs** page root. In the Property Editor, expand **Security**, set **Authorization Scheme** to **`IS_HR_ADMIN`**, and click **Save**.
@@ -99,7 +109,11 @@ Estimated Time: 5 minutes
 
     ![Apply HR-admin authorization to the ESS System Logs entry](images/lab3-ess-authorize-admin-entry.png " ")
 
+## Summary
+
 The protected pages now enforce authorization even when a user tries a direct URL, while the navigation menu shows users only the features available to their role. Next, you will apply a data-level filter to the Candidate Pipeline.
+
+You may now **proceed to the next lab**.
 
 ## Acknowledgements
 

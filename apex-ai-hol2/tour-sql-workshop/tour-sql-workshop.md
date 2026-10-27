@@ -1,46 +1,58 @@
-# Lab 1: Tour SQL Workshop
+# Tour SQL Workshop
 
 ## Introduction
 
-SQL Workshop is a component in the APEX workspace for working directly with the database. Explore its tools before you create database objects for the application.
+SQL Workshop is an APEX workspace component for working directly with the database. Explore its tools before you create database objects for the application.
 
-Estimated Time: 5 minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
-In this lab, you will:
+In this lab, you will learn how to:
 
 - Open SQL Workshop.
-- Identify the five SQL Workshop components.
-- Explore each tool in the SQL Workshop components.
+- Identify the SQL Workshop components.
+- Explore the available SQL Workshop tools.
 
 ## Task 1: Open SQL Workshop
 
-1. From the APEX home page, click **SQL Workshop**.
+1. On the APEX workspace home page, select **SQL Workshop**.
 
-    ![SQL Workshop landing page.](images/sql-workshop-home.png ' ')
+    ![Open SQL Workshop](images/sql-workshop-home.png " ")
 
-## Task 2: Identify the SQL Workshop components
+## Task 2: Identify the SQL Workshop Components
 
-1. Review the available components.
+1. Review the available SQL Workshop components.
 
-    ![SQL Workshop landing page showing the available components.](images/sql-workshop-components.png ' ')
+    ![Review the SQL Workshop components](images/sql-workshop-components.png " ")
 
-    - **Object Browser** lets you inspect and manage database objects.
-        ![Object Browser](images/object-browser.png ' ')
-    - **SQL Commands** lets you run an individual SQL or PL/SQL statement.
-        ![SQL Commands](images/sql-commands.png ' ')
-    - **SQL Scripts** lets you save and run a script.
-        ![Object Browser](images/sql-scripts.png ' ')
-    - **Utilities** is a collection of tools for working with data, generating sample data, building queries, managing database objects, and performing database-related administration tasks.
-        ![Object Browser](images/utilities.png ' ')
-    - **RESTful Services** lets you manage REST services when they are enabled for the workspace.
-        ![Object Browser](images/rest-services.png ' ')
-    
+2. Review **Object Browser**. Use it to inspect and manage database objects.
 
-2. Keep SQL Workshop open for the next lab.
+    ![Review Object Browser](images/object-browser.png " ")
 
-## Acknowledgements
+3. Review **SQL Commands**. Use it to run an individual SQL or PL/SQL statement.
 
-* **Author** - Apoorva Srinivas, Principal Product Manager, Roopesh Thokala, Principal Product Manager
-* **Last Updated By/Date** - Apoorva Srinivas, Principal Product Manager, July 2026
+    ![Review SQL Commands](images/sql-commands.png " ")
+
+4. Review **SQL Scripts**. Use it to save and run a script.
+
+    ![Review SQL Scripts](images/sql-scripts.png " ")
+
+5. Review **Utilities**. It contains tools for working with data, generating sample data, building queries, managing database objects, and performing database-related administration tasks.
+
+    ![Review SQL Workshop Utilities](images/utilities.png " ")
+
+6. Review **SQL Developer Web**. Use it to configure schema REST access and open SQL Developer Web to manage RESTful services and endpoints.
+
+    ![Review SQL Developer Web](images/rest-services.png " ")
+
+7. Keep SQL Workshop open for the next lab.
+
+## Summary
+
+You opened SQL Workshop and reviewed the components used to manage database objects, run SQL, and save scripts.
+
+### Acknowledgements
+
+- **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

@@ -1,4 +1,4 @@
-# Lab 3: Configure the Global Page
+# Configure the Global Page
 
 ## Introduction
 
@@ -6,9 +6,9 @@ In APEX, Page 0 is the Global Page. The Oracle APEX engine renders all component
 
 The **Layout > Slot** attribute selects the template slot used to display a region. A page template must include the selected slot for the region to appear there.
 
-In this lab, you add a **Hiring_Info** Static Content region to the TAP Global Page. You place it in **After Logo** so the same hiring message appears near the top of TAP pages.
+In this lab, you add a **Hiring Info** Static Content region to the TAP Global Page. You place it in **After Logo** so the same hiring message appears near the top of TAP pages.
 
-Estimated time: 5 minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
@@ -16,13 +16,13 @@ In this lab, you will learn how to:
 
 - Add a Static Content region to Page 0.
 - Place the banner in the After Logo region.
-- Configure the Hiring_Info region source and template.
+- Configure the Hiring Info region source and template.
 - Run a TAP page and confirm that the banner appears globally.
 
 
 ## Task 1: Add the Global Banner
 
-In this task, you will create the **Hiring_Info** Static Content region in **After Logo**. The region uses the **Title Bar** template and HTML source to display a shared hiring banner across TAP pages.
+In this task, you will create the **Hiring Info** Static Content region in **After Logo**. The region uses the **Title Bar** template and HTML source to display a shared hiring banner across TAP pages.
 
 The region position controls where shared content appears. For this banner, you place the region in **After Logo** so the message appears near the top of TAP pages that use that position.
 
@@ -40,7 +40,7 @@ The region position controls where shared content appears. For this banner, you 
 
     ![Static Content region dropped in the After Logo region](images/03-drag-static-content-after-logo.png " ")
 
-4. In the **Property Editor**, enter/select the following:
+4. In the **Property Editor**, enter or select the following:
 
     - Under Identification:
 
@@ -82,9 +82,9 @@ You may now proceed to the next lab.
 
 ## Learn More
 
-* [Creating a Global Page to Display Components on Every Page](https://docs.oracle.com/en/database/oracle/apex/26.1/htmdb/creating-a-global-page-to-display-components-on-every-page.html)
+- [Creating a Global Page to Display Components on Every Page](https://docs.oracle.com/en/database/oracle/apex/26.2/htmdb/creating-a-global-page-to-display-components-on-every-page.html)
 
 ## Acknowledgements
 
 - **Author** - Sahaana Manavalan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
-- **Last Updated By/Date** - Sahaana Manavalan, Senior Product Manager, July 2026
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

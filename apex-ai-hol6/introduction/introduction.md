@@ -1,6 +1,6 @@
 # Introduction
 
-## About this Workshop
+## About This Workshop
 
 This workshop guides you through building and configuring pages and regions in the Talent Acquisition Portal (TAP) and Employee Self-Service (ESS) applications. You create a Candidate Profile page, add Open Requisitions and candidate Cards regions to the Candidate Pipeline page, and add a hiring banner to the Global Page so it appears across TAP pages.
 
@@ -21,13 +21,13 @@ In this workshop, you will learn how to:
 
 ## Prerequisites
 
-- An Oracle APEX workspace running on an Oracle Database 19c or later. This workshop requires APEX 26.1 or later. Some features, instructions, and screenshots may differ or not be available in prior releases.
+- An Oracle APEX workspace running on an Oracle Database 19c or later with Oracle APEX 26.2.
 
-> **Note:** The application ID in the screenshots may vary. Please ignore the application ID.
+> **Note:** Screenshots were captured with Oracle APEX 26.1. Minor user interface differences may appear in Oracle APEX 26.2. The application ID in the screenshots may vary. Please ignore the application ID.
 
 ## Downloads
 
-Stuck or Missed out on completing the previous labs? Don't worry! You can download the following applications:
+Stuck or missed out on completing the previous labs? Don't worry! You can download the following applications:
 
 - **<a href="files/tap-export1.sql" download="tap-export1.sql">Talent Acquisition Portal</a>**
 
@@ -35,23 +35,23 @@ Stuck or Missed out on completing the previous labs? Don't worry! You can downlo
 
 Import them into your workspace. In **App Builder**, select **Import**, upload each file, and follow the steps in the **Import Application** wizard.
 
-> **Note:** Supporting objects are already loaded in the workspace.
+> **Note:**
 >
-> **AI Configuration:** Configure a Generative AI Service in the workspace and select it under **Shared Components > AI Attributes** for each application. See **Module 1, Lab 2: Configure Generative AI Service**.
+> - **APEX Version:** The supplied application exports were created with Oracle APEX 26.2 and cannot be imported into earlier APEX releases.
+> - **Supporting Objects:** Supporting objects are already loaded in the workspace.
+> - **AI Configuration:** Configure a Generative AI Service from **App Builder > Workspace Utilities > Generative AI**. See **Module 1, Lab 2: Configure Generative AI Service**.
 
 ## Learn More - Useful Links
 
-- [Oracle APEX 26.1 Documentation](https://docs.oracle.com/en/database/oracle/apex/26.1/)
-- [Managing Pages in an Application](https://docs.oracle.com/en/database/oracle/apex/26.1/htmdb/managing-pages-in-an-application.html)
-- [About Page Designer](https://docs.oracle.com/en/database/oracle/apex/26.1/htmdb/about-page-designer.html)
-- [About Regions](https://docs.oracle.com/en/database/oracle/apex/26.1/htmdb/about-regions.html)
+- [Oracle APEX 26.2 Documentation](https://docs.oracle.com/en/database/oracle/apex/26.2/)
+- [Managing Pages in an Application](https://docs.oracle.com/en/database/oracle/apex/26.2/htmdb/managing-pages-in-an-application.html)
+- [About Page Designer](https://docs.oracle.com/en/database/oracle/apex/26.2/htmdb/about-page-designer.html)
+- [About Regions](https://docs.oracle.com/en/database/oracle/apex/26.2/htmdb/about-regions.html)
 - [Oracle APEX Tutorials](https://apex.oracle.com/en/learn/tutorials/)
 - [Oracle APEX Community](https://apex.oracle.com/community/)
 - [Oracle APEX Discussion Forum](https://forums.oracle.com/ords/apexds/domain/dev-community/category/application_express)
 
-You may now **proceed to the next lab**.
-
 ## Acknowledgements
 
 - **Author** - Sahaana Manavalan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
-- **Last Updated By/Date** - Sahaana Manavalan, Senior Product Manager, July 2026
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

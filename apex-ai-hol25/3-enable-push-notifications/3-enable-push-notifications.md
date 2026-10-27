@@ -4,9 +4,11 @@
 
 In this lab, you will enable push notifications in Employee Self-Service Portal (ESS), subscribe an employee's device, and add a **Send Push Notification** action to the existing **Task Overdue** automation.
 
-Estimated Time: 12 minutes
+Estimated Lab Time: 12 minutes
 
 ### Objectives
+
+In this lab, you will:
 
 - Enable push notifications and configure credentials.
 - Create the notification settings pages and subscribe a device.
@@ -21,23 +23,29 @@ Estimated Time: 12 minutes
 
 ## Task 1: Enable Push Notifications
 
-1. In your workspace, open **Employee Self-Service Portal**. Click the **Shared Components** icon on the Application home page.
+1. In your workspace, open **Employee Self-Service Portal**.
+
+2. On the Application home page, click the **Shared Components** icon.
 
     ![Open Shared Components](images/3_1_1_shared_components.png " ")
 
-2. Under **User Interface**, click **Progressive Web App**.
+3. Under **User Interface**, click **Progressive Web App**.
 
     ![Open Progressive Web App](images/3_1_2_progressive_web_app.png " ")
 
-3. Click **Push Notifications**. Set **Enable Push Notifications** to **On**.
+4. Click **Push Notifications**.
+
+5. Set **Enable Push Notifications** to **On**.
 
     ![Enable Push Notifications](images/3_1_3_enable_push_notifications.png " ")
 
 ## Task 2: Configure Push Notification Credentials
 
-1. Under **Credentials**, click **Generate Credentials** to create a public/private key pair. Regenerating the keys requires users to subscribe again.
+1. Under **Credentials**, click **Generate Credentials** to create a public/private key pair.
 
     ![Generate Credentials](images/3_2_1_generate_credentials.png " ")
+
+> **Note:** Regenerating the credentials requires users to subscribe again.
 
 2. In the confirmation dialog, click **Generate Credentials**.
 
@@ -69,7 +77,9 @@ Estimated Time: 12 minutes
 
 ## Task 4: Subscribe the Employee's Device
 
-1. Return to the Application home page by clicking **Application 301** in the breadcrumb. Click **Run Application**. Use the device on which you want to receive notifications.
+1. In the breadcrumb, click the application name to return to the Application home page.
+
+2. Click **Run Application**. Use the device on which you want to receive notifications.
 
     ![Run Application](images/3_4_1_run_application.png " ")
 
@@ -85,13 +95,15 @@ Estimated Time: 12 minutes
 
     ![Open Push Notifications](images/3_4_4_push_notifications.png " ")
 
-5. Select **Enable push notifications on this device**. When the browser requests notification permission, click **Allow**.
+5. Select **Enable push notifications on this device**.
 
     ![Enable notifications on this device](images/3_4_5_enable_device_notifications.png " ")
 
+6. When the browser requests notification permission, click **Allow**.
+
     ![Allow notifications in the browser](images/3_4_5_allow_notifications.png " ")
 
-6. Verify that **Enable push notifications on this device** is selected. Keep the device connected for the notification test. Each receiving device must be subscribed separately.
+7. Verify that **Enable push notifications on this device** is selected. Keep the device connected for the notification test. Each receiving device must be subscribed separately.
 
     ![Verify the subscribed device](images/3_4_6_device_enabled.png " ")
 
@@ -157,7 +169,9 @@ Estimated Time: 12 minutes
 
 ## Task 7: Test the Automation and Verify Delivery
 
-1. Before running the automation, review the tasks selected by its query. Open **SQL Workshop → SQL Commands** and run the following read-only query. Use the same conditions as the automation if your Module 16 query differs.
+1. In **SQL Workshop**, open **SQL Commands**.
+
+2. Run the following read-only query to review the tasks selected by the automation. If your Module 16 query differs, use the same conditions as that query.
 
     ```sql
     <copy>
@@ -173,17 +187,31 @@ Estimated Time: 12 minutes
     </copy>
     ```
 
-2. Return to **App Builder → Employee Self-Service Portal → Shared Components → Automations → Task Overdue**. Click **Save and Run** to execute the automation in the background. Keep its existing schedule configuration for this manual test.
+3. Return to **App Builder**. Open **Employee Self-Service Portal**, then select **Shared Components**, **Automations**, and **Task Overdue**.
 
-    ![Save and Run the automation](images/3_7_2_save_and_run.png " ")
+4. Click **Save and Run**. Keep the existing schedule configuration for this manual test.
 
-3. Click **Automations** in the breadcrumb, then **Execution Log**. Locate the latest run with **Automation Static ID** `task-overdue`. Verify **Status** is **Success**, **Successful Rows** is greater than zero, and **Error Rows** is `0`. The number of successful rows depends on the eligible tasks in your workspace.
+    ![Save and run the automation](images/3_7_2_save_and_run.png " ")
+
+5. In the breadcrumb, click **Automations**. Then click **Execution Log**.
 
     ![Open Execution Log](images/3_7_3_open_execution_log.png " ")
 
+6. Locate the latest run with **Automation Static ID** `task-overdue`. Verify the following:
+
+    - **Status** is **Success**.
+    - **Successful Rows** is greater than zero.
+    - **Error Rows** is `0`.
+
+    The number of successful rows depends on the eligible tasks in your workspace.
+
     ![Review the execution result and Messages column](images/3_7_3_execution_log.png " ")
 
-4. Click the number in the run's **Messages** column to open **Log Messages**. Review any messages. If no messages were logged, the page shows **No detail messages available for this execution.** A successful execution does not confirm that the device received the notification.
+7. Click the number in the run's **Messages** column to open **Log Messages**.
+
+8. Review the messages. If none were logged, the page shows **No detail messages available for this execution.**
+
+> **Note:** A successful execution does not confirm that the device received the notification.
 
     ![Review Log Messages](images/3_7_4_log_messages.png " ")
 

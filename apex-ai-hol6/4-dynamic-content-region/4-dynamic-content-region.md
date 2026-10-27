@@ -1,4 +1,4 @@
-# Lab 4: Add a Dynamic Content Region
+# Add a Dynamic Content Region
 
 ## Introduction
 
@@ -6,7 +6,7 @@ The Dynamic Content region lets you programmatically generate all its HTML marku
 
 In Lab 2, you used Dynamic Content for the open-requisitions banner. In this lab, you use the same region type on TAP Home to display the number of active candidates.
 
-Estimated time: 5 minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
@@ -26,11 +26,11 @@ In this task, you will create an **Active Candidates** Dynamic Content region on
 
     ![Home page opened from the Developer Toolbar](images/01-open-home-page-designer.png " ")
 
-2. In the **Rendering Tab**, right-click **Body**, then select **Create Region**.
+2. In the **Rendering** tab, right-click **Body**, then select **Create Region**.
 
     ![Create Region selected from the Body context menu](images/02-create-region-body.png " ")
 
-3. In the **Property Editor**, enter/select the following:
+3. In the **Property Editor**, enter or select the following:
 
     - Under Identification:
 
@@ -89,9 +89,9 @@ You may now proceed to the next lab.
 
 ## Learn More
 
-* [Dynamically Formatting Data](https://docs.oracle.com/en/database/oracle/apex/26.1/apxdc/dynamically-formatting-data.html)
+- [Dynamically Formatting Data](https://docs.oracle.com/en/database/oracle/apex/26.2/apxdc/dynamically-formatting-data.html)
 
 ## Acknowledgements
 
 - **Author** - Sahaana Manavalan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
-- **Last Updated By/Date** - Sahaana Manavalan, Senior Product Manager, July 2026
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

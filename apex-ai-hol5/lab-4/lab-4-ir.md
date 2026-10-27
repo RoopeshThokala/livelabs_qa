@@ -4,11 +4,11 @@
 
 In this lab, you will extend the Talent Acquisition Portal with interactive report pages and forms for offers and jobs. APEX uses the existing table definitions and primary keys to create pages for managing records and to recognize relationships between related data.
 
-Estimated time: 5 minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
-In this lab, you will:
+In this lab, you will learn how to:
 
 - Add table-driven pages to the Talent Acquisition Portal (TAP).
 
@@ -16,15 +16,15 @@ In this lab, you will:
 
 In this task, you add two more table-driven pages to the Talent Acquisition Portal. These pages show how APEX can quickly create working CRUD pages for existing database tables.
 
-1. From the left navigation menu, click the **App Builder** icon.
+1. From the left navigation menu, select the **App Builder** icon.
 
     ![App Builder after HR Analytics App is created](images/app-builder-haa-created.png " ")
 
-2. Click the **Talent Acquisition Portal** application.
+2. Select the **Talent Acquisition Portal** application.
 
     ![Open Talent Acquisition Portal in App Builder](images/app-builder-select-tap.png " ")
 
-3. Click **Create Page**.
+3. Select **Create Page**.
 
     ![Talent Acquisition Portal Create Page button](images/tap-application-home-create-page.png " ")
 
@@ -48,19 +48,19 @@ In this task, you add two more table-driven pages to the Talent Acquisition Port
 
         - Table or View: **TMS_OFFERS**
 
-6. Click **Next**.
+6. Select **Next**.
 
     ![Offer Management page definition](images/offer-management-page-definition.png " ")
 
     This page gives recruiters a place to review offer records and open a form for offer details.
 
-7. For **Primary Key Column 1**, select **OFFER_ID (Number)** and click **Create Page**.
+7. For **Primary Key Column 1**, select **OFFER_ID (Number)** and select **Create Page**.
 
     ![Offer Management primary key settings](images/offer-management-primary-key.png " ")
 
-    APEX uses the table metadata to detect relationships to `CANDIDATES` and `JOB_REQUISITIONS`.
+    APEX uses the table metadata to detect relationships to **CANDIDATES** and **JOB_REQUISITIONS**.
 
-8. In Page Designer, click **Save and Run**.
+8. In Page Designer, select **Save and Run**.
 
     ![Offer Management page in Page Designer](images/offer-management-page-designer.png " ")
 
@@ -92,17 +92,17 @@ In this task, you add two more table-driven pages to the Talent Acquisition Port
 
         - Table or View: **TMS_JOBS**
 
-13. Click **Next**.
+13. Select **Next**.
 
     ![Jobs page definition](images/jobs-page-definition.png " ")
 
     This page gives administrators a quick way to review and maintain job records used by requisitions.
 
-14. For **Primary Key Column 1**, select **JOB_ID(Number)** and click **Create Page**.
+14. For **Primary Key Column 1**, select **JOB_ID(Number)** and select **Create Page**.
 
     ![Jobs primary key settings](images/jobs-primary-key.png " ")
 
-15. In Page Designer, click **Save and Run**.
+15. In Page Designer, select **Save and Run**.
 
     ![Jobs page in Page Designer](images/jobs-page-designer.png " ")
 
@@ -114,11 +114,11 @@ In this task, you add two more table-driven pages to the Talent Acquisition Port
 
 In this lab, you added and ran two table-driven pages in the Talent Acquisition Portal.
 
-- Created an Offer Management interactive report and form based on `TMS_OFFERS`.
-- Created a Jobs interactive report and form based on `TMS_JOBS`.
+- Created an Offer Management interactive report and form based on **TMS_OFFERS**.
+- Created a Jobs interactive report and form based on **TMS_JOBS**.
 - Selected each table's primary key and confirmed that the generated pages load.
 
 ## Acknowledgements
 
 - **Author** - Ankita Beri, Senior Product Manager; Roopesh Thokala, Principal Product Manager
-- **Last Updated By/Date** - Ankita Beri, Senior Product Manager, July 2026
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

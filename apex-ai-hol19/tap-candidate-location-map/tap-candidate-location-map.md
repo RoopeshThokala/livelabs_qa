@@ -1,10 +1,14 @@
-# Lab 5: Create a TAP Candidate Location Map
+# Create a TAP Candidate Location Map
 
 ## Introduction
 
 In this lab, you add latitude and longitude data to candidates and use the native APEX Map page to display one point for each candidate location.
 
-Estimated Time: 5 minutes
+Estimated Lab Time: 5 minutes
+
+### Where We Are
+
+TAP now includes recruitment charts and drill-through. You will add candidate coordinates and create a Map page that displays candidate locations.
 
 ### Objectives
 
@@ -14,9 +18,23 @@ In this lab, you will:
 - Create a Map page using candidate coordinates.
 - Configure point geometry and tooltips.
 
+### Downloads
+
+Stuck or missed out on completing the previous labs? Don't worry! You can download the following application:
+
+- **<a href="../introduction/files/tap-export13.sql" download="tap-export13.sql">Talent Acquisition Portal</a>**
+
+Import it into your workspace. In **App Builder**, select **Import**, upload `tap-export13.sql`, and follow the steps in the **Import Application** wizard.
+
+> **Note:**
+>
+> - **APEX Version:** The supplied application export was created with Oracle APEX 26.2 and cannot be imported into earlier APEX releases.
+> - **Supporting Objects:** Supporting objects are already loaded in the workspace.
+> - **AI Configuration:** Configure a Generative AI Service from **App Builder > Workspace Utilities > Generative AI**. See **Module 1, Lab 2: Configure Generative AI Service**.
+
 ## Task 1: Prepare candidate location data
 
-1. Navigate to **SQL Workshop > SQL Commands** and run the following SQL Query to add `GEO_LAT` and `GEO_LNG` to `TMS_CANDIDATES`.
+1. Navigate to **SQL Workshop > SQL Commands** and run the following SQL statement to add `GEO_LAT` and `GEO_LNG` to `TMS_CANDIDATES`.
 
     ```sql
     <copy>
@@ -29,7 +47,8 @@ In this lab, you will:
 
     ![SQL Commands showing the completed GEO_LAT and GEO_LNG column addition.](images/add-candidate-location-columns.png ' ')
 
-2. Populate existing candidates with sample latitude and longitude values by running the following SQL command:
+2. Populate existing candidates with sample latitude and longitude values by running the following SQL statement:
+
     ```sql
     <copy>
     MERGE INTO tms_candidates c
@@ -104,21 +123,23 @@ In this lab, you will:
 
     ![Create Map Page wizard configured for Candidate Locations under Recruitment.](images/create-candidate-locations-page2.png ' ')
 
-3. Configure the Map layer by selecting the following:
-    - Map Style: **Points** 
-    - Geometry Column Type: **Two Numeric Columns**  
+4. Configure the Map layer by selecting the following:
+    - Map Style: **Points**
+    - Geometry Column Type: **Two Numeric Columns**
     - Longitude Column: **GEO_LNG**
-    - Latitude Column: **GEO_LAT**'
+    - Latitude Column: **GEO_LAT**
 
     Click **Create Page**.
 
     ![Map layer settings with point geometry and GEO_LNG and GEO_LAT mappings.](images/configure-candidate-map-layer.png ' ')
 
-4. Under Layers, select **Candidate Locations** and set Primary Key Column to **CANDIDATE_ID**. 
+5. Under **Layers**, select **Candidate Locations** and set **Primary Key Column** to **CANDIDATE_ID**.
+
     ![Map primary key for candidate points.](images/configure-primary-key.png ' ')
 
-5. Under tooltip, toggle the **Advanced Formatting** to **ON**. For HTML Expression, enter the following:
-    ```
+6. Under **Tooltip**, turn **Advanced Formatting** on. For **HTML Expression**, enter the following:
+
+    ```html
     <copy>
     <strong>&CANDIDATE_NAME.</strong><br>
     Stage: &CURRENT_STAGE.
@@ -127,11 +148,17 @@ In this lab, you will:
 
     ![Map tooltip and initial-position settings for candidate points.](images/configure-candidate-map-tooltip.png ' ')
 
-5. Save and run the page. Confirm that **Recruitment > Candidate Locations** shows every candidate with coordinates and exposes their name and stage in the point tooltip.
+7. Save and run the page. Confirm that **Recruitment > Candidate Locations** shows every candidate with coordinates and exposes their name and stage in the point tooltip.
 
     ![Candidate Locations runtime map showing candidate points and a tooltip.](images/verify-candidate-location-map.png ' ')
 
+## Summary
+
+You added candidate coordinates and created a TAP Map page that displays a point for each candidate location. The tooltip shows the candidate name and current stage.
+
+You have completed this workshop.
+
 ## Acknowledgements
 
-* **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-* **Last Updated By/Date** - Apoorva Srinivas, Principal Product Manager, August 2026
+- **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Apoorva Srinivas, Principal Product Manager, August 2026

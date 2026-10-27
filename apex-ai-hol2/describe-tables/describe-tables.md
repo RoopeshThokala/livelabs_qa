@@ -1,39 +1,52 @@
-# Lab 7: Describe Tables
+# Describe Tables
 
 ## Introduction
 
-Use the Describe Tables feature to export schema metadata for Talent Acquisition Portal(TAP) and shared tables. This metadata helps teams understand available columns before they build pages and integrations.
+Use the Describe Tables feature to export schema metadata for Talent Acquisition Portal (TAP) and shared tables. This metadata helps teams understand the available columns before they build pages and integrations.
 
-Estimated Time: 5 minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
-In this lab, you will:
+In this lab, you will learn how to:
 
 - Open the Describe Tables feature.
-- Select Talent Acquisition Portal (TAP) and shared tables.
-- Download or save the resulting schema metadata.
+- Select the Talent Acquisition Portal (TAP) and shared tables.
+- Download the resulting schema metadata.
 
-## Task 1: Describe the tables
+## Task 1: Describe the Tables
 
-1. In SQL Workshop, navigate to **Utilities** > **Describe Tables**.
+1. In SQL Workshop, select **Utilities**.
 
-    ![SQL workshop](images/nav-desc-tables.png ' ')
+2. Select **Describe Tables**.
 
-2. Select the tables starting with `TMS_` required by our implementation. Click **Describe**.
+    ![Open Describe Tables](images/nav-desc-tables.png " ")
 
-    ![Describe tables](images/describe-tables-metadata.png ' ')
+3. Select the required tables whose names begin with **TMS_**
 
-3. Download the schema metadata. Store the downloaded metadata so that  later labs can reference it.
+4. Select **Describe**.
 
-    ![Describe Tables screen showing selected tables or generated metadata.](images/download-tables-metadata.png ' ')
+    ![Describe the selected TMS tables](images/describe-tables-metadata.png " ")
 
-## Task 2: Confirm the module outcome
+5. Download the schema metadata.
 
-1. Confirm that the TMS schema is available in the .md file that you downloaded in the previous task.
+6. Store the downloaded metadata where later labs can reference it.
 
-    ![Verify markdown](images/verify-markdown.png ' ')
+    ![Download the described table metadata](images/download-tables-metadata.png " ")
 
-## Acknowledgements
-* **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
-* **Last Updated By/Date** - Apoorva Srinivas, Principal Product Manager, July 2026
+## Task 2: Confirm the Module Outcome
+
+1. Open the downloaded metadata file.
+
+2. Confirm that it contains the TMS schema details.
+
+    ![Review the generated metadata file](images/verify-markdown.png " ")
+
+## Summary
+
+You used Describe Tables to download the TMS schema metadata for later reference.
+
+### Acknowledgements
+
+- **Author** - Apoorva Srinivas, Principal Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, Principal Product Manager, October 2026

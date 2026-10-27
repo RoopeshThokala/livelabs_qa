@@ -1,20 +1,38 @@
-# Lab 1: Create the ESS Leave Calendar
+# Create the ESS Leave Calendar
 
 ## Introduction
 
 In this lab, you create a Calendar page in ESS. A Calendar region displays leave requests for the signed-in employee. The **CSS Class** setting applies a different style to each request status.
 
-Estimated Workshop Time: 10 minutes
+Estimated Lab Time: 10 minutes
+
+### Where We Are
+
+ESS already records employee leave requests. You will add an employee-scoped calendar so that each employee can review their leave requests without navigating through a report.
 
 ### Objectives
 
-In this lab, you will learn how to:
+In this lab, you will:
 
 - Create a Calendar page from a SQL query.
 - Map event columns and apply leave-status styles.
 - Link each event to the existing Leave Request page.
 
-## Task 1: Create the Calendar page
+### Downloads
+
+Stuck or missed out on completing the previous labs? Don't worry! You can download the following application:
+
+- **<a href="../introduction/files/ess-export9.sql" download="ess-export9.sql">Employee Self-Service Portal</a>**
+
+Import it into your workspace. In **App Builder**, select **Import**, upload `ess-export9.sql`, and follow the steps in the **Import Application** wizard.
+
+> **Note:**
+>
+> - **APEX Version:** The supplied application export was created with Oracle APEX 26.2 and cannot be imported into earlier APEX releases.
+> - **Supporting Objects:** Supporting objects are already loaded in the workspace.
+> - **AI Configuration:** Configure a Generative AI Service from **App Builder > Workspace Utilities > Generative AI**. See **Module 1, Lab 2: Configure Generative AI Service**.
+
+## Task 1: Create the Calendar Page
 
 1. Open **Employee Self-Service Portal (ESS)** in **App Builder**.
 
@@ -31,7 +49,8 @@ In this lab, you will learn how to:
     - Source Type: **SQL Query**
     - Enter a SQL SELECT statement:
         ```sql
-        <copy>SELECT lr.request_id AS event_id,
+        <copy>
+        SELECT lr.request_id AS event_id,
                lt.name || ': ' || lr.status AS event_title,
                lr.start_date AS start_date,
                lr.end_date + 1 AS end_date,
@@ -43,10 +62,11 @@ In this lab, you will learn how to:
           FROM tms_leave_requests lr
           JOIN tms_leave_types lt ON lt.leave_type_id = lr.leave_type_id
           JOIN tms_employees e ON e.employee_id = lr.employee_id
-         WHERE UPPER(e.email) = UPPER(:APP_USER)</copy>
+         WHERE UPPER(e.email) = UPPER(:APP_USER)
+        </copy>
         ```
     - Parent Navigation Menu Entry: **Leave**
-        
+
     ![Task 1: Select data source](images/task-01-step-04-select-data-source.png)
 
 5. Map the following columns:
@@ -58,7 +78,7 @@ In this lab, you will learn how to:
 
     ![Task 1: Column mapping](images/task-01-step-05-col-mapping.png)
 
-## Task 2: Style and link calendar events
+## Task 2: Style and Link Calendar Events
 
 1. Update the page CSS:
 
@@ -103,7 +123,15 @@ In this lab, you will learn how to:
     - Run the page.
     - Confirm that only the signed-in employee's leave requests appear.
 
+        ![Check Employee leave request calendar](images/employee-leave-calendar.png)
+
+## Summary
+
+You created an ESS leave calendar that shows only the signed-in employee's requests, uses status-specific event styles, and links each event to its Leave Request form.
+
+You may now **proceed to the next lab**.
+
 ## Acknowledgements
 
-- **Author -** Aravind Madhavan, Senior Product Manager.
-- **Last Updated By/Date** - Aravind Madhavan, Senior Product Manager, July 2026
+- **Author** - Aravind Madhavan, Senior Product Manager; Roopesh Thokala, Principal Product Manager
+- **Last Updated By/Date** - Roopesh Thokala, October 2026
